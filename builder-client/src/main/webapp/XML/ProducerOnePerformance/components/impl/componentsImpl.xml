@@ -1,0 +1,36 @@
+<projectcomponents project="ProducerOnePerformance">
+	
+	<component name="sqlStatements">
+		<action name="view">
+			<workflow name="view" seq="0">
+			<!-- Phase 3- Generate Commission Statement -->
+				<!-- <storedprocedureoperation name="GetCompensationCommissionStatementSummaryList_p" id="GetCompensationCommissionStatementSummaryList_p" dbspname="GetCompensationCommissionStatementSummaryList_p" metaobject="commission_type_lku" operation="5" executionsequence="0">
+					<resultsetoperation deltaind="D" indexno="21" mappingclass="java.util.HashMap" seq="21" />
+					<resultsetoperation deltaind="D" indexno="22" mappingclass="java.util.HashMap" seq="22" />
+					<resultsetoperation deltaind="D" indexno="23" mappingclass="java.util.HashMap" seq="23" />
+					<resultsetoperation deltaind="D" indexno="24" mappingclass="java.util.HashMap" seq="24" />
+					<resultsetoperation deltaind="D" indexno="25" mappingclass="java.util.HashMap" seq="25" />
+					<resultsetoperation deltaind="D" indexno="26" mappingclass="java.util.HashMap" seq="26" />
+					<resultsetoperation deltaind="D" indexno="27" mappingclass="java.util.HashMap" seq="27" />
+					<resultsetoperation deltaind="D" indexno="28" mappingclass="java.util.HashMap" seq="28" />
+					<resultsetoperation deltaind="D" indexno="29" mappingclass="java.util.HashMap" seq="29" />
+					<resultsetoperation deltaind="D" indexno="30" mappingclass="java.util.HashMap" seq="30" />
+					<resultsetoperation deltaind="D" indexno="31" mappingclass="java.util.HashMap" seq="31" />
+					<resultsetoperation deltaind="D" indexno="32" mappingclass="java.util.HashMap" seq="32" />
+					<resultsetoperation deltaind="D" indexno="33" mappingclass="java.util.HashMap" seq="33" />
+					<resultsetoperation deltaind="D" indexno="34" mappingclass="java.util.HashMap" seq="34" />
+				</storedprocedureoperation> -->
+				
+				
+				<storedprocedureoperation name="getAgencyProfileReport_agency_p" id="getAgencyProfileReport_agency_p"
+					dbspname="getAgencyProfileReport_agency_p" operation="5" metaobject="commission_type_lku">
+					<parameteroperation deltaind="I" indexno="1" seq="2" property="accounting_period" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+						<result indexno="1" seq="1" property="xml" column="xml" javaType="java.lang.String"></result>
+					</resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+		</action>
+	</component>
+	
+</projectcomponents>

@@ -1,0 +1,23 @@
+<evalrules project="ProducerOne">
+  <ruleset name="AgencyFunctionsRule">
+  <!-- Changes display generate letter section for DC  -->
+    <rule id="isShowGenerateLetterButtonOnAgencyFunction" deltaind="M" expression="orCondition(isEqual(:selectFunctionType_code,functionAS),orCondition(isEqual(:selectFunctionType_code,functionRS),orCondition(isEqual(:selectFunctionType_code,functionCAC),orCondition(isEqual(:selectFunctionType_code,functionCL),isEqual(:selectFunctionType_code,functionDC)))));"  
+ method="isShowGenerateLetterButtonOnAgencyFunction" />
+ 
+ <rule id="isShowTemplateAndDocumentForAgencyFunction" deltaind="M" expression="andCondition(call_rule(AgencyFunctionsRule.isShowGenrateLetterForAgencyAdmin),orCondition(isEqual(:selectFunctionType_code,functionCAC),orCondition(isEqual(:selectFunctionType_code,functionCL),isEqual(:selectFunctionType_code,functionDC))));"
+method="isShowTemplateAndDocumentForAgencyFunction" />
+
+<!-- Phase 2 - Bug Id- P2-035 --> 
+<rule id="isShowCloseAgencyCodeLabel" deltaind="I" expression="andCondition(isEqual(:selectFunctionType_code,functionCAC),isEqual(:termination_reason_code,Oth));" obj="ruleobjs.AgencyFunctionsRule" method="isShowCloseAgencyCodeLabel" />
+<rule id="isShowCloseLocationLabel" deltaind="I" expression="andCondition(isEqual(:selectFunctionType_code,functionCL),isEqual(:termination_reason_code,Oth));" obj="ruleobjs.AgencyFunctionsRule" method="isShowCloseLocationLabel" />  
+  
+<!-- Upgrade Bug Id 041 start -->
+<rule id="isTerminationReasonOtherShow" deltaind="I" expression="andCondition(isEqual(:selectFunctionType_code,functionAS),isEqual(:termination_reason_code,Oth));" obj="ruleobjs.AgencyFunctionsRule" method="isTerminationReasonOtherShow" />  
+<!-- Upgrade Bug Id 041 end --> 
+
+<!-- Changes done for prod bug 31110  -->
+<rule id="checkisFunctionTypeOtherThanDC" deltaind="I" expression="if(isNot(call_rule(AgencyFunctionsRule.isShowAgencyFunctionsTypeDeactivateContact)))=>isEqual(1,1))" obj="ruleobjs.AgencyFunctionsRule" method="checkisFunctionTypeOtherThanDC" />
+<rule id="checkisFunctionTypeDCselfservice" deltaind="I" expression="andCondition(isEqual(:selectFunctionType_code,functionDC),isEmpty(:e_mail_name));"/>
+
+  </ruleset>
+</evalrules>

@@ -1,0 +1,13 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id,workflow_function,aar_statusid_desc,workflow_user" metaobject="agencypremiumvolumecommitted;agencycompanieslicensed;agency_business_source;agencyterminated;agencypersonalinformation;agencymergers;agency_master;agency_marketinformation;segment_industry_classes" name="entityOtherInformation" 
+  	stackdisplayname="Market Information" displayname="Market Information">
+    
+    <action deltaind="M" name="save">
+    	
+    	<!-- Change Request - Save Extended Fields -->
+     <actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+
+    </action>
+    
+  </component>
+</projectcomponents>

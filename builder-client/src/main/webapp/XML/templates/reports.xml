@@ -1,0 +1,153 @@
+<reports project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	<reportdef name="" metaobject="" description="" applid="" 
+		isshowsavedsearch="" isshowfiltersearch="" isshowdefaultreportdatalist=""
+		isshowsortordersearch="" isreportdatapagination="" isshowgroupbysearch=""
+		isshowoutputcolumns="" isshowresetbutton="" drilldownreport="" ispdfdisplay=""
+		isshowgraph="" graphid="" isshowaccordianreport="" isshowreportdataheader=""
+		dynakeys="" isshowonlygraph="" isshowmultiplegrid="" isshowmultiplesheet=""
+		isshowexportall="" template="">
+		<nodeinfo uniqueid="name"> 
+			<attribute name="isshowsavedsearch" datatype="boolean" />
+			<attribute name="isshowfiltersearch" datatype="boolean" />
+			<attribute name="isshowdefaultreportdatalist" datatype="boolean" />
+			<attribute name="isshowsortordersearch" datatype="boolean" />
+			<attribute name="isshowgroupbysearch" datatype="boolean" />
+			<attribute name="isshowoutputcolumns" datatype="boolean" />
+			<attribute name="isshowresetbutton" datatype="boolean" />
+			<attribute name="isshowgraph" datatype="boolean" />
+			<attribute name="isshowmultiplegrid" datatype="boolean" />
+			<attribute name="isshowmultiplesheet" datatype="boolean" />
+			<attribute name="isshowexportall" datatype="boolean" />
+		</nodeinfo>
+		<columnset name="" description="" eval="" datasetname="" executionsequence="" isshowreportdataheader="" isreportdatapagination="" 
+			isshowonscreen="" isshowonexcel="" isskipvalidation="" sheetname="" outputyype="" isdynacolumns=""> 
+			<nodeinfo uniqueid="name">
+				<implements
+						interface="com.manage.managecomponent.workflow.IExecutionSeq" /> 
+				<attribute name="executionsequence" datatype="int" />		
+				<attribute name="isdynacolumns" datatype="boolean" />
+			</nodeinfo>
+			<column name="" columnlabel="" metaproperty="" datatype="" isreportfilter="" isreportdisplay="" 
+				 filterdisplaytype="" executionsequence="" isgrandtotaldisplay="" ispopupsearch="" 
+				 issortheaderdisplay="" isdefaultdisplay="" isrequired="" issortdisplay=""
+				 isreportdefaultdisplay="" isgroupbydisplay="" align="" isdefaultoutputcolumn=""
+				 href="" drilldownreport="" drilldownreportimage="" dynakeysvalues=""
+				 sessionparams="" eval="" script="" style="" isencrypt="" isaccordian=""
+				 cssclass="" isselectrequired="" isvalidate="" decryptcode="" objectcolumn="" format=""
+				 isfilterclean="" isfilterrefresh="" defaultvalue="">
+				<nodeinfo uniqueid="name">
+					<implements
+						interface="com.manage.managecomponent.workflow.IExecutionSeq" /> 
+					<attribute name="isreportfilter" datatype="boolean" />
+					<attribute name="isreportdisplay" datatype="boolean" />
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isgrandtotaldisplay" datatype="boolean" />
+					<attribute name="ispopupsearch" datatype="boolean" />
+					<attribute name="issortheaderdisplay" datatype="boolean" />
+					<attribute name="isdefaultdisplay" datatype="boolean" />
+					<attribute name="isrequired" datatype="boolean" />
+					<attribute name="issortdisplay" datatype="boolean" />
+					<attribute name="isreportdefaultdisplay" datatype="boolean" />
+					<attribute name="isgroupbydisplay" datatype="boolean" />
+					<attribute name="isdefaultoutputcolumn" datatype="boolean" />
+					<attribute name="isvalidate" datatype="boolean" />
+				</nodeinfo>
+			</column>
+		</columnset>
+		<!-- <graph name="" title="" xaxislabel="" yaxislabel="" dataset="" type="" xaxisparameter="" yaxisparameter="" is3D="" barcolors="" executionsequence="">
+			<nodeinfo uniqueid="name">
+				<implements
+					interface="com.manage.managecomponent.workflow.IExecutionSeq" />
+				<attribute name="executionsequence" datatype="int" />	 
+			</nodeinfo>		
+		</graph> -->
+		<reportworkflow name="" eval="" description="" executionsequence=""
+			isexecuteonview="" outputtype="" checkfornullparams="" isdynacolumns=""
+			dynakeysvalues="">
+			<nodeinfo uniqueid="name">
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isdynacolumns" datatype="boolean" />
+			</nodeinfo>
+
+			
+			<bo deltaind="" eval="" name="" viewid="" applid=""
+					developercomments="" executionsequence="" obj="" method="" metaobject=""
+					returntype="" populate="" namespace="" psmtemplate="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+					</nodeinfo>
+					<argumentoperation argname="" argtype="">
+						<nodeinfo uniqueid="argname" />
+					</argumentoperation>
+					
+				</bo>
+				<databaseoperation eval="" deltaind="" applid=""
+					viewid="" name="" operationtype="" sqlstmt="" spid=""
+					parameterclass="" returnproperty="" executionsequence=""
+					metaobject="" operation="" populate="" namespace=""
+					developercomments="" returntype="" psmtemplate="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="operation" datatype="int" />
+						<attribute name="executionsequence"
+							datatype="int" />
+					</nodeinfo>
+					
+				</databaseoperation>
+				<storedprocedureoperation id="" eval="" viewid="" applid=""
+					name="" dbspname="" parameterclass="" developercomments=""
+					executionsequence="" deltaind="" returnproperty="" operation=""
+					metaobject="" populate="" operationtype="" namespace=""
+					psmtemplate="">
+					<nodeinfo uniqueid="id">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="operation" datatype="int" />
+					</nodeinfo>
+					<parameteroperation property="" mode="" deltaind=""
+						indexno="">
+						<nodeinfo uniqueid="indexno">
+							<attribute name="indexno" datatype="int" />
+						</nodeinfo>
+					</parameteroperation>
+					<resultsetoperation indexno="" mappingclass=""
+						deltaind="">
+						<result property="" column="" indexno="" javaType="">
+							<nodeinfo uniqueid="indexno">
+								<attribute name="indexno" datatype="int" />
+							</nodeinfo>
+						</result>
+					</resultsetoperation>
+					
+				</storedprocedureoperation>
+				<businessobject eval="" name="" developercomments="" executionsequence="" 
+					obj="" metaobject="" returntype="" populate="" namespace="" viewid="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+					</nodeinfo>
+				</businessobject>
+				<function eval="" name="" functionid="" ruleid="" expression="" parameters="" executionsequence=""
+					isexecuteonsuccess="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+				</function>	
+		</reportworkflow>		
+	</reportdef>
+</reports>

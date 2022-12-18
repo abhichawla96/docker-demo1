@@ -1,0 +1,1020 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body class="adminSection node1" onload="loadSendInvitationStep1();toggleDivDisplay('ajaxxmlname_searchByPrimaryLocation');">
+    <form enctype="multipart/form-data">
+      <div id="cover" />
+      <div id="popupEntityList" />
+      <div id="contextLinks" />
+      <div id="uploadDocumentDiv" />
+      <div id="deleteDocument">
+        <!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="docother_close1" href="#" class="close" onclick="closePopUp('deleteDocument')">
+                    <img src="images/close.png" />
+                  </a>
+                  Delete Document
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <span class="delete_ico icons">#space#</span>
+                  Are you sure you want to delete this item?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="docother_yes1" onclick="closePopUp('deleteDocument');" href="javascript:callAjaxDelete('attachmentDiv');" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a id="docother_no1" href="#" onclick="clean();closePopUp('deleteDocument');" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <div class="container-fluid bootstrap-node-1">
+        <div class="tableWidth">
+          <!--=======Header Start========-->
+          <header>
+            <span id="#Include:carrier/carrierHeader.html#" />
+          </header>
+          <!--=======Header End========-->
+          <div class="bgmain">
+            <!--=======Menu Level 1 Start========-->
+            <!--=======Menu Level 1 End========-->
+            <!--=======Menu Level 2 Start========-->
+            <nav class="menu-level-2">
+              <span id="#Include:carrier/blankTabs.html#" />
+            </nav>
+            <!--=======Menu Level 2 End========-->
+            <article class="content sidebar-content">
+              <!--=======Sidebar Start========-->
+              <div id="isSideBarHiereachyExists" class="sideBar">
+                <span id="#Include:carrier/sideBar.html#" />
+              </div>
+              <!--=======Sidebar End========-->
+              <!--=======Body content Start========-->
+              <div class="panel-body-wraper" id="tdContent">
+                <!--=======page Level msg Start========-->
+                <!--=======page Level msg End========-->
+                <div id="contentTableDiv">
+                  <section class="paddingBottom10 free-form">
+                    <div class="wizard">
+                      <ul class="progress-tracker progresstfullwidth">
+                        <li id="sendOnboardingInvitationStep1_security" class="active">
+                          <div class="step">1</div>
+                          <div class="label">
+                           <span id="sendOnboardingInvitationStep1_label">Create Invitation</span>
+                          </div>
+                          <div class="progressLine" id="xline1">#space#</div>
+                        </li>
+                        <li id="sendOnboardingInvitationStep2_security" class="status">
+                          <div class="step">2</div>
+                          <div class="label">
+                            <span id="sendOnboardingInvitationStep2_label">Contract Parameter</span>
+                          </div>
+                          <div class="progressLine" id="xline1">#space#</div>
+                        </li>
+                        
+                        <li id="sendOnboardingInvitation_nameClearanceStep_security" class="status">
+                          <div class="step">2</div>
+                          <div class="label">
+                            <span id="sendOnboardingInvitation_nameClearanceStep_label">Name Clearance</span>
+                          </div>
+                          <div class="progressLine" id="xline1">#space#</div>
+                        </li>
+                        
+                        
+                        <li id="sendOnboardingInvitationStep3_security" class="status">
+                          <div class="step" id="isInvitationStep2Exists">3</div>
+                          <div class="step" id="isInvitationStep2NotExists">2</div>
+                          <div class="label">
+                            <a href="#"><span id="sendOnboardingInvitationStep3_label">Preview Email</span></a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="wizard_border">
+                      <div class="wizard_scroll">
+                        <div class="freeFormDiv padding10 form-inline" style="min-height:200px" id="invitationStep1_security">
+                        <span id="invitationStep1_label"></span>
+                          <ul class="inlineBlock inlineBlockFixWidthInvitation" >
+                          
+                          <li class="inlineBlock_1_fix" id="#agency_registration_type_before#"></li>
+                          <li class="inlineBlock_1_fix" id="invitationStep1_agency_registration_type_security">
+                          	<div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_agency_registration_type_id" />
+                                    <div id="error_agency_registration_type_id" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+                                    <span id="agency_registration_type_label">Registration Type</span> :
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                  	<div class="row full_width" id="sendOnboardingInvitationStep1_agency_registration_type_security">
+										<ul class="div_checkbox div_checkbox4 commisson_company" id="agency_registration_type_list_01" style="padding-left: 1px;">
+											<li id="agency_registration_type_list_header_01" style="display: none">
+												<span class="tableinfoheader" id="block_field_radio_group_agency_registration_type_id" width="69" />
+                                                <span class="tableinfoheader" id="block_field_agency_registration_type_desc" />
+											</li>
+											<li id="agency_registration_type_list_mom_data_01">
+												<div id="mom_child_data">
+													<span id="block_field_radio_group_agency_registration_type_id" width="10">
+	                                                  <input type="radio" id="ajax_field_agency_registration_type_id" name="agency_registration_type_id" 
+	                                                  onclick="javascript:setGetRadioButtonsFromRadioGroup('agency_registration_type_id','ajax_field_selected_agency_registration_type_id','get');javascript:ajaxsubmitform('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.refreshDivBasedOnAgencyRegistrationType','','','contentTableDiv');" />
+	                                                </span>
+	                                                <span id="block_field_agency_registration_type_desc" />
+												</div>
+											</li>
+										</ul>
+									</div>                                    
+                                  </div>
+                                </div>
+                              </div>
+                          
+                          </li>
+                          <li class="inlineBlock_1_fix" id="#agency_registration_type_after#"></li>
+                          
+                          <li class="inlineBlock_1_fix" id="#entity_name_forInvitation_before#"></li>
+                          <li class="inlineBlock_1_fix" id="invitationStep1_entity_name_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_101">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_entity_name_forInvitation" class="error" />
+                                    <div id="ajax_error_entity_name_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="invitationStep1_entity_name_label">Agency Name</span> :
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <input name="entity_name_forInvitation" 
+                                    fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_entity_name_security.invitationStep1_entity_name_label.entity_name_forInvitation"
+                                    id="ajax_field_entity_name_forInvitation" type="text" maxlength="128" class="full_width" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          
+                          <li class="inlineBlock_1_fix" id="#entity_name_forInvitation_after#"></li>
+                          
+                          <li class="inlineBlock_1_fix" id="#person_first_name_forInvitation_before#"></li>
+                          <li class="inlineBlock_1_fix" id="person_first_name_forInvitation_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_111">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_person_first_name_forInvitation" class="error" />
+                                    <div id="ajax_error_person_first_name_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="person_first_name_forInvitation_label">Contact First Name</span> :
+                                  </div>
+                                  <div class="freeFormListTd">
+                                    <input name="person_first_name_forInvitation" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).person_first_name_forInvitation_security.person_first_name_forInvitation_label.person_first_name_forInvitation"
+									id="ajax_field_person_first_name_forInvitation" type="text" maxlength="50" class="full_width"  />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          
+                          <li class="inlineBlock_1_fix" id="#person_first_name_forInvitation_after#"></li>
+                          
+                          <li class="inlineBlock_1_fix" id="#person_last_name_forInvitation_before#"></li>
+                          <li class="inlineBlock_1_fix" id="person_last_name_forInvitation_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_112">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_person_last_name_forInvitation" class="error" />
+                                    <div id="ajax_error_person_last_name_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="person_last_name_forInvitation_label">Contact Last Name</span> :
+                                  </div>
+                                  <div class="freeFormListTd">
+                                    <input name="person_last_name_forInvitation" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).person_last_name_forInvitation_security.person_last_name_forInvitation_label.person_last_name_forInvitation"
+									id="ajax_field_person_last_name_forInvitation" type="text" maxlength="50" class="full_width" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          
+                          <li class="inlineBlock_1_fix" id="#person_last_name_forInvitation_after#"></li>
+                          
+                          
+                          <li class="inlineBlock_2_fix" id="#toemail_forInvitation_before#"></li>
+                          <li class="inlineBlock_2_fix" id="invitationStep1_toemail_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_102">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_toemail_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="invitationStep1_toemail_label">To</span> :</div>
+                                  	<div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <input name="toemail_forInvitation" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_toemail_security.invitationStep1_toemail_label.toemail_forInvitation"
+									id="ajax_field_toemail_forInvitation" type="text" maxlength="255" class="form-control" />
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2_fix" id="#toemail_forInvitation_after#"></li>
+                            <li class="inlineBlock_2_fix" id="#ccemail_forInvitation_before#"></li>
+                            <li class="inlineBlock_2_fix" id="invitationStep1_ccemail_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_103">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_ccemail_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="invitationStep1_ccemail_label">Cc</span> :</div>
+                                  <div class="freeFormListTd tdInput">
+                                    <input name="ccemail_forInvitation" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_ccemail_security.invitationStep1_ccemail_label.ccemail_forInvitation"
+									id="ajax_field_ccemail_forInvitation" type="text" maxlength="255" class="form-control" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2_fix" id="#ccemail_forInvitation_after#"></li>
+                          
+                          	<li class="inlineBlock_1_fix" id="#primary_agency_name_forInvitation_before#"></li>
+                         	 <li class="inlineBlock_1_fix" id="primary_agency_name_forInvitation_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_109">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_primary_agency_name_forInvitation" class="error" />
+                                    <div id="ajax_error_primary_agency_name_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign">
+                                  	<div class="freeFormLabelWidth">
+                                    	<span id="primary_agency_name_forInvitation_label">Primary Location</span> :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd text-nowrap">
+                                  	<div id="sendOnboardingInvitationStep1_primary_agency_name_security">
+	                                    <input name="primary_agency_name_forInvitation" 
+										fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).primary_agency_name_forInvitation_security.primary_agency_name_forInvitation_label.primary_agency_name_forInvitation"
+										id="ajax_field_primary_agency_name_forInvitation" type="text" maxlength="50" class="full_width"/>
+	                                    <a title="Search" id="primaryAgencyList_searchicon"
+										class="icons search_ico"
+										href="javascript:ajaxpageblocklink('admin/lookupTables/agencyNameSearchPopup.html','sendOnboardingInvitationStep1.agencyNameSearch','','','popupEntityList');" /> 
+								 	</div>				
+                                    
+                                  </div>
+                                  <input name="searchList_agency_id" id="ajax_field_searchList_agency_id"
+									type="hidden" class="form-control" tabindex="20"
+									maxlength="8" readonly="true" />
+                                  <input name="searchList_producer_number_id" id="ajax_field_searchList_producer_number_id"
+									type="hidden" class="form-control" tabindex="20"
+									maxlength="8" readonly="true" />
+                                  
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_1_fix" id="#primary_agency_name_forInvitation_after#"></li>
+                            
+                            <li class="inlineBlock_1_fix" id="#primary_agency_id_forInvitation_before#"></li>
+                          <li class="inlineBlock_1_fix" id="primary_agency_name_forInvitation_dropdown_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_10905">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_primary_agency_id_forInvitation" class="error" />
+                                    <div id="ajax_error_primary_agency_id_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <label id="isAddingNewContactSelfserviceApproval_label">Agency Name</label>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <select style="width: 879px;" class="form-control" name="primary_agency_id_forInvitation" id="ajax_field_primary_agency_id_forInvitation">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                          </li>
+                          <li class="inlineBlock_1_fix" id="#primary_agency_id_forInvitation_before#"></li>
+                          	
+                           <li class="inlineBlock_1_fix" id="#primary_agency_code_forInvitation_before#"></li>
+                          <li class="inlineBlock_1_fix" id="invitationStep1_primary_agency_code_security">
+                          	<div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_primary_agency_code_id" />
+                                    <div id="error_primary_agency_code_id" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+                                    <span id="invitationStep1_primary_agency_code_label">Primary Agency Code</span> :
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                  	<div class="row full_width">
+										<ul class="div_checkbox div_checkbox4" id="primary_agency_code_list_01">
+											<li id="primary_agency_code_list_header_01" style="display: none">
+												<span class="tableinfoheader" id="block_field_radio_group_primary_agency_code_id" width="69" />
+                                                <span class="tableinfoheader" id="block_field_primary_agency_code_desc" />
+											</li>
+											<li id="primary_agency_code_list_mom_data_01">
+												<div id="mom_child_data">
+													<span id="block_field_radio_group_primary_agency_code_id" width="10">
+	                                                  <input type="radio" id="ajax_field_primary_agency_code_id" name="primary_agency_code_id" 
+	                                                  onclick="javascript:setGetRadioButtonsFromRadioGroup('primary_agency_code_id','ajax_field_selected_primary_agency_code_id','get');" />
+	                                                </span>
+	                                                <span id="block_field_primary_agency_code_desc" />
+												</div>
+											</li>
+										</ul>
+									</div>                                    
+                                  </div>
+                                </div>
+                              </div>
+                          
+                          </li>
+                          <li  class="inlineBlock_1_fix" id="#primary_agency_code_forInvitation_after#"></li>
+                         
+                          
+                          <li id="#agency_lob_before#"></li>
+						  <li id="invitationStep1_agency_lob_security">
+							<div class="freeFormList form-group">
+								<div class="freeFormListTr">
+									<div class="freeFormListTdError">
+										<h6>#space#</h6>
+									</div>
+									<div class="freeFormListTdError paddingLeft3">
+										<div id="error_selected_agency_lob_id" class="error" />
+										<div id="ajax_error_selected_agency_lob_id" class="error" />
+									</div>
+								</div>
+								<div class="freeFormListTr">
+									<div class="freeFormListTd labelAlign">
+										<div class="freeFormLabelWidth">
+											<label id="invitationStep1_agency_lob_label">Lines of Business</label> :</div>
+									</div>
+									<div class="freeFormListTd mendatoryInput">
+										<div class="row full_width">
+											<ul class="div_checkbox div_checkbox3" id="" style="padding-left: 1px">  <!-- Bmic Specific-->
+												<li id="invitationStep1_agency_lob_list_header_1" style="display: none">
+													<span class="tableinfoheader" id="block_field_agency_lob_id" width="0" />
+													<span class="tableinfoheader" id="block_field_agency_lob_desc" width="69" />
+												</li>
+												<li id=""> <!--BMIC Specific-->
+													<div id="mom_child_data">
+														<span id="block_field_agency_lob_id" width="10">
+		                                     <!-- BMIC Specific-->             <input type="checkbox" id="ajax_field_agency_lob_id" checked="checked" value="1" name="agency_lob_id" tabindex="46" 
+		                                                  	onclick="javascript:setGetMultiCheckboxValues('ajax_field_agency_lob_id','ajax_field_selected_agency_lob_id','get');"/>
+		                                    <!-- BMIC Specific-->           <label id="invitationStep1_lob_ins_label">Commercial Lines</label> 
+		                                                </span>
+		                                                <span id="block_field_agency_lob_desc" />
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						  <li id="#agency_lob_after#"></li>
+						  
+						  <li  class="inlineBlock_1_fix" id="#commisssion_type_before#"></li>
+                          <li class="inlineBlock_1_fix" id="invitationStep1_commission_type_security">
+                          	<div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_commission_type_id" />
+                                    <div id="error_commission_type_id" ></div>
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+                                    <span id="commission_type_label">Commission Type</span> :
+                                  </div>
+                                  <div class="freeFormListTd">
+                                  <table>
+                                  	<tr>
+                                  		<td><span class="mendatoryInput" id="invitationStep1_commission_type_mendatory_security" style="padding-right: 1px;"></span></td>
+                                  		<td>
+                                  			<div class="row full_width">
+										<ul class="div_checkbox div_checkbox3" id="commission_type_list_01" style="padding-left: 1px">
+											<li id="commission_type_list_header_01" style="display: none">
+												<span class="tableinfoheader" id="block_field_radio_group_commission_type_id" width="69" />
+                                                <span class="tableinfoheader" id="block_field_commission_type_desc" />
+											</li>
+											<li id="commission_type_list_mom_data_01">
+												<div id="mom_child_data">
+													<span id="block_field_radio_group_commission_type_id" width="10">
+	                                                  <input type="radio" id="ajax_field_commission_type_id" name="commission_type_id" 
+	                                                  onclick="javascript:setGetRadioButtonsFromRadioGroup('commission_type_id','ajax_field_selected_commission_type_id','get');"/>
+	                                                </span>
+	                                                <span id="block_field_commission_type_desc" />
+												</div>
+											</li>
+										</ul>
+									</div>    
+                                  		</td>
+                                  	</tr>
+                                  </table>
+                                  
+                                  	                                
+                                  </div>
+                                </div>
+                              </div>
+                          
+                          </li>
+                          <li  class="inlineBlock_1_fix" id="#commisssion_type_after#"></li>
+						  
+						  <li  class="inlineBlock_2_fix" id="#Entity_Type_General_Detail_before#"></li>
+						  <li class="inlineBlock_2_fix" id="invitationStep1_entity_type_general_Detail_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_107">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_entity_type_general_Detail" class="error" />
+                                    <div id="ajax_error_entity_type_general_Detail" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="invitationStep1_entity_type_label">Agency Type</span> :
+                                  </div>
+                                  	<div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <select class="form-control" name="Entity_Type_General_Detail" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_entity_type_general_Detail_security.invitationStep1_entity_type_label.Entity_Type_General_Detail"
+									id="ajax_field_Entity_Type_General_Detail">
+										<option value="">Select</option>
+									</select>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2_fix" id="#Entity_Type_General_Detail_after#"></li>
+                            
+                            <li  class="inlineBlock_2_fix" id="#commission_to_be_paid_before#"></li>
+                            <li class="inlineBlock_2_fix" id="invitationStep1_commission_to_be_paid_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_110">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_commission_to_be_paid" class="error" />
+                                    <div id="ajax_error_commission_to_be_paid" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign">
+                                  	<div style="width: 323px;"><span id="invitationStep1_commission_to_be_paid_label">Where do you want the commissions to be paid</span> :</div>
+                                  </div>
+                                  	<div>
+                                  <div class="freeFormListTd tdInput">
+	                                	<select class="form-control" style="width: 144px;" name="commission_to_be_paid" 
+										fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_commission_to_be_paid_security.invitationStep1_commission_to_be_paid_label.commission_to_be_paid"
+										id="ajax_field_commission_to_be_paid">
+										<option value="">Select</option>
+									</select>
+	                              </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2_fix" id="#commission_to_be_paid_after#"></li>
+                           </ul>
+                           <ul class="inlineBlock">
+                            <li  class="inlineBlock_2_fix" id="#any_rollover_potential_before#"></li>
+                            <li class="inlineBlock_2_fix" id="invitationStep1_any_rollover_potential_security">
+                            	<div class="row">
+	                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_108">
+	                                <div class="freeFormListTr">
+	                                  <div class="freeFormListTdError">
+	                                    <h6>#space#</h6>
+	                                  </div>
+	                                  <div class="freeFormListTdError paddingLeft3">
+	                                    <div id="error_any_rollover_potential" class="error" />
+	                                    <div id="ajax_error_any_rollover_potential" class="error" />
+	                                  </div>
+	                                </div>
+	                                <div class="freeFormListTr ">
+	                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+	                                  	<span id="invitationStep1_any_rollover_potential_label">Any rollover Potential</span> :
+	                                  </div>
+	                                  	<div>
+	                                  <div class="freeFormListTd tdInput">
+	                                  	<input type="radio" class="checkboxMargins" id="ajax_field_any_rollover_potential_0" name="any_rollover_potential" 
+										fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_any_rollover_potential_security.invitationStep1_any_rollover_potential_label.any_rollover_potential"
+										value="1" />
+	                                  	Yes
+		                                <input type="radio" class="checkboxMargins" id="ajax_field_any_rollover_potential_1" name="any_rollover_potential" 
+										fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_any_rollover_potential_security.invitationStep1_any_rollover_potential_label.any_rollover_potential"
+										value="0" />
+		                                No
+		                              </div>
+	                                  </div>
+	                                </div>
+	                              </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2_fix" id="#any_rollover_potential_after#"></li>
+                            
+                            <li  class="inlineBlock_2_fix" id="#isMasterAssociatedAgency_before#"></li>
+                            <li id="isMasterAssociatedAgency_security" class="inlineBlock_2_fix">
+	                            <div id="sendOnboardingInvitationStep1_freeform_contextdata_107">
+									<div class="freeFormList form-group">
+										<div class="freeFormListTr">
+											<div class="freeFormListTdError">
+												<h6>&nbsp;</h6>
+											</div>
+											<div class="freeFormListTdError paddingLeft3">
+												<div id="error_isMasterAssociatedAgency" class="error"></div>
+												<div id="ajax_error_isMasterAssociatedAgency" class="error"></div>
+		
+											</div>
+										</div>
+										<div class="freeFormListTr">
+											<div
+												class="freeFormListTd labelAlign freeFormLabelWidth">
+												<div><span id="isMasterAssociatedAgency_label">
+												Are you a member of an Agency Network </span> :</div>
+											</div>
+											<div class="freeFormListTd tdInput">
+												<input type="radio" name="isMasterAssociatedAgency"
+													fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).isMasterAssociatedAgency_security.isMasterAssociatedAgency_label.isMasterAssociatedAgency"
+													id="ajax_field_isMasterAssociatedAgency_0" value="1"
+													onclick="javascript:ajaxpageblocklink('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.refreshAgencyNetworkDiv','','','AgencyNetworkDiv');"
+													         /> Yes 
+												<input
+													type="radio" name="isMasterAssociatedAgency"
+													fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).isMasterAssociatedAgency_security.isMasterAssociatedAgency_label.isMasterAssociatedAgency"
+													id="ajax_field_isMasterAssociatedAgency_1" value="0" 
+													onclick="javascript:ajaxpageblocklink('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.refreshAgencyNetworkDiv','','','AgencyNetworkDiv');"/> No
+											</div>
+										</div>
+									</div>
+									<div id="associatedAgency_id_security">
+									<div id="AgencyNetworkDiv">
+										<div class="freeFormList form-group"
+											id="isPartOfAgencyNetwork">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_associatedAgency_id" class="error" />
+													<div id="ajax_error_associatedAgency_id" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign">
+													<div class="freeFormLabelWidth">
+														<span id="memberOf_label">Member Of</span> :
+													</div>
+												</div>
+												<div
+													class="freeFormListTd mendatoryInput">
+													<select class="form-control" name="associatedAgency_id"
+														fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).associatedAgency_id_security.memberOf_label.associatedAgency_id"
+														id="ajax_field_associatedAgency_id">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										
+										</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li  class="inlineBlock_2_fix" id="#isMasterAssociatedAgency_after#"></li>
+							
+							<li  class="inlineBlock_2_fix" id="#primary_operating_division_before#"></li>
+                            <li id="hide_show_primary_operating_division_security" class="inlineBlock_2_fix">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_104">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_primary_operating_division" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="invitationStep1_primary_operating_division_label">Primary Operating Division</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <select name="primary_operating_division" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).hide_show_primary_operating_division_security.invitationStep1_primary_operating_division_label.primary_operating_division"
+									id="ajax_field_primary_operating_division" class="form-control" onchange="javascript:ajaxpageblocklink('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.refreshAssigntoDropdown','','','assigntoDropdownDiv');">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2_fix" id="#primary_operating_division_after#"></li>
+                            
+                            <li  class="inlineBlock_2_fix" id="#home_workflow_user_before#"></li>
+                            <li class="inlineBlock_2_fix" id="invitationStep1_home_workflow_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_105">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_home_workflow_user" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="invitationStep1_home_workflow_label">Assigned To</span> :</div>
+                                  	<div >
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="home_workflow_user" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_home_workflow_security.invitationStep1_home_workflow_label.home_workflow_user"
+									id="ajax_field_home_workflow_user" class="form-control">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2_fix" id="#home_workflow_user_after#"></li>
+                            
+                            <li  class="inlineBlock_2_fix" id="#is_check_for_duplicate_before#"></li>
+                            <li id="invitationStep1_isShowIsDuplicateAgencyCheckBox" class="inlineBlock_2_fix">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_106">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="invitationStep1_check_for_duplicate_label">Check For Duplicate</span> :</div>
+                                  <div class="freeFormListTd tdInput paddingTop2">
+                                    <input type="checkbox" name="is_check_for_duplicate" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_isShowIsDuplicateAgencyCheckBox.invitationStep1_check_for_duplicate_label.is_check_for_duplicate"
+									id="is_check_for_duplicate" value="1" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2_fix" id="#is_check_for_duplicate_after#"></li>
+                            
+                            <li  class="inlineBlock_1_fix" id="#source_forInvitation_before#"></li>
+                           <li class="inlineBlock_1_fix" id="invitationStep1_source_security">
+                              <div class="freeFormList form-group" id="sendOnboardingInvitationStep1_freeform_contextdata_113">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_source_forInvitation" class="error" />
+                                    <div id="ajax_error_source_forInvitation" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="invitationStep1_source_label">Source</span> :
+                                  </div>
+                                  <div class="freeFormListTd">
+                                    <input name="source_forInvitation" 
+                                    fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_source_security.invitationStep1_source_label.source_forInvitation"
+                                    id="ajax_field_source_forInvitation" type="text" maxlength="128" class="full_width" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_1_fix" id="#source_forInvitation_after#"></li>
+                          </ul>
+                          <ul class="inlineBlock">
+                          	<li  class="inlineBlock_1_fix" id="#comments_before#"></li>
+                            <li class="inlineBlock_1" id="invitationStep1_comments_security">
+                              <div id="homeAction_freeform_contextdata_101" class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_comments" class="error" />
+                                    <div id="error_comments" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+                                  	<span id="invitationStep1_comments_label">Comment</span> :</div>
+                                  <div class="freeFormListTd tdInput paddingBottom10">
+                                    <textarea name="comments" 
+									fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_comments_security.invitationStep1_comments_label.comments"
+									id="ajax_field_comments" class="full_width" style="height:70px" onkeyup="updateTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)" onfocus="showTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)" onblur="hideTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)" />
+                                    <div class="textareacharcount" id="descriptionCharCountMsg" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_1_fix" id="#comments_after#"></li>
+                            
+                            <li  class="inlineBlock_1_fix" id="#division_id_before#"></li>
+                            <li class="inlineBlock_1" id="invitationStep1_business_unit_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_businessUnitIds" />
+                                    <div id="error_businessUnitIds" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr ">
+                                  <div class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+                                    <span id="invitationStep1_business_unit_label">Business Unit</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                  	<div >
+                                      <table cellpadding="0" cellspacing="0" class="no-borders" id="GetBusinessUnitDetails_list_01" width="100%">
+                                        <tr valign="top" id="GetBusinessUnitDetails_list_header_01" style="display: none">
+                                          <td colspan="6">
+                                            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="tableinfo">
+                                              <tr>
+                                                <td class="tableinfoheader" id="block_field_division_name" />
+                                                <td class="tableinfoheader" id="block_field_division_id" width="69" />
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                        <tr id="GetBusinessUnitDetails_list_mom_data_01">
+                                          <td nowrap="nowrap" width="30%">
+                                            <table id="mom_child_data" width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="borderMom">
+                                              <tr>
+                                                <td id="block_field_division_id" width="10">
+                                                  <input type="checkbox" id="ajax_field_division_id" name="division_id" onclick="javascript:setCheckBoxValues('ajax_field_division_id');javascript:ajaxpageblocklink('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.getContractTemplateTypeByBusinessUnit','','','contractTemplateTypeDiv');" />
+                                                </td>
+                                                <td id="block_field_division_name" />
+                                              </tr>
+                                            </table>
+                                          </td>
+                                          <td nowrap="nowrap" width="36%">
+                                            <table id="mom_child_data" width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="borderMom">
+                                              <tr>
+                                                <td id="block_field_division_id" width="10">
+                                                  <input type="checkbox" id="ajax_field_division_id" name="division_id" onclick="javascript:setCheckBoxValues('ajax_field_division_id');javascript:ajaxpageblocklink('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.getContractTemplateTypeByBusinessUnit','','','contractTemplateTypeDiv');" />
+                                                </td>
+                                                <td id="block_field_division_name" />
+                                              </tr>
+                                            </table>
+                                          </td>
+                                          <td nowrap="nowrap" width="33%">
+                                            <table id="mom_child_data" width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="borderMom">
+                                              <tr>
+                                                <td id="block_field_division_id" width="10">
+                                                  <input type="checkbox" id="ajax_field_division_id" name="division_id" onclick="javascript:setCheckBoxValues('ajax_field_division_id');javascript:ajaxpageblocklink('carrier/sendOnboardingInvitationStep1.html','sendOnboardingInvitationStep1.getContractTemplateTypeByBusinessUnit','','','contractTemplateTypeDiv');" />
+                                                </td>
+                                                <td id="block_field_division_name" />
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                    <div id="sendOnboardingInvitationStep1_freeform_contextdata_123" >
+                                  	<input type="hidden" name="businessUnitIds" id="hidden_ajax_field_division_id" />
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_1_fix" id="#division_id_after#"></li>
+                            
+                            <li  class="inlineBlock_1_fix" id="#contract_template_type_id_before#"></li>
+                            <li class="inlineBlock_1" id="invitationStep1_contract_template_types_security">
+                            	<div  id="contractTemplateTypeDiv">
+	                              <div class="freeFormList form-group">
+	                                <div class="freeFormListTr">
+	                                  <div class="freeFormListTdError">
+	                                    <h6>#space#</h6>
+	                                  </div>
+	                                  <div class="freeFormListTdError paddingLeft3">
+	                                    <div id="ajax_error_contracttemplatetypeids"></div>
+	                                    <div id="error_contracttemplatetypeids"></div>
+	                                  </div>
+	                                </div>
+	                                <div class="freeFormListTr ">
+	                                  <div class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+	                                    <span id="invitationStep1_contract_template_types_label">Contract Template Types</span>
+	                                    :
+	                                  </div>
+	                                  <div class="freeFormListTd mendatoryInput">
+	                                    <div  id="contractTemplateTypeDiv">
+	                                      <table cellpadding="0" cellspacing="0" class="no-borders" id="GetContractTemplateTypeDetails_list_01" width="100%">
+	                                        <tr valign="top" id="GetContractTemplateTypeDetails_list_header_01" style="display: none">
+	                                          <td colspan="6">
+	                                            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="tableinfo">
+	                                              <tr>
+	                                                <td class="tableinfoheader" id="block_field_contract_Template_Type_description" />
+	                                                <td class="tableinfoheader" id="block_field_contract_template_type_id" width="69" />
+	                                              </tr>
+	                                            </table>
+	                                          </td>
+	                                        </tr>
+	                                        <tr id="GetContractTemplateTypeDetails_list_mom_data_01">
+	                                          <td nowrap="nowrap" width="30%">
+	                                            <table id="mom_child_data" width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="borderMom">
+	                                              <tr>
+	                                                <td id="block_field_contract_template_type_id" width="10">
+	                                                  <input type="checkbox" id="ajax_field_contract_template_type_id" name="contract_template_type_id" />
+	                                                </td>
+	                                                <td id="block_field_contract_Template_Type_description" />
+	                                              </tr>
+	                                            </table>
+	                                          </td>
+	                                          <td nowrap="nowrap" width="36%">
+	                                            <table id="mom_child_data" width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="borderMom">
+	                                              <tr>
+	                                                <td id="block_field_contract_template_type_id" width="10">
+	                                                  <input type="checkbox" id="ajax_field_contract_template_type_id" name="contract_template_type_id" />
+	                                                </td>
+	                                                <td id="block_field_contract_Template_Type_description" />
+	                                              </tr>
+	                                            </table>
+	                                          </td>
+	                                          <td nowrap="nowrap" width="33%">
+	                                            <table id="mom_child_data" width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="borderMom">
+	                                              <tr>
+	                                                <td id="block_field_contract_template_type_id" width="10">
+	                                                  <input type="checkbox" id="ajax_field_contract_template_type_id" name="contract_template_type_id" />
+	                                                </td>
+	                                                <td id="block_field_contract_Template_Type_description" />
+	                                              </tr>
+	                                            </table>
+	                                          </td>
+	                                        </tr>
+	                                      </table>
+	                                    </div>
+	                                    <div id="sendOnboardingInvitationStep1_freeform_contextdata_124">
+		                                  <input type="hidden" name="contracttemplatetypeids" 
+		                                  fullid="sendOnboardingInvitationStep1_freeform_contextdata_101(sendOnboardingInvitationStep1_security.sendOnboardingInvitationStep1_label).invitationStep1_contract_template_types_security.invitationStep1_contract_template_types_label.contracttemplatetypeids"
+		                                  id="hidden_ajax_field_contract_template_type_id" />
+		                                  </div>
+	                                  </div>
+	                                </div>
+	                              </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_1_fix" id="#contract_template_type_id_after#"></li>
+                          </ul>
+                         
+                        </div>
+                        <section class="padding10" id="invitationStep1_file_attachment_security">
+								<div id="attachmentDivContentStart" />
+								<div id="attachmentDiv">
+									<span id="#Include:carrier/uploadDocument.html#" />
+								</div>
+								<div id="attachmentDivContentEnd" />
+						</section>
+                         <section class="divButton row" id="sendOnboardingInvitationStep1_buttons_security" style="clear:both;">
+                            <div class="buttonwrapper paddingRight10">
+                            
+                              <a id="SendOnboardingInvitationStep1_Next"
+                              	fullid="page(page.page).SendOnboardingInvitationStep1_Next.SendOnboardingInvitationStep1_Nextlabel.SendOnboardingInvitationStep1_Next"
+                               	class="btn btn-primary" onclick="javascript:getSelectedValuesOnInvitationStep1();" 
+                              href="javascript:submitform('carrier/sendOnboardingInvitationNameClearanceStep.html','sendOnboardingInvitationStep1.step1Next','','');">
+                              <!-- href="javascript:submitform('carrier/sendOnboardingInvitationStep2.html|carrier/sendOnboardingInvitationStep3.html','sendOnboardingInvitationStep1.createUrl','forwardeval','ProducerOneRule.isInvitationStep2Exists|ProducerOneRule.isInvitationStep2NotExists');"> -->
+                                <span id="SendOnboardingInvitationStep1_Nextlabel">Next</span>
+                              </a>
+                              <a id="SendOnboardingInvitationStep1_cancel" 
+                              	fullid="page(page.page).SendOnboardingInvitationStep1_cancel.SendOnboardingInvitationStep1_cancellabel.SendOnboardingInvitationStep1_cancel"
+                              	class="btn btn-default" href="javascript:submitform('carrier/homeAction.html','sendOnboardingInvitationStep1.closeSendOnboardingInvitationStep1','','');">
+                                <span id="SendOnboardingInvitationStep1_cancellabel">Cancel</span>
+                              </a>
+                            </div>
+                          </section>
+                      </div>
+                    </div>
+                  </section>
+                
+                
+                <div id="lookupTables_freeform_contextdata_999">
+                <input type="hidden" name="isComingFromProspect" id="ajax_field_isComingFromProspect" />
+			        <input type="hidden" name="jsessionid" id="jsessionid" />
+			        <input type="hidden" name="divHideShow" id="divHideShow" />
+			        <input type="hidden" name="contexturl" id="contexturl" />
+			        <input type="hidden" name="htmlSource" id="htmlSource" />
+			         <input type="hidden" name="prospect_agency_id" id="ajax_field_prospect_agency_id" />
+			        <input type="hidden" name="comingFromSendInvitation" id="ajax_field_comingFromSendInvitation"  />
+			        <input type="hidden" name="selected_agency_registration_type_id" id="ajax_field_selected_agency_registration_type_id" />
+			        <input type="hidden" name="selected_agency_lob_id" id="ajax_field_selected_agency_lob_id" />
+			        <input type="hidden" name="selected_commission_type_id" id="ajax_field_selected_commission_type_id" />
+			        <input type="hidden" name="primary_agency_id_forInvitation" id="ajax_field_primary_agency_id_forInvitation" />
+			        <input type="hidden" name="selected_primary_agency_code_id" id="ajax_field_selected_primary_agency_code_id" />
+			        <input type="hidden" name="primary_agency_name_mandatory_for_registration_type" id="ajax_field_primary_agency_name_mandatory_for_registration_type" />
+			        <input type="hidden" name="selected_agency_registration_type_desc" id="ajax_field_selected_agency_registration_type_desc" />
+			        <input type="hidden" name="dummyFieldToValidateAtleast1DocumentAttachment" id="ajax_field_dummyFieldToValidateAtleast1DocumentAttachment" />
+			        <input type="hidden" name="isProducerRegistrationRequired" id="ajax_field_isProducerRegistrationRequired" />
+			        <input type="hidden" name="is_show_primary_agency_only_in_seacrh_popup" id="ajax_field_is_show_primary_agency_only_in_seacrh_popup" />
+			        <input type="hidden" name="isAgencyNamePopupsubmitted" id="ajax_field_isAgencyNamePopupsubmitted" />
+			        <input type="hidden" name="aar_requestid" id="ajax_field_aar_requestid" />
+			        <input type="hidden" name="aar_webaddress" id="ajax_field_aar_webaddress" />
+			        <input type="hidden" name="no_of_staff" id="ajax_field_no_of_staff" />
+			        <input type="hidden" name="aar_yrsinbusiness" id="ajax_field_aar_yrsinbusiness" />
+			      </div>
+                
+                </div>
+              </div>
+              <!--=======Body content End========-->
+              <!--=======Sidebar Right Start========-->
+              <div id="sidebar_right_security" class="sideBarRight">
+                <span id="#Include:carrier/sideBarRight.html#" />
+              </div>
+              <!--=======Sidebar Right End========-->
+            </article>
+          </div>
+          <!--=======Footer Start========-->
+          <footer>
+            <span id="#Include:admin/adminFooter.html#" />
+          </footer>
+          <!--=======Footer End========-->
+        </div>
+      </div>
+      
+    </form>
+  </body>
+</html>
+

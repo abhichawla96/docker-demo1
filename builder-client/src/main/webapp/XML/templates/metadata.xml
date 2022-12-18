@@ -1,0 +1,193 @@
+<structure project="" version="" includemetadata="" >
+
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	
+	<document  docid="" nameofdoc="" projectcode=""  projectdisplayname="" documentid="" >
+	  <nodeinfo uniqueid="docid"></nodeinfo>
+			
+			<docversion verno="" versionname=""  releasedate="" comments="" changesmade="" approvedby="" approvedate="" reviewedby="">
+			      <nodeinfo uniqueid="verno"></nodeinfo>
+			</docversion>
+			
+			<glossary name=""> 
+			  <nodeinfo uniqueid="name"></nodeinfo>
+				  
+				   <content name="" contentdescription ="">
+					   <nodeinfo uniqueid="name">
+					   </nodeinfo>
+				   </content>
+			</glossary>
+	</document>
+	
+    <field name="" length="" viewlength="" decimallength="" type="" displayname="" pattern="" 
+    	dropdown="" developercomments="" helptext="" tiptext="" deltaind="" align="" 
+    	userdefineunittestcase="" fieldlength="" displaytype="">
+    	<nodeinfo uniqueid="name">
+            <attribute name="length" datatype="int"/>
+            <attribute name="decimallength" datatype="int"/>
+            <attribute name="dropdown" datatype="boolean"/>
+            <attribute name="viewlength" datatype="int"/>
+            <attribute name="fieldlength" datatype="int"/>
+        </nodeinfo>
+        <rangevalue low="" high="" meaning="" deltaind="" >
+        	<nodeinfo uniqueid="low"/>
+        </rangevalue>
+    </field>
+    <metaobject psmtemplate="" deltaind="" name="" description=""  motype="" lookupsource="" lookupsourcepath="" persistent="" active="" developercomments="" helptext="" tiptext="" userdefineunittestcase="" namespace="">
+        <nodeinfo uniqueid="name">
+            
+            <attribute name="persistent" datatype="boolean"/>
+            <attribute name="active" datatype="boolean"/>
+        </nodeinfo>
+             <propertyversion versionname="" deltaind="" >
+	        	<nodeinfo uniqueid="versionname">
+	        		<implements interface="com.manage.managemetadata.versioning.IVersion"/>
+	        	</nodeinfo>
+	        	<property field="" type="" length="" eval=""  viewlength="" deleteind="" persistent="" 
+	        		listdisplay="" formdisplay="" resolvedisplay="" nullconstraint="" keyconstraint="" 
+	        		autoincrement="" defaultvalue="" defaultvaluetype="" contextfield="" searchfield="" 
+	        		searchmodify="" searchrule="" developercomments="" helptext="" tiptext="" 
+	        		deltaind="" align="" isEncrypt="" alias="" userdefineunittestcase="" 
+	        		isrequired="" displaytype="" initcap="" propertylength="" displayname="">
+	        
+		            <nodeinfo uniqueid="field">
+		                <attribute name="field" references="Field"/>
+		                <attribute name="length" datatype="int"/>	
+		                <attribute name="deleteind" datatype="boolean"/>	
+		                <attribute name="contextfield" datatype="boolean"/>
+		                <attribute name="listdisplay" datatype="boolean"/>
+		                <attribute name="formdisplay" datatype="boolean"/>
+		                <attribute name="resolvedisplay" datatype="boolean"/>
+		                <attribute name="searchfield" datatype="boolean"/>
+		                <attribute name="searchmodify" datatype="boolean"/>
+		                <attribute name="resolvedisplay" datatype="boolean"/>
+		                <attribute name="isEncrypt" datatype="boolean"/>
+		                <attribute name="persistent" datatype="boolean"/>
+		                <attribute name="viewlength" datatype="int"/>
+		                <!-- <attribute name="isrequired" datatype="boolean"/> -->
+		                <attribute name="searchrule" datatype="boolean"/>
+		                <attribute name="initcap" datatype="boolean"/>
+		                <attribute name="propertylength" datatype="int"/>
+		            </nodeinfo>
+		            <parentprop parent="" op="" val="" deltaind=""  eval="">
+		            	<nodeinfo uniqueid="seq"/>
+		            </parentprop>
+		             
+		            
+		            <dropdown applid="" eval="" name="" dataobject="" metaobject="" dropdowntype="" sqlstmt="" sorted="" deltaind="" 
+		            	parameters="" procname="" isrowlink="" iscacheenabled="">
+		                <nodeinfo uniqueid="name">
+		                    <attribute name="metaobject" references="Metaobject"/>
+		                    <attribute name="sorted" datatype="boolean"/>
+		                    <attribute name="isrowlink" datatype="boolean"/>
+		                    <attribute name="iscacheenabled" datatype="boolean"/>
+		                </nodeinfo>
+		                <valuefield field="" delimiter="" deltaind="" >
+		                	<nodeinfo uniqueid="field"/>
+		                </valuefield>
+		                <displayfield field="" delimiter="" deltaind="" >
+		                	<nodeinfo uniqueid="field"/>
+		                </displayfield>	
+		                <partialkey property="" deltaind="" >
+		                	<nodeinfo uniqueid="property"/>
+		                </partialkey>
+		            </dropdown>
+		            
+		            <propvalidation name="" expression="" event="" message="" description="" executionseq="" deltaind="">
+		            	<nodeinfo uniqueid="name">	
+		               		<extends class="com.manage.managebusinessrules.rules.Rule" />            		 
+		            	</nodeinfo>	
+		            </propvalidation>
+		           
+		           <!-- <propvalidation name="">
+		            	<nodeinfo uniqueid="name">	            		 
+		            	</nodeinfo>	
+		            	 <propvalidationrule  name="" eval=""    message="" description="" executionseq="" >
+		            	 	<nodeinfo uniqueid="name">	   
+		            	 	 <extends class="validationrule"/>         		 
+		            		</nodeinfo>
+		            	 </propvalidationrule>
+		            </propvalidation>
+		             -->
+		            <!-- add the node computerule -->
+		            <computerule name="" expression="" event="" eval="" description="" executionseq="" deltaind="">
+		               	<nodeinfo uniqueid="name">	
+		               		<extends class="com.manage.managebusinessrules.rules.Rule" />            		 
+		            	</nodeinfo>
+		            </computerule>
+	        </property>
+		</propertyversion>	        
+        <depobject project="" metaobject="" identifying="" navigate="" description="" developercomments="" helptext="" tiptext="" deltaind="" userdefineunittestcase="" >
+            <nodeinfo uniqueid="metaobject">
+                <attribute name="metaobject" references="Metaobject"/>
+                <attribute name="navigate" datatype="boolean"/>
+                <attribute name="identifying" datatype="boolean"/>
+            </nodeinfo>
+        </depobject>
+        <reference project="" metaobject="" description="" developercomments="" helptext="" tiptext="" deltaind="" userdefineunittestcase="" >
+			<nodeinfo uniqueid="metaobject">
+                <attribute name="metaobject" references="Metaobject"/>
+            </nodeinfo>
+			<refdropdown property="" deltaind="" >
+				<nodeinfo uniqueid="property"/>
+			</refdropdown>
+		</reference>
+        <metaindex name="" indextype="" deltaind="" >
+			<nodeinfo uniqueid="name"/>
+			<indexcol property="" indexorder="">
+				<nodeinfo uniqueid="property"/>
+			</indexcol>
+		</metaindex>
+		<metatrigger triggername="" triggertype="" triggerevent="" triggerquery="">
+			<nodeinfo uniqueid="triggername"/>
+		</metatrigger>
+		<!-- 
+        <movalidationrule name="" expression="" lvalue="" op="" rvalue="" message="" description="" deltaind="" >
+        	<nodeinfo uniqueid="name">
+        		<extends class="Systemrule"/>
+        	</nodeinfo>
+        	<movalidationevent eventid="" deltaind="" >
+        		<nodeinfo uniqueid="eventid">
+        			<attribute name="eventid" datatype="int"/>
+        		</nodeinfo>
+        	</movalidationevent>
+        </movalidationrule>
+   		-->
+       <movalidationrule name="" event="" expression="" message="" description="" executionseq="" deltaind="">
+        	<nodeinfo uniqueid="name">
+        		<extends class="com.manage.managebusinessrules.rules.Rule"/>
+        	</nodeinfo>
+        	<!-- 
+        	 <metavalidationrule  name="" eval="" expression=""  message="" description="" executionseq="" >
+		       <nodeinfo uniqueid="name">	   
+		       </nodeinfo>
+		     </metavalidationrule>
+		    -->
+        </movalidationrule>
+    
+    </metaobject>
+    
+    
+    <systemrule name="" expression="" event="" input="" output=""  description="" deltaind="" >
+		<nodeinfo uniqueid="name">
+			<extends class="com.manage.managebusinessrules.rules.Rule"/>
+		</nodeinfo>
+	</systemrule>
+	
+	<!--
+	<systemrule name="" event="" expression=""  description="" deltaind="" >
+		<nodeinfo uniqueid="name">
+			<extends class="Rule"/>
+		</nodeinfo>
+	</systemrule>
+  	-->
+    
+    <!--    
+    <systemrule name="" expression="" lvalue="" op="" rvalue="" description="" deltaind="" >
+		<nodeinfo uniqueid="name"/>
+	</systemrule>  
+	-->
+	
+</structure>

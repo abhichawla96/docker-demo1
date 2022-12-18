@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body class="adminSection node1" onload="javascript:showEmailTemplateReadOnly()">
+    <form>
+     <div id="selectEmailTemplate">
+      <div id="cover" />
+      <div id="contextLinks" />
+      <div class="container-fluid bootstrap-node-1">
+        <div class="tableWidth">
+          <!--=======Header Start========-->
+         <header id="#selectEmailTemplate_carrierHeaderInclude#"> 
+         	<span id="#Include:carrier/carrierHeader.html#" />
+		 </header>
+          <!--=======Header End========-->
+          <div class="bgmain">
+			<nav class="menu-level-1 tab" id="#selectEmailTemplate_carrierTabs1Include#"> <span
+				id="#Include:carrier/carrierTabs1.html#" /> </nav>
+			<nav class="menu-level-2" id="#selectEmailTemplate_carrierTabs2Include#"> <span
+				id="#Include:carrier/carrierTabs2.html#" /> </nav>
+			<article class="content sidebar-content">
+              <!--=======Body content Start========-->
+              <div class="panel-body-wraper" id="tdContent">
+                <!--=======page Level msg Start========-->
+                <!-- <div class="errorMsgAlign clear-both">
+                  <div name="error_pageError" id="error_pageError" class="error" />
+                </div>
+                <div class="ConfirmationAlign clear-both" id="1099Type_freeform_contextdata_100">
+                  <label name="pageMsg" id="pageMsg" class="Confirmation" />
+                </div> -->
+                <!--=======page Level msg End========-->
+                <span id="selectEmailTemplate_label"></span>
+                <div class="wizard_border">
+                  <div class="wizard_scroll form-inline" id="selectEmailTemplate_freeform_contextdata_1">
+                    <ul>
+                      <li class="inlineBlock_1" id="selectEmailtemplate_email_templates_security">
+                        <div class="freeFormList form-group">
+                          <div class="freeFormListTr">
+                            <div class="freeFormListTdError">
+                              <h6>#space#</h6>
+                            </div>
+                            <div class="freeFormListTdError">
+	                            <div id="ajax_error_template_name" class="error" />
+	                          </div>
+                          </div>
+                          <div class="freeFormListTr">
+                            <div class="freeFormListTd labelAlign valignTop" style="width:500px;">
+                            	<span id="selectEmailTemplate_template_name_label">Email Template</span> :</div>
+	                            <div class="freeFormListTd tdInput">
+	                              <select name="template_name" 
+	                              fullid="selectEmailTemplate_freeform_contextdata_1(selectEmailTemplate.selectEmailTemplate_label).selectEmailtemplate_email_templates_security.selectEmailTemplate_template_name_label.template_name"
+	                              id="ajax_field_template_name" class="form-control" 
+	                              	onchange="javascript:ajaxpageblocklink('carrier/selectEmailTemplate.html','selectEmailTemplate.refresh','','','selectEmailTemplate_freeform_contextdata_1');">
+	                              </select>
+	                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="inlineBlock_1 paddingTop10" id="invitationStep3_email_body_security" style="width:100%">
+                        <div id="emailEventDetailDiv">
+                           <!-- <div id="selectEmailTemplate_editablebody_security">
+                             <textarea rows="25" cols="100" id="ajax_field_bodyContent" name="bodyContent" style="width:100%; height: 250px;"/>
+                           </div> -->
+                           <div id="selectEmailTemplate_readonlybody_security">
+                             <textarea rows="25" cols="100" name="bodyContent" id="ajax_field_bodyContent" style="width: 100%;display: none;"/>
+                             <textarea rows="25" cols="100" name="body" id="ajax_field_body" style="width: 100%;display: none;"/>
+                             <div id="selectEmailTemplate_readonlybody"/>
+                           </div>
+                         </div> 
+                      </li>
+                    </ul>
+                    <section class="divButton buttons-section paddingTop10 row">
+                      <div class="buttonwrapper paddingRight10 paddingBottom10">
+                        
+                        <a id="selectEmailTemplate_back_security" class="ovalbutton" 
+                        	href="javascript:submitform('carrier/selectEmailTemplate.html','selectEmailTemplate.back','','');">
+                            <span id="onboardingAgencyAppointmentApplication_step3_back_label">Back</span>
+                          </a>
+                         <!-- <a id="selectEmailTemplate_previewemail_security" class="ovalbutton" 
+                        	href="javascript:ajaxsubmitform('carrier/selectEmailTemplate.html','selectEmailTemplate.preview','','','selectEmailTemplate_freeform_contextdata_1');">
+                            <span id="selectEmailTemplate_previewemail_label">Preview Email</span>
+                          </a>
+                          <a id="selectEmailTemplate_editemail_security" class="ovalbutton" 
+                          	href="javascript:ajaxsubmitform('carrier/selectEmailTemplate.html','selectEmailTemplate.edit','','','selectEmailTemplate_freeform_contextdata_1');">
+                            <span id="selectEmailTemplate_editemail_label">Edit Email</span>
+                          </a>  -->
+                          <a class="ovalbutton hidden cancelbtnMail">Cancel</a>
+                      <!-- BMIC Specific-->     <a class="ovalbutton editbtnMail" id="editEmailTemplate_security">Edit Email</a> <!-- Added changes for BMIC -->
+                          <a class="ovalbutton hidden savebtnMail" onclick="refreshEmailBodyContent();">Preview Mail</a> 
+                          
+                        <a id="selectEmailTemplate_sendemail_security" class="ovalbutton" onclick="javascript:refreshEmailBodyContent();"
+                        	href="javascript:submitform('carrier/selectEmailTemplate.html','selectEmailTemplate.send','','');">
+                            <span id="selectEmailTemplate_sendemail_label">Send Email</span>
+                          </a>
+                          <!-- <a id="selectEmailTemplate_cancelpreviewemail_security" class="ovalbutton" 
+                        	href="javascript:submitform('carrier/selectEmailTemplate.html','selectEmailTemplate.cancel','','');">
+                            <span id="selectEmailTemplate_cancel_label">Cancel</span>
+                          </a> -->
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <!--=======Body content End========-->
+              <!--=======Sidebar Right Start========-->
+             <!--  <div id="sidebar_right_security" class="sideBarRight">
+                <span id="#Include:carrier/sideBarRight.html#" />
+              </div> -->
+              <!--=======Sidebar Right End========-->
+             </article> 
+          </div>
+          <!--=======Footer Start========-->
+          <footer id="#selectEmailTemplate_adminFooterInclude#">
+            <span id="#Include:admin/adminFooter.html#" />
+          </footer>
+          <!--=======Footer End========-->
+        </div>
+      </div>
+      <div class="hiddenFields"  id="lookupTables_freeform_contextdata_999">
+        <!-- <input type="hidden" name="jsessionid" id="jsessionid" /> -->
+        <input type="hidden" name="URL_LINK" id="ajax_field_URL_LINK" />  
+        <input type="hidden" name="backpagedata_context" id="ajax_field_backpagedata_context"/>
+      </div> 
+      </div>
+    </form>
+  </body>
+</html>
+<!-- <script>
+	initSample();
+</script> -->
+

@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<!-- tag for resolution change -->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<title>ProducerOne - Producer Management Center</title>
+<!-- css -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Scripts -->
+<script type="text/javascript" src="js/all_files.js" />
+</head>
+<body id="contentTableDiv"
+	onload="checkErrorInSusspensionReq();loadSelectedDeactivatePersonIdList();setGetMultiCheckboxValues('ajax_field_contract_template_type_code','ajax_field_selectedTemplateType','set');setGetMultiCheckboxValues('ajax_field_state_id','ajax_field_selected_state_ids','set');setGetMultiCheckboxValues('ajax_field_lob_id','ajax_field_selected_lob_ids','set');setGetMultiCheckboxValues('ajax_field_business_segment_code','ajax_field_selected_product_ids','set');">
+	<form >
+		<div id="cover" />
+		<div id="popupEntityList" />
+		<div id="uploadDocumentDiv" />
+	<div id="deleteDocument">
+        <!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="docother_close1" href="#" class="close" onclick="closePopUp('deleteDocument')">
+                    <img src="images/close.png" />
+                  </a>
+                  Delete Document
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <span class="delete_ico icons">#space#</span>
+                  Are you sure you want to delete this item?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="docother_yes1" onclick="closePopUp('deleteDocument');" href="javascript:callAjaxDelete('attachmentDiv');" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a id="docother_no1" href="#" onclick="clean();closePopUp('deleteDocument');" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+
+      <div id="popupAprooved">
+        <!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_600">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="moveRealTimeConfirmation_close" href="#" class="close" onclick="closePopUp('popupAprooved')">
+                    <img src="images/close.png" />
+                  </a>
+                  Approval Confirmation
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <span class="delete_ico icons">#space#</span>
+                  Are you sure you want to move the record immediately without approval?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="moveRealTimeConfirmation_yes" onclick="closePopUp('popupAprooved');" href="javascript:document.forms[0].submit();" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a id="moveRealTimeConfirmation_no" href="#" onclick="clean();closePopUp('popupAprooved');" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+
+		<div id="confirmationDiv">
+			<div id="contextLinks" />
+			<div class="container-fluid bootstrap-node-1">
+				<div class="tableWidth">
+					<!---------Header Start---------->
+					<header> <span id="#Include:carrier/carrierHeader.html#"></span>
+					</header>
+					<!---------Header End---------->
+
+					<div class="bgmain">
+						<!---------Menu Level 1 Start---------->
+						
+						<nav class="menu-level-1 tab" id="agencyFunctions_admintabs"> <span
+							id="#Include:admin/adminTabs.html#"></span> </nav>
+						
+						<!---------Menu Level 1 End---------->
+
+						<!---------Menu Level 2 Start---------->
+						
+						<nav class="menu-level-2" id="agencyFunctions_blankadmintabs"> <span
+							id="#Include:admin/blankAdminTabs.html#"></span> </nav>
+						
+						<!---------Menu Level 2 End---------->
+
+						<article class="content sidebar-content"> <!---------Sidebar Start---------->
+						<!---------Sidebar End----------> <!---------Body content Start---------->
+						<div class="panel-body-wraper" id="tdContent">
+							<!---------page Level msg Start---------->
+							<div class="errorMsgAlign clear-both">
+								<div id="error_pageError" class="error"></div>
+								<div id="error_duplicateAgencySuspensionAlertKey" class="error"></div>
+								<div id="error_agencyExistInAgencyFunctionListMsg" class="error"></div>
+								<div id="error_agentExistInAgencyFunctionListMsg" class="error"></div>
+								<div id="error_agencyCodeExistInAgencyFunctionListMsg" class="error"></div>
+							</div>
+							<div class="ConfirmationAlign clear-both"
+								id="agencyFunctions_freeform_contextdata_3">
+								<label name="pageMsg" id="pageMsg" class="Confirmation" />
+
+								<div id="agentWarningMessage_security" class="error" align="center">
+									<span id="agencyFunction_agentWarningMessage_label">Warning</span>
+								</div>
+
+							</div>
+							<!---------page Level msg End---------->
+							<div id="contentTableDiv">
+								<div>
+									<section class="free-form"
+										id="agencyFunctions_selectFunctionType_selectFunctionSection_security">
+									<fieldset>
+										<legend
+											id="agencyFunctions_selectFunctionType_selectFunction_label">Agency
+											Functions</legend>
+										<div class="freeFormDiv paddingTop10 form-inline"
+											id="filtersDiv">
+											<div class="padding-left-form">
+												<div id="error_pageError" name="error_pageError" class="error" align="center"></div>
+												<ul class="inlineBlock"
+													id="agencyFunctions_selectFunctionType_freeform_contextdata_1">
+													<li class="inlineBlock_2" id="#selectFunctionType_id_before#"></li>
+													<li class="inlineBlock_2"
+														id="agencyFunctions_selectFunctionType_field_security">
+														<div class="freeFormList form-group">
+															<div class="freeFormListTr">
+																<div class="freeFormListTdError">
+																	<h6>&nbsp;</h6>
+																</div>
+																<div class="freeFormListTdError paddingLeft3">
+																	<div id="ajax_error_selectFunctionType_filter"
+																		class="error"></div>
+																	<div id="error_selectFunctionType_filter" class="error"></div>
+																</div>
+															</div>
+															<div class="freeFormListTr">
+																<div class="freeFormListTd labelAlign">
+																	<div class="freeFormLabelWidth">
+																		<span id="selectFunctionType_label">Agency
+																			Functions</span> :
+																	</div>
+																</div>
+
+																<div class="freeFormListTd tdInput">
+																	<select class="form-control"
+																		name="selectFunctionType_id"
+																		 fullid="agencyFunctions_selectFunctionType_freeform_contextdata_1(agencyFunctions_selectFunctionType_selectFunctionSection_security.agencyFunctions_selectFunctionType_selectFunction_label).agencyFunctions_selectFunctionType_field_security.selectFunctionType_label.selectFunctionType_id"
+																		id="ajax_field_selectFunctionType_id"
+																		onchange="javascript:ajaxpageblocklink('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.refreshBasedOnFunctionType','','','MainAgencyFunctionsDiv');">
+																		<option value="">Select</option>
+																	</select>
+
+																</div>
+																<div class="freeFormListTd">
+																	<input name="iscomingFromAgencyAdminDashboard"  id="ajax_field_iscomingFromAgencyAdminDashboard" type="hidden"  class="form-control" maxlength="128" />
+                                                                 </div>
+															</div>
+														</div>
+													</li>
+													<li class="inlineBlock_2" id="#selectFunctionType_id_after#"></li>
+												</ul>
+											</div>
+
+										</div>
+
+
+									</fieldset>
+
+									</section>
+
+									<div id="MainAgencyFunctionsDiv">
+										<div id="selectionFiltersDiv">
+											<div id="agency_functions_filtersDiv">
+												<section class="list-grid" id="agencyFunctions_selection_security">
+												<fieldset class="fieldset_Level_1">
+													<legend id="agencyFunctions_summaryListLabels_freeform_contextdata_1">
+													<label id="agencyFunctions_selection_header_filters_label" name="agencyFunctions_selection_header_filters_label">
+													</label>
+													
+													</legend>
+
+													<div class="freeFormDiv paddingTop10 form-inline">
+														<div class="padding-left-form">
+															<ul class="inlineBlock" id="agencyFunctions_selectFunctionType_freeform_contextdata_2">
+
+																<li class="inlineBlock_2" id="#toBeProcessed_agency_name_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_toBeProcessed_agency_name_security">
+																	<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_toBeProcessed_agency_name"
+																					class="error"></div>
+																				<div id="ajax_error_toBeProcessed_agency_name"
+																					class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<span id="toBeProcessed_agency_name_label">Agency
+																						Name</span> :
+																				</div>
+																			</div>
+																			<div class="freeFormListTd text-nowrap mendatoryInput">
+																				<input name="toBeProcessed_agency_name"
+																				fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_toBeProcessed_agency_name_security.toBeProcessed_agency_name_label.toBeProcessed_agency_name"
+																					id="ajax_field_toBeProcessed_agency_name"
+																					readonly="readonly" type="text" maxlength="50"
+																					class="form-control" />
+																				<span id= "agencyFunctions_selectFunctionType_toBeProcessedagencyname_searchicon_security">
+																					<a title="Search" id="toBeProcessed_agency_name_searchicon" class="icons search_ico"
+																					href="javascript:ajaxpageblocklink('admin/lookupTables/agencyNameSearchPopup.html','agencyFunctions_selectFunctionType.agencyNameSearch','','','popupEntityList');"></a>
+																				</span>
+																				<input name="toBeProcessed_agency_id"
+																				fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).toBeProcessed_agency_id_security.toBeProcessed_agency_id_label.toBeProcessed_agency_id"
+																				id="ajax_field_toBeProcessed_agency_id"
+																				type="hidden" class="form-control" tabindex="20"
+																				maxlength="8" readonly="readonly" />
+																			</div>
+																			
+
+																		</div>
+																	</div>
+																</li>
+
+																<li class="inlineBlock_2" id="#toBeProcessed_agency_name_after#"></li>
+																
+																<li class="inlineBlock_2" id="#AgencyFunction_request_agency_id_before#"></li>
+																		<li id="AgencyFunction_request_agency_id_security"  class="inlineBlock_2">
+																			<div class="freeFormList form-group">
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTdError">
+																						<h6>#space#</h6>
+																					</div>
+																					<div class="freeFormListTdError paddingLeft3">
+																						<div id="error_toBeProcessed_agency_id"class="error"></div>
+	                                                                                    <div id="ajax_error_toBeProcessed_agency_id" class="error"></div>
+																						
+																					</div>
+																				</div>
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTd labelAlign">
+																						<div class="freeFormLabelWidth">
+																							<label id="toBeProcessed_agency_name_label">Agency
+																								Location</label> :
+																						</div>
+																					</div>
+																					<div class="freeFormListTd mendatoryInput">
+																						<select name="toBeProcessed_agency_id"
+																							id="ajax_field_toBeProcessed_agency_id" onchange="javascript:setAgencyNameForSS(this);"
+																							 class="form-control">
+																							<option value="">Select</option>
+																						</select>
+																						<input name="toBeProcessed_agency_name"
+																						id="ajax_field_toBeProcessed_agency_name"
+																						type="hidden" class="form-control" tabindex="20"
+																						maxlength="8" readonly="readonly" />
+																					</div>
+																					
+																				</div>
+																			</div>
+																		</li>
+																		<li id="#AgencyFunction_request_agency_id_after#"></li>
+																<!-- END -->
+
+																<li class="inlineBlock_2" id="#toBeProcessed_agency_code_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_toBeProcessed_agency_code_security">
+																	<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_toBeProcessed_producer_number" class="error"></div>
+																				<div id="ajax_error_toBeProcessed_producer_number" class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<span id="toBeProcessed_producer_number_label">Agency
+																						Code</span> :
+																				</div>
+																			</div>
+																			<!-- BMIC Specific-->
+																			<div
+																				class="freeFormListTd text-nowrap mendatoryInput">  <!-- class added for mandetory fields -->
+																				<span id="isAgencyFunctionsProducerNumberOnBlurEventRequired_security">
+																				<input name="toBeProcessed_producer_number"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_toBeProcessed_agency_code_security.toBeProcessed_producer_number_label.toBeProcessed_producer_number"
+																					id="ajax_field_toBeProcessed_producer_number"
+																					type="text" maxlength="50"
+																					class="form-control" />
+																					<span id="agencyFunctions_selectFunctionType_toBeProcessed_producer_number_searchicon_security">
+																					<a title="Search"
+																						id="toBeProcessed_producer_number_searchicon"
+																						class="icons search_ico"
+																						href="javascript:ajaxpageblocklink('admin/lookupTables/producerNumberSearchPopup.html','agencyFunctions_selectFunctionType.producerNumberSearch','','','popupEntityList');"></a>
+																					</span>
+																					<!-- <input name="toBeProcessed_producer_number_id"
+																						fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).toBeProcessed_producer_number_id_security.toBeProcessed_producer_number_id_label.toBeProcessed_producer_number_id"
+																						id="ajax_field_toBeProcessed_producer_number_id"
+																						type="hidden" class="form-control" tabindex="20"
+																						maxlength="8" readonly="readonly" /> -->
+																						</span>
+																				</div>
+																			
+																				<div>
+																				 <input name="toBeProcessed_producer_number_id"
+																						fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).toBeProcessed_producer_number_id_security.toBeProcessed_producer_number_id_label.toBeProcessed_producer_number_id"
+																						id="ajax_field_toBeProcessed_producer_number_id"
+																						type="hidden" class="form-control" tabindex="20"
+																						maxlength="8" readonly="readonly" />
+																				</div>
+																			
+																				
+																			
+																		</div>
+																	</div>
+																</li>
+																<li class="inlineBlock_2" id="#toBeProcessed_agency_code_after#"></li>
+																
+																<li class="inlineBlock_2" id="#AgencyFunction_request_agency_code_before#"></li>
+																		<li id="AgencyFunction_request_agency_code_security"  class="inlineBlock_2">
+																			<div class="freeFormList form-group"
+																				id="">
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTdError">
+																						<h6>#space#</h6>
+																					</div>
+																					<div class="freeFormListTdError paddingLeft3">
+																				        <div id="error_toBeProcessed_producer_number" class="error"></div>
+																				        <div id="ajax_error_toBeProcessed_producer_number" class="error"></div>
+																					</div>
+																				</div>
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTd labelAlign">
+																						<div class="freeFormLabelWidth">
+																							<label id="toBeProcessed_producer_number_label">Agency
+																								Code</label> :
+																						</div>
+																					</div>
+																					<div class="freeFormListTd text-nowrap mendatoryInput">
+																						<select name="toBeProcessed_producer_number_id"
+																							id="ajax_field_toBeProcessed_producer_number_id" onchange="javascript:setProducerNumberForSS(this);"
+																							 class="form-control">
+																							<option value="">Select</option>
+																						</select>
+																						<input name="toBeProcessed_producer_number"
+																						id="ajax_field_toBeProcessed_producer_number"
+																						type="hidden" class="form-control" tabindex="20"
+																						maxlength="8" readonly="readonly" />
+																					</div>
+																					
+																				</div>
+																			</div>
+																		</li>
+																		<li id="#AgencyFunction_request_agency_code_after#"></li>
+
+																<li class="inlineBlock_2" id="#toBeProcessed_agent_name_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_toBeProcessed_agent_name_security">
+																	<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_toBeProcessed_agent_name"
+																					class="error" ></div>
+																				<div id="ajax_error_toBeProcessed_agent_name"
+																					class="error" ></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<span id="toBeProcessed_agent_name_label">Contact
+																						Name</span> :
+																				</div>
+																			</div>
+																		<div> <!-- mandetory input removed from div class  for Contact Name  for salesSupport -->
+																			<div
+																				class="freeFormListTd text-nowrap mendatoryInput">
+																				<input name="toBeProcessed_agent_name"
+																				fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_toBeProcessed_agent_name_security.toBeProcessed_agent_name_label.toBeProcessed_agent_name"
+																					id="ajax_field_toBeProcessed_agent_name"
+																					readonly="readonly" type="text" maxlength="50"
+																					class="form-control" />
+																			<span id="agencyFunctions_selectFunctionType_toBeProcessed_agent_name_searchicon_security">
+																					 <a title="Search"
+																					id="toBeProcessed_agent_name_searchicon"
+																					class="icons search_ico"
+																					href="javascript:ajaxpageblocklink('admin/lookupTables/agentNameSearchPopup.html','agencyFunctions_selectFunctionType.contactNameSearch','','','popupEntityList');"></a>
+																					</span>
+																					<!-- <input name="toBeProcessed_agent_id"
+																						fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).toBeProcessed_agent_id_security.toBeProcessed_agent_id_label.toBeProcessed_agent_id"
+																						id="ajax_field_toBeProcessed_agent_id" type="hidden"
+																						class="form-control" tabindex="20" maxlength="8"
+																						readonly="true" /> -->
+																			</div>
+																			<div>
+																			<input name="toBeProcessed_agent_id"
+																						fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).toBeProcessed_agent_id_security.toBeProcessed_agent_id_label.toBeProcessed_agent_id"
+																						id="ajax_field_toBeProcessed_agent_id" type="hidden"
+																						class="form-control" tabindex="20" maxlength="8"
+																						readonly="true" />
+																			</div>
+																		</div>
+																	</div>
+																</li>
+
+																<li class="inlineBlock_2" id="#toBeProcessed_agent_name_after#"></li>
+																
+																<li class="inlineBlock_2" id="#AgencyFunction_request_agent_name_before#"></li>
+																		<li id="AgencyFunction_request_agent_name_security"  class="inlineBlock_2">
+																			<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_toBeProcessed_agent_name"
+																					class="error"></div>
+																				<div id="ajax_error_toBeProcessed_agent_name"
+																					class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<span id="toBeProcessed_agent_name_label">Contact
+																						Name</span> :
+																				</div>
+																			</div>
+																			<div class="freeFormListTd mendatoryInput">
+																				<select name="toBeProcessed_agent_id"
+																							id="ajax_field_toBeProcessed_agent_id"
+																							 class="form-control" onchange="javascript:setAgentNameForSS(this);">
+																							<option value="">Select</option>
+																						</select>
+																				<input name="toBeProcessed_agent_name"
+																					id="ajax_field_toBeProcessed_agent_name" type="hidden"
+																					class="form-control" tabindex="20" maxlength="8"
+																					readonly="true" />
+
+																			</div>
+																		</div>
+																	</div>
+																			
+																			<!-- <div class="freeFormList form-group"
+																				id="">
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTdError">
+																						<h6>#space#</h6>
+																					</div>
+																					<div class="freeFormListTdError paddingLeft3">
+																						<div id="" class="error" />
+																					</div>
+																				</div>
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTd labelAlign">
+																						<div class="freeFormLabelWidth">
+																							<label id="toBeProcessed_agent_name_label">Contact
+																								Name</label> :
+																						</div>
+																					</div>
+																					<div class="freeFormListTd text-nowrap mendatoryInput">
+																						<select name="toBeProcessed_agent_id"
+																							id="ajax_field_toBeProcessed_agent_id"
+																							 class="form-control">
+																							<option value="">Select</option>
+																						</select>
+																						
+																					</div>
+																				</div>
+																			</div> -->
+																		</li>
+																		<li id="#AgencyFunction_request_agent_name_after#"></li>
+
+																<li class="inlineBlock_2" id="#suspension_reason_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_suspension_reason_security">
+																	<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_suspension_reason" class="error"></div>
+																				<div id="ajax_error_suspension_reason" class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<label name="agencyFunction_reason_field_label"
+																						id="agencyFunction_reason_field_label">Reason
+																						Suspended</label> :
+																				</div>
+																			</div>
+																			<div
+																				class="freeFormListTd mendatoryInput">
+																				<select class="form-control"
+																					name="suspension_reason"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_suspension_reason_security.agencyFunction_reason_field_label.suspension_reason"
+																					id="ajax_field_suspension_reason">
+																					<option value="">Select</option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="inlineBlock_2" id="#suspension_reason_after#"></li>
+																<!-- BMIC req. -->
+																<li class="inlineBlock_2" id="agencyFunctions_selectFunctionType_agencySus_security">
+										                                <div class="freeFormList form-group">
+										                                  <div class="freeFormListTr">
+										                                    <div class="freeFormListTdError">
+										                                      <h6>#space#</h6>
+										                                    </div>
+										                                    <div class="freeFormListTdError paddingLeft3">
+										                                      <div id="error_termination_reason_other" class="error"></div>
+										                                      <div id="ajax_error_termination_reason_other" class="error"></div>
+										                                    </div>
+										                                  </div>
+										                                  <div class="freeFormListTr">
+										                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+										                                    	<span id="agencyFunctions_selectFunctionType_agencysus_reason_other_label">Suspension Reason Other</span> :
+										                                    </div>
+										                                    <div class="freeFormListTd tdInput">
+										                                    	<input name="termination_reason_other"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_selectFunctionType_terminationReasonOther_security.agencyFunctions_selectFunctionType_termination_reason_other_label.termination_reason_other"
+																				id="ajax_field_termination_reason_other" type="text"
+										                                    	class="form-control" maxlength="200" />
+																			</div>
+										                                  </div>
+										                                </div>
+										                        </li>
+										                         <!-- Phase 2 - Bug Id- P2-035 -->
+										                        <li class="inlineBlock_2" id="agencyFunctions_selectFunctionType_closeagencycode_security">
+										                                <div class="freeFormList form-group">
+										                                  <div class="freeFormListTr">
+										                                    <div class="freeFormListTdError">
+										                                      <h6>#space#</h6>
+										                                    </div>
+										                                    <div class="freeFormListTdError paddingLeft3">
+										                                      <div id="error_termination_reason_other" class="error"></div>
+										                                      <div id="ajax_error_termination_reason_other" class="error"></div>
+										                                    </div>
+										                                  </div>
+										                                  <div class="freeFormListTr">
+										                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+										                                    	<span id="agencyFunctions_selectFunctionType_agencysus_reason_other_label">Close Agency Code Reason Other</span> :
+										                                    </div>
+										                                    <div class="freeFormListTd tdInput">
+										                                    	<input name="termination_reason_other"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_selectFunctionType_terminationReasonOther_security.agencyFunctions_selectFunctionType_termination_reason_other_label.termination_reason_other"
+																				id="ajax_field_termination_reason_other" type="text"
+										                                    	class="form-control" maxlength="200" />
+																			</div>
+										                                  </div>
+										                                </div>
+										                        </li>
+										                        <!-- END - -->
+																<li class="inlineBlock_2" id="#suspension_date_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_suspension_date_security">
+																	<div class="freeFormList form-group"
+																		id="agencyFunctions_selectFunctionType_freeform_contextdata_6">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_suspension_date" class="error"></div>
+																				<div id="ajax_error_suspension_date" class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<label name="agencyFunction_suspension_date_label"
+																						id="agencyFunction_suspension_date_label">Date
+																						of Suspension</label> :
+																				</div>
+																			</div>
+																			<div class="freeFormListTd">
+																				<div class="input-group date tdInput">
+																					<div class="input-group-addon"
+																						id="ico_fa_calender_security">
+																						<i class="fa fa-calendar">&nbsp;</i>
+																					</div>
+																					<input name="suspension_date"
+																						fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_suspension_date_security.agencyFunction_suspension_date_label.suspension_date"
+																						id="ajax_field_suspension_date" type="text"
+																						class="form-control datepicker"
+																						onkeyup="applyDateFormat(this,event);"
+																						maxlength="10" />
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="inlineBlock_2" id="#suspension_date_after#"></li>
+																
+																<li class="inlineBlock_2" id="#termination_reason_other_before#"></li>
+																<li class="inlineBlock_2" id="agencyFunctions_selectFunctionType_terminationReasonOther_security">
+										                                <div class="freeFormList form-group">
+										                                  <div class="freeFormListTr">
+										                                    <div class="freeFormListTdError">
+										                                      <h6>#space#</h6>
+										                                    </div>
+										                                    <div class="freeFormListTdError paddingLeft3">
+										                                      <div id="error_termination_reason_other" class="error"></div>
+										                                      <div id="ajax_error_termination_reason_other" class="error"></div>
+										                                    </div>
+										                                  </div>
+										                                  <div class="freeFormListTr">
+										                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+										                                    	<span id="agencyFunctions_selectFunctionType_closed_reason_other_label">Closed Reason Other</span> :
+										                                    </div>
+										                                    <div class="freeFormListTd tdInput">
+										                                    	<input name="termination_reason_other"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_selectFunctionType_terminationReasonOther_security.agencyFunctions_selectFunctionType_termination_reason_other_label.termination_reason_other"
+																				id="ajax_field_termination_reason_other" type="text"
+										                                    	class="form-control" maxlength="200" />
+																			</div>
+										                                  </div>
+										                                </div>
+										                        </li>
+																<li class="inlineBlock_2" id="#termination_reason_other_after#"></li>
+																
+																<li class="inlineBlock_2" id="#effective_date_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_effective_date_security">
+																	<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_effective_date" class="error"></div>
+																				<div id="ajax_error_effective_date" class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<label name="agencyFunction_effective_date_label"
+																						id="agencyFunction_effective_date_label">Effective Date</label> :
+																				</div>
+																			</div>
+																			<div class="freeFormListTd">
+																				<div class="input-group date tdInput">
+																					<div class="input-group-addon"
+																						id="ico_fa_calender_security">
+																						<i class="fa fa-calendar">&nbsp;</i>
+																					</div>
+																					<input name="effective_date"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_effective_date_security.agencyFunction_effective_date_label.effective_date"
+																						id="ajax_field_effective_date" type="text"
+																						class="form-control datepicker"
+																						onkeyup="applyDateFormat(this,event);"
+																						maxlength="10" />
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="inlineBlock_2" id="#effective_date_after#"></li>
+
+																<li class="inlineBlock_2" id="#commission_reduction_rate_before#"></li>
+																<li class="inlineBlock_2"
+																	id="agencyFunctions_commission_reduction_rate_security">
+																	<div class="freeFormList form-group">
+																		<div class="freeFormListTr">
+																			<div class="freeFormListTdError">
+																				<h6>#space#</h6>
+																			</div>
+																			<div class="freeFormListTdError paddingLeft3">
+																				<div id="error_commission_reduction_rate" class="error"></div>
+																				<div id="ajax_error_commission_reduction_rate" class="error"></div>
+																			</div>
+																		</div>
+																		<div class="freeFormListTr ">
+																			<div class="freeFormListTd labelAlign">
+																				<div class="freeFormLabelWidth">
+																					<label name="agencyFunction_commission_reduction_rate_label"
+																						id="agencyFunction_commission_reduction_rate_label">Commission Reduction Date</label> :
+																				</div>
+																			</div>
+																			<div class="freeFormListTd">
+																				<div class="input-group date tdInput">
+																					<div class="input-group-addon"
+																						id="ico_fa_calender_security">
+																						<i class="fa fa-calendar">&nbsp;</i>
+																					</div>
+																					<input name="commission_reduction_rate"
+																						fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_commission_reduction_rate_security.agencyFunction_commission_reduction_rate_label.commission_reduction_rate"
+																						id="ajax_field_commission_reduction_rate" type="text"
+																						class="form-control datepicker"
+																						onkeyup="applyDateFormat(this,event);"
+																						maxlength="10" />
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="inlineBlock_2" id="#commission_reduction_rate_after#"></li>
+
+																<li class="inlineBlock_2" id="#product_validation_component_before#"></li>
+																	<li class="inlineBlock_2"
+																		id="agencyFunctions_product_validation_component_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>#space#</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="error_product_validation_component" class="error"></div>
+																					<div id="ajax_error_product_validation_component" class="error"></div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr ">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<label name="agencyFunction_product_validation_component_label"
+																							id="agencyFunction_product_validation_component_label">Product Validation Component</label> :
+																					</div>
+																				</div>
+																				<div
+																					class="freeFormListTd">
+																					<select class="form-control" name="product_validation_component"
+																					fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_product_validation_component_security.agencyFunction_product_validation_component_label.product_validation_component"
+																						id="ajax_field_product_validation_component">
+																						<option value="">Select</option>
+																					</select>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																<li class="inlineBlock_2" id="#product_validation_component_after#"></li>
+
+																
+
+															</ul>
+														<ul class="inlineBlock">
+															<li class="inlineBlock_1" id="#state_id_before#"></li>
+															<li class="inlineBlock_1" id="agencyFunctions_state_security"  >
+																<div class="freeFormList form-group" >
+																	<div class="freeFormListTr">
+																		<div class="freeFormListTdError">
+																			<h6>#space#</h6>
+																		</div>
+																		<div class="freeFormListTdError paddingLeft3">
+																			<div id="error_selected_state_ids" class="error" />
+																			<div id="ajax_error_selected_state_ids" class="error" />
+																		</div>
+																	</div>
+																  <div class="freeFormListTr">
+																	<div class="freeFormListTd labelAlign">
+																		<div class="freeFormLabelWidth">
+																			<label id="agencyFunctions_StateCheckboxes_label">States</label>:</div>
+																		</div>
+																		<div class="freeFormListTd align-top mendatoryInput">
+																			<div class="nonMandatory" style="width: 1000px;">
+																				<ul class="div_checkbox div_checkbox3"  style="padding-left: 1px;"
+																				id="agencyFunctions_state_list_mom_1">
+
+																					<li id="agencyFunctions_state_list_header_1" style="display: none">
+																						<span class="tableinfoheader" id="block_field_state_id" width="69" />
+																						<span class="tableinfoheader" id="block_field_state_desc" />
+																					</li>
+																					<li id="agencyFunctions_state_list_mom_data_1">
+																						<div id="mom_child_data">
+																							<span id="block_field_state_id">
+																								<input type="checkbox" id="ajax_field_state_id" name="state_id"
+																								onclick="setGetMultiCheckboxValues('ajax_field_state_id','ajax_field_selected_state_ids','get');" />
+																							</span>
+																							<span id="block_field_state_desc" />
+																						</div>
+																					</li>
+
+
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															<li class="inlineBlock_1" id="#state_id_after#"></li>
+
+															<li class="inlineBlock_1" id="#lob_id_before#"></li>
+															<li class="inlineBlock_1" id="agencyFunctions_lob_security" >
+																<div class="freeFormList form-group">
+																	<div class="freeFormListTr">
+																		<div class="freeFormListTdError">
+																			<h6>#space#</h6>
+																		</div>
+																		<div class="freeFormListTdError paddingLeft3">
+																			<div id="error_selected_lob_ids" class="error" />
+																			<div id="ajax_error_selected_lob_ids" class="error" />
+																		</div>
+																	</div>
+																<div class="freeFormListTr">
+																	<div class="freeFormListTd labelAlign">
+																		<div class="freeFormLabelWidth">
+																			<label id="agencyFunctions_lobCheckboxes_label">LOB</label> :</div>
+																		</div>
+																		<div class="freeFormListTd align-top mendatoryInput">
+																			<div class="nonMandatory" style="width: 1000px;">
+																				<ul class="div_checkbox div_checkbox3"  style="padding-left: 1px;"
+																					id="agencyFunctions_lob_list_mom_1">
+																					<li id="agencyFunctions_lob_list_header_1" style="display: none">
+																						<span class="tableinfoheader" id="block_field_lob_id" width="69" />
+																						<span class="tableinfoheader" id="block_field_lob_desc" />
+																					</li>
+																					<li id="agencyFunctions_lob_list_mom_data_1">
+																						<div id="mom_child_data">
+																							<span id="block_field_lob_id">
+																								<input type="checkbox" id="ajax_field_lob_id" name="lob_id"
+																							onclick="setGetMultiCheckboxValues('ajax_field_lob_id','ajax_field_selected_lob_ids','get');" />
+																							</span>
+																							<span id="block_field_lob_desc" />
+																						</div>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															<li class="inlineBlock_1" id="#lob_id_after#"></li>
+
+															<li class="inlineBlock_1" id="#business_segment_code_before#"></li>
+															<li class="inlineBlock_1" id="agencyFunctions_business_segment_security" >
+																<div class="freeFormList form-group">
+																	<div class="freeFormListTr">
+																		<div class="freeFormListTdError">
+																			<h6>#space#</h6>
+																		</div>
+																		<div class="freeFormListTdError paddingLeft3">
+																			<div id="error_selected_product_ids" class="error"></div>
+																			<div id="ajax_error_selected_product_ids" class="error"></div>
+																		</div>
+																	</div>
+																<div class="freeFormListTr">
+																	<div class="freeFormListTd labelAlign">
+																		<div class="freeFormLabelWidth">
+																			<label id="agencyFunctions_productCheckboxes_label">Product</label>:</div>
+																		</div>
+																		<div class="freeFormListTd align-top mendatoryInput">
+																			<div class="nonMandatory" style="width: 1000px;">
+																				<ul class="div_checkbox div_checkbox3"  style="padding-left: 1px;"
+																					id="agencyFunctions_product_list_mom_1">
+																					<li id="agencyFunctions_product_list_header_1" style="display: none">
+																						<span class="tableinfoheader"
+																						id="block_field_business_segment_code" width="69" />
+																						<span class="tableinfoheader" id="block_field_business_segment_name" />
+																					</li>
+																					<li id="agencyFunctions_product_list_mom_data_1">
+																						<div id="mom_child_data">
+																							<span id="block_field_business_segment_code">
+																								<input type="checkbox"
+																								id="ajax_field_business_segment_code"
+																								name="business_segment_code" onclick="setGetMultiCheckboxValues('ajax_field_business_segment_code','ajax_field_selected_product_ids','get');" />
+																							</span>
+																							<span id="block_field_business_segment_name" />
+																						</div>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															<li class="inlineBlock_1" id="#business_segment_code_after#"></li>
+														</ul>
+														</div>
+															<section class="divButton">
+															<div class="buttonwrapper paddingTop20"
+																id="agencyFunctions_filter_buttons">
+																 <a
+																	id="agencyFunctions_selectFunction_back_ss_link_security"
+																	href="javascript:submitform('carrier/agencyAdminDashboard.html','agencyFunctions_selectFunctionType.back','','');"
+																	class="ovalbutton"> <span
+																	id="agencyFunctions_back_ss_link_label">back</span>
+																</a>
+																<a
+																	id="agencyFunctions_selectFunction_filter_link_security"
+																	fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_selectFunction_filter_link_security.agencyFunctions_selectFunction_filter_link_label.agencyFunctions_selectFunction_filter_link_security"
+																	href="javascript:submitform('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.filter','','');"
+																	class="ovalbutton"> <span
+																	id="agencyFunctions_selectFunction_filter_link_label">Filter</span>
+																</a> <a
+																	id="agencyFunctions_selectFunction_reset_link_security"
+																	fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).agencyFunctions_selectFunction_reset_link_security.agencyFunctions_reset_link_label.agencyFunctions_selectFunction_reset_link_security"
+																	href="javascript:submitform('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.reset','','');"
+																	class="ovalbutton"> <span
+																	id="agencyFunctions_reset_link_label">Reset</span>
+																</a>
+															</div>
+															</section>
+														</div>
+														<div
+															id="agencyFunctions_hidden_filter_values_freeform_contextdata_999">
+															<input type="hidden" name="selectFunctionType_code"
+																fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).selectFunctionType_code_security.selectFunctionType_code_label.selectFunctionType_code"
+																id="ajax_field_selectFunctionType_code" />
+															<input type="hidden" name="isApprovalFlowApplicableForRequest"
+																fullid="agencyFunctions_selectFunctionType_freeform_contextdata_2(agencyFunctions_selection_security.agencyFunctions_selection_header_filters_label).isApprovalFlowApplicableForRequest_security.isApprovalFlowApplicableForRequest_label.isApprovalFlowApplicableForRequest"
+																id="ajax_field_isApprovalFlowApplicableForRequest" />
+														</div>
+													
+												</fieldset>
+												
+
+												</section>
+											</div>
+										</div>
+                                         <div id=is_real_time_securityDiv>
+                                           <div id="agencyFunctions_selectFunctionType_is_real_time_security">
+                                       		<div  class="freeFormListTd"><label id="is_real_time_label" >Is Real Time</label> :</div>
+												<div class="freeFormListTd tdInput" id="MNA_is_real_time_Enable11">
+													<input 	onclick="javascript:ajaxsubmitform('carrier/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.refreshOnRealTime','','','agencyFunction_buttons');" 
+													type="checkbox" name="is_real_time" id="ajax_field_is_real_time" value="1"/>
+											   </div>
+											 </div>
+										  </div>
+										<div id="agencyFunctions_summaryListsDiv">
+											<section class="list-grid">
+											<fieldset class="fieldset_Level_1">
+												<legend id="agencyFunctions_selection_summary_label">Summary
+												</legend>
+
+												<section class="free-form"
+													id="agencyFuntions_agencyLocationWillbeSuspended_security">
+													<div class="text-heading txtbold"
+														id="agencyFunctions_summaryListLabels_freeform_contextdata_1">
+														<label id="agencyFunctions_agencyLocationsList_label"
+															name="agencyFunctions_agencyLocationsList_label">The
+															following agency locations that will be Suspended</label> :
+													</div>
+													<div id="ajax_sorting" class="gridTopPadding4">
+														<div class="table-responsive">
+															<table class="gridTable" border="0" cellpadding="0"
+																cellspacing="0" id="agencyFunctions_summary_list_0"
+																width="100%">
+																<tr id="agencyFunctions_summary_list_header_0">
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_name_security"
+																		class="HeaderStyle" width="10%"><span
+																		id="block_field_agencyLocationWillbeSuspended_name">
+																			<label
+																			id="agencyFunctionListing_agencyLocationWillbeSuspended_name_label">Name</label>
+																	</span></td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_addressline1_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_addressline1">
+																			<label
+																			id="agencyFunctionListing_agencyLocationWillbeSuspended_addressline1_label">Street
+																				Address#1</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_addressline2_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_addressline2">
+																			<label
+																			id="agencyFunctionListing_agencyLocationWillbeSuspended_addressline2_label">Street
+																				Address#2</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_city_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_city">
+																			<label
+																			id="agencyFunctionListing_agencyLocationWillbeSuspended_city_label">City</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_state_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_state">
+																			<label
+																			id="agencyFunctionListing_agencyLocationWillbeSuspended_state_label">State</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_zipCode_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_zipCode">
+																			<label
+																			id="agencyFunctionListing_agencyLocationWillbeSuspended_zipCode_label">Zip
+																				Code</label>
+																	</span>
+																	</td>
+
+																		<td class="HeaderStyle" width="10%"	id="agencyFunctionListing_agencyLocationWillbeSuspended_obj_code_security">
+																				<span id="block_field_agencyLocationWillbeSuspended_obj_code">
+																					<label id="agencyFunctionListing_agencyLocationWillbeSuspended_obj_code_label">National Code</label>
+																			</span>
+																		</td>
+																		
+																		<td class="HeaderStyle" width="10%"	id="agencyFunctionListing_agencyLocationWillbeSuspended_producer_code_security">
+																				<span id="block_field_agencyLocationWillbeSuspended_producer_code">
+																					<label id="agencyFunctionListing_agencyLocationWillbeSuspended_producer_code_label">Location Code</label>
+																			</span>
+																		</td>
+
+																		</tr>
+
+																<tr id="agencyFunctions_summary_list_data_0">
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_name_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_name"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_addressline1_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_addressline1"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_addressline2_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_addressline2"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_city_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_city"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_state_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_state"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyLocationWillbeSuspended_zipCode_security">
+																		<span
+																		id="block_field_agencyLocationWillbeSuspended_zipCode"></span>
+																	</td>
+																	
+																	<td id="agencyFunctionListing_agencyLocationWillbeSuspended_obj_code_security">
+																				<span id="block_field_agencyLocationWillbeSuspended_obj_code"></span>
+																	</td>
+																		
+																	<td id="agencyFunctionListing_agencyLocationWillbeSuspended_producer_code_security">
+																			<span id="block_field_agencyLocationWillbeSuspended_producer_code"></span>
+																	</td>
+																</tr>
+
+															</table>
+														</div>
+													</div>
+												</section>
+
+
+												<section class="free-form" id="agencyFuntions_agencyCodesWillbeSuspended_security">
+													<div class="text-heading txtbold"
+														id="agencyFunctions_summaryListLabels_freeform_contextdata_2">
+														<label id="agencyFunctions_agencyCodesListing_label"
+															name="agencyFunctions_agencyCodesListing_label">The
+															following agency codes that will be Suspended</label> :
+													</div>
+													<div id="ajax_sorting" class="gridTopPadding4">
+														<div class="table-responsive">
+															<table class="gridTable" border="0" cellpadding="0"
+																cellspacing="0" id="agencyFunctions_summary_list_1"
+																width="100%">
+																<tr id="agencyFunctions_summary_list_header_1">
+																	<td
+																		id="agencyFunctionListing_agencyCodesSuspended_producer_number_security"
+																		class="HeaderStyle" width="10%"><span
+																		id="block_field_agencyCodesSuspended_producer_number">
+																			<label
+																			id="agencyFunctionListing_agencyCodesSuspended_producer_number_label">Agency
+																				Code</label>
+																	</span></td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyCodesSuspended_producer_name_security">
+																		<span
+																		id="block_field_agencyCodesSuspended_producer_name">
+																			<label
+																			id="agencyFunctionListing_agencyCodesSuspended_producer_name_label">Agency
+																				Code Description</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyCodesSuspended_producer_status_security">
+																		<span
+																		id="block_field_agencyCodesSuspended_producer_status">
+																			<label
+																			id="agencyFunctionListing_agencyCodesSuspended_producer_status_label">Agency
+																				Code Status</label>
+																	</span>
+																	</td>
+
+																</tr>
+
+																<tr id="agencyFunctions_summary_list_data_1">
+																	<td
+																		id="agencyFunctionListing_agencyCodesSuspended_producer_number_security">
+																		<span
+																		id="block_field_agencyCodesSuspended_producer_number"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyCodesSuspended_producer_name_security">
+																		<span
+																		id="block_field_agencyCodesSuspended_producer_name"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agencyCodesSuspended_producer_status_security">
+																		<span
+																		id="block_field_agencyCodesSuspended_producer_status"></span>
+																	</td>
+
+																</tr>
+
+															</table>
+														</div>
+													</div>
+												</section>
+
+
+
+												<section class="free-form"
+													id="agencyFuntions_newBusinessForOpenMarketsWillbeClosed_security">
+													<div class="text-heading txtbold"
+														id="agencyFunctions_summaryListLabels_freeform_contextdata_3">
+														<label
+															id="agencyFunctions_newBusinessForOpenMarketsList_label"
+															name="agencyFunctions_newBusinessForOpenMarketsList_label">New
+															Business for below open markets will be closed</label> :
+													</div>
+													<div id="ajax_sorting" class="gridTopPadding4">
+														<div class="table-responsive">
+															<div id="agencyFunctions_summary_list_2"></div>
+
+															<!-- <table class="gridTable" border="0" cellpadding="0"
+																cellspacing="0" id="agencyFunctions_summary_list_2"
+																width="100%">
+																<tr id="agencyFunctions_summary_list_header_2">
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_producer_number_security"
+																		class="HeaderStyle" width="10%"><span
+																		id="block_field_closingBusinessForOpenMarkets_producer_number">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_producer_number_label">Agency
+																				Code</label>
+																	</span></td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_state_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_state">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_state_label">State</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_market_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_market">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_market_label">Market</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_company_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_company">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_company_label">Company</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_mco_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_mco">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_mco_label">MCO/NAIC</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_carrier_group_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_carrier_group">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_carrier_group_label">Carrier Group</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_effective_date_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_effective_date">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_effective_date_label">Effective
+																				Date</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_nb_expiration_date_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_nb_expiration_date">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_nb_expiration_date_label">NB
+																				Expiration Date</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_rb_expiration_date_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_rb_expiration_date">
+																			<label
+																			id="agencyFunctionListing_closingBusinessForOpenMarkets_rb_expiration_date_label">RB
+																				Expiration Date</label>
+																	</span>
+																	</td>
+
+																</tr>
+
+																<tr id="agencyFunctions_summary_list_data_2">
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_producer_number_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_producer_number"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_state_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_state"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_market_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_market"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_company_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_company"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_mco_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_mco"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_carrier_group_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_carrier_group"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_effective_date_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_effective_date"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_nb_expiration_date_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_nb_expiration_date"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_closingBusinessForOpenMarkets_rb_expiration_date_security">
+																		<span
+																		id="block_field_closingBusinessForOpenMarkets_rb_expiration_date"></span>
+																	</td>
+
+																</tr>
+
+															</table> -->
+														</div>
+													</div>
+												</section>
+
+
+
+
+												<div id="agencyFuntions_DeactivateContacts_security" class="text-heading txtbold">
+											<label id="agencyFunctions_deactivatedcontactsListing_label">The contact listed below will be deactivated</label> :
+											<div id="ajax_sorting" class="gridTopPadding4">
+												<div class="table-responsive">
+													<table class="gridTable" border="0" cellpadding="0"
+														cellspacing="0" id="agencyFunctions_summary_list_3" width="100%">
+														<tr id="agencyFunctions_summary_list_header_3">
+															<td id="agencyFunctionListing_contactsDeactivated_agent_name_security" class="HeaderStyle" width="10%">
+																<span id="block_field_contactsDeactivated_agent_name">
+																	<label id="agencyFunctionListing_contactsDeactivated_agent_name_label">Contact Name</label>
+																</span>
+															</td>
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_agent_status_security">
+																<span id="block_field_contactsDeactivated_agent_status">
+																	<label id="agencyFunctionListing_contactsDeactivated_agent_status_label">Contact Status</label>
+																</span>
+															</td>
+
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_agency_code_security">
+																<span id="block_field_contactsDeactivated_agency_code">
+																	<label id="agencyFunctionListing_contactsDeactivated_agency_code_label">Agency Code</label>
+																</span>
+															</td>
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_contact_type_security">
+																<span id="block_field_contactsDeactivated_contact_type">
+																	<label id="agencyFunctionListing_contactsDeactivated_contact_type_label">Contact Type</label>
+																</span>
+															</td>
+
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_loginID_security">
+																<span id="block_field_contactsDeactivated_loginID">
+																	<label id="agencyFunctionListing_contactsDeactivated_loginID_label">Login ID</label>
+																</span>
+															</td>
+
+														</tr>
+
+														<tr id="agencyFunctions_summary_list_data_3">
+															<td id="agencyFunctionListing_contactsDeactivated_agent_name_security">
+																<span id="block_field_contactsDeactivated_agent_name"></span>
+															</td>
+															<td id="agencyFunctionListing_contactsDeactivated_agent_status_security">
+																<span id="block_field_contactsDeactivated_agent_status"></span>
+															</td>
+
+															<td id="agencyFunctionListing_contactsDeactivated_agency_code_security">
+																<span id="block_field_contactsDeactivated_agency_code"></span>
+															</td>
+															<td id="agencyFunctionListing_contactsDeactivated_contact_type_security">
+																<span id="block_field_contactsDeactivated_contact_type"></span>
+															</td>
+
+															<td id="agencyFunctionListing_contactsDeactivated_loginID_security">
+																<span id="block_field_contactsDeactivated_loginID"></span>
+															</td>
+
+														</tr>
+
+													</table>
+												</div>
+											</div>
+											</div>
+
+
+												<section class="free-form"
+													id="agencyFuntions_checkbox_DeactivateContacts_security">
+													<div class="text-heading txtbold"
+														id="agencyFunctions_summaryListLabels_freeform_contextdata_4">
+														<label id="agencyFunctions_deactivatedcontactsList_label"
+															name="agencyFunctions_deactivatedcontactsList_label">Select
+															the contacts that will can be Deactivated</label> :
+													</div>
+													<div id="ajax_sorting" class="gridTopPadding4">
+														<div class="table-responsive">
+															<table cellpadding="0" cellspacing="0" width="100%"
+																id="deactivateContactList_mom_list_1">
+
+
+														<tr id="deactivateContactList_mom_list_header_1">
+															<td class="HeaderStyle" width="1%" id="isShowDeactivateContactCheckboxForAgencyFunctions">
+																	<span id="block_field_deactivatePerson_id" /></span>
+															</td>
+															<td id="agencyFunctionListing_contactsDeactivated_agent_name_security" class="HeaderStyle" width="10%">
+																<span id="block_field_contact_fullName">
+																	<label id="agencyFunctionListing_contactsDeactivated_agent_name_label">Contact Name</label>
+																</span>
+															</td>
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_agent_status_security">
+																<span id="block_field_contactsDeactivated_agent_status">
+																	<label id="agencyFunctionListing_contactsDeactivated_agent_status_label">Contact Status</label>
+																</span>
+															</td>
+
+															<!-- <td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_agency_code_security">
+																<span id="block_field_contactsDeactivated_agency_code">
+																	<label id="agencyFunctionListing_contactsDeactivated_agency_code_label">Agency Code</label>
+																</span>
+															</td> -->
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_contact_type_security">
+																<span id="block_field_contactsDeactivated_contact_type">
+																	<label id="agencyFunctionListing_contactsDeactivated_contact_type_label">Contact Type</label>
+																</span>
+															</td>
+
+															<td  class="HeaderStyle" width="10%" id="agencyFunctionListing_contactsDeactivated_loginID_security">
+																<span id="block_field_contactsDeactivated_loginID">
+																	<label id="agencyFunctionListing_contactsDeactivated_loginID_label">Login ID</label>
+																</span>
+															</td>
+
+														</tr>
+														<tr id="deactivateContactList_mom_list_mom_data_1">
+															<td id="isShowDeactivateContactCheckboxForAgencyFunctions">
+																	<span
+																		id="block_field_deactivatePerson_id"> <input
+																			type="checkbox" id="ajax_field_deactivatePerson_id"
+																			name="deactivatePerson_id"
+																			onclick="javascript:getSelectedDeactivatePersonIdList();"
+																			onchange="javascript:ajaxpageblocklink('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.refreshDivBasedOnSelectedContact','','','agentAppointmentRefreshDiv');"/>
+																	</span>
+															</td>
+															<td id="agencyFunctionListing_contactsDeactivated_agent_name_security">
+																<span id="block_field_contact_fullName"></span>
+															</td>
+															<td id="agencyFunctionListing_contactsDeactivated_agent_status_security">
+																<span id="block_field_contactsDeactivated_agent_status"></span>
+															</td>
+
+															<!-- <td id="agencyFunctionListing_contactsDeactivated_agency_code_security">
+																<span id="block_field_contactsDeactivated_agency_code"></span>
+															</td> -->
+															<td id="agencyFunctionListing_contactsDeactivated_contact_type_security">
+																<span id="block_field_contactsDeactivated_contact_type"></span>
+															</td>
+
+															<td id="agencyFunctionListing_contactsDeactivated_loginID_security">
+																<span id="block_field_contactsDeactivated_loginID"></span>
+															</td>
+
+														</tr>
+
+
+																<!-- <tr id="deactivateContactList_mom_list_header_1">
+																	<td class="tableinfoheader" id="isShowDeactivateContactCheckboxForAgencyFunctions">
+																	<span id="block_field_deactivatePerson_id" /></span>
+																	</td>
+																	<td class="tableinfoheader"
+																		id="block_field_contact_fullName" width="69" />
+
+																</tr>
+																<tr id="deactivateContactList_mom_list_mom_data_1">
+																	<td width="10" id="isShowDeactivateContactCheckboxForAgencyFunctions"><span
+																		id="block_field_deactivatePerson_id"> <input
+																			type="checkbox" id="deactivatePerson_id"
+																			name="deactivatePerson_id" />
+																	</span></td>
+																	<td id="block_field_contact_fullName" />
+
+																</tr> -->
+															</table>
+														</div>
+													</div>
+												</section>
+
+
+												<section class="free-form"
+													id="agencyFuntions_TerminatedAgentAppointments_security">
+													<div class="text-heading txtbold"
+														id="agencyFunctions_summaryListLabels_freeform_contextdata_5">
+														<label id="agencyFunctions_agentAppointmentsList_label"
+															name="agencyFunctions_agentAppointmentsList_label">The
+															appointments for below contacts will be Terminated</label> :
+													</div>
+													<div id="ajax_sorting" class="gridTopPadding4">
+														<div class="table-responsive" id="agentAppointmentRefreshDiv">
+
+
+														<div
+															id="agencyFunctions_deactivateAgents_csv_freeform_contextdata_999">
+															<input type="hidden" name="deactivateAgents_csv" id="ajax_field_deactivateAgents_csv" />
+
+														</div>
+
+
+
+															<table class="gridTable" border="0" cellpadding="0"
+																cellspacing="0" id="agencyFunctions_summary_list_4"
+																width="100%">
+																<tr id="agencyFunctions_summary_list_header_4">
+																	<td
+																		id="agencyFunctionListing_agentAppointment_agent_name_security"
+																		class="HeaderStyle" width="10%"><span
+																		id="block_field_agentAppointment_agent_name"> <label
+																			id="agencyFunctionListing_agentAppointment_agent_name_label">Agent
+																				Name</label>
+																	</span></td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_state_security">
+																		<span id="block_field_agentAppointment_state">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_state_label">State</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_company_security">
+																		<span id="block_field_agentAppointment_company">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_company_label">Company</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_authorizer_security">
+																		<span id="block_field_agentAppointment_authorizer">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_authorizer_label">Authorizer</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_licenseNumber_security">
+																		<span id="block_field_agentAppointment_licenseNumber">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_licenseNumber_label">License
+																				Number</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_appointClass_security">
+																		<span id="block_field_agentAppointment_appointClass">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_appointClass_label">Appoint
+																				Class</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_appointLOA_security">
+																		<span id="block_field_agentAppointment_appointLOA">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_appointLOA_label">Appoint
+																				LOA</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agentAppointment_authorizeDate_security">
+																		<span id="block_field_agentAppointment_authorizeDate">
+																			<label
+																			id="agencyFunctionListing_agentAppointment_authorizeDate_label">Appoint/Authorize
+																				Date</label>
+																	</span>
+																	</td>
+
+																</tr>
+
+																<tr id="agencyFunctions_summary_list_data_4">
+																	<td
+																		id="agencyFunctionListing_agentAppointment_agent_name_security">
+																		<span id="block_field_agentAppointment_agent_name"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agentAppointment_state_security">
+																		<span id="block_field_agentAppointment_state"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agentAppointment_company_security">
+																		<span id="block_field_agentAppointment_company"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agentAppointment_authorizer_security">
+																		<span id="block_field_agentAppointment_authorizer"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agentAppointment_licenseNumber_security">
+																		<span id="block_field_agentAppointment_licenseNumber"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agentAppointment_appointClass_security">
+																		<span id="block_field_agentAppointment_appointClass"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agentAppointment_appointLOA_security">
+																		<span id="block_field_agentAppointment_appointLOA"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agentAppointment_authorizeDate_security">
+																		<span id="block_field_agentAppointment_authorizeDate"></span>
+																	</td>
+
+																</tr>
+
+															</table>
+														</div>
+													</div>
+												</section>
+
+
+												<section class="free-form"
+													id="agencyFuntions_TerminatedAgencyAppointments_security">
+													<div class="text-heading txtbold"
+														id="agencyFunctions_summaryListLabels_freeform_contextdata_6">
+														<label id="agencyFunctions_agencyAppointmentsList_label"
+															name="agencyFunctions_agencyAppointmentsList_label">The
+															below Agency Appointments will be Terminated</label> :
+													</div>
+													<div id="ajax_sorting" class="gridTopPadding4">
+														<div class="table-responsive">
+															<table class="gridTable" border="0" cellpadding="0"
+																cellspacing="0" id="agencyFunctions_summary_list_5"
+																width="100%">
+																<tr id="agencyFunctions_summary_list_header_5">
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_agency_name_security"
+																		class="HeaderStyle" width="10%"><span
+																		id="block_field_agencyAppointment_agency_name">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_agency_name_label">Agency
+																				Name</label>
+																	</span></td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_state_security">
+																		<span id="block_field_agencyAppointment_state">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_state_label">State</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_company_security">
+																		<span id="block_field_agencyAppointment_company">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_company_label">Company</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_authorizer_security">
+																		<span id="block_field_agencyAppointment_authorizer">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_authorizer_label">Authorizer</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_licenseNumber_security">
+																		<span id="block_field_agencyAppointment_licenseNumber">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_licenseNumber_label">License
+																				Number</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_appointClass_security">
+																		<span id="block_field_agencyAppointment_appointClass">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_appointClass_label">Appoint
+																				Class</label>
+																	</span>
+																	</td>
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_appointLOA_security">
+																		<span id="block_field_agencyAppointment_appointLOA">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_appointLOA_label">Appoint
+																				LOA</label>
+																	</span>
+																	</td>
+
+																	<td class="HeaderStyle" width="10%"
+																		id="agencyFunctionListing_agencyAppointment_authorizeDate_security">
+																		<span id="block_field_agencyAppointment_authorizeDate">
+																			<label
+																			id="agencyFunctionListing_agencyAppointment_authorizeDate_label">Appoint/Authorize
+																				Date</label>
+																	</span>
+																	</td>
+
+																</tr>
+
+																<tr id="agencyFunctions_summary_list_data_5">
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_agency_name_security">
+																		<span id="block_field_agencyAppointment_agency_name"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_state_security">
+																		<span id="block_field_agencyAppointment_state"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_company_security">
+																		<span id="block_field_agencyAppointment_company"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_authorizer_security">
+																		<span id="block_field_agencyAppointment_authorizer"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_licenseNumber_security">
+																		<span id="block_field_agencyAppointment_licenseNumber"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_appointClass_security">
+																		<span id="block_field_agencyAppointment_appointClass"></span>
+																	</td>
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_appointLOA_security">
+																		<span id="block_field_agencyAppointment_appointLOA"></span>
+																	</td>
+
+																	<td
+																		id="agencyFunctionListing_agencyAppointment_authorizeDate_security">
+																		<span id="block_field_agencyAppointment_authorizeDate"></span>
+																	</td>
+
+																</tr>
+
+															</table>
+														</div>
+													</div>
+												</section>
+												<div id="agencyFuntions_letterTemplateList_security">
+
+											<div id="ajax_error_selectedTemplateType" class="error" align="center" />
+											<div id="error_selectedTemplateType" class="error" align="center" />
+											<div class="text-heading txtbold mendatoryInput">
+												&nbsp;<label id="agencyFunctions_letterTemplateList_label">Select Letter Template</label>
+											</div>
+											<div id="ajax_sorting_15" class="gridTopPadding4">
+												<div class="table-responsive">
+													<table class="gridTable" border="0" cellpadding="0"
+														cellspacing="0" id="agencyFunctions_letterTemplate_list_1" width="100%">
+														<tr id="agencyFunctions_letterTemplate_list_header_1">
+															<td id="agencyFunctionsLetterTemplateListing_template_id_security" class="HeaderStyle" width="1%">
+																<span id="block_field_contract_template_type_code"></span>
+															</td>
+															<td id="agencyFunctionsLetterTemplateListing_templateDescription_security" class="HeaderStyle">
+																<span id="block_field_templateDescription">
+																	<label id="agencyFunctions_template_label">Template</label>
+
+																</span>
+															</td>
+															<td id="agencyFunctionsLetterTemplateListing_templateName_security" class="HeaderStyle" >
+																<span id="block_field_templateName"></span>
+															</td>
+														</tr>
+														<tr id="agencyFunctions_letterTemplate_list_mom_data_1">
+															<td width="10" id="agencyFunctionsLetterTemplateListing_template_id_security">
+                                                     			<span id="block_field_contract_template_type_code">
+                                                      				<input type="checkbox" id="ajax_field_contract_template_type_code" name="contract_template_type_code"
+                                                      					onclick="javascript:setGetMultiCheckboxValues('ajax_field_contract_template_type_code','ajax_field_selectedTemplateType','get');"
+                                                      				/>
+                                                    			</span>
+                                                  			</td>
+                                                  			<td id="agencyFunctionsLetterTemplateListing_templateDescription_security">
+																<span id="block_field_templateDescription"></span>
+															</td>
+															<td id="agencyFunctionsLetterTemplateListing_templateName_security">
+																<span id="block_field_templateName">
+																	<input type="hidden" id="ajax_field_templateName" name="templateName" />
+																</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											</div>
+											<div id="error_agencyFunctionsDocumentUploadError" name="error_agencyFunctionsDocumentUploadError" class="error" align="center"></div>
+											<div id="agencyFuntions_documentAttachment_security">
+												<div id="attachmentDivContentStart" />
+													<div id="attachmentDiv">
+														<span id="#Include:carrier/uploadDocument.html#" />
+													</div>
+												<div id="attachmentDivContentEnd" />
+											</div>
+											</fieldset>
+											</section>
+										</div>
+										<section class="divButton" id="agencyFunction_buttons">
+											<div class="buttonwrapper" id="agencyfunctions_summaryList_buttons">
+												<a id="agencyFunctions_Back_link_security"
+												fullid="page(page.page).agencyFunctions_Back_link_security.agencyFunctions_Back_link_label.agencyFunctions_Back_link_security"
+													href="javascript:submitform('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.agencyFunctionBack','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_Back_link_label">Back</span>
+												</a>
+												<a id="agencyFunctions_generateLetter_link_security"
+												fullid="page(page.page).agencyFunctions_generateLetter_link_security.agencyFunctions_generateLetter_link_label.agencyFunctions_generateLetter_link_security"
+													onclick="javascript:getSelectedDeactivatePersonIdList();"
+													href="javascript:submitform('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.generateLetter','','');"
+													class="ovalbutton">
+													<span id="agencyFunctions_generateLetter_link_label">Generate Letter</span>
+												</a>
+												<!-- <span class="text-heading txtbold" id="agencyFunctions_approvebuttonlabel_freeform_contextdata_6">
+													<a id="agencyFunctions_SubmitForApproval_link_security"
+														onclick="javascript:getSelectedDeactivatePersonIdList();"
+														href="javascript:ajaxsubmitform('admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.showEffectiveDatePopup','','','agencyFunctionDivComplete');"
+														class="ovalbutton">
+														<label id="agencyFunctions_SubmitForApproval_link_label" name="agencyFunctions_SubmitForApproval_link_label">Submit
+															For Approval</label>
+													</a>
+												</span> -->
+												<a id="agencyFunctions_selectFunctionType_save_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_save_security.agencyFunctions_selectFunctionType_save_label.agencyFunctions_selectFunctionType_save_security"
+													onclick="javascript:getSelectedDeactivatePersonIdList();"
+													href="javascript:submitform('admin/agencyFunctions.html|admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.save','forwardeval','AgencyFunctionsRule.isAgencyFunctionNotInWorkFlowList|AgencyFunctionsRule.isAgencyFunctionInWorkFlowList');"
+													class="ovalbutton">
+													<span id="agencyFunctions_selectFunctionType_save_label">Save</span>
+												</a>
+												<a id="agencyFunctions_selectFunctionType_save_security_on_real_time"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_save_security.agencyFunctions_selectFunctionType_save_label.agencyFunctions_selectFunctionType_save_security"
+													onclick="javascript:getSelectedDeactivatePersonIdList();"
+													href="javascript:submitform('admin/agencyFunctions.html|admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.save','forwardeval','AgencyFunctionsRule.isAgencyFunctionNotInWorkFlowList|AgencyFunctionsRule.isAgencyFunctionInWorkFlowList');"
+													class="ovalbutton">
+													<span id="agencyFunctions_selectFunctionType_save_label">Save</span>
+												</a>
+												<a id="agencyFunctions_selectFunctionType_modify_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_modify_security.agencyFunctions_selectFunctionType_modify_label.agencyFunctions_selectFunctionType_modify_security"
+													onclick="javascript:getSelectedDeactivatePersonIdList();"
+													href="javascript:submitform('admin/agencyFunctions.html|admin/agencyFunctions_selectFunctionType.html','agencyFunctions_selectFunctionType.modify','forwardeval','AgencyFunctionsRule.isAgencyFunctionNotInWorkFlowList|AgencyFunctionsRule.isAgencyFunctionInWorkFlowList');"
+													class="ovalbutton">
+													<span id="agencyFunctions_selectFunctionType_modify_label">Modify</span>
+												</a>
+												<a id="agencyFunctions_selectFunctionType_sendforapproval_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_sendforapproval_security.agencyFunctions_selectFunctionType_sendforapprovallabel.agencyFunctions_selectFunctionType_sendforapproval_security"
+													href="javascript:submitform('carrier/workflowPopup.html','agencyFunctions_selectFunctionType.sendForApprovalAgencyFunction','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_selectFunctionType_sendforapprovallabel">Send For Approval</span>
+												</a>
+												<!-- BMIC Req. change request -->
+												<a id="agencyFunctions_selectFunctionType_complete_transaction_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_complete_transaction_security.agencyFunctions_selectFunctionType_complete_transaction_label.agencyFunctions_selectFunctionType_complete_transaction_security"
+													href="javascript:submitform('admin/agencyFunctions.html','agencyFunctions_selectFunctionType.completeTransactionDeactivateContact','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_selectFunctionType_complete_transaction_label">Complete Transaction</span>
+												</a>
+												<!-- end BIC Req. change request -->
+												<a id="agencyFunctions_selectFunctionType_approve_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_approve_security.agencyFunctions_selectFunctionType_sendforapprovallabel.agencyFunctions_selectFunctionType_approve_security"
+													href="javascript:submitform('carrier/workflowPopup.html','agencyFunctions_selectFunctionType.approveAgencyFunction','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_selectFunctionType_approvelabel">Approve</span>
+												</a>
+												<a id="agencyFunctions_selectFunctionType_disapprove_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_disapprove_security.agencyFunctions_selectFunctionType_disapprovelabel.agencyFunctions_selectFunctionType_disapprove_security"
+													href="javascript:submitform('carrier/workflowPopup.html','agencyFunctions_selectFunctionType.disApproveAgencyFunction','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_selectFunctionType_disapprovelabel">Disapprove</span>
+												</a>
+												<a id="agencyFunctions_selectFunctionType_decline_security"
+												fullid="page(page.page).agencyFunctions_selectFunctionType_decline_security.agencyFunctions_selectFunctionType_declinelabel.agencyFunctions_selectFunctionType_decline_security"
+													href="javascript:submitform('carrier/workflowPopup.html','agencyFunctions_selectFunctionType.declineAgencyFunction','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_selectFunctionType_declinelabel">Decline</span>
+												</a>
+												<a id="agencyFunctions_Cancel_link_security"
+												fullid="page(page.page).agencyFunctions_Cancel_link_security.agencyFunctions_Cancel_link_label.agencyFunctions_Cancel_link_security"
+													href="javascript:submitform('admin/agencyFunctions.html','agencyFunctions_selectFunctionType.agencyFunctionCancel','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_Cancel_link_label">Cancel</span>
+												</a>
+											</div>
+											<div class="buttonwrapper">
+												<a id="agencyFunctions_Approve_link_security"
+												fullid="page(page.page).agencyFunctions_Approve_link_security.agencyFunctions_Approve_link_label.agencyFunctions_Approve_link_security"
+													href="javascript:submitform('carrier/homeAction.html','agencyFunctions_selectFunctionType.approveAgencyFunctionRequest','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_Approve_link_label">Approve</span>
+												</a>
+												<a id="agencyFunctions_Disapprove_link_security"
+													fullid="page(page.page).agencyFunctions_Disapprove_link_security.agencyFunctions_disApprove_link_label.agencyFunctions_Disapprove_link_security"
+													href="javascript:submitform('carrier/homeAction.html','agencyFunctions_selectFunctionType.disapproveAgencyFunctionRequest','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_disApprove_link_label">Disapprove</span>
+												</a>
+												<a id="agencyFunctions_decline_link_security"
+												fullid="page(page.page).agencyFunctions_decline_link_security.agencyFunctions_selectFunctionType_declinelabel.agencyFunctions_decline_link_security"
+													href="javascript:submitform('carrier/workflowPopup.html','agencyFunctions_selectFunctionType.declineAgencyFunction','','');"
+													class="ovalbutton"> <span
+													id="agencyFunctions_selectFunctionType_declinelabel">Decline</span>
+												</a>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!---------Body content End----------> <!---------Sidebar Start---------->
+						<div id="sidebar_right_security_admin" class="sideBar_admin">
+							<span id="#Include:admin/adminSideBarRight.html#"></span>
+						</div>
+						<!---------Sidebar End----------> </article>
+					</div>
+					<!---------Footer Start---------->
+					<footer> <span id="#Include:admin/adminFooter.html#"></span>
+					</footer>
+					<!---------Footer End---------->
+				</div>
+			</div>
+		</div>
+		<div id="agencyFunctions_freeform_contextdata_999">
+			<input type="hidden" name="inet_eventid" id="ajax_field_inet_eventid"/>
+			<input type="hidden" name="jsessionid" id="jsessionid" />
+			<input type="hidden" name="filterInputXml" id="ajax_field_filterInputXml" />
+			<input type="hidden" name="request_ss_id" id="ajax_field_request_ss_id" />
+			<input type="hidden" name="htmlSource" id="htmlSource" />
+			<input type="hidden" name="isShowWarningForSelectedAgent" id="isShowWarningForSelectedAgent" />
+			<input type="hidden" name="selectedTemplateType" id="ajax_field_selectedTemplateType" />
+			<input type="hidden" name="templateTypeListSize" id="ajax_field_templateTypeListSize" />
+			<input type="hidden" name="isApprovalFlowApplicableForRequest" id="ajax_field_isApprovalFlowApplicableForRequest" />
+			<input type="hidden" name="selected_state_ids" id="ajax_field_selected_state_ids" />
+			<input type="hidden" name="selected_lob_ids" id="ajax_field_selected_lob_ids" />
+			<input type="hidden" name="selected_product_ids" id="ajax_field_selected_product_ids" />
+			<input type="hidden" name="termination_log_id" id="ajax_field_termination_log_id" />
+			<input type="hidden" name="request_type_str" id="ajax_field_request_type_str" />
+            <input type="hidden" name="Status" id="ajax_field_Status" />
+            <input type="hidden" name="status" id="ajax_field_status" />
+            <input type="hidden" name="assigned_to" id="ajax_field_assigned_to" />
+            <input type="hidden" name="agency_id" id="ajax_field_agency_id" />
+            <input type="hidden" name="object_type_desc" id="ajax_field_object_type_desc" />
+			<input type="hidden" name="iscomingFromAgencyAdminDashboard" id="ajax_field_iscomingFromAgencyAdminDashboard" />
+		</div>
+	</form>
+</body>
+</html>
+

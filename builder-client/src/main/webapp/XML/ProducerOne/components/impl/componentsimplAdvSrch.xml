@@ -1,0 +1,1086 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="advanceSearchIncentive;advanceSearchCommission;advanceSearchProducerNumber;advanceSearchEntity;probation_reason_lku;state_lku;country_lku;county_lku;profit_center_lku;carriercompanies_lku;business_segment;agency_notepad;license_reason_lku;authorised_status_lku;noteuid_list;productCompanyStateLOBMapping;crossReferenceAdvanceSearch;agencyDetailAdvanceSearch;agencyContractsAdvanceSearch" 
+  	name="advanceSearch" stackdisplayname="Advanced Search" displayname="Advanced Search">
+    <action name="getCommissionSearchData">
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="11"/>
+      <actionparam eval="ProducerOneRule.validateDataForCommissionSearch" executionsequence="0" form="Y" name="validateDataForCommissionSearch" paramid="validateDataForCommissionSearch" pre="Y" session="Y"/>
+    </action>
+    <action name="deleteSavedSearch">
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" pre="Y" viewparam="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="pageupdated2" paramid="pageupdated2" post="Y" val="ProducerOneRule.isPageDeleteMsg"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,search_id" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isAdvance" paramid="isAdvance" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="deleteSavedSearch" seq="0">
+        <storedprocedureoperation dbspname="DeleteSavedSearch_p" executionsequence="4" id="DeleteSavedSearch_p" metaobject="person" name="DeleteSavedSearch_p" operation="2">
+          <parameteroperation indexno="1" mode="IN" property="search_id" seq="1"/>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+    <action name="searchByEntityName">
+      <actionparam executionsequence="0" form="Y" name="default_is_include_location_value" paramid="default_is_include_location_value" populatename="is_include_location" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="order" paramid="order" pre="Y" session="Y" val="asc"/>
+      <actionparam executionsequence="0" form="Y" name="is_active" paramid="is_active" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByEntityNameAdvance" paramid="searchByEntityNameAdvance34343" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="zip" paramid="zip" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="system_code" paramid="system_code" populatename="agency_system_code" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_prdcrtype_id" paramid="adv_prdcrtype_id" pre="Y" session="Y"/>
+      <actionparam eval="advanceSearchRule.removeHyphenFromTaxId" executionsequence="0" form="Y" name="tax_id" paramid="tax_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="program_name" paramid="program_name" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_home_office_flag" paramid="adv_home_office_flag" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_marketingrep_id" paramid="entity_marketingrep_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_zone_code" paramid="entity_zone_code" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_industry_classification_id" paramid="entity_industry_classification_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <actionparam eval="ProducerOneRule.removeAmountFormatTotalAnnualPremium" executionsequence="0" form="Y" name="total_annual_premium" paramid="total_annual_premium" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField12" post="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="national_cde" paramid="national_cde" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isClientId1012" executionsequence="8" form="Y" name="recordsperpage" paramid="recordsperpage99" pre="Y" val="50" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isNotClientId1012" executionsequence="7" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_rb_expiration_date_from" paramid="entity_rb_expiration_date_from" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_carrier_id" paramid="entity_carrier_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_is_employee" paramid="adv_is_employee" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="county_id" paramid="county_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_agency_comparativerate" paramid="adv_agency_comparativerate" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_rb_expiration_date_to" paramid="entity_rb_expiration_date_to" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_entity_type" paramid="adv_entity_type" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_prdcrtype" paramid="adv_prdcrtype" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="country_code" paramid="country_code" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="national_code" paramid="national_code" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_other_agency_comparativerate" paramid="adv_other_agency_comparativerate" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id" pre="Y" remove="Y" removeparams="agency_id" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="npn" paramid="npn" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByEntityNameAdvance" paramid="searchByEntityNameAdvance" populatename="name" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_lob_id" paramid="entity_lob_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="sortexpression" paramid="sortexpression" pre="Y" session="Y" val="name"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_operator_id" paramid="entity_operator_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_agency_lead_gen_in" paramid="adv_agency_lead_gen_in" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="state_id" paramid="state_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agency_address_type" paramid="advanceSearch_agency_address_type" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="city" paramid="city" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="carrier_grp" paramid="carrier_grp" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearchNPN" paramid="advanceSearchNPN" post="Y" session="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" pre="Y" val="Agency" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="w9_legal_name" paramid="w9_legal_name12" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_team_id" paramid="entity_team_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="addressline2" paramid="addressline2" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_domicile_state" paramid="adv_domicile_state" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="is_mailing" paramid="is_mailing" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isShowProducerDetailonAdvanceSearchResult" executionsequence="0" form="Y" name="hide_show" paramid="hide_show" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" pre="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_nb_expiration_date_from" paramid="entity_nb_expiration_date_from" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="new_pdb_report_id" paramid="new_pdb_report_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_nb_expiration_date_to" paramid="entity_nb_expiration_date_to" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="is_business" paramid="is_business" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_agency_management" paramid="adv_agency_management" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_agency_sales_tax_certificate_nr" paramid="adv_agency_sales_tax_certificate_nr" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="tax_id" paramid="tax_id1" populatename="agency_tax_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entity_business_segment_code" paramid="entity_business_segment_code" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="county" paramid="county" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_dba" paramid="adv_dba" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_isdbaregistered" paramid="adv_isdbaregistered" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="addressline1" paramid="addressline1" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="is_residence" paramid="is_residence" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adv_agency_association_selected" paramid="adv_agency_association_selected" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_adv_search_orgainzation_type_id" paramid="agency_adv_search_orgainzation_type_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_adv_search_position_type_prodOrgMapping" paramid="agency_adv_search_position_type_prodOrgMapping" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_adv_search_position_prodOrgMapping" paramid="agency_adv_search_position_prodOrgMapping" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_adv_search_position_manager_id_prodOrgMapping" paramid="agency_adv_search_position_manager_id_prodOrgMapping" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="social_media_userid" paramid="social_media_userid" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="social_media_site" paramid="social_media_site" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="name_NIPR" paramid="name_NIPR" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="exclude_subproducer" paramid="exclude_subproducer" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_email_category" paramid="advanceSearch_email_category" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_lob" paramid="agency_lob" pre="Y" session="Y"/>
+      
+      <workflow name="searchByEntityName" seq="0">
+        <businessobject executionsequence="2" name="cleanCarrierSessionData" obj="com.userbo.common.CarrierSessionDataCleanBO"/>
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+      </workflow>
+      
+      <actionparam executionsequence="5" form="Y" name="state_id" paramid="state_id_filter" populatename="state_filter" post="Y"/>
+      <actionparam executionsequence="6" form="Y" name="advanceSearch_agency_address_type" paramid="advanceSearch_agency_address_type_filter" populatename="address_type" post="Y"/>
+      <actionparam eval="advanceSearchRule.isBusinessAddressChecked" executionsequence="6" form="Y" name="address_type" paramid="address_type_filter" post="Y" val="1"/>
+      <actionparam eval="advanceSearchRule.isMailingAddressChecked" executionsequence="7" form="Y" name="address_type" paramid="address_type_filter" post="Y" val="3"/>
+    </action>
+    <action name="refreshState">
+      <actionparam executionsequence="0" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isAdvance" paramid="isAdvance" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="refreshState" seq="0"/>
+      <actionparam executionsequence="3" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y" />
+    </action>
+    <action name="getAgencyListForNoteSearch">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyListForNoteSearch" seq="0">
+	       <!--  <databaseoperation name="gettop10ListNoteSearch" 
+	        eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+	        viewid="ajaxxmlname_notepadname" 
+	        sqlstmt="select distinct top 10 name  from agency_master where name like #notepadname# + '%'        
+	        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and 
+	        isnull(is_hidden,0) != 1          
+	        order by name asc" metaobject="agency_master" 
+	        operation="5" executionsequence="2" /> -->
+	        
+	         <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:notepadname);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext6"/>
+	        
+	         <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p6" metaobject="agency_master" name="gettop10AgencyList_p6" operation="5" viewid="ajaxxmlname_notepadname">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	           <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	           <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	           <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	           <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	           <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+	        
+      </workflow>
+    </action>
+    <action name="cancel"/>
+    <action name="refreshCounty">
+      <actionparam executionsequence="0" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isAdvance" paramid="isAdvance" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="state_id" paramid="state_id" populatename="stateID" pre="Y"/>
+      <workflow name="refreshCounty" seq="0"/>
+      <actionparam executionsequence="3" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y" />
+    </action>
+    <action name="getAgencyListForIncentiveSearch">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyListForIncentiveSearch" seq="0">
+       
+       <!--  <databaseoperation name="gettop10AgencyListForIncentiveSearch1" 
+        eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+        viewid="ajaxxmlname_entityNameForIncentiveSearch" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like #entityNameForIncentiveSearch# + '%'        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1          order by name asc" 
+        metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+        <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:entityNameForIncentiveSearch);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext3"/>
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p8" metaobject="agency_master" name="gettop10AgencyList_p8" operation="5" viewid="ajaxxmlname_entityNameForIncentiveSearch">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        <!-- <databaseoperation name="gettop10AgencyListForIncentiveSearch" 
+        eval="ProducerOneRule.hideProducerCodeInBannerSearch" 
+        viewid="ajaxxmlname_entityNameForIncentiveSearch" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like '%' +#
+        entityNameForIncentiveSearch# + '%'        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1          and isnull(is_active,0)!=3 order by name asc" 
+        metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+         <function eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="3" expression="assign(:inputData,:entityNameForIncentiveSearch);assign(:isContainOrLikeSearch,Contains);assign(:isShowPendIngAgency,Y);" name="assignDataInContext15"/>
+         
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="4" id="gettop10AgencyList_p11" metaobject="agency_master" name="gettop10AgencyList_p11" operation="5" viewid="ajaxxmlname_entityNameForIncentiveSearch">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        
+      </workflow>
+    </action>
+    <action name="getAgencyListForCrossReference">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyListForCrossReference" seq="0">
+       <!--  <databaseoperation name="gettop10ListForCrossReference" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+        viewid="ajaxxmlname_searchByEntityNameCrossReference" 
+        	sqlstmt="select distinct top 10 name  from agency_master where name like #searchByEntityNameCrossReference# + '%'        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1          
+        	order by name asc" metaobject="agency_master" operation="5" executionsequence="2" />
+        	
+        	 -->
+        	 
+        	 <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:searchByEntityNameCrossReference);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext3"/>
+        	 
+        	<storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p12" metaobject="agency_master" name="gettop10AgencyList_p12" operation="5" viewid="ajaxxmlname_searchByEntityNameCrossReference">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        	
+      </workflow>
+    </action>
+    <action name="getAgencyListForCommissionSearch">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyListForCommissionSearch" seq="0">
+      
+        <!-- <databaseoperation name="gettop10AgencyListForCommissionSearch" eval="ProducerOneRule.hideProducerCodeInBannerSearch" 
+        viewid="ajaxxmlname_entityNameForCommissionSearch" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like '%' +#entityNameForCommissionSearch# + '%'  
+              and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1    
+                    and isnull(is_active,0)!=3 order by name asc" metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+        <function eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="0" expression="assign(:inputData,:entityNameForCommissionSearch);assign(:isContainOrLikeSearch,Contain);assign(:isShowPendIngAgency,Y);" name="assignDataInContext1"/>
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="2" id="gettop10AgencyList_p" metaobject="agency_master" name="gettop10AgencyList_p" operation="5" viewid="ajaxxmlname_entityNameForCommissionSearch">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+        <!-- <databaseoperation name="gettop10AgencyListForCommissionSearch1" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+        viewid="ajaxxmlname_entityNameForCommissionSearch" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like #entityNameForCommissionSearch# + '%'      
+          and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1      
+               order by name asc" metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+         <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="3" expression="assign(:inputData,:entityNameForCommissionSearch);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext2"/>
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="4" id="gettop10AgencyList_p" metaobject="agency_master" name="gettop10AgencyList_p1" operation="5" viewid="ajaxxmlname_entityNameForCommissionSearch">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+        
+      </workflow>
+    </action>
+    <action name="refreshUnderWriterCompany">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    </action>
+    <action name="getAgencyListForProducer">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyListForProducer" seq="0">
+       <!--  <databaseoperation name="gettop10ListForProducer" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+        viewid="ajaxxmlname_producersearchentitynameAdvance" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like #producersearchentitynameAdvance# + '%'      
+         and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1       
+           order by name asc" metaobject="agency_master" operation="5" executionsequence="2" /> -->
+           
+             <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:producersearchentitynameAdvance);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext3"/>
+           
+           <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p4" metaobject="agency_master" name="gettop10AgencyList_p4" operation="5" viewid="ajaxxmlname_producersearchentitynameAdvance">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+	        
+          
+      </workflow>
+    </action>
+    <action name="searchByProdNumber">
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_dba" paramid="producersearch_dba43434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_name" paramid="producersearch_name5656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearchentitynameAdvance" paramid="producersearchentitynameAdvance687888" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="profit_center_code" paramid="profit_center_code656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchtype" paramid="searchtype" pre="Y" session="Y" val="advance"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_probation_termination_date_from" paramid="producersearch_probation_termination_date_from3434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="business_segment_code" paramid="business_segment_code656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_expire_new_date_from" paramid="producersearch_expire_new_date_from6565" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_npn" paramid="producersearch_npn656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.checkHideShowFlagToBeSendOnAdvanceProducerSearch" executionsequence="0" form="Y" name="hide_show" paramid="hide_show" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="probation_reason_id" paramid="probation_reason_id343" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isClientId1012" executionsequence="8" form="Y" name="recordsperpage" paramid="recordsperpage99" pre="Y" val="50" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isNotClientId1012" executionsequence="7" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_system_code" paramid="producersearch_system_code56" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_producer_num_status" paramid="producersearch_producer_num_status5656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="prodNumber" paramid="prodNumber43434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="team_id" paramid="team_id22" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_probation_termination_date_to" paramid="producersearch_probation_termination_date_to434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_probation_effective_date_from" paramid="producersearch_probation_effective_date_from434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_expire_renew_date_from" paramid="producersearch_expire_renew_date_from343" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="branch_id" paramid="branch_id43" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_no_eo_req" paramid="producersearch_no_eo_req565" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="operating_company_id" paramid="operating_company_id11" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_classification_code_id" paramid="producersearch_classification_code_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_probation_effective_date_to" paramid="producersearch_probation_effective_date_to434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="assigned_administrator" paramid="assigned_administrator" pre="Y" session="Y" val="0"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_effective_date_from" paramid="producersearch_effective_date_from656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_tax_id" paramid="producersearch_tax_id6565" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="lau_id" paramid="lau_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_surplus_indicator" paramid="producersearch_surplus_indicator656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producer_state_id" paramid="producer_state_id656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="ProducerNumber" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="tier_info_id" paramid="tier_info_id34" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField123" val="3" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_producer_name" paramid="producersearch_producer_name656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="csr_id_search" paramid="csr_id_search656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_effective_date_to" paramid="producersearch_effective_date_to656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="lob_id" paramid="lob_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="underwriter_company_id" paramid="underwriter_company_id77" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="adminsearch" paramid="adminsearch43434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_expire_renew_date_to" paramid="producersearch_expire_renew_date_to343" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="previous_producer_number" paramid="previous_producer_number" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ppr_id" paramid="ppr_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_subproducer" paramid="producersearch_subproducer656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="3"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_expire_new_date_to" paramid="producersearch_expire_new_date_to6555" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producer_company_id" paramid="producer_company_id656" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="business_segment_code_commissionSearch" paramid="business_segment_code_commissionSearch" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="super_producer" paramid="super_producer" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="carrier_group" paramid="carrier_group" pre="Y" session="Y"/>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="searchByProdNumber" seq="0">
+        <businessobject executionsequence="2" name="cleanCarrierSessionData" obj="com.userbo.common.CarrierSessionDataCleanBO"/>
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+      </workflow>
+    </action>
+    <action name="GetAgentFirstNamePrdcrNumList">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="GetAgentFirstNamePrdcrNumList" seq="0">
+      
+       <!--  <databaseoperation name="gettop10AgentListByFirstNamePrdcrNum" viewid="ajaxxmlname_searchByIndFNamePrdcrNumAdvance" 
+        sqlstmt="SELECT  distinct TOP 10  prdcr_first_name as name from person p 
+        inner join agency_person ap on ap.person_id= p.person_id          
+        inner join agency_master am on am.agency_id= ap.agency_id          
+        and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1           
+        and (am.Client_ID is null or am.Client_ID = #Client_ID# )         
+        where  prdcr_first_name like #searchByIndFNamePrdcrNumAdvance# + '%'         
+        and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )         
+        order by prdcr_first_name asc" metaobject="person" operation="5" executionsequence="0" /> -->
+        
+        <function executionsequence="1" expression="assign(:inputData,:searchByIndFNamePrdcrNumAdvance);assign(:isContainOrLikeSearch,Like);assign(:isResultBasedOnFirstNameLastNameOrBoth,FirstName);assign(:isShowActivePersonOnly,N);assign(:isShowPersonBasedOnAgencyOnly,N);assign(:isShowFirstNameLastNameOrBoth,FirstName)" name="assignDataInContext6"/>
+	        
+         <storedprocedureoperation dbspname="gettop10PersonList_p" executionsequence="2" id="gettop10PersonList_p" metaobject="person" name="gettop10PersonList_p" operation="5" viewid="ajaxxmlname_searchByIndFNamePrdcrNumAdvance">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isResultBasedOnFirstNameLastNameOrBoth" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="isShowActivePersonOnly" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowPersonBasedOnAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="agency_id" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="isShowFirstNameLastNameOrBoth" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+      </workflow>
+    </action>
+    <action name="getAgencyListAgencyLicence">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyListAgencyLicence" seq="0">
+        <!-- <databaseoperation name="gettop10ListAgencyLicence" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+        viewid="ajaxxmlname_agencylicencename" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like #agencylicencename# + '%'        
+        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1          
+        order by name asc" metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+            <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:agencylicencename);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext4"/>
+        
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p2" metaobject="agency_master" name="gettop10AgencyList_p2" operation="5" viewid="ajaxxmlname_agencylicencename">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+			  <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+			  <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+			  <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+			  <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+      </workflow>
+    </action>
+    <action name="GetAgentLastNameListForAgentLicence">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="GetAgentLastNameListForAgentLicence" seq="0">
+      
+       <!--  <databaseoperation name="gettop10AgentListAgentLicence" viewid="ajaxxmlname_agentlicenceagentlname" 
+        sqlstmt="SELECT  distinct TOP 10  prdcr_last_name as name from person p         
+        inner join agency_person ap on ap.person_id= p.person_id         
+        inner join agency_master am on am.agency_id= ap.agency_id         
+        and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1  and (am.Client_ID is null or am.Client_ID = #Client_ID# )        
+        where  prdcr_last_name like #agentlicenceagentlname# + '%'        
+        and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )        
+        order by prdcr_last_name asc" metaobject="person" operation="5" executionsequence="2" />
+         -->
+        <function executionsequence="1" expression="assign(:inputData,:agentlicenceagentlname);assign(:isContainOrLikeSearch,Like);assign(:isResultBasedOnFirstNameLastNameOrBoth,LastName);assign(:isShowActivePersonOnly,N);assign(:isShowPersonBasedOnAgencyOnly,N);assign(:isShowFirstNameLastNameOrBoth,LastName)" name="assignDataInContext6"/>
+	        
+         <storedprocedureoperation dbspname="gettop10PersonList_p" executionsequence="2" id="gettop10PersonList_p" metaobject="person" name="gettop10PersonList_p" operation="5" viewid="ajaxxmlname_agentlicenceagentlname">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isResultBasedOnFirstNameLastNameOrBoth" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="isShowActivePersonOnly" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowPersonBasedOnAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="agency_id" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="isShowFirstNameLastNameOrBoth" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+      </workflow>
+    </action>
+    <action name="getAgencyList">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyList" seq="0">
+      
+        <!-- <databaseoperation name="gettop10List" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" 
+        viewid="ajaxxmlname_searchByEntityNameAdvance" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like #searchByEntityNameAdvance# + '%'        
+        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1           
+        order by name asc" metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+        
+         <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:searchByEntityNameAdvance);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext3"/>
+        
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p3" metaobject="agency_master" name="gettop10AgencyList_p3" operation="5" viewid="ajaxxmlname_searchByEntityNameAdvance">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+       <!--  <databaseoperation name="gettop10List1" eval="ProducerOneRule.hideProducerCodeInBannerSearch" 
+        viewid="ajaxxmlname_searchByEntityNameAdvance" 
+        sqlstmt="select distinct top 10 name  from agency_master where name like '%' +#searchByEntityNameAdvance# + '%'        
+        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1          
+        and isnull(is_active,0)!=3 order by name asc" metaobject="agency_master" operation="5" executionsequence="2" />
+         -->
+         
+         
+         <function eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="3" expression="assign(:inputData,:searchByEntityNameAdvance);assign(:isContainOrLikeSearch,Contain);assign(:isShowPendIngAgency,Y);" name="assignDataInContext6"/>
+         
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="4" id="gettop10AgencyList_p5" metaobject="agency_master" name="gettop10AgencyList_p5" operation="5" viewid="ajaxxmlname_searchByEntityNameAdvance">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+      </workflow>
+    </action>
+    <action name="searchByIndName">
+      <actionparam executionsequence="0" form="Y" name="sortexpression" paramid="sortexpression" pre="Y" session="Y" val="prdcr_last_name,prdcr_first_name"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="industry_experience" paramid="industry_experience" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="prev_experience" paramid="prev_experience" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="2"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isNotClientId1012" executionsequence="7" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_is_residence" paramid="agentbroker_is_residence2323" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_agent_city" paramid="agentbroker_agent_city32323" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="yrs_in_agency" paramid="yrs_in_agency" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="license_status_id" paramid="is_business" pre="Y" session="Y" val="-1"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_npn" paramid="agentbroker_npn32323" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isClientId1012" executionsequence="8" form="Y" name="recordsperpage" paramid="recordsperpage99" pre="Y" val="50" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_System_Code" paramid="agentbroker_System_Code323" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByIndNameNoteSearch" paramid="searchByIndNameNoteSearch4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_is_business" paramid="agentbroker_is_business32323" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="Agent" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_county_id" paramid="agent_county_id3232" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_state_id" paramid="agent_state_id23232" pre="Y" session="Y"/>
+      <actionparam eval="advanceSearchRule.removeHyphenFromAgentBrokerAgentSsn" executionsequence="0" form="Y" name="agentbroker_agent_ssn_num" paramid="agentbroker_agent_ssn_num123" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_ind_status" paramid="agentbroker_ind_status23" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField123" val="2" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_country_code" paramid="agent_country_code4344" populatename="agent_country" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_country_code" paramid="agent_country_code4343" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_addressline2" paramid="agentbroker_addressline22323" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.agentSearchZipWithoutFormat" executionsequence="0" form="Y" name="agentbroker_agent_zip" paramid="agentbroker_agent_zip2323" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_is_mailing" paramid="agentbroker_is_mailing3232" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="order" paramid="order" pre="Y" session="Y" val="asc"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_agent_fname" paramid="agentbroker_agent_fname123" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="searchByIndNameAdvance" paramid="searchByIndNameAdvance4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="contacttype" paramid="contacttype" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_addressline1" paramid="agentbroker_addressline12323" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_login_id" paramid="agentbroker_login_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_national_code" paramid="agentbroker_national_code" pre="Y" session="Y"/>
+	  <actionparam executionsequence="0" form="Y" name="contact_highest_ranking_principal" paramid="contact_highest_ranking_principal" pre="Y" session="Y"/>
+	  <actionparam executionsequence="0" form="Y" name="is_affiliated_advanceSearch" paramid="is_affiliated_advanceSearch" pre="Y" session="Y"/>
+	  <actionparam executionsequence="0" form="Y" name="distribution_group" paramid="distribution_group" pre="Y" session="Y"/>
+      <workflow name="searchByIndName" seq="0">
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+        <businessobject executionsequence="2" name="cleanCarrierSessionData" obj="com.userbo.common.CarrierSessionDataCleanBO"/>
+      </workflow>
+    </action>
+    <action name="searchByProdNumberCrossReference">
+      <actionparam executionsequence="0" form="Y" name="externalIdCrossReference" paramid="externalIdCrossReference" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="externalSystemIdCrossReference" paramid="externalSystemIdCrossReference" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField123" val="8" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="prodNumberCrossReference" paramid="prodNumberCrossReference" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="assigned_administrator" paramid="assigned_administrator" pre="Y" session="Y" val="0"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="ProducerNumberCrossReference" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="8"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="searchByEntityNameCrossReference" paramid="searchByEntityNameCrossReference" pre="Y" session="Y"/>
+      <actionparam checkfornullparams="searchByEntityNameCrossReference,prodNumberCrossReference,producerNameCrossReference,prdcrNumStatusCrossReference,externalSystemIdCrossReference         externalIdCrossReference" executionsequence="0" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="prdcrNumStatusCrossReference" paramid="prdcrNumStatusCrossReference" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producerNameCrossReference" paramid="producerNameCrossReference" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="hide_show" paramid="hide_show" pre="Y" session="Y" val="0"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchtype" paramid="searchtype" pre="Y" session="Y" val="advance"/>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="searchByProdNumberCrossReference" seq="0">
+        <businessobject executionsequence="2" name="cleanCarrierSessionData" obj="com.userbo.common.CarrierSessionDataCleanBO"/>
+      </workflow>
+    </action>
+    <action name="getNationalAgency">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="getAgencyList" seq="0">
+        <databaseoperation executionsequence="2" metaobject="agency_master" name="gettop10NationalAgencyList1" operation="5" sqlstmt="select distinct top 10 obj_code_desc  as name          from object_code_details where obj_code_desc like '%' +#national_code# + '%'         order by obj_code_desc asc" viewid="ajaxxmlname_national_code"/>
+      </workflow>
+    </action>
+    <action name="resetAdvanceSearchFields">
+      <actionparam executionsequence="0" form="Y" name="agencylicencename" paramid="agencylicencename545" pre="Y" remove="Y" removeparams="agencylicencename,agency_licence_tax_id,agency_licence_npn,agency_licence_system_code,agency_license_num,juri_state_id,license_reason_id,agency_licence_license_issue_date_from,agency_licence_license_issue_date_to,agency_licence_license_exp_date_from,agency_licence_license_exp_date_to,auth_state_id,company_id,authorised_status_id,entityprocessing_status_id,entityappoint_auth_reason_id,agency_licence_appointment_effective_date_from,agency_licence_appointment_effective_date_to,agency_licence_appointment_termination_date_from,agency_licence_appointment_termination_date_to,entity_industry_classification_id" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="taxid" paramid="taxid" pre="Y" remove="Y" removeparams="searchByEntityName,searchByEntityNameAdvance,tax_id,npn,agency_system_code,addressline1,addressline2,country_code,city,state_id,zip,county_id,new_pdb_report_id,dba,is_active,is_business,is_mailing,is_residence,system_code,w9_legal_name" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_agent_fname" paramid="agentlicence_agent_fname4545" pre="Y" remove="Y" removeparams="agentlicence_agent_fname,agentlicenceagentlname,agentlicence_agent_ssn_num,agentlicence_npn,agentlicence_System_Code,agentlicence_ind_status,agentlicence_license_num,agent_lic_state_id,agent_license_reason_id,agentlicence_license_issue_date_from,agentlicence_license_issue_date_to,agentlicence_license_exp_date_from,agentlicence_license_exp_date_to,agent_auth_state_id,agent_lic_company_id,agent_lic_authorised_status_id,agentprocessing_status_id,agentappoint_auth_reason_id,agentlicence_appointment_effective_date_from,agentlicence_appointment_effective_date_to,agentlicence_appointment_termination_date_from,agentlicence_appointment_termination_date_to" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="adv_domicile_state,adv_dba,adv_entity_type,adv_agency_comparativerate,producersearch_classification_code_id" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByProdNumber" paramid="searchByProdNumber" pre="Y" remove="Y" removeparams="entity_lob_id,program_name,entity_carrier_id,entity_operator_id,total_annual_premium,producersearchentitynameAdvance,producersearch_tax_id,producersearch_producer_num_status,producersearch_system_code,prodNumber,producersearch_npn,producersearch_producer_name,producersearch_dba,producersearch_surplus_indicator,adminsearch,producersearch_subproducer,producersearch_no_eo_req,profit_center_code,business_segment_code,producer_company_id,producer_state_id,producersearch_effective_date_from,producersearch_effective_date_to,producersearch_expire_new_date_from,producersearch_expire_new_date_to,producersearch_expire_renew_date_from,producersearch_expire_renew_date_to,probation_reason_id,producersearch_probation_effective_date_from,producersearch_probation_effective_date_to,producersearch_probation_termination_date_from,     producersearch_probation_termination_date_to,underwriter_company_id,team_id,branch_id,externalSystemIdCrossReference,externalIdCrossReference,tier_info_id,operating_company_id,underwriter_company_id,tier_info_id" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_agent_fname" paramid="agentbroker_agent_fname123" pre="Y" remove="Y" removeparams="agentbroker_agent_fname,searchByIndNameAdvance,agentbroker_agent_ssn_num,agentbroker_npn,agentbroker_System_Code,agentbroker_ind_status,agentbroker_addressline1,agentbroker_addressline2,agent_country_code,agentbroker_agent_city,agent_state_id,agentbroker_agent_zip,agent_county_id,agentbroker_is_business,agentbroker_is_mailing,agentbroker_is_residence,agent_country,searchByIndNameNoteSearch,csr_id_search,carrier_group,super_producer" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepad_note" paramid="notepad_note" pre="Y" remove="Y" removeparams="notepadname,notepad_producer_num,notepad_date_range_from,notepad_date_range_to,last_updated_by,notepad_subject,notepad_note,search_name" session="Y"/>
+    </action>
+    <action name="GetAgentLastNamePrdcrNumList">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="GetAgentLastNamePrdcrNumList" seq="0">
+        <!-- <databaseoperation name="gettop10AgentListByLastNamePrdcrNum" viewid="ajaxxmlname_searchByIndlNamePrdcrNumAdvance" 
+        sqlstmt="SELECT  distinct TOP 10  prdcr_last_name as name from person p         
+        inner join agency_person ap on ap.person_id= p.person_id         
+        inner join agency_master am on am.agency_id= ap.agency_id         
+        and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1  and (am.Client_ID is null or am.Client_ID = #Client_ID# )        
+        where  prdcr_last_name like #searchByIndlNamePrdcrNumAdvance# + '%'        
+        and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )        
+        order by prdcr_last_name asc" metaobject="person" operation="5" executionsequence="2" /> -->
+        
+        
+        <function executionsequence="1" expression="assign(:inputData,:searchByIndlNamePrdcrNumAdvance);assign(:isContainOrLikeSearch,Like);assign(:isResultBasedOnFirstNameLastNameOrBoth,LastName);assign(:isShowActivePersonOnly,N);assign(:isShowPersonBasedOnAgencyOnly,N);assign(:isShowFirstNameLastNameOrBoth,LastName)" name="assignDataInContext6"/>
+	        
+         <storedprocedureoperation dbspname="gettop10PersonList_p" executionsequence="2" id="gettop10PersonList_p" metaobject="person" name="gettop10PersonList_p" operation="5" viewid="ajaxxmlname_searchByIndlNamePrdcrNumAdvance">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isResultBasedOnFirstNameLastNameOrBoth" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="isShowActivePersonOnly" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowPersonBasedOnAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="agency_id" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="isShowFirstNameLastNameOrBoth" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        
+      </workflow>
+    </action>
+    <action name="advanceAgencyNoteSearchDetails">
+      <actionparam executionsequence="0" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepad_date_range_to" paramid="notepad_date_range_to545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepadname" paramid="notepadnamer343434" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepad_note" paramid="notepad_note4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepad_subject" paramid="notepad_subject545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="headername,headercity,headerstate,headernamewithoutlocation"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepad_date_range_from" paramid="notepad_date_range_from545" pre="Y" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="NotePad" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="notepad_producer_num" paramid="notepad_producer_num545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField16" val="6" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="6"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByIndNameNoteSearch" paramid="searchByIndNameNoteSearch" pre="Y" session="Y"/>
+      <workflow name="advanceAgencyNoteSearchDetails" seq="0">
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+      </workflow>
+    </action>
+    <action name="editSavedSearch">
+      <actionparam executionsequence="5" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit" viewparam="Y"/>
+      <actionparam executionsequence="4" form="Y" name="isEditClick" paramid="isEditClick" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isAdvance" paramid="isAdvance" pre="Y" val="Y"/>
+      <actionparam executionsequence="1" form="Y" name="search_id" paramid="search_id32" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="search_name" paramid="search_name" pre="Y" session="Y" viewparam="Y"/>
+      
+       <actionparam executionsequence="4" form="Y" name="agency_adv_search_position_type_prodOrgMapping" paramid="agency_adv_search_position_type_prodOrgMapping" viewparam="Y"/>
+       <actionparam executionsequence="4" form="Y" name="agency_adv_search_position_prodOrgMapping" paramid="agency_adv_search_position_prodOrgMapping" viewparam="Y"/>
+       <actionparam executionsequence="4" form="Y" name="agency_adv_search_position_manager_id_prodOrgMapping" paramid="agency_adv_search_position_manager_id_prodOrgMapping" viewparam="Y"/>
+       
+       <!-- <actionparam name="searchContractByEntityNameAdvance" paramid="searchContractByEntityNameAdvance"  viewparam="Y" form="Y" executionsequence="4" />
+       <actionparam name="advSearch_agencyContracts_national_cde" paramid="advSearch_agencyContracts_national_cde"  viewparam="Y" form="Y" executionsequence="4" />
+       <actionparam name="advanceSearch_agencyContracts_contract_type_id" paramid="advanceSearch_agencyContracts_contract_type_id"  viewparam="Y" form="Y" executionsequence="4" />
+      <actionparam name="advanceSearch_agencyContracts_contract_state_id" paramid="advanceSearch_agencyContracts_contract_state_id"  viewparam="Y" form="Y" executionsequence="4" />
+      <actionparam name="advanceSearch_agencyContracts_start_date_from" paramid="advanceSearch_agencyContracts_start_date_from"  viewparam="Y" form="Y" executionsequence="4" />
+      <actionparam name="advanceSearch_agencyContracts_start_date_to" paramid="advanceSearch_agencyContracts_start_date_to"  viewparam="Y" form="Y" executionsequence="4" />
+      <actionparam name="advanceSearch_agencyContracts_cancellation_date_from" paramid="advanceSearch_agencyContracts_cancellation_date_from"  viewparam="Y" form="Y" executionsequence="4" />
+      <actionparam name="advanceSearch_agencyContracts_cancellation_date_to" paramid="advanceSearch_agencyContracts_cancellation_date_to"  viewparam="Y" form="Y" executionsequence="4" /> -->
+      
+    </action>
+    
+    
+    
+    <action name="GetAgentLastNameList">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="GetAgentLastNameList" seq="0">
+        
+       <!--  <databaseoperation name="gettop10AgentList" viewid="ajaxxmlname_searchByIndNameAdvance" 
+        sqlstmt="SELECT  distinct TOP 10  prdcr_last_name as name from person p         
+        inner join agency_person ap on ap.person_id= p.person_id         
+        inner join agency_master am on am.agency_id= ap.agency_id         
+        and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1  and (am.Client_ID is null or am.Client_ID = #Client_ID# )        
+        where  prdcr_last_name like #searchByIndNameAdvance# + '%'        
+        and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )        
+        order by prdcr_last_name asc" metaobject="person" operation="5" executionsequence="2" /> -->
+        
+        <function executionsequence="1" expression="assign(:inputData,:searchByIndNameAdvance);assign(:isContainOrLikeSearch,Like);assign(:isResultBasedOnFirstNameLastNameOrBoth,LastName);assign(:isShowActivePersonOnly,N);assign(:isShowPersonBasedOnAgencyOnly,N);assign(:isShowFirstNameLastNameOrBoth,LastName)" name="assignDataInContext6"/>
+	        
+         <storedprocedureoperation dbspname="gettop10PersonList_p" executionsequence="2" id="gettop10PersonList_p" metaobject="person" name="gettop10PersonList_p" operation="5" viewid="ajaxxmlname_searchByIndNameAdvance">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isResultBasedOnFirstNameLastNameOrBoth" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="isShowActivePersonOnly" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowPersonBasedOnAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="agency_id" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="isShowFirstNameLastNameOrBoth" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        
+      </workflow>
+    </action>
+    <action name="getIncentiveSearchData">
+      <actionparam eval="ProducerOneRule.validateDataForIncentiveSearch" executionsequence="0" form="Y" name="validateDataForIncentiveSearch" paramid="validateDataForIncentiveSearch" pre="Y" session="Y"/>
+      <actionparam executionsequence="1" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="12"/>
+    </action>
+    <action deltaind="M" name="view">
+      <!-- <actionparam pre="Y" name="name" paramid="name456" eval="ProducerOneRule.getLabelforAdvanceSearchConformationMsg" form="Y" executionsequence="1" /> -->
+      <actionparam eval="events.saveEvent" executionsequence="0" form="Y" name="removeparams" paramid="removeparams12" pre="Y" remove="Y" removeparams="underwritingCompanyDiv,operating_company_id,search_name,searchByEntityNameCrossReference,prodNumberCrossReference,producerNameCrossReference,prdcrNumStatusCrossReference,externalSystemIdCrossReference         externalIdCrossReference,searchByIndFNamePrdcrNumAdvance,searchByIndlNamePrdcrNumAdvance,agent_ssn_prdcrNum,agent_producersearch_npn,        agent_status_prdcrNum,producersearch_system_code,agent_prodNumber,producersearchAgent_prdcr_num_status,producersearch_producer_name,Entity_Type_General_Detail,        producersearch_dba,producersearch_operating_company_id,producersearch_underwriter_company_id,producersearch_team_id,is_print_applicable,producersearch_pn_appointment_date,prodNumber_commissionSearch,company_id_commissionSearch,state_id_commissionSearch,lob_code_commissionSearch,business_segment_code_commissionSearch,operator_industry_experience,operator_yrs_in_agency,        producersearch_branch_id,producersearch_tier_info_id,producersearch_previous_producer_number,contract_date_from,contract_date_to,underwriter_company_id,team_id,branch_id,template_type_commissionSearch,effective_date_from_commissionSearch,effective_date_to_commissionSearch,termination_date_from_commissionSearch,termination_date_to_commissionSearch,        contract_nb_expiration_date_from,contract_nb_expiration_date_to,contract_rb_expiration_date_from,contract_rb_expiration_date_to,adv_prdcrtype_id,agency_management,domicile_state,entity_nb_expiration_date_from,entity_rb_expiration_date_from,new_business_comm_rate_operator_commissionSearch,new_business_comm_rate_commissionSearch,renew_business_comm_rate_operator_commissionSearch,renew_business_comm_rate_commissionSearch,         producersearch_dba_agent,producersearch_producer_name_agent,producersearch_system_code_agent,,advance_search_entity_e_mail,advanceSearch_email_category, advance_search_agent_e_mail,is_affiliated_advanceSearch,agent_lname,externalSystemIdCrossReference,externalIdCrossReference,ppr_id,lau_id,lob_id,prev_experience,yrs_in_agency,industry_experience,notepad_contact_name,entity_rb_expiration_date_to,entity_nb_expiration_date_to,agency_association1,entity_team_id,     entity_business_segment_code,agency_lob,carrier_grp,entity_marketingrep_id,entity_zone_code,adv_agency_lead_gen_in,agency_sales_tax_certificate_nr,adv_is_employee,adv_home_office_flag,adv_isdbaregistered,isMasterAssociatedAgency,agency_comparativerate,other_agency_comparativerate,national_code,national_cde,producersearch_license_number,producersearch_combined_code,producersearch_classification_code_id,adv_domicile_state,adv_dba,adv_agency_comparativerate,adv_entity_type,searchByIndNameNoteSearch,request_ss_id" session="Y"/>
+      <actionparam eval="ProducerOneRule.getDataFromLabelXml" executionsequence="0" form="Y" name="getDataFromLabelXml" paramid="getDataFromLabelXml" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams1" pre="Y" remove="Y" removeparams="name,searchByEntityName,agent_lname,producer_num,comingFromSystemCode,iscomeFromEntityAppointManual,entity_lob_id,entity_industry_classification_id,program_name,entity_carrier_id,entity_operator_id,total_annual_premium,agentbroker_login_id,agentbroker_national_code,request_ss_id,record_reason_code_session" session="Y"/>
+      <actionparam eval="ProducerOneRule.isEditClickAdvanceSearch" executionsequence="0" form="Y" name="contacttype" paramid="contacttype" pre="Y"/>
+      <workflow deltaind="M" name="view" seq="0">
+        <databaseoperation executionsequence="2" metaobject="savedsearch" name="AgenctSavedSearchResult" operation="5" sqlstmt="select search_id, search_type, search_name, last_updated_by, last_updated_ts, user_sid, is_global,cast(search_xml as varchar(8000)) as  search_xml from savedsearch where search_type = 2 order by search_name asc" viewid="agenctSavedSearchResults_list_1"/>
+        <databaseoperation deltaind="M" executionsequence="3" metaobject="contacttype_lku" name="contacttype_lku_mom_list_1" operation="5" sqlstmt="select contact_typ_id, contact_typ_desc, 0 as isContact  from contacttype_lku where applicableto=3 order by contact_typ_desc asc" viewid="contact_type_lku_mom_list_1"/>
+        
+        
+        <storedprocedureoperation dbspname="getAgencySavedSearchList_p" executionsequence="1" id="getAgencySavedSearchList_p" metaobject="savedsearch" name="getAgencySavedSearchList_p" operation="5" viewid="agencySavedSearchResults_list_1">
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+      </workflow>
+      <workflow eval="events.editEvent" name="view1" seq="1">
+        <databaseoperation executionsequence="1" metaobject="savedsearch" name="getDataFromSavedSearch" operation="3" sqlstmt="select search_id, search_type, search_name,convert(varchar(8000), search_xml) as search_xml, user_sid,is_global, last_updated_by, last_updated_ts from savedsearch where search_id = #search_id#"/>
+        
+        <function executionsequence="1" functionid="updateHTMLComponentsOnEditClick" name="updateHTMLComponentsOnEditClick" parameters="context"/>
+        
+      </workflow>
+      <workflow deltaind="M" eval="ProducerOneRule.isShowAgencyAssociationCheckbox" name="view2" seq="2">
+        <storedprocedureoperation dbspname="GetAdvSearchAgencyAssociation_p" executionsequence="0" id="GetAdvSearchAgencyAssociation_p" metaobject="agency_master" name="GetAdvSearchAgencyAssociation_p" operation="5" viewid="agency_association_list_1">
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+         <databaseoperation deltaind="M" executionsequence="1" metaobject="lob_lku" name="getAgencyLobMasterDetailAdvanceSearch" operation="5" sqlstmt="select lob_id as agency_lob_id ,lob_code as agency_lob_code,description as agency_lob_desc from lob_lku where description='Commercial Lines' order by description" viewid="agency_lob_list_mom_1"/> 
+      	<databaseoperation executionsequence="2" metaobject="agency_master" name="getSelectedAgencyLobMasterDetail" operation="3" sqlstmt="select agency_lob from agency_master where agency_id=#agency_id#"/>
+      </workflow>
+      <workflow name="distributionGroup" seq="3"> 
+ 	  	<storedprocedureoperation dbspname="getDistributionGroupList_p" executionsequence="1" id="getDistributionGroupList_p" metaobject="additional_address_emails" name="getDistributionGroupList_p" operation="5" viewid="distribution_group_list_01">
+ 	  		<parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+	        <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+      	</storedprocedureoperation>	
+   	 </workflow>
+    </action>
+    <action name="GetAgentFirstNameList">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="GetAgentFirstNameList" seq="0">
+        <!-- 
+        <databaseoperation name="gettop10AgentList" viewid="ajaxxmlname_searchByIndFNameAdvance" 
+        sqlstmt="SELECT  distinct TOP 10  prdcr_first_name as name from person p          
+        inner join agency_person ap on ap.person_id= p.person_id          
+        inner join agency_master am on am.agency_id= ap.agency_id          
+        and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1           
+        and (am.Client_ID is null or am.Client_ID = #Client_ID# )        
+		where  prdcr_first_name like #agentbroker_agent_fname# + '%'         
+		and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )         
+		order by prdcr_first_name asc" metaobject="person" operation="5" executionsequence="2" /> -->
+		
+		
+		<function executionsequence="1" expression="assign(:inputData,:agentbroker_agent_fname);assign(:isContainOrLikeSearch,Like);assign(:isResultBasedOnFirstNameLastNameOrBoth,FirstName);assign(:isShowActivePersonOnly,N);assign(:isShowPersonBasedOnAgencyOnly,N);assign(:isShowFirstNameLastNameOrBoth,FirstName)" name="assignDataInContext6"/>
+	        
+         <storedprocedureoperation dbspname="gettop10PersonList_p" executionsequence="2" id="gettop10PersonList_p" metaobject="person" name="gettop10PersonList_p" operation="5" viewid="ajaxxmlname_searchByIndFNameAdvance">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isResultBasedOnFirstNameLastNameOrBoth" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="isShowActivePersonOnly" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowPersonBasedOnAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="agency_id" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="isShowFirstNameLastNameOrBoth" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+		
+		
+      </workflow>
+    </action>
+    <action name="searchByProdNumberAgent">
+      <actionparam executionsequence="0" form="Y" name="sortexpression" paramid="sortexpression" pre="Y" session="Y" val="prdcr_first_name"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_previous_producer_number" paramid="producersearch_previous_producer_number" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchtype" paramid="searchtype" pre="Y" session="Y" val="advance"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_dba_agent" paramid="producersearch_dba_agent" post="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam checkfornullparams="searchByIndFNamePrdcrNumAdvance,searchByIndlNamePrdcrNumAdvance,agent_ssn_prdcrNum,agent_producersearch_npn,        agent_status_prdcrNum,producersearch_system_code,agent_prodNumber,producersearchAgent_prdcr_num_status,producersearch_producer_name,        producersearch_dba,producersearch_operating_company_id,producersearch_underwriter_company_id,producersearch_team_id,        producersearch_branch_id,producersearch_tier_info_id,producersearch_previous_producer_number,contract_date_from,contract_date_to,        contract_nb_expiration_date_from,contract_nb_expiration_date_to,contract_rb_expiration_date_from,contract_rb_expiration_date_to,         producersearch_dba_agent,producersearch_producer_name_agent,producersearch_system_code_agent" executionsequence="0" form="Y" name="checkfornullparams" paramid="checkfornullparams" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="9"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="contract_date_to" paramid="contract_date_to" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_team_id" paramid="producersearch_team_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_tier_info_id" paramid="producersearch_tier_info_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="contract_nb_expiration_date_to" paramid="contract_nb_expiration_date_to" post="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_system_code_agent" paramid="producersearch_system_code_agent" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="contract_rb_expiration_date_from" paramid="contract_rb_expiration_date_from" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_ssn_prdcrNum" paramid="agent_ssn_prdcrNum" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_status_prdcrNum" paramid="agent_status_prdcrNum" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField123" val="9" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_branch_id" paramid="producersearch_branch_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_producer_name_agent" paramid="producersearch_producer_name_agent" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_producersearch_npn" paramid="agent_producersearch_npn" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="hide_show" paramid="hide_show" pre="Y" session="Y" val="0"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByIndlNamePrdcrNumAdvance" paramid="searchByIndlNamePrdcrNumAdvance" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchByIndFNamePrdcrNumAdvance" paramid="searchByIndFNamePrdcrNumAdvance" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearchAgent_prdcr_num_status" paramid="producersearchAgent_prdcr_num_status" post="Y" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_underwriter_company_id" paramid="producersearch_underwriter_company_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="AgentProducerNumber" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="contract_rb_expiration_date_to" paramid="contract_rb_expiration_date_to" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="contract_date_from" paramid="contract_date_from" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_prodNumber" paramid="agent_prodNumber" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="producersearch_operating_company_id" paramid="producersearch_operating_company_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="contract_nb_expiration_date_from" paramid="contract_nb_expiration_date_from" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="order" paramid="order" pre="Y" session="Y" val="asc"/>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="searchByProdNumberAgent" seq="0">
+        <businessobject executionsequence="2" name="cleanCarrierSessionData" obj="com.userbo.common.CarrierSessionDataCleanBO"/>
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+      </workflow>
+    </action>
+    <action name="agencyLicenceSearchDetails">
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="4"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_tax_id" paramid="agency_licence_tax_id454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="sortexpression" paramid="sortexpression" pre="Y" session="Y" val="name"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_license_exp_date_from" paramid="agency_licence_license_exp_date_from545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agencylicencename" paramid="agencylicencename545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="juri_state_id" paramid="juri_state_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_npn" paramid="agency_licence_npn545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="authorised_status_id" paramid="authorised_status_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_appointment_termination_date_to" paramid="agency_licence_appointment_termination_date_to545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_appointment_termination_date_from" paramid="agency_licence_appointment_termination_date_from454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="license_reason_id" paramid="license_reason_id5454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_system_code" paramid="agency_licence_system_code454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField123" val="4" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="company_id" paramid="company_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_appointment_effective_date_from" paramid="agency_licence_appointment_effective_date_from545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="BulkAppointmentMode" paramid="BulkAppointmentMode" post="Y" session="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entityappoint_auth_reason_id" paramid="entityappoint_auth_reason_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="hide_show" paramid="hide_show" pre="Y" session="Y" val="0"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_license_issue_date_to" paramid="agency_licence_license_issue_date_to5454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_license_exp_date_to" paramid="agency_licence_license_exp_date_to5454" pre="Y" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_license_issue_date_from" paramid="agency_licence_license_issue_date_from544" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_license_num" paramid="agency_license_num545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="AgencyLicense" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="entityprocessing_status_id" paramid="entityprocessing_status_id5454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_licence_appointment_effective_date_to" paramid="agency_licence_appointment_effective_date_to545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="order" paramid="order" pre="Y" session="Y" val="asc"/>
+      <actionparam executionsequence="0" form="Y" name="auth_state_id" paramid="auth_state_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <workflow name="agencyLicenceSearchDetails" seq="0">
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+      </workflow>
+    </action>
+    <action name="agentLicenceSearchDetails">
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" pre="Y" session="Y" val="5"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_license_exp_date_to" paramid="agentlicence_license_exp_date_to545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_auth_state_id" paramid="agent_auth_state_id5445" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_npn" paramid="agentlicence_npn5454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField15" val="5" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      <actionparam executionsequence="0" form="Y" name="pagenumber" paramid="pagenumber" pre="Y" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="msg" paramid="msg" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_license_reason_id" paramid="agent_license_reason_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_license_issue_date_to" paramid="agentlicence_license_issue_date_to545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="recordsperpage" paramid="recordsperpage" pre="Y" val="10" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_lic_state_id" paramid="agent_lic_state_id4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_license_issue_date_from" paramid="agentlicence_license_issue_date_from545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_appointment_effective_date_from" paramid="agentlicence_appointment_effective_date_from545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_license_exp_date_from" paramid="agentlicence_license_exp_date_from545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_agent_fname" paramid="agentlicence_agent_fname4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="sortexpression" paramid="sortexpression" pre="Y" session="Y" val="name"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_appointment_effective_date_to" paramid="agentlicence_appointment_effective_date_to545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="search_id" paramid="search_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_System_Code" paramid="agentlicence_System_Code545454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_appointment_termination_date_from" paramid="agentlicence_appointment_termination_date_from454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="BulkAppointmentMode" paramid="BulkAppointmentMode" post="Y" session="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_agent_ssn_num" paramid="agentlicence_agent_ssn_num5454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_license_num" paramid="agentlicence_license_num4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria" paramid="searchCriteria" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_ind_status" paramid="agentlicence_ind_status" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicenceagentlname" paramid="agentlicenceagentlname4545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="fireValidation" paramid="fireValidation" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent_lic_authorised_status_id" paramid="agent_lic_authorised_status_id5454" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="order" paramid="order" pre="Y" session="Y" val="asc"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="agentprocessing_status_id" paramid="agentprocessing_status_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentlicence_appointment_termination_date_to" paramid="agentlicence_appointment_termination_date_to4545" pre="Y" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="agent_lic_company_id" paramid="agent_lic_company_id545" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" val="AgentLicense" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentappoint_auth_reason_id" paramid="agentappoint_auth_reason_id5454" pre="Y" session="Y"/>
+      <workflow name="agentLicenceSearchDetails" seq="0">
+        <businessobject executionsequence="6" name="ValidateEntity" obj="com.userbo.ValidateEntityDetailsBO"/>
+      </workflow>
+    </action>
+    <action name="GetAgentLastNameListNoteSearch">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="GetAgentLastNameListNoteSearch" seq="0">
+        
+        <!-- <databaseoperation name="gettop10AgentList" viewid="ajaxxmlname_searchByIndNameNoteSearch" 
+        sqlstmt="SELECT  distinct TOP 10  prdcr_last_name as name from person p         
+        inner join agency_person ap on ap.person_id= p.person_id         
+        inner join agency_master am on am.agency_id= ap.agency_id         
+        and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1  and (am.Client_ID is null or am.Client_ID = #Client_ID# )       
+		where  prdcr_last_name like #searchByIndNameNoteSearch# + '%'        
+		and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )       
+		 order by prdcr_last_name asc" metaobject="person" operation="5" executionsequence="2" /> -->
+		 
+		 
+		 <function executionsequence="1" expression="assign(:inputData,:searchByIndNameNoteSearch);assign(:isContainOrLikeSearch,Like);assign(:isResultBasedOnFirstNameLastNameOrBoth,LastName);assign(:isShowActivePersonOnly,N);assign(:isShowPersonBasedOnAgencyOnly,N);assign(:isShowFirstNameLastNameOrBoth,LastName)" name="assignDataInContext6"/>
+	        
+         <storedprocedureoperation dbspname="gettop10PersonList_p" executionsequence="2" id="gettop10PersonList_p" metaobject="person" name="gettop10PersonList_p" operation="5" viewid="ajaxxmlname_searchByIndNameNoteSearch">
+          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="isResultBasedOnFirstNameLastNameOrBoth" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="isShowActivePersonOnly" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="isShowPersonBasedOnAgencyOnly" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="agency_id" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="isShowFirstNameLastNameOrBoth" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+		 
+		 
+      </workflow>
+    </action>
+    
+    <action name="positionProdOrgMapping">
+      <actionparam executionsequence="0" form="Y" name="ObjectId" paramid="ObjectId" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="object_type_v" paramid="object_type_v" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+     <!--  <actionparam pre="Y" name="removeparams" paramid="removeparams" form="Y" session="Y" remove="Y" removeparams="position_desc" executionsequence="0" /> -->
+    </action>
+    <action name="positionManagerProdOrgMapping">
+      <actionparam executionsequence="0" form="Y" name="ObjectId" paramid="ObjectId" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="object_type_v" paramid="object_type_v" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <!-- <actionparam pre="Y" name="removeparams" paramid="removeparams" form="Y" session="Y" remove="Y" removeparams="position_manager_id,position_manager_desc" executionsequence="0" /> -->
+    </action>
+    
+    
+    <action name="getAgencyListForAgencyContract">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      
+      <workflow name="getAgencyListForAgencyContract" seq="0">
+      
+         <function eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="1" expression="assign(:inputData,:searchContractByEntityNameAdvance);assign(:isContainOrLikeSearch,Like);assign(:isShowPendIngAgency,Y);" name="assignDataInContext10"/>
+        
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.showPendingAgenciesInBannerSearch" executionsequence="2" id="gettop10AgencyList_p10" metaobject="agency_master" name="gettop10AgencyList_p10" operation="5" viewid="ajaxxmlname_searchContractByEntityNameAdvance">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+      
+         <function eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="3" expression="assign(:inputData,:searchContractByEntityNameAdvance);assign(:isContainOrLikeSearch,Contain);assign(:isShowPendIngAgency,Y);" name="assignDataInContext11"/>
+         
+        <storedprocedureoperation dbspname="gettop10AgencyList_p" eval="ProducerOneRule.hideProducerCodeInBannerSearch" executionsequence="4" id="gettop10AgencyList_p11" metaobject="agency_master" name="gettop10AgencyList_p11" operation="5" viewid="ajaxxmlname_searchContractByEntityNameAdvance">
+	          <parameteroperation indexno="1" mode="IN" property="inputData" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="isShowAgenciesBasedOnUserId" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="isContainOrLikeSearch" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="isShowPendIngAgency" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="default_is_include_location_value" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="isShowChildAgencyOnly" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="isShowParentAgencyOnly" seq="10"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+        
+      </workflow>
+    </action>
+    
+     <action name="searchAgencyContracts">
+      
+      <actionparam executionsequence="0" form="Y" name="searchContractByEntityNameAdvance" paramid="searchContractByEntityNameAdvance" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advSearch_agencyContracts_national_cde" paramid="advSearch_agencyContracts_national_cde" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_contract_type_id" paramid="advanceSearch_agencyContracts_contract_type_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_template_type_id" paramid="advanceSearch_agencyContracts_template_type_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_contract_state_id" paramid="advanceSearch_agencyContracts_contract_state_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_start_date_from" paramid="advanceSearch_agencyContracts_start_date_from" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_start_date_to" paramid="advanceSearch_agencyContracts_start_date_to" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_cancellation_date_from" paramid="advanceSearch_agencyContracts_cancellation_date_from" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="advanceSearch_agencyContracts_cancellation_date_to" paramid="advanceSearch_agencyContracts_cancellation_date_to" pre="Y" session="Y"/>
+      
+      
+      <actionparam executionsequence="0" form="Y" name="searchField" paramid="searchField" post="Y" session="Y" val="13"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isSearchNameNotEmpty" executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+      
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="isEditClick" paramid="isEditClick" post="Y" session="Y" val="ProducerOneRule.isSearchCriteriaEqualOrNot"/>
+      <actionparam executionsequence="0" form="Y" name="searchCriteria1" paramid="searchCriteria1" pre="Y" val="AgencyContracts" viewparam="Y"/>
+      
+      <workflow name="searchAgencyContracts" seq="0">
+        <businessobject executionsequence="2" name="cleanCarrierSessionData" obj="com.userbo.common.CarrierSessionDataCleanBO"/>
+      </workflow>
+    </action>
+   <action name="showOtherReasonForClosed">
+   	   <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+   	   <actionparam executionsequence="3" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y" />
+   	   <workflow eval="ProducerDetailRule.isClosedReasonCodeIdNotEmpty" name="showOtherReasonForClosed" seq="1">
+               <databaseoperation executionsequence="1" metaobject="producer_number" name="getClosedReasonOther" operation="3" sqlstmt="select master_lookup_data_code as custom_reason_code from master_lookup_data_lku where master_lookup_data_id =#closed_reason_code_id#"/>
+      </workflow>
+  	</action>
+  	<action name="showClosedReasonCodeForClosed">
+  	   <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="custom_reason_code,closed_reason_code_id" session="Y"/>
+   	   <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+   	   <actionparam executionsequence="3" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y" />
+  	</action>
+    
+    
+  </component>
+</projectcomponents>

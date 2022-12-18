@@ -1,0 +1,37 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component deltaind="M" objectcolumn="producer_number_transfer_id" objecttype="bobtransfersStep2" metaobject="producer_number_transfer;producer_number_transfer_filters" name="bobtransfersStep2" stackdisplayname="Transfers Step2" displayname="BOB Transfers Step2">
+		<action deltaind="M" name="next">
+			<!-- <actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y" /> -->
+			<actionparam deltaind="I" executionsequence="1" form="Y" name="bobtransfersStep2_dest_producer_code" paramid="bobtransfersStep2_dest_producer_code" pre="Y" session="Y" />
+		</action>
+		<action deltaind="M" name="view">
+			<workflow name="view" seq="10">
+				<function deltaind="I" executionsequence="2" functionid="getToSubProdCodeForIndTransfer" name="getToSubProdCodeForIndTransfer" parameters="context" />
+			</workflow>
+		</action>
+
+		<action deltaind="M" name="submitsearch">
+			<actionparam deltaind="I" executionsequence="1" form="Y" name="producer_number_to_varchar" paramid="producer_number_to_varchar" pre="Y" session="Y" />
+			<actionparam deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="bobtransfers_search_list_mom_1,isproducersearch,agent_number_description_search,inet_event_id,method" session="Y" />
+		</action>
+
+		<action deltaind="M" metaobject="sendForReviewPopup" name="sendforreview">
+			<actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y" />
+		</action>
+
+		<action deltaind="M" name="addWholesaleTransferFilters">
+    	 <workflow deltaind="M" name="addWholesaleTransferFilters" seq="0">
+    		<storedprocedureoperation dbspname="getBOBTransferWholesaleDataById_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" id="getBOBTransferWholesaleDataById_p" metaobject="producer_number_transfer" name="getBOBTransferWholesaleDataById_p" operation="5" viewid="producer_number_transfer_filters_list_1">
+    			<parameteroperation indexno="0" mode="IN" property="producer_number_transfer_id" seq="1"/>	
+    			<parameteroperation indexno="1" mode="IN" property="producer_number_from_varchar" seq="2"/>		
+    			<parameteroperation indexno="2" mode="IN" property="filterXml" seq="3"/>
+    			<parameteroperation indexno="3" mode="IN" property="validationsId" seq="4"/>
+    			<parameteroperation deltaind="I" indexno="4" mode="IN" property="wholesale_from_producer" seq="5"/>
+ 				<parameteroperation deltaind="D" indexno="5" mode="OUT" property="inactive_license_status" seq="6"/>	
+    			<!-- <parameteroperation deltaind="I" indexno="5" mode="IN" property="wholesale_to_producer" seq="6"/>   -->  				
+ 	  			<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>								
+    		</storedprocedureoperation>
+    	</workflow>
+    	</action>
+	</component>
+</projectcomponents>

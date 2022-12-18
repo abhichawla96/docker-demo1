@@ -1,0 +1,225 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="team_lku;branch_lku;prdcr_num_validations;producer_number_zones_marketrepresentative;producer_number" name="productValidationDetail" 
+  	stackdisplayname="Products" displayname="Products">
+  	<html path="carrier/productValidationDetail.html">
+		<block deltaind="M" id="productValidationDetail_list_1" css="loadMore" name="productValidationDetail_list_1" labelkey="readonly_product_validation_detail_label" securitykey="readonly_product_validation_detail_security" type="momlist">
+			<field datacss="data-cell" defaultvalue="Y" displaytype="checkbox" executionsequence="0" id="block_field_is_included" labelkey="product_validation_select_label" name="is_included" securitykey="product_validation_select_security" css="widthAuto">
+				<event action="setCheckboxValue(this);" actiontype="other" id="onclick" name="onclick"/>
+			</field>
+			<field displaytype="label" executionsequence="1" id="block_field_carrier_group_desc" labelkey="carrier_group_product_validation_label" name="carrier_group_desc" securitykey="productValidationDetail_carrier_group_product_validation_security"/>
+			<field displaytype="label" executionsequence="2" id="block_field_operating_company_desc" labelkey="operating_company_product_validation_label" name="operating_company_desc" securitykey="productValidationDetail_operating_company_product_validation_security"/>
+			<field displaytype="label" executionsequence="3" id="block_field_company" labelkey="carrier_company_product_validation_label" name="company" securitykey="productValidationDetail_carrier_company_product_validation_security"/>
+			<field displaytype="label" executionsequence="4" id="block_field_state" labelkey="state_product_validation_label" name="state" securitykey="productValidationDetail_state_product_validation_security"/>
+			<field displaytype="label" executionsequence="5" id="block_field_branch_description" labelkey="branch_product_validation_label" name="branch_description" securitykey="productValidationDetail_branch_product_validation_security"/>
+			<field displaytype="label" executionsequence="6" id="block_field_lob_description" labelkey="lob_product_validation_label" name="lob_description" securitykey="productValidationDetail_lob_product_validation_security"/>
+			<field displaytype="label" executionsequence="7" id="block_field_business_segment_name" labelkey="business_segment_product_validation_label" name="business_segment_name" securitykey="productValidationDetail_business_segment_product_validation_security"/>
+			<field displaytype="label" executionsequence="8" id="block_field_tier_info_desc" labelkey="tier_info_product_validation_label" name="tier_info_desc" securitykey="productValidationDetail_tier_info_product_validation_security"/>
+			<field displaytype="label" executionsequence="9" id="block_field_team_description" labelkey="team_product_validation_label" name="team_description" securitykey="productValidationDetail_team_product_validation_security"/>
+			<field displaytype="label" executionsequence="10" id="block_field_csr_name" labelkey="CSRfieldLabel" name="csr_name" securitykey="productValidationDetail_csr_product_validation_security"/>
+			<field displaytype="label" executionsequence="11" id="block_field_ppr_name" labelkey="ppr_product_validation_label" name="ppr_name" securitykey="productValidationDetail_ppr_product_validation_security"/>
+			<field displaytype="label" executionsequence="12" id="block_field_LAU_name" labelkey="lau_product_validation_label" name="LAU_name" securitykey="productValidationDetail_lau_product_validation_security"/>
+			<field displaytype="label" executionsequence="13" id="block_field_rnbdc_name" labelkey="rnbdc_product_validation_label" name="rnbdc_name" securitykey="productValidationDetail_rnbdc_product_validation_security"/>
+			<field displaytype="label" executionsequence="14" id="block_field_css_name" labelkey="css_product_validation_label" name="css_name" securitykey="productValidationDetail_css_product_validation_security"/>
+			<field displaytype="label" executionsequence="15" id="block_field_commission_description" labelkey="commission_codes_product_validation_label" name="commission_description" securitykey="productValidationDetail_commission_codes_product_validation_security"/>
+			<field displaytype="label" executionsequence="16" id="block_field_eLink_entitlement_desc" labelkey="elink_entitlement_product_validation_label" name="eLink_entitlement_desc" securitykey="productValidationDetail_elink_entitlement_product_validation_security"/>
+			<field displaytype="text" executionsequence="17" format="date" id="block_field_effective_date" labelkey="effective_date_product_validation_label" name="effective_date" securitykey="productValidationDetail_effective_date_product_validation_security"/>
+			<field displaytype="text" executionsequence="18" format="date" id="block_field_expire_new_date" labelkey="expire_new_date_product_validation_label" name="expire_new_date" securitykey="productValidationDetail_expire_new_date_product_validation_security"/>
+			<field displaytype="text" executionsequence="19" format="date" id="block_field_expire_renew_date" labelkey="expire_renew_date_product_validation_label" name="expire_renew_date" securitykey="productValidationDetail_expire_renew_date_product_validation_security"/>
+			<field displaytype="text" executionsequence="20" id="block_field_nb_threshold_rate" labelkey="productValidationDetail_NBThresholdproducernumberslabel" maxlength="7" name="nb_threshold_rate" securitykey="productValidationDetail_isShowNBRateThresholdInProductValidation">
+				<event action="ValidKeyOnly(this,false,true,false,true);accept4DigitsAfterDecimal(this,event);" actiontype="other" id="onkeypress" name="onkeypress"/>
+			</field>
+			<field displaytype="text" executionsequence="21" id="block_field_rb_threshold_rate" labelkey="productValidationDetail_RBThresholdproducernumberslabel" maxlength="7" name="rb_threshold_rate" securitykey="productValidationDetail_isShowRBRateThresholdInProductValidation">
+				<event action="ValidKeyOnly(this,false,true,false,true);accept4DigitsAfterDecimal(this,event);" actiontype="other" id="onkeypress" name="onkeypress"/>
+			</field>
+			<field displaytype="text" executionsequence="22" id="block_field_poliservfee" labelkey="productValidationDetail_poliservfeePercentagelabel" maxlength="7" name="poliservfee" securitykey="productValidationDetail_isShowPoliservFeeInProductValidation">
+				<event action="ValidKeyOnly(this,false,true,false,true);accept4DigitsAfterDecimal(this,event);" actiontype="other" id="onkeypress" name="onkeypress"/>
+			</field>
+			<field displaytype="text" executionsequence="23" id="block_field_mvr_clue_threshold" labelkey="productValidationDetail_mvrcluePercentagelabel" maxlength="7" name="mvr_clue_threshold" securitykey="productValidationDetail_isShowMvrclueInProductValidation">
+				<event action="ValidKeyOnly(this,false,true,false,true);accept4DigitsAfterDecimal(this,event);" actiontype="other" id="onkeypress" name="onkeypress"/>
+			</field>
+			<field displaytype="text" executionsequence="24" id="block_field_Clue_Threshold" labelkey="productValidationDetail_clueThresholdPercentagelabel" maxlength="7" name="Clue_Threshold" securitykey="productValidationDetail_isShowMvrcluepercentageInProductValidation">
+				<event action="ValidKeyOnly(this,false,true,false,true);accept4DigitsAfterDecimal(this,event);" actiontype="other" id="onkeypress" name="onkeypress"/>
+			</field>
+			<field displaytype="text" executionsequence="25" id="block_field_CAT_EP_Factor" labelkey="productValidationDetail_catepfactorlabel" maxlength="7" name="CAT_EP_Factor" securitykey="productValidationDetail_catepfactor_security">
+				<event action="ValidKeyOnly(this,false,true,false,true);accept4DigitsAfterDecimal(this,event);" actiontype="other" id="onkeypress" name="onkeypress"/>
+			</field>
+			<field displaytype="link" executionsequence="26" id="block_field_history_row_link" name="history_row_link" displayname="history row link" css="widthAuto">
+				<!-- <event action="history" securitykey="history_product_validation_producer_number_level_security" linkimgsrc="images/icons/History.png" tooltip="History" actiontype="submitform" executionsequence="0" id="href" name="href" screen="carrier/productValidationDetail.html">
+					<forward id="carrier/productValidationDetail.html" screen="carrier/productValidationDetail.html"/>
+				</event> -->
+				<event id="href" name="href" securitykey="history_product_validation_producer_number_level_security" linkimgsrc="images/icons/History.png" tooltip="History" 
+					action="javascript:managereport('|reportID|projectID|backPageAction|ISCOMINGFORDATAONLY|objecttype_desc|object_id|isRowLevelHistory|','|objectHisoryReport|ProducerOne|getGeneralReportDetailPage|Y|productValidationDetail|product_validation_id|Y|','INET_SHOW_REPORT','MANAGE_REPORTING');" actiontype="other" executionsequence="0">
+				</event> 
+			</field>
+			<field displaytype="link" executionsequence="27" id="block_field_delete_row_link" name="delete_row_link"  displayname="Delete Row link" css="widthAuto">
+				<event action="logicalDelete" securitykey="delete_product_validation_producer_number_level_security" tooltip="Logical Delete" linkcss="delete_ico icons" actiontype="submitform" executionsequence="0" id="href" name="href" screen="carrier/productValidationDetail.html">
+					<forward id="carrier/productValidationDetail.html" screen="carrier/productValidationDetail.html"/>
+				</event>
+			</field>
+		</block>
+	</html>
+	
+    <action name="cancelProduct"/>
+    <action name="saveProduct">
+      <actionparam checkfornullparams="product_validation_select_security,inputXml,ObjectId,person_id,producer_number_id,sub_producer_number_id,effective_date,expire_new_date     ,expire_renew_date,object_type_v,product_validation_select_security" executionsequence="3" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isPageUpdateMsg3" executionsequence="0" form="Y" name="pageMsg3" paramid="pageMsg3" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="object_type_v" paramid="object_type_v" pre="Y" val="ProducerNumber"/>
+      <actionparam executionsequence="1" form="Y" name="list_name" paramid="list_name" pre="Y" val="productValidationDetail_list_1"/>
+      <actionparam evalute="Y" executionsequence="4" form="Y" name="inputXml" paramid="inputXml" pre="Y" val="ProducerOneRule.convertListToXML"/>
+      <workflow eval="ProducerOneRule.assignDateFields" name="saveProduct" seq="1">
+        <function eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" functionid="validateProductValidationList" name="validateProductValidationList" parameters="context"/>
+        <storedprocedureoperation dbspname="insertProductValdiations_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" id="insertProductValdiations_p" metaobject="producerValidation" name="insertProductValdiations_p" operation="1">
+          <parameteroperation indexno="1" mode="IN" property="inputXml" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="ObjectId" seq="1"/>
+          <parameteroperation indexno="3" mode="IN" property="agency_id" seq="2"/>
+          <parameteroperation indexno="4" mode="IN" property="person_id" seq="3"/>
+          <parameteroperation indexno="5" mode="IN" property="producer_number_id" seq="4"/>
+          <parameteroperation indexno="6" mode="IN" property="sub_producer_number_id" seq="5"/>
+          <parameteroperation indexno="7" mode="IN" property="effective_date" seq="6"/>
+          <parameteroperation indexno="8" mode="IN" property="expire_new_date" seq="7"/>
+          <parameteroperation indexno="9" mode="IN" property="expire_renew_date" seq="8"/>
+          <parameteroperation indexno="10" mode="IN" property="object_type_v" seq="9"/>
+          <parameteroperation indexno="13" mode="IN" property="last_updated_ts" seq="12"/>
+          <parameteroperation indexno="11" mode="IN" property="last_updated_by" seq="10"/>
+          <parameteroperation indexno="12" mode="IN" property="isNationalAgencyAsLocationRequired" seq="11"/>
+          <parameteroperation indexno="14" mode="IN" property="product_validation_select_security" seq="13"/>
+          <parameteroperation indexno="15" mode="IN" property="isAgencyUsedInProductValidationIheritance" seq="14"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      
+      <workflow eval="ProducerDetailRule.checkPreFillMarketOrAgencyLobonAgencyDetail" name="preFillMarketOrAgencyLobonAgencyDetail" seq="2"> 
+      	<storedprocedureoperation dbspname="GetPreFillMarketOrAgencyLobOnAgencyDetail_p" eval="ProducerOneRule.assignDateFields" executionsequence="1" id="GetPreFillMarketOrAgencyLobOnAgencyDetail_p" metaobject="producerValidation" name="GetPreFillMarketOrAgencyLobOnAgencyDetail_p" operation="4">
+      		<parameteroperation indexno="1" mode="IN" property="producer_number_id" seq="1"/>
+      		<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="2"/>	
+      		 <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+      	</storedprocedureoperation>
+      </workflow>
+    </action>
+    <action name="view">
+      <actionparam eval="productValidationDetails_is_include_close_product_validations_in_listing_filter_security" executionsequence="0" form="Y" name="is_include_close_product_validations_in_listing_check" paramid="is_include_close_product_validations_in_listing_check" populatename="is_include_close_product_validations_in_listing" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="tabs1next_page" paramid="tabs1next_page" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="object_type_v" paramid="object_type_v" pre="Y" val="ProducerNumber"/>
+      <actionparam executionsequence="0" form="Y" name="startindex" paramid="startindex" pre="Y" val="1" viewparam="Y"/>
+      <actionparam checkfornullparams="is_include_close_product_validations_in_listing,copydataFromAgencyOrLocation,ObjectId,person_id,producer_number_id,sub_producer_number_id,object_type_v,maxrowsstartindex,sortexpression,order,profit_center_code_search_proc,validation_id,carrier_group_id,csr_id_search,state_id_search_proc,lob_id,company_id_search_proc,business_segment_code_search_proc" executionsequence="0" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="productValidationDetail_list_1" paramid="productValidationDetail_list_1" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="maxrows" paramid="maxrows" pre="Y" val="5" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="is_active" paramid="is_active" populatename="agencyStatusId" pre="Y"/>
+      <actionparam executionsequence="5" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="carrier_group_id,csr_id_search,state_id_search_proc,lob_id,company_id_search_proc,business_segment_code_search_proc,productValidationFilterSequence"/>
+      <workflow name="view" seq="0">
+        <storedprocedureoperation dbspname="GetExistingProductValidation_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" id="GetExistingProductValidation_p" metaobject="producerValidation" name="GetExistingProductValidation_p" operation="5" viewid="productValidationDetail_list_1">
+          <parameteroperation indexno="1" mode="IN" property="ObjectId" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="agency_id" seq="1"/>
+          <parameteroperation indexno="3" mode="IN" property="person_id" seq="2"/>
+          <parameteroperation indexno="4" mode="IN" property="producer_number_id" seq="3"/>
+          <parameteroperation indexno="5" mode="IN" property="sub_producer_number_id" seq="4"/>
+          <parameteroperation indexno="6" mode="IN" property="object_type_v" seq="5"/>
+          <parameteroperation indexno="7" mode="IN" property="maxrows" seq="6"/>
+          <parameteroperation indexno="8" mode="IN" property="startindex" seq="7"/>
+          <parameteroperation indexno="9" mode="IN" property="sortexpression" seq="8"/>
+          <parameteroperation indexno="10" mode="IN" property="order" seq="9"/>
+          <parameteroperation indexno="11" mode="IN" property="profit_center_code_search_proc" seq="10"/>
+          <parameteroperation indexno="12" mode="IN" property="business_segment_code_search_proc" seq="11"/>
+          <parameteroperation indexno="13" mode="IN" property="company_id_search_proc" seq="12"/>
+          <parameteroperation indexno="14" mode="IN" property="state_id_search_proc" seq="13"/>
+          <parameteroperation indexno="15" mode="IN" property="effective_date_from_search_proc" seq="14"/>
+          <parameteroperation indexno="16" mode="IN" property="effective_date_to_search_proc" seq="15"/>
+          <parameteroperation indexno="17" mode="IN" property="expire_new_date_from_search_proc" seq="16"/>
+          <parameteroperation indexno="18" mode="IN" property="expire_new_date_to_search_proc" seq="17"/>
+          <parameteroperation indexno="19" mode="IN" property="expire_renew_date_from_search_proc" seq="18"/>
+          <parameteroperation indexno="20" mode="IN" property="expire_renew_date_to_search_proc" seq="19"/>
+          <parameteroperation indexno="21" mode="IN" property="ppr_id_search_proc" seq="20"/>
+          <parameteroperation indexno="22" mode="IN" property="lau_id_search_proc" seq="21"/>
+		  <parameteroperation indexno="23" mode="IN" property="csr_id_search" seq="22"/>
+          <parameteroperation indexno="24" mode="IN" property="lob_id" seq="25"/>
+          <parameteroperation indexno="26" mode="IN" property="carrier_group_id" seq="27"/>
+          <parameteroperation indexno="27" mode="IN" property="copydataFromAgencyOrLocation" seq="28"/>
+          <parameteroperation indexno="28" mode="IN" property="is_include_close_product_validations_in_listing" seq="29"/>
+          
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GetProducerValidationHistory_p_java" eval="ProducerOneRule.showProducerValidationDetailHistory" executionsequence="2" id="getProducervalidationHistory_p" metaobject="prdcr_num_validations" name="getProducervalidationHistory_p" operation="5" viewid="producerValidationDetail_list_3">
+          <parameteroperation indexno="1" mode="IN" property="producer_number_id" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        
+        <databaseoperation executionsequence="3" metaobject="producer_number" name="getSubProducerData" operation="3" sqlstmt="select (select producer_number from producer_number where producer_number_id=p.parent_producer_number_id) as 'parent_producer_number',       p.parent_producer_number_id,p.subprdcr_effective_date,p.subprdcr_expire_new_date,       p.subprdcr_expire_renew_date,p.subproducer_indicator,policy_fee_applicable,primary_state_id from producer_number p where p.producer_number_id=#producer_number_id#"/>
+         
+         <storedprocedureoperation dbspname="GetPrimaryStateForAgencyCodeProductvalidation_p" executionsequence="4" id="GetPrimaryStateForAgencyCodeProductvalidation_p" metaobject="producer_number" name="GetPrimaryStateForAgencyCodeProductvalidation_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="producer_number_id" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <databaseoperation executionsequence="3" metaobject="producer_number" name="getProducerStatus" operation="3" sqlstmt="select distinct  producer_status_cde,producer_name,producer_number from producer_number where producer_number_id=#producer_number_id#"/>
+      </workflow>
+      
+      <workflow name="view_dropdowns" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+         <storedprocedureoperation dbspname="getProductValidationFilterDropdowns_p" executionsequence="1" id="getProductValidationFilterDropdowns_p" metaobject="producer_number" name="getProductValidationFilterDropdowns_p" operation="5" viewid="dropdowns_list">
+          <parameteroperation indexno="1" mode="IN" property="inputXml" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+          <resultsetoperation indexno="2" mappingclass="java.util.HashMap" seq="1"/>
+          <resultsetoperation indexno="3" mappingclass="java.util.HashMap" seq="2"/>
+          <resultsetoperation indexno="4" mappingclass="java.util.HashMap" seq="3"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="4"/>
+          <resultsetoperation indexno="6" mappingclass="java.util.HashMap" seq="5"/>
+        </storedprocedureoperation>
+      </workflow>
+      <actionparam evalute="Y" form="Y" name="producername" paramid="producername" post="Y" val="ProducerOneRule.getProducerName"/>
+    </action>
+    <action name="logicalDelete">
+      <actionparam executionsequence="5" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ObjectId" paramid="ObjectId" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="product_validation_id" paramid="product_validation_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="object_type_v" paramid="object_type_v" pre="Y" val="ProducerNumber"/>
+      <actionparam eval="ProducerOneRule.isPageDeleteMsg3" executionsequence="0" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+      <actionparam eval="ProducerOneRule.isShowPageDeleteError" executionsequence="0" form="Y" name="pageError" paramid="pageError" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <workflow name="logicalDelete" seq="0">
+        <storedprocedureoperation dbspname="DeleteProductValidation_p" executionsequence="1" id="DeleteProductValidation_p" metaobject="producerValidation" name="DeleteProductValidation_p" operation="2">
+          <parameteroperation indexno="0" mode="RETURN" property="returnVal" seq="0"/>
+          <parameteroperation indexno="1" mode="IN" property="product_validation_id" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="object_type_v" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+    <action name="history">
+      <actionparam executionsequence="0" form="Y" name="product_validation_id" paramid="product_validation_id" pre="Y" session="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="product_validation_id" paramid="product_validation_id3443" populatename="validation_id" pre="Y"/>
+      <actionparam executionsequence="2" form="Y" name="validation_id" paramid="validation_id" pre="Y" session="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="showProducerValidationDetailHistory" paramid="showProducerValidationDetailHistory" pre="Y" session="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="4" form="Y" name="default_recordsperpage_producerValidationDetail_list_pagination_3" paramid="default_recordsperpage_producerValidationDetail_list_pagination_3" pre="Y" val="10"/>
+      <actionparam executionsequence="5" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    </action>
+    <action name="historyCancel">
+      <actionparam executionsequence="0" form="Y" name="validation_id" paramid="validation_id" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="showProducerValidationDetailHistory" paramid="showProducerValidationDetailHistory" pre="Y" remove="Y" session="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="default_recordsperpage_producerNumbersList_pagination_1" paramid="default_recordsperpage_producerNumbersList_pagination_1" pre="Y" val="1000"/>
+    </action>
+    <action name="refreshFilters">
+    <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    </action>
+    <action name="filter">
+    <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    <actionparam eval="productValidationDetails_is_include_close_product_validations_in_listing_filter_security" executionsequence="0" form="Y" name="is_include_close_product_validations_in_listing_check" paramid="is_include_close_product_validations_in_listing_check" populatename="is_include_close_product_validations_in_listing" pre="Y"/>
+    <actionparam eval="ProducerOneRule.isEffectiveDateCombiTrue" executionsequence="1" form="Y" name="pageError" paramid="pageError1" post="Y"/>
+    <actionparam eval="ProducerOneRule.isExpireNewDateCombiTrue" executionsequence="2" form="Y" name="pageError" paramid="pageError2" post="Y"/>
+    <actionparam eval="ProducerOneRule.isExpireRenewDateCombiTrue" executionsequence="3" form="Y" name="pageError" paramid="pageError3" post="Y"/>
+    </action>
+    <action name="reset">
+    <actionparam executionsequence="10" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="carrier_group_id,csr_id_search,state_id_search_proc,lob_id,company_id_search_proc,business_segment_code_search_proc,effective_date_from_search_proc,effective_date_to_search_proc,expire_new_date_from_search_proc,expire_new_date_to_search_proc,expire_renew_date_from_search_proc,expire_renew_date_to_search_proc,is_include_close_product_validations_in_listing_check" session="Y"/>
+    <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+   </action>
+   
+   <action name="showAddOrEditProductValidationPageProducerNumberLevel">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ObjectId" paramid="ObjectId" viewparam="Y"/>
+      <actionparam executionsequence="0" name="object_type_v" paramid="object_type_v" val="ProducerNumber" viewparam="Y"/>
+      <!-- <actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/> -->
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="companys,states,products,lobs,carrierGroups,changedDataFieldName,effective_date,csrNames" session="Y"/>
+    </action>
+   
+  </component>
+</projectcomponents>

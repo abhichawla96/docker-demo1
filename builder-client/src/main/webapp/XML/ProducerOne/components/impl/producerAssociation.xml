@@ -1,0 +1,14 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="master_lookup_detail_lku" name="producerAssociation" stackdisplayname="producer_association_breadcrumb_label" displayname="Agency Code Association">
+    <action name="modify" deltaind="M">            
+      <workflow name="updateSubProducerCodeMapping" seq="1" deltaind="I" >
+      	<storedprocedureoperation dbspname="updateSubProducerCodeMapping_p"  executionsequence="4" id="updateSubProducerCodeMapping_p" metaobject="agency_person" name="updateSubProducerCodeMapping_p" operation="1">
+          <parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="person_id" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>      
+    </action> 	
+    	
+  </component>
+</projectcomponents>

@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ProducerOne - Producer Management Center</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="script/calender.js" />
+    <script type="text/javascript" src="script/calender_conf.js" />
+    <script type="text/javascript" src="js/producerOne.js" />
+    <script type="text/javascript" src="script/date-picker.js" />
+  </head>
+  <body>
+    <form>
+      <div id="cover" />
+      <div id="deleteConfirmation" style="position: absolute; width: 400px">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top" class="popupBg">
+              <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                <tr>
+                  <td class="popupHeader">Delete
+Appointments/Authorizations/Terminations</td>
+                </tr>
+                <tr>
+                  <td valign="top" align="center">
+                    <div class="popupDivSmall">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center" style="padding-right:40px">
+                            <table cellpadding="0" cellspacing="1">
+                              <tr>
+                                <td>
+                                  <img src="images/icons/delete_icon.gif" width="16" height="16" />
+                                </td>
+                                <td>Are you sure you want to delete this item?</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="popupFooter">
+                    <table cellpadding="0" cellspacing="0" align="right">
+                      <tr>
+                        <td colspan="2">
+                          <div class="buttonwrapper">
+                            <a id="bulkappointerminationletter_yes" onclick="closePopUp('deleteConfirmation');" href="javascript:document.forms[0].submit();" class="ovalbutton">
+                              <span id="bulkappointerminationletter_yes_label">Yes</span>
+                            </a>
+                            <a id="bulkappointerminationletter_no" href="#" onclick="clean();closePopUp('deleteConfirmation');" class="ovalbutton">
+                              <span id="bulkappointerminationletter_no_label">No</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="27px" valign="top" style="background-color: none;">
+              <a id="bulkappointerminationletter_close" href="#" onclick="closePopUp('deleteConfirmation')">
+                <img src="images/close.png" />
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="divAppointmentStep1">
+        <table cellpadding="0" cellspacing="0" width="100%" id="bulk_appoint_termination_letter">
+          <tr>
+            <td class="spacerTd">#space#</td>
+          </tr>
+          <tr>
+            <td class="accordionBg">
+              <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>
+                    <fieldset>
+   <!-- BMIC Specific-->                  <div class="ConfirmationAlign clear-both" id="agentAppointmentManualPDBalertMSG_freeform_contextdata_011125">
+                          <label name="pageMsg" id="pageMsg" class="conformationMsg" />
+                        </div>
+                      <legend id="checkAppointmentLetterLegend">Generate
+Appointment/Authorization Letter Wizard</legend>
+                      <legend id="checkTerminationLetterLegend">Generate Terminate
+Appointment/Authorization Letter Wizard</legend>
+                      <legend id="checkDeletionLegend">Failed Appointment/Termination Deletion
+Wizard</legend>
+					  <div id="divAppointmentStep2">
+					  		<div class="confirmationMsgAlign" id="bulkAppintTerminationLetter_freeform_contextdata_100">
+					             <label name="pageMsg" id="ajax_pageMsg" class="conformationMsg" />
+	     					</div>
+				      		<div id="isshowBulkAppointmentTerminationEmailTemplate" class="wizard_border panel-body-wraper">
+												<!-- <div class="wizard_scroll"> -->
+												<div class="wizard_scroll form-inline" id="selectEmailTemplate_freeform_contextdata_1"> 
+														<!-- <span id="#Include:carrier/selectEmailTemplate.html#" /> -->
+														<ul>
+															<li class="inlineBlock_1" id="selectEmailtemplate_email_templates_security">
+										                        <div class="freeFormList form-group">
+										                          <div class="freeFormListTr">
+										                            <div class="freeFormListTdError">
+										                              <h6>#space#</h6>
+										                            </div>
+										                            <div class="freeFormListTdError">
+											                            <div id="ajax_error_template_name" class="error" />
+											                          </div>
+										                          </div>
+										                          <div class="freeFormListTr">
+										                            <div class="freeFormListTd labelAlign valignTop" style="width:500px;">
+										                            	<span id="bulkAppointTerminationLetter_template_name_label">Email Template</span> :</div>
+											                            <div class="freeFormListTd tdInput">
+											                             <!-- <input name="template_name" id="ajax_field_template_name" type="text" maxlength="200" class="full_width" />-->
+											                              <select name="template_name" 
+											                              id="ajax_field_template_name" class="form-control" 
+											                              	onchange="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.refresh','','','selectEmailTemplate_freeform_contextdata_1');">
+											                              </select>
+											                            </div>
+										                          </div>
+										                        </div>
+															  </li>
+															<li class="inlineBlock_1 paddingTop10" style="width:100%">
+																<div id="emailEventDetailDiv">
+																   <div id="selectEmailTemplate_readonlybody_security">
+																	 <textarea rows="25" cols="100" name="bodyContent" id="ajax_field_bodyContent" style="width: 100%;display: none;"/>
+																	 <textarea rows="25" cols="100" name="body" id="ajax_field_body" style="width: 100%;display: none;"/>
+																	 <div id="selectEmailTemplate_readonlybody"/>
+																   </div>
+																 </div> 
+															</li>
+														</ul>			                      		
+														<section class="divButton buttons-section paddingTop10 row">
+													                      <div class="buttonwrapper paddingRight10 paddingBottom10">
+													                      		
+													                      		<span id="appointmentletter_sendemail">
+																					<a id="selectEmailTemplate_back_security" class="ovalbutton" 
+																						href="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.hideAppointmentTerminationEmailTemplate','','','divAppointmentStep2#bulkappointmentletter_sendemail');">
+																						Cancel
+																					</a>
+																				</span>
+																				
+																				<span id="terminationletter_sendemail">
+																					<a id="selectEmailTemplate_back_security" class="ovalbutton" 
+																						href="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.hideAppointmentTerminationEmailTemplate','','','divAppointmentStep2#bulkterminationletter_sendemail');">
+																						Cancel
+																					</a>
+																				</span>
+																				
+																				<a class="ovalbutton editbtnMail">Edit Email</a>
+																				<a class="ovalbutton hidden savebtnMail" onclick="refreshEmailBodyContent();">Preview Mail</a> 
+																				
+																				<span id="appointmentletter_sendemail">  
+																					<a id="selectEmailTemplate_sendemail_security" class="ovalbutton" onclick="refreshEmailBodyContent();"
+																						href="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.sendAppointmentLetterWithAttachment','','','divAppointmentStep2#bulkappointmentletter_sendemail');">
+																						<span id="selectEmailTemplate_sendemail_label">Send Email</span>
+																					</a>
+																				</span>
+																				<span id="terminationletter_sendemail">  
+																					<a id="selectEmailTemplate_sendemail_security" class="ovalbutton" onclick="refreshEmailBodyContent();"
+																						href="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.sendTerminationLetterWithAttachment','','','divAppointmentStep2#bulkterminationletter_sendemail');">
+																						<span id="selectEmailTemplate_sendemail_label">Send Email</span>
+																					</a>
+																				</span>          
+													                      </div>
+														</section>
+												
+												</div>
+									  </div>
+				      </div>	
+                      <table id="isshowBulkAppointment" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td class="gridTopPadding">
+                            <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                              <tr>
+                                <td class="gridTable">
+                                  <table cellpadding="0" cellspacing="0" width="100%" id="getBulkAppointTerminationLetter_mom_list_01">
+                                    <tr id="getBulkAppointTerminationLetter_mom_list_header_01">
+                                      <td id="block_field_ajax_field_chkLetter" width="3%" class="HeaderStyle">
+                                        <input type="checkbox" name="chkLetter" id="chkLetter" onclick="javascript:checkAllBoxIncentive('chkLetter','ajax_field_chkLetter');" />
+                                      </td>
+                                      <td width="200px" class="HeaderStyle" id="block_field_State">State</td>
+                                      <td width="143px" class="HeaderStyle" id="block_field_Company">Company</td>
+                                      <td width="170px" class="HeaderStyle" id="block_field_license_num">License Number</td>
+                                      <td width="230px" nowrap="nowrap" class="HeaderStyle" id="block_field_LicenseClass">Appointment Class</td>
+                                      <td width="160px" class="HeaderStyle" id="block_field_LOA">Appointment LOA</td>
+                                      <td width="160px" class="HeaderStyle" id="block_field_fail_reason">
+                                        <span id="checkHideShowFailReason">
+                                          <span id="block_field_fail_reason">Fail Reason</span>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tbody id="getBulkAppointTerminationLetter_mom_list_mom_data_01" class="eval:ProducerOneRule.getRowColorForAppointmentTerminationLetter">
+                                      <tr>
+                                        <td>
+                                          <table cellpadding="0" cellspacing="0">
+                                            <tr>
+                                              <td width="2%" style="border:none">
+                                                <span id="block_field_ajax_field_chkLetter" style="padding-left:3px">
+                                                  <input type="checkbox" name="ajax_field_chkLetter" id="ajax_field_chkLetter" value="Y" onclick="javascript:checkSelectAllCheckBox('chkLetter','ajax_field_chkLetter_');" />
+                                                </span>
+                                              </td>
+                                              <td style="border:none" width="1%">
+                                                <span id="checkLetterNIPRIcon" style="font-size: 14px; font-weight: bold; color: Blue;padding-left: 5px;" title="Nipr Gateway Transaction">N</span>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                        <td id="block_field_State" style="padding-left:2px" />
+                                        <td width="143px" style="padding-left:2px" id="block_field_Company" />
+                                        <td width="149px" style="padding-left:3px" id="block_field_license_num" />
+                                        <td width="150px" style="padding-left:2px" id="block_field_LicenseClass" />
+                                        <td width="143px" style="padding-left:2px" id="block_field_LOA" />
+                                        <td width="143px" id="block_field_fail_reason">
+                                          <span id="checkHideShowFailReason">
+                                            <span id="block_field_fail_reason">
+                                              <textarea rows="2" cols="5" style="height: 50px; width: 250px;" />
+                                            </span>
+                                          </span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="buttonwrapper paddingTop10" id="checkAppointTerminationLetterListSize">
+                              <span id="checkBulkAppointmentLetter">
+                                <span id="checkBulkAppointmentLetterWithoutAttachment">
+	                                <a id="bulkappointerminationletter_generateletter" 
+	                                fullid="page(page.page).bulkappointerminationletter_generateletter.bulkappointerminationletter_generateletter_label.bulkappointerminationletter_generateletter"
+	                                class="ovalbutton" href="javascript:ajaxsubmitform('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.downloadAppointmentLetter','','','divAppointmentStep1');">
+	                                  <span id="bulkappointerminationletter_generateletter_label">Generate Letter</span>
+	                                </a>
+	                                 <span id="isshowbulkappointerminationletter_sendemail">
+		                                <span id="bulkappointmentletter_sendemail">
+			                                <a class="ovalbutton" href="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.showAppointmentEmailTemplate','','','divAppointmentStep2#bulkappointmentletter_sendemail');">
+				                                  <span id="bulkappointerminationletter_sendemail_label">Send Email</span>
+				                            </a>
+			                            </span>
+			                         </span> 
+                                </span>
+                                <span id="checkBulkAppointmentLetterWithAttachment"> 
+                                	<a id="bulkappointerminationletter_generateletter" 
+	                                	class="ovalbutton" href="javascript:ajaxsubmitform('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.downloadAppointmentLetterWithAttachment','','','divAppointmentStep1');">
+	                                  <span id="bulkappointerminationletter_generateletter_label">Generate Letter</span>
+	                                </a>
+                                
+                                </span>
+                                <!-- <span id="isBulkAppointNewSetToNo">
+                                  <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppoint.html|carrier/bulkAgentAppoint.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes');">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span>
+                                <span id="isBulkAppointNewSetToYes">
+                                  <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancelNew','forwardeval','ProducerOneRule.isBulkEntityAppointWithNewDesign|ProducerOneRule.isBulkAgentAppointWithNewDesign');">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span> -->
+                              </span>
+                              <span id="checkBulkTerminationLetter">
+                                <span id="checkBulkAppointmentLetterWithoutAttachment"> 
+	                                <a id="bulkappointerminationletter_generateletter1" 
+	                                fullid="page(page.page).bulkappointerminationletter_generateletter1.bulkappointerminationletter_generateletter1_label.bulkappointerminationletter_generateletter1"
+	                                class="ovalbutton" href="javascript:ajaxsubmitform('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.downloadTerminationLetter','','','divAppointmentStep1');">
+	                                  <span id="bulkappointerminationletter_generateletter1_label">Generate Letter</span>
+	                                </a>
+	                                <span id="isshowbulkappointerminationletter_sendemail">
+		                                <span id="bulkterminationletter_sendemail">
+			                                <a class="ovalbutton" href="javascript:ajaxpageblocklink('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.showTerminationEmailTemplate','','','divAppointmentStep2#bulkterminationletter_sendemail');">
+				                                  <span id="bulkappointerminationletter_sendemail_label">Send Email</span>
+				                            </a>
+			                            </span>
+			                         </span>   
+                                </span>
+                                
+                                <span id="checkBulkAppointmentLetterWithAttachment"> 
+	                                <a id="bulkappointerminationletter_generateletter1" 
+	                                fullid="page(page.page).bulkappointerminationletter_generateletter1.bulkappointerminationletter_generateletter1_label.bulkappointerminationletter_generateletter1"
+	                                class="ovalbutton" href="javascript:ajaxsubmitform('carrier/bulkAppointTerminationLetter.html','bulkAppointTerminationLetter.downloadTerminationLetterWithAttachment','','','divAppointmentStep1');">
+	                                  <span id="bulkappointerminationletter_generateletter1_label">Generate Letter</span>
+	                                </a>
+                                </span>
+                               <!--  <span id="isBulkAppointNewSetToNo">
+                                  <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppoint.html|carrier/bulkAgentAppoint.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes');">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span>
+                                <span id="isBulkAppointNewSetToYes">
+                                  <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancelNew','forwardeval','ProducerOneRule.isBulkEntityAppointWithNewDesign|ProducerOneRule.isBulkAgentAppointWithNewDesign');">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span> -->
+                              </span>
+                            </div>
+                            <div class="buttonwrapper paddingTop10" id="checkAppointTerminationLetterListSize">
+                              <span id="checkBulkMassDelete">
+                                <a id="bulkappointerminationletter_delete" 
+                                fullid="page(page.page).bulkappointerminationletter_delete.bulkappointerminationletter_delete_label.bulkappointerminationletter_delete"
+                                class="ovalbutton" href="javascript:ajaxsubmitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.massDeleteAppointmentsNTerminations','forwardeval','ProducerOneRule.isBulkEntityAppointWithNewDesign|ProducerOneRule.isBulkAgentAppointWithNewDesign','mainListDiv');">
+                                  <span id="bulkappointerminationletter_delete_label">Delete</span>
+                                </a>
+                                <!-- <span id="isBulkAppointNewSetToNo">
+                                  <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppoint.html|carrier/bulkAgentAppoint.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes');">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span>
+                                <span id="isBulkAppointNewSetToYes">
+                                  <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancelNew','forwardeval','ProducerOneRule.isBulkEntityAppointWithNewDesign|ProducerOneRule.isBulkAgentAppointWithNewDesign');">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span>
+                              </span> -->
+                            </div>
+                            <div class="buttonwrapper paddingTop10">
+                              <!-- <span id="isBulkAppointNewSetToNo">
+                                <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppoint.html|carrier/bulkAgentAppoint.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes');">
+                                  <span>Cancel</span>
+                                </a>
+                              </span>
+                              <span id="isBulkAppointNewSetToYes">
+                                <a class="ovalbutton cursor" href="javascript:submitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancelNew','forwardeval','ProducerOneRule.isBulkEntityAppointWithNewDesign|ProducerOneRule.isBulkAgentAppointWithNewDesign');">
+                                  <span>Cancel</span>
+                                </a>
+                              </span> --> 
+                             
+                              <span id="isBulkAppointNewSetToYes">
+								<a class="ovalbutton cursor" id="bulkappointerminationletter_cancel"
+									fullid="page(page.page).bulkappointerminationletter_cancel.bulkappointerminationletter_cancel_label.bulkappointerminationletter_cancel"
+									href="javascript:submitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancelNew','forwardeval','ProducerOneRule.isBulkEntityAppointWithNewDesign|ProducerOneRule.isBulkAgentAppointWithNewDesign','');">
+										<span id="bulkappointerminationletter_cancel_label">Cancel</span>
+								</a>
+								</span> 
+								<span id="isBulkAppointNewSetToNo"> <a
+									class="ovalbutton cursor" id="bulkappointerminationletter_cancel"
+									fullid="page(page.page).bulkappointerminationletter_cancel.bulkappointerminationletter_cancel_label.bulkappointerminationletter_cancel"
+									href="javascript:submitform('carrier/bulkEntityAppoint.html|carrier/bulkAgentAppoint.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes','');">
+										<span id="bulkappointerminationletter_cancel_label">Cancel</span>
+								</a>
+								</span>
+						  </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </fieldset>
+                  </td>
+                </tr>
+                <!-- <tr id="eval:ProducerOneRule.checkBulkMassDelete">
+                           <td>
+                              <fieldset>
+                                  <legend>Appointments/Authorizations/Terminations Deletion Wizard  </legend>
+                                  <table cellpadding="0" cellspacing="0" width="100%">
+                                        
+                                        <tr>
+                                            <td class="gridTopPadding">
+                                                <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                    <tr>
+                                                        <td class="gridTable">
+                                                            <table cellpadding="0" cellspacing="0" width="100%" id="getBulkAppointdeletion_mom_list_01">
+                                                                <tr id="getBulkAppointdeletion_mom_list_header_01">
+                                                                    <td id="block_field_ajax_field_chkLetter" width="4%" class="HeaderStyle">
+                                                                        Select
+                                                                    </td>
+                                                                    <td width="200px" class="HeaderStyle" id="block_field_State">
+                                                                        State
+                                                                    </td>
+                                                                    <td width="143px" class="HeaderStyle" id="block_field_Company">
+                                                                        Company
+                                                                    </td>
+                                                                    <td width="170px" class="HeaderStyle" id="block_field_license_num">
+                                                                        License Number
+                                                                    </td>
+                                                                    <td width="230px" nowrap="nowrap" class="HeaderStyle" id="block_field_LicenseClass">
+                                                                        Appointment Class
+                                                                    </td>
+                                                                    <td width="160px" class="HeaderStyle" id="block_field_LOA">
+                                                                        Appointment LOA
+                                                                    </td>
+                                                                    <td width="160px" class="HeaderStyle" id="block_field_LOA">
+                                                                        Transaction Type
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="getBulkAppointdeletion_mom_list_mom_data_01">
+                                                                    <td id="block_field_ajax_field_chkLetter">
+                                                                        <input type="checkbox" name="ajax_field_chkLetter" id="ajax_field_chkLetter" value="Y" />
+                                                                    </td>
+                                                                    <td id="block_field_State">
+                                                                    </td>
+                                                                    <td width="143px" id="block_field_Company">
+                                                                    </td>
+                                                                    <td width="149px" id="block_field_license_num">
+                                                                    </td>
+                                                                    <td width="150px" id="block_field_LicenseClass">
+                                                                    </td>
+                                                                    <td width="143px" id="block_field_LOA">
+                                                                    </td>
+                                                                    <td width="143px" >
+                                                                        Termination
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="spacerTd">#space#</td>
+                                        </tr>
+                                        <tr>
+                                         <td >
+                                        <div class="buttonwrapper" id="eval:ProducerOneRule.checkAppointTerminationDeletionListSize">
+                                        <span id="eval:ProducerOneRule.checkBulkMassDelete">
+                                        <a class="ovalbutton" href="javascript:ajaxsubmitform('carrier/entityAppoint.html|carrier/agentAppoint.html|carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.massDeleteAppointmentsNTerminations','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeNo|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeNo|ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes','divAppointmentStep1');">
+                                            <span>Delete</span>
+                                       </a>
+                                       <a href="javascript:submitform('carrier/entityAppoint.html|carrier/agentAppoint.html|carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeNo|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeNo|ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes');"
+                                            class="ovalbutton">
+                                          <span>Cancel</span>
+                                       </a>
+                                     </span>
+                                     </div>
+                                     
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    
+                                </fieldset>
+                            </td>
+                        </tr>-->
+                <tr>
+                  <!-- <td>
+                    <div class="buttonwrapper" id="checkDeletionBothListSize">
+                      <a href="javascript:submitform('carrier/bulkEntityAppointNew.html|carrier/bulkAgentAppointNew.html','bulkAppointTerminationLetter.cancel','forwardeval','ProducerOneRule.checkForAddEntityManualLicenseForBulkModeYes|ProducerOneRule.checkForAddAgentManualLicenseForBulkModeYes');" class="ovalbutton">
+                        <span>Cancel</span>
+                      </a>
+                    </div>
+                  </td> -->
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </body>
+</html>
+

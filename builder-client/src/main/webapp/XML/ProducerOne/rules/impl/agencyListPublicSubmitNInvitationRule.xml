@@ -1,0 +1,9 @@
+<evalrules project="ProducerOne">
+  <ruleset name="agencyListPublicSubmitNInvitationRule">
+    
+	<rule id="isSendEmailShow"  deltaind="I" expression="isEqual(:Status,Completed)" obj="ruleobjs.agencyListPublicSubmitNInvitationRule" method="isSendEmailShow" />
+	<rule id="isSendProducerEmail" deltaind="I" expression="if(andCondition(isEqual(:registration_type,Producer Registration),orCondition(isNotEqual(:registration_type,Primary Agency),isNotEqual(:registration_type,Secondary Agency))))=>isEqual(1,1)->isEqual(1,2))" obj="ruleobjs.agencyListPublicSubmitNInvitationRule" method="isSendProducerEmail" />
+   <rule id="isSendAgencyEmail" deltaind="I" expression="orCondition(isEqual(:registration_type,Primary Agency),orCondition(isEqual(:registration_type,Secondary Agency),isNotEqual(:registration_type,Producer Registration))))" obj="ruleobjs.agencyListPublicSubmitNInvitationRule" method="isSendAgencyEmail" />
+  <rule id="isshowHbaAssociationIdValueListEdit" deltaind="I" expression="isEqual(:member_of_hba,1);" />
+  </ruleset>
+</evalrules>

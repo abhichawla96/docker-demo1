@@ -1,0 +1,22 @@
+<versioning project="" version="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+	
+	<versionfld field="" contextfld="" condition="" defaultvalue="">
+		<nodeinfo uniqueid="field">
+		</nodeinfo>
+	</versionfld>
+	
+	<versiongrp versionname="" versiondescription="" defaultversion="" extendsversiongrp="">
+		<nodeinfo uniqueid="versionname">
+			<attribute name="defaultversion" datatype="boolean"/>
+			<attribute name="extendsversiongrp" references="Versiongrp"/>
+		</nodeinfo>
+		<versioncriteria field="" val="">
+			<nodeinfo uniqueid="field">
+				<attribute name="field" references="Versionfld"/>
+			</nodeinfo>
+		</versioncriteria>
+	</versiongrp>
+</versioning>

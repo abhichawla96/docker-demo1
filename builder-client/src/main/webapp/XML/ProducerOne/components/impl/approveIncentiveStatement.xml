@@ -1,0 +1,8 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="approveIncentiveStatement">
+    <action deltaind="M" name="sendAfterApproval">
+      <actionparam deltaind="D" eval="ProducerOneRule.checkCCBStatementDisApproved" executionsequence="0" form="Y" name="email_notification_event_name" paramid="email_notification_event_name1" post="Y" session="Y" val="CCBAdjustmentReject"/>
+      <actionparam deltaind="D" eval="ProducerOneRule.checkCCBStatementApproved" executionsequence="0" form="Y" name="email_notification_event_name" paramid="email_notification_event_name" post="Y" session="Y" val="CCBAdjustmentApprove"/>
+    </action>
+   </component>
+</projectcomponents>

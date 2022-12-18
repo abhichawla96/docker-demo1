@@ -1,0 +1,115 @@
+<security project="Public">
+  	 	
+  <protectedresource deltaind="I" defaultaccesstype="1"
+		description="Hide/Show add button bank info"
+		uniquename="hideBankDetailsAddBtn">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.isBankInfoFilled">
+			<userdefinedaccesslevel accesstype="0" />
+		</userdefined>
+		<userdefined deltaind="I" executionsequence="1"
+			ruleid="PublicRule.isEditBankInformationSecitionTrue">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	<protectedresource deltaind="I" defaultaccesstype="0"
+		description="Hide/Show year field"
+		uniquename="year_recieved_security">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.isCBIAYesNo">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	<protectedresource deltaind="I" defaultaccesstype="0" description="Hide fields" uniquename="hideFields">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.checkIsRegistrationTypePRERG">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+		<!-- <userdefined deltaind="I" executionsequence="1"
+			ruleid="PublicRule.isLicensedProducerNew">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined> -->
+		<!-- ADO-27526 -->
+		<userdefined deltaind="I" executionsequence="1"
+			ruleid="PublicRule.isLicensedProducerCheckedPublic">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	
+	<protectedresource deltaind="M" defaultaccesstype="1" uniquename="ownership_security" description="Hide/show ownership_security" >
+	<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.checkIsRegistrationTypeProducerRegistration">
+			<userdefinedaccesslevel accesstype="0" />
+		</userdefined>
+	</protectedresource>
+	
+	<protectedresource deltaind="I" defaultaccesstype="0"
+		description="Hide/Show dropdown field"
+		uniquename="hba_dropdown_security">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.isHBAYes">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	<protectedresource deltaind="I" defaultaccesstype="1"
+		description="Hide/Show dropdown field"
+		uniquename="public3_contact_types_information1_security">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.checkIsRegistrationTypePRERG">
+			<userdefinedaccesslevel accesstype="0" />
+		</userdefined>
+	</protectedresource>
+	
+	<protectedresource  deltaind="I" defaultaccesstype="0" uniquename="checkPrincipalSelected" description="Hide/show ownership_security" >
+	<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.checkPrincipalSelected">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+		
+		
+	</protectedresource>
+	
+	<!-- ADO 27526 - DOB, SSN, NPN show on selection of LP - start-->
+	<protectedresource deltaind="M" defaultaccesstype="0" uniquename="npn_security" description="Hide/show npn_security">
+	<userdefined deltaind="I" executionsequence="0"
+			ruleid="PublicRule.isLicensedProducerCheckedPublic">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+		<userdefined deltaind="I" executionsequence="1"
+			ruleid="PublicRule.checkIsRegistrationTypePRERG">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	
+	<protectedresource deltaind="M" defaultaccesstype="0" uniquename="public3_SSN_security" description="Hide/show public3_SSN_security" >
+		<userdefined deltaind="D" ruleid="events.editEvent" datatype="decrypt" >
+			<userdefinedaccesslevel accesstype="1" >
+			</userdefinedaccesslevel>
+		</userdefined>
+		<userdefined deltaind="I" executionsequence="1"
+			ruleid="PublicRule.isLicensedProducerCheckedPublic">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+		<userdefined deltaind="I" executionsequence="2"
+			ruleid="PublicRule.checkIsRegistrationTypePRERG">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	
+	<protectedresource deltaind="M" defaultaccesstype="0" uniquename="public3_dob_security" description="Hide/show public3_dob_security" >
+		<userdefined deltaind="D" ruleid="events.editEvent" datatype="decrypt" >
+			<userdefinedaccesslevel accesstype="1" >
+			</userdefinedaccesslevel>
+		</userdefined>
+		<userdefined deltaind="I" executionsequence="1"
+			ruleid="PublicRule.isLicensedProducerCheckedPublic">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+		<userdefined deltaind="I" executionsequence="2"
+			ruleid="PublicRule.checkIsRegistrationTypePRERG">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+	<!-- ADO 27526 - DOB, SSN, NPN show on selection of LP - end-->
+	
+</security>

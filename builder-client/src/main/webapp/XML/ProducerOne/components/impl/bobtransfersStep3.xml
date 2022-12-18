@@ -1,0 +1,14 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component name="bobtransfersStep3" stackdisplayname="Transfers Step3" displayname="BOB Transfers Step3">
+		<action deltaind="M" name="view">
+			<actionparam deltaind="I" executionsequence="0" form="Y" name="bobtransfersStep2_dest_producer_code" paramid="bobtransfersStep2_dest_producer_code" populatename="bobtransfersStep2_dest_producer_code_step3" post="Y" />
+		</action>
+		<action deltaind="M" name="approve">
+			<actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y" />
+		</action>
+		<action deltaind="M" name="sendforreview" metaobject="sendForReviewPopup">
+			<actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y" />
+		</action>
+
+	</component>
+</projectcomponents>

@@ -1,0 +1,75 @@
+<security project="" version="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+	
+	<!-- operator will be used for userdefinedrule nodes to decide whether rules will get accesstype based on and/or operators. -->
+	<!-- BY default accesstype will be set based on success of rules in iteration. It will be override if any other rule execute to true in same resource. -->
+	<!-- datatype will have encrypt/decrypt values only -->
+	
+	<protectedresource uniquename="" description="" operator="" override="" defaultaccesstype="" datatype="" deltaind="">
+		<nodeinfo uniqueid="uniquename">
+			<attribute name="override" datatype="boolean" />
+		</nodeinfo>
+		
+		<businessrole roleid="" datatype="" unmaskdigits="" unmaskdigitssymbol="" accesstype="" deltaind="">
+			<nodeinfo uniqueid="roleid">
+				<attribute name="accesstype" datatype="int"/>
+				<attribute name="unmaskdigits" datatype="int"/>
+			</nodeinfo>
+			<roleaccesslevel accesstype="">
+				<nodeinfo uniqueid="accesstype">
+					<extends class="Accesslevel"/>
+					<attribute name="accesstype" datatype="int"/>
+				</nodeinfo>
+			</roleaccesslevel>
+		</businessrole>
+		
+		<appuser userid="" datatype="" unmaskdigits="" unmaskdigitssymbol="" accesstype="" deltaind="">
+			<nodeinfo uniqueid="userid">
+				<attribute name="accesstype" datatype="int"/>
+				<attribute name="unmaskdigits" datatype="int"/>
+			</nodeinfo>
+			<useraccesslevel accesstype="">
+				<nodeinfo uniqueid="accesstype">
+					<extends class="Accesslevel"/>
+					<attribute name="accesstype" datatype="int"/>
+				</nodeinfo>
+			</useraccesslevel>
+		</appuser>
+		
+		<userdefined ruleid="" datatype="" unmaskdigits="" unmaskdigitssymbol="" executionsequence="" accesstype="" deltaind="">
+			<nodeinfo uniqueid="ruleid">
+				<implements
+							interface="com.manage.managemetadata.security.ICacheInstruction" />
+				<attribute name="executionsequence" datatype="int" />
+				<attribute name="accesstype" datatype="int"/>
+				<attribute name="unmaskdigits" datatype="int"/>
+			</nodeinfo>
+			<userdefinedaccesslevel accesstype="">
+				<nodeinfo uniqueid="accesstype">
+					<extends class="Accesslevel"/>
+					<attribute name="accesstype" datatype="int"/>
+				</nodeinfo>
+			</userdefinedaccesslevel>
+		</userdefined>
+		
+		<validaccesslevels>
+			<validaccesslevel accesstype="">
+				<nodeinfo uniqueid="accesstype">
+					<extends class="Accesslevel"/>
+					<attribute name="accesstype" datatype="int"/>
+				</nodeinfo>
+			</validaccesslevel>
+		</validaccesslevels>
+	</protectedresource>
+	
+	<allaccesslevels>
+		<allaccesslevel accesstype="">
+			<nodeinfo uniqueid="accesstype">
+				<extends class="Accesslevel"/>
+				<attribute name="accesstype" datatype="int"/>
+			</nodeinfo>
+		</allaccesslevel>
+	</allaccesslevels>
+</security>

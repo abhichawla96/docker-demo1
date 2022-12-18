@@ -1,0 +1,22 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id,workflow_function,aar_statusid_desc,workflow_user" metaobject="contractMoObject;producer_number;compititor_appointments;agency_contracts;" name="addNewDocContract"
+  	objectcolumn="contract_id" objecttype="addNewDocContract" displayname="Contract Details">
+	<action name="sendToAgent" deltaind="M">	
+        <actionparam deltaind="I" pre="Y" name="workflow_user_login" paramid="workflow_user_login" form="Y" val="contractApprover" executionsequence="3" />
+		<actionparam deltaind="I" executionsequence="0" name="workflow_name_context" paramid="workflow_name_context" val="onboardingDashboard" viewparam="Y"/>
+        <actionparam deltaind="I" executionsequence="0" name="workflow_event_name_context" paramid="workflow_event_name_context" val="sendToAgent" viewparam="Y"/>
+			<workflow name="sendToAgent1" seq="1" deltaind="M">
+		 	 <email deltaind="D" attachmentcontent="primaryAttachmentContent" eval="addNewDocContractRule.isPrimaryAttachmentContentNotEmpty" eventname="sendContractToAgent" executionsequence="2" ischeckfortemplates="N" mailto="primaryMailTo" name="sendToPrimaryAgent" objectid="agency_id" objecttype="Other"/>
+			<email deltaind="D" attachmentcontent="secondaryAttachmentContent" eval="addNewDocContractRule.isSecondaryAttachmentContentNotEmpty" eventname="sendContractToAgent" executionsequence="3" ischeckfortemplates="N" mailto="secondaryMailTo" name="sendToSecondaryAgent" objectid="agency_id" objecttype="Other"/> 
+		 </workflow>
+    </action>
+    
+    <action name="view" deltaind="M">
+		<actionparam val="1" paramid="contract_type_id" deltaind="I" post="N" remove="N" form="Y" evalute="N" viewparam="Y" ismenuparam="N" isexecuteonsuccess="N" session="Y" pre="Y" name="contract_type_id" seq="0" executionsequence="0"/>
+		<actionparam deltaind="I" executionsequence="1" name="contract_id" paramid="contract_id" val="null" viewparam="Y"/>
+		<actionparam deltaind="M" eval="ProducerOneRule.isBGContractApptOnboardingStatusNotFound" executionsequence="0" form="Y" name="removeparams" paramid="removeparams123" pre="Y" remove="Y" removeparams="workflow_function,aar_statusid_desc,workflow_user,email_address, producer_number_id" session="Y"/>
+	</action>
+	
+  </component>
+</projectcomponents>
+  

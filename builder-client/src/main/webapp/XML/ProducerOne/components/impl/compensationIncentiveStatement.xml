@@ -1,0 +1,19 @@
+<projectcomponents project="ProducerOne">
+  <component name="compensationIncentiveStatement">
+    <action deltaind="M" name="sendForApproval">
+ <!-- Phase 3- Task Id- 30033- CCB initiate mail -->
+<actionparam deltaind="D" post="Y" name="email_notification_event_name" paramid="email_notification_event_name" val="CCBAdjustmentSendforApproval" form="Y" session="Y" executionsequence="0" />
+ </action>
+ 
+  <!-- Phase 3- Adjustments recalculation -->  
+      <action deltaind="M" name="getEditCompensationIncentiveStatement">
+       <workflow deltaind="M" name="getEditCompensationIncentiveStatement" seq="0">
+        <storedprocedureoperation deltaind="D" name="CleanCCBStatementTempTables_p" id="CleanCCBStatementTempTables_p" dbspname="CleanCCBStatementTempTables_p" metaobject="incentive_schedule_lku" operation="2" executionsequence="1">
+          <parameteroperation property="producer_profit_sharing_id" mode="IN" indexno="1" seq="1" />
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0" />
+        </storedprocedureoperation>
+      </workflow>    
+  </action>
+ 
+  </component>
+</projectcomponents>

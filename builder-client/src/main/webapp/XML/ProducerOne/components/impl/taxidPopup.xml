@@ -1,0 +1,27 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="taxidPopup" metaobject="tbl_agencyprincipal">
+    <action deltaind="M"  name="view">    	
+    	<actionparam deltaind="I" executionsequence="7" pre="Y" form="Y" name="npn_check" paramid="npn_check"/>  <!-- Added by Aashutosh -->
+   	</action>
+    <action name="submit">
+    	<actionparam executionsequence="0" form="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" viewparam="Y"/>
+    	<actionparam executionsequence="1" form="Y" name="ISSHOWREQUESTATTRIBUTEDATA" paramid="ISSHOWREQUESTATTRIBUTEDATA" val="tax_id" viewparam="Y"/>
+    	<workflow name="submit" seq="0">
+    		<function executionsequence="0" expression="assign(:tax_id,removeSymbolFromString(:tax_id_popup,-));assign(:tax_id_isencryptvalue,removeSymbolFromString(:tax_id_popup,-));" name="setValue"/>
+    		<function executionsequence="1" functionid="setValueInRequest" name="setValueInRequest" parameters="context,tax_id"/>
+    	</workflow>
+    	<actionparam executionsequence="2" form="Y" isexecuteonsuccess="Y" name="ISCLOSEPOPUP" paramid="ISCLOSEPOPUP" post="Y" val="popupTaxId"/>
+    	<actionparam executionsequence="3" form="Y" isexecuteonsuccess="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" post="Y" val="Y"/>
+    </action>
+    <action name="cancel">
+    	<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<!-- <actionparam viewparam="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="1"></actionparam> -->
+    	<actionparam executionsequence="1" form="Y" name="ISCLOSEPOPUP" paramid="ISCLOSEPOPUP" val="popupTaxId" viewparam="Y"/>
+    	<actionparam executionsequence="2" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y"/>
+    	<workflow name="cancel" seq="0">
+    		<function executionsequence="0" expression="assign(:tax_id,:tax_id_isencryptvalue);" name="setValue"/>
+    		<function executionsequence="1" functionid="setValueInRequest" name="setValueInRequest" parameters="context,tax_id"/>
+    	</workflow>
+    </action>
+  </component>
+</projectcomponents>

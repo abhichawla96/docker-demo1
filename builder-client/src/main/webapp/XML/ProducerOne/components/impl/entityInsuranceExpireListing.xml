@@ -1,0 +1,85 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="cost_allocation_report" name="entityInsuranceExpireListing" stackdisplayname="entitytablabel Insurance Expiration Listing">
+
+    <action name="exportEntityInsuranceExpirationExcel">
+     
+      <workflow name="exportDataEntityToExcel" seq="0">
+        <document data="entityInsuranceExpiration_list_01" defaultfilename="Agency Entity Insurance Expiration Listing Report" executionsequence="1" name="downloadexcel" output="excel" template="templates/EntityInsuranceExpirationExport"/>
+        <storedprocedureoperation dbspname="AgencyInsuranceExpire_p" eval="ProducerOneRule.isCheckFlagTrue" executionsequence="0" id="AgencyInsuranceExpire_p" metaobject="hierarchy_list" name="AgencyInsuranceExpire_p" operation="5" viewid="entityInsuranceExpiration_list_01">
+          <parameteroperation indexno="12" mode="IN" property="order" seq="12"/>
+          <parameteroperation indexno="11" mode="IN" property="sortexpression" seq="11"/>
+          <parameteroperation indexno="10" mode="IN" property="startindex" seq="10"/>
+          <parameteroperation indexno="9" mode="IN" property="maxrows" seq="9"/>
+          <parameteroperation indexno="8" mode="IN" property="DynamicStatus" seq="8"/>
+          <parameteroperation indexno="7" mode="IN" property="processing_status" seq="7"/>
+          <parameteroperation indexno="1" mode="IN" property="expiry_daysFrom" seq="1"/>
+          <parameteroperation indexno="5" mode="IN" property="currentrecords" seq="5"/>
+          <parameteroperation indexno="4" mode="IN" property="policy_limit" seq="4"/>
+          <parameteroperation indexno="3" mode="IN" property="status_id" seq="3"/>
+          <parameteroperation indexno="2" mode="IN" property="expiry_daysTo" seq="2"/>
+          <parameteroperation indexno="6" mode="IN" property="ClientID" seq="6"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0">
+            <result column="expiration_date" indexno="8" javaType="java.lang.String" property="expiration_date"/>
+            <result column="carrier_name" indexno="10" javaType="java.lang.String" property="carrier_name"/>
+            <result column="agency_id" indexno="4" javaType="java.lang.Integer" property="agency_id"/>
+            <result column="status_id" indexno="5" javaType="java.lang.Integer" property="status_id"/>
+            <result column="policy_limit" indexno="6" javaType="java.lang.String" property="policy_limit"/>
+            <result column="policy_number" indexno="7" javaType="java.lang.String" property="policy_number"/>
+            <result column="last_updated_ts" indexno="9" javaType="java.lang.String" property="last_updated_ts"/>
+            <result column="carrier_id" indexno="1" javaType="java.lang.Integer" property="carrier_id"/>
+            <result column="effective_date" indexno="3" javaType="java.lang.String" property="effective_date"/>
+            <result column="agency_name" indexno="12" javaType="java.lang.String" property="agency_name"/>
+            <result column="category_name" indexno="11" javaType="java.lang.String" property="category_name"/>
+            <result column="producer_number" indexno="14" javaType="java.lang.String" property="producer_number"/>
+            <result column="e_mail" indexno="13" javaType="java.lang.String" property="e_mail"/>
+            <result column="expirationDate1" indexno="16" property="expirationDate1"/>
+            <result column="contact_name" indexno="15" javaType="java.lang.String" property="contact_name"/>
+            <result column="self_insured_retention" indexno="17" javaType="java.lang.String" property="self_insured_retention"/>
+            <!-- ADO-52160 - For Deductible customization -->
+            <result deltaind ="I" column="deductible" indexno="18" javaType="java.lang.String" property="deductible"/>
+            <result column="category_id" indexno="2" javaType="java.lang.Integer" property="category_id"/>
+          </resultsetoperation>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+    <action name="view">
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="view" seq="0">
+        <storedprocedureoperation dbspname="AgencyInsuranceExpire_p" eval="ProducerOneRule.isCheckFlagTrue" executionsequence="1" id="AgencyInsuranceExpire_p" metaobject="dummy_metadata" name="AgencyInsuranceExpire_p" operation="5" viewid="entityInsuranceExpiration_list_01">
+          <parameteroperation indexno="9" mode="IN" property="maxrows" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="startindex" seq="10"/>
+          <parameteroperation indexno="8" mode="IN" property="DynamicStatus" seq="8"/>
+          <parameteroperation indexno="12" mode="IN" property="order" seq="12"/>
+          <parameteroperation indexno="11" mode="IN" property="sortexpression" seq="11"/>
+          <parameteroperation indexno="7" mode="IN" property="processing_status" seq="7"/>
+          <parameteroperation indexno="1" mode="IN" property="expiry_daysFrom" seq="1"/>
+          <parameteroperation indexno="5" mode="IN" property="currentrecords" seq="5"/>
+          <parameteroperation indexno="4" mode="IN" property="policy_limit" seq="4"/>
+          <parameteroperation indexno="3" mode="IN" property="status_id" seq="3"/>
+          <parameteroperation indexno="2" mode="IN" property="expiry_daysTo" seq="2"/>
+          <parameteroperation indexno="6" mode="IN" property="ClientID" seq="6"/>
+          <resultsetoperation deltaind="M" indexno="1" mappingclass="java.util.HashMap" seq="0">
+            <result column="carrier_name" indexno="10" javaType="java.lang.String" property="carrier_name"/>
+            <result column="expiration_date" indexno="8" javaType="java.lang.String" property="expiration_date"/>
+            <result column="policy_number" indexno="7" javaType="java.lang.String" property="policy_number"/>
+            <result column="carrier_id" indexno="1" javaType="java.lang.Integer" property="carrier_id"/>
+            <result column="status_id" indexno="5" javaType="java.lang.Integer" property="status_id"/>
+            <result column="agency_id" indexno="4" javaType="java.lang.Integer" property="agency_id"/>
+            <result column="policy_limit" indexno="6" javaType="java.lang.String" property="policy_limit"/>
+            <result column="last_updated_ts" indexno="9" javaType="java.lang.String" property="last_updated_ts"/>
+            <result column="category_id" indexno="2" javaType="java.lang.Integer" property="category_id"/>
+            <result column="agency_name" indexno="12" javaType="java.lang.String" property="agency_name"/>
+            <result column="effective_date" indexno="3" javaType="java.lang.String" property="effective_date"/>
+            <result column="contact_name" indexno="15" javaType="java.lang.String" property="contact_name"/>
+            <result column="self_insured_retention" indexno="17" javaType="java.lang.String" property="self_insured_retention"/>
+            <!-- ADO-52160 - For Deductible customization -->
+            <result deltaind="I" column="deductible" indexno="18" javaType="java.lang.String" property="deductible"/>
+            <result column="category_name" indexno="11" javaType="java.lang.String" property="category_name"/>
+            <result column="e_mail" indexno="13" javaType="java.lang.String" property="e_mail"/>
+            <result column="producer_number" indexno="14" javaType="java.lang.String" property="producer_number"/>
+            <result column="expirationDate1" indexno="16" property="expirationDate1"/>
+          </resultsetoperation>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+  </component>
+</projectcomponents>

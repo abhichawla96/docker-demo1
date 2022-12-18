@@ -1,0 +1,1307 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component deltaind="M" metaobject="country_lku;producertype_lku;business_segment;w9_type_lku;person;agencyListPublicSubmitNInvitationEdit;entityGeneralDetailsAddress" name="agencyListPublicSubmitNInvitationEdit" 
+  	stackdisplayname="entitytablabel General Detail" displayname="Agency Clearance Details" objectcolumn="aar_requestid" objecttype="Onboarding">
+  	<html path="carrier/agencyListPublicSubmitNInvitationEdit.html">
+  	<block id="social_media_list_listfreeform_1" name="social_media_list_listfreeform_1" labelkey="social_media_info_label" securitykey="agencyListPublicSubmitNInvitationEdit_social_media_site_security" type="listfreeform" >
+			 <field id="block_field_social_media_site" name="social_media_site" displaytype="select" isrequired="MA" style="width: 33%"
+				labelkey="social_media_site_header_label" securitykey="agencyListEdit_social_media_site_header_security" lookupobjectmetaobject="social_media_sites" lookupobjectprocedure="getSocialMediaSiteDropdownData_p" lookupobjecttype="procedure" displayfield="description" valuefield="code" executionsequence="1">
+				<event id="onchange" name="onchange" actiontype="other" action="javascript:setDescInListFreeformDropDown(this);" />
+			</field>
+			<field id="block_field_social_media_userid" name="social_media_userid" displaytype="text" isrequired="MA" style="width: 33%"
+				labelkey="social_media_user_id_label" securitykey="agencyListEdit_social_media_user_id_security" executionsequence="2"/>
+			
+			<field id="block_field_addnew_row_link" name="addnew_row_link" displaytype="link" displayfor="freeform" style="width:1%;padding-right: 4px; padding-left: 4px" align="right" displayname="Add New Row Link" executionsequence="3">
+				<event id="href" name="href" securitykey="agencyListEdit_social_media_add_row_security" linkimgsrc="images/icons/icon_notepadPlus.gif" tooltip="Add" actiontype="ajaxpageblocklink" screen="carrier/agencyListPublicSubmitNInvitationEdit.html" action="addSocialMediaToSession" actiontypeid="socialMediaDiv">
+					<forward id="carrier/agencyListPublicSubmitNInvitationEdit.html" screen="carrier/agencyListPublicSubmitNInvitationEdit.html"/>
+				</event> 
+			</field>
+			<field displaytype="link" id="block_field_delete_row_link" name="delete_row_link" displayfor="data" style="width: 2%;text-align: right;" displayname="Delete Row Link" executionsequence="4">
+				<event id="href" name="href" actiontype="other" action="javascript:setAjaxDeleteDivId('socialMediaDiv');" executionsequence="0" />
+				<event id="href1" name="href" securitykey="agencyListEdit_social_media_delete_row_security" linkcss="delete_ico icons" action="deleteSocialMediaInfo" actiontype="ajaxpageblocklink" actiontypeid="socialMediaDiv" tooltip="Delete" executionsequence="1" screen="carrier/agencyListPublicSubmitNInvitationEdit.html">
+			  		<forward id="carrier/agencyListPublicSubmitNInvitationEdit.html" screen="carrier/agencyListPublicSubmitNInvitationEdit.html"/>
+			  	</event>
+			</field>
+		</block>
+  	</html>
+    <action name="signAfterMarketingRepReview">
+      <actionparam eval="ProducerOneRule.isApplicationWorkflowOld" evalute="Y" executionsequence="6" form="Y" name="workflow_event" paramid="workflow_event" pre="Y" val="ProducerOneRule.getOnboardingEvent"/>
+      <actionparam executionsequence="7" form="Y" name="usergroup" paramid="usergroup" pre="Y" val="MarketingAssistant"/>
+      <actionparam eval="ProducerOneRule.isApplicationWorkflowNew" executionsequence="6" form="Y" name="workflow_event" paramid="workflow_event12" pre="Y" val="signAfterMarketingAsstReview"/>
+      <actionparam executionsequence="5" form="Y" name="onboarding_method" paramid="onboarding_method" pre="Y" val="updateStatusInRequest"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="TYPE" paramid="TYPE" pre="Y" val="5"/>
+      <actionparam executionsequence="2" form="Y" name="aar_statusid_desc" paramid="aar_statusid_desc" pre="Y" val="Pending Review"/>
+      <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="4" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <workflowevent event="signInvitation" isexecuteonsuccess="Y" name="signInvitation" workflow="onboardingDashboard"/>
+    </action>
+    <action name="declineExternalRequest">
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="TYPE" paramid="TYPE" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="comingForSendForReview" paramid="comingForSendForReview" pre="Y" session="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+      <actionparam eval="ProducerOneRule.isClientId1009" executionsequence="0" form="Y" name="output_role" paramid="output_role" pre="Y" val="MarketingAssistant"/>
+      <actionparam eval="ProducerOneRule.isClientId1010" executionsequence="0" form="Y" name="output_role" paramid="output_role1" pre="Y" val="MarketingAssistant"/>
+      <actionparam executionsequence="0" form="Y" name="aar_statusid_description" paramid="aar_statusid_description" pre="Y" session="Y" val="Declined"/>
+      <actionparam eval="ProducerOneRule.isClientIdOtherThen1009Or1010" executionsequence="0" form="Y" name="workflow_event_name" paramid="workflow_event_name" pre="Y" val="declinedExternalRequest"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    </action>
+    <action name="accept">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="accept" seq="0">
+        <databaseoperation executionsequence="0" metaobject="agencyListPublicSubmitNInvitationEditAppoint3" name="getAarStatusIdForNew" operation="3" sqlstmt="select top 1 invitation_status_id as aar_statusid from tbl_invitation_status_lku where description in('New')"/>
+        <databaseoperation executionsequence="1" metaobject="agencyListPublicSubmitNInvitationEditAppoint3" name="updateStatusToNewInAgencyAppointment" operation="4" sqlstmt="update tbl_agencyappointmentrequest set aar_statusid=#aar_statusid# where aar_requestid=#aar_requestid#"/>
+      </workflow>
+    </action>
+    <action name="approveExternalRequest">
+      <actionparam eval="ProducerOneRule.assignDateFields" executionsequence="0" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+      <!-- <actionparam executionsequence="0" form="Y" name="workflow_event" paramid="workflow_event" pre="Y" val="approveExternalRequest"/> -->
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <workflow eval="ProducerOneRule.isESignEnabled" name="approveExternalRequest" seq="0">
+        <businessobject executionsequence="10" name="SendPublicApplicationForDocuSignBO" obj="com.userbo.integration.SendPublicApplicationForDocuSignBO"/>
+        <databaseoperation executionsequence="7" metaobject="tbl_agencyprincipal" name="getSegmentClassesList" operation="5" sqlstmt="select row_number() over(order by segment_industry_classes_id) rownum ,segment_class_name,aar_requestid,segment_industry_classes_id        ,dbo.getAmountFormat(cast(annual_premium as numeric(15,0))) as annual_premium,contact        ,Key_contact_name,Key_contact_email from tbl_segment_industry_classes s  where aar_requestid=#aar_requestid#" viewid="agencySegmentClasses_list_listfreeform_1"/>
+        <databaseoperation executionsequence="9" metaobject="tbl_agencyprincipal" name="getAgencyCurrentMarketInfoRecord" operation="3" sqlstmt="select dbo.getAmountFormat(cast(total_annual_revenue as numeric(15,0))) as total_annual_revenue,dbo.getAmountFormat(cast(commercial_premium as numeric(15,0))) as commercial_premium,cast(percentage_premium_standard as numeric(5,2)) as percentage_premium_standard,      cast(percentage_speciality_lines as numeric(5,2)) as percentage_speciality_lines,      total_commercial_carriers,surplus_license_holder,new_business,mix_of_personal_business,mix_of_commercial_business      from tbl_agency_current_market_informations where aar_requestid=#aar_requestid#"/>
+        <databaseoperation executionsequence="8" metaobject="tbl_agencyprincipal" name="getProgramBusinessList" operation="5" sqlstmt="select row_number() over(order by program_business_id) rownum,aar_requestid,program_business_id,dbo.getAmountFormat(cast(premium as numeric(15,0))) as premium,program_name,segment_class_name as segment_class_name1,product_lines,mga_mgu       from tbl_program_business where aar_requestid=#aar_requestid#" viewid="agencyProgramBusiness_list_listfreeform_1"/>
+        <databaseoperation executionsequence="6" metaobject="tbl_agencyprincipal" name="getCorporationPartnershipList" operation="5" sqlstmt="select row_number() over(order by corporation_partnership_details_id) rownum,name,title,ind_experience,aar_requestid, corporation_partnership_details_id       from tbl_corporation_partnership_details where aar_requestid=#aar_requestid#" viewid="agencyOfficersPartners_list_listfreeform_1"/>
+        <databaseoperation executionsequence="4" metaobject="tbl_agencyprincipal" name="getAgencyTerminatedList" operation="5" sqlstmt="select row_number() over(order by agencyterminated_id) rownum,agencyterminated_id,aar_requestid,company_name,dbo.getAmountFormat(annual_premium_volume) as annual_premium_volume,date_closed,reason_for_action_taken, case when reason_for_action_taken='0' then 'Low Production' else case when reason_for_action_taken='1' then 'High Loss Ratio' else case when reason_for_action_taken='2' then 'Other' end end end as reason_for_action_taken_desc,reason_other from tbl_agencyterminated where aar_requestid=#aar_requestid#" viewid="agencyterminated_list_1"/>
+        <databaseoperation executionsequence="3" metaobject="tbl_agencyprincipal" name="getPersonalInformationList" operation="5" sqlstmt="select row_number() over(order by personalinformation_id) rownum,personalinformation_id,aar_requestid,name,company,address,phone,relationship,last_updated_by,last_updated_ts from tbl_agencypersonalinformation  where aar_requestid=#aar_requestid#" viewid="personalinformation_list_1"/>
+        <databaseoperation executionsequence="1" metaobject="tbl_agencyprincipal" name="getAgencyQuestionsList" operation="5" sqlstmt="select a.questionid,bg.question,a.response,a.comment,case when isnull(a.comment,'')!='' then 'Y' else 'N' end as showComment        from tbl_agencyquestions a,backgroundcheckquestions_lku bg         where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union        select questionid,question,0 as response,null as comment,        'N' as showComments from backgroundcheckquestions_lku bg        where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1" viewid="agencyquestions_list_1"/>
+        <databaseoperation executionsequence="5" metaobject="tbl_agencyprincipal" name="getAgencyMergersList" operation="5" sqlstmt="select row_number() over(order by agencymerger_id) rownum,agencymerger_id,aar_requestid,agencymerger_name,date_acquired,      convert(varchar(20),date_acquired,101) as dateAcquiredFormatted,dbo.getAmountFormat(volume) as volume         from tbl_agencymergers where aar_requestid=#aar_requestid#" viewid="agencymergers_list_1"/>
+        <storedprocedureoperation dbspname="getAgencyBusinessSourceList_p_java_public" executionsequence="0" id="getAgencyBusinessSourceList_p_java_public" metaobject="tbl_agencyprincipal" name="getAgencyBusinessSourceList_p_java_public" operation="5" viewid="agencyBusinessSourceStep6_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedList_p_java_public" executionsequence="1" id="getAgencyPremiumVolumeCommittedList_p_java_public" metaobject="tbl_agencyprincipal" name="getAgencyPremiumVolumeCommittedList_p_java_public" operation="5" viewid="agencyPremiumVolumeCommittedStep6_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyCompaniesLicenseList_p_java_public" executionsequence="2" id="getAgencyCompaniesLicenseList_p_java_public" metaobject="tbl_agencyprincipal" name="getAgencyCompaniesLicenseList1_p_java_public" operation="5" viewid="agencyCompaniesLicenseStep6_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+   	  <workflowevent ajaxcontainerid="divComplete" event="submitExternalRequestForESign" isgetuser="Y" name="submitExternalRequestForESign" userfield="workflow_user" workflow="onboardingDashboard"/>
+    </action>
+    <action name="download">
+      <actionparam executionsequence="0" form="Y" name="file_name" paramid="file_name" pre="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="downloadForReadOnly"/>
+      <actionparam executionsequence="0" form="Y" name="workflow_function" paramid="workflow_function" pre="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_name" paramid="document_name" pre="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_statusid_desc" paramid="aar_statusid_desc" pre="Y" viewparam="Y"/>
+      <workflow name="download" seq="0">
+        <businessobject executionsequence="0" name="downloadDocument" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+    </action>
+    <action name="onholdAfterMarketingRepReview">
+      <actionparam eval="ProducerOneRule.isClientId1009" executionsequence="0" form="Y" name="output_role" paramid="output_role" pre="Y" val="MarketingAssistant"/>
+      <actionparam executionsequence="0" form="Y" name="comingForSendForReview" paramid="comingForSendForReview" pre="Y" session="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+      <actionparam executionsequence="0" form="Y" name="TYPE" paramid="TYPE" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isClientId1010" executionsequence="0" form="Y" name="output_role" paramid="output_role1" pre="Y" val="SalesDirector"/>
+      <actionparam eval="ProducerOneRule.isClientIdOtherThen1009Or1010" executionsequence="0" form="Y" name="workflow_event_name" paramid="workflow_event_name" pre="Y" val="onholdAfterMarketingRepReview"/>
+      <actionparam executionsequence="0" form="Y" name="aar_statusid_description" paramid="aar_statusid_description" pre="Y" session="Y" val="On-hold"/>
+      <workflow name="onholdAfterMarketingRepReview" seq="0">
+        <databaseoperation executionsequence="0" metaobject="agencyListPublicSubmitNInvitationEdit" name="getDefaultWorkflowUserFromProfile" operation="3" sqlstmt="select top 1 marketing_asst as workflow_user from userprofiles where user_id=#user_id#"/>
+        <databaseoperation executionsequence="2" metaobject="agencyListPublicSubmitNInvitationEdit" name="getAgencyApplicationName" operation="3" sqlstmt="select top 1 tar.aar_agencyname  from tbl_agencyappointmentrequest tar where tar.aar_requestid=#aar_requestid#"/>
+      </workflow>
+    </action>
+    <action name="signAgencyApplicationPublicSubmission">
+      <actionparam executionsequence="7" form="Y" name="usergroup" paramid="usergroup" pre="Y" val="MarketingAssistant"/>
+      <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="workflow_event" paramid="workflow_event" pre="Y" val="signAgencyApplicationPublicSubmission"/>
+      <actionparam eval="ProducerOneRule.assignLastUpdatedBy" executionsequence="27" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+	  <workflow eval="ProducerOneRule.isClientId1016" name="signAgencyApplicationPublicSubmission" seq="0">
+			<storedprocedureoperation dbspname="updateStatusCommentsForParallelOnboardingFlow_p" eval="ProducerOneRule.assignDateFields" executionsequence="0" id="updateStatusCommentsForParallelOnboardingFlow_p" metaobject="tbl_agencyappointmentrequest" name="updateStatusCommentsForParallelOnboardingFlow_p" operation="1">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="defaultLicenseAdmin" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="defaultMarketingAssistant" seq="4"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		    </storedprocedureoperation>
+	  </workflow>      
+      
+      <actionparam eval="ProducerOneRule.assignDefaultLicenseAdminForOnboarding" executionsequence="0" form="Y" name="defaultLicenseAdmin" paramid="defaultLicenseAdmin" pre="Y"/>
+      <actionparam eval="ProducerOneRule.assignDefaultMarketAssistantForOnboarding" executionsequence="0" form="Y" name="defaultMarketingAssistant" paramid="defaultMarketingAssistant" pre="Y"/>
+      
+      <!-- <actionparam pre="Y" name="emailNotificationEventNameDescription" paramid="emailNotificationEventNameDescription" val="PendingEsignSubmission" form="Y" executionsequence="26" />
+      <actionparam post="Y" name="sendEmailBasedOnEventNames" paramid="sendEmailBasedOnEventNames" eval="ProducerOneRule.sendEmailBasedOnEventNames" form="Y" executionsequence="27" />
+       -->
+	
+    </action>
+    <action name="sendForMarketingRepReview">
+      <actionparam executionsequence="0" form="Y" name="comingForSendForReview" paramid="comingForSendForReview" pre="Y" session="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+      <actionparam executionsequence="0" form="Y" name="TYPE" paramid="TYPE" pre="Y" session="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <!-- <actionparam pre="Y" name="output_role" paramid="output_role" val="MarketingRep" eval="ProducerOneRule.isClientId1009" form="Y" executionsequence="0" /> -->
+      <actionparam executionsequence="0" form="Y" name="aar_statusid_description" paramid="aar_statusid_description" pre="Y" session="Y" val="Pending Review"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <!-- <actionparam pre="Y" name="output_role" paramid="output_role1" val="SalesDirector" eval="ProducerOneRule.isClientId1010" form="Y" executionsequence="0" /> -->
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="comingForReviewOrAssign" paramid="comingForReviewOrAssign" pre="Y" session="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="invitationsendforreviewoutputrole" paramid="invitationsendforreviewrole" populatename="output_role" pre="Y"/>
+      <workflow name="sendForMarketingRepReview" seq="0">
+        <databaseoperation eval="ProducerOneRule.isClientId1009" executionsequence="0" metaobject="agencyListPublicSubmitNInvitationEdit" name="getDefaultWorkflowUserFromProfile" operation="3" sqlstmt="select top 1 marketing_rep as workflow_user from userprofiles where user_id=#user_id#"/>
+        <databaseoperation eval="ProducerOneRule.isClientId1010" executionsequence="0" metaobject="agencyListPublicSubmitNInvitationEdit" name="getDefaultWorkflowUserFromProfile1" operation="3" sqlstmt="select top 1 sales_director as workflow_user from userprofiles where user_id=#user_id#"/>
+      </workflow>
+    </action>
+    <action name="generateDeclinationLetter">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.generateDeclinationLetter" executionsequence="0" form="Y" name="generateDeclinationLetter" paramid="generateDeclinationLetter" pre="Y"/>
+      
+      <workflow isexecuteonsuccess="Y" name="generateDeclinationLetter" seq="0">
+          <email eventname="OnboardingApplicationDeclinationLetter" executionsequence="2" ischeckfortemplates="Y" name="OnboardingApplicationDeclinationLetter" objectid="aar_requestid" objecttype="onboarding"/>
+     </workflow>
+    <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>  
+    </action>
+    <action name="import">
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="TYPE" paramid="TYPE" pre="Y" val="1"/>
+      <actionparam executionsequence="0" form="Y" name="aar_statusid_desc" paramid="aar_statusid_desc" pre="Y" val="Created"/>
+      <actionparam executionsequence="0" form="Y" name="workflow_object_type" paramid="workflow_object_type" viewparam="Y" />
+      <actionparam executionsequence="0" form="Y" name="isallusers" paramid="isallusers" post="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="onboarding_method" paramid="onboarding_method" pre="Y" val="updateStatusInRequest"/>
+      <actionparam eval="ProducerOneRule.isNotStatusCreate" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="aar_agencyname,email,aar_state" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="comingFromAccPublicSubmitNInvitation" paramid="comingFromAccPublicSubmitNInvitation" pre="Y" session="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isdisplayusers" paramid="isdisplayusers" post="Y" val="Y"/>
+      <workflow eval="ProducerOneRule.assignDateFields" name="import" seq="0">
+        <businessobject eval="ProducerOneRule.isNotStatusCreate" executionsequence="0" name="updateStatusInRequest" obj="com.userbo.onboarding.OnboardingBO"/>
+      </workflow>
+      <workflow eval="ProducerOneRule.isStatusCreate" name="import1" seq="1">
+        <databaseoperation eval="ProducerOneRule.isAgentOnBoarding" executionsequence="1" metaobject="person" name="getAgentDataForOnBoarding" operation="3" sqlstmt="select top 1 firstname as aar_firstname,lastname as aar_lastname,ssn_num as aar_ssn,is_agent_onboarding,territory_id,                (select agency_id from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#) as agency_id                from tbl_agencyprincipal where request_id=#aar_requestid#"/>
+        <databaseoperation eval="ProducerOneRule.isAgencyOnBoarding" executionsequence="0" metaobject="person" name="getAgencyListAccPublicSubmitEdit" operation="3" sqlstmt="SELECT aar_requestid,aar_agencyname,aar_producertypeid,aar_producertype,aar_streetaddress1 , aar_streetaddress2, aar_city,country_code as 'aar_country_code',npn,                (select sts_stateid from vw_statemaster where sts_stateid= aar_state) As aar_state , aar_zipcode,aar_phoneno,aar_fax,aar_webaddress,aar_taxid,                aar_expinyears,aar_yrsinbusiness,aar_nooflicproducers , aar_noofliccsr,aar_mktnooflocs,aar_mkttotpremium,aar_submissionid,aar_submissiondt,                a.last_updated_by, county_id,program_name,program_no,facility_code,bank_name,address,contact_no,comments,entity_name,b.state_ids,                a.is_agent_onboarding,a.agency_id,a.territory_id                 FROM tbl_agencyappointmentrequest a left join tbl_appointmentstates b on a.aar_requestid = b.request_id Where aar_requestid= #aar_requestid#"/>
+      </workflow>
+    </action>
+    <action name="generateContract">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isContractGenerated" paramid="isContractGenerated" val="Y" viewparam="Y"/>
+    </action>
+    <action name="showMailingDiv">
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code, aar_state,aar_city        ,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,aar_email,mobile,aar_altExtn,agency_zip_code_2,agency_foreign_addr_in       ,aar_altPhoneno,aar_pobox,aar_addressline3" session="Y"/>
+      <actionparam executionsequence="1" form="Y" name="type" paramid="type1" pre="Y" session="Y" val="3"/>
+      <workflow name="showMailingDiv" seq="0">
+        <databaseoperation executionsequence="0" metaobject="person" name="getAgencyAddressDataForDropDown" operation="3" sqlstmt="select top 1 ad.territory_id,ad.country_code as aar_country_code,state_id as aar_state,county as county_id ,agency_zip_code_2,        agency_foreign_addr_in,ab.w9_legal_name,ab.w9_type_id,ab.agency_taxpayer_short_nm,ab.irs_tax_nm_1,ab.irs_tax_nm_2         from tbl_address ad left join tbl_agencyappointmentrequest ab on ad.aar_requestid=ab.aar_requestid        where ad.aar_requestid=#aar_requestid#  and type=#type# and ad.person_id is null"/>
+      </workflow>
+    </action>
+    <action name="submit">
+      <actionparam executionsequence="0" form="Y" name="isallusers" paramid="isallusers" post="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isNotStatusCreate" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="aar_agencyname,email,aar_state" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="submitaction" paramid="submitaction" populatename="TYPE" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="comingFromAccPublicSubmitNInvitation" paramid="comingFromAccPublicSubmitNInvitation" pre="Y" session="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isAarStatusDescriptionNotEmpty" executionsequence="0" form="Y" name="aar_statusid_description" paramid="aar_statusid_description" populatename="aar_statusid_desc" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="isdisplayusers" paramid="isdisplayusers" post="Y" val="Y"/>
+      <actionparam executionsequence="0" form="Y" name="onboarding_method" paramid="onboarding_method" pre="Y" val="updateStatusInRequest"/>
+      <workflow eval="ProducerOneRule.assignDateFields" name="submit" seq="0">
+        <businessobject eval="ProducerOneRule.isNotStatusCreate" executionsequence="0" name="updateStatusInRequest" obj="com.userbo.onboarding.OnboardingBO"/>
+      </workflow>
+      <workflow eval="ProducerOneRule.isStatusCreate" name="submit1" seq="1">
+        <databaseoperation eval="ProducerOneRule.isAgencyOnBoarding" executionsequence="0" metaobject="person" name="getAgencyListAccPublicSubmitEdit" operation="3" sqlstmt="SELECT aar_requestid,aar_agencyname,aar_producertypeid,aar_producertype,aar_streetaddress1 , aar_streetaddress2, aar_city,country_code as 'aar_country_code',npn,                (select sts_stateid from vw_statemaster where sts_stateid= aar_state) As aar_state , aar_zipcode,aar_phoneno,aar_fax,aar_webaddress,aar_taxid,                aar_expinyears,aar_yrsinbusiness,aar_nooflicproducers , aar_noofliccsr,aar_mktnooflocs,aar_mkttotpremium,aar_submissionid,aar_submissiondt,                a.last_updated_by, county_id,program_name,program_no,facility_code,bank_name,address,contact_no,comments,entity_name,b.state_ids,                a.is_agent_onboarding,a.agency_id,a.territory_id                 FROM tbl_agencyappointmentrequest a left join tbl_appointmentstates b on a.aar_requestid = b.request_id Where aar_requestid= #aar_requestid#"/>
+        <databaseoperation eval="ProducerOneRule.isAgentOnBoarding" executionsequence="1" metaobject="person" name="getAgentDataForOnBoarding" operation="3" sqlstmt="select top 1 firstname as aar_firstname,lastname as aar_lastname,ssn_num as aar_ssn,is_agent_onboarding,territory_id,                (select agency_id from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#) as agency_id                 from tbl_agencyprincipal where request_id=#aar_requestid#"/>
+      </workflow>
+    </action>
+    <action name="downloadDeclinationLetter">
+      <actionparam executionsequence="0" form="Y" name="workflow_function" paramid="workflow_function" pre="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_statusid_desc" paramid="aar_statusid_desc" pre="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_id" paramid="document_id" pre="Y" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.downloadDeclinationLetter" executionsequence="0" form="Y" name="downloadDeclinationLetter" paramid="downloadDeclinationLetter" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_name" paramid="document_name" populatename="file_name" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="is_uploaded_on_dms" paramid="is_uploaded_on_dms" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      
+    </action>
+    <action name="showResidenceDiv">
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code, aar_state,aar_city        ,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,aar_email,mobile,aar_altExtn       ,aar_altPhoneno,aar_pobox,agency_zip_code_2,agency_foreign_addr_in,aar_addressline3" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="type" paramid="type" pre="Y" session="Y" val="2"/>
+      <workflow name="showResidenceDiv" seq="0">
+        <databaseoperation executionsequence="0" metaobject="person" name="getAgencyAddressDataForDropDown" operation="3" sqlstmt="select top 1 ad.territory_id,ad.country_code as aar_country_code,state_id as aar_state,county as county_id ,agency_zip_code_2,        agency_foreign_addr_in,ab.w9_legal_name,ab.w9_type_id,ab.agency_taxpayer_short_nm,ab.irs_tax_nm_1,ab.irs_tax_nm_2         from tbl_address ad left join tbl_agencyappointmentrequest ab on ad.aar_requestid=ab.aar_requestid        where ad.aar_requestid=#aar_requestid#  and type=#type# and ad.person_id is null"/>
+      </workflow>
+    </action>
+    <action name="showAttachment">
+      <actionparam executionsequence="0" form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_11" post="Y" session="Y"/>
+      <actionparam executionsequence="0" name="isReadOnly" paramid="isReadOnly" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_1" pre="Y" remove="Y" session="Y"/>
+      <workflow name="showAttachment" seq="0">
+        <databaseoperation executionsequence="0" metaobject="agencyListPublicSubmitNInvitation" name="getAttachmentList" operation="5" sqlstmt="select * from tbl_agency_document_attachments where object_id=#document_id#" viewid="uploadPopup_list_1"/>
+      </workflow>
+    </action>
+    <action name="goToAppoint">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    </action>
+    <action name="downloadDeclinationLetterForView">
+      <actionparam eval="ProducerOneRule.assignCarrierName" executionsequence="2" form="Y" name="carrierName" paramid="carrierName" pre="Y"/>
+      <actionparam executionsequence="1" form="Y" name="designation" paramid="designation" pre="Y" val="Marketing Department"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="downloadDeclinationLetterForView" seq="0">
+        <document data="context" defaultfilename="Declination Letter" executionsequence="1" name="downloadPDF" output="pdf" template="foxsl/declinationLetterTemplate"/>
+        <storedprocedureoperation dbspname="getDeclinationLetterData_p_java" executionsequence="0" id="getDeclinationLetterData_p_java" metaobject="agencyListPublicSubmitNInvitationEdit" name="getDeclinationLetterData_p_java" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="user_id" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="isCCToWorkflowUserRequiredForDeclinationLetter" seq="3"/>
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+    <action name="submitAgencyForInvitation"/>
+    <action name="submitAgency">
+      <actionparam executionsequence="8" form="Y" name="tabs2next_page" paramid="tabs2next_page" post="Y" session="Y" val="entityGeneralDetails"/>
+      <actionparam executionsequence="9" form="Y" name="agencyTabsnext_page" paramid="agencyTabsnext_page" pre="Y" session="Y" val="agencyBgInquiry"/>
+      <actionparam executionsequence="10" form="Y" name="AgencyAddresType" paramid="AgencyAddresType" populatename="type" post="Y" session="Y"/>
+      <actionparam executionsequence="11" form="Y" name="headercity" paramid="headercity" post="Y" session="Y"/>
+      <actionparam executionsequence="12" form="Y" name="headerstate" paramid="headerstate" post="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.assignArStateIdToMailingStateId" executionsequence="17" form="Y" name="aa" paramid="aa" post="Y"/>
+      <actionparam executionsequence="14" form="Y" name="headername" paramid="headername" post="Y" session="Y"/>
+      <actionparam executionsequence="15" form="Y" name="returnVal" paramid="returnVal" populatename="agency_id" post="Y" session="Y"/>
+      <actionparam executionsequence="7" form="Y" name="tabs1next_page" paramid="tabs1next_page" post="Y" session="Y" val="entityGeneralDetails"/>
+      <actionparam executionsequence="18" form="Y" name="mailing_state_id" paramid="mailing_state_id" post="Y" session="Y"/>
+      <actionparam executionsequence="19" form="Y" name="primary_location" paramid="primary_location" post="Y"/>
+      <actionparam executionsequence="13" form="Y" name="headerparentagency_id" paramid="headerparentagency_id" post="Y" session="Y"/>
+      <actionparam executionsequence="6" form="Y" name="carrier_tab" paramid="carrier_tab" post="Y" session="Y" val="Agency"/>
+      <actionparam eval="ProducerOneRule.getErrorIdForUnableToImportAgency" executionsequence="4" form="Y" name="pageError" paramid="pageError12" post="Y"/>
+      <actionparam executionsequence="5" form="Y" name="type" paramid="type" post="Y" session="Y" val="1"/>
+      <actionparam eval="ProducerOneRule.isReturnValNotZero" executionsequence="0" form="Y" name="agency_id" paramid="agency_id1" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="headerproducer_number" paramid="headerproducer_number" post="Y" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="checkAgencyProducer" paramid="checkAgencyProducer" pre="Y" val="ProducerOneRule.checkAgencyProducer"/>
+      <actionparam eval="ProducerOneRule.isShowLocationDropDownFalse" executionsequence="0" form="Y" name="parentagency_id" paramid="parentagency_id" populatename="agencyProducer" pre="Y"/>
+      <actionparam checkfornullparams="associatedAgency_id,national_agency_desc,national_agency_code" executionsequence="5" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" removeparams="aar_requestid,aar_statusid,aar_agencyname,email,aar_state" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="onboarding_method" paramid="onboarding_method" pre="Y" val="submitAgencyInProducerOne"/>
+      <actionparam executionsequence="1" form="Y" name="aar_statusid_desc" paramid="aar_statusid_desc" pre="Y" val="Pending Review"/>
+      <actionparam executionsequence="2" form="Y" name="user_id" paramid="user_id" populatename="admintype" pre="Y"/>
+      <actionparam eval="ProducerOneRule.getValidEmailsForPayment" executionsequence="3" form="Y" name="validemails" paramid="validemails" pre="Y"/>
+      <actionparam executionsequence="4" form="Y" name="TYPE" paramid="TYPE" pre="Y" val="4"/>
+      <actionparam executionsequence="0" form="Y" name="headernamewithoutlocation" paramid="headernamewithoutlocation" post="Y" session="Y"/>
+      <workflow eval="ProducerOneRule.isAgencyProducerErrorNotExists" name="submitAgency" seq="0">
+       <databaseoperation eval="ProducerOneRule.isSubsidiaryYes" executionsequence="0" metaobject="newlocationreason_lku" name="getRecordReasonId" operation="3" sqlstmt="select reason_id as 'record_reason_id' from newlocationreason_lku where description = 'Physical Location'"/>
+        <databaseoperation eval="ProducerOneRule.isSubsidiaryNo" executionsequence="1" metaobject="newlocationreason_lku" name="getRecordReasonId1" operation="3" sqlstmt="select reason_id as 'record_reason_id' from newlocationreason_lku where description = 'Primary Location'"/>
+        <function eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" functionid="convertFieldNListStringToXMLWithCustomRootElement" name="convertFieldNListStringToXMLWithCustomRootElement" 
+        	parameters="context,producerAssociationContact_contact_type_security,Root,Root1,additionalInputXml"/>
+        <storedprocedureoperation dbspname="AcceptAgency_p" eval="ProducerOneRule.assignLastUpdatedBy" executionsequence="3" id="AcceptAgency_p" metaobject="agency_master" name="AcceptAgency_p" operation="1">
+          <parameteroperation indexno="15" mode="IN" property="isMarketInformationApplicableToNationalCode" seq="16"/>
+          <parameteroperation indexno="13" mode="IN" property="isNationalCodeAutoGenerated" seq="14"/>
+          <parameteroperation indexno="12" mode="IN" property="national_agency_code" seq="13"/>
+          <parameteroperation indexno="11" mode="IN" property="national_agency_desc" seq="12"/>
+          <parameteroperation indexno="10" mode="OUT" property="error_id" seq="11"/>
+          <parameteroperation indexno="9" mode="OUT" property="returnVal" seq="10"/>
+          <parameteroperation indexno="8" mode="IN" property="AgentAddresType" seq="9"/>
+          <parameteroperation indexno="14" mode="IN" property="taxpayer_into_w9legalname_security" seq="15"/>
+          <parameteroperation indexno="6" mode="IN" property="isMasterAssociatedAgency" seq="7"/>
+          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="6"/>
+          <parameteroperation indexno="4" mode="IN" property="associatedAgency_id" seq="5"/>
+          <parameteroperation indexno="3" mode="IN" property="ClientID" seq="4"/>
+          <parameteroperation indexno="2" mode="IN" property="record_reason_id" seq="3"/>
+          <parameteroperation indexno="1" mode="IN" property="agencyProducer" seq="2"/>
+          <parameteroperation indexno="7" mode="IN" property="AgencyAddresType" seq="8"/>
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="16" mode="IN" property="isNationalAgencyAsLocationRequired" seq="17"/>
+          <parameteroperation indexno="17" mode="IN" property="mendatory_hierarchy_type_for_ProducerCode" seq="18"/>
+          <parameteroperation indexno="18" mode="IN" property="generate_agency_code_on_agency_creation" seq="19"/>
+          <parameteroperation indexno="19" mode="IN" property="generate_agency_code_on_location_creation" seq="20"/>
+          <parameteroperation indexno="20" mode="IN" property="isContactStatusPendingOnImport" seq="21"/>
+           <parameteroperation indexno="21" mode="IN" property="assign_associated_agencies_prodnum" seq="22"/>
+          <parameteroperation indexno="22" mode="IN" property="additionalInputXml" seq="23"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.isReturnValNotZero" name="submitAgency1" seq="1">
+        <businessobject executionsequence="0" name="updateStatusInRequest" obj="com.userbo.onboarding.OnboardingBO"/>
+        <databaseoperation eval="ProducerOneRule.assignReturnValToAgencyId" executionsequence="3" metaobject="agency_master" name="getAgencyNameForpament" operation="3" sqlstmt="select * from agency_master where agency_id=#agency_id#"/>
+        <databaseoperation executionsequence="5" metaobject="address" name="getAddressshowdetailMailing" operation="3" sqlstmt="select top 1 state_id,country_code,territory_id from address where agency_id=#agency_id# and type=1 and person_id is null"/>
+        <databaseoperation eval="ProducerOneRule.isSubsidiaryYes" executionsequence="8" metaobject="agency_master" name="getParentAgencyNameForPrimaryLocation" operation="3" sqlstmt="select name as 'primary_location' from agency_master where agency_id in           (select parentagency_id from agency_master where agency_id=#agency_id#)"/>
+        <email contenttype="text/html" eval="ProducerOneRule.isPaymentEmailContentNotEmpty" executionsequence="4" mailfrom="${mail.admin.address}" mailto="validemails" msgstring="paymentemailcontent" name="sendEmail" subject="Payment Mail"/>
+      </workflow>
+      <workflow eval="ProducerOneRule.isAgencyProducerErrorExists" name="submitAgency3" seq="3">
+        <databaseoperation executionsequence="0" metaobject="person" name="getAgencyListEditData" operation="3" sqlstmt="SELECT aar_requestid,any_rollover_potential,aar_agencyname,aar_producertypeid,aar_producertype,aar_streetaddress1,aar_streetaddress2, aar_city,country_code as 'aar_country_code',npn,                (select sts_stateid from vw_statemaster where sts_stateid= aar_state) As aar_state , aar_zipcode,aar_phoneno,aar_fax,aar_webaddress,aar_taxid,                aar_expinyears,aar_yrsinbusiness,aar_nooflicproducers , aar_noofliccsr,aar_mktnooflocs,aar_mkttotpremium,aar_submissionid,aar_submissiondt,                aar_statusid,a.last_updated_by, county_id,program_name,program_no,facility_code,bank_name,address,contact_no,comments,entity_name,b.state_ids,a.domicile_state,a.eo_claims_declaration,a.isMasterAssociatedAgency,a.associatedAgency_id,a.agency_location,a.agency_location_other,a.source FROM tbl_agencyappointmentrequest a left join tbl_appointmentstates b on a.aar_requestid = b.request_id Where aar_requestid= #aar_requestid#"/>
+      </workflow>
+    </action>
+    <action name="showBusinessDiv">
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code, aar_state,aar_city        ,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,aar_email,mobile,aar_altExtn       ,aar_altPhoneno,aar_pobox,agency_zip_code_2,agency_foreign_addr_in,aar_addressline3" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="type" paramid="type" pre="Y" session="Y" val="1"/>
+      <workflow name="showBusinessDiv" seq="0">
+        <databaseoperation executionsequence="0" metaobject="person" name="getAgencyAddressDataForDropDown" operation="3" sqlstmt="select top 1 territory_id,country_code as aar_country_code,country_code,state_id as aar_state,county as county_id,agency_zip_code_2,agency_foreign_addr_in from tbl_address        where aar_requestid        =#aar_requestid# and type=#type# and person_id is null"/>
+      </workflow>
+    </action>
+    <action name="reconsiderAfterOnhold_old">
+      <actionparam executionsequence="0" form="Y" name="invitationreconsiderusergroup" paramid="invitationreconsiderusergroup" populatename="usergroup" pre="Y"/>	
+      <!-- <actionparam pre="Y" name="usergroup" paramid="usergroup2" val="MarketingAssistant" eval="ProducerOneRule.isClientId1013" form="Y" executionsequence="0" /> -->
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <!-- <actionparam pre="Y" name="usergroup" paramid="usergroup1" val="MarketingAssistant" eval="ProducerOneRule.isClientId1010" form="Y" executionsequence="0" /> -->
+      <actionparam executionsequence="0" form="Y" name="workflow_event" paramid="workflow_event" pre="Y" val="reconsiderAfterOnhold"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <!-- <actionparam pre="Y" name="usergroup" paramid="usergroup" val="MarketingRep" eval="ProducerOneRule.isClientId1009" form="Y" executionsequence="0" /> -->
+      <workflow name="reconsiderAfterOnhold" seq="0">
+        <databaseoperation executionsequence="2" metaobject="agencyListPublicSubmitNInvitationEdit" name="getAgencyApplicationName" operation="3" sqlstmt="select top 1 tar.aar_agencyname  from tbl_agencyappointmentrequest tar where tar.aar_requestid=#aar_requestid#"/>
+      </workflow>
+    </action>
+    <action name="submitAgent">
+      <actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="tabs2next_page" paramid="tabs2next_page" post="Y" session="Y" val="agentGeneralDetails"/>
+      <actionparam executionsequence="0" form="Y" name="tabs1next_page" paramid="tabs1next_page" post="Y" session="Y" val="individualGeneralDetails"/>
+      <workflow eval="ProducerOneRule.assignDateFields" name="submitAgent" seq="0">
+        <databaseoperation executionsequence="1" metaobject="person" name="updateStatusInApptTable" operation="4" sqlstmt="update tbl_agencyappointmentrequest set aar_statusid=19,last_updated_by=#last_updated_by#        where aar_requestid=#aar_requestid#"/>
+        <storedprocedureoperation dbspname="AcceptAgent_p" executionsequence="0" id="AcceptAgent_p" metaobject="person" name="AcceptAgent_p" operation="1">
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+    <action deltaind="M" name="view">
+      <actionparam executionsequence="0" form="Y" name="headercity" paramid="headercity" pre="Y" remove="Y" removeparams="headercity,headerstate,headerparentagency_id,headername,headerfirstname,headerlastname,aar_statusid_description,        comingForSendForReview,tabs1next_page,tabs2next_page,agency_id,headernamewithoutlocation,headerproducer_number,producer_number_id,        contract_id,agencyID,workflow_user,comingFromAccPublicSubmitNInvitation,person_id" session="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="bank_account_for_EFT" paramid="bank_account_for_EFT" post="Y" val="ProducerOneRule.checkBankAccountforEFT"/>
+      <actionparam eval="ProducerOneRule.decryptBankRoutingNumber" executionsequence="0" form="Y" name="decryptBankRoutingNumber" paramid="decryptBankRoutingNumber" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agencyListPublicSubmitNInvitationEdit_list_1" paramid="agencyListPublicSubmitNInvitationEdit_list_1" post="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="tax_str" paramid="tax_str" pre="Y" val="xx-xxxxxxx"/>
+      <actionparam executionsequence="0" form="Y" name="isShowHeaderForOnboarding" paramid="isShowHeaderForOnboarding" post="Y" val="Y"/>
+      <actionparam eval="ProducerOneRule.assignTotalPremium" executionsequence="0" form="Y" name="assignTotalPremium" paramid="assignTotalPremium" post="Y"/>
+      <actionparam eval="ProducerOneRule.decryptBankAccountNumber" executionsequence="0" form="Y" name="decryptBankAccountNumber" paramid="decryptBankAccountNumber" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="skipParentAgency" paramid="skipParentAgency" pre="Y" val="Y"/>
+      <actionparam eval="ProducerOneRule.decryptTaxId" executionsequence="0" form="Y" name="decryptTaxId" paramid="decryptTaxId" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="comingFromAgencyListPublicSubmitNInviation" paramid="comingFromAgencyListPublicSubmitNInviation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id" populatename="onboarding_agency_id" pre="Y"/>
+      <actionparam eval="ProducerOneRule.assignOnBoardingDateOfBirthDate" executionsequence="0" form="Y" name="onboarding_dateofbirth" paramid="onboarding_dateofbirth" post="Y"/>
+      <actionparam checkfornullparams="onboarding_agency_id,onboarding_person_id" executionsequence="5" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam form="Y" name="downloadType_list_mom_1" paramid="downloadType_list_mom_1" post="Y" session="Y"/>
+      <workflow deltaind="M" name="view" seq="0">
+        
+        <databaseoperation executionsequence="26" metaobject="person" name="getAgencyAddressList" operation="3" sqlstmt="select top 1 addressline1 as aar_streetaddress1 ,addressline2 as aar_streetaddress2,city as aar_city,country_code as aar_country_code,         territory_id,mobile,e_mail as aar_email,state_id as aar_state,agency_zip_code_2,agency_foreign_addr_in,          zip as aar_zipcode,phone as aar_phoneno,fax as aar_fax ,county as county_id,po_Box as aar_pobox,alt_phone as aar_altPhoneno,alt_extn as aar_altExtn,         extn,person_id,addressline3 as aar_addressline3 from tbl_address where type=#type# and person_id is null and aar_requestid=#aar_requestid#"/>
+        <databaseoperation eval="ProducerOneRule.isProgramBusinessListEmpty" executionsequence="27" metaobject="agencyListPublicSubmitNInvitation" name="getProgramBusinessList" operation="5" sqlstmt="select row_number() over(order by program_business_id) rownum,aar_requestid,program_business_id,dbo.getAmountFormat(premium) as premium,program_name,segment_class_name as segment_class_name1,product_lines,mga_mgu       from tbl_program_business where aar_requestid=#aar_requestid#" viewid="agencyProgramBusiness_list_1"/>
+        <databaseoperation executionsequence="28" metaobject="person" name="getEODeclarationList" operation="3" sqlstmt="select carrier_other,dbo.getAmountFormat(cast(policy_limit as numeric(16,0))) as policy_limit,effective_date,                      ISNULL(eo_claims,0) as eo_claims,eoclaims_comments,expiration_date,policy_number,coverage_amount,have_ivans_account,management_vendor_id,ivans_system_id,ivans_version,participant_code,y_account,ivans_user_id,ibm_address from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+        <databaseoperation executionsequence="33" metaobject="tbl_agency_cyber_liability" name="getAllCyberLiabilityDocumentsDetail" operation="3" sqlstmt="select carrier_other as cyber_liability_carrier_other,policy_number as cyber_liability_policy_number,coverage_amount as cyber_liability_coverage_amount,cast(policy_limit as numeric(16,0)) as cyber_liability_policy_limit,effective_date as cyber_liability_effective_date,expiration_date as cyber_liability_expiration_date,cyber_liability_claims, comments as cyber_liability_eoclaims_comments from tbl_agency_cyber_liability where aar_requestid=#aar_requestid#"/>
+        <databaseoperation executionsequence="29" metaobject="address" name="getAddressforHeader" operation="3" sqlstmt="select top 1 tar.aar_agencyname as headername, tad.city as headercity,        (select description from state_lku where state_id=tad.state_id) as headerstate from tbl_agencyappointmentrequest tar, tbl_address tad        where tar.aar_requestid=tad.aar_requestid and tad.person_id is null and tad.type=#AgencyAddresType# and tar.aar_requestid=#aar_requestid#"/>
+        <databaseoperation eval="ProducerOneRule.isPendingAuthorizationForBGCheckStatusPage" executionsequence="30" metaobject="agencyListPublicSubmitNInvitation" name="getAgencyIdForSendForBGCheckStatus" operation="3" sqlstmt="select agency_id from agency_master where requestid=#aar_requestid#"/>
+        <databaseoperation eval="ProducerOneRule.isShowSignarureAcceptance" executionsequence="31" metaobject="agencyListPublicSubmitNInvitation" name="getSignatureAcceptanceDetail" operation="3" sqlstmt="select name,title,email,date,case is_checked when 'Y' then 'Y' else 'N' end as is_checked from tbl_signature_acceptance where aar_requestid=#aar_requestid#"/>
+        <databaseoperation executionsequence="32" metaobject="agencyListPublicSubmitNInvitation" name="getDeclinedStatusButtonStatus" operation="3" sqlstmt="select top 1 (select (case when count(*)&gt;0 then 'Y' else 'N'  end)) as isDeclinationLetterSubmitted, document_name,document_id,is_uploaded_on_dms from agency_document_attachments        where object_id=#aar_requestid# and document_category=30"/>
+        <!-- <databaseoperation executionsequence="33" metaobject="person" name="getAgencyCurrentMarketInfoRecord" operation="3" sqlstmt="select market_num_locations,dbo.getAmountFormat(cast(total_premium_PC as numeric(16,0))) as total_premium_PC ,dbo.getAmountFormat(cast(total_premium_compensation as numeric(16,0))) as total_premium_compensation,no_workers_policies,      dbo.getAmountFormat(cast(total_writtenpremium as numeric(16,0))) as total_writtenpremium,      dbo.getAmountFormat(total_annual_revenue) as total_annual_revenue,dbo.getAmountFormat(commercial_premium) as commercial_premium,cast(percentage_premium_standard as numeric(5,2)) as percentage_premium_standard,cast(percentage_speciality_lines as numeric(5,2)) as percentage_speciality_lines,total_commercial_carriers,surplus_license_holder,new_business,mix_of_personal_business,mix_of_commercial_business,dbo.getAmountFormat(cast(total_written_premium_previous_year_end as numeric(18,2))) as total_written_premium_previous_year_end    from tbl_agency_current_market_informations where aar_requestid=#aar_requestid#"/> -->
+      	 <storedprocedureoperation dbspname="getAgencyCurrentMarketInfoRecord_p" executionsequence="0" id="getAgencyCurrentMarketInfoRecord_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getAgencyCurrentMarketInfoRecord_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation> 
+        
+        <databaseoperation eval="ProducerOneRule.isSegmentClassesListEmpty" executionsequence="25" metaobject="agencyListPublicSubmitNInvitation" name="getSegmentClassesList" operation="5" sqlstmt="select row_number() over(order by segment_industry_classes_id) rownum,segment_class_name,aar_requestid,segment_industry_classes_id,         dbo.getAmountFormat(annual_premium) as annual_premium,Key_contact_name,Key_contact_email         from tbl_segment_industry_classes s where aar_requestid=#aar_requestid#" viewid="agencySegmentClasses_list_1"/>
+        <databaseoperation eval="ProducerOneRule.isCorporationPartnershipListEmptyonStep1" executionsequence="24" metaobject="agencyListPublicSubmitNInvitation" name="getCorporationPartnershipList" operation="5" sqlstmt="select row_number() over(order by corporation_partnership_details_id) rownum,name,title,ind_experience,aar_requestid, corporation_partnership_details_id       from tbl_corporation_partnership_details where aar_requestid=#aar_requestid#" viewid="agencyOfficersPartners_list_1"/>
+        <databaseoperation executionsequence="9" metaobject="state_lku" name="getCountyDescFroMap" operation="3" sqlstmt="select description as 'aar_county_desc' from county_lku where county_id=#county_id#"/>
+        <databaseoperation executionsequence="13" metaobject="person" name="getDocumentsData" operation="5" sqlstmt="select ada.document_attachments_id as document_id,ad.document_name,doc.document_display_value as document_type,ada.document_name as file_name       from tbl_agency_documents ad inner join tbl_agency_document_attachments ada on ad.document_id = ada.object_id       inner join  document_type_lku doc on doc.document_id = ad.document_type_id where aar_requestid=#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit_list_4"/>
+        <databaseoperation executionsequence="3" metaobject="person" name="getAgencyMarketInformation" operation="5" sqlstmt="select aar_carrierid,case when loss_ratio is null or loss_ratio='' then '' else loss_ratio+'' end as loss_ratio,       CL.description as aar_carrierDescription,case when aar_carrierid=-1 then other_company_description else (select description from carrier_lku where carrier_id=aar_carrierid) end as carrier_id_desc,       aar_requestid, class1,dbo.getAmountFormat(cast(class1volume as numeric(16,0))) as class1volume,       class2, dbo.getAmountFormat(cast(class2volume as numeric(16,0))) as class2volume, class3,dbo.getAmountFormat(cast(class3volume as numeric(16,0))) as class3volume,       aar_lobid,LL.description,commissionrate,retentionrate,dbo.getAmountFormat(cast(writtenpremium as numeric(16,0))) as writtenpremium,dateofappointment, yearofappointment,       dbo.getAmountFormat(PY_written_premium) as PY_written_premium, convert(varchar(20),dateofappointment,101) as years_represented,dbo.getAmountFormat(total_volume) as total_volume, life_volume, pl_volume, cl_volume,case when is_cl_auto_lsc_carrier is null or is_cl_auto_lsc_carrier=0 then 'N' else 'Y' end as is_cl_auto_lsc_carrier_desc  FROM tbl_marketinformation TM        left outer join lob_lku LL on LL.lob_id =TM.aar_lobid inner Join carrier_lku CL on CL.carrier_id=TM.aar_carrierid        where aar_requestid =#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit1_list_11"/>
+	<databaseoperation deltaind="M"  eval="ProducerOneRule.isRegistrationTypeProducerRegistrationAgencyDetailScreen" executionsequence="6" metaobject="person"
+		name="getAgencyBackGroundsQuestions" operation="5"
+		sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment,bg.comment_decision from tbl_agencyquestions a,backgroundcheckquestions_lku bg         where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union        select questionid,question,null as response,null as comment,bg.comment_decision from backgroundcheckquestions_lku bg        where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=0)t1"
+		viewid="agencyListPublicSubmitNInvitationEdit_list_3" />
+    <databaseoperation deltaind="M"  eval="ProducerOneRule.isRegistrationTypePrimaryAgencyAgencyDetailScreen" executionsequence="6" metaobject="person"
+		name="getAgencyBackGroundsQuestions1" operation="5"
+		sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment,bg.comment_decision from tbl_agencyquestions a,backgroundcheckquestions_lku bg         where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union        select questionid,question,null as response,null as comment,bg.comment_decision from backgroundcheckquestions_lku bg        where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1)t1"
+		viewid="agencyListPublicSubmitNInvitationEdit_list_3" />
+    <databaseoperation deltaind="M"  eval="ProducerOneRule.isRegistrationTypeSecondaryAgencyAgencyDetailScreen" executionsequence="6" metaobject="person"
+		name="getAgencyBackGroundsQuestions2" operation="5"
+		sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment,bg.comment_decision from tbl_agencyquestions a,backgroundcheckquestions_lku bg         where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union        select questionid,question,null as response,null as comment,bg.comment_decision from backgroundcheckquestions_lku bg        where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1)t1"
+		viewid="agencyListPublicSubmitNInvitationEdit_list_3" />
+        <databaseoperation eval="ProducerOneRule.isShowAgencyCodeInHeader" executionsequence="23" metaobject="agency_master" name="getAgencyCodeforHeader" operation="3" sqlstmt="select top 1 case when producer_number is null or producer_number='' then '' else '(' end + producer_number + case when producer_number is null or producer_number='' then '' else ')' end as headerproducer_number from producer_number where agency_id= #agency_id# and producer_status_cde=1"/>
+        <databaseoperation executionsequence="8" metaobject="state_lku" name="getStateDescFroMap" operation="3" sqlstmt="select description as 'aar_state_desc' from state_lku where state_id=#aar_state#"/>
+        <databaseoperation executionsequence="7" metaobject="state_lku" name="getCountryDescFroMap" operation="3" sqlstmt="select country_name as 'aar_country_desc' from country_lku where country_code=#aar_country_code#"/>
+        <databaseoperation executionsequence="10" metaobject="person" name="getPersonIdForAgentBgQuestion" operation="3" sqlstmt="select top 1 person_id,request_id from tbl_agencyprincipal where request_id=#aar_requestid#"/>
+        <databaseoperation executionsequence="11" metaobject="person" name="getAgentBackGroundsQuestions" operation="5" sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment from tbl_agentquestions a,backgroundcheckquestions_lku bg         where a.questionid=bg.questionid and a.personid= #person_id#  union        select questionid,question,null as response,null as comment from backgroundcheckquestions_lku bg        where bg.questionid not in(select questionid from tbl_agentquestions where personid=#person_id#) and bg_question_type=0) t1" viewid="agentListPublicSubmitNInvitationEdit_list_3"/>
+        <databaseoperation executionsequence="12" metaobject="person" name="getAgencyListEditData" operation="3" sqlstmt="SELECT aar_requestid,any_rollover_potential,aar_agencyname,aar_producertypeid,aar_producertype,npn, Entity_Type_General_Detail,                              aar_webaddress,aar_taxid,aar_expinyears,aar_yrsinbusiness,aar_nooflicproducers , aar_noofliccsr,                               aar_mktnooflocs,dbo.getAmountFormat(aar_mkttotpremium) as aar_mkttotpremium,                                     aar_submissionid,aar_submissiondt, aar_statusid,a.last_updated_by,program_name,program_no,facility_code,bank_name,                                     address,contact_no,comments,entity_name,b.state_ids, bank_address2,bank_city,bank_routing,bank_account,bank_account_id,                                     bank_state_id,bank_phone,bank_extn,bank_email,extn,a.dba,                                     (select tis.description from tbl_invitation_status_lku tis where tis.invitation_status_id=a.aar_statusid) as aar_statusid_desc,                                                                  (select revieweruser_id from user_reviewers ur where ur.user_id = #user_id# and aar_requestid= #aar_requestid# and a.workflow_function = ur.workflow_function) as workflow_user_desc,                                     workflow_user,a.workflow_function,a.workflow_user_role           ,a.isdbaregistered,a.taxpayer_name,a.agencyestablished_date,a.agency_association,a.agency_management,                   a.agency_volume,a.agency_comparativerate,a.agency_lead_gen_in,a.agency_al3_access_in,a.w9_legal_name,a.w9_type_id,                   a.agency_taxpayer_short_nm,a.agency_sales_tax_certificate_nr,a.irs_tax_nm_1,a.irs_tax_nm_2,                   a.agency_dmv_nr,a.no_of_staff,a.associatedAgencyName,a.agency_lob,a.agency_lob2,a.entity_type,a.other_office_location,a.hear_about_comments,a.interest_outside_comments,a.min_prod_req_comments ,convert(varchar(20),agencyDateOf_origination ,101) as agencyDateOf_origination,aar_agencyLicenseNumber,agency_management_system,type1099_desscription,other_agency_comparativerate,other_agency_management,registration_type_id as agency_registration_type_id,a.domicile_state,a.eo_claims_declaration,a.isMasterAssociatedAgency,a.associatedAgency_id,a.agency_location,a.agency_location_other,a.source FROM tbl_agencyappointmentrequest a left join tbl_appointmentstates b on a.aar_requestid = b.request_id                                     Where aar_requestid= #aar_requestid#"/>
+        <databaseoperation executionsequence="0" metaobject="person" name="getPersonIDData" operation="3" sqlstmt="select top 1 person_id as onboarding_person_id from agency_person where agency_id= #onboarding_agency_id#"/>
+       
+        <function executionsequence="1" functionid="encryptDecryptFieldinList" name="encryptDecryptFieldinList" parameters=":agencyListPublicSubmitNInvitationEdit_list_1,ssn_num,ssn_num,decrypt,Y,AAA-AA-AAAA"/>
+        <storedprocedureoperation dbspname="GetAgencyPublicStateDescriptionList_p" eval="OnboardingRule.isComingFromAgencyListPublicSubmitNInviationFlagEmpty" executionsequence="0" id="GetAgencyPublicStateDescriptionList_p_1" metaobject="state_lku" name="GetAgencyPublicStateDescriptionList_p_1" operation="15" viewid="agencyListPublicSubmitEdit_list_mom_3">
+          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GetAgencyPublicStateDescriptionList_p" eval="OnboardingRule.isComingFromAgencyListPublicSubmitNInviationFlagNotEmpty" executionsequence="0" id="GetAgencyPublicStateDescriptionList_p" metaobject="state_lku" name="GetAgencyPublicStateDescriptionList_p" operation="15" viewid="agencyListPublicSubmitNInvitationEdit_list_mom_3">
+          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getPrincipalInformation_p" executionsequence="0" id="getPrincipalInformation_p" metaobject="agency_master" name="getPrincipalInformation_p" operation="5" viewid="agencyListPublicSubmitNInvitationEdit_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="AgentAddresType" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GetAgencyComparativeRaterCheckBox_p" eval="ProducerOneRule.isShowAgencyComparativeRaterCheckbox" executionsequence="2" id="GetAgencyComparativeRaterCheckBox_p" metaobject="agency_master" name="GetAgencyComparativeRaterCheckBox_p" operation="5" viewid="agency_comparativerate_list_mom_1">
+          <parameteroperation indexno="0" mode="IN" property="include_other_in_agency_comparativerate_security" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getStatusCommentsByAarRequestId_p_java" executionsequence="4" id="getStatusCommentsByAarRequestId_p_java" metaobject="agencyListPublicSubmitNInvitation" name="getStatusCommentsByAarRequestId_p_java" operation="5" viewid="agencyListPublicSubmitNInvitationEdit_list_6">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="isParallelOnboardingFlow_security" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="workflow_object_type" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="agency_id" seq="4"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="checkZoneCodeForOnboarding_p_java" eval="ProducerOneRule.isZoneWiseCheckOnboardingY" executionsequence="16" id="checkZoneCodeForOnboarding_p_java" metaobject="agencyListPublicSubmitNInvitationEdit" name="checkZoneCodeForOnboarding_p_java" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="user_id" seq="2"/>
+          <parameteroperation indexno="2" mode="OUT" property="isZoneCodeMatching" seq="3"/>
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getBankInformationListPone_p_java" executionsequence="18" id="getBankInformationListPone_p_java" metaobject="person" name="getBankInformationListPone_p_java" operation="5" viewid="agencybankinformation_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedListPone_p_java" eval="ProducerOneRule.isShowPremiumVolumeByLob" executionsequence="29" id="getAgencyPremiumVolumeCommittedListPone_p_java" metaobject="agencyListPublicSubmitNInvitation" name="getAgencyPremiumVolumeCommittedListPone_p_java" operation="5" viewid="agencyPremiumVolumeByLOBStep6_list_mom_1">
+          <parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GetAgencyAssociation_p" eval="ProducerOneRule.isShowAgencyAssociationCheckbox" executionsequence="34" id="GetAgencyAssociation_p" metaobject="agencyListPublicSubmitNInvitation" name="GetAgencyAssociation_p" operation="5" viewid="agency_association_list_1">
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        <storedprocedureoperation dbspname="GetRegistrationTypeAddittionalInfo_p" executionsequence="35" id="GetRegistrationTypeAddittionalInfo_p" metaobject="agencyListPublicSubmitNInvitation" name="GetRegistrationTypeAddittionalInfo_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="user_id" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="role" seq="3"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        <databaseoperation executionsequence="36" metaobject="tbl_marketinformation_lob" name="getMarketingInfoLob" operation="3" sqlstmt="SELECT marketinformation_lob_id ,aar_requestid,lexis_nexis_node_id,ISNULL(is_allow_incentives,0) as is_allow_incentives,auto_liability_percentage,umbrella_coverage_percentage,renters_coverage_percentage   ,ISNULL(is_producers_dedicated_personal_lines,0) as is_producers_dedicated_personal_lines,ISNULL(is_agency_owner_personal_lines,0) as is_agency_owner_personal_lines,personal_lines_package_policies,ISNULL(is_agency_association_business_commission,0) as is_agency_association_business_commission,   ISNULL(is_service_center_personal_lines,0) as is_service_center_personal_lines,agency_pay_commission_to_producers,ISNULL(is_agency_share_contingency,0) as is_agency_share_contingency,ISNULL(is_agency_commercial_business,0) as is_agency_commercial_business,industry_makeup_agency_commercial,   ISNULL(is_agencys_service_center,0) as is_agencys_service_center,production_commitment_first_year,production_commitment_second_year,production_commitment_third_year,production_commitment_achieve_volume,ISNULL(bonds_billing_option,0) as bonds_billing_option      ,ISNULL(is_premium_mining_discussed,0) as is_premium_mining_discussed,date_to_be_completed,premium_threshold,accounts_size,commercial_premium_threshold from tbl_marketinformation_lob where aar_requestid= #aar_requestid#"/>
+       
+       <databaseoperation executionsequence="37" metaobject="tbl_marketinformation_lob_contract" name="getBondInfoLob" operation="5" sqlstmt="select * from tbl_marketinformation_lob_contract where aar_requestid=#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit_bondsInfo_list_1"/>
+       <databaseoperation executionsequence="38" metaobject="tbl_marketinformation_lob_surplus_company_volume" name="getSurplusInfoLob" operation="5" sqlstmt="SELECT [dbo].[getAmountFormat] (premium_volume) as premium_volume,excess_surplus_company,loss_ratio FROM tbl_marketinformation_lob_surplus_company_volume where aar_requestid=#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit_surplus_Info_list_1"/>
+       
+        
+        <storedprocedureoperation dbspname="getTblAgencyPremiumSizePercentSections_p" executionsequence="39" id="getTblAgencyPremiumSizePercentSections_p" metaobject="tbl_agency_premium_size_percent" name="getTblAgencyPremiumSizePercentSections_p" operation="5" viewid="agencyListPublicSubmitNInvitationEdit_commercial_lines_list_mom_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="0"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation name="GetPublicIvansDownloadTypeList_p" id="GetPublicIvansDownloadTypeList_p" dbspname="GetPublicIvansDownloadTypeList_p" executionsequence="40" viewid="downloadType_list_mom_1" metaobject="agencyListPublicSubmitNInvitation" operation="5">
+      		<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+      		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"></resultsetoperation>
+      	</storedprocedureoperation>
+      	
+         </workflow>
+         
+         
+         <workflow name="workdayView" seq="1">
+        
+        
+        
+       <storedprocedureoperation dbspname="getAgencyInformationList_onboarding_p" executionsequence="1" id="getAgencyInformationList_onboarding_p1" metaobject="agency_master" name="getAgencyInformationList_onboarding_p1" operation="3">
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="onboarding_person_id" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+		<storedprocedureoperation dbspname="getAgentInformationList_onboarding_p" eval="ProducerOneRule.checkMaritalStatusOnchange" executionsequence="2" id="getAgentInformationList_onboarding_p1" metaobject="person" name="getAgentInformationList_onboarding_p1" operation="3">
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="onboarding_person_id" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getSpouseInformationList_onboarding_p" executionsequence="3" id="getSpouseInformationList_onboarding_p1" metaobject="person" name="getSpouseInformationList_onboarding_p1" operation="3">
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="onboarding_person_id" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getAssignedAgentNumberDetails_onboarding_p" executionsequence="5" id="getAssignedAgentNumberDetails_onboarding_p1" metaobject="person" name="getAssignedAgentNumberDetails_onboarding_p1" operation="3">
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="onboarding_person_id" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getLicensingInformationList_onboarding_p" executionsequence="4" id="getLicensingInformationList_onboarding_p1" metaobject="person" name="getLicensingInformationList_onboarding_p1" operation="3">
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="onboarding_person_id" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				  <storedprocedureoperation dbspname="getLicensingStatesList_p_java" executionsequence="6" id="getLicensingStatesList_p_java1" metaobject="person" name="getLicensingStatesList_p_java1" operation="5" viewid="agentLicensingStates_list_mom_1">
+					<parameteroperation indexno="1" mode="IN" property="onboarding_person_id" seq="1"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+
+		        <storedprocedureoperation dbspname="getAgencyLobMasterDetail_p" executionsequence="8" id="getAgencyLobMasterDetail_p" metaobject="person" name="getAgencyLobMasterDetail_p" operation="5" viewid="agency_lob_list_mom_1">
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="onboarding_person_id" seq="3"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+		        
+		        
+      </workflow>
+      <workflow eval="isShowEntityOtherMarketInformation" name="view2" seq="2">
+        <databaseoperation executionsequence="19" metaobject="person" name="getAgencyTerminatedList" operation="5" sqlstmt="select row_number() over(order by agencyterminated_id) rownum,agencyterminated_id,aar_requestid,company_name,dbo.getAmountFormat(annual_premium_volume) as annual_premium_volume,date_closed,reason_for_action_taken, case when reason_for_action_taken='0' then 'Low Production' else case when reason_for_action_taken='1' then 'High Loss Ratio' else case when reason_for_action_taken='2' then 'Other' end end end as reason_for_action_taken_desc,reason_other from tbl_agencyterminated where aar_requestid=#aar_requestid#" viewid="agencyterminated_list_1"/>
+        <!-- <databaseoperation executionsequence="20" metaobject="person" name="getPersonalInformationList" operation="5" sqlstmt="select row_number() over(order by personalinformation_id) rownum,personalinformation_id,aar_requestid,name,company,address,                      case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4)                         else phone end as phone,relationship,last_updated_by,last_updated_ts from tbl_agencypersonalinformation                          where aar_requestid=#aar_requestid#" viewid="personalinformation_list_1"/> -->
+        <databaseoperation executionsequence="20" metaobject="person" name="getPersonalInformationList" operation="5" sqlstmt="select row_number() over(order by personalinformation_id) rownum,personalinformation_id,aar_requestid,name,company,address,phone,relationship,last_updated_by,last_updated_ts from tbl_agencypersonalinformation  where aar_requestid=#aar_requestid#"  viewid="personalinformation_list_1"/>
+        <databaseoperation executionsequence="21" metaobject="person" name="getAgencyMergersList" operation="5" sqlstmt="select row_number() over(order by agencymerger_id) rownum,agencymerger_id                      ,aar_requestid,agencymerger_name,date_acquired,dbo.getAmountFormat(volume) as volume                         from tbl_agencymergers where aar_requestid=#aar_requestid#" viewid="agencymergers_list_1"/>
+        <storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedListPone_p_java" executionsequence="22" id="getAgencyPremiumVolumeCommittedListPone_p_java" metaobject="person" name="getAgencyPremiumVolumeCommittedListPone_p_java" operation="5" viewid="agencyPremiumVolumeCommittedStep6_list_1">
+          <parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyCompaniesLicenseListPublic_p_java" executionsequence="23" id="getAgencyCompaniesLicenseListPublic_p_java" metaobject="agencycompanieslicensed" name="getAgencyCompaniesLicenseListPublic_p_java" operation="5" viewid="agencyCompaniesLicenseStep6_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyBusinessSourceListPone_p_java" executionsequence="24" id="getAgencyBusinessSourceListPone_p_java" metaobject="person" name="getAgencyBusinessSourceListPone_p_java" operation="5" viewid="agencyBusinessSourceStep6_list_mom_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="isShowEntityMarketInformation" name="view3" seq="3">
+        <storedprocedureoperation dbspname="getAgencyPremiumVolumeforAccountListPublic_p_java" executionsequence="1" id="getAgencyPremiumVolumeforAccountListPublic_p_java" metaobject="person" name="getAgencyPremiumVolumeforAccountListPublic_p_java" operation="5" viewid="agencyPremiumVolumeStep7_list_mom_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyBusinessPlanListPublic_p_java" executionsequence="2" id="getAgencyBusinessPlanListPublic_p_java" metaobject="person" name="getAgencyBusinessPlanListPublic_p_java" operation="5" viewid="agencyBusinessPlanStep7_list_mom_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyCompaniesLicenseListPublic_p_java" executionsequence="3" id="getAgencyCompaniesLicenseListPublic_p_java" metaobject="person" name="getAgencyCompaniesLicenseListPublic_p_java" operation="5" viewid="agencyBusinessDistributionStep7_list_mom_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getMarketInformationListPublic_p_java" eval="ProducerOneRule.isMarketInformationListEmpty" executionsequence="4" id="getMarketInformationListPublic_p_java" metaobject="person" name="getMarketInformationListPublic_p_java" operation="5" viewid="MarketInformation_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+      </workflow>
+      
+      
+      
+      <workflow name="view4" seq="4">
+			
+			<storedprocedureoperation dbspname="GetPostOnboardingDocuments_p" eval="ProducerOneRule.isUploadPopUpListEmpty" executionsequence="6" id="GetPostOnboardingDocuments_p" metaobject="agency_annual_audit" name="GetPostOnboardingDocuments_p" operation="5" viewid="uploadPopup_list_1">
+						<parameteroperation indexno="0" mode="IN" property="person_id" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="agency_id" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="onboarding_agency_id" seq="3"/>
+						<parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="4"/>
+						
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+		   </storedprocedureoperation>
+		</workflow>
+		<workflow name="view5" seq="5">
+			<databaseoperation executionsequence="1" metaobject="address" name="getAgencyListPublicSubmitBusinessAddrerssInfo" operation="3" sqlstmt="select top 1 country_code as country_code_business,state_id as state_id_business,addressline1 as addressline1_business,addressline2 as addressline2_business ,city as city_business,zip as zip_business,phone as phone_business,fax as fax_business,po_box ,extn as extn_business,county as county_business,e_mail as e_mail_business   from tbl_address where aar_requestid=#aar_requestid# and type=1 and person_id is null"/>
+			<databaseoperation executionsequence="2" metaobject="address" name="getAgencyListPublicSubmitMailingAddrerssInfo" operation="3" sqlstmt="select country_code as country_code_mailing,state_id  as state_id_mailing ,addressline1 as addressline1_mailing ,addressline2 as addressline2_mailing,city as city_mailing,zip as zip_mailing,phone as phone_mailing,fax as fax_mailing,po_box as po_box_mailing,extn,county as county_mailing,e_mail as e_mail_mailing from tbl_address where aar_requestid=#aar_requestid# and type=3 and person_id is null"/>
+			<databaseoperation executionsequence="3" metaobject="address" name="getAgencyListPublicSubmitW9AddrerssInfo" operation="3" sqlstmt="select ta.country_code as country_code_w9,state_id as state_id_w9,addressline1 as addressline1_w9,addressline2 as addressline2_w9,city as city_w9,zip as zip_w9,phone as phone_w9,fax as fax_w9,po_box as po_box_w9,ta.extn as extn_mailing ,county as county_mailing,e_mail as e_mail_w9,county as county_w9,taxpayer_name AS w9_legal_name from tbl_address ta inner join tbl_agencyappointmentrequest aar WITH(NOLOCK) ON ta.aar_requestid = aar.aar_requestid where ta.aar_requestid=#aar_requestid# and type=2 and person_id is null"/>
+			<databaseoperation executionsequence="4" metaobject="address" name="getAgencyListPublicSubmitDECAddressInfo" operation="3" sqlstmt="SELECT state_id as state_id_DEC,addressline1 as addressline1_DEC,addressline2 as addressline2_DEC,city as city_DEC,county as county_DEC,zip as zip_DEC,phone as phone_DEC,fax as fax_DEC,e_mail as e_mail_DEC,extn as extn_DEC,country_code as country_code_DEC,territory_id as territory_id_DEC,agency_zip_code_2 as agency_zip_code_2_DEC,agency_foreign_addr_in as agency_foreign_addr_in_DEC,po_box as po_box_DEC,alt_phone as alt_phone_DEC,alt_extn as alt_extn_DEC ,addressline3 as addressline3_DEC ,alt_email as alt_email_DEC from tbl_address where aar_requestid=#aar_requestid# AND type=5 AND person_id IS NULL"/>
+			<function executionsequence="5" functionid="refreshListWithContext" name="refreshListWithContext" parameters="context,agencyListPublicSubmitNInvitationEdit_list_1,:fieldsList"/>
+		</workflow>
+		
+		<workflow eval="pendingImport_agency_registration_type_security" name="getAgencyRegistrationTypeList" seq="6">
+      	<storedprocedureoperation dbspname="GetAgencyRegistrationTypeList_p" executionsequence="2" id="GetAgencyRegistrationTypeList_p" metaobject="incentive_schedule_lku" name="GetAgencyRegistrationTypeList_p" operation="5" viewid="agency_registration_type_list_01">
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="roles" seq="2"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      	
+      </workflow>
+      
+      <workflow name="view7" seq="7">
+			<!-- AGENCY REVIEW QUESTIONS -->
+  			<databaseoperation executionsequence="3" metaobject="prospect_source_lku" name="getAgencyReviewQuestionsData" operation="3" sqlstmt="select top 1 learn_about,interest_in_other_business,interest_for_appointment,agency_experience,agency_financials,perpetuation_plan,marketing_plan,location_of_agency,other_companies_representated,agency_brief_profile  from tbl_agency_review where aar_requestid=#aar_requestid#"/>
+  			<databaseoperation executionsequence="4" metaobject="tbl_social_media_info" name="getSocialMediaInfoQuery" operation="5" sqlstmt="select sms.code as tbl_social_media_site, social_media_agency_id ,social_media_user_id as social_media_userid,social_media_id   ,smi.id ,sms.description as social_media_site_desc, ROW_NUMBER() over(order by  smi.id asc) as rownum	from tbl_social_media_info smi inner join social_media_sites sms on sms.id = smi.social_media_id where aar_requestid=#aar_requestid#" viewid="social_media_list_listfreeform_1"/>
+  	  </workflow>
+  	  
+  	    <workflow eval="agencyListPublicSubmitNInvitationEdit_additional_location_address_section_security" name="getAdditionalLocationAddressList" seq="8">
+		<storedprocedureoperation dbspname="getAdditionalLocationAddressList_p" executionsequence="1" id="getAdditionalLocationAddressList_p" metaobject="tbl_additional_location_address" name="getAdditionalLocationAddressList_p" operation="5" viewid="additional_location_address_list_1">
+				<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" name="additional_location_address_id" property="additional_location_address_id" seq="2"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+		</storedprocedureoperation>
+	</workflow>
+	
+	 <workflow eval="agencyListPublicSubmitNInvitationEditRule.isNSMExecuteWorkFlow" name="getOnboardingNarrativeSupplementById_p" seq="9">
+	 
+	   <storedprocedureoperation dbspname="getNarrativeKitDelivery_p" executionsequence="6" id="getNarrativeKitDelivery_p" metaobject="onboarding_narrative_supplement" name="getNarrativeKitDelivery_p" operation="5" viewid="kitDelivery_mom_list_1">
+			<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	   </storedprocedureoperation>
+	 
+		<storedprocedureoperation dbspname="getOnboardingNarrativeSupplementById_p" executionsequence="1" id="getOnboardingNarrativeSupplementById_p" metaobject="onboarding_narrative_supplement" name="getOnboardingNarrativeSupplementById_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" name="agency_id" property="agency_id" seq="2"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+		</storedprocedureoperation>
+	</workflow>
+	  
+       <workflow eval="agencyListEdit_foreign_languages_spoken_in_agency_security" name="agencyForeignLanguagesSpokenInAgencyWorkflow" seq="10">
+    	      <storedprocedureoperation dbspname="agencyForeignLanguagesSpokenInAgency_p" executionsequence="0" id="agencyForeignLanguagesSpokenInAgency_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="agencyForeignLanguagesSpokenInAgency_p" operation="5" viewid="foreignLanguageSpokenInAgencyStep6_list_mom_1">
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			 </storedprocedureoperation>
+    	     <storedprocedureoperation dbspname="getagencyForeignLanguagesSpokenInAgency_p" executionsequence="1" id="getagencyForeignLanguagesSpokenInAgency_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getagencyForeignLanguagesSpokenInAgency_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+		</workflow> 
+	
+      <workflow eval="agencyListEdit_current_advertising_methods_security" name="agencyCurrentAdvertisingMethodsWorkflow" seq="11">
+    	      <storedprocedureoperation dbspname="agencyCurrentAdvertisingMethods_p" executionsequence="0" id="agencyCurrentAdvertisingMethods_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="agencyCurrentAdvertisingMethods_p" operation="5" viewid="currentAdvertisingMethodStep6_list_mom_1">
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+    	     <storedprocedureoperation dbspname="getagencyCurrentAdvertisingMethods_p" executionsequence="1" id="getagencyCurrentAdvertisingMethods_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getagencyCurrentAdvertisingMethods_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+	</workflow>
+
+      <workflow eval="agencyListEdit_primary_company_usage_security" name="primaryCompanyUsageWorkflow" seq="12">
+    	     <storedprocedureoperation dbspname="agencyPrimaryCompanyUsage_p" executionsequence="0" id="agencyPrimaryCompanyUsage_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="agencyPrimaryCompanyUsage_p" operation="5" viewid="primaryCompanyUsageStep6_list_mom_1">
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+    	    <storedprocedureoperation dbspname="getAgencyPrimaryCompanyUsage_p" executionsequence="1" id="getAgencyPrimaryCompanyUsage_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getAgencyPrimaryCompanyUsage_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+	 </workflow>
+	 
+	 
+	 
+	   <workflow eval="agencyListPublicSubmitNInvitationEdit_market_contract_details_section_security" name="marketContractDetails" seq="13">
+    	     <storedprocedureoperation dbspname="getMarketContractStatesList_p" executionsequence="0" id="getMarketContractStatesList_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getMarketContractStatesList_p" operation="5" viewid="market_contract_states_list_mom_1" eval="agencyListPublicSubmitNInvitationEdit_market_contract_states_section_security">
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+			 <storedprocedureoperation dbspname="getMarketContractCompaniesList_p" executionsequence="0" id="getMarketContractCompaniesList_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getMarketContractCompaniesList_p" operation="5" viewid="market_contract_company_list_mom_1" eval="agencyListPublicSubmitNInvitationEdit_market_contract_company_section_security">
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+			 <storedprocedureoperation dbspname="getMarketContractLobList_p" executionsequence="0" id="getMarketContractLobList_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getMarketContractLobList_p" operation="5" viewid="market_contract_lob_list_mom_1" eval="agencyListPublicSubmitNInvitationEdit_market_contract_lob_section_security">
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+			<storedprocedureoperation dbspname="getMarketContractDetailsById_p" executionsequence="1" id="getMarketContractDetailsById_p" metaobject="market_contract_details" name="getMarketContractDetailsById_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" name="agency_id" property="agency_id" seq="2"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+		</storedprocedureoperation>
+	 </workflow>
+	 
+	<workflow  name="chkOtherAgencyLocation" seq="14">
+      	 	<databaseoperation executionsequence="0" metaobject="master_lookup_detail_lku" name="chkOtherAgencyLocation" operation="3" sqlstmt="select master_lookup_data_code  from master_lookup_data_lku where master_lookup_data_id =#agency_location# "/>
+</workflow>
+	<workflow eval="agencyListPublicSubmitNInvitationEdit_beneficiary_section_security" name="getBeneficiaryInfo" seq="15">
+        <storedprocedureoperation dbspname="getAgentBeneficiariesList_p" executionsequence="0" id="getAgentBeneficiariesList_p" metaobject="person" name="getAgentBeneficiariesList_p" operation="5" viewid="agencyListPublicSubmitNInvitationEditbeneficiary_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+</workflow>
+
+	  <actionparam executionsequence="9" form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_1" post="Y" session="Y"/>
+	  <actionparam executionsequence="10" form="Y" name="registration_type_id" paramid="registration_type_id" post="Y" session="Y"/>
+	  <actionparam executionsequence="11" form="Y" name="registration_type_desc" paramid="registration_type_desc" post="Y" session="Y"/>
+    </action>
+    <action name="addDocumentToList">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="addDocumentToSessionList"/>
+			<!-- <actionparam pre="Y" paramid="uploadDocument_list_1" name="uploadDocument_list_1" session="Y" form="Y" executionsequence="1"></actionparam> -->
+			<actionparam eval="ProducerOneRule.validateUploadDocument" executionsequence="5" form="Y" name="validateUploadDocument" paramid="validateUploadDocument" pre="Y"/>
+			<actionparam executionsequence="3" form="Y" name="refereshOnboardingDocumentsDetail" paramid="refereshOnboardingDocumentsDetail" pre="Y" val="Y"/>
+			<workflow eval="ProducerOneRule.assignDateFields" name="addDocumentToList" seq="0">
+				<businessobject eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" name="addDocumentToList" obj="com.userbo.common.DocumentUploadBO"/>
+			</workflow>
+			<actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_name,document_type_id" session="Y"/>
+			<actionparam executionsequence="7" form="Y" name="isSkipENO" paramid="isSkipENO" post="Y" val="Y"/>
+			<!-- <actionparam post="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1" form="Y" session="Y" executionsequence="8"></actionparam>
+			<actionparam post="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_14587" populatename="uploadPopup_list_1" form="Y" session="Y" executionsequence="9"></actionparam> -->
+			<actionparam executionsequence="8" form="Y" name="fieldsList" paramid="fieldsList" post="Y" val="email,ssn_num,license_number"/>
+			<!-- <actionparam viewparam="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="7"></actionparam> -->
+		</action>
+    	
+    	<action name="download">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="document_code" paramid="document_code" viewparam="Y"/>
+			<actionparam form="Y" name="document_type" paramid="document_type" viewparam="Y"/>
+			
+<!-- 		      <actionparam eval="AuditRule.showAgencyInfoAuditRecieved" name="is_uploaded_on_dms" paramid="is_uploaded_on_dms" viewparam="Y" form="Y" executionsequence="0" />
+ -->			
+			<actionparam form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="downloadFromSessionList"/>
+			<!-- <actionparam eval="AuditRule.showAgencyInfoAuditRecieved" pre="Y" paramid="uploadDocumentAction1" name="uploadDocumentAction" val="download" form="Y"></actionparam>
+			 -->
+			
+			<actionparam executionsequence="3" form="Y" name="refereshOnboardingDocumentsDetail" paramid="refereshOnboardingDocumentsDetail" pre="Y" val="Y"/>
+			<actionparam form="Y" name="document_name" paramid="document_name" pre="Y" viewparam="Y"/>
+			<actionparam form="Y" name="file_name" paramid="file_name" pre="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" pre="Y" viewparam="Y"/>
+			<workflow name="download" seq="0">
+				<businessobject executionsequence="0" name="downloadDocument" obj="com.userbo.common.DocumentUploadBO"/>
+			</workflow>
+		</action>
+		
+		<action name="delete">
+			<actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="1" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="2" form="Y" name="document_id" paramid="document_id" pre="Y" viewparam="Y"/>
+			<actionparam executionsequence="3" form="Y" name="refereshOnboardingDocumentsDetail" paramid="refereshOnboardingDocumentsDetail" pre="Y" val="Y"/>
+       		<actionparam executionsequence="0" form="Y" name="coming_page" paramid="coming_page" pre="Y" val="OnboardingSentForESig"/>
+			
+			<actionparam executionsequence="2" form="Y" name="object_id" paramid="object_id" viewparam="Y"/>
+			<actionparam executionsequence="3" form="Y" name="operationType" paramid="operationType" pre="Y" val="D"/>
+			<actionparam executionsequence="3" form="Y" name="isLookupData" paramid="isLookupData" viewparam="Y"/>
+			<actionparam executionsequence="5" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="deleteFromSessionList"/>
+			<actionparam checkfornullparams="aar_requestid,document_name,document_type_id,comment,date_received,last_updated_by,document_id" executionsequence="4" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="delete" seq="0">
+				<businessobject executionsequence="0" name="deleteDocument" obj="com.userbo.common.DocumentUploadBO"/>
+			</workflow>
+			<actionparam executionsequence="2" form="Y" name="showDeleteError" paramid="showDeleteError" post="Y" val="Y"/>
+			<actionparam eval="ProducerOneRule.isPageDeleteError1" executionsequence="3" form="Y" name="pageError" paramid="pageError" post="Y"/>
+			<actionparam eval="ProducerOneRule.checkDeleteMsg1" executionsequence="4" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+			<actionparam executionsequence="5" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,document_type,date_received,comment,file_name" session="Y"/>
+			<actionparam executionsequence="7" form="Y" name="isSkipENO" paramid="isSkipENO" post="Y" val="Y"/>
+			<actionparam executionsequence="10" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1" post="Y" session="Y"/>
+			<actionparam executionsequence="8" form="Y" name="fieldsList" paramid="fieldsList" post="Y" val="email,ssn_num,license_number"/>	
+		</action>
+   <action name="modifyEmail">
+      <actionparam executionsequence="15" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="aar_requestid,agency_id,loc_quality,agent_skills,is_company_contacted,agent_commission_level,is_company_contacted_desc,kits_quantity,kit_delivery,onboarding_narrative_supplement_id,operationType,user_id,narrative_question_1,narrative_question_2,narrative_question_3,narrative_question_4"/>
+      <actionparam executionsequence="16" form="Y" name="fieldsForInputXmlContractDetails" paramid="fieldsForInputXmlContractDetails" pre="Y" val="aar_requestid,market_contract_lob,market_contract_company,market_contract_states,operationType,user_id,market_contract_details_id,agency_id"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="pageMsg3" paramid="pageMsg3" post="Y" val="ProducerOneRule.isPageUpdateMsgCCBAttachment"/>
+      <actionparam eval="ProducerOneRule.savePrincipalKeyContactProducerInformationEmail" executionsequence="0" form="Y" name="a" paramid="a" pre="Y"/>
+      <actionparam executionsequence="0" name="commingFromModifyEmail" paramid="commingFromModifyEmail" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="workflow_object_type" paramid="workflow_object_type" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="onboarding_narrative_supplement_id" paramid="onboarding_narrative_supplement_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="coming_page" paramid="coming_page" pre="Y" val="OnboardingSentForESig"/>
+      <actionparam executionsequence="2" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+      <actionparam executionsequence="3" form="Y" name="document_category" paramid="document_category" val="8" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.encryptAarTaxId" executionsequence="0" form="Y" name="aar_taxid" paramid="aar_taxid" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="AgencyAddresType" paramid="AgencyAddresType" populatename="type" pre="Y"/>
+      <actionparam checkfornullparams="learn_about,interest_in_other_business,interest_for_appointment,agency_experience,agency_financials,perpetuation_plan,marketing_plan,location_of_agency,other_companies_representated,agency_brief_profile" executionsequence="5" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.assignDateFields" executionsequence="5" form="Y" name="assignDateFields" paramid="assignDateFields" pre="Y"/>
+      
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="modifyEmail" seq="0">
+        <storedprocedureoperation dbspname="UpdateAgencyPrincipalKeyContactProducerInformationEmail_p" eval="ProducerOneRule.isKeyContactSectionEditableInPublicSubmissionAgencyDetailsScreen" executionsequence="1" id="UpdateAgencyPrincipalKeyContactProducerInformationEmail_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="UpdateAgencyPrincipalKeyContactProducerInformationEmail_p" operation="4">
+          <parameteroperation indexno="1" mode="IN" property="last_updated_by" seq="2"/>
+          <parameteroperation indexno="0" mode="IN" property="emailXML" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="aar_taxid" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="4"/>
+          <parameteroperation indexno="4" mode="IN" property="agency_lob" seq="5"/>
+          <parameteroperation indexno="5" mode="IN" property="isAgencyLobModifyOnAgencyListPublicSubmitNInvitationEdit" seq="6"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="modifyDocuments" seq="1">
+        <businessobject eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="updateAgencyReviews" seq="2">
+        <storedprocedureoperation dbspname="UpdateAgencyReviewsOnPublicSubmissionAgencyDetails_p" eval="ProducerOneRule.isAgencyReviewSectionEditableInPublicSubmissionAgencyDetailsScreen" executionsequence="1" id="UpdateAgencyReviewsOnPublicSubmissionAgencyDetails_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="UpdateAgencyReviewsOnPublicSubmissionAgencyDetails_p" operation="4">
+          <parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="0"/>
+          <parameteroperation indexno="1" mode="IN" property="learn_about" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="interest_in_other_business" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="interest_for_appointment" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="agency_experience" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="agency_financials" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="perpetuation_plan" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="marketing_plan" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="location_of_agency" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="other_companies_representated" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="comments" seq="10"/>
+          <parameteroperation indexno="11" mode="IN" property="aar_requestid" seq="11"/>
+          <parameteroperation indexno="12" mode="IN" property="last_updated_by" seq="12"/>
+          <parameteroperation indexno="13" mode="IN" property="agency_brief_profile" seq="13"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      	
+      <workflow name="saveNarrativeInformation" seq="3" eval="agencyListPublicSubmitNInvitationEditRule.isNSMExecuteWorkFlow">
+         <function name="generateRequestXml" functionid="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml" executionsequence="0" />
+			<storedprocedureoperation name="insertUpdateDeleteOnboardingNarrativeSupplement_p" dbspname="insertUpdateDeleteOnboardingNarrativeSupplement_p" id="insertUpdateDeleteOnboardingNarrativeSupplement_p"
+					 metaobject="onboarding_narrative_supplement" executionsequence="1" operation="4">
+					<parameteroperation indexno="0" seq="1" property="inputXml" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" seq="1" mappingclass="java.util.HashMap"></resultsetoperation>
+			</storedprocedureoperation>
+	   </workflow>
+	   
+	   
+	   <workflow name="saveMarketContractDetails" seq="4" eval="agencyListPublicSubmitNInvitationEdit_market_contract_details_section_security">
+         <function name="generateRequestXml" functionid="generateRequestXml" parameters="context,:fieldsForInputXmlContractDetails,inputXmlContractDetails" executionsequence="0" />
+			<storedprocedureoperation name="insertUpdateDeleteMarketContractDetails_p" dbspname="insertUpdateDeleteMarketContractDetails_p" id="insertUpdateDeleteMarketContractDetails_p"
+					 metaobject="market_contract_details" executionsequence="1" operation="4">
+					<parameteroperation indexno="0" seq="1" property="inputXmlContractDetails" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" seq="1" mappingclass="java.util.HashMap"></resultsetoperation>
+			</storedprocedureoperation>
+	   </workflow>
+	   
+	   
+      <actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="uploadPopup_list_1" session="Y"/>
+	  <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams234" post="Y" remove="Y" removeparams="document_name,document_type_id,loc_quality,agent_skills,is_company_contacted,agent_commission_level,is_company_contacted_desc,kits_quantity,kit_delivery,onboarding_narrative_supplement_id,operationType,,market_contract_lob,market_contract_company,market_contract_states,narrative_question_1,narrative_question_2,narrative_question_3,narrative_question_4" session="Y"/>
+      
+    </action>
+    <action name="sendForApprovalPublicSubmission">
+    <actionparam executionsequence="15" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="aar_requestid,agency_id,loc_quality,agent_skills,is_company_contacted,agent_commission_level,is_company_contacted_desc,kits_quantity,kit_delivery,onboarding_narrative_supplement_id,operationType,user_id,narrative_question_1,narrative_question_2,narrative_question_3,narrative_question_4"/>
+    <actionparam executionsequence="16" form="Y" name="fieldsForInputXmlContractDetails" paramid="fieldsForInputXmlContractDetails" pre="Y" val="aar_requestid,market_contract_lob,market_contract_company,market_contract_states,operationType,user_id,market_contract_details_id,agency_id"/>
+    	<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="loc_quality,agent_skills,is_company_contacted,agent_commission_level,kits_quantity,kit_delivery" viewparam="Y"/> 
+    	<actionparam executionsequence="3" form="Y" name="workflow_forward" paramid="workflow_forward" pre="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+    	<workflow eval="agencyListPublicSubmitNInvitationEditRule.isNSMExecuteWorkFlow" name="saveNarrativeInformation" seq="0">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+              <storedprocedureoperation dbspname="insertUpdateDeleteOnboardingNarrativeSupplement_p" executionsequence="1" id="insertUpdateDeleteOnboardingNarrativeSupplement_p" metaobject="onboarding_narrative_supplement" name="insertUpdateDeleteOnboardingNarrativeSupplement_p" operation="4">
+                        <parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+                        <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+              </storedprocedureoperation>
+          </workflow>
+          <workflow name="saveMarketContractDetails" seq="4" eval="agencyListPublicSubmitNInvitationEdit_market_contract_details_section_security">
+         <function name="generateRequestXml" functionid="generateRequestXml" parameters="context,:fieldsForInputXmlContractDetails,inputXmlContractDetails" executionsequence="0" />
+			<storedprocedureoperation name="insertUpdateDeleteMarketContractDetails_p" dbspname="insertUpdateDeleteMarketContractDetails_p" id="insertUpdateDeleteMarketContractDetails_p"
+					 metaobject="market_contract_details" executionsequence="1" operation="4">
+					<parameteroperation indexno="0" seq="1" property="inputXmlContractDetails" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" seq="1" mappingclass="java.util.HashMap"></resultsetoperation>
+			</storedprocedureoperation>
+	   </workflow>  
+    	
+    	<workflowevent ajaxcontainerid="divComplete" event="sendInvitationToApproval" isgetuser="Y" name="sendInvitationToApproval" userfield="workflow_user" workflow="onboardingDashboard"/>
+    </action>
+    <action name="signPublicSubmission" deltaind="M">
+    	<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="N" viewparam="Y"/>
+    	<actionparam eval="ProducerOneRule.savePrincipalKeyContactProducerInformationEmail" executionsequence="1" form="Y" name="a" paramid="a" pre="Y"/>
+      <actionparam executionsequence="0" name="commingFromModifyEmail" paramid="commingFromModifyEmail" val="Y" viewparam="Y"/>
+    	<workflowevent deltaind="M" eval="ProducerOneRule.producerRegTypeEsign" event="signInvitationProducer" isexecuteonsuccess="Y" name="signInvitationProducer" workflow="onboardingDashboard"/>
+    	<workflowevent deltaind="M" eval="ProducerOneRule.otherThanProducerRegTypeEsign" event="signInvitation" isexecuteonsuccess="Y" name="signInvitation" workflow="onboardingDashboard"/>
+    </action>
+   <!-- <action name="approvePublicSubmission">
+    	<actionparam viewparam="Y" name="assignee" paramid="assignee12" form="Y" executionsequence="1" />
+    	<actionparam pre="Y" name="assignee" paramid="assignee" populatename="workflow_user" form="Y" executionsequence="1" />
+    	<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y" executionsequence="0" />
+    	<workflowevent name="approveInvitation" workflow="onboardingDashboard" event="approveInvitation" isgetuser="Y" userfield="workflow_user" ajaxcontainerid="divComplete"></workflowevent>
+    	<actionparam name="workflow_name_context" paramid="workflow_name_context" val="onboardingDashboard" viewparam="Y" executionsequence="0" />
+    	<actionparam name="workflow_event_name_context" paramid="workflow_event_name_context" val="approveInvitation" viewparam="Y" executionsequence="0" />
+    	<actionparam pre="Y" name="workflow_forward" paramid="workflow_forward" val="agencyListPublicSubmitNInvitationEdit" form="Y" executionsequence="3" />
+    </action> -->
+    <action name="approvePublicSubmission">
+    	<actionparam executionsequence="3" form="Y" name="workflow_forward" paramid="workflow_forward" pre="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+    	<actionparam executionsequence="0" form="Y" name="onboarding_narrative_supplement_id" paramid="onboarding_narrative_supplement_id" viewparam="Y"/> 
+     	<actionparam executionsequence="15" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="aar_requestid,agency_id,loc_quality,agent_skills,is_company_contacted,agent_commission_level,is_company_contacted_desc,kits_quantity,kit_delivery,onboarding_narrative_supplement_id,operationType,user_id,narrative_question_1,narrative_question_2,narrative_question_3,narrative_question_4"/>
+     	<actionparam executionsequence="16" form="Y" name="fieldsForInputXmlContractDetails" paramid="fieldsForInputXmlContractDetails" pre="Y" val="aar_requestid,market_contract_lob,market_contract_company,market_contract_states,operationType,user_id,market_contract_details_id,agency_id"/> 
+	    <actionparam form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+		<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="loc_quality,agent_skills,is_company_contacted,agent_commission_level,kits_quantity,kit_delivery,market_contract_details" viewparam="Y"/> --&gt;
+    	<workflow eval="agencyListPublicSubmitNInvitationEditRule.isNSMExecuteWorkFlow" name="saveNarrativeInformation" seq="0">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteOnboardingNarrativeSupplement_p" executionsequence="1" id="insertUpdateDeleteOnboardingNarrativeSupplement_p" metaobject="onboarding_narrative_supplement" name="insertUpdateDeleteOnboardingNarrativeSupplement_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	     </workflow> 
+	     <workflow name="saveMarketContractDetails" seq="1" eval="agencyListPublicSubmitNInvitationEdit_market_contract_details_section_security">
+         <function name="generateRequestXml" functionid="generateRequestXml" parameters="context,:fieldsForInputXmlContractDetails,inputXmlContractDetails" executionsequence="0" />
+			<storedprocedureoperation name="insertUpdateDeleteMarketContractDetails_p" dbspname="insertUpdateDeleteMarketContractDetails_p" id="insertUpdateDeleteMarketContractDetails_p"
+					 metaobject="market_contract_details" executionsequence="1" operation="4">
+					<parameteroperation indexno="0" seq="1" property="inputXmlContractDetails" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" seq="1" mappingclass="java.util.HashMap"></resultsetoperation>
+			</storedprocedureoperation>
+	   </workflow>
+	     
+    	<!-- <workflowevent name="approveInvitation" workflow="onboardingDashboard" event="approveInvitation" isgetuser="Y" userfield="workflow_user" ajaxcontainerid="divComplete"></workflowevent> -->
+    	<workflowevent ajaxcontainerid="divComplete" event="approveInvitation" isgetuser="Y" name="approveInvitation" userfield="workflow_user" workflow="onboardingDashboard"/>
+    
+    </action>
+    <!-- <action name="disApprovePublicSubmission">
+    	<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y" executionsequence="0" />
+    	<workflowevent name="disapproveInvitation" eval="ProducerOneRule.isMarketingRepLoggedIn" workflow="onboardingDashboard" event="disapproveInvitation" isgetuser="Y" userfield="workflow_user"></workflowevent>
+    	<actionparam name="workflow_name_context" paramid="workflow_name_context" val="onboardingDashboard" viewparam="Y" executionsequence="1" />
+    	<actionparam name="workflow_event_name_context" paramid="workflow_event_name_context" val="disapproveInvitation" viewparam="Y" executionsequence="2" />
+    	<actionparam pre="Y" name="workflow_forward" paramid="workflow_forward" val="agencyListPublicSubmitNInvitationEdit" form="Y" executionsequence="3" />
+    	<actionparam eval="ProducerOneRule.isMarketingAssistantLoggedIn" viewparam="Y" name="ISSHOWWORKFLOWSASSIGNEDUSER" paramid="ISSHOWWORKFLOWSASSIGNEDUSER" val="N" form="Y" executionsequence="3"></actionparam>
+    </action> -->
+    <action name="disApprovePublicSubmission">
+    	<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<actionparam executionsequence="4" form="Y" name="workflow_forward" paramid="workflow_forward" pre="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+    	<!-- <actionparam executionsequence="0" name="ISSKIPMULTIPLEAPPROVERS" paramid="ISSKIPMULTIPLEAPPROVERS" val="Y" viewparam="Y"/> -->
+    	<workflowevent ajaxcontainerid="divComplete" event="disApprovePublicSubmission" isgetuser="Y" name="disApprovePublicSubmission" userfield="workflow_user" workflow="onboardingDashboard"/>
+    </action>
+    <!-- <action name="onHoldPublicSubmission">
+    	<actionparam viewparam="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" executionsequence="0" />
+    	<workflowevent name="onholdInvitation" workflow="onboardingDashboard" event="onholdInvitation" isgetuser="Y" userfield="workflow_user" ajaxcontainerid="divComplete"></workflowevent> 
+    	<actionparam viewparam="Y" name="workflow_name_context" paramid="workflow_name_context" val="onboardingDashboard" executionsequence="1" />
+    	<actionparam viewparam="Y" name="workflow_event_name_context" paramid="workflow_event_name_context" val="onholdInvitation" executionsequence="2" />
+    	<actionparam viewparam="Y" name="ISSHOWWORKFLOWSASSIGNEDUSER" paramid="ISSHOWWORKFLOWSASSIGNEDUSER" val="N" form="Y" executionsequence="3"></actionparam>
+    	<actionparam pre="Y" name="workflow_forward" paramid="workflow_forward" val="agencyListPublicSubmitNInvitationEdit" form="Y" executionsequence="4" />
+    </action> -->
+    <action name="onHoldPublicSubmission">
+    	<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<actionparam executionsequence="4" form="Y" name="workflow_forward" paramid="workflow_forward" pre="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+    	<workflowevent ajaxcontainerid="divComplete" event="onholdInvitation" isgetuser="Y" name="onholdInvitation" workflow="onboardingDashboard"/>
+    </action>
+    <action name="reconsiderPublicSubmission">
+<!--       <actionparam pre="Y" name="workflow_event" paramid="workflow_event" val="reconsiderAfterOnhold" form="Y" executionsequence="0" />
+ -->      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflowevent event="reconsiderInvitation" isexecuteonsuccess="Y" name="reconsiderInvitation" workflow="onboardingDashboard"/>
+    </action>
+    <action name="approveInvitationByAssignee">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.savePrincipalKeyContactProducerInformationEmail" executionsequence="0" form="Y" name="a" paramid="a" pre="Y"/>
+      <actionparam executionsequence="0" name="commingFromModifyEmail" paramid="commingFromModifyEmail" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="coming_page" paramid="coming_page" pre="Y" val="OnboardingSentForESig"/>
+     <actionparam executionsequence="2" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+      <actionparam executionsequence="3" form="Y" name="document_category" paramid="document_category" val="8" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.encryptAarTaxId" executionsequence="0" form="Y" name="aar_taxid" paramid="aar_taxid" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="AgencyAddresType" paramid="AgencyAddresType" populatename="type" pre="Y"/>
+      <workflow eval="ProducerOneRule.assignDateFields" name="modifyEmail" seq="0">
+        <storedprocedureoperation dbspname="UpdateAgencyPrincipalKeyContactProducerInformationEmail_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" id="UpdateAgencyPrincipalKeyContactProducerInformationEmail_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="UpdateAgencyPrincipalKeyContactProducerInformationEmail_p" operation="4">
+          <parameteroperation indexno="1" mode="IN" property="last_updated_by" seq="2"/>
+          <parameteroperation indexno="0" mode="IN" property="emailXML" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="aar_taxid" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="4"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.assignDateFields" name="modifyDocuments" seq="1">
+        <businessobject executionsequence="2" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+    
+      <actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="uploadPopup_list_1" session="Y"/>
+
+      <workflowevent eval="ProducerOneRule.isInetErrorListEmpty" event="approveInvitationByAssignee" isexecuteonsuccess="Y" name="approveInvitationByAssignee" workflow="onboardingDashboard"/>
+    </action>
+    
+    <action name="refreshState_business">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="1"/>
+      <actionparam executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="state_id_business,county_business,zip_business" session="Y"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+    </action>
+    <action name="refreshCounty_business">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="1"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="9" form="Y" name="removeparams" paramid="removeparams" populatename="county_business" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="1"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+    </action>
+    <action name="copyBusinessToMailing">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="country_code_business" paramid="country_code_business" populatename="country_code_Mailing" post="Y"/>
+      <actionparam eval="ProducerOneRule.isCopyBusinessToMailingChecked" executionsequence="1" form="Y" name="isCopyBusinessToMailingChecked" paramid="isCopyBusinessToMailingChecked" pre="Y"/>
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="1" form="Y" name="state_id_business" paramid="state_id_business" populatename="state_id_mailing" post="Y"/>
+      <actionparam executionsequence="1" form="Y" name="county_business" paramid="county_business" populatename="county_mailing" post="Y"/>
+      <actionparam executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" pre="Y" val="Y"/>
+    </action>
+    <action name="refreshCountry">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" viewparam="Y"/>
+      <actionparam executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="country_code,state_id,county,zip" session="Y"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+    </action>
+    
+    <action name="refreshState_mailing">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="2"/>
+      <actionparam executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="state_id_mailing,county_mailing,zip_mailing" session="Y"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+    </action>
+    <action name="refreshCounty_mailing">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="3"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="9" form="Y" name="removeparams" paramid="removeparams" populatename="county_mailing" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+    </action>
+    <action name="copyMailingToW9">
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam eval="ProducerOneRule.isCopyMailingToW9Checked" executionsequence="1" form="Y" name="isCopyMailingToW9Checked" paramid="isCopyMailingToW9Checked" pre="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="country_code_mailing" paramid="country_code_mailing" populatename="country_code_w9" post="Y"/>
+      <actionparam executionsequence="1" form="Y" name="state_id_mailing" paramid="state_id_mailing" populatename="state_id_w9" post="Y"/>
+      <actionparam executionsequence="1" form="Y" name="county_mailing" paramid="county_mailing" populatename="county_w9" post="Y"/>
+      <actionparam executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" post="Y" val="Y"/>
+    </action>
+    <action name="refreshCountry">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" viewparam="Y"/>
+      <actionparam executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="country_code,state_id,county,zip" session="Y"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+    </action>
+    <action name="refreshState_w9">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="2"/>
+      <actionparam executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="state_id_w9,county_w9,zip_w9" session="Y"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+      
+    </action>
+    <action name="refreshCounty_w9">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="2"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="9" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="county_w9" session="Y"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+    </action>
+    <action name="refreshAgencyNetworkDiv">
+  		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+  		<actionparam executionsequence="1" form="Y" name="isSelectionRefereshed" paramid="isSelectionRefereshed" val="Y" viewparam="Y"/>
+  	</action>
+  	<action name="declinePublicSubmission">
+    	<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<actionparam executionsequence="4" form="Y" name="workflow_forward" paramid="workflow_forward" pre="Y" val="agencyListPublicSubmitNInvitationEdit"/>
+    	<workflowevent ajaxcontainerid="divComplete" event="declinePublicSubmission" isgetuser="Y" name="declinePublicSubmission" userfield="workflow_user" workflow="onboardingDashboard"/>
+    </action>
+    <action name="refreshIsCompanyContacted">
+  		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+  		<actionparam pre="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+  	</action>
+  	
+  	<action name="submitExternalRequestForESign">
+  		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+  		
+  		<workflow  name="finish" seq="1">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getAppointmentRequestData" operation="3" sqlstmt="select b.master_lookup_data_desc as  entity_type,*,dbo.getAmountFormat(agency_volume) as 'agencyvolume' ,dbo.getAmountFormat(aar_mkttotpremium) as 'marketpremium'        ,(select description from producertype_lku where prdcrtype_id=ta.aar_producertypeid) as 'legaldescription'        ,(select b.master_lookup_data_desc as agency_comparativerate_desc from master_lookup_detail_lku a  inner join dbo.master_lookup_data_lku b on a.master_lookup_detail_id = b.master_lookup_detail_id where b.master_lookup_data_id=ta.agency_management_system  )     as agency_management_system_desc        ,stuff((select ', ' + b.master_lookup_data_desc             from tbl_agencyappointmentrequest ta        left join dbo.master_lookup_data_lku b          on b.master_lookup_data_id in  (select items from dbo.split(ta.agency_comparativerate,','))                 left join master_lookup_detail_lku a on a.master_lookup_detail_id = b.master_lookup_detail_id where aar_requestid=#aar_requestid# for xml path('')),1,1,'') as  agency_comparativerate_pdf         from tbl_agencyappointmentrequest ta        left join dbo.master_lookup_data_lku b on b.master_lookup_data_id= ta.entity_type        left join master_lookup_detail_lku a on a.master_lookup_detail_id = b.master_lookup_detail_id where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				
+				<databaseoperation name="getMarketInformationData" operation="5" executionsequence="2"
+					viewid="marketdata_list_1" metaobject="tbl_marketinformation"
+					sqlstmt="select case when aar_carrierid=-1 then aar_carrier else (select description from carrier_lku where carrier_id=aar_carrierid) end as aar_carrier, 
+						(select description from lob_lku where lob_id=aar_lobid) as market_lob,loss_ratio,commissionrate,
+						dbo.getAmountFormat(writtenpremium) as writtenpremium,retentionrate 
+						from tbl_marketinformation where aar_requestid=#aar_requestid#">
+				</databaseoperation> 
+				<databaseoperation executionsequence="3" metaobject="tbl_agencyappointmentrequest" name="getAgencyQuestionsList" operation="5" sqlstmt="select a.questionid,bg.question,a.response,a.comment,case when isnull(a.comment,'')!='' then 'Y' else 'N' end as showComment        from tbl_agencyquestions a,backgroundquestions_lku bg         where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union        select questionid,question,0 as response,null as comment,        'N' as showComments from backgroundquestions_lku bg        where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1" viewid="agencyquestions_list_1"/>	
+				<databaseoperation executionsequence="4" metaobject="tbl_agencyprincipal" name="getStatesData" operation="3" sqlstmt="select cast(substring((select ', '+description from state_lku where state_id in(select items        from dbo.Split((select state_ids from tbl_appointmentstates where request_id=#aar_requestid#),','))order by description asc for xml path('')),2,8000) as varchar(8000)) as states"/>
+				
+				<databaseoperation executionsequence="5" metaobject="tbl_address" name="getAgencyBusinessAddress" operation="3" sqlstmt="select cntry.country_code as aar_country_code,extn as aar_extn,address_id as aar_address_id, sl.state_id as aar_state,        addressline1 as aar_streetaddress1, addressline2 as aar_streetaddress2, city as aar_city,        case when zip is not null then           case when  datalength(zip) = 9 then substring(zip,1,5) + '-' + substring(zip,6,9)  else zip end           else zip end as aar_zipcode,         case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4) else phone end  as aar_phoneno,         case when fax is not null then substring(fax,1,3) + '-' + substring(fax,4,3) + '-' + substring(fax,7,4) else fax end  as aar_fax,         type,e_mail as aar_email,         case when mobile is not null then substring(mobile,1,3) + '-' + substring(mobile,4,3) + '-' + substring(mobile,7,4) else mobile end as aar_mobile,         cntry.territory_id,sl.description as aar_stateDescription,cntry.country_name as aar_countryDescription,county.description as aar_countyDescription,         case when alt_phone is not null then substring(alt_phone,1,3) + '-' + substring(alt_phone,4,3) + '-' + substring(alt_phone,7,4) else alt_phone end as aar_altPhone,        alt_extn as aar_altExtn,po_box as aar_poBox,adr.agency_zip_code_2,adr.agency_foreign_addr_in,addressline3 from tbl_address adr          left outer join state_lku sl on sl.state_id = adr.state_id         left outer join country_lku cntry on cntry.country_code = adr.country_code         left outer join county_lku county on county.county_id = adr.county           where aar_requestid = #aar_requestid# and type = 1 and person_id is null"/>
+   				
+   				<databaseoperation executionsequence="6" metaobject="tbl_address" name="getAgencyW9Address" operation="3" sqlstmt="select cntry.country_code as aar_country_code_w9,adr.extn as aar_extn_w9,address_id as aar_address_id_w9, sl.state_id as aar_state_w9,              addressline1 as aar_streetaddress1_w9, addressline2 as aar_streetaddress2_w9, city as aar_city_w9,              case when zip is not null then                         case when  datalength(zip) = 9 then substring(zip,1,5) + '-' + substring(zip,6,9)  else zip end                         else zip end as aar_zipcode_w9,                       case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4) else phone end  as aar_phoneno_w9,                       case when fax is not null then substring(fax,1,3) + '-' + substring(fax,4,3) + '-' + substring(fax,7,4) else fax end  as aar_fax_w9,                       type,e_mail as aar_email_w9,                       case when adr.mobile is not null then substring(adr.mobile,1,3) + '-' + substring(adr.mobile,4,3) + '-' + substring(adr.mobile,7,4) else adr.mobile end as aar_mobile_w9,                       cntry.territory_id as territory_id_w9,sl.description as aar_stateDescription_w9,cntry.country_name as aar_countryDescription_w9,county.description as aar_countyDescription_w9,                       case when alt_phone is not null then substring(alt_phone,1,3) + '-' + substring(alt_phone,4,3) + '-' + substring(alt_phone,7,4) else alt_phone end as aar_altPhone_w9,                      alt_extn as aar_altExtn_w9,po_box as aar_poBox_w9,adr.agency_zip_code_2 as agency_zip_code_2_w9,adr.agency_foreign_addr_in as agency_foreign_addr_in_w9,addressline3 as addressline3_w9 , tdf.w9_legal_name from tbl_address adr                        left outer join state_lku sl on sl.state_id = adr.state_id                       left outer join country_lku cntry on cntry.country_code = adr.country_code                       left outer join county_lku county on county.county_id = adr.county              left outer join tbl_agencyappointmentrequest tdf on tdf.aar_requestid = adr.aar_requestid                             where adr.aar_requestid =  #aar_requestid# and type = 3 and person_id is null"/>
+					        
+				<databaseoperation executionsequence="7" metaobject="tbl_address" name="getAgencyMailingAddress" operation="3" sqlstmt="select cntry.country_code as aar_country_code_ma,extn as aar_extn_ma,address_id as aar_address_id_ma, sl.state_id as aar_state_ma,              addressline1 as aar_streetaddress1_ma, addressline2 as aar_streetaddress2_ma, city as aar_city_ma,              case when zip is not null then                         case when  datalength(zip) = 9 then substring(zip,1,5) + '-' + substring(zip,6,9)  else zip end                         else zip end as aar_zipcode_ma,                       case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4) else phone end  as aar_phoneno_ma,                       case when fax is not null then substring(fax,1,3) + '-' + substring(fax,4,3) + '-' + substring(fax,7,4) else fax end  as aar_fax_ma,                       type,e_mail as aar_email_ma,                       case when mobile is not null then substring(mobile,1,3) + '-' + substring(mobile,4,3) + '-' + substring(mobile,7,4) else mobile end as aar_mobile_ma,                       cntry.territory_id as territory_id_ma,sl.description as aar_stateDescription_ma,cntry.country_name as aar_countryDescription_ma,county.description as aar_countyDescription_ma,                       case when alt_phone is not null then substring(alt_phone,1,3) + '-' + substring(alt_phone,4,3) + '-' + substring(alt_phone,7,4) else alt_phone end as aar_altPhone_ma,                      alt_extn as aar_altExtn_ma,po_box as aar_poBox_ma,adr.agency_zip_code_2 as agency_zip_code_2_ma,adr.agency_foreign_addr_in as agency_foreign_addr_in_ma,addressline3 as addressline3_ma from tbl_address adr                        left outer join state_lku sl on sl.state_id = adr.state_id                       left outer join country_lku cntry on cntry.country_code = adr.country_code                       left outer join county_lku county on county.county_id = adr.county                         where aar_requestid = #aar_requestid# and type = 2 and person_id is null"/>
+   				<function executionsequence="8" expression="assign(:public_step2_trust_account_label,getLabelFromLabelConf(public_step2_trust_account_label));assign(:public_step2_commission_account_label,getLabelFromLabelConf(public_step2_commission_account_label));" name="getLabelsData"/>
+   				<storedprocedureoperation dbspname="getBankInformationList_p_java" eval="PublicRule.isAgencyBankInformationListEmpty" executionsequence="9" id="getBankInformationList_p_java" metaobject="tbl_agencybankinformation" name="getBankInformationList_p_java" operation="5" viewid="agencybankinformation_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="public_step2_trust_account_label" seq="2"/>	
+					<parameteroperation indexno="2" mode="IN" property="public_step2_commission_account_label" seq="3"/>	
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				 <!--  <databaseoperation name="getBankInformation" operation="3" executionsequence="6" metaobject="tbl_agencybankinformation" 
+					eval="PublicRule.isAgencyBankInformationListEmpty" viewid="agencybankinformation_list_1"
+					sqlstmt="select bank_name,bank_address,contact_no,bank_address2,bank_account,bank_city,bank_routing,bank_zipcode,accountopen_date,
+							bank_extn,bank_altextn,bank_email,bank_comments,dbo.getAmountFormat(average_balance) as average_balance_format,s1.description as state_desc,
+							case when bank_phone is not null then substring(bank_phone,1,3) + '-' + substring(bank_phone,4,3) + '-' + substring(bank_phone,7,4) else bank_phone end as bank_phone_format,
+							case when bank_altphone is not null then substring(bank_altphone,1,3) + '-' + substring(bank_altphone,4,3) + '-' + substring(bank_altphone,7,4) else bank_altphone end as bank_altphone_format,	
+							case when bank_account_type = 'C' then 'Checking' else case when bank_account_type='S' then 'Saving' end end as bank_account_type_desc,
+							case when bank_account_for_EFT='1' then 'Y' else case when  bank_account_for_EFT='0' then 'N' end end as bank_account_for_EFT 
+							from tbl_agencybankinformation left join state_lku s1 on s1.state_id=bank_state_id  where aar_requestid=#aar_requestid# order by bank_information_id">
+				</databaseoperation>-->
+				<databaseoperation eval="PublicRule.isTopCompanyLicensedListEmpty" executionsequence="1" metaobject="tbl_marketinformation" name="getMarketInformationList" operation="5" sqlstmt="select row_number() over(order by marketinformation_id) rownum,case when aar_carrierid = -1 then other_company_description else (select description from carrier_lku where carrier_id=aar_carrierid) end  as aar_carrierid_desc,       (select description from tbl_lob_lku where lob_id=aar_lobid) as lob_desc, marketinformation_id,       case when loss_ratio is null or loss_ratio='' then '' else loss_ratio end as loss_ratio       ,dbo.getAmountFormat(cast(class1volume as numeric(15,0))) as class1volume,dateofappointment,years_represented,       convert(varchar(20),dateofappointment,101) as dateofappointmentFormatted,aar_carrierid,aar_requestid        ,yearofappointment       from tbl_marketinformation where aar_requestid=#aar_requestid#" viewid="agencyMarketInformation_list_listfreeform_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isDocumentListEmpty1" executionsequence="14" metaobject="tbl_agency_documents" name="getDocumentsData" operation="5" sqlstmt="select ad.document_id,ad.document_name,doc.document_display_value as document_type,ada.document_name as file_name       from tbl_agency_documents ad inner join tbl_agency_document_attachments ada on ad.document_id = ada.object_id       inner join  document_type_lku doc on doc.document_id = ad.document_type_id where aar_requestid=#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit_list_4">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isEODeclarationListEmpty" executionsequence="15" metaobject="tbl_agencyappointmentrequest" name="getEODeclarationList" operation="3" sqlstmt="select carrier_other,dbo.getAmountFormat(cast(policy_limit as numeric(16,0))) as policy_limit,effective_date,case eo_claims when 1 then 'Yes' else 'No' end as eo_claims,eoclaims_comments,coverage_amount,expiration_date,policy_number from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+             </databaseoperation>
+             	<storedprocedureoperation dbspname="getPrincipalTypeAgentListByRequestId_p" executionsequence="24" id="getPrincipalTypeAgentListByRequestId_p" metaobject="tbl_agencyprincipal" name="getPrincipalTypeAgentListByRequestId_p" operation="5" viewid="principal_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="isAllContactRequiredInDocuEsign" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="AgentAddresType" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="contactTypeCodeRequiredForOnBoarding" seq="4"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>
+				<databaseoperation eval="PublicRule.isShowSignarureAcceptance" executionsequence="25" metaobject="tbl_signature_acceptance" name="getSignatureAcceptanceDetail" operation="3" sqlstmt="select name,title,email,date,case is_checked when 'Y' then 'Y' else 'N' end as is_checked,case is_checked1 when 'Y' then 'Y' else 'N' end as is_checked1 from tbl_signature_acceptance where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isShowAgencyAssociationCheckbox" executionsequence="26" metaobject="tbl_agencyappointmentrequest" name="getAgencyAssociationCheckBoxValues" operation="3" sqlstmt="select agency_association,cast((select stuff((select ', ' + master_lookup_data_code          from master_lookup_data_lku where master_lookup_data_id in(select items from dbo.split(agency_association,',')) for xml path('')),1,1,'')) as varchar(8000))  as 'agency_association_pdf'        from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+             	</databaseoperation>
+             	<databaseoperation executionsequence="17" metaobject="tbl_agencyappointmentrequest" name="getAgencyComparativeValues" operation="3" sqlstmt="select agency_comparativerate,cast((select stuff((select ', ' + master_lookup_data_desc          from master_lookup_data_lku where master_lookup_data_id in(select items from dbo.split(agency_comparativerate,',')) for xml path('')),1,1,'')) as varchar(8000)) as 'agency_comparativerate_pdf'        from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+             	</databaseoperation>
+             	<databaseoperation executionsequence="31" metaobject="tbl_agency_cyber_liability" name="getCyberLiabilityDeclarationList" operation="3" sqlstmt="select carrier_other as cyber_liability_carrier_other,dbo.getAmountFormat(cast(policy_limit as numeric(16,0))) as cyber_liability_policy_limit,effective_date as cyber_liability_effective_date, expiration_date as cyber_liability_expiration_date, case cyber_liability_claims when 1 then 'Yes' else 'No' end as cyber_liability_claims,comments as cyber_liability_claims_comments from tbl_agency_cyber_liability where aar_requestid=#aar_requestid#">
+             	</databaseoperation>	
+             <storedprocedureoperation dbspname="getApplicationDataBasedOnRequestId_p" executionsequence="30" id="getApplicationDataBasedOnRequestId_p" metaobject="tbl_agencypremiumvolumecommitted" name="getApplicationDataBasedOnRequestId_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+				    <resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+          </workflow>
+				
+		<workflow  name="finish5" seq="2">
+				<storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedList_p_java" executionsequence="7" id="getAgencyPremiumVolumeCommittedList_p_java" metaobject="tbl_agencypremiumvolumecommitted" name="getAgencyPremiumVolumeCommittedList_p_java" operation="5" viewid="agencyPremiumVolumeCommittedStep6_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="premium_volume_table_type" seq="3"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getAgencyCompaniesLicenseList_p_java" executionsequence="8" id="getAgencyCompaniesLicenseList_p_java" metaobject="tbl_agencyappointmentrequest" name="getAgencyCompaniesLicenseList1_p_java" operation="5" viewid="agencyCompaniesLicenseStep6_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<databaseoperation eval="PublicRule.isAgencyPersonalInformationListEmpty" executionsequence="9" metaobject="tbl_marketinformation" name="getPersonalInformationList" operation="5" sqlstmt="select row_number() over(order by personalinformation_id) rownum,personalinformation_id,aar_requestid,name,company,address,phone,relationship,last_updated_by,last_updated_ts from tbl_agencypersonalinformation  where aar_requestid=#aar_requestid#" viewid="personalinformation_list_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isAgencyTerminatedListEmpty" executionsequence="10" metaobject="tbl_agencyterminated" name="getAgencyTerminatedList" operation="5" sqlstmt="select row_number() over(order by agencyterminated_id) rownum,agencyterminated_id,aar_requestid,company_name        ,dbo.getAmountFormat(annual_premium_volume) as annual_premium_volume        ,date_closed,convert(varchar(20),date_closed,101) as dateClosedFormatted,reason_for_action_taken,        case when reason_for_action_taken='0' then 'Low Production'         else case when reason_for_action_taken='1' then 'High Loss Ratio'        else case when reason_for_action_taken='2' then reason_other  end end end as reason_for_action_taken_desc         from tbl_agencyterminated where aar_requestid=#aar_requestid#" viewid="agencyterminated_list_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isAgencyMergerListEmpty" executionsequence="11" metaobject="tbl_agencymergers" name="getAgencyMergersList" operation="5" sqlstmt="select row_number() over(order by agencymerger_id) rownum,agencymerger_id,aar_requestid,agencymerger_name,date_acquired,      convert(varchar(20),date_acquired,101) as dateAcquiredFormatted,dbo.getAmountFormat(volume) as volume         from tbl_agencymergers where aar_requestid=#aar_requestid#" viewid="agencymergers_list_1">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyBusinessSourceList_p_java" executionsequence="12" id="getAgencyBusinessSourceList_p_java" metaobject="tbl_agency_business_source" name="getAgencyBusinessSourceList_p_java" operation="5" viewid="agencyBusinessSourceStep6_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<databaseoperation eval="PublicRule.isCorporationPartnershipListEmpty" executionsequence="13" metaobject="tbl_marketinformation" name="getCorporationPartnershipList" operation="5" sqlstmt="select row_number() over(order by corporation_partnership_details_id) rownum,name,title,ind_experience,aar_requestid, corporation_partnership_details_id       from tbl_corporation_partnership_details where aar_requestid=#aar_requestid#" viewid="agencyOfficersPartners_list_listfreeform_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isSegmentClassesListEmpty" executionsequence="14" metaobject="tbl_segment_industry_classes" name="getSegmentClassesList" operation="5" sqlstmt="select row_number() over(order by segment_industry_classes_id) rownum ,segment_class_name,aar_requestid,segment_industry_classes_id        ,dbo.getAmountFormat(cast(annual_premium as numeric(15,0))) as annual_premium,contact        ,Key_contact_name,Key_contact_email from tbl_segment_industry_classes s  where aar_requestid=#aar_requestid#" viewid="agencySegmentClasses_list_listfreeform_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isProgramBusinessListEmpty" executionsequence="15" metaobject="tbl_program_business" name="getProgramBusinessList" operation="5" sqlstmt="select row_number() over(order by program_business_id) rownum,aar_requestid,program_business_id,dbo.getAmountFormat(cast(premium as numeric(15,0))) as premium,program_name,segment_class_name as segment_class_name1,product_lines,mga_mgu       from tbl_program_business where aar_requestid=#aar_requestid#" viewid="agencyProgramBusiness_list_listfreeform_1">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedList_p_java" eval="PublicRule.isShowPremiumVolumeByLobPDFData" executionsequence="16" id="getAgencyPremiumVolumeCommittedList_p_java" metaobject="tbl_agencypremiumvolumecommitted" name="getAgencyPremiumVolumeCommittedList_p_java" operation="5" viewid="agencyPremiumVolumeByLOBStep6_list_mom_1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="premium_volume_table_type" seq="3"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+				<databaseoperation eval="PublicRule.isShowMarketInformationFreeformFields" executionsequence="17" metaobject="tbl_agency_current_market_informations" name="getAgencyCurrentMarketInfoRecord" operation="3" sqlstmt="select dbo.getAmountFormat(cast(total_annual_revenue as numeric(15,0))) as total_annual_revenue,dbo.getAmountFormat(cast(commercial_premium as numeric(15,0))) as commercial_premium,cast(percentage_premium_standard as numeric(5,2)) as percentage_premium_standard,cast(percentage_speciality_lines as numeric(5,2)) as percentage_speciality_lines,total_commercial_carriers,surplus_license_holder,case when isnull(is_current_business_written_exist,0)=0 then 'No' else 'Yes' end as is_current_business_written_exist_pdf,dbo.getAmountFormat(cast(agency_profitiblity_last_3years as numeric(15,0))) as agency_profitiblity_last_3years,dbo.getAmountFormat(cast(agent_market_monoline_auto_n_worker_comp as numeric(15,0))) as agent_market_monoline_auto_n_worker_comp,dbo.getAmountFormat(cast(agent_market_worker_comp as numeric(15,0))) as agent_market_worker_comp,agent_growth_rate_last_3years,agent_growth_rate_last_3years_yr2,agent_growth_rate_last_3years_yr3 from tbl_agency_current_market_informations where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+		</workflow>
+            	
+		<workflow  name="finish6" seq="3">
+				<databaseoperation executionsequence="0" metaobject="tbl_agency_current_market_informations" name="getAgencyCurrentMarketInfoRecord" operation="3" sqlstmt="select dbo.getAmountFormat(cast(total_annual_revenue as numeric(15,0))) as total_annual_revenue,dbo.getAmountFormat(cast(commercial_premium as numeric(15,0))) as commercial_premium,cast(percentage_premium_standard as numeric(5,2)) as percentage_premium_standard,cast(percentage_speciality_lines as numeric(5,2)) as percentage_speciality_lines,total_commercial_carriers,surplus_license_holder,case when isnull(is_current_business_written_exist,0)=0 then 'No' else 'Yes' end as is_current_business_written_exist_pdf,dbo.getAmountFormat(cast(agency_profitiblity_last_3years as numeric(15,0))) as agency_profitiblity_last_3years,dbo.getAmountFormat(cast(agent_market_monoline_auto_n_worker_comp as numeric(15,0))) as agent_market_monoline_auto_n_worker_comp,dbo.getAmountFormat(cast(agent_market_worker_comp as numeric(15,0))) as agent_market_worker_comp,agent_growth_rate_last_3years,agent_growth_rate_last_3years_yr2,agent_growth_rate_last_3years_yr3 from tbl_agency_current_market_informations where aar_requestid==#aar_requestid#">"&gt;
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyPremiumVolumeforAccountList_p_java" executionsequence="17" id="getAgencyPremiumVolumeforAccountList_p_java" metaobject="tbl_agency_premiumvolume_account" name="getAgencyPremiumVolumeforAccountList_p_java" operation="5" viewid="agencyPremiumVolumeStep7_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="getAgencyBusinessPlanList_p_java" executionsequence="18" id="getAgencyBusinessPlanList_p_java" metaobject="tbl_agency_business_plan" name="getAgencyBusinessPlanList_p_java" operation="5" viewid="agencyBusinessPlanStep7_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getAgencyCompaniesLicenseList_p_java" executionsequence="19" id="getAgencyCompaniesLicenseList_p_java" metaobject="tbl_agencyprincipal" name="getAgencyCompaniesLicenseList_p_java" operation="5" viewid="agencyBusinessDistributionStep7_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getMarketInformationList_p_java" eval="PublicRule.isMarketInformationListEmpty" executionsequence="20" id="getMarketInformationList_p_java" metaobject="tbl_marketinformation" name="getMarketInformationList_p_java" operation="5" viewid="MarketInformation_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>				
+		</workflow>
+
+		<workflow  name="finish7" seq="4">
+			<storedprocedureoperation dbspname="getStateListForPDF_p" executionsequence="20" id="getStateListForPDF_p" metaobject="tbl_agencyprincipal" name="getStateListForPDF_p" operation="5" viewid="stateData_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>	
+			<storedprocedureoperation dbspname="getApplicationDataForPDF_p" executionsequence="23" id="getApplicationDataForPDF_p" metaobject="tbl_agencyprincipal" name="getApplicationDataForPDF_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>	
+			
+		</workflow>
+		
+  		<workflow name="submitExternalRequestForESign0" seq="5">
+  			<businessobject executionsequence="0" name="SendDocForESign" obj="com.userbo.integration.SendPublicApplicationForDocuSignBO"/>
+  		</workflow>
+  		
+  		<workflowevent ajaxcontainerid="divComplete" event="submitExternalRequestForESign" isgetuser="Y" name="submitExternalRequestForESign" userfield="workflow_user" workflow="onboardingDashboard" />
+  	</action>
+  	
+  	<action name="declineExternalRequestForESign">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflowevent event="declineExternalRequestForESign" isexecuteonsuccess="Y" name="declineExternalRequestForESign" workflow="onboardingDashboard"/>
+    </action>
+    <action name="refreshIvansSystem">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam post="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+	</action>
+	<action name="copyBusinessToDEC">
+	      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		  <actionparam form="Y" name="country_code" paramid="country_code" post="Y" val="US"/>
+	      <actionparam form="Y" name="country_code_DEC" paramid="country_code_DEC" post="Y" val="US"/>
+	      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+	      <workflow eval="EntityGeneralDetailsRule.isCopyBusinessToDECCheckedTrue" name="copyBusinessToDEC" seq="0">
+	      		<function executionsequence="1" expression="assign(:country_code_DEC,:country_code_business);assign(:addressline1_DEC,:aar_streetaddress1_business);
+	      		assign(:addressline2_DEC,:aar_streetaddress2_business);assign(:city_DEC,:aar_city_business);assign(:state_id_DEC,:aar_state_business);
+	      		assign(:zip_DEC,:aar_zipcode_business);assign(:county_DEC,:county_id_business);assign(:phone_DEC,:aar_phoneno_business);assign(:fax_DEC,:aar_fax_business);
+	      		assign(:e_mail_DEC,:email_business);assign(:extn_DEC,:extn_business);
+	      		assign(:agency_zip_code_2_DEC,:agency_zip_code_2_business);assign(:agency_foreign_addr_in_DEC,:agency_foreign_addr_in_business);
+	      		assign(:po_box_DEC,:poBox_business);assign(:alt_phone_DEC,:aar_altPhoneno_business);assign(:alt_extn_DEC,:aar_altExtn_business);
+	      		assign(:misc_phone_DEC,:misc_phone_business);assign(:addressline3_DEC,:addressline3_business);assign(:alt_email_DEC,:alt_email_business);" name="copyBusinessToDEC"/>
+	      </workflow>
+	 </action>
+	  <action name="copyMailingToDEC">
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyMailingToDECCheckedTrue" executionsequence="0" form="Y" name="country_code_mailing" paramid="country_code_mailing" populatename="country_code_DEC" post="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyMailingToDECCheckedTrue" executionsequence="1" form="Y" name="state_id_mailing" paramid="state_id_mailing" populatename="state_id_DEC" post="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyMailingToDECCheckedTrue" executionsequence="2" form="Y" name="county_mailing" paramid="county_mailing" populatename="county_DEC" post="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyMailingToDECCheckedTrue" executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" post="Y" val="Y"/>
+      <workflow eval="EntityGeneralDetailsRule.isCopyMailingToDECCheckedTrue" name="copyMailingToDEC" seq="0"> 
+      		<function executionsequence="1" expression="assign(:country_code_DEC,:country_code_mailing);assign(:addressline1_DEC,:addressline1_mailing);
+      		assign(:addressline2_DEC,:addressline2_mailing);assign(:city_DEC,:city_mailing);assign(:state_id_DEC,:state_id_mailing);assign(:zip_DEC,:zip_mailing);
+      		assign(:county_DEC,:county_mailing);assign(:phone_DEC,:phone_mailing);assign(:fax_DEC,:fax_mailing);assign(:e_mail_DEC,:e_mail_mailing);assign(:extn_DEC,:extn_mailing);assign(:territory_id_DEC,:territory_id_mailing);
+      		assign(:agency_zip_code_2_DEC,:agency_zip_code_2_mailing);assign(:agency_foreign_addr_in_DEC,:agency_foreign_addr_in_mailing);
+      		assign(:po_box_DEC,:po_box_mailing);assign(:alt_phone_DEC,:alt_phone_mailing);assign(:alt_extn_DEC,:alt_extn_mailing);assign(:misc_phone_DEC,:misc_phone_mailing);
+      		assign(:addressline3_DEC,:addressline3_mailing);assign(:alt_email_DEC,:alt_email_mailing);" name="copyMailingToDEC"/>
+      </workflow>
+    </action>
+    <action name="copyW9ToDEC">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyW9ToDECCheckedTrue" executionsequence="0" form="Y" name="country_code_w9" paramid="country_code_w9" populatename="country_code_DEC" post="Y"/>
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyW9ToDECCheckedTrue" executionsequence="1" form="Y" name="state_id_w9" paramid="state_id_w9" populatename="state_id_DEC" post="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyW9ToDECCheckedTrue" executionsequence="2" form="Y" name="county_w9" paramid="county_w9" populatename="county_DEC" post="Y"/>
+      <actionparam eval="EntityGeneralDetailsRule.isCopyW9ToDECCheckedTrue" executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" pre="Y" val="Y"/>
+      <workflow eval="EntityGeneralDetailsRule.isCopyW9ToDECCheckedTrue" name="copyW9ToDEC" seq="0">
+      		<function executionsequence="1" expression="assign(:country_code_DEC,:country_code_w9);assign(:addressline1_DEC,:addressline1_w9);
+      		assign(:addressline2_DEC,:addressline2_w9);assign(:city_DEC,:city_w9);assign(:state_id_DEC,:state_id_w9);assign(:zip_DEC,:zip_w9);
+      		assign(:county_DEC,:county_w9);assign(:phone_DEC,:phone_w9);assign(:fax_DEC,:fax_w9); assign(:e_mail_DEC,:e_mail_w9);assign(:extn_DEC,:extn_w9);
+      		assign(:territory_id_DEC,:territory_id_w9);assign(:agency_zip_code_2_DEC,:agency_zip_code_2_w9);assign(:agency_foreign_addr_in_DEC,:agency_foreign_addr_in_w9);
+      		assign(:po_box_DEC,:po_box_w9);assign(:alt_phone_DEC,:alt_phone_w9);assign(:alt_extn_DEC,:alt_extn_w9);assign(:misc_phone_DEC,:misc_phone_w9);
+      		assign(:addressline3_DEC,:addressline3_w9);assign(:alt_email_DEC,:alt_email_w9);" name="copyW9ToDEC"/>
+      </workflow>
+    </action>
+     <action name="refreshState_DEC">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="5"/>
+      <actionparam executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="state_id_DEC,county_DEC,zip_DEC" session="Y"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+    </action>
+    <action name="refreshCounty_DEC">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  <actionparam executionsequence="1" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y"/>	
+      <actionparam executionsequence="1" form="Y" name="stateChanged" paramid="stateChanged" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="2" form="Y" name="FromAjax" paramid="FromAjax" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="1"/>
+      <actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="9" form="Y" name="removeparams" paramid="removeparams" populatename="county_DEC" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="6" form="Y" name="type" paramid="type" post="Y" val="5"/>
+      <actionparam executionsequence="10" form="Y" name="stopAddrerssDropDownCallFromBeforeMetaBO" paramid="stopAddrerssDropDownCallFromBeforeMetaBO" post="Y" val="Y"/>
+    </action>
+  </component>
+</projectcomponents>

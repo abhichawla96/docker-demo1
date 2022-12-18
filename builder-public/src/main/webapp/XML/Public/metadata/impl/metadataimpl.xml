@@ -1,0 +1,42 @@
+<structure seq="0" project="Public">
+
+<field deltaind="M" type="V" decimallength="0" seq="1" length="0"
+		displayname="Agency Name" dropdown="N"
+		fieldlength="50" viewlength="0" name="aar_agencyname" />
+		
+
+			<property deltaind="M" searchrule="N" searchmodify="N" seq="43"
+				propertylength="0" formdisplay="Y" deleteind="N" listdisplay="Y"
+				initcap="N" contextfield="N" viewlength="0" isEncrypt="N" length="0"
+				searchfield="N" isrequired="Y" resolvedisplay="N" persistent="Y"
+				field="consent_e_delivery">
+				<propvalidation name="checkConsenteDeliveryEmpty"
+					expression="PublicRule.checkConsenteDeliveryEmpty" message="selectConsentDeclarationKey"
+					executionseq="1">
+				</propvalidation>
+			</property> <!-- Added to display message at Consent to E-Delivery in Step 3  -->
+			
+
+					<property deltaind="M" searchrule="N" searchmodify="N" seq="44"
+				propertylength="0" formdisplay="Y" deleteind="N" listdisplay="Y"
+				initcap="N" contextfield="N" viewlength="0" isEncrypt="N" length="0"
+				searchfield="N" isrequired="Y" resolvedisplay="N" persistent="Y"
+				field="fcra_consent_declaration">
+				<propvalidation name="checkConsenteDeliveryEmpty"
+					expression="PublicRule.checkConsenteDeliveryEmpty" message="selectConsentDeclarationKey"
+					executionseq="1">
+				</propvalidation>
+				</property>  <!-- Added to display message at Background Check and FCRA Consent in Step 3  -->
+				
+				<!-- CR55 - Residence Address Mandatory -->
+				<metaobject active="Y" seq="0" persistent="Y" name="tbl_address">
+				<propertyversion versionname="0" seq="0">
+				<property deltaind="M" searchrule="N" searchmodify="N" seq="2"
+				propertylength="0" formdisplay="Y" deleteind="N" listdisplay="Y"
+				initcap="N" contextfield="N" viewlength="0" isEncrypt="N" length="0"
+				searchfield="N" isrequired="Y" resolvedisplay="N" persistent="Y"
+				field="residence_email" />
+				</propertyversion>
+				</metaobject>
+
+</structure>

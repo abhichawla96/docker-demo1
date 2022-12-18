@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+
+
+
+<Context path="/MAP" docBase="MAP" debug="0" reloadable="true" crossContext="true" cookies="false">
+	<Logger className="org.apache.catalina.logger.FileLogger"
+		prefix="localhost_ProducerOne_log." suffix=".txt" timestamp="true" />
+	<Resource name="jdbc/p1_securedb" auth="Container" type="javax.sql.DataSource"
+		driverClassName="net.sourceforge.jtds.jdbc.Driver"
+		url="${db.secure.url}"
+		username="${db.secure.username}" password="${db.secure.password}" maxActive="25" maxIdle="5"
+		maxWait="18000" minEvictableIdleTimeMillis="180000"
+		validationInterval="120000" timeBetweenEvictionRunsMillis="180000"
+		testOnBorrow="true" defaultAutoCommit="true" validationQuery="SELECT 1"
+		initialSize="1" minIdle="1" />
+
+	<Resource name="jdbc/p1_performancedb" auth="Container"
+		type="javax.sql.DataSource" driverClassName="net.sourceforge.jtds.jdbc.Driver"
+		url="${db.performance.url}"
+		username="${db.performance.username}" password="${db.performance.password}" maxActive="25" maxIdle="5"
+		maxWait="18000" minEvictableIdleTimeMillis="180000"
+		validationInterval="120000" timeBetweenEvictionRunsMillis="180000"
+		testOnBorrow="true" defaultAutoCommit="true" validationQuery="SELECT 1"
+		initialSize="1" minIdle="1" />
+		<Resource name="jdbc/p1_clientdb" auth="Container"
+         type="javax.sql.DataSource" driverClassName="net.sourceforge.jtds.jdbc.Driver"
+    	 url="jdbc:jtds:sqlserver://172.30.30.21:1433/PRODUCERONE_CLIENT_SA_DEV"
+         username="${db.performance.username}" password="${db.performance.password}" maxActive="25" maxIdle="5"
+         maxWait="18000" minEvictableIdleTimeMillis="180000"
+         validationInterval="120000" timeBetweenEvictionRunsMillis="180000"
+         testOnBorrow="true" defaultAutoCommit="true" validationQuery="SELECT 1"
+         initialSize="1" minIdle="1" />
+</Context>
+
+

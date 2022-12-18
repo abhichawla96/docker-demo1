@@ -1,0 +1,23 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component breadcrumbsessionparams="agency_id,workflow_function,aar_statusid_desc,workflow_user" name="producerNumbersList" 
+		stackdisplayname="producerNumbersList_breadcrumb_label" displayname="Agency Codes Listing">
+
+		<action name="addnew">
+    		<actionparam deltaind="I" executionsequence="0" form="Y" name="showOnAdd" paramid="showOnAdd" pre="Y"  val="Y"/>
+      	</action>
+		
+		<!-- Phase 2 - Upgrade - Clone icon hover fix -->
+				<html path="carrier/producerNumbersList.html">
+			<block deltaind="M" ajaxcontainerid="ajax_sorting_1" id="producerNumbersList_list_1" isshowpagination="Y" name="producerNumbersList_list_1" type="accordianlist" rowlevelcss="ProducerOneRule.checkProducerNumberListingColorCoding"
+				labelkey="producerNumbersList_fieldset_label" securitykey="producerNumbersList_fieldset_security">
+
+				<field deltaind="M" id="block_field_clone_row_link" name="clone_row_link" displaytype="link" css="icoClone" style="width: 1%;" align="left" executionsequence="23">
+					<event deltaind="M" id="href" tooltip="Clone" name="href" securitykey="hideCloneLinkForAgencyAdmin" action="createProducerNumberClone" actiontype="submitform" title="Clone" executionsequence="1" screen="carrier/producerNumbersList.html">
+				  		<forward id="carrier/producerNumbersList.html" screen="carrier/producerNumbersList.html"/>
+				  	</event>
+				</field>
+			</block>
+		</html>
+		
+		</component>
+		</projectcomponents>

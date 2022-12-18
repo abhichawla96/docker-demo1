@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<title />
+</head>
+<body>
+	<form>
+		<div id="popupTaxId">
+			<div id="taxidPopup">
+				<div class="modal fade modal_popup">
+					<div class="modal-dialog modal-dialog-width_350">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">
+									<a class="close" id="taxidPopup_cancel"
+									href="javascript:ajaxsubmitform('carrier/entityGeneralDetails.html','taxidPopup.cancel','','','tax_id_securityHeader');">
+										<img src="images/close.png" />
+									</a> <span id="feinFieldLabel">FEIN/TaxID#</span>
+								</h4>
+							</div>
+							<div class="modal-body">
+								<div class="modal-body-scroll" style="height: 70px;">
+									<div class="freeFormDiv form-inline popup_fein">
+										<div class="padding-left-form" id="taxidPopup_freeform_contextdata_1">
+											<div class="freeFormList form-group">
+												<div class="freeFormListTr">
+													<div class="freeFormListTdError">
+														<h6>#space#</h6>
+													</div>
+													<div class="freeFormListTdError paddingLeft3">
+														<div id="error_tax_id_popup" class="error" />
+														<div id="ajax_error_tax_id_popup" class="error" />
+													</div>
+												</div>
+						<!-- BMIC Specific-->						<div id="showtaxidsecurity">
+												<div class="freeFormListTr" id="tax_id_popup_securityHeader">
+													<div
+														class="freeFormListTd text-nowrap labelAlign">
+														<span id="feinFieldLabel">FEIN/TaxID#</span> :
+													</div>
+													<div class="freeFormListTd tdInput">
+														<input name="tax_id_popup" id="ajax_field_tax_id_popup" type="text"
+															maxlength="10"
+															class="xform-control form-control-50" />
+													</div>
+												</div>
+							<!-- BMIC Specific-->					</div>
+												<!-- Added by Aashutosh to mask SSN -->
+												<div class="freeFormListTr" id="ssn_popup_securityHeader">
+													<div
+														class="freeFormListTd text-nowrap labelAlign">
+														<span id="feinFieldLabel1">SSN</span> :
+													</div>
+													<div class="freeFormListTd tdInput">
+														<input name="ssn_num" id="ajax_field_ssn_popup" type="text"
+															maxlength="10" readonly="readonly"
+															class="xform-control form-control-50" />
+													</div>
+												</div>
+													<!-- End -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<div class="buttonwrapper">
+									<a
+										id="taxidPopup_Submit"
+										href="javascript:ajaxsubmitform('carrier/entityGeneralDetails.html','taxidPopup.submit','','','tax_id_securityHeader');"
+										class="ovalbutton"> <span>Submit</span>
+									</a>
+									<a id="taxidPopup_cancel" 
+										href="javascript:ajaxsubmitform('carrier/entityGeneralDetails.html','taxidPopup.cancel','','','tax_id_securityHeader');"
+										class="ovalbutton"> <span>Cancel</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+

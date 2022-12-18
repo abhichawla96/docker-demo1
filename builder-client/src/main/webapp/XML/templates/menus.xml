@@ -1,0 +1,54 @@
+<menus project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	
+	<menugroup name="" screen="" menuscreen="" cssclass="" style="" securitykey="" labelkey="" ismenu="" istab="" executionsequence=""> 
+		<nodeinfo uniqueid="name">
+			<attribute name="executionsequence" datatype="int" />
+			<attribute name="ismenu" datatype="boolean" />
+			<attribute name="istab" datatype="boolean" />
+		</nodeinfo>
+		
+	    <menu name="" parent="" labelkey="" menulabelkey="" tablabelkey="" securitykey="" action="" forward="" href="" 
+	    	cssclass="" style="" activeon="" menucssclass="" tabcssclass="" moduleid=""
+	    	activeonclass="" ismenu="" istab="" screen="" executionsequence="" actiontype="" actiontypeid=""
+	    	lookupobjectsql="">
+	    	<nodeinfo uniqueid="name">
+				<attribute name="executionsequence" datatype="int" />
+				<attribute name="ismenu" datatype="boolean" />
+				<attribute name="istab" datatype="boolean" />
+			</nodeinfo>
+	    	<eval id="" securitykey="" executionsequence="">
+	    		<nodeinfo uniqueid="id">
+					<attribute name="executionsequence" datatype="int" />
+				</nodeinfo>
+	    	</eval>
+	    	<forward id="" screen="" securitykey="" executionsequence="">
+	    		<nodeinfo uniqueid="id">
+					<attribute name="executionsequence" datatype="int" />
+				</nodeinfo>
+	    	</forward>
+	    	<submenu name="" parent="" labelkey="" menulabelkey="" tablabelkey="" securitykey="" action="" forward="" href="" 
+		    	cssclass="" style="" activeon="" menucssclass="" tabcssclass="" moduleid=""
+		    	activeonclass="" ismenu="" istab="" screen="" executionsequence="" actiontype="" actiontypeid=""
+		    	lookupobjectsql="">
+		    	<nodeinfo uniqueid="name">
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="ismenu" datatype="boolean" />
+					<attribute name="istab" datatype="boolean" />
+				</nodeinfo>
+		    	<eval id="" securitykey="" executionsequence="">
+		    		<nodeinfo uniqueid="id">
+						<attribute name="executionsequence" datatype="int" />
+					</nodeinfo>
+		    	</eval>
+		    	<forward id="" screen="" securitykey="" executionsequence="">
+		    		<nodeinfo uniqueid="id">
+						<attribute name="executionsequence" datatype="int" />
+					</nodeinfo>
+		    	</forward>
+		    </submenu>
+	    </menu>
+	</menugroup>
+</menus>

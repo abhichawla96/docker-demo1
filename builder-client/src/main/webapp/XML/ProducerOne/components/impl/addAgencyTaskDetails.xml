@@ -1,0 +1,489 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component delatind="I" metaobject="agency_taskDetails" name="addAgencyTaskDetails" stackdisplayname="Relationship MGMT Tasks">
+    <action name="agencyNameSearch">
+      <actionparam executionsequence="1" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+  	  <actionparam executionsequence="9" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="" session="Y"/>
+  	</action>
+  	<action name="contactNameSearch">
+      <actionparam executionsequence="1" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+    </action>
+  	<action name="producerNumberSearch">
+      <actionparam executionsequence="1" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+  	</action>
+  	<action name="refreshBasedOnObjectType">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+   	  <actionparam form="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" viewparam="Y"/>
+  	</action>
+  	<action name="assignedToSearch">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="inet_event_id" session="Y"/>
+   </action>
+    <action name="showTasks">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="eventid" session="Y"/>
+      <actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" viewparam="Y"/>
+      
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="user_id" paramid="user_id1" populatename="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="1" form="Y" name="user_id" paramid="user_id2" populatename="assigned_to" viewparam="Y"/>
+ 	  
+ 	  <actionparam eval="ProducerOneRule.isSBMIBenefitsLoggedIn" executionsequence="2" form="Y" name="user_id" paramid="user_id3" populatename="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isSBMIBenefitsLoggedIn" executionsequence="3" form="Y" name="user_id" paramid="user_id4" populatename="assigned_to" viewparam="Y"/>
+ 	  
+ 	  <workflow eval="ProducerOneRule.checkDefaultValueExist" name="setDfaultValueForStatus" seq="0">
+	  	<storedprocedureoperation dbspname="getTaskStatusIdbyDesc_p" executionsequence="1" id="getTaskStatusIdbyDesc_p" metaobject="agency_document_attachments" name="getTaskStatusIdbyDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="default_task_status_value" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+ 	  	<function executionsequence="2" functionid="getCurrentDate" name="assignDataInContextCreationDate" parameters="context,MM/dd/YYYY,creation_date"/>
+ 	  	
+ 	  </workflow>
+ 	  <actionparam executionsequence="5" form="Y" name="removeTaskParams" paramid="removeTaskParams" post="Y" remove="Y" removeparams="agent_name,agency_name,producer_number,object_type_v,object_code,comments,object_code,comments,navigation_link,agency_task_id,subject,start_date,due_date,status,priority,complete_percentage,phone,extn,inet_eventid,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts" session="Y"/>
+      <actionparam executionsequence="20" form="Y" name="isUploadDocumentRequired" paramid="isUploadDocumentRequired" val="Y" viewparam="Y"/>
+    </action>
+   <action name="edit">
+      <actionparam executionsequence="0" form="Y" name="eventid" paramid="eventid" session="Y" val="edit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="show1099TypeDivFlag" paramid="show1099TypeDivFlag" post="Y" session="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="creation_date,comments,uploadPopup_list_1,subject,start_date,due_date,assigned_to,status,priority,inet_eventid,task_type,last_updated_by,last_updated_ts," session="Y"/>
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="assigned_to" paramid="assigned_to" viewparam="Y"/>
+    </action>
+  	<action name="save">
+      <actionparam executionsequence="4" form="Y" name="eventid" paramid="eventid" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" remove="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.assignCreatedBy" executionsequence="3" form="Y" name="created_by" paramid="created_by" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isPageSaveMsg" executionsequence="5" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+      <actionparam checkfornullparams="task_id,creation_date,agency_task_id,agency_id,subject,start_date,due_date,assigned_to,status,priority,date_completed,task_type,mark_complete,last_updated_by,last_updated_ts,commemts" executionsequence="1" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="creation_date,comments,uploadPopup_list_1" session="Y"/>
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" post="Y" remove="Y" removeparams="agency_task_id"/>
+      <actionparam eval="ProducerOneRule.is1099SaveError" executionsequence="2" form="Y" name="pageError" paramid="pageError" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+      <actionparam executionsequence="5" form="Y" name="object_type_v" paramid="object_type_v" pre="Y"/>
+      <actionparam executionsequence="6" form="Y" name="producer_number_id" paramid="producer_number_id" pre="Y"/>
+      
+      <actionparam eval="ProducerOneRule.checkAgencyName" form="Y" name="agency_id" paramid="agency_id" populatename="object_id" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.checkAgencyName" form="Y" name="object_type_v" paramid="object_type_v1" val="A" pre="Y" />
+      <workflow eval="ProducerOneRule.isTaskStatusNotEmpty" name="getSelectedStatusDesc" seq="0">
+    	<storedprocedureoperation dbspname="getSelectedStatusDesc_p" executionsequence="1" id="getSelectedStatusDesc_p" metaobject="agency_document_attachments" name="getSelectedStatusDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="status" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.assignDateFields" name="save" seq="2">
+      		<function executionsequence="1" expression="assign(:creation_date,getTodaysDate())" name="assignDataInContextCreationDate"/>
+	      	<storedprocedureoperation dbspname="insertAgencyTaskDetail_p" executionsequence="2" id="insertAgencyTaskDetail_p" metaobject="agency_taskDetails" name="insertAgencyTaskDetail_p" operation="1">
+	      	  <parameteroperation indexno="1" mode="IN" property="subject" seq="1"/>
+	      	  <parameteroperation indexno="2" mode="IN" property="start_date" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="due_date" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="assigned_to" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="5"/>
+	          <parameteroperation indexno="6" mode="IN" property="created_by" seq="6"/>
+	          <parameteroperation indexno="7" mode="IN" property="creation_date" seq="7"/>
+	          <parameteroperation indexno="8" mode="IN" property="object_type_v" seq="8"/>
+	          <parameteroperation indexno="9" mode="IN" property="comments" seq="9"/>
+	          <parameteroperation indexno="10" mode="IN" property="priority" seq="10"/>
+	          <parameteroperation indexno="11" mode="IN" property="status" seq="11"/>
+	          <parameteroperation indexno="12" mode="OUT" property="agency_task_id" seq="12"/>
+	          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.assignDateFields" name="saveDocument" seq="3">
+        <businessobject eval="ProducerOneRule.assignAgencyTaskIdToObjectID" executionsequence="2" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+    </action>
+    <action name="view">
+      <actionparam checkfornullparams="task_id,filter_object_code,filter_status,filter_creation_date_from,filter_creation_date_to,filter_assigned_to,agency_id,agency_task_id,object_id" executionsequence="1" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_category" paramid="document_category" pre="Y" session="Y" val="40"/>
+      <actionparam executionsequence="0" form="Y" name="user_name" paramid="user_name" populatename="display_assigned_to" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" populatename="assigned_to" pre="Y"/>
+      
+      
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="uploadPopup_list_1,subTask_list_01" session="Y"/>
+      	<actionparam executionsequence="0" form="Y" name="coming_page" paramid="coming_page" pre="Y" session="Y" val="addAgencyTaskDetails"/>
+      <workflow name="view" seq="0">
+        <storedprocedureoperation dbspname="GetRelationshipTaskDataBasedOnId_p" eval="ProducerOneRule.isEditEvent" executionsequence="0" id="GetRelationshipTaskDataBasedOnId_p" metaobject="agency_taskDetails" name="GetRelationshipTaskDataBasedOnId_p" operation="3">
+          <parameteroperation indexno="2" mode="IN" property="agency_task_id" seq="2"/>
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="filter_status" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="filter_assigned_to" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="filter_creation_date_from" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="filter_creation_date_to" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="filter_object_code" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="isShowAgenciesBasedOnUserId" seq="10"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyTaskRelationsDetails_p" eval="ProducerOneRule.checkSessionListEmpty" executionsequence="1" id="getAgencyTaskRelationsDetails_p" metaobject="agency_taskDetails" name="getAgencyTaskRelationsDetails_p" operation="5" viewid="GetTaskRelatedTo_list_01">
+          <parameteroperation indexno="0" mode="IN" property="agency_task_id" seq="0"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getSelectedTaskID_p" eval="ProducerOneRule.checkSessionListEmpty" executionsequence="2" id="getSelectedTaskID_p" metaobject="agency_taskDetails" name="getSelectedTaskID_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="agency_task_id" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getTaskRelationListInSession_p" eval="ProducerOneRule.checkSessionListNotEmpty" executionsequence="3" id="getTaskRelationListInSession_p" metaobject="agency_taskDetails" name="getTaskRelationListInSession_p" operation="5" viewid="GetTaskRelatedTo_list_01">
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="callreportTaskIds" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="eventTaskIds" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="diaryConvTaskIds" seq="4"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <function executionsequence="3" functionid="getCurrentDate" name="assignDataInContextCreationDate" parameters="context,MM/dd/YYYY,creation_date" seq="0"/>
+      </workflow>
+       <workflow eval="ProducerOneRule.isUploadPopUpListEmpty" name="view1" seq="1">
+        <storedprocedureoperation dbspname="GetAgencyDocument_p" eval="ProducerOneRule.assignAgencyTaskIdToObjectID" executionsequence="1" id="GetAgencyDocument_p" metaobject="agency_document_attachments" name="GetAgencyDocument_p" operation="5" viewid="uploadPopup_list_1">
+          <parameteroperation indexno="4" mode="IN" property="uploadMode" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="object_id" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="document_category" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+    
+     <workflow eval="ProducerOneRule.isCompleteStatusSelected" name="showSubTaskList" seq="2">
+   		<storedprocedureoperation dbspname="getSubTaskListBasedOnTaskId_p" executionsequence="1" id="getSubTaskListBasedOnTaskId_p" metaobject="agency_document_attachments" name="getSubTaskListBasedOnTaskId_p" operation="5" viewid="subTask_list_01">
+          <parameteroperation indexno="1" mode="IN" property="task_id" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="agency_task_id" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+   	</workflow>
+    
+    	<actionparam executionsequence="0" form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_1" post="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="subTask_list_01" paramid="subTask_list_01" post="Y" session="Y"/>
+    </action>
+     <action name="cancel">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="a" paramid="a" pre="Y" remove="Y" removeparams="creation_date,agency_task_id,subject,start_date,due_date,assigned_to,status,priority,last_updated_by,last_updated_ts" session="Y"/>
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="assigned_to" paramid="assigned_to" viewparam="Y"/>
+    </action>
+    <action name="update">
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" post="Y" remove="Y" removeparams="agency_task_id"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="creation_date,task_id,object_code,comments,navigation_link,agency_task_id,subject,start_date,due_date,assigned_to,status,priority,complete_percentage,phone,extn,inet_eventid,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts,callreportTaskIds,eventTaskIds,diaryConvTaskIds,uploadPopup_list_1,coming_page,navigation_link,subTask_list_01" session="Y"/>
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="assigned_to" paramid="assigned_to" viewparam="Y"/>
+      <actionparam checkfornullparams="task_id,creation_date,filter_object_code,filter_status,filter_creation_date_from,filter_creation_date_to,filter_assigned_to,agency_task_id,agency_id,subject,start_date,due_date,assigned_to,status,priority,task_type,last_updated_by,last_updated_ts,commemts" executionsequence="1" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.setPhoneWithoutFormat" executionsequence="2" form="Y" name="phone" paramid="phone" pre="Y"/>
+      <actionparam eval="ProducerOneRule.is1099UpdateError" executionsequence="9" form="Y" name="pageError" paramid="pageError" post="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="11" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" remove="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isPageUpdateMsg" executionsequence="18" form="Y" name="pageError2" paramid="pageError2" post="Y"/>
+      <actionparam eval="ProducerOneRule.assignDateFields" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+      <workflow eval="ProducerOneRule.isTaskStatusNotEmpty" name="getSelectedStatusDesc" seq="0">
+    	<storedprocedureoperation dbspname="getSelectedStatusDesc_p" executionsequence="1" id="getSelectedStatusDesc_p" metaobject="agency_document_attachments" name="getSelectedStatusDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="status" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="update" seq="2">
+      	<databaseoperation eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" metaobject="agency_taskDetails" name="updateTask" operation="4"/>
+        <businessobject eval="ProducerOneRule.assignAgencyTaskIdToObjectID" executionsequence="1" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+      <workflow eval="task_related_to_security" name="saveRelation" seq="3">
+        <storedprocedureoperation dbspname="InsertTaskRelations_p" executionsequence="1" id="InsertTaskRelations_p" metaobject="agency_taskDetails" name="InsertTaskRelations_p" operation="1">
+          <parameteroperation indexno="4" mode="IN" property="last_updated_by" seq="4"/>
+          <parameteroperation indexno="3" mode="IN" property="agency_task_id" seq="3"/>
+          <parameteroperation indexno="1" mode="IN" property="eventTaskIds" seq="1"/>
+          <parameteroperation indexno="0" mode="IN" property="callreportTaskIds" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="diaryConvTaskIds" seq="2"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      
+      <workflow eval="isExecuteAssignSubTaskWorkflow" name="assignSubTaskWorkflow" seq="4">
+      		<function executionsequence="2" functionid="convertListDataToXML" name="convertSubTaskListIntoXml" parameters="context,subTask_list_01,inputXml"/>
+      		
+	      	<storedprocedureoperation dbspname="assignSubTask_p" executionsequence="3" id="assignSubTask_p" metaobject="agency_taskDetails" name="assignSubTask_p" operation="1">
+	      	<parameteroperation indexno="1" mode="IN" property="agency_task_id" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="inputXml" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="last_updated_by" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="last_updated_ts" seq="4"/>
+	          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+      </workflow>
+      <actionparam executionsequence="26" form="Y" name="emailNotificationEventNameDescription" paramid="emailNotificationEventNameDescription" pre="Y" val="AssignedTask"/>
+      <actionparam eval="ProducerOneRule.sendEmailBasedOnEventNames" executionsequence="27" form="Y" name="sendEmailBasedOnEventNames" paramid="sendEmailBasedOnEventNames" post="Y"/>
+    </action>
+    
+    <action name="updateOld">
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" post="Y" remove="Y" removeparams="agency_task_id"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="creation_date,task_id,object_code,comments,navigation_link,agency_task_id,subject,start_date,due_date,assigned_to,status,priority,complete_percentage,phone,extn,inet_eventid,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts,callreportTaskIds,eventTaskIds,diaryConvTaskIds,uploadPopup_list_1,coming_page,navigation_link,subTask_list_01" session="Y"/>
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="assigned_to" paramid="assigned_to" viewparam="Y"/>
+ 	  
+ 	  <!-- <actionparam viewparam="Y" name="date_completed" paramid="date_completed" eval="ProducerOneRule.isTaskStatusComplete" form="Y" executionsequence="0" /> -->
+ 	  
+      <actionparam checkfornullparams="task_id,creation_date,filter_object_code,filter_status,filter_creation_date_from,filter_creation_date_to,filter_assigned_to,agency_task_id,agency_id,subject,start_date,due_date,assigned_to,status,priority,complete_percentage,phone,extn,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts,commemts" executionsequence="1" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.setPhoneWithoutFormat" executionsequence="2" form="Y" name="phone" paramid="phone" pre="Y"/>
+      <actionparam eval="ProducerOneRule.is1099UpdateError" executionsequence="9" form="Y" name="pageError" paramid="pageError" post="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="11" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" remove="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isPageUpdateMsg" executionsequence="18" form="Y" name="pageError2" paramid="pageError2" post="Y"/>
+      <actionparam eval="ProducerOneRule.assignDateFields" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+      <actionparam executionsequence="0" form="Y" name="object_id" paramid="object_id" pre="Y" val="12"/>
+      <actionparam executionsequence="0" form="Y" name="object_type" paramid="object_type" pre="Y" val="1099"/>
+      
+      
+      
+      <workflow eval="ProducerOneRule.isTaskStatusNotEmpty" name="getSelectedStatusDesc" seq="0">
+      
+    	<storedprocedureoperation dbspname="getSelectedStatusDesc_p" executionsequence="1" id="getSelectedStatusDesc_p" metaobject="agency_document_attachments" name="getSelectedStatusDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="status" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      <!--   <function name="assignDataInContext1StatusDesc" eval="ProducerOneRule.isCompleteStatusSelected" expression="assign(:date_completed,getTodaysDate())" executionsequence="2" /> -->
+      
+      </workflow>
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="update" seq="2">
+      	<databaseoperation eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" metaobject="agency_taskDetails" name="updateTask" operation="4"/>
+        <businessobject eval="ProducerOneRule.assignAgencyTaskIdToObjectID" executionsequence="1" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+      <workflow eval="task_related_to_security" name="saveRelation" seq="3">
+        <storedprocedureoperation dbspname="InsertTaskRelations_p" executionsequence="1" id="InsertTaskRelations_p" metaobject="agency_taskDetails" name="InsertTaskRelations_p" operation="1">
+          <parameteroperation indexno="4" mode="IN" property="last_updated_by" seq="4"/>
+          <parameteroperation indexno="3" mode="IN" property="agency_task_id" seq="3"/>
+          <parameteroperation indexno="1" mode="IN" property="eventTaskIds" seq="1"/>
+          <parameteroperation indexno="0" mode="IN" property="callreportTaskIds" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="diaryConvTaskIds" seq="2"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      
+      <workflow eval="isExecuteAssignSubTaskWorkflow" name="assignSubTaskWorkflow" seq="4">
+      		<function executionsequence="2" functionid="convertListDataToXML" name="convertSubTaskListIntoXml" parameters="context,subTask_list_01,inputXml"/>
+      		
+	      	<storedprocedureoperation dbspname="assignSubTask_p" executionsequence="3" id="assignSubTask_p" metaobject="agency_taskDetails" name="assignSubTask_p" operation="1">
+	      	<parameteroperation indexno="1" mode="IN" property="agency_task_id" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="inputXml" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="last_updated_by" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="last_updated_ts" seq="4"/>
+	          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+      </workflow>
+      <actionparam executionsequence="26" form="Y" name="emailNotificationEventNameDescription" paramid="emailNotificationEventNameDescription" pre="Y" val="AssignedTask"/>
+      <actionparam eval="ProducerOneRule.sendEmailBasedOnEventNames" executionsequence="27" form="Y" name="sendEmailBasedOnEventNames" paramid="sendEmailBasedOnEventNames" post="Y"/>
+      
+      
+    </action>
+    <action name="showTasksOld">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="a" paramid="a" pre="Y" remove="Y" removeparams="creation_date,object_code,comments,object_code,comments,navigation_link,agency_task_id,subject,start_date,due_date,status,priority,complete_percentage,phone,extn,inet_eventid,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts" session="Y"/>
+      <actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" viewparam="Y"/>
+      
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="user_id" paramid="user_id1" populatename="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="1" form="Y" name="user_id" paramid="user_id2" populatename="assigned_to" viewparam="Y"/>
+ 	  
+ 	  <actionparam eval="ProducerOneRule.isSBMIBenefitsLoggedIn" executionsequence="2" form="Y" name="user_id" paramid="user_id3" populatename="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isSBMIBenefitsLoggedIn" executionsequence="3" form="Y" name="user_id" paramid="user_id4" populatename="assigned_to" viewparam="Y"/>
+ 	  
+ 	  <workflow eval="ProducerOneRule.checkDefaultValueExist" name="setDfaultValueForStatus" seq="0">
+	  	<storedprocedureoperation dbspname="getTaskStatusIdbyDesc_p" executionsequence="1" id="getTaskStatusIdbyDesc_p" metaobject="agency_document_attachments" name="getTaskStatusIdbyDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="default_task_status_value" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+ 	  	
+ 	  	<function executionsequence="2" functionid="getCurrentDate" name="assignDataInContextCreationDate" parameters="context,MM/dd/YYYY,creation_date"/>
+ 	  	
+ 	  </workflow>
+ 	  
+    </action>
+    <action name="saveOld">
+      <actionparam executionsequence="4" form="Y" name="eventid" paramid="eventid" pre="Y" remove="Y" session="Y"/>
+      <actionparam executionsequence="3" form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" remove="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.assignCreatedBy" executionsequence="3" form="Y" name="created_by" paramid="created_by" pre="Y"/>
+      <actionparam eval="ProducerOneRule.setPhoneWithoutFormat" executionsequence="2" form="Y" name="phone" paramid="phone" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isPageSaveMsg" executionsequence="5" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+      <actionparam checkfornullparams="task_id,creation_date,agency_task_id,agency_id,subject,start_date,due_date,assigned_to,status,priority,complete_percentage,phone,extn,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts,commemts" executionsequence="1" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="creation_date,object_code,comments,navigation_link,callreportTaskIds,eventTaskIds,diaryConvTaskIds,uploadPopup_list_1,coming_page,subTask_list_01" session="Y"/>
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <!-- <actionparam viewparam="Y" name="assigned_to" paramid="assigned_to" eval="ProducerOneRule.isDSMLoggedIn" form="Y" executionsequence="0" /> -->
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" post="Y" remove="Y" removeparams="agency_task_id"/>
+      <actionparam eval="ProducerOneRule.is1099SaveError" executionsequence="2" form="Y" name="pageError" paramid="pageError" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+      <actionparam executionsequence="5" form="Y" name="object_type" paramid="object_type" pre="Y" session="Y"/>
+      
+      
+      <workflow eval="ProducerOneRule.isTaskStatusNotEmpty" name="getSelectedStatusDesc" seq="0">
+    	<storedprocedureoperation dbspname="getSelectedStatusDesc_p" executionsequence="1" id="getSelectedStatusDesc_p" metaobject="agency_document_attachments" name="getSelectedStatusDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="status" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <!-- <function name="assignDataInContext1StatusDesc" eval="ProducerOneRule.isCompleteStatusSelected" expression="assign(:date_completed,getTodaysDate())" executionsequence="2" /> -->
+      </workflow>
+      
+      
+      <workflow eval="ProducerOneRule.assignDateFields" name="save" seq="2">
+      	<function executionsequence="0" expression="assign(:creation_date,getTodaysDate())" name="assignDataInContextCreationDate"/>
+      	<databaseoperation eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" metaobject="agency_taskDetails" name="saveTask" operation="1"/>
+        <businessobject eval="ProducerOneRule.assignAgencyTaskIdToObjectID" executionsequence="2" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+      </workflow>
+      <workflow eval="task_related_to_security" name="saveRelation" seq="3">
+        <storedprocedureoperation dbspname="InsertTaskRelations_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" id="InsertTaskRelations_p" metaobject="agency_taskDetails" name="InsertTaskRelations_p" operation="1">
+          <parameteroperation indexno="0" mode="IN" property="callreportTaskIds" seq="0"/>
+          <parameteroperation indexno="1" mode="IN" property="eventTaskIds" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="diaryConvTaskIds" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="agency_task_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="last_updated_by" seq="4"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      
+       <workflow eval="isExecuteAssignSubTaskWorkflow" name="assignSubTaskWorkflow" seq="4">
+      		<function executionsequence="2" functionid="convertListDataToXML" name="convertSubTaskListIntoXml" parameters="context,subTask_list_01,inputXml"/>
+      		
+	      	<storedprocedureoperation dbspname="assignSubTask_p" executionsequence="3" id="assignSubTask_p" metaobject="agency_taskDetails" name="assignSubTask_p" operation="1">
+	      	<parameteroperation indexno="1" mode="IN" property="agency_task_id" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="inputXml" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="last_updated_by" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="last_updated_ts" seq="4"/>
+	          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+      </workflow>
+      
+      
+      <actionparam executionsequence="26" form="Y" name="emailNotificationEventNameDescription" paramid="emailNotificationEventNameDescription" pre="Y" val="AssignedTask"/>
+      <actionparam eval="ProducerOneRule.sendEmailBasedOnEventNames" executionsequence="27" form="Y" name="sendEmailBasedOnEventNames" paramid="sendEmailBasedOnEventNames" post="Y"/>
+      
+      
+      
+    </action>
+    <action name="editOld">
+      <actionparam executionsequence="0" form="Y" name="eventid" paramid="eventid" session="Y" val="edit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="show1099TypeDivFlag" paramid="show1099TypeDivFlag" post="Y" session="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="creation_date,object_code,comments,uploadPopup_list_1,navigation_link,subject,start_date,due_date,assigned_to,status,priority,complete_percentage,phone,extn,inet_eventid,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts,subTask_list_01" session="Y"/>
+      	
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="assigned_to" paramid="assigned_to" viewparam="Y"/>
+ 	  	
+      
+    </action>
+    <action name="showTaskListingPopUpOld">
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+    </action>
+    <action name="cancelOld">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="a" paramid="a" pre="Y" remove="Y" removeparams="creation_date,object_code,eventid,inet_eventid,agency_task_id,subject,start_date,due_date,assigned_to,status,priority,complete_percentage,phone,extn,     email,owner,follow_up,date_completed,task_type,send_notification_email,is_private,updated_copy,mark_complete,last_updated_by,last_updated_ts,callreportTaskIds,eventTaskIds,diaryConvTaskIds" session="Y"/>
+      
+      <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="filter_assigned_to" paramid="filter_assigned_to" viewparam="Y"/>
+ 	  <actionparam eval="ProducerOneRule.isDSMLoggedIn" executionsequence="0" form="Y" name="assigned_to" paramid="assigned_to" viewparam="Y"/>
+      
+    </action>
+    <action name="viewOld">
+      <actionparam checkfornullparams="task_id,filter_object_code,filter_status,filter_creation_date_from,filter_creation_date_to,filter_assigned_to,agency_id,agency_task_id,diaryConvTaskIds,eventTaskIds,callreportTaskIds,object_id" executionsequence="1" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="document_category" paramid="document_category" pre="Y" session="Y" val="40"/>
+      <actionparam executionsequence="0" form="Y" name="user_name" paramid="user_name" populatename="display_assigned_to" pre="Y"/>
+      
+      
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="uploadPopup_list_1,subTask_list_01" session="Y"/>
+      	<actionparam executionsequence="0" form="Y" name="coming_page" paramid="coming_page" pre="Y" session="Y" val="addAgencyTaskDetails"/>
+      <workflow name="view" seq="0">
+        <storedprocedureoperation dbspname="GetRelationshipTaskDataBasedOnId_p" eval="ProducerOneRule.isEditEvent" executionsequence="0" id="GetRelationshipTaskDataBasedOnId_p" metaobject="agency_taskDetails" name="GetRelationshipTaskDataBasedOnId_p" operation="3">
+          <parameteroperation indexno="2" mode="IN" property="agency_task_id" seq="2"/>
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+         <parameteroperation indexno="3" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="filter_status" seq="5"/>
+          <parameteroperation indexno="6" mode="IN" property="filter_assigned_to" seq="6"/>
+          <parameteroperation indexno="7" mode="IN" property="filter_creation_date_from" seq="7"/>
+          <parameteroperation indexno="8" mode="IN" property="filter_creation_date_to" seq="8"/>
+          <parameteroperation indexno="9" mode="IN" property="filter_object_code" seq="9"/>
+          <parameteroperation indexno="10" mode="IN" property="isShowAgenciesBasedOnUserId" seq="10"/>
+           
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getAgencyTaskRelationsDetails_p" eval="ProducerOneRule.checkSessionListEmpty" executionsequence="1" id="getAgencyTaskRelationsDetails_p" metaobject="agency_taskDetails" name="getAgencyTaskRelationsDetails_p" operation="5" viewid="GetTaskRelatedTo_list_01">
+          <parameteroperation indexno="0" mode="IN" property="agency_task_id" seq="0"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getSelectedTaskID_p" eval="ProducerOneRule.checkSessionListEmpty" executionsequence="2" id="getSelectedTaskID_p" metaobject="agency_taskDetails" name="getSelectedTaskID_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="agency_task_id" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getTaskRelationListInSession_p" eval="ProducerOneRule.checkSessionListNotEmpty" executionsequence="3" id="getTaskRelationListInSession_p" metaobject="agency_taskDetails" name="getTaskRelationListInSession_p" operation="5" viewid="GetTaskRelatedTo_list_01">
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="callreportTaskIds" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="eventTaskIds" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="diaryConvTaskIds" seq="4"/>
+          <resultsetoperation indexno="5" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <!-- <function expression="assign(:creation_date,getTodaysDate())" name="assignDataInContextCreationDate" seq="0" executionsequence="3"></function> -->
+        <function executionsequence="3" functionid="getCurrentDate" name="assignDataInContextCreationDate" parameters="context,MM/dd/YYYY,creation_date" seq="0"/>
+      </workflow>
+       <workflow eval="ProducerOneRule.isUploadPopUpListEmpty" name="view1" seq="1">
+        <storedprocedureoperation dbspname="GetAgencyDocument_p" eval="ProducerOneRule.assignAgencyTaskIdToObjectID" executionsequence="1" id="GetAgencyDocument_p" metaobject="agency_document_attachments" name="GetAgencyDocument_p" operation="5" viewid="uploadPopup_list_1">
+          <parameteroperation indexno="4" mode="IN" property="uploadMode" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="object_id" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="document_category" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+    
+     <workflow eval="ProducerOneRule.isCompleteStatusSelected" name="showSubTaskList" seq="2">
+   		<storedprocedureoperation dbspname="getSubTaskListBasedOnTaskId_p" executionsequence="1" id="getSubTaskListBasedOnTaskId_p" metaobject="agency_document_attachments" name="getSubTaskListBasedOnTaskId_p" operation="5" viewid="subTask_list_01">
+          <parameteroperation indexno="1" mode="IN" property="task_id" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="agency_task_id" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+   	</workflow>
+    
+    	<actionparam executionsequence="0" form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_1" post="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="subTask_list_01" paramid="subTask_list_01" post="Y" session="Y"/>
+    </action>
+    
+    <action name="refreshDivBasedOnTaskStatusOld">
+    	<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<workflow eval="ProducerOneRule.isTaskStatusNotEmpty" name="getSelectedStatusDesc" seq="0">
+    		
+    		 <storedprocedureoperation dbspname="getSelectedStatusDesc_p" executionsequence="1" id="getSelectedStatusDesc_p" metaobject="agency_document_attachments" name="getSelectedStatusDesc_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="status" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+    		
+    	</workflow>
+    	<actionparam eval="ProducerOneRule.isCompleteStatusSelected" executionsequence="0" form="Y" name="showDivBasedOnTaskStatus" paramid="showDivBasedOnTaskStatus" post="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="task_id" paramid="task_id" viewparam="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="agency_task_id" paramid="agency_task_id" viewparam="Y"/>
+    	
+    	<actionparam eval="ProducerOneRule.isTaskStatusComplete" executionsequence="0" form="Y" name="date_completed" paramid="date_completed" pre="Y"/>
+    	
+    </action>
+    <action name="showBenefitEnrollment">
+    	<actionparam executionsequence="0" form="Y" name="person_id" paramid="person_id" viewparam="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id" viewparam="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="object_code" paramid="object_code" viewparam="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="person_id" paramid="person_id1" post="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id1" post="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="object_code" paramid="object_code1" post="Y" session="Y"/>.    	
+    	<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="tabs1next_page" paramid="tabs1next_page" post="Y" session="Y" val="benefitEnrollment"/>
+    	<actionparam executionsequence="0" form="Y" name="carrier_tab" paramid="carrier_tab" pre="Y" session="Y" val="Agent"/>
+    	<actionparam executionsequence="0" form="Y" name="person_id" paramid="person_id111" populatename="onboarding_person_id" post="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="agency_id" paramid="agency_id111" populatename="onboarding_agency_id" post="Y" session="Y"/>
+    	
+    	 <actionparam executionsequence="0" form="Y" name="tabs2next_page" paramid="tabs2next_page" post="Y" session="Y" val="benefitEnrollment"/>
+      
+    	
+    	
+    </action>
+    <action name="assignedToSearchold">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="inet_event_id" session="Y"/>
+      
+   </action>
+  </component>
+</projectcomponents>

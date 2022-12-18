@@ -1,0 +1,1350 @@
+<projectcomponents project="Public">
+<component metaobject="tbl_agencyappointmentrequest;tbl_agencybankinformation;tbl_business_address;tbl_mailing_address;tbl_w9_address" name="adminBrokerageDetailsStep1" seq="0" stackdisplayname="breadcrumb_entity_label" objectcolumn="aar_requestid">
+		
+		<html path="public/adminBrokerageDetailsStep1.html">
+  		<block id="adminBrokerageDetailsStep1_list_mom_2" name="adminBrokerageDetailsStep1_list_mom_2" labelkey="" securitykey="public1_question_security" 
+  			parentmappingcolumn="response" childmappingcolumn="question_decision" type="questionlist">
+			<!-- <field id="block_field_Row" name="Row" displaytype="label" style="width: 1%" securitykey="background_question_row_security" executionsequence="0"/> -->
+			<field id="block_field_question" name="question" style="text-align: left !important" displaytype="label" isallowhtmlformat="Y" labelkey="Questions" securitykey="background_question_question_security" isrequired="Y" executionsequence="1"/>
+			<field id="block_field_response" name="response" style="text-align: left !important; width: 3%" displaytype="radiogroup" labelkey="" securitykey="background_question_response_security" 
+				isrequired="Y" isrefreshrequired="Y" errormsgkey="Please select all Question(s)" executionsequence="2"/>
+			<field id="block_field_comment_decision" name="comment_decision" displaytype="hidden" executionsequence="3"/>
+			<field id="block_field_comment" name="comment" displaytype="textarea" displayfor="nextrow" labelkey="" securitykey="background_question_comment_security" 
+				 isrequired="MA" requiredeval="background_question_comment_security" errormsgkey="Please enter Comment" css="fulltextareaclass" 
+				 maxlength="1024" executionsequence="4">
+			</field>
+			<!-- <field id="block_field_comment1" name="comment1" displaytype="text" displayfor="nextrow" labelkey="Comments1" securitykey="background_question_comment_security" 
+				 isrequired="MA" requiredeval="background_question_comment_security" executionsequence="4">
+			</field>
+			<field id="block_field_comment11" name="comment11" displaytype="text" displayfor="nextrow" labelkey="Comments1" securitykey="background_question_comment_security" 
+				 isrequired="MA" requiredeval="background_question_comment_security" executionsequence="4">
+			</field> -->
+		</block>
+		
+		 <!-- Maintenance release start-->
+		<block deltaind="M" id="agency_association_list_1" name="agency_association_list_1" labelkey="agency_association_label" securitykey="adminBrokerageStep1_agency_association_security"
+			type="momchilddatalist1" css="div_checkbox2 padding0" eval="PublicRule.isShowAgencyAssociationCheckbox">
+			<field deltaind="M" id="agency_association" name="agency_association" displaytype="multicheckbox" executionsequence="0" isrequired="N" labelkey="agency_association_label"
+				lookupobjecttype="procedure" lookupobjectmetaobject="tbl_agencyappointmentrequest" lookupobjectprocedure="GetAgencyAssociation_p" displayfield="agency_association_desc" valuefield="agency_association_id">
+			<event id="onclick" name="onclick" actiontype="ajaxpageblocklink" screen="public/adminBrokerageDetailsStep1.html" action="refreshAgencyAssociation" actiontypeid="adminBrokerageStep1_agency_association_security" executionsequence="1"/> 
+			</field>
+		</block>
+		 <!-- Maintenance release end-->
+		<block id="social_media_list_listfreeform_1" name="social_media_list_listfreeform_1" labelkey="social_media_info_label" securitykey="adminBrokerageDetailsStep1_social_media_site_security" type="listfreeform" >
+			 <field id="block_field_social_media_site" name="social_media_site" displaytype="select" isrequired="MA" requiredeval="PublicRule.isMethodNameIsAddSocialMedia" style="width: 33%;"
+				labelkey="social_media_site_header_label" securitykey="social_media_site_header_security" lookupobjectmetaobject="social_media_sites" lookupobjectprocedure="getSocialMediaSiteDropdownData_p" lookupobjecttype="procedure" displayfield="description" valuefield="code" executionsequence="1">
+				<event id="onchange" name="onchange" actiontype="other" action="javascript:setDescInListFreeformDropDown(this);" />
+			</field>
+			<field id="block_field_social_media_userid" name="social_media_userid" displaytype="text" isrequired="MA" requiredeval="PublicRule.isMethodNameIsAddSocialMedia" style="width: 33%;"
+				labelkey="social_media_user_id_label" securitykey="social_media_user_id_security" executionsequence="2"/>
+			
+			<field id="block_field_addnew_row_link" name="addnew_row_link" displaytype="link" displayfor="freeform" style="width:1%;padding-right: 4px; padding-left: 4px" align="right" displayname="Add New Row Link" executionsequence="3">
+				<event id="href" name="href" securitykey="social_media_add_row_security" linkimgsrc="images/icons/ico_add_grid.svg" tooltip="Add" actiontype="ajaxpageblocklink" screen="public/adminBrokerageDetailsStep1.html" action="addSocialMediaToSession" actiontypeid="socialMediaDiv">
+					<forward id="public/adminBrokerageDetailsStep1.html" screen="public/adminBrokerageDetailsStep1.html"/>
+				</event> 
+			</field>
+			<field displaytype="link" id="block_field_delete_row_link" name="delete_row_link" displayfor="data" style="width: 1%;text-align: right;" displayname="Delete Row Link" executionsequence="4">
+				<event id="href" name="href" actiontype="other" action="javascript:setAjaxDeleteDivId('socialMediaDiv');" executionsequence="0" />
+				<event id="href1" name="href" securitykey="social_media_delete_row_security" linkcss="delete_ico icons" action="deleteSocialMediaInfo" actiontype="ajaxpageblocklink" actiontypeid="socialMediaDiv" tooltip="Delete" executionsequence="1" screen="public/adminBrokerageDetailsStep1.html">
+			  		<forward id="public/adminBrokerageDetailsStep1.html" screen="public/adminBrokerageDetailsStep1.html"/>
+			  	</event>
+			</field>
+		</block>
+	</html>
+		
+		
+		
+		<action name="view">
+			<actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" pre="Y"/>
+			<actionparam evalute="Y" form="Y" name="ProducerOneURL" paramid="ProducerOneURL" pre="Y" val="PublicRule.getProducerOneURL"/>
+			<actionparam form="Y" name="adminBrokerageDetailsStep1_list_mom_1" paramid="adminBrokerageDetailsStep1_list_mom_1" pre="Y" remove="Y" session="Y"/>
+			<actionparam name="business_segment_type" paramid="business_segment_type" pre="Y" val="1"/>
+			
+			<actionparam form="Y" name="type_business" paramid="type_business" pre="Y" session="Y" val="1"/>
+			<actionparam form="Y" name="type_mailing" paramid="type_mailing" pre="Y" session="Y" val="3"/>
+			<actionparam form="Y" name="type_w9" paramid="type_w9" pre="Y" session="Y" val="2"/>
+			<actionparam form="Y" name="type_DEC" paramid="type_DEC" pre="Y" session="Y" val="5"/>
+			<actionparam executionsequence="0" form="Y" name="social_media_list_listfreeform_1" paramid="social_media_list_listfreeform_1" post="Y" session="Y"/>
+
+
+			<actionparam form="Y" name="type" paramid="type" pre="Y" session="Y"/>
+			<actionparam checkfornullparams="person_id,aar_requestid,agency_management_system,agencyDateOf_origination" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.checkForCyberLiabilityClaimsValue" form="Y" name="cyber_liability_claims" paramid="cyber_liability_claims" post="Y"/>
+			<workflow name="view0" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getEntireStateList" operation="5" sqlstmt="select description as description1,*,CASE WHEN ISNULL(is_client_applicable,0) = 1 THEN 'Y' ELSE 'N' END AS showInBold from state_lku where is_onboarding_applicable = 1 order by description asc" viewid="adminBrokerageDetailsStep1_list_mom_1"/>
+					<storedprocedureoperation eval="PublicRule.checkStep1QuestionsListEmpty" dbspname="GetQuestionsListStep1_p" executionsequence="1" id="GetQuestionsListStep1_p" metaobject="tbl_agencyappointmentrequest" name="getQuestionsList" operation="5" viewid="adminBrokerageDetailsStep1_list_mom_2">
+						<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="0"/>
+						<parameteroperation indexno="1" mode="IN" name="isShowSingleQuestionStep1" property="isShowSingleQuestionStep1" seq="1"/>
+						
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+						</resultsetoperation>
+				</storedprocedureoperation> 
+				 	
+<!-- 				<databaseoperation name="getQuestionsList" executionsequence="1" viewid="adminBrokerageDetailsStep1_list_mom_2" operation="5"
+					sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment,bg.comment_decision from tbl_agencyquestions a,backgroundquestions_lku bg  
+						where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union 
+						select questionid,question,null as response,null as comment,bg.comment_decision from backgroundquestions_lku bg 
+						where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1)t1" metaobject="tbl_agencyappointmentrequest"/> -->
+				 
+				<!-- <databaseoperation eval="PublicRule.IsComingFromCancel" name="getQuestionsListForCancel" executionsequence="2" viewid="adminBrokerageDetailsStep1_list_mom_2" operation="5"
+					sqlstmt="select a.questionid,bg.question,null as response,null as comment,bg.comment_decision from tbl_agencyquestions a,backgroundquestions_lku bg  
+						where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union 
+						select questionid,question,null as response,null as comment,bg.comment_decision from backgroundquestions_lku bg 
+						where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1" metaobject="tbl_agencyappointmentrequest"/>
+				 -->		
+				<databaseoperation executionsequence="3" metaobject="tbl_agencyappointmentrequest" name="getExistingRequestData" operation="3"/>
+				
+				<databaseoperation eval="PublicRule.IsComingFromCancel" executionsequence="5" metaobject="tbl_agencyappointmentrequest" name="getAarStatusIdForCancel" operation="3">
+				</databaseoperation>
+				
+				<!-- <storedprocedureoperation name="getPublicAddressDetails_p_java" id="getPublicAddressDetails_p_java" dbspname="getPublicAddressDetails_p_java" 
+										executionsequence="2" operation="3" metaobject="tbl_address" eval="PublicRule.isDbAddressSkip">
+					<parameteroperation indexno="0" seq="1" name="aar_requestid" property="aar_requestid" mode="IN"></parameteroperation>
+					<parameteroperation indexno="1" seq="2" name="person_id" property="person_id" mode="IN"></parameteroperation>
+					<parameteroperation indexno="2" seq="3" name="type" property="type" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" seq="1" mappingclass="java.util.HashMap"></resultsetoperation>
+				</storedprocedureoperation>	 -->
+				<databaseoperation eval="PublicRule.isDbAddressSkip" executionsequence="10" metaobject="tbl_agencyappointmentrequest" name="getW9DataFromTBlAgencyAppointmentRequest" operation="3" sqlstmt="select w9_legal_name,w9_type_id,agency_taxpayer_short_nm,irs_tax_nm_1,irs_tax_nm_2 from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				<databaseoperation executionsequence="11" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="SELECT (SELECT TOP 1 wrs.workflow_function FROM workflowrequestsstatus wrs WHERE wrs.workflowrequests_id = wr.workflowrequests_id           ORDER BY workflowrequestsstatus_id DESC) AS workflow_function        ,(SELECT DESCRIPTION FROM tbl_invitation_status_lku WHERE invitation_status_id=wr.workflowstatus_id) AS aar_statusid_desc        FROM workflowrequests wr WHERE objecttype='Onboarding' AND wr.objectid=#aar_requestid#"/>
+				 <databaseoperation eval="PublicRule.isCorporationPartnershipListEmptyonStep1" executionsequence="12" metaobject="tbl_marketinformation" name="getCorporationPartnershipList" operation="5" sqlstmt="select row_number() over(order by corporation_partnership_details_id) rownum,name,title,ind_experience,aar_requestid, corporation_partnership_details_id       from tbl_corporation_partnership_details where aar_requestid=#aar_requestid#" viewid="agencyOfficersPartners_list_listfreeform_1">
+				</databaseoperation>	
+				
+				<databaseoperation eval="PublicRule.isExternalRequestWorking" executionsequence="14" metaobject="tbl_agencyappointmentrequest" name="getIsExternalAgency1" operation="3" sqlstmt="select is_external_request from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				<databaseoperation executionsequence="15" metaobject="tbl_agencyappointmentrequest" name="getTaxIdCountForAgency" operation="3" sqlstmt="select count(aar_taxid) as tax_id_count from tbl_agencyappointmentrequest with(nolock) where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				<storedprocedureoperation name="GetPublicIvansDownloadTypeList_p" id="GetPublicIvansDownloadTypeList_p" dbspname="GetPublicIvansDownloadTypeList_p" executionsequence="1" viewid="downloadType_list_mom_1" metaobject="tbl_agencyappointmentrequest" operation="5">
+		      		<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		      		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"></resultsetoperation>
+		      	</storedprocedureoperation>
+		      	<storedprocedureoperation name="GetPublicIvansTransactionTypeList_p" id="GetPublicIvansTransactionTypeList_p" dbspname="GetPublicIvansTransactionTypeList_p" executionsequence="2" viewid="ivansTransactionType_list_mom_1" metaobject="tbl_agencyappointmentrequest" operation="5">
+		      		<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		      		<parameteroperation indexno="2" mode="IN" property="ivans_download_type_id" seq="2"/>
+		      		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"></resultsetoperation>
+		      	</storedprocedureoperation>
+			</workflow>
+			<workflow name="view" seq="1">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getEntireStateList" operation="5" sqlstmt="select description as description1,*,CASE WHEN ISNULL(is_client_applicable,0) = 1 THEN 'Y' ELSE 'N' END AS showInBold from state_lku where is_onboarding_applicable = 1 order by description asc" viewid="adminBrokerageDetailsStep1_list_mom_1"/>
+				 	
+				 		<storedprocedureoperation eval="PublicRule.checkStep1QuestionsListEmpty" dbspname="GetQuestionsListStep1_p" executionsequence="1" id="GetQuestionsListStep1_p" metaobject="tbl_agencyappointmentrequest" name="getQuestionsList" operation="5" viewid="adminBrokerageDetailsStep1_list_mom_2">
+						<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="0"/>
+						<parameteroperation indexno="1" mode="IN" name="isShowSingleQuestionStep1" property="isShowSingleQuestionStep1" seq="1"/>
+						
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+						</resultsetoperation>
+				</storedprocedureoperation> 
+				 	
+				<!--  <databaseoperation name="getQuestionsList" executionsequence="1" viewid="adminBrokerageDetailsStep1_list_mom_2" operation="5"
+					sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment,bg.comment_decision from tbl_agencyquestions a,backgroundquestions_lku bg  
+						where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union 
+						select questionid,question,null as response,null as comment,bg.comment_decision from backgroundquestions_lku bg 
+						where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1)t1" metaobject="tbl_agencyappointmentrequest"/>  -->
+				 
+				<!-- <databaseoperation eval="PublicRule.IsComingFromCancel" name="getQuestionsListForCancel" executionsequence="2" viewid="adminBrokerageDetailsStep1_list_mom_2" operation="5"
+					sqlstmt="select a.questionid,bg.question,null as response,null as comment,bg.comment_decision from tbl_agencyquestions a,backgroundquestions_lku bg  
+						where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union 
+						select questionid,question,null as response,null as comment,bg.comment_decision from backgroundquestions_lku bg 
+						where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1" metaobject="tbl_agencyappointmentrequest"/>
+				 -->		
+				<databaseoperation eval="PublicRule.isEditNdbAddressSkipTrue" executionsequence="3" metaobject="tbl_agencyappointmentrequest" name="getExistingRequestData" operation="3"/>
+				
+				<databaseoperation eval="PublicRule.IsComingFromCancel" executionsequence="5" metaobject="tbl_agencyappointmentrequest" name="getAarStatusIdForCancel" operation="3">
+				</databaseoperation>
+				
+				<!-- <storedprocedureoperation name="getPublicAddressDetails_p_java" id="getPublicAddressDetails_p_java" dbspname="getPublicAddressDetails_p_java" 
+										executionsequence="2" operation="3" metaobject="tbl_address" eval="PublicRule.isDbAddressSkip">
+					<parameteroperation indexno="0" seq="1" name="aar_requestid" property="aar_requestid" mode="IN"></parameteroperation>
+					<parameteroperation indexno="1" seq="2" name="person_id" property="person_id" mode="IN"></parameteroperation>
+					<parameteroperation indexno="2" seq="3" name="type" property="type" mode="IN"></parameteroperation>
+					<resultsetoperation indexno="0" seq="1" mappingclass="java.util.HashMap"></resultsetoperation>
+				</storedprocedureoperation>	 -->
+				<databaseoperation eval="PublicRule.isDbAddressSkip" executionsequence="10" metaobject="tbl_agencyappointmentrequest" name="getW9DataFromTBlAgencyAppointmentRequest" operation="3" sqlstmt="select w9_legal_name,w9_type_id,agency_taxpayer_short_nm,irs_tax_nm_1,irs_tax_nm_2 from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				<databaseoperation executionsequence="11" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="SELECT (SELECT TOP 1 wrs.workflow_function FROM workflowrequestsstatus wrs WHERE wrs.workflowrequests_id = wr.workflowrequests_id           ORDER BY workflowrequestsstatus_id DESC) AS workflow_function        ,(SELECT DESCRIPTION FROM tbl_invitation_status_lku WHERE invitation_status_id=wr.workflowstatus_id) AS aar_statusid_desc        FROM workflowrequests wr WHERE objecttype='Onboarding' AND wr.objectid=#aar_requestid#"/>
+				 <databaseoperation eval="PublicRule.isCorporationPartnershipListEmptyonStep1" executionsequence="12" metaobject="tbl_marketinformation" name="getCorporationPartnershipList" operation="5" sqlstmt="select row_number() over(order by corporation_partnership_details_id) rownum,name,title,ind_experience,aar_requestid, corporation_partnership_details_id       from tbl_corporation_partnership_details where aar_requestid=#aar_requestid#" viewid="agencyOfficersPartners_list_listfreeform_1">
+				</databaseoperation>	
+				
+				<databaseoperation eval="PublicRule.isExternalRequestWorking" executionsequence="14" metaobject="tbl_agencyappointmentrequest" name="getIsExternalAgency1" operation="3" sqlstmt="select is_external_request from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				
+				<databaseoperation executionsequence="15" metaobject="tbl_agencyappointmentrequest" name="getTaxIdCountForAgency" operation="3" sqlstmt="select count(aar_taxid) as tax_id_count from tbl_agencyappointmentrequest with(nolock) where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				<!-- <databaseoperation deltaind="M" executionsequence="16" metaobject="tbl_agencyappointmentrequest" name="getAgencyLobMasterDetail" operation="5" sqlstmt="select lob_id as agency_lob_id ,lob_code as agency_lob_code,description as agency_lob_desc from lob_lku where is_inactive='N' order by description" viewid="agency_lob_list_mom_1"/> -->
+				<databaseoperation deltaind="M" executionsequence="16" metaobject="tbl_agencyappointmentrequest" name="getAgencyLobMasterDetail" operation="5" sqlstmt="select lob_id as agency_lob_id ,lob_code as agency_lob_code,description as agency_lob_desc from lob_lku where description='Commercial Lines' order by description" viewid="agency_lob_list_mom_1"/>
+			</workflow>
+			<workflow name="view1" seq="2">
+				<!-- <storedprocedureoperation eval="PublicRule.isAgencyBankInformationListEmpty"
+					name="getBankInformationList_p_java" id="getBankInformationList_p_java" dbspname="getBankInformationList_p_java"
+					operation="5" viewid="agencybankinformation_list_1" executionsequence="0"
+					metaobject="tbl_agencybankinformation">
+					<parameteroperation indexno="0" seq="1"
+						property="aar_requestid" mode="IN"></parameteroperation>
+					<parameteroperation indexno="1" seq="2"
+						property="public_step2_trust_account_label" mode="IN"></parameteroperation>	
+					<parameteroperation indexno="2" seq="3"
+						property="public_step2_commission_account_label" mode="IN"></parameteroperation>	
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation> -->
+				<databaseoperation executionsequence="1" metaobject="tbl_agencyappointmentrequest" name="getApplicationDetails" operation="3" sqlstmt="SELECT (SELECT TOP 1 wrs.workflow_function FROM workflowrequestsstatus wrs WHERE wrs.workflowrequests_id = wr.workflowrequests_id           ORDER BY workflowrequestsstatus_id DESC) AS workflow_function        ,(SELECT DESCRIPTION FROM tbl_invitation_status_lku WHERE invitation_status_id=wr.workflowstatus_id) AS aar_statusid_desc        FROM workflowrequests wr WHERE objecttype='Onboarding' AND wr.objectid=#aar_requestid#"/>
+				<storedprocedureoperation dbspname="GetAgencyAssociation_p" executionsequence="2" id="GetAgencyAssociation_p" metaobject="tbl_agencyappointmentrequest" name="GetAgencyAssociation_p" operation="5" viewid="agency_association_list_1">
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+						</resultsetoperation>
+				</storedprocedureoperation>
+				<databaseoperation eval="PublicRule.isEditNdbAddressSkipTrue" executionsequence="3" metaobject="tbl_agencyappointmentrequest" name="getAgencyAssociationValues" operation="3" sqlstmt="select agency_association,agency_comparativerate from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid# "/>
+				<storedprocedureoperation dbspname="GetAgencyComparativeRaterCheckBox_p" eval="PublicRule.isShowAgencyComparativerateCheckbox" executionsequence="4" id="GetAgencyComparativeRaterCheckBox_p" metaobject="tbl_agencyappointmentrequest" name="GetAgencyComparativeRaterCheckBox_p" operation="5" viewid="agency_comparativerate_list_1">
+						<parameteroperation indexno="0" mode="IN" name="include_other_in_agency_comparativerate_security" property="include_other_in_agency_comparativerate_security" seq="1"/>
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap">
+						</resultsetoperation>
+				</storedprocedureoperation>
+			</workflow>
+			
+			
+			<workflow eval="PublicRule.executeView" name="retrieveAgencyAddress" seq="3">
+				<storedprocedureoperation dbspname="getPublicBusinessAddressDetails_p_java" executionsequence="1" id="getPublicBusinessAddressDetails_p_java" metaobject="tbl_business_address" name="getPublicBusinessAddressDetails_p_java" operation="3">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="person_id" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="type_business" property="type_business" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="getPublicMailingAddressDetails_p_java" eval="PublicRule.isCopyBusinessToMailingNotChecked" executionsequence="2" id="getPublicMailingAddressDetails_p_java" metaobject="tbl_mailing_address" name="getPublicMailingAddressDetails_p_java" operation="3">
+						
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="person_id" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="type_mailing" property="type_mailing" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="getPublicW9AddressDetails_p_java" eval="PublicRule.isCopyMailingToW9NotChecked" executionsequence="3" id="getPublicW9AddressDetails_p_java" metaobject="tbl_w9_address" name="getPublicW9AddressDetails_p_java" operation="3">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="person_id" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="type_w9" property="type_w9" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="getPublicDECAddressDetails_p_java" eval="PublicRule.isCopyfromexistingAddress" executionsequence="3" id="getPublicDECAddressDetails_p_java" metaobject="tbl_DEC_address" name="getPublicDECAddressDetails_p_java" operation="3">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="person_id" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="type_DEC" property="type_DEC" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+			</workflow>
+			<workflow eval="PublicRule.isInetPageNotStep1" name="refreshStateDesc" seq="4">
+				<databaseoperation eval="events.editEvent" executionsequence="4" metaobject="tbl_appointmentstates" name="getAppointmentStatesData" operation="3" sqlstmt="select * from tbl_appointmentstates where request_id=#aar_requestid#"/>	
+			</workflow>
+			
+			<workflow name="submitAppointmentStatePopup" seq="5">
+	  			<storedprocedureoperation dbspname="getSelectedStateDesc_p" executionsequence="1" id="getSelectedStateDesc_p" metaobject="tbl_business_address" name="getSelectedStateDesc_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" name="state_ids" property="state_ids" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>	
+	  		</workflow>
+			
+			<workflow eval="PublicRule.isShowAdminBrokerageDetailsStep1ContractList" name="view5" seq="6">
+				<storedprocedureoperation dbspname="getSelectedContractListByRequestid_p" executionsequence="1" id="getSelectedContractListByRequestid_p" metaobject="tbl_agencyappointmentrequest" name="getSelectedContractListByRequestid_p" operation="5" viewid="contract_list_1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+			</workflow>
+			
+			<workflow name="getENODetails" seq="7">
+			  <databaseoperation eval="PublicRule.isNotSkipENO" executionsequence="4" metaobject="tbl_agencyappointmentrequest" name="getAllEODocumentsDetail" operation="3" sqlstmt="select carrier_other,cast(policy_limit as numeric(16,0)) as policy_limit,eo_claims,effective_date,eoclaims_comments from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+			</workflow> 
+			<workflow name="getCyberLiabilityDetails" seq="12">
+			  <databaseoperation eval="PublicRule.isNotSkipCyberLiability" executionsequence="4" metaobject="tbl_agency_cyber_liability" name="getAllCyberLiabilityDocumentsDetail" operation="3" sqlstmt="select carrier_other as cyber_liability_carrier_other,policy_number as cyber_liability_policy_number,coverage_amount as cyber_liability_coverage_amount,cast(policy_limit as numeric(16,0)) as cyber_liability_policy_limit,effective_date as cyber_liability_effective_date,expiration_date as cyber_liability_expiration_date,cyber_liability_claims, comments as cyber_liability_eoclaims_comments, 'Y' as cyber_liability_eo_claims_declaration from tbl_agency_cyber_liability where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+			</workflow>
+			 
+		 	<workflow name="getAdditionalLocationAddressList" seq="8">
+			<storedprocedureoperation dbspname="getAdditionalLocationAddressList_p" executionsequence="1" id="getAdditionalLocationAddressList_p" metaobject="tbl_additional_location_address" name="getAdditionalLocationAddressList_p" operation="5" viewid="additional_location_address_list_1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="additional_location_address_id" property="additional_location_address_id" seq="2"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+			</workflow>  
+			
+			<workflow eval="PublicRule.isShowModifyAdditionalAddressButton" name="getAdditionalLocationAddressByID" seq="9">
+				
+				<storedprocedureoperation dbspname="getAdditionalLocationAddressByID_p" executionsequence="1" id="getAdditionalLocationAddressByID_p" metaobject="tbl_additional_location_address" name="getAdditionalLocationAddressByID_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="additional_location_address_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+			</workflow>
+			<workflow name="changeStepThreeToFiveLabelsForSecondaryRegistrationType" seq="10">
+				<function executionsequence="0" functionid="changeStepThreeToFiveLabelsForSecondaryRegistrationType" name="changeStepThreeToFiveLabelsForSecondaryRegistrationType" parameters="context"/>
+			</workflow>
+			
+				
+			<workflow eval="social_media_site_security" name="view4" seq="11">
+        		<storedprocedureoperation dbspname="getSocialMediaInfoData_p" eval="PublicRule.isSocialMediaInfoListNotExist" executionsequence="0" id="getSocialMediaInfoData_p" metaobject="tbl_social_media_info" name="getSocialMediaInfoData_p" operation="5" viewid="social_media_list_listfreeform_1">
+        		  <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+         		  <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+       			</storedprocedureoperation>
+      		</workflow>
+      					
+<!-- 			<workflow eval="adminBrokerageDetailsStep1_agency_location_system_security" name="chkOtherAgencyLocation" seq="10"> -->
+<!--       	 	<databaseoperation eval="PublicRule.isSkipViewchkOtherAgencyLocation" executionsequence="0" metaobject="master_lookup_detail_lku" name="chkOtherAgencyLocation" operation="3" sqlstmt="select master_lookup_data_code  from master_lookup_data_lku where master_lookup_data_id =#agency_location# "/> -->
+<!--        		</workflow> -->
+<!--        <actionparam executionsequence="1" eval="PublicRule.isAgencyLocationNotOther"  form="Y" name="removeparams" paramid="removeparams1303" post="Y" remove="Y" removeparams="agency_location_other" session="Y"/> -->
+			
+			
+			<actionparam eval="PublicRule.decryptTaxId" form="Y" name="aar_taxid" paramid="aar_taxid" post="Y"/>
+			<actionparam eval="PublicRule.decryptBankRoutingNumber" form="Y" name="bank_routing" paramid="bank_routing" post="Y"/>			
+			<!-- <actionparam post="Y" paramid="bank_routing" name="bank_routing" val="PublicRule.decryptBankRoutingNumber" evalute="Y" form="Y"></actionparam>
+			<actionparam post="Y" paramid="bank_account" name="bank_account" val="PublicRule.decryptBankAccountNumber" evalute="Y" form="Y"></actionparam>
+			<actionparam post="Y" paramid="bank_account_for_EFT" name="bank_account_for_EFT" val="PublicRule.checkBankAccountforEFT" evalute="Y" form="Y"></actionparam>
+			<actionparam post="Y" paramid="formatBankInformationList" name="formatBankInformationList" eval="PublicRule.formatBankInformationList" form="Y"></actionparam> 
+			 --><actionparam form="Y" name="workflow_function" paramid="workflow_function" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.assignDefaultValuesForAgency" form="Y" name="assignDefaultValuesForAgency" paramid="assignDefaultValuesForAgency" post="Y"/>
+			<!-- <actionparam post="Y" name="agencybankinformation_list_1" paramid="agencybankinformation_list_1" form="Y" session="Y"></actionparam>
+			<actionparam post="Y" eval="PublicRule.isAgencyBankInformationListEmpty" paramid="isShowBankinformationDiv" name="isShowBankinformationDiv" val="Y" form="Y" session="Y"></actionparam>
+			 --><actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="agencyOfficersPartners_list_listfreeform_1" paramid="agencyOfficersPartners_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam form="Y" name="adminBrokerageDetailsStep1_list_mom_2" paramid="adminBrokerageDetailsStep1_list_mom_2" post="Y" session="Y"/>
+			<actionparam form="Y" name="downloadType_list_mom_1" paramid="downloadType_list_mom_1" post="Y" session="Y"/>    
+		</action>
+		<action name="verifyBusinessAddress">
+	      <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+	      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+	      <actionparam executionsequence="0" form="Y" name="serviceNameToVerifyAddress" paramid="serviceNameToVerifyAddress" populatename="serviceName" pre="Y" viewparam="Y"/>
+	      
+	      <actionparam executionsequence="15" form="Y" name="territory_id_business" paramid="territory_id_business" populatename="territory_id" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="country_code_business" paramid="country_code_business" populatename="country_code" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_streetaddress1_business" paramid="aar_streetaddress1_business" populatename="addressline1" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_streetaddress2_business" paramid="aar_streetaddress2_business" populatename="addressline2" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="po_box_business" paramid="po_box_business" populatename="po_box" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_city_business" paramid="aar_city_business" populatename="city" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_state_business" paramid="aar_state_business" populatename="state_id" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="county_id_business" paramid="county_id_business" populatename="county" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_zipcode_business" paramid="aar_zipcode_business" populatename="zip" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_phoneno_business" paramid="aar_phoneno_business" populatename="phone" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="extn_business" paramid="extn_business" populatename="extn" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="misc_phone_business" paramid="misc_phone_business" populatename="misc_phone" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="aar_fax_business" paramid="aar_fax_business" populatename="fax" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="email_business" paramid="email_business" populatename="e_mail" pre="Y"/>
+	      
+	      <actionparam eval="PublicRule.assignAddressVerficationUserId" executionsequence="15" form="Y" name="addressVerificationUserId" paramid="addressVerificationUserId" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="errorDisplayKey" paramid="errorDisplayKey" pre="Y" val="businessAddress"/>
+	      
+	      <actionparam eval="PublicRule.assignUserName" executionsequence="16" form="Y" name="user_name" paramid="user_name" pre="Y" />
+	      
+	      <actionparam executionsequence="17" form="Y" name="row_id" paramid="row_id123" pre="Y" val="0"/>
+         <actionparam pre="Y" name="fieldsList" paramid="fieldsList" form="Y" val="row_id=row_id,aar_streetaddress1_business=Address1,aar_streetaddress2_business=Address2,
+      	  state_abbreviation=State,aar_city_business=City,aar_zipcode_business=zip"></actionparam>
+	      <actionparam checkfornullparams="agency_foreign_addr_in,agency_zip_code_2,alt_email,e_mail,fax,misc_phone,alt_extn,alt_phone,extn,phone,zip,county,state_id,city,po_box,addressline3,addressline2,addressline1,country_code,territory_id,Zip4,Zip5" executionsequence="17" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+	      <workflow name="verifyBusinessAddress" seq="0">
+	      <function executionsequence="0" functionid="updateMomListDataFromContextToMap" name="updateMomListDataFromContextToMap" parameters="context,adminBrokerageDetailsStep1_list_mom_2"/>
+	      	<function executionsequence="0" functionid="subStringValueFromCtx" name="subStringValueFromCtx" parameters="context,aar_zipcode_business,0,5,Y,Zip5"/>
+	      	<function executionsequence="1" functionid="subStringValueFromCtx" name="subStringValueFromCtx11" parameters="context,aar_zipcode_business,5,9,Y,Zip4"/>
+	      	
+	      	<databaseoperation executionsequence="2" metaobject="tbl_address" name="getStateAbbreviation" operation="3" sqlstmt="select abbreviation as state_abbreviation from state_lku where state_id = #state_id#"/>
+	      	<function eval="PublicRule.isInetErrorListEmpty" executionsequence="3" functionid="convertFieldNListStringToXMLWithCustomRootElement" name="convertFieldNListStringToXMLWithCustomRootElement" parameters="context,state_abbreviation|agency_foreign_addr_in|agency_zip_code_2|alt_email|e_mail|fax|misc_phone|alt_extn|alt_phone|extn|phone|zip|county|state_id|city|po_box|addressline3|addressline2|addressline1|country_code|territory_id|addressVerificationUserId|Zip4|Zip5,Root,Root1,intgerationInputXml"/>
+	      <function executionsequence="4"  eval="integration_address_verfication_enabled" functionid="verifyAddressFromWebService" name="verifyAddressFromWebService" parameters="context"/>
+        <webservicecall eval="adapter_address_verification_enabled" name="verifyaddress" adaptername="dm-verify-address-data-adapter" 
+        version="1.0.0.0" contenttype="application/json" datasource="payload" errorkey="businessAddress" 
+        requestedby="user_name" subject ="tbl_agencyappointmentrequest" object="aar_requestid" application ="DCDM" applicationcontext="adminBrokerageDetailsStep1" executionsequence="4">
+	      <webservicecallmappingparam name="street" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="aar_streetaddress1_business" servicevariable="address1"/> 
+	      <webservicecallmappingparam name="street2" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="aar_streetaddress2_business" servicevariable="address2"/> 
+	      <webservicecallmappingparam name="country" isexecuteonsuccess="Y" executionsequence="2" contextvariable="country_code_business" servicevariable="country_code"/> 
+	      <webservicecallmappingparam name="state" isexecuteonsuccess="Y" executionsequence="3" contextvariable="state_abbreviation" servicevariable="state"/> 
+	      <webservicecallmappingparam name="city" isexecuteonsuccess="Y" executionsequence="4"  contextvariable="aar_city_business" servicevariable="city"/> 
+	      <webservicecallmappingparam name="zip" isexecuteonsuccess="Y" executionsequence="5"  contextvariable="aar_zipcode_business" servicevariable="zip"/>
+       </webservicecall>
+          <function eval="adapter_address_verification_enabled" isexecuteonsuccess="Y" name="generateListFromFieldsList" functionid="generateListFromFieldsList" parameters="context,:fieldsList,addressSuggestion_list_0" executionsequence="5"/>
+       </workflow>
+         <actionparam form="Y" name="addressSuggestion_list_0" paramid="addressSuggestion_list_0" post="Y" session="Y"/>
+	     <actionparam form="Y" name="verfyingAddressType" paramid="verfyingAddressType" post="Y" val="agencyBusinessAddress"/>
+    </action>
+    
+    <action name="verifyMailingAddress">
+      <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="serviceNameToVerifyAddress" paramid="serviceNameToVerifyAddress" populatename="serviceName" pre="Y" viewparam="Y"/>
+      
+      <actionparam executionsequence="15" form="Y" name="territory_id_mailing" paramid="territory_id_mailing" populatename="territory_id" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="country_code_mailing" paramid="country_code_mailing" populatename="country_code" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_streetaddress1_mailing" paramid="addressline1_mailing" populatename="addressline1" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_streetaddress2_mailing" paramid="addressline2_mailing" populatename="addressline2" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="po_box_mailing" paramid="po_box_mailing" populatename="po_box" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_city_mailing" paramid="city_mailing" populatename="city" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_state_mailing" paramid="state_id_mailing" populatename="state_id" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_county_mailing" paramid="county_mailing" populatename="county" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_zipcode_mailing" paramid="zip_mailing" populatename="zip" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="agency_zip_code_2_mailing" paramid="agency_zip_code_2_mailing" populatename="agency_zip_code_2" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="agency_foreign_addr_in_mailing" paramid="agency_foreign_addr_in_mailing" populatename="agency_foreign_addr_in" pre="Y"/>
+      
+      <actionparam eval="PublicRule.assignAddressVerficationUserId" executionsequence="15" form="Y" name="addressVerificationUserId" paramid="addressVerificationUserId" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="errorDisplayKey" paramid="errorDisplayKey" pre="Y" val="mailingAddress"/>
+         <actionparam eval="PublicRule.assignUserName" executionsequence="16" form="Y" name="user_name" paramid="user_name" pre="Y" />
+	   
+       <actionparam executionsequence="17" form="Y" name="row_id" paramid="row_id123" pre="Y" val="0"/>
+         <actionparam pre="Y" name="fieldsList" paramid="fieldsList" form="Y" val="row_id=row_id,aar_streetaddress1_mailing=Address1,aar_streetaddress2_mailing=Address2,
+      	  state_abbreviation=State,aar_city_mailing=City,aar_zipcode_mailing=zip"></actionparam>
+      <actionparam checkfornullparams="agency_foreign_addr_in,agency_zip_code_2,alt_email,e_mail,fax,misc_phone,alt_extn,alt_phone,extn,phone,zip,county,state_id,city,po_box,addressline3,addressline2,addressline1,country_code,territory_id,Zip4,Zip5" executionsequence="17" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <workflow name="verifyMailingAddress" seq="0">
+      <function executionsequence="0" functionid="updateMomListDataFromContextToMap" name="updateMomListDataFromContextToMap" parameters="context,adminBrokerageDetailsStep1_list_mom_2"/>
+       <function executionsequence="1" functionid="subStringValueFromCtx" name="subStringValueFromCtx" parameters="context,aar_zipcode_mailing,0,5,Y,Zip5"/>
+       <function executionsequence="2" functionid="subStringValueFromCtx" name="subStringValueFromCtx11" parameters="context,aar_zipcode_mailing,5,9,Y,Zip4"/>
+      	
+      <databaseoperation executionsequence="3" metaobject="tbl_address" name="getStateAbbreviation" operation="3" sqlstmt="select abbreviation as state_abbreviation from state_lku where state_id = #state_id#"/>
+      	<function eval="PublicRule.isInetErrorListEmpty" executionsequence="4" functionid="convertFieldNListStringToXMLWithCustomRootElement" name="convertFieldNListStringToXMLWithCustomRootElement" parameters="context,state_abbreviation|agency_foreign_addr_in|agency_zip_code_2|alt_email|e_mail|fax|misc_phone|alt_extn|alt_phone|extn|phone|zip|county|state_id|city|po_box|addressline3|addressline2|addressline1|country_code|territory_id|addressVerificationUserId|Zip4|Zip5,Root,Root1,intgerationInputXml"/>
+      <function executionsequence="5"  eval="integration_address_verfication_enabled" functionid="verifyAddressFromWebService" name="verifyAddressFromWebService" parameters="context"/>
+        <webservicecall eval="adapter_address_verification_enabled" name="verifyaddress" adaptername="dm-verify-address-data-adapter" 
+        version="1.0.0.0" contenttype="application/json" datasource="payload" errorkey="mailingAddress" 
+        requestedby="user_name" subject ="tbl_agencyappointmentrequest" object="aar_requestid" application ="DCDM" applicationcontext="adminBrokerageDetailsStep1" executionsequence="5">
+	      <webservicecallmappingparam name="street" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="aar_streetaddress1_mailing" servicevariable="address1"/> 
+	      <webservicecallmappingparam name="street2" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="aar_streetaddress2_mailing" servicevariable="address2"/> 
+	      <webservicecallmappingparam name="country" isexecuteonsuccess="Y" executionsequence="2" contextvariable="country_code_mailing" servicevariable="country_code"/> 
+	      <webservicecallmappingparam name="state" isexecuteonsuccess="Y" executionsequence="3" contextvariable="state_abbreviation" servicevariable="state"/> 
+	      <webservicecallmappingparam name="city" isexecuteonsuccess="Y" executionsequence="4"  contextvariable="aar_city_mailing" servicevariable="city"/> 
+	      <webservicecallmappingparam name="zip" isexecuteonsuccess="Y" executionsequence="5"  contextvariable="aar_zipcode_mailing" servicevariable="zip"/>
+       </webservicecall>
+          <function eval="adapter_address_verification_enabled" isexecuteonsuccess="Y" name="generateListFromFieldsList" functionid="generateListFromFieldsList" parameters="context,:fieldsList,addressSuggestion_list_0" executionsequence="6"/>
+      
+       </workflow>
+       <actionparam form="Y" name="addressSuggestion_list_0" paramid="addressSuggestion_list_0" post="Y" session="Y"/>
+      <actionparam form="Y" name="verfyingAddressType" paramid="verfyingAddressType" post="Y" val="agencyMailingAddress"/>
+    </action>
+    <action name="verifyW9Address">
+      <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="serviceNameToVerifyAddress" paramid="serviceNameToVerifyAddress" populatename="serviceName" pre="Y" viewparam="Y"/>
+      
+      <actionparam executionsequence="15" form="Y" name="territory_id_w9" paramid="territory_id_w9" populatename="territory_id" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="country_code_w9" paramid="country_code_w9" populatename="country_code" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_streetaddress1_w9" paramid="addressline1_w9" populatename="addressline1" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_streetaddress2_w9" paramid="addressline2_w9" populatename="addressline2" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_city_w9" paramid="city_w9" populatename="city" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_state_w9" paramid="state_id_w9" populatename="state_id" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_county_w9" paramid="county_w9" populatename="county" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="aar_zipcode_w9" paramid="zip_w9" populatename="zip" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="agency_zip_code_2_w9" paramid="agency_zip_code_2_w9" populatename="agency_zip_code_2" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="agency_foreign_addr_in_w9" paramid="agency_foreign_addr_in_w9" populatename="agency_foreign_addr_in" pre="Y"/>
+      
+      <actionparam eval="PublicRule.assignAddressVerficationUserId" executionsequence="15" form="Y" name="addressVerificationUserId" paramid="addressVerificationUserId" pre="Y"/>
+      <actionparam executionsequence="15" form="Y" name="errorDisplayKey" paramid="errorDisplayKey" pre="Y" val="w9Address"/>
+        <actionparam eval="PublicRule.assignUserName" executionsequence="16" form="Y" name="user_name" paramid="user_name" pre="Y" />
+	   
+      <actionparam executionsequence="17" form="Y" name="row_id" paramid="row_id123" pre="Y" val="0"/>
+         <actionparam pre="Y" name="fieldsList" paramid="fieldsList" form="Y" val="row_id=row_id,aar_streetaddress1_w9=Address1,aar_streetaddress2_w9=Address2,
+      	state_abbreviation=State,aar_city_w9=City,aar_zipcode_w9=zip"></actionparam>  
+      <actionparam checkfornullparams="agency_foreign_addr_in,agency_zip_code_2,alt_email,e_mail,fax,misc_phone,alt_extn,alt_phone,extn,phone,zip,county,state_id,city,po_box,addressline3,addressline2,addressline1,country_code,territory_id,Zip4,Zip5" executionsequence="17" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <workflow name="verifyW9Address" seq="0">
+      <function executionsequence="0" functionid="updateMomListDataFromContextToMap" name="updateMomListDataFromContextToMap" parameters="context,adminBrokerageDetailsStep1_list_mom_2"/>
+       <function executionsequence="1" functionid="subStringValueFromCtx" name="subStringValueFromCtx" parameters="context,aar_zipcode_w9,0,5,Y,Zip5"/>
+       <function executionsequence="2" functionid="subStringValueFromCtx" name="subStringValueFromCtx11" parameters="context,aar_zipcode_w9,5,9,Y,Zip4"/>
+      	
+      <databaseoperation executionsequence="3" metaobject="tbl_address" name="getStateAbbreviation" operation="3" sqlstmt="select abbreviation as state_abbreviation from state_lku where state_id = #state_id#"/>
+      	<function eval="PublicRule.isInetErrorListEmpty" executionsequence="4" functionid="convertFieldNListStringToXMLWithCustomRootElement" name="convertFieldNListStringToXMLWithCustomRootElement" parameters="context,state_abbreviation|agency_foreign_addr_in|agency_zip_code_2|alt_email|e_mail|fax|misc_phone|alt_extn|alt_phone|extn|phone|zip|county|state_id|city|po_box|addressline3|addressline2|addressline1|country_code|territory_id|addressVerificationUserId|Zip4|Zip5,Root,Root1,intgerationInputXml"/>
+       <function executionsequence="5"  eval="integration_address_verfication_enabled" functionid="verifyAddressFromWebService" name="verifyAddressFromWebService" parameters="context"/>
+        <webservicecall eval="adapter_address_verification_enabled" name="verifyaddress" adaptername="dm-verify-address-data-adapter" 
+        version="1.0.0.0" contenttype="application/json" datasource="payload" errorkey="w9Address" 
+        requestedby="user_name" subject ="tbl_agencyappointmentrequest" object="aar_requestid" application ="DCDM" applicationcontext="adminBrokerageDetailsStep1" executionsequence="5">
+	      <webservicecallmappingparam name="street" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="aar_streetaddress1_w9" servicevariable="address1"/> 
+	      <webservicecallmappingparam name="street2" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="aar_streetaddress2_w9" servicevariable="address2"/> 
+	      <webservicecallmappingparam name="country" isexecuteonsuccess="Y" executionsequence="2" contextvariable="country_code_w9" servicevariable="country_code"/> 
+	      <webservicecallmappingparam name="state" isexecuteonsuccess="Y" executionsequence="3" contextvariable="state_abbreviation" servicevariable="state"/> 
+	      <webservicecallmappingparam name="city" isexecuteonsuccess="Y" executionsequence="4"  contextvariable="aar_city_w9" servicevariable="city"/> 
+	      <webservicecallmappingparam name="zip" isexecuteonsuccess="Y" executionsequence="5"  contextvariable="aar_zipcode_w9" servicevariable="zip"/>
+       </webservicecall>
+          <function eval="adapter_address_verification_enabled" isexecuteonsuccess="Y" name="generateListFromFieldsList" functionid="generateListFromFieldsList" parameters="context,:fieldsList,addressSuggestion_list_0" executionsequence="6"/>
+      
+       </workflow>
+       <actionparam form="Y" name="addressSuggestion_list_0" paramid="addressSuggestion_list_0" post="Y" session="Y"/>
+       <actionparam form="Y" name="verfyingAddressType" paramid="verfyingAddressType" post="Y" val="agencyW9Address"/>
+    </action>
+     
+		<action name="refreshState">
+			<actionparam executionsequence="1" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+			<actionparam executionsequence="2" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+			<actionparam executionsequence="4" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_state,county_id,aar_zipcode" session="Y"/>
+		</action>
+		<action name="refreshCounty">
+			<actionparam executionsequence="1" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="2" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+			<actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+			<actionparam executionsequence="4" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="county_id" session="Y"/>
+		</action>
+		<action name="save">
+		<validatefield name="validateAgencyQuestions">
+                <function name="validateAgencyQuestions" functionid="validateAgencyQuestions" parameters="context" />
+   </validatefield>
+		<actionparam executionsequence="0" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,additional_location_address_id,aar_requestid,user_id,city_additional_location,county_additional_location"/>
+		    <actionparam executionsequence="0" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+		    <actionparam form="Y" name="step1Method" paramid="step1Method" pre="Y" val="saveAdditionalLocationAddress"/>
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="N" viewparam="Y"/>
+			
+ 			<!-- <actionparam pre="Y" paramid="aar_taxid" name="aar_taxid" eval="PublicRule.encryptTaxId" form="Y"></actionparam> -->
+			<actionparam eval="PublicRule.encryptBankRoutingNumber" form="Y" name="bank_routing" paramid="bank_routing" pre="Y"/>
+			<actionparam eval="PublicRule.encryptBankAccountNumber" form="Y" name="bank_account" paramid="bank_account" pre="Y"/>
+			<actionparam eval="PublicRule.removeHyphenFromFieldsAgency" form="Y" name="aar_phoneno" paramid="aar_phoneno" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAgencyVolume" form="Y" name="agency_volume" paramid="agency_volume" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAverageBalance" form="Y" name="average_balance" paramid="average_balance" pre="Y"/>
+			<actionparam form="Y" name="method" paramid="method" pre="Y" val="insertDataToDB"/>
+			<actionparam form="Y" name="type" paramid="type" pre="Y" session="Y"/>
+			<actionparam eval="PublicRule.checkAgencyLob" form="Y" name="agency_lob" paramid="agency_lob" pre="Y"/>
+			<actionparam eval="PublicRule.checkAgencyLob2" form="Y" name="agency_lob2" paramid="agency_lob2" pre="Y"/>
+			
+			<!-- <workflow eval="agencyAppointmentstep1_ENO_section_security" seq="0">
+				<function executionsequence="0" functionid="validateEODeclaration" name="validateEODeclaration" parameters="context"/>
+			</workflow> -->
+			<workflow eval="PublicRule.assignDateFields" name="save" seq="1">
+				<databaseoperation executionsequence="1" name="getYAccountRowCount" operation="3" sqlstmt="select count(*) as 'YAccountRowCount' from tbl_agencyappointmentrequest where y_account=#y_account# and aar_requestid!=#aar_requestid#" metaobject="tbl_agencyappointmentrequest" />
+				<databaseoperation eval="PublicRule.isYAccountRowNotExists" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="insertAgenyAppointmentRequest" operation="1"/>
+				<databaseoperation executionsequence="2" metaobject="tbl_appointmentstates" name="getStateCount" operation="3" sqlstmt="select count(*) as stateCount from tbl_appointmentstates where request_id=#aar_requestid#"/>
+				<databaseoperation eval="PublicRule.isStateInsert" executionsequence="3" metaobject="tbl_appointmentstates" name="insertAgenyAppointmentStates" operation="1" sqlstmt="insert into tbl_appointmentstates(request_id,state_ids,residentnonresident_licence,last_updated_by,last_updated_ts) values(#aar_requestid#,#state_ids#,1,#last_updated_by#,#last_updated_ts#)"/>
+				<databaseoperation eval="PublicRule.isStateUpdate" executionsequence="4" metaobject="tbl_appointmentstates" name="updateAgenyAppointmentStates" operation="4" sqlstmt="update tbl_appointmentstates set state_ids=#state_ids# where request_id=#aar_requestid#"/>
+			 	<businessobject executionsequence="5" name="insertAgencyQuestions" obj="com.userbo.AgencyQuestionsBO"/>
+				<databaseoperation executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,       aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,       extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+				
+				<databaseoperation eval="PublicRule.isShowAgencyComparativerateCheckbox" executionsequence="8" metaobject="tbl_agencyappointmentrequest" name="updateAgenyAssociation" operation="4" sqlstmt="update tbl_agencyappointmentrequest set agency_association=#agency_association#,agency_comparativerate=#agency_comparativerate_selected# where aar_requestid=#aar_requestid#"/>
+				<databaseoperation eval="PublicRule.isExternalRequestWorking" executionsequence="9" metaobject="tbl_agencyappointmentrequest" name="getIsExternalAgency" operation="3" sqlstmt="select is_external_request from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				
+				<function eval="PublicRule.isInetErrorListEmpty" executionsequence="10" functionid="UpdateAddressFromGeneralDetailsPage" name="UpdateAddressFromGeneralDetailsPage" parameters="context"/>
+								
+			</workflow>
+			
+			<workflow eval="PublicRule.checkIsExternalRequest" name="save1" seq="2">
+				<storedprocedureoperation dbspname="updateExternalApplicationRequestWorkflowUser_p" executionsequence="0" id="updateExternalApplicationRequestWorkflowUser_p" metaobject="tbl_agencyappointmentrequest" name="updateExternalApplicationRequestWorkflowUser_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="AgencyAddresType" seq="2"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>
+			</workflow>
+			
+			<!-- This actionParam should be execute at first position( before any other actionparam) after Workflow -->
+			<!-- <actionparam post="Y" eval="PublicRule.UpdateAddressFromGeneralDetailsPage" name="UpdateAddressFromGeneralDetailsPage" paramid="UpdateAddressFromGeneralDetailsPage" form="Y" executionsequence="20"></actionparam> -->  
+			<!-- This actionParam should be execute at first position( before any other actionparam) after Workflow -->
+			
+			<actionparam executionsequence="21" form="Y" name="aar_requestid" paramid="aar_requestid" post="Y" session="Y"/>
+			<actionparam executionsequence="22" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="principal_person_id" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="copy_business_to_mail,aar_streetaddress1,aar_streetaddress2,country_code,      aar_state,aar_city,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,email,mobile,type,copyAddressField,inet_eventid,agencybankinformation_list_1,      isShowBankinformationDiv,bank_address2,bank_routing,bank_account,bank_account_id,bank_phone,bank_extn,      bank_state_id,bank_city,bank_email,npn,addressline3,adminBrokerageDetailsStep1_list_mom_2" session="Y">
+			</actionparam>	
+				
+			<actionparam executionsequence="24" form="Y" name="aar_agencyname" paramid="aar_agencyname" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.isYAccountRowExists" executionsequence="30" form="Y" name="pageError" paramid="pageError" post="Y"/>
+		</action>
+		<action name="update">
+		   <actionparam viewparam="Y" name="POPULATEKEYSFROMREQUESTINCASEOFERROR" paramid="POPULATEKEYSFROMREQUESTINCASEOFERROR" val="is_dec_address_verified,is_w9_address_verified,is_verified,is_mailing_address_verified" form="Y"></actionparam>
+		
+<!-- <validatefield name="validateAgencyQuestions">
+                <function name="validateAgencyQuestions" functionid="validateAgencyQuestions" parameters="context" />
+</validatefield> -->
+	  		<actionparam eval="PublicRule.assignHBAAssociationValues" executionsequence="0" form="Y" name="checkHBAAssociationValidation" paramid="checkHBAAssociationValidation" pre="Y"/> 
+		    <actionparam executionsequence="0" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,additional_location_address_id,aar_requestid,user_id,city_additional_location,county_additional_location"/>
+		    <actionparam executionsequence="0" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+			<actionparam executionsequence="0" name="isSkipView" paramid="isSkipView" val="Y" viewparam="Y"/>
+			<actionparam name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="N" viewparam="Y"/>
+			<actionparam name="is_external_request" paramid="is_external_request" viewparam="Y"/>
+ 			<!-- <actionparam pre="Y" paramid="aar_taxid" name="aar_taxid" eval="PublicRule.encryptTaxId" form="Y"></actionparam> -->
+			<actionparam eval="PublicRule.assignLastFourDigitsOfAccountNumber" executionsequence="0" form="Y" name="bank_account_last_four_digits" paramid="bank_account_last_four_digits" pre="Y"/>
+			<actionparam eval="PublicRule.encryptBankRoutingNumber" executionsequence="1" form="Y" name="bank_routing" paramid="bank_routing" pre="Y"/>
+			<actionparam eval="PublicRule.encryptBankAccountNumber" executionsequence="2" form="Y" name="bank_account" paramid="bank_account" pre="Y"/>
+			<actionparam eval="PublicRule.removeHyphenFromFieldsAgency" form="Y" name="aar_phoneno" paramid="aar_phoneno" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAgencyVolume" form="Y" name="agency_volume" paramid="agency_volume" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAverageBalance" form="Y" name="average_balance" paramid="average_balance" pre="Y"/>
+			<actionparam form="Y" name="method" paramid="method" pre="Y" val="checkBankInfoData"/>
+			<actionparam form="Y" name="step1Method" paramid="step1Method" pre="Y" val="saveAdditionalLocationAddress"/>
+			<!-- <actionparam pre="Y" paramid="agency_lob" name="agency_lob" eval="PublicRule.checkAgencyLob" form="Y"></actionparam>
+			<actionparam pre="Y" paramid="agency_lob2" name="agency_lob2" eval="PublicRule.checkAgencyLob2" form="Y"></actionparam>
+			 -->
+			 <actionparam eval="PublicRule.checkAccountNumberLength" form="Y" name="a" paramid="a" pre="Y"/>
+				<actionparam eval="PublicRule.validateMailingW9Address" executionsequence="3" form="Y" name="validateMailingW9Address" paramid="validateMailingW9Address" pre="Y"/>
+ --&gt;<!-- 			<actionparam pre="Y" eval="PublicRule.validateMailingAddress" name="validateMailingAddress" paramid="validateMailingAddress" form="Y" executionsequence="4"></actionparam>
+			<actionparam pre="Y" eval="PublicRule.validateW9Address" name="validateW9Address" paramid="validateW9Address" form="Y" executionsequence="5"></actionparam>  
+ -->			<actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<actionparam eval="PublicRule.assignDateFields" form="Y" name="assignDateFields" paramid="assignDateFields" pre="Y"/>
+			<!-- <actionparam pre="Y"  eval="PublicRule.validateOneStateSelection" paramid="validateOneStateSelection" name="validateOneStateSelection" form="Y"></actionparam> -->
+			
+			<actionparam eval="PublicRule.checkEoclaims" executionsequence="3" form="Y" name="eo_claims" paramid="eo_claims" pre="Y"/>
+			<actionparam checkfornullparams="eo_claims_declaration,type1099_desscription,eo_claims,effective_date,policy_limit,carrier_other,name,title,date,email,is_checked,is_checked1,cyber_liability_carrier_other,cyber_liability_coverage_amount,cyber_liability_policy_number,cyber_liability_policy_limit,cyber_liability_effective_date,cyber_liability_expiration_date,cyber_liability_eoclaims_comments,cyber_liability_claims,cyber_liability_eo_claims_declaration" executionsequence="10" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.maskPolicyLimit" executionsequence="6" form="Y" name="policy_limit" paramid="policy_limit" pre="Y"/>
+			<actionparam eval="PublicRule.maskCyberLiabilityPolicyLimit" executionsequence="6" form="Y" name="cyber_liability_policy_limit" paramid="cyber_liability_policy_limit" pre="Y"/>
+			<actionparam eval="PublicRule.checkEOEffectiveDate" executionsequence="7" form="Y" name="effective_date" paramid="effective_date" pre="Y"/>
+			<actionparam checkfornullparams="downloadTypeXml" executionsequence="0" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+			<!-- <workflow eval="agencyAppointmentstep1_ENO_section_security" seq="0">
+				<function executionsequence="0" functionid="validateEODeclaration" name="validateEODeclaration" parameters="context"/>
+			</workflow> -->
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="update" seq="1">
+				<databaseoperation executionsequence="1" name="getYAccountRowCount" operation="3" sqlstmt="select count(*) as 'YAccountRowCount' from tbl_agencyappointmentrequest where y_account=#y_account# and aar_requestid!=#aar_requestid#" metaobject="tbl_agencyappointmentrequest" />
+				<databaseoperation eval="PublicRule.isYAccountRowNotExists" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="updateAgenyAppointmentRequest" operation="4"/>
+				<databaseoperation executionsequence="2" metaobject="tbl_appointmentstates" name="getStateCount" operation="3" sqlstmt="select count(*) as stateCount from tbl_appointmentstates where request_id=#aar_requestid#"/>
+				<databaseoperation eval="PublicRule.isStateInsert" executionsequence="3" metaobject="tbl_appointmentstates" name="insertAgenyAppointmentStates" operation="1" sqlstmt="insert into tbl_appointmentstates(request_id,state_ids,residentnonresident_licence,last_updated_by,last_updated_ts) values(#aar_requestid#,#state_ids#,1,#last_updated_by#,#last_updated_ts#)"/>
+				<databaseoperation eval="PublicRule.isStateUpdate" executionsequence="4" metaobject="tbl_appointmentstates" name="updateAgenyAppointmentStates" operation="4" sqlstmt="update tbl_appointmentstates set state_ids=#state_ids# where request_id=#aar_requestid#"/>
+					
+				<businessobject executionsequence="5" name="insertAgencyQuestions" obj="com.userbo.AgencyQuestionsBO"/>	
+				<!-- <databaseoperation name="getRequestDataForAgent" metaobject="tbl_agencyappointmentrequest" operation="3" executionsequence="6"
+					sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,
+						aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,
+						extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"></databaseoperation> -->
+						
+				<databaseoperation executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+				
+				<databaseoperation executionsequence="8" metaobject="tbl_agencyappointmentrequest" name="updateAgenyAssociation" operation="4" sqlstmt="update tbl_agencyappointmentrequest set agency_association=#agency_association#,agency_comparativerate=#agency_comparativerate_selected# where aar_requestid=#aar_requestid#"/>
+					
+					
+					
+				<databaseoperation eval="PublicRule.isExternalRequestWorking" executionsequence="9" metaobject="tbl_agencyappointmentrequest" name="getIsExternalAgency" operation="3" sqlstmt="select is_external_request from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				<!-- <function eval="PublicRule.isInetErrorListEmpty" name="UpdateAddressFromGeneralDetailsPage" functionid="UpdateAddressFromGeneralDetailsPage" executionsequence="10"
+					parameters="context"></function> -->
+				<function eval="PublicRule.isInetErrorListEmpty" executionsequence="1" functionid="convertIVANSDownloadTypeDataIntoXML" name="convertIVANSDownloadTypeDataIntoXML" parameters="context"/>
+		  		<storedprocedureoperation eval="PublicRule.isInetErrorListEmpty" dbspname="updatePublicDownloadTypeData_p" executionsequence="2" id="updatePublicDownloadTypeData_p" metaobject="tbl_agencyappointmentrequest" name="updatePublicDownloadTypeData_p" operation="1">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="downloadTypeXml" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="last_updated_by" seq="3"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+			     </storedprocedureoperation>
+								
+			</workflow>
+			
+			<workflow eval="PublicRule.checkIsExternalRequest" name="update1" seq="2">
+				<storedprocedureoperation dbspname="updateExternalApplicationRequestWorkflowUser_p" executionsequence="0" id="updateExternalApplicationRequestWorkflowUser_p" metaobject="tbl_agencyappointmentrequest" name="updateExternalApplicationRequestWorkflowUser_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="AgencyAddresType" seq="2"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>
+			</workflow>
+			
+			
+			<actionparam checkfornullparams="type1099_desscription,aar_state_business,county_id_business,county_id_w9,aar_state_w9,county_id_mailing,aar_state_mailing" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+			<workflow name="saveOrUpdateAgencyAddressInformation" seq="3">
+				 <function eval="PublicRule.isShowVerifiedAddressIndicatorSecurity" executionsequence="0" functionid="setAgencyVerifyAddressFlag" name="setAgencyVerifyAddressFlag" parameters="context,N"/>
+				
+				<storedprocedureoperation dbspname="insert_update_public_business_address_p_java" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insert_update_public_business_address_p_java" metaobject="tbl_business_address" name="insert_update_public_business_address_p_java" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="country_code_business" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="aar_streetaddress1_business" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="aar_streetaddress2_business" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="poBox_business" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="aar_city_business" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="aar_state_business" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" property="county_id_business" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" property="aar_zipcode_business" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" property="aar_phoneno_business" seq="11"/>	 
+					<parameteroperation indexno="11" mode="IN" property="extn_business" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" property="aar_altPhoneno_business" seq="13"/>				
+					<parameteroperation indexno="13" mode="IN" property="aar_altExtn_business" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" property="aar_fax_business" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" property="email_business" seq="16"/>
+					<parameteroperation indexno="16" mode="IN" property="last_updated_by" seq="17"/>
+					<parameteroperation indexno="17" mode="IN" property="last_updated_ts" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" property="blast_email_business" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" property="is_verified" seq="20"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				
+				
+				
+				<storedprocedureoperation dbspname="insert_update_public_mailing_address_p_java" eval="PublicRule.isInetErrorListEmpty" executionsequence="2" id="insert_update_public_mailing_address_p_java" metaobject="tbl_mailing_address" name="insert_update_public_mailing_address_p_java" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="country_code_mailing" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="aar_streetaddress1_mailing" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="aar_streetaddress2_mailing" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="poBox_mailing" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="aar_city_mailing" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="aar_state_mailing" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" property="county_id_mailing" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" property="aar_zipcode_mailing" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" property="aar_phoneno_mailing" seq="11"/>	 
+					<parameteroperation indexno="11" mode="IN" property="extn_mailing" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" property="aar_altPhoneno_mailing" seq="13"/>				
+					<parameteroperation indexno="13" mode="IN" property="aar_altExtn_mailing" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" property="aar_fax_mailing" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" property="email_mailing" seq="16"/>
+					<parameteroperation indexno="16" mode="IN" property="last_updated_by" seq="17"/>
+					<parameteroperation indexno="17" mode="IN" property="last_updated_ts" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" property="is_mailing_address_verified" seq="19"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			
+			
+			<storedprocedureoperation dbspname="insert_update_public_w9_address_p_java" eval="PublicRule.isInetErrorListEmpty" executionsequence="3" id="insert_update_public_w9_address_p_java" metaobject="tbl_w9_address" name="insert_update_public_w9_address_p_java" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="country_code_w9" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="aar_streetaddress1_w9" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="aar_streetaddress2_w9" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="poBox_w9" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="aar_city_w9" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="aar_state_w9" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" property="county_id_w9" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" property="aar_zipcode_w9" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" property="aar_phoneno_w9" seq="11"/>	 
+					<parameteroperation indexno="11" mode="IN" property="extn_w9" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" property="aar_altPhoneno_w9" seq="13"/>				
+					<parameteroperation indexno="13" mode="IN" property="aar_altExtn_w9" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" property="aar_fax_w9" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" property="email_w9" seq="17"/>
+					<parameteroperation indexno="16" mode="IN" property="last_updated_by" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" property="last_updated_ts" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" property="w9_legal_name_w9" seq="20"/>
+					<parameteroperation indexno="20" mode="IN" property="type1099_desscription" seq="21"/>
+					<parameteroperation indexno="21" mode="IN" property="is_w9_address_verified" seq="22"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="insert_update_public_DEC_address_p_java" eval="PublicRule.isInetErrorListEmpty" executionsequence="4" id="insert_update_public_DEC_address_p_java" metaobject="tbl_DEC_address" name="insert_update_public_DEC_address_p_java" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="person_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="country_code_DEC" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="addressline1_DEC" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="addressline2_DEC" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="po_box_DEC" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="city_DEC" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="state_id_DEC" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" property="county_DEC" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" property="zip_DEC" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" property="phone_DEC" seq="11"/>	 
+					<parameteroperation indexno="11" mode="IN" property="extn_DEC" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" property="alt_phone_DEC" seq="13"/>				
+					<parameteroperation indexno="13" mode="IN" property="alt_extn_DEC" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" property="fax_DEC" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" property="e_mail_DEC" seq="17"/>
+					<parameteroperation indexno="16" mode="IN" property="last_updated_by" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" property="last_updated_ts" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" property="is_dec_address_verified" seq="20"/>					
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+				
+				
+				
+			</workflow>
+			
+			<workflow name="updateENODetails" seq="4">
+				<databaseoperation eval="PublicRule.isInetErrorListEmpty" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="getAgencyEODetails" operation="4" sqlstmt="update tbl_agencyappointmentrequest set carrier_other = #carrier_other#        ,policy_limit=#policy_limit#        ,effective_date =#effective_date#        ,eo_claims =#eo_claims#        ,eoclaims_comments=#eoclaims_comments#        where aar_requestid=#aar_requestid#"/>
+			</workflow>
+			
+
+			
+			
+			
+			<!-- This actionParam should be execute at first position( before any other actionparam) after Workflow -->
+<!-- 			<actionparam post="Y" eval="PublicRule.UpdateAddressFromGeneralDetailsPage" name="UpdateAddressFromGeneralDetailsPage" paramid="UpdateAddressFromGeneralDetailsPage" form="Y" executionsequence="20"></actionparam>  
+ -->			<!-- This actionParam should be execute at first position( before any other actionparam) after Workflow -->
+			
+			<actionparam executionsequence="21" form="Y" name="aar_requestid" paramid="aar_requestid" post="Y" session="Y"/>
+			<actionparam executionsequence="22" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="principal_person_id" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="copy_business_to_mail,aar_streetaddress1,aar_streetaddress2,country_code,aar_state,aar_city,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,email,     mobile,inet_eventid,type,copyAddressField,agencybankinformation_list_1,isShowBankinformationDiv,npn,addressline3,agencyOfficersPartners_list_listfreeform_1,response_0,response_1,response_2,response_3,response_4,adminBrokerageDetailsStep1_list_mom_2,is_mailing_address_verified,is_verified,is_dec_address_verified,is_w9_address_verified" session="Y">
+			</actionparam>
+			<actionparam executionsequence="24" form="Y" name="aar_agencyname" paramid="aar_agencyname" post="Y" session="Y"/>
+			<actionparam executionsequence="25" form="Y" name="addNewContact" paramid="addNewContact" post="Y" remove="Y" session="Y"/>
+			<actionparam executionsequence="0" form="Y" name="removeparams_session_addressSuggestion_list_0" paramid="removeparams_session_addressSuggestion_list_0" post="Y" remove="Y" removeparams="session_addressSuggestion_list_0" session="Y"/>
+			
+			<workflowevent eval="PublicRule.isRequestNotInvited" event="savePublicNotInvited" isexecuteonsuccess="Y" name="savePublicNotInvited" workflow="onboardingDashboard"/>
+			<actionparam eval="PublicRule.isYAccountRowExists" executionsequence="30" form="Y" name="pageError" paramid="pageError" post="Y"/>
+			
+		 <workflow eval="PublicRule.isInetErrorListEmpty" name="saveSocialMediaInfo" seq="5">
+       		 <businessobject executionsequence="4" name="AddSocialMediaInfoBO" obj="com.userbo.AddSocialMediaInfoBO"/>
+      	</workflow>
+      	
+      	
+      				<workflow name="updateCyberLiabilityDetails" seq="7" eval="agencyAppointmentstep1_CyberLiability_section_security">
+					<storedprocedureoperation dbspname="insert_update_agency_cyber_liability_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insert_update_agency_cyber_liability_p" metaobject="tbl_agency_cyber_liability" name="insert_update_agency_cyber_liability_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="cyber_liability_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="cyber_liability_policy_limit" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="cyber_liability_policy_number" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="cyber_liability_coverage_amount" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="cyber_liability_carrier_other" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="cyber_liability_effective_date" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="cyber_liability_expiration_date" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" property="person_id" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" property="producer_number_id" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" property="status_id" seq="11"/>	 
+					<parameteroperation indexno="11" mode="IN" property="carrier_id" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" property="cancellation_date" seq="13"/>				
+					<parameteroperation indexno="13" mode="IN" property="last_updated_by" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" property="Is_Deleted" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" property="cyber_liability_eoclaims_comments" seq="16"/>
+					<parameteroperation indexno="16" mode="IN" property="category_id" seq="17"/>
+					<parameteroperation indexno="17" mode="IN" property="review_status" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" property="file_path" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" property="requested_by" seq="20"/>
+					<parameteroperation indexno="20" mode="IN" property="aggregate_limit" seq="21"/>
+					<parameteroperation indexno="21" mode="IN" property="cyber_liability_deductible" seq="22"/>
+					<parameteroperation indexno="22" mode="IN" property="document_description" seq="23"/>
+					<parameteroperation indexno="23" mode="IN" property="agency_locations" seq="24"/>
+					<parameteroperation indexno="24" mode="IN" property="cyber_liability_claims" seq="25"/>
+					<parameteroperation indexno="25" mode="IN" property="cyber_liability_self_insured_retention" seq="26"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+			</workflow>
+			
+		</action>
+		<action name="cancel">
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="comingFromCancel" paramid="comingFromCancel" pre="Y" val="Y"/>
+			<actionparam form="Y" name="removeAllData" paramid="removeAllData" pre="Y" remove="Y" removeparams="isShowTransactionTypeDiv,aar_agencyname,aar_producertypeid,aar_producertype,aar_streetaddress1,aar_streetaddress2,country_code,      aar_state,aar_city,county_id,aar_zipcode,entity_name,aar_phoneno,aar_fax,aar_webaddress,aar_taxid,npn,      aar_yrsinbusiness,aar_expinyears,aar_nooflicproducers,aar_noofliccsr,dba,chkProgramDiv,program_no,program_name,      chkFacilityDiv,facility_code,chkSelectAll,adminBrokerageDetailsStep1_list_mom_1,bank_name,address,bank_comments,      contact_no,adminBrokerageDetailsStep1_list_mom_2,state_ids,appointment_country_code,comingFromFirstPage,      territory_id,extn,email,mobile,bank_address2,bank_routing,bank_account,bank_account_id,bank_phone,      bank_extn,bank_state_id,bank_city,bank_email,agencybankinformation_list_1,isShowBankinformationDiv,      accountopen_date,bank_account_type,average_balance,bank_address,bank_altphone,bank_altextn,copyAddressField,type,bank_account_for_EFT,      copy_business_to_mail,copy_business_to_w9,bank_zipcode,addressline3,agencyOfficersPartners_list_listfreeform_1,copy_mail_to_w9,w9_legal_name_w9,aar_altPhoneno_mailing,aar_altExtn_mailing,aar_altPhoneno_w9,aar_altExtn_w9,      country_code_mailing,aar_streetaddress2_mailing,aar_city_mailing,county_id_mailing,aar_phoneno_mailing,,aar_fax_mailing,      aar_streetaddress1_mailing,poBox_mailing,aar_state_mailing,aar_zipcode_mailing,email_mailing,email_business,      extn_mailing,country_code_w9,aar_streetaddress2_w9,aar_city_w9,county_id_w9,aar_fax_w9,aar_streetaddress1_w9,      poBox_w9,aar_state_w9,aar_zipcode_w9,email_w9,aar_phoneno_w9,extn_w9,type1099_desscription,taxpayer_name,response_0,response_1,response_2,response_3,response_4,response_5,response_6,response_7" session="Y"/>
+			<workflow name="cancel" seq="0">
+				<databaseoperation executionsequence="1" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="select territory_id,country_code,aar_state from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+				 </databaseoperation>
+			</workflow>
+		</action>
+		<action name="checkProgramNo">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="skipEdit" paramid="skipEdit" pre="Y" val="Y"/>
+			<workflow name="checkProgramNo" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyprincipal" name="checkProgramNoRowCount" operation="3" sqlstmt="select count(*) as 'programNoRowCount' from business_segment where (agency_id &gt;0 and business_segment_type=0        and is_active=1 and business_segment_code=#program_no#)">
+				</databaseoperation>
+				<databaseoperation executionsequence="1" metaobject="tbl_agencyprincipal" name="checkProgramNo" operation="3" sqlstmt="select business_segment_name as 'program_name' from business_segment where (agency_id &gt;0 and business_segment_type=0        and is_active=1 and business_segment_code=#program_no#)">
+				</databaseoperation>
+			</workflow>
+		</action>
+		<action name="refreshImage">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="Y" viewparam="Y"/>
+			<actionparam name="skipView" paramid="skipView" val="Y" viewparam="Y"/>
+		</action>
+		<action name="refreshAdditionalLocationCounty">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		</action>
+		<action name="refreshCountry">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="3" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/>
+			<actionparam executionsequence="8" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+			
+		</action>
+		<action name="next">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="Y" viewparam="Y"/>
+			<workflow name="next" seq="0">
+				<!-- <databaseoperation name="getRequestDataForAgent" metaobject="tbl_agencyappointmentrequest" operation="3" executionsequence="6"
+					sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,
+						aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,
+						extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"></databaseoperation> -->
+			<databaseoperation executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+			</workflow>
+			<actionparam form="Y" name="isShowBankinformationDiv" paramid="isShowBankinformationDiv" post="Y" remove="Y" session="Y"/>
+		
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="copy_business_to_mail,aar_streetaddress1,aar_streetaddress2,country_code,aar_state,aar_city,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id     ,extn,email,mobile,type,copyAddressField,inet_eventid,agencybankinformation_list_1,addressline3" session="Y"/>
+			<actionparam executionsequence="25" form="Y" name="addNewContact" paramid="addNewContact" post="Y" remove="Y" session="Y"/>
+		</action>
+		<action name="home">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isShowBankinformationDiv" paramid="isShowBankinformationDiv" post="Y" remove="Y" session="Y"/>
+		</action>
+		<action name="deleteBankInformation">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam form="Y" name="bank_information_id" paramid="bank_information_id" viewparam="Y"/>
+			<workflow name="delete" seq="0">
+					<databaseoperation executionsequence="1" metaobject="tbl_agencybankinformation" name="delete" operation="2"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg1" post="Y"/>
+		</action>
+		<action metaobject="agencySweepMoObject;tbl_agencybankinformation" name="saveBankInformation">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.checkAccountNumberLength" executionsequence="0" form="Y" name="a" paramid="a" pre="Y"/>
+			<actionparam form="Y" name="method" paramid="method" val="addDataToSession" viewparam="Y"/>
+			<actionparam checkfornullparams="bank_state_id" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+<!--			<actionparam pre="Y" eval="PublicRule.checkBankAverageBalance" name="average_balance" paramid="average_balance" form="Y"></actionparam>-->
+			<actionparam eval="PublicRule.assignLastFourDigitsOfAccountNumber" executionsequence="2" form="Y" name="bank_account_last_four_digits" paramid="bank_account_last_four_digits" pre="Y"/>
+			
+			<actionparam eval="PublicRule.checkSaveMsg" form="Y" name="pageMsg" paramid="pageMsg1" post="Y"/>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="isShowBankinformationDiv,bank_information_id,bank_name,bank_address,bank_phone,bank_routing,bank_account,bank_account_type,       accountopen_date,average_balance,contact_no,bank_comments,bank_address2,bank_city,       bank_state_id,bank_extn,bank_email,bank_altphone,bank_altextn,bank_account_for_EFT,bank_zipcode" session="Y"/>
+		</action>
+		<action name="addNewBankInformation">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isShowBankinformationDiv" paramid="isShowBankinformationDiv" pre="Y" session="Y" val="Y"/>
+		</action>
+		<action name="closeNewBankInformation">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isShowBankinformationDiv" paramid="isShowBankinformationDiv" pre="Y" remove="Y" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="isShowBankinformationDiv,bank_information_id,bank_name,bank_address,bank_phone,bank_routing,bank_account,bank_account_type,       accountopen_date,average_balance,contact_no,bank_comments,bank_address2,bank_city,       bank_state_id,bank_extn,bank_email,bank_altphone,bank_altextn,bank_zipcode" session="Y"/>
+		</action>
+		<action metaobject="tbl_address" name="showBusinessDiv">
+	 		<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code, aar_state,aar_city        ,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,email,mobile,aar_altExtn       ,aar_altPhoneno,poBox,agency_zip_code_2,agency_foreign_addr_in,addressline3" session="Y">	
+			</actionparam>
+			<actionparam form="Y" name="type" paramid="type" post="Y" session="Y" val="1"/>
+		</action>
+		<action metaobject="tbl_address" name="showMailingDiv">
+	 		<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code, aar_state,aar_city        ,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,email,mobile,aar_altExtn       ,aar_altPhoneno,poBox,agency_zip_code_2,agency_foreign_addr_in,addressline3" session="Y"/>
+	 	    <actionparam form="Y" name="type" paramid="type" post="Y" session="Y" val="3"/>
+		</action>
+		<action metaobject="tbl_address" name="showResidenceDiv">
+	 		<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code, aar_state,aar_city        ,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,email,mobile,aar_altExtn       ,aar_altPhoneno,poBox,agency_zip_code_2,agency_foreign_addr_in,w9_legal_name,w9_type_id,agency_taxpayer_short_nm,irs_tax_nm_1,irs_tax_nm_2,addressline3" session="Y"/>
+	 	    <actionparam form="Y" name="type" paramid="type" post="Y" session="Y" val="2"/>
+		</action>
+		<action name="copyBusinessToW9">
+			<actionparam eval="PublicRule.isCopyBusinessToW9Checked" executionsequence="1" form="Y" name="isCopyBusinessToW9Checked" paramid="isCopyBusinessToW9Checked" pre="Y"/>
+	  		<actionparam eval="PublicRule.copyBusinessToW9Mailing" executionsequence="2" form="Y" name="CopyBusinessToW9Checked" paramid="CopyBusinessToW9Checked" pre="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  		<actionparam executionsequence="3" form="Y" name="refreshDropDown1" paramid="refreshDropDown1" pre="Y" val="Y"/>
+	  		<actionparam form="Y" name="country_code" paramid="country_code" post="Y" val="US"/>
+	  	</action>
+	  	<action name="copyBusinessToMailing"> 
+	  		<actionparam eval="PublicRule.isCopyBusinessToMailingChecked" executionsequence="1" form="Y" name="isCopyBusinessToMailingChecked" paramid="isCopyBusinessToMailingChecked" pre="Y"/>
+	  		<actionparam eval="PublicRule.copyBusinessToW9Mailing" executionsequence="2" form="Y" name="copyBusinessToW9Mailing" paramid="copyBusinessToW9Mailing" pre="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  		<actionparam executionsequence="3" form="Y" name="refreshDropDown1" paramid="refreshDropDown1" pre="Y" val="Y"/>
+	  		<actionparam form="Y" name="country_code" paramid="country_code" post="Y" val="US"/>
+	  		<actionparam form="Y" name="country_code_mailing" paramid="country_code_mailing" post="Y" val="US"/>
+	  		<workflow eval="PublicRule.isCopyBusinessToMailingAddressCheckboxChecked" name="copyBusinessToMailing" seq="0">
+	  			<function executionsequence="1" expression="assign(:country_code_mailing,:country_code_business);assign(:aar_streetaddress1_mailing,:aar_streetaddress1_business);assign(:aar_streetaddress2_mailing,:aar_streetaddress2_business);assign(:aar_city_mailing,:aar_city_business);assign(:aar_state_mailing,:aar_state_business);assign(:aar_zipcode_mailing,:aar_zipcode_business);assign(:county_id_mailing,:county_id_business);" name="copyBusinessToMailing"/>
+	  		</workflow>
+	  	</action>
+		<action name="deleteCorporationPartnershipDetails">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam form="Y" name="method" paramid="method" val="deleteCorporationDataFromSession" viewparam="Y"/>
+			<workflow name="deleteCorporationPartnershipDetails" seq="0">
+				<businessobject executionsequence="0" name="deleteBankInformation" obj="com.userbo.BankInformationBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg1" form="Y" name="pageMsg1" paramid="pageMsg1" post="Y"/>
+			<actionparam form="Y" name="agencyOfficersPartners_list_listfreeform_1" paramid="agencyOfficersPartners_list_listfreeform_1" post="Y" session="Y"/>
+		</action>
+		<action name="editCorporationPartnershipDetailsRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyOfficersPartners_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyOfficersPartners_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="editCorporationPartnershipDetailsRow" seq="0">
+				<businessobject executionsequence="0" name="editCorporationPartnershipDetailsRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="saveCorporationPartnershipDetailsRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="saveCorporationPartnershipDetailsRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveCorporationPartnershipDetailsRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="saveCorporationPartnershipDetailsRow" obj="com.userbo.BankInformationBO"/>
+			</workflow>
+		</action>
+		<action name="addCorporationPartnershipDetails">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyOfficersPartners_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyOfficersPartners_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			
+			<actionparam eval="PublicRule.validateCorporationPartnershipDetailsonStep1" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addCorporationPartnershipDetails" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addCorporationPartnershipDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="name,title,ind_experience" session="Y"/>
+		</action>
+		
+		<action name="updateExit">
+		<validatefield name="validateAgencyQuestions">
+                <function name="validateAgencyQuestions" functionid="validateAgencyQuestions" parameters="context" />
+</validatefield>
+			<actionparam name="skipImageCheck" paramid="skipImageCheck" val="N" viewparam="Y"/>
+			
+			<!-- <actionparam pre="Y" paramid="aar_taxid" name="aar_taxid" eval="PublicRule.encryptTaxId" form="Y"></actionparam> -->
+			<actionparam eval="PublicRule.assignLastFourDigitsOfAccountNumber" executionsequence="0" form="Y" name="bank_account_last_four_digits" paramid="bank_account_last_four_digits" pre="Y"/>
+			<actionparam eval="PublicRule.encryptBankRoutingNumber" executionsequence="1" form="Y" name="bank_routing" paramid="bank_routing" pre="Y"/>
+			<actionparam eval="PublicRule.encryptBankAccountNumber" executionsequence="2" form="Y" name="bank_account" paramid="bank_account" pre="Y"/>
+			<actionparam eval="PublicRule.removeHyphenFromFieldsAgency" form="Y" name="aar_phoneno" paramid="aar_phoneno" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAgencyVolume" form="Y" name="agency_volume" paramid="agency_volume" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAverageBalance" form="Y" name="average_balance" paramid="average_balance" pre="Y"/>
+			<actionparam form="Y" name="method" paramid="method" pre="Y" val="checkBankInfoData"/>
+			<actionparam eval="PublicRule.checkAgencyLob" form="Y" name="agency_lob" paramid="agency_lob" pre="Y"/>
+			<actionparam eval="PublicRule.checkAgencyLob2" form="Y" name="agency_lob2" paramid="agency_lob2" pre="Y"/>
+			<actionparam eval="PublicRule.checkAccountNumberLength" form="Y" name="a" paramid="a" pre="Y"/>
+			<actionparam eval="PublicRule.validateMailingW9Address" executionsequence="3" form="Y" name="validateMailingW9Address" paramid="validateMailingW9Address" pre="Y"/>
+		<!-- <actionparam pre="Y" eval="PublicRule.validateMailingAddress" name="validateMailingAddress" paramid="validateMailingAddress" form="Y" executionsequence="4"></actionparam>  
+			<actionparam pre="Y" eval="PublicRule.validateW9Address" name="validateW9Address" paramid="validateW9Address" form="Y" executionsequence="5"></actionparam>-->
+			 <actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			
+			<!-- <workflow eval="agencyAppointmentstep1_ENO_section_security" seq="0">
+				<function executionsequence="0" functionid="validateEODeclaration" name="validateEODeclaration" parameters="context"/>
+			</workflow> -->
+			<workflow eval="PublicRule.assignDateFields" name="updateExit" seq="1">
+				<databaseoperation executionsequence="1" name="getYAccountRowCount" operation="3" sqlstmt="select count(*) as 'YAccountRowCount' from tbl_agencyappointmentrequest where y_account=#y_account# and aar_requestid!=#aar_requestid#" metaobject="tbl_agencyappointmentrequest" />
+				<databaseoperation eval="PublicRule.isYAccountRowNotExists" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="updateAgenyAppointmentRequest" operation="4"/>
+				<databaseoperation executionsequence="2" metaobject="tbl_appointmentstates" name="getStateCount" operation="3" sqlstmt="select count(*) as stateCount from tbl_appointmentstates where request_id=#aar_requestid#"/>
+				<databaseoperation eval="PublicRule.isStateInsert" executionsequence="3" metaobject="tbl_appointmentstates" name="insertAgenyAppointmentStates" operation="1" sqlstmt="insert into tbl_appointmentstates(request_id,state_ids,residentnonresident_licence,last_updated_by,last_updated_ts) values(#aar_requestid#,#state_ids#,1,#last_updated_by#,#last_updated_ts#)"/>
+				<databaseoperation eval="PublicRule.isStateUpdate" executionsequence="4" metaobject="tbl_appointmentstates" name="updateAgenyAppointmentStates" operation="4" sqlstmt="update tbl_appointmentstates set state_ids=#state_ids# where request_id=#aar_requestid#"/>
+					
+				<businessobject executionsequence="5" name="insertAgencyQuestions" obj="com.userbo.AgencyQuestionsBO"/>	
+				<!-- <databaseoperation name="getRequestDataForAgent" metaobject="tbl_agencyappointmentrequest" operation="3" executionsequence="6"
+					sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,
+						aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,
+						extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"></databaseoperation> -->
+						
+				<databaseoperation executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="7" name="insertBankInformation" obj="com.userbo.BankInformationBO"/>
+				<databaseoperation eval="PublicRule.isShowAgencyComparativerateCheckbox" executionsequence="8" metaobject="tbl_agencyappointmentrequest" name="updateAgenyAssociation" operation="4" sqlstmt="update tbl_agencyappointmentrequest set agency_association=#agency_association#,agency_comparativerate=#agency_comparativerate_selected# where aar_requestid=#aar_requestid#"/>
+					
+				<databaseoperation eval="PublicRule.isExternalRequestWorking" executionsequence="9" metaobject="tbl_agencyappointmentrequest" name="getIsExternalAgency" operation="3" sqlstmt="select is_external_request from tbl_agencyappointmentrequest where aar_requestid = #aar_requestid#">
+				</databaseoperation>
+				
+				
+				<function eval="PublicRule.isInetErrorListEmpty" executionsequence="10" functionid="UpdateAddressFromGeneralDetailsPage" name="UpdateAddressFromGeneralDetailsPage" parameters="context"/>
+						
+			</workflow>
+			
+			<workflow eval="PublicRule.checkIsExternalRequest" name="updateExit" seq="2">
+				<storedprocedureoperation dbspname="updateExternalApplicationRequestWorkflowUser_p" executionsequence="0" id="updateExternalApplicationRequestWorkflowUser_p" metaobject="tbl_agencyappointmentrequest" name="updateExternalApplicationRequestWorkflowUser_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="AgencyAddresType" seq="2"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>
+			</workflow>
+			<!-- This actionParam should be execute at first position( before any other actionparam) after Workflow -->
+			<!-- <actionparam post="Y" eval="PublicRule.UpdateAddressFromGeneralDetailsPage" name="UpdateAddressFromGeneralDetailsPage" paramid="UpdateAddressFromGeneralDetailsPage" form="Y" executionsequence="20"></actionparam> -->  
+			<!-- This actionParam should be execute at first position( before any other actionparam) after Workflow -->
+			
+			<actionparam executionsequence="21" form="Y" name="aar_requestid" paramid="aar_requestid" post="Y" session="Y"/>
+			<actionparam executionsequence="22" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="principal_person_id" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="aar_streetaddress1,aar_streetaddress2,country_code,aar_state,aar_city,county_id,aar_zipcode,aar_phoneno,aar_fax,territory_id,extn,email,     mobile,inet_eventid,type,copyAddressField,agencybankinformation_list_1,isShowBankinformationDiv,npn,addressline3,agencyOfficersPartners_list_listfreeform_1,adminBrokerageDetailsStep1_list_mom_2" session="Y">
+			</actionparam>
+			<actionparam executionsequence="24" form="Y" name="aar_agencyname" paramid="aar_agencyname" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.isYAccountRowExists" executionsequence="30" form="Y" name="pageError" paramid="pageError" post="Y"/>
+		</action>
+		<action name="copyMailingToW9">
+	  		<actionparam eval="PublicRule.isCopyMailingToW9Checked" executionsequence="1" form="Y" name="isCopyMailingToW9Checked" paramid="isCopyMailingToW9Checked" pre="Y"/>
+	  		<actionparam eval="PublicRule.copyBusinessToW9Mailing" executionsequence="2" form="Y" name="copyBusinessToW9Mailing" paramid="copyBusinessToW9Mailing" pre="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  		<actionparam executionsequence="3" form="Y" name="refreshDropDown1" paramid="refreshDropDown1" pre="Y" val="Y"/>
+	  		<actionparam form="Y" name="country_code" paramid="country_code" post="Y" val="US"/>
+	  		<actionparam form="Y" name="country_code_w9" paramid="country_code_w9" post="Y" val="US"/>
+	  		<workflow eval="PublicRule.isCopyMailingAddressToW9AddressCheckboxChecked" name="copyBusinessToMailing" seq="0">
+	  			<function executionsequence="1" expression="assign(:country_code_w9,:country_code_business);assign(:aar_streetaddress1_w9,:aar_streetaddress1_business);assign(:aar_streetaddress2_w9,:aar_streetaddress2_business);assign(:aar_city_w9,:aar_city_business);assign(:aar_state_w9,:aar_state_business);assign(:aar_zipcode_w9,:aar_zipcode_business);assign(:county_id_w9,:county_id_business);" name="copyBusinessToMailing"/>
+        		
+        		
+        		
+        		
+	  		</workflow>
+	  	</action>
+	  	<action name="copyMailingToW9fromBusiness">
+	  		<actionparam eval="PublicRule.isCopyMailingToW9fromBusinessChecked" executionsequence="1" form="Y" name="isCopyMailingToW9fromBusinessChecked" paramid="isCopyMailingToW9fromBusinessChecked" pre="Y"/>
+	  		<actionparam eval="PublicRule.copyMailingToW9fromBusiness" executionsequence="2" form="Y" name="copyMailingToW9fromBusiness" paramid="copyMailingToW9fromBusiness" pre="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  		<actionparam executionsequence="3" form="Y" name="refreshDropDown1" paramid="refreshDropDown1" pre="Y" val="Y"/>
+	  		<actionparam form="Y" name="country_code" paramid="country_code" post="Y" val="US"/>
+	  	</action>
+	  	<action name="refreshAppointmentState">
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  	</action>
+	  	<action name="showSelectMultipleStatePopup">
+	  		<actionparam form="Y" name="isShowAppointmentStatePopup" paramid="isShowAppointmentStatePopup" pre="Y" val="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  	</action>
+	  	<action name="closeAppointmentStatePopup">
+	  		<actionparam form="Y" name="isShowAppointmentStatePopup" paramid="isShowAppointmentStatePopup" pre="Y" remove="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  	</action>
+	  	<action name="submitAppointmentStatePopup">
+	  		<actionparam form="Y" name="isShowAppointmentStatePopup" paramid="isShowAppointmentStatePopup" pre="Y" remove="Y"/>
+	  		<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  	</action>
+	  	<action name="downloadContract">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="contract_Template_Type_id" paramid="contract_Template_Type_id" viewparam="Y"/>
+			<actionparam checkfornullparams="contract_Template_Type_id,AgentAddresType,aar_requestid" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<workflow name="downloadContract" seq="0">
+				<storedprocedureoperation dbspname="getDataforContractsPDFByTemplateId_p" executionsequence="1" id="getDataforContractsPDFByTemplateId_p" metaobject="tbl_agencyappointmentrequest" name="getDataforContractsPDFByTemplateId_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" name="contract_Template_Type_id" property="contract_Template_Type_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="aar_requestid" property="aar_requestid" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="AgentAddresType" property="AgentAddresType" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getCarierCompaniesByRequestid_p" executionsequence="2" id="getCarierCompaniesByRequestid_p" metaobject="tbl_agencyappointmentrequest" name="getCarierCompaniesByRequestid_p" operation="5" viewid="carriercompanies_list_pdf">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				
+				
+				
+				<document data="context" executionsequence="3" filenamefield="contract_Template_Type_description_pdf" metaobject="tbl_agencyappointmentrequest" name="downloadPDF" output="pdf" template="template_file_name_pdf"/>
+
+				
+				
+					
+					
+			</workflow>
+			
+			
+		</action>
+		<action name="refreshAgencyNetworkDiv">
+	  		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	  		<actionparam executionsequence="1" form="Y" name="isSelectionRefereshed" paramid="isSelectionRefereshed" val="Y" viewparam="Y"/>
+  		</action>
+  		
+  		
+  		<action name="updateAdditionalLocationAddress">
+  		<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,e_mail,contact_name,extn,agency_zip_code_2,addressline3,city_additional_location,zip,county_additional_location" viewparam="Y"/>
+  		<actionparam form="Y" name="additional_location_address_id" paramid="additional_location_address_id" viewparam="Y"/>
+  		<actionparam executionsequence="1" form="Y" name="operationType" paramid="operationType" pre="Y" val="U" viewparam="Y"/>
+  		<actionparam executionsequence="2" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,additional_location_address_id,aar_requestid,user_id,city_additional_location,county_additional_location"/>
+  		<workflow name="generateAdditionalLocationAddressXmlData" seq="3">
+			<function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			</workflow>
+			<workflow name="updateAdditionalLocationAddress" seq="4">
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAdditionalLocationAddress_p" executionsequence="1" id="InsertUpdateDeleteAdditionalLocationAddress_p" metaobject="tbl_additional_location_address" name="InsertUpdateDeleteAdditionalLocationAddress_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			</workflow>
+			<actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,city_additional_location,county_additional_location,inet_eventid,additional_location_address_id" session="Y"/>	
+  		</action>
+  		<action name="cancelAdditionalLocationAddress">
+  		<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+  		<actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,additional_location_address_id,city_additional_location,county_additional_location,inet_eventid" session="Y"/>
+  		</action>
+  		
+  		
+  		<action name="deleteAdditionalLocationAddress">
+  		<actionparam form="Y" name="additional_location_address_id" paramid="additional_location_address_id" viewparam="Y"/>
+  		<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+  		<actionparam executionsequence="0" form="Y" name="operationType" paramid="operationType" pre="Y" val="D" viewparam="Y"/>
+  		<actionparam executionsequence="1" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="operationType,additional_location_address_id,aar_requestid,user_id"/>
+  		<workflow name="generateAdditionalLocationAddressXmlData" seq="3">
+			<function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			</workflow>
+			<workflow name="deleteAdditionalLocationAddress" seq="4">
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAdditionalLocationAddress_p" executionsequence="1" id="InsertUpdateDeleteAdditionalLocationAddress_p" metaobject="tbl_additional_location_address" name="InsertUpdateDeleteAdditionalLocationAddress_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			</workflow>	
+  		</action>
+  		<action name="editAdditionalLocationAddress">
+  		    <actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="additional_location_address_id" paramid="additional_location_address_id" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" val="editAdditionalLocation" viewparam="Y"/>
+
+  		</action>
+
+  		<action name="refreshState_additional_location">
+  			<actionparam executionsequence="2" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		</action>
+ 		<action name="saveAdditionalLocationAddress">
+  		  <actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,e_mail,contact_name,extn,agency_zip_code_2,addressline3,city_additional_location,zip,county_additional_location" viewparam="Y"/> 
+  		
+  		<actionparam executionsequence="8" form="Y" eval="PublicRule.setFaxWithoutFormat" name="fax" paramid="fax" pre="Y" />
+  		<actionparam executionsequence="8" form="Y" name="operationType" paramid="operationType" pre="Y" val="I" viewparam="Y"/>
+  		<actionparam executionsequence="8" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,additional_location_address_id,aar_requestid,user_id,city_additional_location,county_additional_location"/>
+  		<workflow name="generateAdditionalLocationAddressXmlData" seq="3">
+			<function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			</workflow>
+			<workflow name="updateAdditionalLocationAddress" seq="4">
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAdditionalLocationAddress_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="InsertUpdateDeleteAdditionalLocationAddress_p" metaobject="tbl_additional_location_address" name="InsertUpdateDeleteAdditionalLocationAddress_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+				
+			</workflow>
+			<actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="country_code_additional_location,state_additional_location,addressline1,addressline2,zip,phone,alt_phone,fax,mobile,e_mail,contact_name,extn,agency_zip_code_2,addressline3,alt_mail,operationType,additional_location_address_id,city_additional_location,county_additional_location" session="Y"/>
+  		</action>
+  		
+	 <action name="copyBusinessToDEC">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="PublicRule.isCopyBusinessToDECCheckedTrue" executionsequence="0" form="Y" name="country_code_DEC" paramid="country_code_DEC" populatename="country_code_business" post="Y"/>
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam eval="PublicRule.isCopyBusinessToDECCheckedTrue" executionsequence="1" form="Y" name="state_id_DEC" paramid="state_id_DEC" populatename="state_id_business" post="Y"/>
+      <actionparam eval="PublicRule.isCopyBusinessToDECCheckedTrue" executionsequence="2" form="Y" name="county_DEC" paramid="county_DEC" populatename="county_business" post="Y"/>
+      <actionparam eval="PublicRule.isCopyBusinessToDECCheckedTrue" executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" pre="Y" val="Y"/>
+      <workflow eval="PublicRule.isCopyBusinessToDECCheckedTrue" name="copyBusinessToDEC" seq="0">
+      		<function executionsequence="1" expression="assign(:country_code_DEC,:country_code_business);assign(:addressline1_DEC,:aar_streetaddress1_business);
+      		assign(:addressline2_DEC,:aar_streetaddress2_business);assign(:city_DEC,:aar_city_business);assign(:state_id_DEC,:aar_state_business);
+      		assign(:zip_DEC,:aar_zipcode_business);assign(:county_DEC,:county_id_business);assign(:phone_DEC,:aar_phoneno_business);assign(:fax_DEC,:aar_fax_business);
+      		assign(:po_box_DEC,:po_box_business);assign(:alt_extn_DEC,:aar_altExtn_business);assign(:e_mail_DEC,:email_business);" name="copyBusinessToDEC"/>
+      </workflow>
+    </action>
+    <action name="copyMailingToDEC">
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="PublicRule.isCopyMailingToDECCheckedTrue" executionsequence="0" form="Y" name="country_code_mailing" paramid="country_code_mailing" populatename="country_code_DEC" post="Y"/>
+      <actionparam eval="PublicRule.isCopyMailingToDECCheckedTrue" executionsequence="1" form="Y" name="aar_state_mailing" paramid="aar_state_mailing" populatename="state_id_DEC" post="Y"/>
+      <actionparam eval="PublicRule.isCopyMailingToDECCheckedTrue" executionsequence="2" form="Y" name="county_id_mailing" paramid="county_id_mailing" populatename="county_DEC" post="Y"/>
+      <actionparam eval="PublicRule.isCopyMailingToDECCheckedTrue" executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" post="Y" val="Y"/>
+      <workflow eval="PublicRule.isCopyMailingToDECCheckedTrue" name="copyMailingToDEC" seq="0"> 
+      		<function executionsequence="1" expression="assign(:country_code_DEC,:country_code_mailing);assign(:addressline1_DEC,:aar_streetaddress1_mailing);
+      		assign(:addressline2_DEC,:aar_streetaddress2_mailing);assign(:city_DEC,:aar_city_mailing);assign(:state_id_DEC,:aar_state_mailing);
+      		assign(:zip_DEC,:aar_zipcode_mailing);assign(:county_DEC,:county_id_mailing);assign(:phone_DEC,:aar_phoneno_mailing);assign(:fax_DEC,:aar_fax_mailing);
+      		assign(:po_box_DEC,:po_box_mailing);assign(:alt_extn_DEC,:aar_altExtn_mailing);" name="copyMailingToDEC"/>
+      </workflow>
+    </action>
+    <action name="copyW9ToDEC">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam eval="PublicRule.isCopyW9ToDECCheckedTrue" executionsequence="0" form="Y" name="country_code_w9" paramid="country_code_w9" populatename="country_code_DEC" post="Y"/>
+      <actionparam executionsequence="3" form="Y" name="refreshDropDown" paramid="refreshDropDown" pre="Y" val="Y"/>
+      <actionparam eval="PublicRule.isCopyW9ToDECCheckedTrue" executionsequence="1" form="Y" name="aar_state_w9" paramid="aar_state_w9" populatename="state_id_DEC" post="Y"/>
+      <actionparam eval="PublicRule.isCopyW9ToDECCheckedTrue" executionsequence="2" form="Y" name="county_id_w9" paramid="county_id_w9" populatename="county_DEC" post="Y"/>
+      <actionparam eval="PublicRule.isCopyW9ToDECCheckedTrue" executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" pre="Y" val="Y"/>
+      <workflow eval="PublicRule.isCopyW9ToDECCheckedTrue" name="copyW9ToDEC" seq="0">
+      		<function executionsequence="1" expression="assign(:country_code_DEC,:country_code_w9);assign(:addressline1_DEC,:aar_streetaddress1_w9);
+      		assign(:addressline2_DEC,:aar_streetaddress2_w9);assign(:city_DEC,:aar_city_w9);assign(:state_id_DEC,:aar_state_w9);
+      		assign(:zip_DEC,:aar_zipcode_w9);assign(:county_DEC,:county_id_w9);assign(:phone_DEC,:aar_phoneno_w9);assign(:fax_DEC,:aar_fax_w9);
+      		assign(:po_box_DEC,:po_box_w9);assign(:alt_extn_DEC,:aar_altExtn_w9);" name="copyW9ToDEC"/>
+      </workflow>
+    </action>
+	    <action name="verifyDECAddress">
+	      <actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+	      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+	      <actionparam executionsequence="0" form="Y" name="serviceNameToVerifyAddress" paramid="serviceNameToVerifyAddress" populatename="serviceName" pre="Y" viewparam="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="territory_id_DEC" paramid="territory_id_DEC" populatename="territory_id" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="country_code_DEC" paramid="country_code_DEC" populatename="country_code" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="addressline1_DEC" paramid="addressline1_DEC" populatename="addressline1" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="addressline2_DEC" paramid="addressline2_DEC" populatename="addressline2" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="po_box_DEC" paramid="po_box_DEC" populatename="po_box" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="city_DEC" paramid="city_DEC" populatename="city" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="state_id_DEC" paramid="state_id_DEC" populatename="state_id" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="county_DEC" paramid="county_DEC" populatename="county" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="zip_DEC" paramid="zip_DEC" populatename="zip" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="phone_DEC" paramid="phone_DEC" populatename="phone" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="extn_DEC" paramid="extn_DEC" populatename="extn" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="misc_phone_DEC" paramid="misc_phone_DEC" populatename="misc_phone" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="fax_DEC" paramid="fax_DEC" populatename="fax" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="e_mail_DEC" paramid="e_mail_DEC" populatename="e_mail" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="agency_zip_code_2_DEC" paramid="agency_zip_code_2_DEC" populatename="agency_zip_code_2" pre="Y"/>
+      	  <actionparam executionsequence="15" form="Y" name="agency_foreign_addr_in_DEC" paramid="agency_foreign_addr_in_DEC" populatename="agency_foreign_addr_in" pre="Y"/>
+	      <actionparam eval="PublicRule.assignAddressVerficationUserId" executionsequence="15" form="Y" name="addressVerificationUserId" paramid="addressVerificationUserId" pre="Y"/>
+	      <actionparam executionsequence="15" form="Y" name="errorDisplayKey" paramid="errorDisplayKey" pre="Y" val="DECAddress"/>
+	      <actionparam eval="PublicRule.assignUserName" executionsequence="16" form="Y" name="user_name" paramid="user_name" pre="Y" />
+	     <actionparam executionsequence="17" form="Y" name="row_id" paramid="row_id123" pre="Y" val="0"/>
+         <actionparam pre="Y" name="fieldsList" paramid="fieldsList" form="Y" val="row_id=row_id,addressline1_DEC=Address1,addressline2_DEC=Address2,
+      	  state_abbreviation=State,city_DEC=City,zip_DEC=zip"></actionparam>
+	    
+	      <actionparam checkfornullparams="agency_foreign_addr_in,agency_zip_code_2,alt_email,e_mail,fax,misc_phone,alt_extn,alt_phone,extn,phone,zip,county,state_id,city,po_box,addressline3,addressline2,addressline1,country_code,territory_id,Zip4,Zip5" executionsequence="17" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+	      <workflow name="verifyDECAddress" seq="0">
+	      <function executionsequence="0" functionid="updateMomListDataFromContextToMap" name="updateMomListDataFromContextToMap" parameters="context,adminBrokerageDetailsStep1_list_mom_2"/>
+	      	<function executionsequence="1" functionid="subStringValueFromCtx" name="subStringValueFromCtx" parameters="context,zip_DEC,0,5,Y,Zip5"/>
+	      	<function executionsequence="2" functionid="subStringValueFromCtx" name="subStringValueFromCtx11" parameters="context,zip_DEC,5,9,Y,Zip4"/>
+	      	<databaseoperation executionsequence="3" metaobject="tbl_address" name="getStateAbbreviation" operation="3" sqlstmt="select abbreviation as state_abbreviation from state_lku where state_id = #state_id#"/>
+	      	<function eval="PublicRule.isInetErrorListEmpty" executionsequence="4" functionid="convertFieldNListStringToXMLWithCustomRootElement" name="convertFieldNListStringToXMLWithCustomRootElement" parameters="context,state_abbreviation|agency_foreign_addr_in|agency_zip_code_2|alt_email|e_mail|fax|misc_phone|alt_extn|alt_phone|extn|phone|zip|county|state_id|city|po_box|addressline3|addressline2|addressline1|country_code|territory_id|addressVerificationUserId|Zip4|Zip5,Root,Root1,intgerationInputXml"/>
+	          <function executionsequence="5"  eval="integration_address_verfication_enabled" functionid="verifyAddressFromWebService" name="verifyAddressFromWebService" parameters="context"/>
+        <webservicecall eval="adapter_address_verification_enabled" name="verifyaddress" adaptername="dm-verify-address-data-adapter" 
+        version="1.0.0.0" contenttype="application/json" datasource="payload" errorkey="DECAddress" 
+        requestedby="user_name" subject ="tbl_agencyappointmentrequest" object="aar_requestid" application ="DCDM" applicationcontext="adminBrokerageDetailsStep1" executionsequence="5">
+	      <webservicecallmappingparam name="street" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="addressline1_DEC" servicevariable="address1"/> 
+	      <webservicecallmappingparam name="street2" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="addressline2_DEC" servicevariable="address2"/> 
+	      <webservicecallmappingparam name="country" isexecuteonsuccess="Y" executionsequence="2" contextvariable="country_code_DEC" servicevariable="country_code"/> 
+	      <webservicecallmappingparam name="state" isexecuteonsuccess="Y" executionsequence="3" contextvariable="state_abbreviation" servicevariable="state"/> 
+	      <webservicecallmappingparam name="city" isexecuteonsuccess="Y" executionsequence="4"  contextvariable="city_DEC" servicevariable="city"/> 
+	      <webservicecallmappingparam name="zip" isexecuteonsuccess="Y" executionsequence="5"  contextvariable="zip_DEC" servicevariable="zip"/>
+       </webservicecall>
+          <function eval="adapter_address_verification_enabled" isexecuteonsuccess="Y" name="generateListFromFieldsList" functionid="generateListFromFieldsList" parameters="context,:fieldsList,addressSuggestion_list_0" executionsequence="5"/>
+       </workflow>
+          <actionparam form="Y" name="addressSuggestion_list_0" paramid="addressSuggestion_list_0" post="Y" session="Y"/>
+	      <actionparam form="Y" name="verfyingAddressType" paramid="verfyingAddressType" post="Y" val="agencyDECAddress"/>
+      </action>
+	  <action name="agencyLocationOnChange">
+	     <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	     <actionparam post="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+	     <workflow  name="chkOtherAgencyLocation" seq="0">
+      	 	<databaseoperation executionsequence="0" metaobject="master_lookup_detail_lku" name="chkOtherAgencyLocation" operation="3" sqlstmt="select master_lookup_data_code  from master_lookup_data_lku where master_lookup_data_id =#agency_location# "/>
+         </workflow>
+	    <actionparam executionsequence="0" form="Y" name="isSkipViewchkOtherAgencyLocation" paramid="isSkipViewchkOtherAgencyLocation" val="Y" post="Y"/>
+		<actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="agency_location_other" session="Y"/>
+	    
+   	  </action>
+   	  <action name="refreshIvansSystem">
+	      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	      <actionparam post="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+	  </action>
+	  <action name="refreshIvansAccount">
+	      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	      <actionparam post="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+	  </action>
+	  
+   <action name="refreshAgencyAssociation">
+   	<actionparam viewparam="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" form="Y"></actionparam>
+   	<actionparam viewparam="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y"></actionparam>
+   	<actionparam viewparam="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" form="Y"></actionparam>
+   </action>
+   
+    <action name="addSocialMediaToSession">
+    	<validatefield name="validatefield" fields="social_media_site,social_media_userid"></validatefield>
+    	<actionparam executionsequence="0" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y"/>
+    	<actionparam eval="PublicRule.validateAgencySocialMediaData" executionsequence="0" form="Y" name="social_mediaError" paramid="social_mediaError" pre="Y"/>
+      <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="social_media_list_listfreeform_1" viewparam="Y"/>
+      <!-- <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/> -->
+      <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="social_media_site,social_media_site_desc,social_media_userid,social_media_site_filter" session="Y"/>
+      <actionparam executionsequence="0" name="listfreeformblockid" paramid="listfreeformblockid" val="social_media_list_listfreeform_1" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+      <workflow eval="PublicRule.isInetErrorListEmpty" name="addSocialMediaToSession" seq="0">
+        <businessobject eval="PublicRule.validateAgencySocialMediaData" executionsequence="0" name="addSocialMedia" obj="com.userbo.ListFreeformBO"/>
+      </workflow>
+    </action>
+    
+    <action name="deleteSocialMediaInfo">
+      <!-- <actionparam pre="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam> -->
+      <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_social_media_info.delete" viewparam="Y"/>
+      <actionparam eval="PublicRule.isPageDeleteMsg" executionsequence="0" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+      <actionparam executionsequence="0" form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="social_media_agency_id" paramid="social_media_agency_id" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="social_media_list_listfreeform_1" viewparam="Y"/>
+      <workflow name="deleteSocialMediaInfo" seq="0">
+        <businessobject executionsequence="0" name="deleteSocialMediaInfo" obj="com.userbo.ListFreeformBO"/>
+      </workflow>
+    </action>
+    <action name="showIvansTransactionType">
+  	 	<actionparam executionsequence="0" name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"/>
+	    <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>	
+	    <actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+  		<actionparam executionsequence="0" form="Y" name="ivans_download_type_id" paramid="ivans_download_type_id" viewparam="Y"/>
+  		<actionparam form="Y" name="isShowTransactionTypeDiv" paramid="isShowTransactionTypeDiv" post="Y" val="Y" session="Y"/>    
+  		<actionparam executionsequence="2" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/> 
+  	</action>
+  	<action name="updateTransactionType">
+  		<actionparam checkfornullparams="aar_requestid,ivans_download_type_id,hidden_transaction_type_id" executionsequence="0" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+  		<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+  		<actionparam executionsequence="0" form="Y" name="ivans_download_type_id" paramid="ivans_download_type_id" viewparam="Y"/>
+  		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>	
+  		<actionparam executionsequence="0" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y" viewparam="Y"/>	
+  		<workflow eval="ProducerOneRule.assignDateFields" name="updateTransactionType" seq="0">
+	      	<storedprocedureoperation name="updatePublicTransactionTypeData_p" id="updatePublicTransactionTypeData_p" dbspname="updatePublicTransactionTypeData_p" executionsequence="1" metaobject="tbl_agencyappointmentrequest" operation="1">
+	      		<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+	      		<parameteroperation indexno="2" mode="IN" property="ivans_download_type_id" seq="2"/>
+	      		<parameteroperation indexno="3" mode="IN" property="hidden_transaction_type_id" seq="3"/>
+	      		<parameteroperation indexno="4" mode="IN" property="last_updated_by" seq="4"/>
+	      		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"></resultsetoperation>
+	      	</storedprocedureoperation>
+	    </workflow>
+	    <actionparam eval="PublicRule.checkSaveMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+	    <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="1" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="isShowTransactionTypeDiv" session="Y"/>
+	    <actionparam executionsequence="2" name="inet_clear_previous_form" paramid="inet_clear_previous_form" val="N" viewparam="Y"/> 
+  	</action>
+   		
+	</component>
+	
+	<!-- <component metaobject="tbl_agency_documents;tbl_signature_acceptance;tbl_agencyprincipal" name="adminBrokerageDetailsStep9">
+		<action deltaind="M" name="view">
+		
+			<workflow deltaind="I" name="view20" seq="3">
+			
+				<databaseoperation deltaind="I" name="title" metaobject="tbl_agencyprincipal" operation="3"
+					executionsequence="3"
+					sqlstmt="select designation as title from tbl_agencyprincipal where request_id = #aar_requestid# ;">
+				</databaseoperation>
+					
+			</workflow>
+			
+			<workflow deltaind="I" name="view21" seq="4">
+			
+				<databaseoperation deltaind="I" name="email" metaobject="tbl_agencyprincipal" operation="3"
+					executionsequence="4"
+					sqlstmt="select e_mail as email from tbl_agencyprincipal where request_id = #aar_requestid# ;">
+				</databaseoperation>
+					
+			</workflow>
+			
+		</action>
+	</component> -->
+</projectcomponents>

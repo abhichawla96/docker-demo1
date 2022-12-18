@@ -1,0 +1,58 @@
+<evalrules project="ProducerOne">
+<ruleset name="ProducerOneRule">
+	<rule deltaind="I" id="isRegistrationTypeProducerRegistrationForSendInvitation"
+			expression="isEqual(:selected_agency_registration_type_desc,Producer Registration);"
+			obj="ruleobjs.ProducerOneRule" method="isRegistrationTypeProducerRegistrationForSendInvitation" />
+		<rule deltaind="I" id="isRegistrationTypePrimaryAgencyForSendInvitation"
+			expression="orCondition(isEqual(:selected_agency_registration_type_desc,Primary Agency),isEqual(:selected_agency_registration_type_desc,Secondary Agency));"
+			obj="ruleobjs.ProducerOneRule" method="isRegistrationTypePrimaryAgencyForSendInvitation" />
+	<!-- this rule was missing in the base file on git -->
+	 <rule deltaind="I" id="isRegistrationTypeProducerRegistration" expression="isEqual(:registration_type_desc,PRERG);" obj="ruleobjs.ProducerOneRule" method="isRegistrationTypeProducerRegistration" />
+   <rule deltaind="I" id="showOnAdd" expression="andCondition(isEqual(:showOnAdd,Y),isEqual(:aar_statusid_desc,Pending Contract Generation));" obj="ruleobjs.ProducerOneRule" method="showOnAdd" />
+	<rule deltaind="I" id="showOnAddAgencySetUp" expression="andCondition(isEqual(:showOnAdd,Y),isEqual(:aar_statusid_desc,Pending Agency Setup));" obj="ruleobjs.ProducerOneRule" method="showOnAdd" />
+	<rule deltaind="I" id="showOnAddAgencySentForEsign" expression="andCondition(isEqual(:showOnAdd,Y),isEqual(:aar_statusid_desc,Sent for ESignature));" obj="ruleobjs.ProducerOneRule" method="showOnAdd" />
+	<rule deltaind="I" id="showOnAddAgencyBgCheck" expression="andCondition(isEqual(:showOnAdd,Y),isEqual(:aar_statusid_desc,BG Check Submitted));" obj="ruleobjs.ProducerOneRule" method="showOnAdd" />
+	<rule deltaind="I" id="isWelcomeEmailSentMsg" expression="if(andCondition(isEmpty(:inet_errors_list),call_rule(ProducerOneRule.isNotSendInvitationEmail))=>assign(:pageMsg,getMessage(context,WelcomeemailSentSuccessfullyErrorKey)););" obj="ruleobjs.ProducerOneRule" method="isWelcomeEmailSentMsg" />
+	
+	<!-- BMIC customization - delete icon -->
+	<rule deltaind="I" id="isDeleteInvitation" expression="if(isEmpty(:inet_errors_list)=>assign(:pageMsg,getMessage(context,deleteInvitationErrorKey)););" />
+	<!-- Prod bug -Welcome Button display -->
+	<rule deltaind="I" id="isDisplayWelcomeButton" expression="andCondition(isEqual(:Status,Completed),isNot(isEmpty(:workflow_function_row)));" obj="ruleobjs.ProducerOneRule" method="showOnAdd" />
+
+		<!-- Phase 2 - P2-084 - Making Attachment Mandatory in Upload W9 Doc -->
+		<rule deltaind="I" id="isAttachmentMandatory" expression="isEqual(:attachflag,Y);"
+			obj="ruleobjs.ProducerOneRule" method="isAttachmentMandatory" />
+			
+		<!-- Upgrade Bug Id 076 -->
+		<rule deltaind="I" id="isHidingAdditionalEmail" expression="isEqual(:attachflagemail,Y);"
+			obj="ruleobjs.ProducerOneRule" method="isHidingAdditionalEmail" />
+
+			<!-- Bug Id- CR-0060 Showing Decline button on received bucket start-->
+		 <rule deltaind="I" id="isRecivedBucket" expression="isEqual(:Status,Approved);" obj="ruleobjs.ProducerOneRule" method="isRecivedBucket" />	 
+			<!-- Bug Id- CR-0060 Showing Decline button on received bucket end-->
+			
+	 <!-- UAT2 0035 & 0036 DOB and SSN make mandatory -->	
+	<rule deltaind="I" id="isLicensedProducerChecked" expression="isGreaterThan(getBeanProperty(executeDBOperation(context,a,3,SqlStmts.sqlStatementsviewgetLicensedProducerChecked),licensedProducerChecked),0);" />
+		
+	<!-- Changes done for prod bug 31110  -->	
+	<rule deltaind="I" id="isUserNameEmpty" expression="isEmpty(:user_name_app);" />
+
+	<!-- Phase 3- Adjustments Recalculation -->
+   <rule deltaind="I" id="isCYEvalChanged" expression="isEqual(:is_CYEval_changed,Y);" obj="ruleobjs.ProducerOneRule" method="isCYEvalChanged" />
+	<rule deltaind="I" id="isPYEvalChanged" expression="isEqual(:is_PYEval_changed,Y);" obj="ruleobjs.ProducerOneRule" method="isPYEvalChanged" />
+	<rule deltaind="I" id="isLossAmountChanged" expression="isEqual(:is_LossAmount_changed,Y);" obj="ruleobjs.ProducerOneRule" method="isLossAmountChanged" />
+	
+	<rule deltaind="I" id="IslossratioChanged" expression="isEqual(:is_lossratio_changed,Y);" obj="ruleobjs.ProducerOneRule" method="IslossratioChanged" />
+	<rule deltaind="I" id="ispayoutfactorChanged" expression="isEqual(is_payoutfactor_changed:,Y);" obj="ruleobjs.ProducerOneRule" method="ispayoutfactorChanged" />
+	<rule deltaind="I" id="iscontcommpayChanged" expression="isEqual(is_contcommpay_changed:,Y);" obj="ruleobjs.ProducerOneRule" method="iscontcommpayChanged" />
+		
+		
+		
+		<!-- 39089 decline and approve buttons deactivate contact start --> 
+		<rule deltaind="I" id="hideShowApproveSalesSupportDC" expression="andCondition(isEqual(:selectFunctionType_code,functionDC),isEqualsIgnoreCase(:roles,MarketingAssistant));"></rule>
+		<rule deltaind="I" id="hideShowApproveSalesDirector" expression="isEqualsIgnoreCase(:roles,SalesDirector);"></rule>
+		<!-- 39089 decline and approve buttons deactivate contact end -->
+		
+		<rule deltaind="I" id="isMarketingGroup" expression="orCondition(isEqualsIgnoreCase(:roles,MarketingGroup),isEqualsIgnoreCase(:roles,Marketing Group));" />
+	</ruleset>
+</evalrules>

@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body onclick="toggleDivDisplay('ajaxxmlname_searchByEntityName,ajaxxmlname_searchByIndName');">
+    <form>
+      <div class="container-fluid bootstrap-node-51">
+        <div class="tableWidth no-sidebar">
+          <!--=======Header Start========-->
+          <header>
+            <span id="#Include:carrier/carrierHeader.html#" />
+          </header>
+          <!--=======Header End========-->
+          <!--=======Menu Level 2 Start========-->
+            <nav class="menu-level-2">
+              <span id="#Include:admin/adminTabs2.html#" />
+            </nav>
+            <!--=======Menu Level 2 End========-->
+          <div class="bgmain">
+            <article class="content sidebar-content">
+              <!--=======Body content Start========-->
+              <div class="panel-body-wraper" id="tdContent">
+                <!--=======page Level msg Start========-->
+                <div class="errorMsgAlign clear-both" id="entityInsuranceExpiration_freeform_contextdata_01">
+                  <span id="isEntityInsuranceExpirationGT1000">
+                    <label name="pageMsg" class="error txtbold" id="pageMsg" />
+                  </span>
+                  <div id="error_dateError" class="error" />
+                </div>
+                <!--=======page Level msg End========-->
+                <section class="paddingTop10 free-form" id="entityInsuranceExpirationListing_security">
+                  <fieldset>
+                    <legend>
+                      <span id="entitytablabel">Entity</span>
+                      Insurance
+Expiration Listing
+                    </legend>
+                    <div class="gridTopPagging4">
+                      <div class="freeFormDiv form-inline entityInsuranceExpire">
+                        <div class="padding-left-form" id="entityInsuranceExpiration_freeform_contextdata_01">
+                          <ul class="inlineBlock">
+                            <li class="inlineBlock_2"  id="entityInsuranceExpirationListing_DateFrom_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_expirationDateFrom" class="error" />
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+								  <span  id="entityInsuranceExpirationListing_DateFrom_label">Expiration Date From </span>:</div>
+                                  <div class="freeFormListTd">
+									<div class="input-group date">
+										<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+										<input name="expirationDateFrom" type="text" id="ajax_field_expirationDateFrom" 
+										fullid="entityInsuranceExpiration_freeform_contextdata_01(entityInsurance_expiration_listing_security.entitytablabel).entityInsurance_expiration_DateFrom_security.entityInsurance_expiration_DateFrom_label.expirationDateFrom"
+										onkeyup="applyDateFormat(this,event);" class="form-control" />
+									</div>
+                                    <a id="date_link" class="calender_ico icons" title="Select Date" onclick="show_calendar_widget(this);" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2"  id="entityInsuranceExpirationListing_DateTo_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="error_expirationDateTo" class="error" />
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth"><span  id="entityInsuranceExpirationListing_DateTo_label">Expiration Date To </span> :</div>
+                                  <div class="freeFormListTd">
+									<div class="input-group date">
+										<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+										<input name="expirationDateTo" type="text" class="form-control" id="ajax_field_expirationDateTo" 
+										fullid="entityInsuranceExpiration_freeform_contextdata_01(entityInsurance_expiration_listing_security.entitytablabel).entityInsurance_expiration_DateTo_security.entityInsurance_expiration_DateTo_label.expirationDateTo"
+										onkeyup="applyDateFormat(this,event);" />
+									</div>
+                                    <a id="date_link" class="calender_ico icons" title="Select Date" onclick="show_calendar_widget(this);" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <section class="divButton buttons-section paddingTop10">
+                          <div class="buttonwrapper">
+                            <a id="entityInsuranceExpireListing_report_security"
+                            fullid="page(page.page)entityInsuranceExpireListing_report.entityInsuranceExpireListing_report_label.entityInsuranceExpireListing_report"
+                            href="javascript:submitform('reports/entityInsuranceExpireListing.html','entityInsuranceExpireListing.reportEntityInsuranceExpire','','');" class="ovalbutton">
+                              <span id="entityInsuranceExpireListing_report_label">Report</span>
+                            </a>
+                            <a id="entityInsuranceExpireListing_reset_security"
+                            fullid="page(page.page)entityInsuranceExpireListing_reset.entityInsuranceExpireListing_reset_label.entityInsuranceExpireListing_reset" 
+                            href="javascript:submitform('reports/entityInsuranceExpireListing.html','entityInsuranceExpireListing.cancelEntityInsuranceExpireListing','','');" class="ovalbutton">
+                              <span id="entityInsuranceExpireListing_reset_label">Reset</span>
+                            </a>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </fieldset>
+                </section>
+                <section class="paddingTop10 list-grid">
+                  <fieldset>
+                    <legend>
+                      <span id="entitytablabel">Entity</span>
+                      Insurance
+Expiration Listing Report
+                    </legend>
+                    <div class="gridTopPadding4">
+                      <div id="ajax_sorting">
+                        <table class="gridTable" cellpadding="0" cellspacing="0" width="100%" id="entityInsuranceExpiration_list_01" border="0">
+                          <tr id="checkEntityInsuranceListExist">
+                            <td colspan="8" class="pagination">
+                              <table width="100%" border="0" cellpadding="2" cellspacing="0">
+                                <tr id="Search_firm_pagination_02">
+                                  <td width="1%" nowrap="nowrap">Records per Page :</td>
+                                  <td width="1%" nowrap="nowrap">
+                                    <select id="recordsperpage" onchange="ajax_sorting" name="recordsperpage" class="inputbox" />
+                                  </td>
+                                  <td align="center">
+                                    <table cellpadding="1" cellspacing="1">
+                                      <tr>
+                                        <td class="linright">Viewing</td>
+                                        <td id="Search_firm_recordsfrom_02" class=" paginationTxt" />
+                                        <td class="linright">to</td>
+                                        <td id="Search_firm_recordsto_02" class=" paginationTxt" />
+                                        <td class="linright">of</td>
+                                        <td id="Search_firm_totalrecords_02" class=" paginationTxt" />
+                                      </tr>
+                                    </table>
+                                  </td>
+                                  <td align="right" width="5%">
+                                    <table cellpadding="1" cellspacing="1">
+                                      <tr>
+                                        <td id="Search_firm_firstpagelink_02">
+                                          <a id="entityInsuranceExpireListing_previousall" href="javascript:ajaxpagination('entityInsuranceExpireListing.html','ajax_sorting','','');" title="First Page" tabindex="21">
+                                            <img src="images/previous_all.png" border="0" />
+                                          </a>
+                                        </td>
+                                        <td id="Search_firm_previouspagelink_02">
+                                          <a id="entityInsuranceExpireListing_previousone" href="javascript:ajaxpagination('entityInsuranceExpireListing.html','ajax_sorting','','');" title="Previous" tabindex="21">
+                                            <img src="images/previous_one.png" border="0" />
+                                          </a>
+                                        </td>
+                                        <td nowrap="nowrap">Page :</td>
+                                        <td>
+                                          <select id="pagenumber" onchange="ajax_sorting" name="pagenumber" class="inputbox" />
+                                        </td>
+                                        <td id="Search_firm_nextpagelink_02">
+                                          <a id="entityInsuranceExpireListing_nextone" href="javascript:ajaxpagination('entityInsuranceExpireListing.html','ajax_sorting','','');" title="Next" tabindex="21">
+                                            <img src="images/next_one.png" border="0" />
+                                          </a>
+                                        </td>
+                                        <td id="Search_firm_lastpagelink_02">
+                                          <a id="entityInsuranceExpireListing_nextall" href="javascript:ajaxpagination('entityInsuranceExpireListing.html','ajax_sorting','','');" title="Last Page" tabindex="21">
+                                            <img src="images/next_all.png" border="0" />
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr id="entityInsuranceExpiration_list_header_01">
+                            <td width="20%" class="HeaderStyle" id="entityInsuranceExpirationListing_agency_name_security">
+                              <span id="sorting:block_field_agency_name" style="width:100px">
+                                <span id="entitytablabel">Entity</span>
+                              </span>
+                            </td>
+                            <!--
+                                          <td width="300px" class="HeaderStyle" id="sorting:block_field_contact_name">
+                                             <div style="width:50px">Contact Name</div>
+                                          </td>
+                                          -->
+                            <td width="15%"  class="HeaderStyle" id="entityInsuranceExpirationListing_carrier_name_security">
+	                            <span id="sorting:block_field_carrier_name">
+	                              <span id ="entityInsuranceExpirationListing_carrier_name_label" style="width:50px">Carrier</span>
+	                             </span>
+                            </td>
+                            <td width="20%"  class="HeaderStyle" id="entityInsuranceExpirationListing_policy_limit_security">
+                            	<span id="sorting:block_field_policy_limit">
+                              		<span id="entityInsuranceExpirationListing_policy_limit_label" style="width:90px">Policy Limit</span>
+                              	</span>
+                            </td>
+                            <td width="15%" class="HeaderStyle" id="entityInsuranceExpirationListing_expirationDate1_security">
+	                            <span id="sorting:block_field_expirationDate1">
+	                              <span id ="entityInsuranceExpirationListing_expirationDate1_label" style="width:70px">Expiration Date</span>
+	                             </span>
+                            </td>
+                            <td width="15%" class="HeaderStyle" id="entityInsuranceExpirationListing_category_name_security">
+	                            <span id="sorting:block_field_category_name">
+	                              <span id="entityInsuranceExpirationListing_category_name_label" style="width:60px">Category</span>
+	                             </span>
+                            </td>
+                            
+                            <td width="15%" class="HeaderStyle" id="entityInsuranceExpirationListing_deductible_security">
+	                            <span id="sorting:block_field_deductible">
+	                              <span id="entityInsuranceExpirationListing_deductible_label" style="width:60px">Deductible</span>
+	                             </span>
+                            </td>
+                            
+                            <td width="15%" class="HeaderStyle" id="entityInsuranceExpirationListing_self_insured_retention_security">
+	                            <span id="sorting:block_field_self_insured_retention">
+	                              <span id="entityInsuranceExpirationListing_self_insured_retention_label" style="width:60px">SIR</span>
+	                             </span>
+                            </td>
+                            
+                            <td width="20%" class="HeaderStyle" id="isShowEMailonEntityInsuranceExpireList">
+                            	<span id="sorting:block_field_e_mail">
+                              		<span style="width:60px" id="entityInsuranceExpirationListing_e_mail_label">Email</span>
+                               </span>
+                            </td>
+                            <td  class="HeaderStyle" id="entity_insurance_expiration_producer_number_security">
+                              <div id="sorting:block_field_producer_number" >
+                                <span id="producernumberfieldlabel">Producer Number</span>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr id="entityInsuranceExpiration_list_data_01">
+                            <td id="entityInsuranceExpirationListing_agency_name_security">
+                            	<span id="block_field_agency_name">
+                              		<a id="entityInsuranceExpireListing_edit" href="javascript:submitform('carrier/docInsuranceDetail.html','entityInsuranceExpireListing.entityInsuranceGeneralDetailPage','','');" />
+                              	</span>
+                            </td>
+                            <!--
+                                          <td   id="block_field_contact_name">
+                                              <a href="javascript:submitform('carrier/docInsuranceDetail.html','entityInsuranceExpireListing.entityInsuranceGeneralDetailPage','','');">
+                                              </a>
+                                          </td>
+                                          -->
+                            <td id="entityInsuranceExpirationListing_carrier_name_security" >
+                            	<span id="block_field_carrier_name"></span>
+                            </td>
+                            <td id="entityInsuranceExpirationListing_policy_limit_security" >
+                            	<span id="block_field_policy_limit"></span>
+                            </td>
+                            <td id="entityInsuranceExpirationListing_expirationDate1_security" >
+                            	<span id="block_field_expirationDate1"></span>
+                            </td>
+                            <td id="entityInsuranceExpirationListing_category_name_security">
+                            	<span id="block_field_category_name"></span>
+                            </td>
+                             <td id="entityInsuranceExpirationListing_deductible_security">
+                            	<span id="block_field_deductible"></span>
+                            </td>
+                            <td id="entityInsuranceExpirationListing_self_insured_retention_security">
+                            	<span id="block_field_self_insured_retention"></span>
+                            </td>
+                            <td id="isShowEMailonEntityInsuranceExpireList">
+                              <span id="block_field_e_mail" />
+                            </td>
+                            <td id="entity_insurance_expiration_producer_number_security">
+                              <span id="block_field_producer_number" />
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <section id="checkEntityInsuranceListExist" class="divButton buttons-section paddingTop10">
+                        <div class="buttonwrapper">
+                          <a class="ovalbutton" id="checkEntityInsuranceListExist_exportResult_security"
+                          fullid="page(page.page)checkEntityInsuranceListExist_exportResult_security.checkEntityInsuranceListExist_exportResult_label.checkEntityInsuranceListExist_exportResult_security" 
+                           href="javascript:submitform('reports/entityInsuranceExpireListing.html','entityInsuranceExpireListing.exportEntityInsuranceExpirationExcel','','');">
+                            <span>Export Result</span>
+                          </a>
+                        </div>
+                      </section>
+                    </div>
+                  </fieldset>
+                </section>
+              </div>
+              <!--=======Body content End========-->
+            </article>
+          </div>
+          <!--=======Footer Start========-->
+          <footer>
+            <span id="#Include:admin/adminFooter.html#" />
+          </footer>
+          <!--=======Footer End========-->
+        </div>
+      </div>
+      <div class="calendar_widget" id="calendar_widget">
+        <iframe id="calendar_widget_iframe" name="calendar_widget_iframe" src="calendar_widget.html" frameborder="0" />
+      </div>
+      <div class="hiddenFields" id="entityInsuranceExpiration_freeform_contextdata_0">
+        <input type="hidden" name="jsessionid" id="jsessionid" />
+      </div>
+    </form>
+  </body>
+</html>
+

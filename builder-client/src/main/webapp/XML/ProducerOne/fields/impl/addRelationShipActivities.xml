@@ -1,0 +1,8 @@
+<fields project="ProducerOne">
+  <field deltaind="M" id="addRelationShipActivities_activity_person_id" screen="carrier/addRelationShipActivities.html" name="activity_person_id" isrequired="Y" labelkey="activity_person_id_label" tabsconfigurationresourcename="activity_person_id_security" protectedresourceuniquename="activity_person_id_security" isextendedfield="N" executionsequence="0" isencrypt="N" isprintbeforelabel="N" iscacheenabled="N" requiredlength="0"
+  lookupobjectsql="select a.person_id as person_id,b.prdcr_first_name+' '+b.prdcr_last_name as prdcr_last_name from agency_person a Inner Join person b on b.person_id = a.person_id and a.agency_id =#agency_id# order by b.prdcr_first_name asc"
+   displayfield="prdcr_last_name" valuefield="person_id"
+  lookupobjecttype="sql">
+    <validation name="checkActivityPersonid" expression="if(andCondition(isEmpty(:activity_person_id),andCondition(isEqual(:carrier_tab,relationship),call_rule(ProducerOneRule.showconverstiondiv)))=&gt;isEqual(1,2)-&gt;isEqual(1,1));" message="ActivityIndividualNameErrorKey" ruleid="ProducerOneRule.checkActivityPersonid" executionsequence="0" />
+  </field>
+</fields>

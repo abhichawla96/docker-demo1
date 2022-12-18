@@ -1,0 +1,10 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="homeAction;sendInvitation;agency_master" name="homeAction" stackdisplayname="Home" displayname="Dashboard"
+  	labelkey="homeAction_label" securitykey="homeAction_page">
+  
+    <action deltaind="M" name="showSendOnboardingInvitation">
+      <actionparam deltaind="I" form="Y" name="a" paramid="a" pre="Y" remove="Y" removeparams="person_first_name_forInvitation,primary_agency_name_forInvitation,entity_name_forInvitation,selected_primary_agency_code_id" session="Y" /> 
+    </action>
+        
+  </component>
+</projectcomponents>

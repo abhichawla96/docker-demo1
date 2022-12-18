@@ -1,0 +1,40 @@
+<fields project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	
+	<field id="" screen="" objectcolumn="" name="" description="" labeldesc="" datatype="" displaytype="" maxlength="" isrequired="" requiredeval="" defaultvalue="" 
+		lookupobjectname="" lookupobjectsql="" lookupobjectmetaobject=""
+		lookupobjectprocedure="" lookupobjectprocedureparameters="" displayfield="" valuefield="" labelkey="" tabsconfigurationresourcename=""
+		accesslevel="" protectedresourceuniquename="" position="" tooltip="" isextendedfield="" mappedto="" executionsequence="" css=""
+		isencrypt="" errormsgkey="" applid="" deltaind="" format="" otherformat=""
+		isdisplayonhistory="" section="" metaobject="" lookupobjecttype="" lookupobjectbo="" mappedtoscreen=""
+		encryptcode="" decryptcode="" isprintbeforelabel="" iscacheenabled="" requiredlength="">
+		<nodeinfo uniqueid="id">
+			<attribute name="executionsequence" datatype="int" />
+			<attribute name="isextendedfield" datatype="boolean" />
+			<attribute name="isencrypt" datatype="boolean" />
+			<attribute name="isdisplayonhistory" datatype="boolean" />
+			<attribute name="isprintbeforelabel" datatype="boolean" />
+			<attribute name="iscacheenabled" datatype="boolean"/>
+			<attribute name="requiredlength" datatype="int" />
+		</nodeinfo>
+		<validation name="" expression="" message="" executionsequence="" isskip="" ruleid="" deltaind="">
+			<nodeinfo uniqueid="name">
+				<attribute name="executionsequence" datatype="int" />
+				<attribute name="isskip" datatype="boolean" />
+			</nodeinfo>
+		</validation>
+		<event id="" name="" securitykey="" actiontype="" screen="" action="" actiontypeid="" executionsequence="" deltaind="">
+			<nodeinfo uniqueid="id">
+				<attribute name="executionsequence" datatype="int" />
+			</nodeinfo>
+			<forward id="" screen="" securitykey="" executionsequence="" deltaind="">
+	    		<nodeinfo uniqueid="id">
+					<attribute name="executionsequence" datatype="int" />
+				</nodeinfo>
+	    	</forward>
+    	</event>
+	</field>
+	
+</fields>		

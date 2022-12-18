@@ -1,0 +1,88 @@
+<html>
+     <head>
+           <meta http-equiv="Content-Type" content="text/html; charset=us-ascii"/>
+     </head>
+     <body bgcolor="#d7d7d7">
+
+           <table cellspacing="0" cellpadding="0" border="0" width="100%"
+                bgcolor="#d7d7d7">
+                <tr>
+                     <td>
+                           <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                                <td width="25">
+                                                <img src="{applicationURL}/images/headerLeft.png" border="0" />
+                                    </td>
+                                    <td width="125">
+                                                <img src="{applicationURL}/images/p1LogoMail.png" border="0" />
+                                    </td>
+                                     <td align="left">
+                                     </td>
+                                     <td width="25">
+                                                <img src="{applicationURL}/images/headerRight.png" border="0" />
+                                     </td>
+                                </tr>
+                                <tr>
+                                     <td bgcolor="#ffffff"></td>
+									 <td bgcolor="#ffffff" colspan="2">
+
+                                           <table cellspacing="0" cellpadding="0" border="0"
+                                                bgcolor="#ffffff" width="100%">
+
+                                                <tr>
+                                                     <td>
+                                                           
+                                                     </td>
+                                                </tr>
+
+                                                <tr>
+                                                     <td
+                                                           style="padding: 10px 20px ;">
+                                                           <div style='width:100%; white-space: normal; line-height:20px'>{body}</div>
+                                                     </td>
+                                                </tr>
+
+
+                                                <tr id="isRegardsRequired">
+                                                     <td  style="padding: 10px 20px 0px;">
+                                                           Regards,
+                                                     </td>
+                                                </tr>
+                                                <tr id="isThanksNameRequired">
+                                                     <td  style="padding: 0px 20px;">
+                                                           ##thanks_name##
+                                                     </td>
+                                                </tr>
+
+                                                <tr id="isRegardsNameRequired">
+                                                     <td style="padding: 0px 20px;">
+                                                           ##regards##
+                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                     <td>
+                                                           
+                                                     </td>
+                                                </tr>
+                                           </table>
+                                     </td>
+                                     <td bgcolor="#ffffff"></td>
+                                </tr>
+                                <tr>
+                                                <td>
+                                                <img src="{applicationURL}/images/mailFooterLeft.png" border="0" />
+                                    </td>
+                                     <td colspan="2" bgcolor="#ffffff">
+                                                
+                                     </td> 
+                                     <td>
+                                                <img src="{applicationURL}/images/mailFooterRight.png" border="0" />
+                                    </td>
+                                     
+                                </tr>
+                           </table>
+                     </td>
+                </tr>
+           </table>
+     </body>
+</html>

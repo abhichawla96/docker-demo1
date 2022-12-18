@@ -1,0 +1,14 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component name="frameworksqlStatements">
+		<action name="view">
+      		<workflow name="view" seq="0">
+      			
+	        	<storedprocedureoperation deltaind="I" dbspname="getNotificationEmailIds_p_java" executionsequence="7" id="getNotificationEmailIds_p_java" metaobject="framework" name="getNotificationEmailIds_p_java" operation="3">
+		        	<parameteroperation indexno="0" mode="IN" property="xml" seq="1"/>
+		          	<parameteroperation indexno="1" mode="OUT" property="output_emailaddresses" seq="2"/>
+		        </storedprocedureoperation>
+	        	
+	        </workflow>
+      	</action>
+    </component>
+</projectcomponents>

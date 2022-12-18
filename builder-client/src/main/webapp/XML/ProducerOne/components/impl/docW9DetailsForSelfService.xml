@@ -1,0 +1,22 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="agency_w9_ss" name="docW9DetailsForSelfService" stackdisplayname="Requests">
+   
+   <!-- Phase 2 - P2-084 - Making Attachment Field Mandatory in Upload W9 Document -->
+    <action deltaind="M" name="view">
+    	<actionparam deltaind="I" executionsequence="0" pre="Y" form="Y" name="attachflag" paramid="attachflag" val="Y"/>
+    </action>
+    
+    <!-- START - Self Service - Upload W9 Show/Hide -->
+    <action deltaind="M" name="addDocW9ForSelfServiceApproval">
+      <actionparam deltaind="I" executionsequence="0" form="Y" name="hideShow_w9section" paramid="hideShow_w9section" val="Y" viewparam="Y"/>
+    </action>
+    <!-- END - Self Service - Upload W9 Show/Hide -->
+    
+    <!-- Bug-40448 START - Self Service - Upload W9 Show/Hide -->
+    <action deltaind="M" name="edit">
+      <actionparam deltaind="I" executionsequence="0" form="Y" name="hideShow_w9section" paramid="hideShow_w9section" val="Y" viewparam="Y"/>
+    </action>
+    <!-- Bug-40448 END - Self Service - Upload W9 Show/Hide -->
+    
+  </component>
+</projectcomponents>

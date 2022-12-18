@@ -1,0 +1,380 @@
+<labelconf project="ProducerOne">
+ <label deltaind="M" labeldesc="Approve" labelkey="agencyListPublicSubmitNInvitationEdit_approvebyassigneelabel"/>
+ <!-- Change Final Question Start - Phase 2  -->
+ <label deltaind="I" labeldesc="How did you hear about Company" labelkey="learn_about_label"/>
+ <label deltaind="I" labelkey="interest_for_appointment_label" labeldesc="How will Builders Mutual Insurance Company meet the needs of your agency and how will you meet your minimum production requirement"/>
+ <!-- Change Final Question End - Phase 2  -->
+ <label deltaind="M" labeldesc="Years in Business" labelkey="years_in_business_label"/>
+ <label deltaind="I" labelkey="addendum_to_agency_desc_label" labeldesc="By the agreement below, Agent and the Sample Insurance Companies agree to amend the Agency Agreement between them as follows:"/>
+ <label deltaind="I" labelkey="addendum_to_agency_q1_label" labeldesc="1. Agent understands and agrees that Agent does not have the authority to place business with Sample Insurance Companies which would violate any provisions of any contract between the Agent and the insurance company, agency or previous employer entered in the box below."/>
+ <label deltaind="I" labelkey="addendum_to_agency_q2_label" labeldesc="2. Agent agrees to indemnify and hold the Sample Insurance Companies harmless from any claims, losses, damages, costs or expense, including without limitation reasonable attorney fees, it may incur arising out of Agent's breach or alleged breach of any non-complete agreement to which he/she is a party."/>
+ <label deltaind="M" labeldesc="Account Type Usage" labelkey="ss_bank_account_type_trust_operating_label"/>
+ <label deltaind="M" labelkey="checkIsShowDocumentInsuranceTab_menulabel" labeldesc="E&amp;O"></label>
+ <label deltaind="M" labeldesc="License Verification" labelkey="nipr_appointment_bucket_label"/>
+ <label deltaind="M" labeldesc="Proceed to License Verification" labelkey="entitybackgroundlist_proceedtoappointmentslabel"/>
+ <label deltaind="M" labeldesc="Received" labelkey="pending_bg_check_label"/>
+ <label deltaind="M" labeldesc="Licenses Verified" labelkey="onboard_appointed_with_nipr_label"/>
+ <label deltaind="M" labeldesc="License Verification Failed" labelkey="onboard_failed_appointment_label"/>
+ <label deltaind="M" labeldesc="Agency Setup Checklist" labelkey="pending_legacy_setup_label"/>
+ <label deltaind="M" labeldesc="E&amp;O" labelkey="insurancelabel"/>
+ <!-- Onboarding dashboard -->
+ 
+   <label deltaind="M" labeldesc="Pending License Verification" labelkey="onboard_pending_appointment_label"/>
+   <label deltaind="M" labeldesc="Agency Status" labelkey="agentstatus_label"/>
+   
+<!--Sprint 1 : Bug Id : 0002 -->
+   
+   <label labeldesc="On-Hold" labelkey="onhold_link_rejected_bucket_label"/>
+    
+   
+ 
+ <!-- Agency REview -->
+ <label deltaind="M" labeldesc="Premium Volume and Production Information" labelkey="agencyListEdit_premium_volume_commitment_to_sample_label"/>
+<label deltaind="M" labeldesc="Annual Premium Volume" labelkey="agencyListEdit_premium_volume_monthly_premium_label"/>
+<label deltaind="M" labeldesc="Monthly Application Written" labelkey="agencyListEdit_premium_volume_yearly_premium_label"/>
+<label deltaind="M" labeldesc="Annual Application Written" labelkey="agencyListEdit_premium_volume_next3year_premium_label"/>
+<!--Sprint 1 : Review of Agency Application : Approval & Duplicity check -->
+
+  <label deltaind="M" labeldesc="W-9 Legal Name" labelkey="agencyListEdit_general_taxpayer_name_label"/>
+  <label deltaind="M" labeldesc="Agency Name" labelkey="agencyListEdit_general_agency_office_label"/>
+  <label deltaind="M" labeldesc="Agency Web Address" labelkey="agencyListEdit_general_aar_webaddress_label"/>
+  <label deltaind="M" labeldesc="Email" labelkey="submit_invitation_email_businessaddress_label"/>
+  <label deltaind="M" labeldesc="Street Address #1" labelkey="submit_invitation_streetAddress1_mailingaddress_FieldLabel"/>
+  <label deltaind="M" labeldesc="Street Address #1" labelkey="submit_invitation_streetAddress1_w9address_FieldLabel"/>
+  <label deltaind="M" labeldesc="Top Three Companies Appointed" labelkey="agencyListEdit_top_companies_appointed_label"/>
+  <label deltaind="M" labeldesc="Designation" labelkey="principal_keyContact_position_label"/>
+  <label deltaind="M" labeldesc="Total Number of Employees" labelkey="agencyListEdit_general_no_of_staff_label"/>
+  <label deltaind="M" labeldesc="Number of Licensed Producers" labelkey="agencyListEdit_general_aar_nooflicproducers_label"/>
+  <label deltaind="M" labeldesc="I understand that I am required to carry at least $1,000,000 of coverage. If I have less than $1,000,000 of coverage, I agree to increase it to $1,000,000." labelkey="agencyListEdit_eoClaimsDeclaration__label"/>
+  <label deltaind="M" labeldesc="Line Of Business" labelkey="agency_lob_label"/>
+ 
+ <!-- Agency Setup -->
+ 
+  <label deltaind="M" labeldesc="Agency Name" labelkey="agencyOfficeNamelabel"/>
+  <label deltaind="M" labeldesc="W-9 Legal Name" labelkey="taxpayer_name_label"/>
+   <label deltaind="M" labeldesc="Agency Web Address" labelkey="url_label"/>
+  <label deltaind="M" labeldesc="Please Verify Business Address" labelkey="verify_business_address_label"/>
+  <label deltaind="M" labeldesc="Street Address #1" labelkey="streetAddress1_mailingaddress_FieldLabel"/>
+  <label deltaind="M" labeldesc="Please Verify Mailing Address" labelkey="verify_mailing_address_label"/>
+  <label deltaind="M" labeldesc="Street Address #1" labelkey="streetAddress1_w9address_FieldLabel"/>
+  
+   <!-- BUG ID : 0050 -->
+  <label deltaind="M" labeldesc="Line of Business" labelkey="invitationStep1_agency_lob_label"/>
+
+  <!-- US: OB-OB-004-17 -->
+  <label deltaind="M" labeldesc="Please select the states you are currently licensed. Builders Mutual Insurance states are in bold. You will be appointed in the Builders Mutual states you are licensed." labelkey="isShowStatesInOnboarding_label"/>
+ 
+  
+<!-- Sprint 3 : Agency and Agent Demographics- General (Add new Agency) -->
+
+  <label deltaind="M" labeldesc="Agency Name" labelkey="addNewAgencyPage_legal_company_label"/>
+  <label deltaind="M" labeldesc="Email" labelkey="addNewAgencyPage_e_mail_business_label"/>
+  <label deltaind="M" labeldesc="Legal Form" labelkey="addNewAgency_legal_form_label"/>
+
+<!-- Sprint 3 : Agency and Agent Demographics- General (Add Secondary_Branch Agency) --> 
+
+  <label deltaind="M" labeldesc="W-9 Legal Name" labelkey="taxpayer_name_label"/>
+  <label deltaind="M" labeldesc=" Please Verify W9 Address" labelkey="verify_w9_address_label"/>
+  
+ 
+
+<!-- Sprint 3 : Agency and Agent Demographics- General (creation&main of Agency code) -->  
+  
+  <label deltaind="M" labeldesc="Position Manager" labelkey="position_manager_id_prodOrgMapping_label"/>
+  <label deltaind="I" labeldesc="County" labelkey="county_id_prodOrgMapping_label"/>
+
+<!-- OB-GEN-015-2 -->
+   <label deltaind="M" labeldesc="Contact" labelkey="doc_contract_principal_contact_label"/>
+<!-- Sprint 3 : Agency and Agent Demographics- General (Documents - E&O ) -->  
+  
+  <label deltaind="M" labeldesc="E&amp;O Contact" labelkey="doc_insurance_block_person_name_label"/>
+  <label deltaind="M" labeldesc="E&amp;O Contact" labelkey="doc_insurance_insurance_contact_label"/>
+  <label deltaind="M" labeldesc="Producer W-9 Name" labelkey="doc_w9_list_agency_w9_label"/>
+  
+  
+  <label deltaind="I" labeldesc="I understand it&apos;s required to obtain and maintain a policy or policies of cyber liability insurance coverage with limits of liability of at least $500,000.Please attach a copy of your current declaration page in the Additional Documents section at the end of the application. Click the box to agree to these terms." labelkey="add_new_cyber_liability_eo_claims_declaration_label"/>
+  
+
+<!-- Sprint 3:Agency Profile -->
+<label deltaind="M" labeldesc="Email" labelkey="profile_BA_e_mail_label"/>
+<label deltaind="M" labeldesc="E&amp;O Contact" labelkey="agencyProfile_doc_insurance_block_person_name_label"/>
+  
+ <label deltaind="M" labeldesc="Total Agency Volume" labelkey="total_annual_revenue_label"/>
+ 
+
+  <label deltaind="M" labeldesc="Producer Privileges" labelkey="spinn_privileges_label"/>
+  <label deltaind="M" labeldesc="Premium Volume and Production Information" labelkey="premium_volume_by_lob_label"/>
+ 
+<label deltaind="M" labelkey="entityGeneralDetails_segment_label" labeldesc="Tier" />
+
+<!-- Bug id : 0113 -->
+
+  <label deltaind="M" labelkey="total_annual_revenue_label" labeldesc="Total Agency Volume" />
+
+ <!-- BUG id : 0194  -->
+ <label deltaind="M" labeldesc="How did you hear about Company?" labelkey="agencyListEdit_comments_hear_about_label"/>
+  <label deltaind="M" labeldesc="Explain any interest in any other business or occupation outside of this agency" labelkey="agencyListEdit_comments_interest_outside_label"/>
+ 
+
+<!-- Sprint 4 -->
+<label deltaind="M" labeldesc="LOB" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_market_label"/>
+<label deltaind="M" labeldesc="Reason Other" labelkey="agencyFunctions_selectFunctionType_termination_reason_other_label"/>
+<label deltaind="M" labeldesc="Termination Notice Date" labelkey="agencyTerminationNoticeDateLabel"/>
+<label deltaind="I" labeldesc="Product" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_product_label"/>
+
+<!-- prod validation -->
+
+<label deltaind="M" labeldesc="LOB" labelkey="productValidationDetails_lob_id_Filter_label"/>
+
+<label deltaind="I" labeldesc="Product" labelkey="prod_validation_product_fieldLabel"/>
+
+<!-- Bug id : 0172 -->
+
+    <label deltaind="M" labeldesc="Social Security Number" labelkey="agent_ssn_field_label"/>
+  
+  <!-- Bug id : 0161 -->
+  
+  <label deltaind="M" labeldesc="Designation" labelkey="positionTitlelabelkey"/>
+
+<!-- Bug id : 0131 -->
+
+  <label deltaind="M" labeldesc="Explain any interest in any other business or occupation outside of this agency" labelkey="agencyListEdit_comments_interest_outside_label"/>
+<label deltaind="M" labeldesc="Number of CSR&apos;s" labelkey="num_csr_label"/>
+ <!-- Bug id : 177-->
+ 
+ <label deltaind="M" labelkey="agencyListPublicSubmitNInvitationEdit_narrative_question_3_label" labeldesc="Comment on neighboring Builders Mutual Insurance Agencies and with this appointment"/>
+ 
+ <label deltaind="I" labeldesc="" labelkey="Dividend_label"/>
+<label deltaind="I" labeldesc="" labelkey="Policy_label"/>
+	  <!-- Extended fields -->
+ <label deltaind="I" labelkey="review_dividend_distribution_label" labeldesc=""/>
+ <label deltaind="I" labelkey="review_policyholder_copies_label" labeldesc=""/>
+ <label deltaind="I" labelkey="agent_copies_label" labeldesc=""/>
+ <!-- <label deltaind="I" labelkey="policyholder_copies_label" labeldesc=""/>
+ <label deltaind="I" labelkey="dividend_distribution_label" labeldesc=""/> -->
+ 
+ <!-- for Market Information -->
+ <label deltaind="M" labelkey="entityOtherInformation_narrative_question_3_label" labeldesc="Comment on neighboring Builders Mutual Insurance Agencies and with this appointment"/>
+
+ <label deltaind="M" labeldesc="How will Builders Mutual Insurance Company meet the needs of your agency and how will you meet your minimum production requirement?" labelkey="agencyListEdit_comments_min_prod_req_label"/>
+
+ <label deltaind="I" labeldesc="Total volume commitment with Builders Mutual Insurance Company Used for " labelkey="adminBrokerageStep6_marketinformation_lob_production_commitment_sectionHeading_label"/>
+ 
+  <label deltaind="M" labeldesc="Verify Residence Address" labelkey="verify_person_w9_address_label"/>
+  
+  <!-- Test Change in Cyber Liability Declaration Form -->
+  <label deltaind="I" labeldesc=" I understand it's required to obtain and maintain a policy or policies of cyber liability insurance coverage with limits of liability of at least $500,000. Please attach a copy of your current declaration page in the Additional Documents section at the end of the application. Click the box to agree to these terms." labelkey="cyber_liability_eo_claims_declaration_label"/>
+  
+  <!--   PHASE 2 DEVELOPMENT LTI JUNE 2021 -->
+  
+  
+  <!-- Label Change in Prospect - Phase 2 -->
+  <label deltaind="M" labeldesc="Territory Manager" labelkey="marketingRepFieldLabel"/>
+  <label deltaind="M" labeldesc="Territory Manager" labelkey="pd_account_executive_label"/>
+  
+   <!-- Label Change in Market Information - Phase 2 -->
+   <label deltaind="M" labeldesc="Top Three Companies Appointed" labelkey="top_companies_appointed_label"/>
+    
+   <!--  Years Of Current Ownership label & Additional Email Address update- Phase 2 -->
+   <label deltaind="I" labeldesc="Years of Current Ownership" labelkey="prospectYearsOfCurrentOwnershipLabel"/>
+   <label deltaind="I" labeldesc="Email" labelkey="additional_email_address_entityGeneralDetails_label"/>
+   
+   <!-- Prospect Market Information - Final Question - Phase 2 -->
+   <label deltaind="I" labeldesc="Explain any interest in any other business or occupation outside of this agency" labelkey="interest_in_other_business_label"/> 
+   
+  <!-- Phase 2 - SS-002-10 - Add/Update Contact--> 
+  <label deltaind="M" labeldesc="Designations" labelkey="position_title_label"/>
+  <label deltaind="M" labeldesc="Email" labelkey="email_residence_agent_selfservice_field_label"/>
+  <label deltaind="M" labeldesc="Business Address" labelkey="agent_business_ss_label"/>
+  
+  <!-- Phase 2- SS-002-20 - Add/Update Contact - Changing Agent Number to Agency Code -->
+  <!-- For the field -->
+  <label deltaind="M" labeldesc="Agency Code" labelkey="entityRequests_agentnumber_label"/>
+  <!-- For the column -->
+  <label deltaind="I" labeldesc="Agency Code" labelkey="entityRequests_AgentNumber_label"/>
+  
+  
+  <!-- Phase 2- P2-048 - Spelling Mistake in PPRM- Market Information- Agency Review Section -->
+  <label deltaind="I" labeldesc="Review of Agency Experience: Review of the agency experience with their other carriers. There must be a history of underwriting profit for at least three of the last five years for all companies represented. Obtain copies of year-end experience report, and look for a pattern of unexplained losses in a major line :" labelkey="agency_experience_label"/>
+  <label deltaind="M" labeldesc="Review of Agency Financials : The agency should have strong financial statements, two year of balance sheets and income statements. Look for acceptable financials ratios, trust ratio ,and account receivable ratio." labelkey="agency_financials_label"/>
+  
+  <!-- Phase 2- P2-049 - Spelling Mistake in PPRM- Market Information- Premium Volume and Production Information Section -->
+  <label deltaind="M" labeldesc="Total" labelkey="premium_totalpremium_label"/>
+  
+  <!-- Phase 2 - SS-002-25- Add/Update Contact--> 
+  <!-- Phase 2- SS-001-17- Agency Code on Update Location Page -->
+  <label deltaind="M" labeldesc="Agency Code" labelkey="entityRequests_agentnumber_label"/>
+  
+  
+  <!-- Phase 2- SS-001-04- Changing labels on Update Location Page -->
+  <label deltaind="M" labeldesc="Agency Name" labelkey="name_securityHeader_label"/>
+  <label deltaind="M" labeldesc="Agency web Address" labelkey="entityGeneralDetailsForSelfServiceApproval_url_label"/>
+  <label deltaind="M" labeldesc="W-9 Legal Name" labelkey="entityGeneralDetailsForSelfServiceApproval_taxpayer_name_label"/>
+  <label deltaind="M" labeldesc="Mailing Address" labelkey="mailing_addressDiv_selfService_label"/>
+  <label deltaind="M" labeldesc="Email" labelkey="email_id_business_ss_label"/>
+  <label deltaind="M" labeldesc="Business Address" labelkey="agency_business_ss_label"/>
+ 
+ <!-- Phase 2 - Self Service SS-004-06 -->
+  <label deltaind="M" labeldesc="E&amp;O Contact" labelkey="addInsuranceDetailsForSelfServiceApproval_doc_insurance_insurance_contact_label"/>
+ 
+ <label deltaind="I" labeldesc="Coverage Amount" labelkey="addInsuranceDetailsForSelfServiceApproval_coverage_amount_label"/>
+ 
+ <!-- Phase 2 - SS-004-23- Add/Update E&O-->  
+   <label deltaind="M" labeldesc="Agency Code" labelkey="entityRequests_agentnumber_label"/>
+   
+ <!-- Phase 2- Bug Id- P2-064- Update Agency Location  -->
+ <label deltaind="M" labeldesc="Total Number of Employees" labelkey="entityGeneralDetailsForSelfServiceApproval_no_of_staff_label"/> 
+ 
+
+ 
+ <!-- Phase 2 - Bug Id-  P2-068 --> 
+<label deltaind="M" labeldesc="I understand that I am required to obtain and maintain errors and omissions insurance in an amount not less than $1,000,000 of coverage. Please attach a copy of your current declaration page in the Additional Documents section at the end of the application.Click the box to agree these terms." labelkey="add_new_insurance_detail_for_self_service_eo_claims_declaration_label"/>
+		
+ <!-- Phase 2- Bug Id- P2-100- Add Bank Information -->
+ <label deltaind="M" labeldesc="Add Bank Information" labelkey="addupdate_bakinformation_label"/>
+ 
+ <!-- Phase 2- Bug Id- P2-050- Market Information- Premium Volume and Production Information -->
+  <label deltaind="M" labeldesc="Monthly Application Written" labelkey="premium_lob_yearly_premium_label"/>
+  <label deltaind="M" labeldesc="Annual Application Written" labelkey="premium_lob_next3year_premium_label"/>
+  <label deltaind="M" labeldesc="Annual Premium Volume" labelkey="premium_lob_monthly_premium1_label"/>
+  
+  <!-- Phase 3- Paid to Collected Premium --> 
+  <label deltaind="M" labeldesc="Collected Premium" labelkey="addNewCommissionSchedule_paidpremium"/>
+  
+  <!-- Phase 3: Renaming Exception col to Applicable to all -->
+  <label deltaind="M" labeldesc="Applicable to All" labelkey="commission_global_schedule_label"/>
+  
+ <!-- Upgrade- Bug Id- U020- Email in business address section-->
+ <label deltaind="M" labeldesc="Email" labelkey="email_id_business_agent_ss_label"/>
+
+  <!-- Customization to configuration changes -->
+  <label deltaind="M" labeldesc="Agency&#39;s Total P&#38;C Written Premium Previous Year" labelkey="marketinfo_total_written_premium_previous_year_end_label"/>
+
+
+ <!-- Upgrade- Bug Id- U077- Email in Agency Termination -->
+ <label deltaind="M" labelkey="email_businessaddress_label" labeldesc="Email" />
+
+   
+<!-- Phase 3- Reports label change to 50,000 -->  
+<label deltaind="M" labelkey="commission_masterLevelExceeding_report_label" labeldesc="Commission Paid at Master level exceeding $50,000 (AIM168)"/>
+    
+<!-- Phase 3: Task 23400- Rename the dashboard  -->
+<label deltaind="M" labeldesc="Contingency Commission Dashboard" labelkey="contingentCommissionBonusDashboardlabel"/>
+<label deltaind="M" labeldesc="Contingency Commission Statement" labelkey="contingentCommissionBonusMapPortallabel"/>
+   
+<!-- Phase 3- Bug Id- 25140- Product filter -->  
+<label deltaind="M"  labeldesc="Agency Code" labelkey="agencyadmindashboard_commission_productid_label"/>
+
+
+<!-- Phase 3- Contingency Commission Schedules -->  
+<label deltaind="M" labeldesc="Contingency Commission" labelkey="incentiveIDlabel"/>
+<label deltaind="M" labeldesc="Add New Contingency Commission Schedule" labelkey="addNewIncentiveSchedulelabel"/>
+<label deltaind="M" labeldesc="Contingency Commission Schedule" labelkey="incentivelabel"/>
+<label deltaind="M" labelkey="adminTabs2_incentive_schedule_security_menulabel" labeldesc="Contingency Commission Schedule"></label>
+<label deltaind="M" labelkey="incentive_schedule_filter_label" labeldesc="Contingency Commission"/>
+<label deltaind="I" labelkey="incentiveID_label" labeldesc="Contingency Commission"/>
+   
+<!-- Phase 3- Task Id-26329 -->
+<label deltaind="I" labelkey="bobtransfersStep1_enterfromagentnumberlabel" labeldesc="Enter From Agency Code"/>
+<label deltaind="I" labelkey="bobtransfersStep2_fromagentnumberlabel" labeldesc="From Agency Code"/>
+<label deltaind="I" labelkey="bobtransfersStep1_entertoagentnumberlabel" labeldesc="Enter To Agency Code"/>
+<label deltaind="I" labelkey="bobtransfersStep2_toagentnumberlabel" labeldesc="To Agency Code"/>
+<label deltaind="I" labelkey="bobtransferStep2_toagentnumberlabel" labeldesc="Enter Destination Agency Code"/>
+
+
+<!-- Phase 3- Task Id-26332 -->
+<label deltaind="M" labeldesc="Agency Code" labelkey="bobtransferStep2_agentnumberlabel"/>
+<label deltaind="M" labeldesc="Agency Code" labelkey="bobtransfersStep2_searchagentnumberlabel"/>
+<label deltaind="M"  labeldesc="Agency Code" labelkey="bobtransfersStep1_searchagentnumberlabel"/>
+ 
+<!-- Phase 3- Renaming Bonus to Commission Contingency in Schedule, Hierarchy and Statement --> 
+<label deltaind="M" labeldesc="Master Agency Code" labelkey="attachment_master_producer_number_label"/>
+<label deltaind="M" labelkey="isShowIncentiveHierarchyTab_menulabel" labeldesc="Contingency Commission Hierarchy"></label>
+<label deltaind="M" labeldesc="Contingency Commission Hierarchy" labelkey="incentivehierarchylabel"/>
+<label deltaind="M" labeldesc="Contingency Commission Hierarchy" labelkey="incentivehierarchylabel"/>
+<label deltaind="M" labeldesc="Contingency Commission Statements" labelkey="incentive_statements_label"/>
+<label deltaind="M" labeldesc="Contingency Commission Statement" labelkey="incentiveStatementlabel"/>
+<label deltaind="M" labeldesc="Contingency Commission Year" labelkey="incentiveStatements_bonus_year_label"/>
+<label deltaind="M"  labeldesc="Contingency Commission" labelkey="incentiveStatements_payment_label"/>
+<label deltaind="M" labeldesc="Contingency Commission Sch ID" labelkey="bounsAttached_incentive_schedule_id_label"/>
+<label deltaind="M" labeldesc="Contingency Commission Sch ID" labelkey="bounsAvailable_incentive_schedule_id_label"/>
+   
+<!-- Phase 3- Renaming Commission Reports- 25,000 to 50,000 --> 
+<label deltaind="I"  labeldesc="This report displays commission paid details at master level which exceeding $50000." labelkey="branch19"/>
+   
+<!-- Phase 3: Bonus Type -->
+<label deltaind="M" labelkey="statement_bonus_type_label" labeldesc="Contingency Commission Type"/>
+   
+
+  <!-- Customization to configuration changes -->
+  <label deltaind="M" labeldesc="How did you learn about Company" labelkey="learn_about_label"/>
+  
+	<!-- Phase 3: On hold process -->
+<label deltaind="M" labeldesc="Is Contingency Commission Applicable" labelkey="producerDetail_isBonusApplicablelabel"/>
+  
+  <!-- bob -->
+  <label deltaind="M" labeldesc="From Agency Code" labelkey="bobtransfersStep1_fromagentnumberlabel"/>
+  <label deltaind="M" labeldesc="To Agency Code" labelkey="bobtransfersStep1_toagentnumberlabel"/>
+ 
+ <!-- Phase 3- Update Statement Summary -->
+<label deltaind="I" labelkey="clientFullName" labeldesc="BUILDERS MUTUAL INSURANCE COMPANY"/>
+ 
+<!-- Phase 3-Bug ID- 46417- Cont Commission Reports -->
+ <label  deltaind="M" labeldesc="Contingency Commission" labelkey="ccbTablabel"/> 
+
+   <!-- UAT2 Bug Id - 007 Agency Demo Market Info label change start -->
+  
+   <!--<label deltaind="M" labeldesc="Premium Volume and Production Information" labelkey="premium_volume_commitment_to_sample_label"/>
+   <label deltaind="M" labeldesc="Annual Premium Volume" labelkey="premium_volume_monthly_premium_label"/>
+   <label deltaind="M" labeldesc="Monthly Application Written" labelkey="premium_volume_yearly_premium_label"/>
+   <label deltaind="M" labeldesc="Annual Application Written" labelkey="premium_volume_next3year_premium_label"/> -->
+  
+  <!-- UAT2 Bug Id - 007 Agency Demo Market Info label change end --> 
+  
+  <label deltaind="I" labeldesc="FEIN/TaxID#" labelkey="feinFieldLabel1"/>
+  
+  <!--  ADO - 42207 - Adding label in xml, removed from html -->
+  <label deltaind="M" labelkey="agencyTerminationStep2_phone_businessaddress_label" labeldesc="Residence Phone" />
+  
+  <!-- Prod Bug 42972 -->
+  <label deltaind="M" labeldesc="Agency in business since" labelkey="agencyHireDateLabel"/>
+  
+   <!-- Phase 3-Bug Id- 50569- expiration date -->
+  <label deltaind="I" labeldesc="Expiration Date" labelkey="IncentiveSchedle_expirationDate_label"/>
+  
+  
+  <!-- Phase 3- Feature bug- 52316- section name -->
+   <label deltaind="I" labeldesc="Section Name" labelkey="addManageTemplate3_section_name"/>
+  
+  <!-- Phase 3-Bug Id- 53542- release statement screen -->
+   <label deltaind="I" labeldesc="Contingency Commission" labelkey="sorting(,A,ajax_sorting):block_field_growth_bonus"/>
+  
+  <!-- Feature 48695 - Adding Additional Fields to the Application-start -->
+  <!-- Upgrade-SS -->
+  <label deltaind="M" labelkey="entityGeneralDetails_ss_member_of_hba_label" labeldesc="Are you a member of an HBA?"/>
+  <label deltaind="M" labelkey="entityGeneralDetails_ss_hba_association_id_label" labeldesc="If Yes, please select the HBA Chapter you are a member of"/>
+  <!-- Upgrade-AgencyListEdit -->
+  <label deltaind="I" labelkey="policyholder_copies_label" labeldesc="Policyholder Copies"/>
+  <label deltaind="I" labelkey="dividend_distribution_label" labeldesc="Dividend Distribution"/>  
+  <!-- Upgrade-Demographics -->
+  <label deltaind="M" labelkey="entityGeneralDetails_hba_association_id_label" labeldesc="If Yes, please select the HBA Chapter you are a member of"/>
+	<label deltaind="M" labelkey="entityGeneralDetails_member_of_hba_label" labeldesc="Are you a member of an HBA?"/>
+  <!-- Feature 48695 - Adding Additional Fields to the Application-end -->
+  
+  
+  <!-- 2.10.7.4 change -->
+<label deltaind="I" labelkey="policyholder_copies_desc_label" labeldesc="Your agency can select how you would like Builders Mutual to distribute copies of policyholders' new and renewal policies. If you choose to receive your policyholders"/>
+<label deltaind="M" labelkey="entityGeneralDetails_policyholder_copies_desc_label" labeldesc="Your agency can select how you would like Builders Mutual to distribute copies of policyholders' new and renewal policies. If you choose to receive your policyholders'
+documents, we will send your agency the documents so you can personalize the delivery. (Note- If your policyholder selects to Go Paperless, policyholder copies will not print.
+Instead, they will receive an email to review their policies online). Please select one option below"/>
+<label deltaind="M" labelkey="entityGeneralDetails_member_of_hba_desc_label" labeldesc="(It is required for all North Carolina Agencies to be a member of a Home Builders Association)"/>
+<label deltaind="M" labelkey="entityGeneralDetails_ss_member_of_hba_desc_label" labeldesc="(It is required for all North Carolina Agencies to be a member of a Home Builders Association)"/>
+<label deltaind="M" labelkey="entityGeneralDetails_ss_policyholder_copies_desc_label" labeldesc="Your agency can select how you would like Builders Mutual to distribute copies of policyholders' new and renewal policies. If you choose to receive your policyholders'
+documents, we will send your agency the documents so you can personalize the delivery. (Note- If your policyholder selects to Go Paperless, policyholder copies will not print.
+Instead, they will receive an email to review their policies online). Please select one option below"/>
+
+
+<!-- Phase 3- Bonus Year- Release Statement -->
+ <label deltaind="M" labelkey="compensationReleaseStatement_filter_bonus_year_label" labeldesc="Contingency Commission Year" />
+  
+</labelconf>

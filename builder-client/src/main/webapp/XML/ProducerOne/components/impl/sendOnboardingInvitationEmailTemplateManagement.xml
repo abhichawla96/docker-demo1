@@ -1,0 +1,44 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component name="sendOnboardingInvitationEmailTemplateManagement">
+
+		<action name="view">
+			<actionparam deltaind="I" executionsequence="0" form="Y"
+				name="event_name" paramid="event_name"
+				eval="ProducerOneRule.isRegistrationTypePrimaryAgencyForSendInvitation"
+				pre="Y" val="SendInvitation" />
+			<actionparam deltaind="I" executionsequence="0" form="Y"
+				name="event_name" paramid="event_name1"
+				eval="ProducerOneRule.isRegistrationTypeProducerRegistrationForSendInvitation"
+				pre="Y" val="sendInvitationForLicensedProducer" />
+			<actionparam deltaind="I" executionsequence="0" form="Y"
+				name="template_name" paramid="template_name1"
+				eval="ProducerOneRule.isRegistrationTypeProducerRegistrationForSendInvitation"
+				pre="Y" val="SendInvitationAgent" />
+			<actionparam deltaind="I" executionsequence="0" form="Y"
+				name="template_name" paramid="template_name2"
+				eval="ProducerOneRule.isRegistrationTypePrimaryAgencyForSendInvitation"
+				pre="Y" val="SendInvitationAgency" />
+
+			<actionparam executionsequence="0" form="Y"
+				name="workflow_forward" paramid="workflow_forward" viewparam="Y" />
+			<actionparam executionsequence="0" form="Y" name="event_name"
+				paramid="event_name" viewparam="Y" />
+			<actionparam executionsequence="0" form="Y"
+				name="back_workflow_forward" paramid="back_workflow_forward"
+				val="sendOnboardingInvitationNameClearanceStep" viewparam="Y" />
+
+			<workflow eval="send_attached_files_in_inviation_email_security"
+				isexecuteonsuccess="Y" name="view" seq="0">
+				<function executionsequence="0"
+					functionid="getAttachmentListForSendInvitationEmail" name="getAttachmentListForSendInvitationEmail"
+					parameters="context" />
+			</workflow>
+			<actionparam executionsequence="0" form="Y"
+				name="attachmentcontent" paramid="attachmentcontent" post="Y"
+				session="Y" />
+		</action>
+		<!-- <action name="emailTemplateManagementStepBack"> </action> <action 
+			name="emailTemplateManagementStepCancel"></action> -->
+	</component>
+</projectcomponents>

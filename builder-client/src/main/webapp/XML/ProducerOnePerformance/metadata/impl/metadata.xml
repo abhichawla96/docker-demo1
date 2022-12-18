@@ -1,0 +1,740 @@
+<structure project="ProducerOnePerformance">
+  <metaobject name="pvt" active="Y" persistent="Y" seq="0">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="VendorID" viewlength="4" persistent="Y" propertylength="4" seq="2" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Emp1" viewlength="4" persistent="Y" propertylength="4" seq="3" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Emp2" viewlength="4" persistent="Y" propertylength="4" seq="4" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Emp3" viewlength="4" persistent="Y" propertylength="4" seq="5" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Emp4" viewlength="4" persistent="Y" propertylength="4" seq="6" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Emp5" viewlength="4" persistent="Y" propertylength="4" seq="7" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="trace_xe_event_map" active="Y" persistent="Y" seq="8">
+    <propertyversion versionname="0" seq="0" />
+  </metaobject>
+  <metaobject name="MSreplication_options" active="Y" persistent="Y" seq="10">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="value" viewlength="1" persistent="Y" propertylength="1" seq="12" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="major_version" viewlength="4" persistent="Y" propertylength="4" seq="13" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="minor_version" viewlength="4" persistent="Y" propertylength="4" seq="14" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="revision" viewlength="4" persistent="Y" propertylength="4" seq="15" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="install_failures" viewlength="4" persistent="Y" propertylength="4" seq="16" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="reportsavedsearch" active="Y" persistent="Y" seq="17">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="search_id" viewlength="10" persistent="Y" propertylength="10" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="19" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="search_name" viewlength="10" persistent="Y" propertylength="10" autoincrement="NOT NULL" seq="20" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="report_id" viewlength="10" persistent="Y" propertylength="10" autoincrement="NOT NULL" seq="21" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="search_xml" viewlength="10" persistent="Y" propertylength="10" autoincrement="NOT NULL" seq="22" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="last_updated_by" viewlength="10" persistent="Y" propertylength="10" autoincrement="NOT NULL" seq="23" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="last_updated_ts" viewlength="10" persistent="Y" propertylength="10" autoincrement="NOT NULL" seq="24" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="search_xml_desc" viewlength="10" persistent="Y" propertylength="10" autoincrement="NOT NULL" seq="25" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="Commission_Statement_Details" active="Y" persistent="Y" seq="26">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commission_Statement_Detail_ID" viewlength="100" persistent="Y" propertylength="100" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="28" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Policy_In_Collection" viewlength="100" persistent="Y" propertylength="100" seq="29" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Account_In_Collection" viewlength="100" persistent="Y" propertylength="100" seq="30" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Record_Type_ID" viewlength="100" persistent="Y" propertylength="100" seq="31" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="company_code" viewlength="20" persistent="Y" propertylength="20" seq="32" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lob_code" viewlength="10" persistent="Y" propertylength="10" seq="33" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_code" viewlength="200" persistent="Y" propertylength="200" seq="34" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="division_id" viewlength="4" persistent="Y" propertylength="4" seq="35" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commission_Schedule_ID" viewlength="100" persistent="Y" propertylength="100" seq="36" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commission_Statement_ID" viewlength="100" persistent="Y" propertylength="100" seq="37" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Producer_Number_Commission_Schedule_ID" viewlength="100" persistent="Y" propertylength="100" seq="38" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="country_id" viewlength="100" persistent="Y" propertylength="100" seq="39" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="product_code" viewlength="100" persistent="Y" propertylength="100" seq="40" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="underwriter_id" viewlength="50" persistent="Y" propertylength="50" seq="41" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_transaction_type_id" viewlength="100" persistent="Y" propertylength="100" seq="42" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="fees" viewlength="100" persistent="Y" propertylength="100" seq="43" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="taxes" viewlength="10" persistent="Y" propertylength="10" seq="44" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="surcharges" viewlength="10" persistent="Y" propertylength="10" seq="45" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Written_Premium" viewlength="100" persistent="Y" propertylength="100" seq="46" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="commission_on_Written_Premium" viewlength="100" persistent="Y" propertylength="100" seq="47" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Coverage_Written_Premium" viewlength="100" persistent="Y" propertylength="100" seq="48" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Coverage_Commission_Amount" viewlength="100" persistent="Y" propertylength="100" seq="49" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commissionable_Fee_Amount" viewlength="100" persistent="Y" propertylength="100" seq="50" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="commission_on_fee" viewlength="100" persistent="Y" propertylength="100" seq="51" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Total_Commission_Amount" viewlength="100" persistent="Y" propertylength="100" seq="52" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commission_Percentage" viewlength="100" persistent="Y" propertylength="100" seq="53" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commission_Paid_Amount" viewlength="100" persistent="Y" propertylength="100" seq="54" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Retained_Commission" viewlength="100" persistent="Y" propertylength="100" seq="55" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Fees_Not_Subject_To_Commission" viewlength="100" persistent="Y" propertylength="100" seq="56" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="is_producer_suspended" viewlength="100" persistent="Y" propertylength="100" seq="57" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="exclude_in_commission" viewlength="100" persistent="Y" propertylength="100" seq="58" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Policy_Number" viewlength="100" persistent="Y" propertylength="100" seq="59" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="last_updated_ts" viewlength="10" persistent="Y" propertylength="10" seq="60" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="last_updated_by" viewlength="10" persistent="Y" propertylength="10" seq="61" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="producer_number_id" viewlength="4" persistent="Y" propertylength="4" seq="62" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="PolicyTransMonthly_ID" viewlength="100" persistent="Y" propertylength="100" seq="63" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Accounting_Month" viewlength="200" persistent="Y" propertylength="200" seq="64" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_type" viewlength="100" persistent="Y" propertylength="100" seq="65" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Sub_Producer_Code" viewlength="100" persistent="Y" propertylength="100" seq="66" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ASL_CODE" viewlength="100" persistent="Y" propertylength="100" seq="67" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Template_Code" viewlength="100" persistent="Y" propertylength="100" seq="68" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_term" viewlength="101" persistent="Y" propertylength="101" seq="69" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="source_system" viewlength="100" persistent="Y" propertylength="100" seq="70" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="business_segment_code" viewlength="100" persistent="Y" propertylength="100" seq="71" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Original_Net_Commission" viewlength="100" persistent="Y" propertylength="100" seq="72" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="stat_producer_id" viewlength="10" persistent="Y" propertylength="10" seq="73" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Insured_name" viewlength="100" persistent="Y" propertylength="100" seq="74" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Transaction_Effective_Date" viewlength="10" persistent="Y" propertylength="100" seq="75" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Attachment_Audit_Id" viewlength="100" persistent="Y" propertylength="100" seq="76" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Comments" viewlength="100" persistent="Y" propertylength="100" seq="77" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Policy_Effective_Date" viewlength="100" persistent="Y" propertylength="100" seq="78" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Policy_Expiration_Date" viewlength="10" persistent="Y" propertylength="100" seq="79" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="is_reconciled" viewlength="100" persistent="Y" propertylength="100" seq="80" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="paid_premium" viewlength="100" persistent="Y" propertylength="100" seq="81" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="Commission_Statement_Summary" active="Y" persistent="Y" seq="82">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Commission_Statement_ID" viewlength="100" persistent="Y" propertylength="100" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="84" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="agency_Id" viewlength="100" persistent="Y" propertylength="100" seq="85" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_code" viewlength="200" persistent="Y" propertylength="200" seq="86" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="statement_date" viewlength="10" persistent="Y" propertylength="100" seq="87" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="period" viewlength="100" persistent="Y" propertylength="100" seq="88" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="written_premium" viewlength="100" persistent="Y" propertylength="100" seq="89" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="commission_amount" viewlength="200" persistent="Y" propertylength="200" seq="90" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="fees_not_subject_to_commission" viewlength="100" persistent="Y" propertylength="100" seq="91" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_fee" viewlength="100" persistent="Y" propertylength="100" seq="92" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_commissionable_fee" viewlength="100" persistent="Y" propertylength="100" seq="93" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_policy_charges" viewlength="100" persistent="Y" propertylength="100" seq="94" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_agency_charges" viewlength="100" persistent="Y" propertylength="100" seq="95" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="net_commission_amount" viewlength="100" persistent="Y" propertylength="100" seq="96" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_chargeback_amount" viewlength="100" persistent="Y" propertylength="100" seq="97" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_adjustment_amount" viewlength="100" persistent="Y" propertylength="100" seq="98" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="holdback_amount" viewlength="100" persistent="Y" propertylength="100" seq="99" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="is_submitted" viewlength="100" persistent="Y" propertylength="100" seq="100" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="is_approved" viewlength="100" persistent="Y" propertylength="100" seq="101" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="approved_date" viewlength="10" persistent="Y" propertylength="100" seq="102" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="approved_by" viewlength="100" persistent="Y" propertylength="100" seq="103" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="comments" viewlength="100" persistent="Y" propertylength="100" seq="104" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="check_status" viewlength="100" persistent="Y" propertylength="100" seq="105" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="check_number" viewlength="100" persistent="Y" propertylength="100" seq="106" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="last_updated_by" viewlength="10" persistent="Y" propertylength="10" seq="107" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="last_updated_ts" viewlength="10" persistent="Y" propertylength="10" seq="108" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="approve_by_IT" viewlength="100" persistent="Y" propertylength="100" seq="109" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="approve_by_Mkt" viewlength="100" persistent="Y" propertylength="100" seq="110" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="statement_file_name" viewlength="100" persistent="Y" propertylength="100" seq="111" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="producer_number_id" viewlength="4" persistent="Y" propertylength="4" seq="112" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Asl" viewlength="100" persistent="Y" propertylength="100" seq="113" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="pdf_statement_file_name" viewlength="100" persistent="Y" propertylength="100" seq="114" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="master_statement_file_name" viewlength="100" persistent="Y" propertylength="100" seq="115" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="master_pdf_statement_file_name" viewlength="100" persistent="Y" propertylength="100" seq="116" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="spt_fallback_db" active="Y" persistent="Y" seq="117">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xserver_name" viewlength="30" persistent="Y" propertylength="30" seq="119" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xdttm_ins" viewlength="8" persistent="Y" propertylength="8" seq="120" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xdttm_last_ins_upd" viewlength="8" persistent="Y" propertylength="8" seq="121" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xfallback_dbid" viewlength="2" persistent="Y" propertylength="2" seq="122" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="name" viewlength="30" persistent="Y" propertylength="30" seq="123" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="dbid" viewlength="2" persistent="Y" propertylength="2" seq="124" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="status" viewlength="2" persistent="Y" propertylength="2" seq="125" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="version" viewlength="2" persistent="Y" propertylength="2" seq="126" />
+    </propertyversion>
+  </metaobject>
+  <metaobject deltaind="M" name="report_search_columns" active="Y" persistent="N" seq="127">
+    <propertyversion versionname="0" seq="0">
+    
+    
+ <!-- Phase 3: Report filtration criteria change --> 		   
+   <!--  <property deltaind="I" initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="reports_filter_amount" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="6511">
+        <dropdown name="getFilterAmount" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select master_lookup_data_code,master_lookup_data_desc as reports_filter_amount from master_lookup_data_lku where master_lookup_detail_id in (select master_lookup_detail_id from master_lookup_detail_lku where master_lookup_detail_code='report_filter_amount_lku')">
+          <valuefield field="master_lookup_data_code" />
+          <displayfield field="master_lookup_data_code" />
+        </dropdown>
+      </property> -->
+      
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="doc_policy_number" viewlength="30" persistent="N" propertylength="30" seq="119" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="rate_expiration_date_V" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="129" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_abbrivation_V" viewlength="50" persistent="Y" propertylength="50" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="130">
+        <dropdown name="getStateAbbrivation" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct c.state_id, s.description from  CommissionScheduleXMLData c with(nolock) inner join  state_lku s  with(nolock) on c.state_id= s. abbreviation order by s.description" isrowlink="N">
+          <valuefield field="state_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_module_V" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="134" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_date" viewlength="10" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="135" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="type_V" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="136" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="rate_NB_RB_V" viewlength="50" persistent="Y" propertylength="50" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="137">
+        <dropdown name="getNB_RB_RatesList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct isnull(cast(cast((comm_rate_NB + approvedNB_variance) as numeric(18,2)) as Varchar),0)+'/'+ isnull(cast(cast((comm_rate_RB+approvedNB_variance) as numeric(18,2)) as Varchar),0) as rate_NB_RB from CommissionScheduleXMLData where (comm_rate_NB is not null and comm_rate_RB is not null and approvedNB_variance is not null and approvedNB_variance is not null) order by rate_NB_RB asc" isrowlink="N">
+          <valuefield field="rate_NB_RB" />
+          <displayfield field="rate_NB_RB" />
+        </dropdown>
+      </property>
+  
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="payment_type_id_V" viewlength="200" persistent="Y" propertylength="200" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="141">
+        <dropdown name="getPaymentType" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select payment_type_code, payment_type_description from payment_type_lku" isrowlink="N">
+          <valuefield field="payment_type_code" />
+          <displayfield field="payment_type_description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="schedule_desc_v" viewlength="20" persistent="Y" propertylength="20" autoincrement="NOT NULL" seq="145" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_V" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="146" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="date_order" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="147" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="active_closed" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="148">
+        <dropdown name="getActiveClosedValue" metaobject="report_search_columns" dropdowntype="procedure" procname="GetActiveClosedValue_p" isrowlink="N">
+          <valuefield field="status_id" />
+          <displayfield field="status_description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="driver_license" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="152" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="error_date" viewlength="100" persistent="Y" propertylength="100" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="153" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_month_payout" viewlength="200" persistent="Y" propertylength="200" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="154" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="reportoutputtype" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="155" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="mvr_name" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="156" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_month" viewlength="200" persistent="Y" propertylength="200" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="157" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="template_type_R" viewlength="50" persistent="Y" propertylength="50" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="158" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="rate_effective_date_V" viewlength="200" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="159" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="template_type_id" viewlength="50" persistent="Y" propertylength="50" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="160" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policyInception_date_V" viewlength="10" persistent="Y" propertylength="200" autoincrement="NOT NULL" seq="161" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="adjustment_type_V" viewlength="100" persistent="Y" propertylength="100" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="162" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="rate_NB_RB" viewlength="50" persistent="Y" propertylength="50" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" seq="163">
+        <dropdown name="getNB_RB_Rates" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct isnull(cast(cast(comm_rate_NB as numeric(18,2)) as Varchar),0)+'/'+ isnull(cast(cast(comm_rate_RB as numeric(18,2)) as Varchar),0) as rate_NB_RB from CommissionScheduleXMLData where (comm_rate_NB is not null and comm_rate_RB is not null) order by rate_NB_RB asc" isrowlink="N">
+          <valuefield field="rate_NB_RB" />
+          <displayfield field="rate_NB_RB" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_period" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="167">
+        <dropdown name="getAccountingMonth" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT distinct acct_date   FROM F_web_leads  order by  asc" isrowlink="N">
+          <valuefield field="acct_date" />
+          <displayfield field="acct_date" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_period_wl" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="171">
+        <dropdown name="getAccountingperiodforWL" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT distinct acct_date FROM F_web_leads  order by acct_date desc" isrowlink="N">
+          <valuefield field="acct_date" />
+          <displayfield field="acct_date" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_period_pl" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="175">
+        <dropdown name="getAccountingperiodforPL" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT distinct acct_date FROM F_Phone_Leads  order by acct_date desc" isrowlink="N">
+          <valuefield field="acct_date" />
+          <displayfield field="acct_date" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_code_list" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="179">
+        <dropdown name="getStateCodeList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT state_id, description, abbreviation   FROM state_lku  order by description asc" isrowlink="N">
+          <valuefield field="abbreviation" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_period_ccb" viewlength="20" persistent="N" propertylength="20" seq="183">
+        <dropdown name="getAccounitngPeriodForCCBReport" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct year(statement_date) as accounting_period_ccb from producer_profit_sharing_statement order by 1" isrowlink="N">
+          <valuefield field="accounting_period_ccb" />
+          <displayfield field="accounting_period_ccb" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_id" viewlength="20" persistent="N" propertylength="20" autoincrement="IDENTITY" seq="187">
+        <dropdown name="getStatusForNIPRTranctionSumm34" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT state_id, description FROM state_lku  where is_commission_applicable=1 order by description asc" isrowlink="N">
+          <valuefield field="state_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="zone_code" viewlength="20" persistent="Y" propertylength="20" autoincrement="NOT NULL" seq="191" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="adjusted_earned_premium" viewlength="20" persistent="N" propertylength="20" seq="192" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="branch" viewlength="20" persistent="N" propertylength="20" seq="193" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="master_agency_code" viewlength="20" persistent="N" propertylength="20" seq="194">
+        <dropdown name="getMasterAgencyCodeList" metaobject="report_search_columns" dropdowntype="procedure" procname="getMasterAgencyCodeList" parameters="popupsearch_data" isrowlink="N">
+          <valuefield field="producer_number_id" />
+          <displayfield field="producer_number" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lob_id" viewlength="20" persistent="N" propertylength="20" autoincrement="IDENTITY" seq="198">
+        <dropdown name="getStatusForNIPRTranctionSumm56" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT lob_id, description FROM lob_lku  order by description asc" isrowlink="N">
+          <valuefield field="lob_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="commission_change" viewlength="20" persistent="N" propertylength="20" seq="202" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="business_segment_V" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="203">
+        <dropdown name="getAllBusinesslistR" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select * from business_segment order by business_segment_name asc" isrowlink="N">
+          <valuefield field="business_segment_code" />
+          <displayfield field="business_segment_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="business_segment_R" viewlength="50" persistent="N" propertylength="50" autoincrement="NOT NULL" seq="207">
+        <dropdown name="getAllBusinesslistRate" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct c.business_segment_code, b.business_segment_name from CommissionSchedulexmldata c with(nolock) inner join business_segment b with(nolock) on c.business_segment_code=b.business_segment_code order by b.business_segment_name" isrowlink="N">
+          <valuefield field="business_segment_code" />
+          <displayfield field="business_segment_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="capped_incurred_losses" viewlength="20" persistent="N" propertylength="20" seq="211" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="schedule_state_V" viewlength="100" persistent="N" propertylength="100" autoincrement="NOT NULL" seq="212">
+        <dropdown name="getScheduleStateList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct sl.state_id,sl.description from CommissionScheduleXMLData c inner join state_lku sl on sl.abbreviation=c.state_id where c.state_id is not null" isrowlink="N">
+          <valuefield field="state_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="written_premium" viewlength="100" persistent="N" propertylength="100" seq="216" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="capped_loss_ratio" viewlength="20" persistent="N" propertylength="20" seq="217" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="premium_amount" viewlength="200" persistent="N" propertylength="200" seq="218" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="earned_premium" viewlength="20" persistent="N" propertylength="20" seq="219" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="loss_ratio_comm_rate" viewlength="20" persistent="N" propertylength="20" seq="220" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="business_segment_RR" viewlength="50" persistent="N" propertylength="50" autoincrement="NOT NULL" seq="221">
+        <dropdown name="getAllBusinesslistRate1" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct cr.business_segment_code, bs.business_segment_name from  CommissionScheduleXMLData cr inner join  business_segment bs on cr.business_segment_code=bs.business_segment_code        where cr.state_id=#state_abbrivation_V# and (#lob_id_RR# is null or #lob_id_RR# ='' or cr.lob_id=#lob_id_RR#)  order by bs.business_segment_name" isrowlink="N">
+          <valuefield field="business_segment_code" />
+          <displayfield field="business_segment_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="commission_schedule_V" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="225">
+        <dropdown name="getScheduleList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select commission_schedule_id, description from commission_schedule_lku where commission_schedule_id is not null order by commission_schedule_id asc" isrowlink="N">
+          <valuefield field="commission_schedule_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="probation_reason_V" viewlength="100" persistent="Y" propertylength="100" autoincrement="NOT NULL" seq="229">
+        <dropdown name="getProbationResonList" metaobject="report_search_columns" dropdowntype="procedure" procname="GetProbationReasonForCommissionReport_p" isrowlink="N">
+          <valuefield field="probation_reason_id" />
+          <displayfield field="probation_reason_description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="agency_code_V" viewlength="100" persistent="N" propertylength="100" seq="233">
+        <dropdown name="GetAgencyCode" metaobject="report_search_columns" dropdowntype="procedure" procname="getAgencyCodeList" parameters="popupsearch_data" isrowlink="N">
+          <valuefield field="producer_number_id" />
+          <displayfield field="producer_number" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="global_rate" viewlength="200" persistent="N" propertylength="200" seq="237" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_period_type" viewlength="200" persistent="N" propertylength="200" seq="238">
+        <dropdown name="GetReportsBOList" metaobject="report_search_columns" dropdowntype="bo" isrowlink="N" dataobject="com.userbo.GetReportsBO">
+          <valuefield field="ID" />
+          <displayfield field="DESCRIPTION" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_period_year" viewlength="200" persistent="N" propertylength="200" seq="242">
+        <dropdown name="GetReportsPeriodYearBOList" metaobject="report_search_columns" dropdowntype="bo" isrowlink="N" dataobject="com.userbo.GetReportsPeriodYearBO">
+          <valuefield field="ID" />
+          <displayfield field="DESCRIPTION" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="division_id_V" viewlength="200" persistent="N" propertylength="200" seq="246">
+        <dropdown name="getDivisions" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct division_id as ID,division_name as DESCRIPTION  from division_lku order by division_name" isrowlink="N">
+          <valuefield field="ID" />
+          <displayfield field="DESCRIPTION" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="BONUS_WITH_GRF" viewlength="200" persistent="N" propertylength="200" seq="250" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_newrenew_id" viewlength="200" persistent="N" propertylength="200" seq="251">
+        <dropdown name="GetNewRenewalForproductReport_p" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select [New_Renew_Id] as ID,[New_Renew_text] as DESCRIPTION from D_New_Renew where [New_Renew_text] is not null order by [New_Renew_text]" isrowlink="N">
+          <valuefield field="ID" />
+          <displayfield field="DESCRIPTION" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="NEW_BUSSINESS_TERM_DATE" viewlength="200" persistent="N" propertylength="200" seq="255" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="RENEW_BUSSINESS_TERM_DATE" viewlength="200" persistent="N" propertylength="200" seq="256" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="underwriter_id_V" viewlength="200" persistent="N" propertylength="200" seq="257">
+        <dropdown name="getUnderwriter" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct team_id as ID, description from team_lku order by description asc" isrowlink="N">
+          <valuefield field="ID" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="GROUP_IND" viewlength="200" persistent="N" propertylength="200" seq="261" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="PAID_BONUS" viewlength="200" persistent="N" propertylength="200" seq="262" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="NOTES" viewlength="200" persistent="N" propertylength="200" seq="263" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Include_Terminated_agencies" viewlength="200" persistent="N" propertylength="200" seq="264" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="addressline1" viewlength="200" persistent="N" propertylength="200" seq="265" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="company_id" viewlength="4" persistent="N" propertylength="4" autoincrement="NOT NULL" seq="266">
+        <propvalidation name="checkforCompanyId" expression="ProducerOneRule.checkforCompanyId" message="adminCompanySelectErrorKey" />
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="branch_id" viewlength="200" persistent="N" propertylength="200" seq="268" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="statement_period" viewlength="10" persistent="N" propertylength="10" autoincrement="NOT NULL" seq="269" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ccb_bonus_year" viewlength="10" persistent="N" propertylength="10" autoincrement="NOT NULL" seq="270" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="audit_type" viewlength="200" persistent="N" propertylength="200" seq="271" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="load_type" viewlength="200" persistent="N" propertylength="200" seq="272" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Period_D" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="273">
+        <dropdown name="getStatementRunDate" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Distinct Convert(varchar(50),period,101) as period, period as p2 from Commission_Statement_Summary where period is not null order by p2 desc" isrowlink="N">
+          <valuefield field="period" />
+          <displayfield field="period" />
+        </dropdown>
+      </property>
+      
+     
+ 
+      <property contextfield="N" deleteind="N" field="Acc_month" formdisplay="N" initcap="N" isEncrypt="N" isrequired="N" length="0" listdisplay="N" persistent="N" propertylength="10" resolvedisplay="N" searchfield="N" searchmodify="N" searchrule="N" seq="26502" viewlength="10">
+        <dropdown dropdowntype="sql" isrowlink="N" metaobject="report_search_columns" name="getAccountingMonthDate" sqlstmt="select distinct Accounting_Month from Commission_Statement_details_Adjusted_details order By Accounting_Month desc">
+          <displayfield field="Accounting_Month"/>
+          <valuefield field="Accounting_Month"/>
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_id_R" viewlength="50" persistent="N" propertylength="50" autoincrement="IDENTITY" seq="277">
+        <dropdown name="getStateListForRateReports" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT state_id, description FROM state_lku where is_commission_applicable=1 order by description asc" isrowlink="N">
+          <valuefield field="state_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="state_id_V" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="281">
+        <dropdown name="getStateListForReports" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT state_id, description FROM state_lku where is_commission_applicable=1 order by description asc" isrowlink="N">
+          <valuefield field="state_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="audit_type_V" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="285">
+        <dropdown name="getAuditTypeList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct audit_type from audit_data_load_control_by_state_lob_prod_comp order by audit_type desc" isrowlink="N">
+          <valuefield field="audit_type" />
+          <displayfield field="audit_type" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ETL_TRANS_ERROR_P" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="289">
+        <dropdown name="getEtlTransErrorDate" metaobject="report_search_columns" dropdowntype="procedure" procname="GetAuditETLTransactionErrorReportPeriod_p" parameters="load_type" isrowlink="N">
+          <valuefield field="period" />
+          <displayfield field="period" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="audit_date_V" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="293">
+        <dropdown name="getAuditDateList" metaobject="report_search_columns" dropdowntype="procedure" procname="GetAuditReportsPeriod_p" parameters="load_type" isrowlink="N">
+          <valuefield field="CalculationDate" />
+          <displayfield field="CalculationDate" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lob_id_R" viewlength="50" persistent="N" propertylength="50" autoincrement="IDENTITY" seq="297">
+        <dropdown name="getLOBListReport" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select lob_id,description from lob_lku where isnull(applicableto,0) !=2 order by description asc" isrowlink="N">
+          <valuefield field="lob_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="COMMISSION_STATEMENT_AGGREGATE_ACCOUNTING_P" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="301">
+        <dropdown name="getCommissionStatementAggregatePeriodDate" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct accounting_period from Commission_Statement_Agregate_Accounting order by accounting_period desc" isrowlink="N">
+          <valuefield field="accounting_period" />
+          <displayfield field="accounting_period" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="coverage_run_date" viewlength="100" persistent="N" propertylength="100" autoincrement="IDENTITY" seq="305">
+        <dropdown name="getCoverageRunDateList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct Accounting_Month from Commission_Statement_Coverage with(nolock) where Accounting_Month is not null order by Accounting_Month desc" isrowlink="N">
+          <valuefield field="Accounting_Month" />
+          <displayfield field="Accounting_Month" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lob_id_V" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="309" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lob_id_RR" viewlength="50" persistent="N" propertylength="50" autoincrement="IDENTITY" seq="310">
+        <dropdown name="getLOBCodeListReport" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct c.lob_id  lob_id, l.description  description from  CommissionScheduleXMLData c with(nolock) inner join  lob_lku l  with(nolock) on c.lob_id= l.lob_code where c.state_id=#state_abbrivation_V# order by l.description" isrowlink="N">
+          <valuefield field="lob_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lob_id_A" viewlength="200" persistent="N" propertylength="200" autoincrement="IDENTITY" seq="314">
+        <dropdown name="getLOBListReport" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select lob_id,description from lob_lku where isnull(applicableto,0) !=2 order by description asc" isrowlink="N">
+          <valuefield field="lob_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="schedule_id_V" viewlength="50" persistent="N" propertylength="50" autoincrement="IDENTITY" seq="318">
+        <dropdown name="getGlobalSchedule" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct c.CommissionScheduleID, cs.description from CommissionSchedulexmldata c inner join commission_schedule_lku cs with(nolock) on cs.commission_schedule_id = c.CommissionScheduleID where cs.applicable_to=1 and c.state_id=#state_abbrivation_V#" isrowlink="N">
+          <valuefield field="CommissionScheduleID" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="audit_date_end" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="322">
+        <dropdown name="getAuditEndDateList" metaobject="report_search_columns" dropdowntype="procedure" procname="GetAuditETLPrePostLoadReportPeriod_p" parameters="load_type" isrowlink="N">
+          <valuefield field="CalculationDate" />
+          <displayfield field="CalculationDate" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="audit_date_post_V" viewlength="4" persistent="N" propertylength="4" autoincrement="IDENTITY" seq="326">
+        <dropdown name="getAuditPostDateList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct trans_month_end as CalculationDate from audit_data_post_load_control order by trans_month_end desc" isrowlink="N">
+          <valuefield field="CalculationDate" />
+          <displayfield field="CalculationDate" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Calculation_Error_Log_P" viewlength="10" persistent="N" propertylength="10" autoincrement="IDENTITY" seq="330">
+        <dropdown name="getCalculationErrorLogPeriod" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct case when LEN(CalculationMonth) &amp;lt;2  then CAST(CalculationYear AS VARCHAR) +'0'+CAST(CalculationMonth AS VARCHAR) else CAST(CalculationYear AS VARCHAR) +''+CAST(CalculationMonth AS VARCHAR) END  as period from CommissionCalculation_log where (CalculationMonth is not null and CalculationYear is not null) and CalculationMonth != 0 and CalculationYear != 0 order by period desc" isrowlink="N">
+          <valuefield field="period" />
+          <displayfield field="period" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="agency_name_AF" viewlength="50" persistent="N" propertylength="50" seq="334">
+        <dropdown name="GetAgencyNameList_AF" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select top 10 name as producer_name from agency_master where name like #popupsearch_data# + '%'        and isnull(is_deleted,0) != 1  and (Client_ID is null or Client_ID = #Client_ID# ) and isnull(is_hidden,0) != 1          and isnull(is_active,0)!=3 order by name asc" isrowlink="N">
+          <valuefield field="producer_name" />
+          <displayfield field="producer_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="company_id_R" viewlength="50" persistent="N" propertylength="50" autoincrement="NOT NULL" seq="338">
+        <dropdown name="getCompanyListForRateReports" metaobject="report_search_columns" dropdowntype="procedure" procname="GetCarrierCompanyDetail_p" isrowlink="N">
+          <valuefield field="company_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="company_id_V" viewlength="10" persistent="N" propertylength="10" autoincrement="NOT NULL" seq="342">
+        <dropdown name="getCompanyListForReports" metaobject="report_search_columns" dropdowntype="procedure" procname="GetCarrierCompanyDetail_p" isrowlink="N">
+          <valuefield field="company_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ORIGINAL_NET_PREMIMUM_AMOUNT" viewlength="50" persistent="N" propertylength="50" seq="346" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="appointment_Date_V" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="347" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ADJUSTED_NET_PREMIMUM_AMOUNT" viewlength="50" persistent="N" propertylength="50" seq="348" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ORIGINAL_EARNED_COMMISSION_AMOUNT" viewlength="50" persistent="N" propertylength="50" seq="349" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="system_id_V" viewlength="101" persistent="N" propertylength="101" autoincrement="IDENTITY" seq="350">
+        <dropdown name="getSystemCode" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct SourceMapped from D_Source_System where SourceMapped is not null and SourceMapped !='ALL' order by SourceMapped asc" isrowlink="N">
+          <valuefield field="SourceMapped" />
+          <displayfield field="SourceMapped" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ADJUSTED_EARNED_COMMISSION_AMOUNT" viewlength="50" persistent="N" propertylength="50" seq="354" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="agency_name_V" viewlength="100" persistent="N" propertylength="100" seq="355">
+        <dropdown name="GetAgencyName" metaobject="report_search_columns" dropdowntype="procedure" procname="getAgencyNameList" parameters="popupsearch_data" isrowlink="N">
+          <valuefield field="producer_number_id" />
+          <displayfield field="producer_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ORIGINAL_INCURRED_LOSSES" viewlength="50" persistent="N" propertylength="50" seq="359" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="asl_code_V" viewlength="101" persistent="N" propertylength="101" autoincrement="IDENTITY" seq="360">
+        <dropdown name="getASL_Code" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct ASL_Code from ASL_Code_lku asl  where ASL_Code is not null order by ASL_Code asc" isrowlink="N">
+          <valuefield field="ASL_Code" />
+          <displayfield field="ASL_Code" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="person_name_AF" viewlength="244" persistent="N" propertylength="244" seq="364">
+        <dropdown name="GetPersonNameList_AF" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="SELECT  distinct TOP 10 person_id, prdcr_first_name+' '+prdcr_last_name as name from person p       inner join agency_person ap on ap.person_id= p.person_id       inner join agency_master am on am.agency_id= ap.agency_id       and (am.is_active)!=3 and isnull(am.is_deleted,0) != 1  and (am.Client_ID is null or am.Client_ID = #Client_ID# )      where  prdcr_first_name like #popupsearch_data# + '%'      and isnull(p.is_deleted,0) != 1  and (p.Client_ID is null or p.Client_ID = #Client_ID# )      order by name asc" isrowlink="N">
+          <valuefield field="person_id" />
+          <displayfield field="name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="comm_rate" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="368" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ADJUSTED_INCURRED_LOSSES" viewlength="50" persistent="N" propertylength="50" seq="369" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="NB_TERMINATION_DATE" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="370" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="RB_TERMINATION_DATE" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="371" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="STATE_id" viewlength="20" persistent="N" propertylength="20" seq="372" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_term" viewlength="101" persistent="N" propertylength="101" seq="373" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="LOB_id" viewlength="20" persistent="N" propertylength="20" seq="374" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="COMPANY_id" viewlength="20" persistent="N" propertylength="20" seq="375" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ORIGINAL_PY_LOSSES" viewlength="50" persistent="N" propertylength="50" seq="376" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Closed_Date_V" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="377" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ADJUSTED_PY_LOSSES" viewlength="50" persistent="N" propertylength="50" seq="378" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="STATEMENT_RUN_DATE" viewlength="200" persistent="N" propertylength="200" seq="379">
+        <dropdown name="getScheduleDate" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct convert(varchar(20),cast(schedule_date as date),101) as schedule_date_formatted,schedule_date from acra_scheduler order by schedule_date desc" isrowlink="N">
+          <valuefield field="schedule_date" />
+          <displayfield field="schedule_date_formatted" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="user_id" viewlength="4" persistent="N" propertylength="4" autoincrement="NOT NULL" seq="383">
+        <dropdown name="getUserRoles" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select description from roles_lku order by description asc" isrowlink="N">
+          <valuefield field="description" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Pastdue_lessthan30days" viewlength="200" persistent="N" propertylength="200" autoincrement="NOT NULL" seq="387" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_losses" viewlength="200" persistent="N" propertylength="200" seq="388" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="period_year" viewlength="200" persistent="N" propertylength="200" seq="389">
+        <dropdown name="getYear" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct processed_year from acra_statement_detail where processed_year is not null order by processed_year desc" isrowlink="N">
+          <valuefield field="processed_year" />
+          <displayfield field="processed_year" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="transaction_date_from" viewlength="10" persistent="N" propertylength="200" seq="393">
+        <dropdown name="getPeriodFrom" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct convert(varchar(20),cast(acra_period_from as date),105) as acra_period_from_formatted,acra_period_from from acra_scheduler where acra_period_from is not null order by acra_period_from asc" isrowlink="N">
+          <valuefield field="acra_period_from" />
+          <displayfield field="acra_period_from_formatted" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="transaction_date_to" viewlength="10" persistent="N" propertylength="200" seq="397">
+        <dropdown name="getPeriodTo" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct convert(varchar(20),cast(acra_period_to as date),105) as acra_period_to_formatted,acra_period_to from acra_scheduler where acra_period_to is not null order by acra_period_to asc" isrowlink="N">
+          <valuefield field="acra_period_to" />
+          <displayfield field="acra_period_to_formatted" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="loss_year_from" viewlength="10" persistent="N" propertylength="4" seq="401">
+        <dropdown name="getLossDateFrom" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct Start_year from acra_statement_summary where Start_year is not null order by Start_year asc" isrowlink="N">
+          <valuefield field="Start_year" />
+          <displayfield field="Start_year" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="loss_year_to" viewlength="10" persistent="N" propertylength="4" seq="405">
+        <dropdown name="getLossDateTo" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct End_year from acra_statement_summary where End_year is not null order by End_year asc" isrowlink="N">
+          <valuefield field="End_year" />
+          <displayfield field="End_year" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="acra_hierarchy_master_agency_code" viewlength="50" persistent="N" propertylength="50" seq="409">
+        <dropdown name="getMasterAgencyCodeListforAcraHierarchy" metaobject="report_search_columns" dropdowntype="procedure" procname="getMasterAgencyCodeListforAcraHierarchy" parameters="popupsearch_data" isrowlink="N">
+          <valuefield field="producer_number_id" />
+          <displayfield field="producer_number" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="IncentiveCalculation_Error_Log_P" viewlength="200" persistent="N" propertylength="200" autoincrement="IDENTITY" seq="413">
+        <dropdown name="getIncentiveCalculationErrorLogPeriod" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct SSISAccountingMonth as period from SSIS_AccountingMonth where compensation_type = 'Incentive' order by 1 desc" isrowlink="N">
+          <valuefield field="period" />
+          <displayfield field="period" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="statement_period_selfservice" viewlength="10" persistent="N" propertylength="10" autoincrement="NOT NULL" seq="417" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="ccb_bonus_year_selfservice" viewlength="10" persistent="N" propertylength="10" autoincrement="NOT NULL" seq="418" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="STATEMENT_RUN_DATE_self_service" viewlength="200" persistent="N" propertylength="200" seq="419">
+        <dropdown name="getScheduleDateForSelfService" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select distinct convert(varchar(20),cast(schedule_date as date),101) as schedule_date_formatted,schedule_date from acra_scheduler where isnull(is_applied,0) = 1 and MONTH(schedule_date) in(03,06,09,12) order by schedule_date desc" isrowlink="N">
+          <valuefield field="schedule_date" />
+          <displayfield field="schedule_date_formatted" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="account_name_V" viewlength="244" persistent="N" propertylength="244" seq="423" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Year" viewlength="100" persistent="N" propertylength="100" seq="424" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="large_loss_amt" viewlength="244" persistent="N" propertylength="244" seq="425" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="product_id_int" viewlength="10" persistent="N" propertylength="10" seq="426">
+        <dropdown name="getBusinessSegmentCodeList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select * from business_segment order by business_segment_name" isrowlink="N">
+          <valuefield field="business_segment_id" />
+          <displayfield field="business_segment_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="sortOrder" viewlength="244" persistent="N" propertylength="244" seq="430" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="region_id" viewlength="10" persistent="N" propertylength="10" seq="431">
+        <dropdown name="getRegionsLkuList" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select * from regions_lku order by description" isrowlink="N">
+          <valuefield field="region_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="dynatop" viewlength="10" persistent="N" propertylength="10" seq="435" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Claim_Status_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="436">
+        <dropdown name="getClaim_Status_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Claim_Status_ID,Claim_Status_Text from d_claim_status order by claim_status_text asc" isrowlink="N">
+          <valuefield field="Claim_Status_ID" />
+          <displayfield field="Claim_Status_Text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Claim_Adjuster_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="440">
+        <dropdown name="getClaim_Adjuster_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Claim_Adjuster_ID,Claim_Adjuster_Text from D_Claim_Adjuster order by Claim_Adjuster_Text asc" isrowlink="N">
+          <valuefield field="Claim_Adjuster_ID" />
+          <displayfield field="Claim_Adjuster_Text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Claim_Type_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="444">
+        <dropdown name="getClaim_Type_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Claim_Type_ID,claim_type_text from D_Claim_Type order by claim_type_text asc" isrowlink="N">
+          <valuefield field="Claim_Type_ID" />
+          <displayfield field="claim_type_text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Litigation_Status_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="448">
+        <dropdown name="getLitigation_Status_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Litigation_Status_ID,Litigation_Text from D_Litigation_Status order by Litigation_Text asc" isrowlink="N">
+          <valuefield field="Litigation_Status_ID" />
+          <displayfield field="Litigation_Text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Cause_of_Loss_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="452">
+        <dropdown name="getCause_of_Loss_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Cause_of_Loss_ID,Cause_of_Loss_Text from D_Cause_Of_Loss order by Cause_of_Loss_Text asc" isrowlink="N">
+          <valuefield field="Cause_of_Loss_ID" />
+          <displayfield field="Cause_of_Loss_Text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Disability_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="456">
+        <dropdown name="getDisability_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Disability_ID,Disability_Text from D_Disability_Type order by Disability_Text asc" isrowlink="N">
+          <valuefield field="Disability_ID" />
+          <displayfield field="Disability_Text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="policy_period_month" viewlength="244" persistent="N" propertylength="244" seq="460">
+        <dropdown name="GetReportsPeriodMonthBOList" metaobject="report_search_columns" dropdowntype="bo" isrowlink="N" dataobject="com.userbo.GetReportsPeriodMonthBO">
+          <valuefield field="ID" />
+          <displayfield field="DESCRIPTION" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="Policy_Status_ID" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="464">
+        <dropdown name="getPolicy_Status_ID" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select Policy_Status_ID,Policy_Status_Text from D_Policy_Status order by Policy_Status_Text asc" isrowlink="N">
+          <valuefield field="Policy_Status_ID" />
+          <displayfield field="Policy_Status_Text" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="attendee_name" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="468">
+        <dropdown name="getAttendeeName" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select attendee_id from relationship_event_attendees where attendee_id is not null order by attendee_id asc" isrowlink="N">
+          <valuefield field="attendee_id" />
+          <displayfield field="attendee_id" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="organizer_last_name" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="472">
+        <dropdown name="getorganizer_last_name" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select organizer_last_name from relationship_event_detail where organizer_last_name is not null order by organizer_last_name asc" isrowlink="N">
+          <valuefield field="organizer_last_name" />
+          <displayfield field="organizer_last_name" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="subject_V" viewlength="244" persistent="N" propertylength="244" autoincrement="NOT NULL" seq="476">
+        <dropdown name="getSubject" metaobject="report_search_columns" dropdowntype="sql" sqlstmt="select subject from relationship_event_detail where subject is not null order by subject asc" isrowlink="N">
+          <valuefield field="subject" />
+          <displayfield field="subject" />
+        </dropdown>
+      </property>
+      
+      <property searchrule="N" searchmodify="N" seq="0" propertylength="0" formdisplay="N" deleteind="N" listdisplay="N" initcap="N" contextfield="N" viewlength="0" isEncrypt="N" autoincrement="IDENTITY" length="0" searchfield="N" isrequired="N" keyconstraint="PRIMARY KEY" resolvedisplay="N" persistent="Y" field="template_type_id" >
+           <dropdown dropdowntype="sql" metaobject="commission_type_lku"  name="getTemplateType" sqlstmt="Select distinct template_code,template_description from template_type_lku  where template_code is not null order by template_description asc">             
+                        <valuefield field="template_code"></valuefield>
+                       <displayfield field="template_description"></displayfield>
+           </dropdown>
+	  </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_date_from" viewlength="10" persistent="N" propertylength="200" seq="480" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="accounting_date_to" viewlength="10" persistent="N" propertylength="200" seq="481" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="projection_type" viewlength="200" persistent="Y" propertylength="200" seq="482" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="object_id" viewlength="200" persistent="Y" propertylength="200" seq="483" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="trace_xe_action_map" active="Y" persistent="Y" seq="484">
+    <propertyversion versionname="0" seq="0" />
+  </metaobject>
+  <metaobject name="spt_fallback_usg" active="Y" persistent="Y" seq="486">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xserver_name" viewlength="30" persistent="Y" propertylength="30" seq="488" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xdttm_ins" viewlength="8" persistent="Y" propertylength="8" seq="489" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xdttm_last_ins_upd" viewlength="8" persistent="Y" propertylength="8" seq="490" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xfallback_vstart" viewlength="4" persistent="Y" propertylength="4" seq="491" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="dbid" viewlength="2" persistent="Y" propertylength="2" seq="492" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="segmap" viewlength="4" persistent="Y" propertylength="4" seq="493" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lstart" viewlength="4" persistent="Y" propertylength="4" seq="494" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="sizepg" viewlength="4" persistent="Y" propertylength="4" seq="495" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="vstart" viewlength="4" persistent="Y" propertylength="4" seq="496" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="spt_fallback_dev" active="Y" persistent="Y" seq="497">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xserver_name" viewlength="30" persistent="Y" propertylength="30" seq="499" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xdttm_ins" viewlength="8" persistent="Y" propertylength="8" seq="500" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xdttm_last_ins_upd" viewlength="8" persistent="Y" propertylength="8" seq="501" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xfallback_low" viewlength="4" persistent="Y" propertylength="4" seq="502" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="xfallback_drive" viewlength="2" persistent="Y" propertylength="2" seq="503" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="low" viewlength="4" persistent="Y" propertylength="4" seq="504" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="high" viewlength="4" persistent="Y" propertylength="4" seq="505" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="status" viewlength="2" persistent="Y" propertylength="2" seq="506" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="name" viewlength="30" persistent="Y" propertylength="30" seq="507" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="phyname" viewlength="127" persistent="Y" propertylength="127" seq="508" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="spt_monitor" active="Y" persistent="Y" seq="509">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="lastrun" viewlength="8" persistent="Y" propertylength="8" seq="511" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="cpu_busy" viewlength="4" persistent="Y" propertylength="4" seq="512" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="io_busy" viewlength="4" persistent="Y" propertylength="4" seq="513" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="idle" viewlength="4" persistent="Y" propertylength="4" seq="514" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="pack_received" viewlength="4" persistent="Y" propertylength="4" seq="515" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="pack_sent" viewlength="4" persistent="Y" propertylength="4" seq="516" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="connections" viewlength="4" persistent="Y" propertylength="4" seq="517" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="pack_errors" viewlength="4" persistent="Y" propertylength="4" seq="518" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_read" viewlength="4" persistent="Y" propertylength="4" seq="519" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_write" viewlength="4" persistent="Y" propertylength="4" seq="520" />
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="total_errors" viewlength="4" persistent="Y" propertylength="4" seq="521" />
+    </propertyversion>
+  </metaobject>
+  <metaobject name="popupGraph" active="Y" persistent="N" seq="522">
+    <propertyversion versionname="0" seq="0">
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="popupgraph_lob_id" viewlength="10" persistent="N" propertylength="10" seq="524">
+        <dropdown name="getLobLkuList" metaobject="popupGraph" dropdowntype="sql" sqlstmt="select * from lob_lku order by description asc" isrowlink="N">
+          <valuefield field="lob_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="popupgraph_company_id" viewlength="10" persistent="N" propertylength="10" seq="528">
+        <dropdown name="getCompanyLkuList" metaobject="popupGraph" dropdowntype="sql" sqlstmt="select * from carriercompanies_lku order by description asc" isrowlink="N">
+          <valuefield field="company_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" isrequired="N" searchmodify="N" field="popupgraph_region_id" viewlength="10" persistent="N" propertylength="10" seq="532">
+        <dropdown name="getRegionLkuList" metaobject="popupGraph" dropdowntype="sql" sqlstmt="select * from regions_lku" isrowlink="N">
+          <valuefield field="region_id" />
+          <displayfield field="description" />
+        </dropdown>
+      </property>
+      
+ 		
+
+    </propertyversion>
+  </metaobject>
+</structure>

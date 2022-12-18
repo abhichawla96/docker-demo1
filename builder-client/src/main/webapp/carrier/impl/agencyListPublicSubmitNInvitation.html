@@ -1,0 +1,996 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body onload="showPopUpList('popupSendInvitationNewLink','isShowInvitationLinkPopup');checkBrowsewrType();">
+    <form>
+    <div id="progressBarDiv"></div>
+    <div id="popupEntityList" />
+      <div id="cover" />
+      <div id="contextLinks" />
+      <div id="popupWorkflow" />
+      <div id="deleteConfirmation">
+			<!-- Modal -->
+			<div class="modal fade modal_popup">
+				<div class="modal-dialog modal-dialog-width_450">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">
+								<a href="#" class="close" id="agencyListPublicSubmitNInvitation_close"
+									onclick="closePopUp('deleteConfirmation')"> <img
+									src="images/close.png" />
+								</a> Trash
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body-scroll" style="height:50px">
+								<span class="delete_ico icons">#space#</span> Are you sure you
+								want to trash this Onboarded Application?
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="buttonwrapper">
+								<a id="agencyListPublicSubmitNInvitation_yes"
+									onclick="closePopUp('deleteConfirmation');callAjaxDelete('agencyListPublicSubmitNInvitationForProspects');"
+									href="#" class="btn btn-primary"> <span>Yes</span>
+								</a> <a href="#" id="agencyListPublicSubmitNInvitation_no"
+									onclick="clean();closePopUp('deleteConfirmation');"
+									class="btn btn-default"> <span>No</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal End -->
+		</div>
+      <div id="popupSendInvitationNewLink">
+        <div id="isShowInvitationLinkPopup">
+          <!-- Modal -->
+          <div class="modal fade modal_popup">
+            <div class="modal-dialog modal-dialog-width_700">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">
+                    <a class="close" id="agencyListPublicSubmitNInvitation_close" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.closepopupSendInvitationNewLink','','');">
+                      <img src="images/close.png" />
+                    </a>
+                    <span id="entitybuttonlabel">Send Invitation</span>
+                  </h4>
+                </div>
+                <div class="modal-body">
+                  <div class="modal-body-scroll scroll_300" id="homeAction_freeform_contextdata_102" align="center">
+                    <p>Public Submission Invitation has been created.</p>
+                    <p>The URL for the Invitation record created is given below.</p>
+                    <p id="copyURLButtonDiv1">You can copy and save this url to your
+clipboard for future reference using the "Copy URL" Button.</p>
+                    <p id="copyURLButtonDiv2" style="display: none">You can copy and
+save this url to your clipboard for future reference.</p>
+                    <p id="copuURL">
+                      <label name="invitation_link" id="invitation_link1" />
+                    </p>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="buttonwrapper">
+                    <span id=""><!-- copyURLButtonDiv -->
+                      <a class="btn btn-primary" href="#" id="agencyListPublicSubmitNInvitation_copy" onclick="copyToClipboardURL('#copuURL');">
+                        <span>Copy
+URL</span>
+                      </a>
+                    </span>
+                    <a class="btn btn-default" id="agencyListPublicSubmitNInvitation_cancel" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.closepopupSendInvitationNewLink','','');">
+                      <span>Cancel</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal End -->
+        </div>
+      </div>
+      <div id="showConfirmationMsgPopup">
+        <!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_400">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a class="close" id="agencyListPublicSubmitNInvitation_close1" href="#" onclick="closePopUp('showConfirmationMsgPopup')">
+                    <img src="images/close.png" />
+                  </a>
+                  <span id="reactivate_label" />
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <div id="confirmation_msg" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a href="javascript:document.forms[0].submit();" id="agencyListPublicSubmitNInvitation_yes" onclick="closePopUp('showConfirmationMsgPopup');" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a href="#" onclick="clean();closePopUp('showConfirmationMsgPopup');" id="agencyListPublicSubmitNInvitation_no" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <div class="container-fluid bootstrap-node-27 searchResults hidetab" id="agencyListPublicSubmitNInviatationDiv">
+        <div class="tableWidth no-sidebar">
+          <!--=======Header Start========-->
+          <header>
+            <span id="#Include:carrier/carrierHeader.html#" />
+          </header>
+          <!--=======Header End========-->
+          <div class="bgmain">
+            <!--=======Menu Level 2 Start========-->
+            <nav class="menu-level-2">
+              <span id="#Include:carrier/blankTabs.html#" />
+            </nav>
+            <!--=======Menu Level 2 End========-->
+            <article class="content sidebar-content">
+              <!--=======Sidebar Start========-->
+              <div id="isSideBarHiereachyExists" class="sideBar">
+                <span id="#Include:carrier/sideBar.html#" />
+              </div>
+              <!--=======Sidebar End========-->
+              <!--=======Body content Start========-->
+              <div class="panel-body-wraper" id="tdContent">
+                <!--=======page Level msg Start========-->
+                <div class="errorMsgAlign clear-both">
+                  <div id="error_carrierError" class="error" />
+                  <div id="error_pageError" class="error" />
+                </div>
+                <div class="ConfirmationAlign clear-both" id="agencyListPublicSubmitNInvitation_freeform_contextdata_10">
+                  <label name="pageMsg" id="pageMsg" class="Confirmation" />
+                </div>
+                <!--=======page Level msg End========-->
+                <section class="free-form" id="agencyList_filters_security">
+                  <fieldset class="fieldset_Level_1">
+                    <legend><span id="agencyList_filters_label">Filters</span></legend>
+                    <div class="gridTopPadding4">
+                      <div class="freeFormDiv form-inline agencyListPublicsubmitInvitation">
+                        <div class="padding-left-form">
+                          <ul class="inlineBlock" id="agencyListPublicSubmitNInvitation_freeform_contextdata_1">
+                          	<li class="inlineBlock_2 extendedFieldHide" id="#aar_agencyname_before#"></li>
+                            <li class="inlineBlock_2" id="agencyList_filters_agencyname_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                 <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span  id="agencyList_filters_agencyname_label">Agency Name</span> :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <input name="aar_agencyname" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyList_filters_agencyname_security.agencyList_filters_agencyname_label.aar_agencyname"
+									id="ajax_field_aar_agencyname" type="text" class="form-control form-control-150" autocomplete="OFF" onkeyup="javascript:ajaxpageblocklink('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.getAgencyList','','','ajaxxmlname_aar_agencyname');" onclick="nottoggleDivDisplay(this,'aar_agencyname','ajaxxmlname_aar_agencyname');" />
+                                    <div id="ajaxxmlname_aar_agencyname" class="transparent" style="display: none; border: solid 1px #cccccc; width:93.5% !important;" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_agencyname_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#email_before#"></li>
+                            <li class="inlineBlock_2" id="agencyList_filters_email_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="agencyList_filters_email_label">Email Address</span> :</div>
+                                  <div class="freeFormListTd tdInput">
+                                    <input name="email" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyList_filters_email_security.agencyList_filters_email_label.email"
+									id="ajax_field_email" type="text" class="form-control form-control-250" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#email_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_state_before#"></li>
+                            <li class="inlineBlock_2" id="aar_state_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="agencyList_filters_state_label">State</span> :</div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="aar_state" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).aar_state_security.agencyList_filters_state_label.aar_state"
+									id="ajax_field_aar_state" class="form-control selectWidth">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_state_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_statusid_before#"></li>
+                            <li class="inlineBlock_2" id="agencyList_filters_statusid_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="agencyList_filters_statusid_label">Status</span> :</div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="aar_statusid" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyList_filters_statusid_security.agencyList_filters_statusid_label.aar_statusid"
+									id="ajax_field_aar_statusid" class="form-control selectWidth" onchange="javascript:resetAarStatusDesc(this.value);">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_statusid_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#workflow_function_before#"></li>
+                            <li class="inlineBlock_2" id="agencyList_filters_workflow_function_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="agencyList_filters_workflow_function_label">Queue</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="workflow_function" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyList_filters_workflow_function_security.agencyList_filters_workflow_function_label.workflow_function"
+									id="ajax_field_workflow_function" class="form-control selectWidth">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#workflow_function_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#home_workflow_user_before#"></li>
+                            <li class="inlineBlock_2" id="agencyList_filters_workflow_user_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  	<span id="agencyList_filters_workflow_user_label">Workflow User</span> :</div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="home_workflow_user" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyList_filters_workflow_user_security.agencyList_filters_workflow_user_label.home_workflow_user"
+									id="ajax_field_home_workflow_user" class="form-control selectWidth">
+                                      <option value="">All</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#home_workflow_user_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#source_before#"></li>
+                            <li class="inlineBlock_2" id="onboarding_source_filter_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="onboarding_source_label">Source</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="source" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).onboarding_source_filter_security.onboarding_source_label.source"
+									id="ajax_field_source" class="form-control selectWidth">
+                                      <option value="">Select</option>
+                                      <option value="Workday">Workday</option>
+                                      <option value="ProducerOne">ProducerOne</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#source_after#"></li>
+                            
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_operating_division_before#"></li>                            
+                            <li id="aar_operating_division_security" class="inlineBlock_2">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="agencyList_filters_operating_division_label">Operating Division</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="aar_operating_division" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).aar_operating_division_security.agencyList_filters_operating_division_label.aar_operating_division"
+									id="ajax_field_aar_operating_division" class="form-control selectWidth">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#aar_operating_division_after#"></li>
+                            
+                               
+                            <li class="inlineBlock_2 extendedFieldHide" id="#invitation_sent_by_before#"></li>                            
+                            <li id="agencyListPublicSubmitNInvitation_invitation_sent_by_security" class="inlineBlock_2">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="agencyListPublicSubmitNInvitation_invitation_sent_by_label">Created By</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="invitation_sent_by" 
+									fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyListPublicSubmitNInvitation_invitation_sent_by_security.agencyListPublicSubmitNInvitation_invitation_sent_by_label.invitation_sent_by"
+									id="ajax_field_invitation_sent_by" class="form-control selectWidth">
+                                      <option value="">All</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#invitation_sent_by_after#"></li>
+                            
+                          
+                           <li class="inlineBlock_2 extendedFieldHide" id="#invitation_email_sent_before#"></li>                            
+                            <li id="agencyListPublicSubmitNInvitation_invitation_email_sent_security" class="inlineBlock_2">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="agencyListPublicSubmitNInvitation_invitation_email_sent_label">Invitation Email Sent</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="invitation_email_sent" 
+                                    fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyListPublicSubmitNInvitation_invitation_email_sent_security.agencyListPublicSubmitNInvitation_invitation_email_sent_label.invitation_email_sent"
+									id="ajax_field_invitation_email_sent" class="form-control selectWidth">
+                                      <option value="">Both</option>
+                                      <option value="Y">Yes</option>
+                                      <option value="N">No</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2 extendedFieldHide" id="#invitation_email_sent_after#"></li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+                      <section class="divButton buttons-section paddingTop10">
+                        <div class="buttonwrapper">
+                          <a id="agencyListPublicSubmitNInvitation_search" 
+                          fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyListPublicSubmitNInvitation_search.agencyListPublicSubmitNInvitation_searchlabel.agencyListPublicSubmitNInvitation_search"
+                          class="btn btn-primary" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.search','','');">
+                            <span id="agencyListPublicSubmitNInvitation_searchlabel">Search</span>
+                          </a>
+                          <a id="agencyListPublicSubmitNInvitation_reset" 
+                          fullid="agencyListPublicSubmitNInvitation_freeform_contextdata_1(agencyList_filters_security.agencyList_filters_label).agencyListPublicSubmitNInvitation_reset.agencyListPublicSubmitNInvitation_resetlabel.agencyListPublicSubmitNInvitation_reset"
+                          class="btn btn-default" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.reset','','');">
+                            <span id="agencyListPublicSubmitNInvitation_resetlabel">Reset</span>
+                          </a>
+                        </div>
+                      </section>
+                    </div>
+                  </fieldset>
+                </section>
+                <section class="list-grid" id="agencyList_grid_security">
+                  <fieldset class="fieldset_Level_1">
+                    <legend>
+                      <span id="agencyList_grid_label">Agency Listing</span>
+                    </legend>
+					<div id="agencyListPublicSubmitNInvitationForProspects">
+                    <div id="ajax_sorting_1" class="gridTopPadding4">
+                    <div class="errorMsgAlign clear-both">
+						<div id="ajax_error_InvitedProspectError" class="error" />
+						<div id="error_InvitedProspectError" class="error" />
+					</div>
+                    <div class="ConfirmationAlign clear-both"
+										id="agencyListPublicSubmitNInvitation_freeform_contextdata_100">
+										<label name="agencyListPublicSubmitNInvitationDeleterMsg" id="agencyListPublicSubmitNInvitationDeleterMsg" class="conformationMsg" />
+					</div>
+                    	<div class="table-layout">
+                    	<div class="table-responsive">
+                    	
+                      <table cellpadding="0" class="gridTable border_Level_1" cellspacing="0" width="100%" id="agencyListPublicSubmitNInvitation_list_1">
+                        <tr id="isAgencyListPublicSubmitNInvitationNotEmpty">
+                          <td colspan="26">
+                            <table cellpadding="2" cellspacing="0" border="0" width="100%" class="pagination">
+                              <tr id="Search_firm_pagination_01">
+                                <td width="2%" nowrap="nowrap">Records per Page :</td>
+                                <td width="1%">
+                                  <select id="recordsperpage_1" onchange="ajax_sorting_1" name="recordsperpage_1" class="inputbox" />
+                                </td>
+                                <td align="center">
+                                  <table cellpadding="1" cellspacing="0">
+                                    <tr>
+                                      <td class="linright">Viewing</td>
+                                      <td id="Search_firm_recordsfrom_1" class="paginationTxt" />
+                                      <td class="linright">to</td>
+                                      <td id="Search_firm_recordsto_1" class="paginationTxt" />
+                                      <td class="linright">of</td>
+                                      <td id="Search_firm_totalrecords_1" class="paginationTxt" />
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td align="right" width="160px" nowrap="nowrap">
+                                  <table border="0" cellspacing="1" cellpadding="1">
+                                    <tr>
+                                      <td id="Search_firm_firstpagelink_1">
+                                        <a id="agencyListPublicSubmitNInvitation_previous_all" href="javascript:ajaxpagination('agencyListPublicSubmitNInvitation.html','ajax_sorting_1','','');" title="First Page" tabindex="21">
+                                          <img src="images/previous_all.png" border="0" />
+                                        </a>
+                                      </td>
+                                      <td id="Search_firm_previouspagelink_1">
+                                        <a id="agencyListPublicSubmitNInvitation_previous_one" href="javascript:ajaxpagination('agencyListPublicSubmitNInvitation.html','ajax_sorting_1','','');" title="Previous" tabindex="21">
+                                          <img src="images/previous_one.png" border="0" />
+                                        </a>
+                                      </td>
+                                      <td nowrap="nowrap">Page :</td>
+                                      <td>
+                                        <select id="pagenumber_1" onchange="ajax_sorting_1" name="pagenumber_1" class="inputbox" />
+                                      </td>
+                                      <td id="Search_firm_nextpagelink_1">
+                                        <a id="agencyListPublicSubmitNInvitation_next_one" href="javascript:ajaxpagination('agencyListPublicSubmitNInvitation.html','ajax_sorting_1','','');" title="Next" tabindex="21">
+                                          <img src="images/next_one.png" border="0" />
+                                        </a>
+                                      </td>
+                                      <td id="Search_firm_lastpagelink_1">
+                                        <a id="agencyListPublicSubmitNInvitation_next_all" href="javascript:ajaxpagination('agencyListPublicSubmitNInvitation.html','ajax_sorting_1','','');" title="Last Page" tabindex="21">
+                                          <img src="images/next_all.png" border="0" />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr id="agencyListPublicSubmitNInvitation_list_header_1">
+                          <td class="HeaderStyle" width="15%" id="agencyList_block_agencyname_security">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_aar_agencyname">
+	                            <span id="agencyList_block_agencyname_label">Agency Name</span> 
+                            </span>
+                          </td>
+                          <td id="aar_statename_security" class="HeaderStyle" width="7%">
+                            <span id="sorting(,A,ajax_sorting_1):block_field_aar_statename">
+                              <span id="agencyList_block_statename_label">State</span>
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="16%" id="agencyList_block_email_security">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_email">
+                          		<span id="agencyList_block_email_label">Email Address</span>
+                          	</span></td>                          
+                          <td id="workflow_source_security" class="HeaderStyle" width="10%">
+                            <span id="sorting(,A,ajax_sorting_1):block_field_source">
+                            	<span id="agencyList_block_source_label">Source</span>
+                            </span>
+                          </td>
+                          <td id="workflow_registration_type_security" class="HeaderStyle" width="13%">
+                            <span id="sorting(,A,ajax_sorting_1):block_field_registration_type">
+                            	<span id="agencyList_registration_type_label">Registration type</span>
+                            </span>
+                          </td>
+                          
+                          <td id="workflow_status_security" class="HeaderStyle" width="13%">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_status_desc">
+                          		<span id="agencyList_block_status_label">Status</span>
+                          	</span>
+                          </td>
+                          <td id="workflow_queue_status_security" class="HeaderStyle" width="10%">
+                            <span id="sorting(,A,ajax_sorting_1):block_field_queue_status">
+                            	<span id="agencyList_block_queue_status_label">Status</span>
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="14%" id="agencyList_block_workflow_function_security">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_workflow_function_new">
+                            	<span id="agencyList_block_workflow_function_label">Queue</span>
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="13%" id="agencyList_block_workflow_user_security">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_workflow_user">
+                          		<span id="agencyList_block_workflow_user_label">Assigned To</span>
+                          	</span>
+                          </td>
+                          <td id="aar_operating_division_security" class="HeaderStyle" width="10%">
+                            <span id="sorting(,A,ajax_sorting_1):block_field_aar_operating_division">
+                              <span id="agencyList_block_operating_division_label">Operating Division</span>
+                            </span>
+                          </td>
+                          <td id="created_by_security" class="HeaderStyle" width="10%">
+                          	<div style="width: 96px;" id="sorting(,A,ajax_sorting_1):block_field_invitation_sent_by">
+                          		<span id="agencyList_block_created_by_label">Created By</span>
+                          	</div>
+                          </td>
+                          <td class="HeaderStyle" width="10%" id="agencyList_block_last_updated_ts_security">
+                            <div id="sorting(,A,ajax_sorting_1):block_field_date_time_TS" style="width: 100px;"> 
+                            	<span id="agencyList_block_last_updated_ts_label">Timestamp</span>
+                            </div>
+                          </td>
+                          <td id="public_url_onboarding_list_security" class="HeaderStyle" width="1%">
+                           	<span id="sorting(,A,ajax_sorting_1):block_field_urlLink_row_link">
+                           		<span id="agencyList_block_public_url_onboarding_list_label">Public URL</span>
+                           	</span>
+                          </td>
+                          <td id="onboarding_agency_application_url_security" class="HeaderStyle" width="1%">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_urlLink_row_link">
+                          		<span id="agencyList_block_onboarding_agency_application_url_label">Public URL</span>
+                          	</span>
+                          </td>
+                          
+                          <!--    
+                                        <td
+                                            id="eval:ProducerOneRule.isInvitedStatusPage"
+                                            class="HeaderStyle" width="90px"><span
+                                            id="sorting(,A,ajax_sorting_1):block_field_is_sentforesign">Sent
+                                                For ESign</span></td>
+                                         -->
+                          <td class="HeaderStyle" width="1%" id="agencyList_block_comments_row_security">
+                          	<span id="sorting(,A,ajax_sorting_1):block_field_comments_row_link"></span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="showExpiredCancelledReactivationLink">
+                            	<span id="block_field_reactivate_row_link" />
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="reassign_user_role_based_security">
+                          		<span id="showReassignUsersLink">
+                          			<span id="block_field_reassign_row_link" />
+                          		</span>
+                          	</span>
+                            
+                          </td>
+               
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="agencyListPublicSubmitNInvitation_Trash_Onboarded_Application_row_security">
+                          		
+                          			<span id="block_field_delete_row_link" />
+                         
+                          	</span>
+                            
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="onboardingAgencyAppointmentApplication_security">
+                          		<span id="showCreateOnboardingApplicationLink"><span id="block_field_create_onboarding_application_row_link" /></span>
+                          	</span>
+                          	<!-- BMIC - Customization -->
+                          	<!-- Commenting below cust as part of feature 48680-Deleting an Onboarding Invitation implementation -->
+                          	<!-- <span id="deleteApplication_security">
+                          		<span id="showDeleteApplicationLink"><span id="block_field_create_delete_application_row_link" /></span>
+                          	</span> -->
+                          	<!-- BMIC - Customization -->
+                          	
+                          	
+                          	
+                            
+                          </td>
+                          
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="isRowLevelRegenerateLinkShow">
+	                            <span id="block_field_regenerate_row_link" />
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="restore_duplicate_security">
+	                            <span id="showRestoreFromDuplicateLink">
+	                              <span id="block_field_restore_row_link" />
+	                            </span>
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="isRowLevelResentLinkShow">
+                            	<span id="block_field_resent_row_link" />
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="isShowMoveWorkflowRowLink">
+                            	<span id="block_field_moveWorkflow_row_link" />
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          	<span id="agencyListPublicSubmitNInvitation_resend_invitation_security">
+                            	<span id="block_field_resent_invitation_row_link" />
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          <span id="agencyListPublicSubmitNInvitation_send_welcome_letter_security">
+                            <span id="block_field_send_welcome_letter_row_link" >
+                            </span>
+                          </td>
+                          <td class="HeaderStyle" width="1%">
+                          <span id="agencyListPublicSubmitNInvitation_send_email_security">
+                            <span id="block_field_email_sent_row_link" >
+                            </span>
+                          </td>
+                        </tr>
+                        <tbody id="agencyListPublicSubmitNInvitation_list_data_1">
+                          <tr>
+                            <td class="fixcolumntd" id="agencyList_block_agencyname_security">
+                            	<div id="onboarding_flow_agency_name_clickable">
+		                            <span id="block_field_aar_agencyname">
+		                              <!-- <span id="isCompletedOnboardingStatusNotFound">
+		                                <span id="isAgencyOnBoarding">
+		                                  <span id="isBulkAppointNewSetToNo">
+		                                    <span id="block_field_aar_agencyname">
+		                                      <a id="agencyListPublicSubmitNInvitation_name" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitationEdit.html|carrier/bulkEntityAppoint.html|carrier/docContractDetails.html|carrier/docOther.html|carrier/producerNumbersList.html|carrier/entityGeneralDetails.html|carrier/agencyAssociationSummary.html|carrier/entityBackgroundInquiryList.html','agencyListPublicSubmitNInvitation.edit','forwardeval','ProducerOneRule.isShowEntityDetailsPageInOnboradingFalse|ProducerOneRule.isShowbulkEntityAppointFromOnbaordingBucket|ProducerOneRule.isShowContractFromOnbaordingBucket|ProducerOneRule.isPendingReviewExpiredContractGenerationStatusPageNDocContractNotActive|ProducerOneRule.isAgencySetupWorkflowFunction|ProducerOneRule.isShowEntityGeneralDetailsPage|ProducerOneRule.isShowAgencyAssociationSummaryFromOnbaordingBucket|ProducerOneRule.isShowEntityDetailsPageInOnboradingTrue');">
+		                                        <span id="block_field_aar_agencyname" />
+		                                      </a>
+		                                    </span>
+		                                  </span>
+		                                  <span id="isBulkAppointNewSetToYes">
+		                                    <span id="block_field_aar_agencyname">
+		                                      <a id="agencyListPublicSubmitNInvitation_name" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitationEdit.html|carrier/bulkEntityAppointNew.html|carrier/docContractDetails.html|carrier/docOther.html|carrier/producerNumbersList.html|carrier/entityGeneralDetails.html|carrier/agencyAssociationSummary.html|carrier/entityBackgroundInquiryList.html','agencyListPublicSubmitNInvitation.editNew','forwardeval','ProducerOneRule.isShowEntityDetailsPageInOnboradingFalse|ProducerOneRule.isShowbulkEntityAppointFromOnbaordingBucket|ProducerOneRule.isShowContractFromOnbaordingBucket|ProducerOneRule.isPendingReviewExpiredContractGenerationStatusPageNDocContractNotActive|ProducerOneRule.isAgencySetupWorkflowFunction|ProducerOneRule.isShowEntityGeneralDetailsPage|ProducerOneRule.isShowAgencyAssociationSummaryFromOnbaordingBucket|ProducerOneRule.isShowEntityDetailsPageInOnboradingTrue');">
+		                                        <span id="block_field_aar_agencyname" />
+		                                      </a>
+		                                    </span>
+		                                  </span>
+		                                </span>
+		                                <span id="isAgencyOnBoardingFalse">
+		                                  <span id="block_field_aar_agencyname">
+		                                    <a id="agencyListPublicSubmitNInvitation_name" href="javascript:submitform('carrier/entityGeneralDetails.html|carrier/docContractDetails.html','agencyListPublicSubmitNInvitation.editForContractApproval','forwardeval','ProducerOneRule.isContractStatusSentForESignature|agencyListPublicSubmitNInvitationRule.isShowDocContratcsPageFromOnboardinglist');">
+		                                      <span id="block_field_aar_agencyname" />
+		                                    </a>
+		                                  </span>
+		                                </span>
+		                              </span>
+		                              <span id="isCompletedOnboardingStatusFound">
+		                                <span id="block_field_aar_agencyname">
+		                                  <a id="agencyListPublicSubmitNInvitation_name" href="javascript:submitform('carrier/entityGeneralDetails.html','agencyListPublicSubmitNInvitation.showAgencyDetails','','');">
+		                                    <span id="block_field_aar_agencyname" />
+		                                  </a>
+		                                </span>
+		                              </span> -->
+		                              <!--<a
+		                                                href="javascript:submitform('carrier/agencyListPublicSubmitNInvitationEdit.html|carrier/bulkEntityAppointNew.html|carrier/contractList.html|carrier/agencyContractDetail.html|carrier/entityGeneralDetails.html','agencyListPublicSubmitNInvitation.edit','forwardeval','ProducerOneRule.isShowEntityDetailsPageInOnboradingFalse|ProducerOneRule.isStateAppointmentsStatusOnboarding|ProducerOneRule.checkContractListingPage|ProducerOneRule.checkContractDetailPage|ProducerOneRule.isShowEntityDetailsPageInOnboradingTrue');">
+		                                                    <label id="block_field_aar_agencyname">
+		                                                </label>
+		                                            </a>-->
+	                                            
+	                                            </span>
+                                           </div>
+                              	<div id="onboarding_flow_agency_name_non_clickable">
+                                	<span id="block_field_aar_agencyname" />
+                               	</div>
+                            </td>
+                            
+                            
+                            <td id="aar_statename_security">
+                              <span id="block_field_aar_statename" />
+                            </td>
+                            <td id="agencyList_block_email_security"><span id="block_field_email"></span></td>
+                            
+                            <td id="workflow_source_security">
+                              <span id="block_field_source" />
+                            </td>
+                            
+                            <td id="workflow_registration_type_security">
+                              <span id="block_field_registration_type" />
+                            </td>
+                            
+                            <td id="workflow_status_security">
+                              <span id="block_field_status_desc" />
+                            </td>
+                            <td id="workflow_queue_status_security">
+                              <span id="block_field_queue_status" />
+                            </td>
+                            <td id="agencyList_block_workflow_function_security">
+                            	<span id="block_field_workflow_function_new"></span>
+                            </td>
+                            <td id="agencyList_block_workflow_user_security">
+                            	<span id="block_field_workflow_user"></span>
+                            </td>
+                            <td id="aar_operating_division_security">
+                              <span id="block_field_aar_operating_division" />
+                            </td>
+                            <td id="created_by_security">
+                            <span id="block_field_invitation_sent_by" />
+                            </td>
+                            <td id="agencyList_block_last_updated_ts_security">
+                            	<span id="block_field_date_time_TS"></span>
+                            </td>
+                            <td id="public_url_onboarding_list_security">
+                              <span id="block_field_urlLink_row_link">
+                                <a id="isAgencyOnBoarding" href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.createUrl','','');">URL Link</a>
+                              </span>
+                            </td>
+                            
+                            
+                            <td id="onboarding_agency_application_url_security">
+                              <span id="block_field_urlLink_row_link">
+                                                    <a id="isAgencyOnBoarding" href="javascript:submitform('carrier/agencyAppointmentApplicationStep1.html','agencyListPublicSubmitNInvitation.gotoAgencyAppointmentApplicationStep1','','');">URL Link</a>
+                              </span>
+                            </td>
+                            
+                            <!--
+                                            <td
+                                                id="eval:ProducerOneRule.isRowLevelInvitedStatusPage">
+                                                <span id="block_field_is_sentforesign">
+                                                    <input type="checkbox"
+                                                    name="is_sentforesign"
+                                                    id="is_sentforesign" disabled="disabled"
+                                                    value="Y" />
+                                            </span>
+                                            </td>
+                                             
+                                            <td id="eval:ProducerOneRule.isResetFilterY">
+                                                <span id="eval:ProducerOneRule.isRowLevelInvitedStatusPage1">
+                                                    <span id="block_field_is_sentforesign">
+                                                        <input type="checkbox" name="is_sentforesign"
+                                                                id="is_sentforesign" disabled="disabled" value="Y" />
+                                                </span>
+                                            </td>
+                                             -->
+                            <td id="agencyList_block_comments_row_security">
+                            <span id="block_field_comments_row_link" align="right">
+                              <a class="comment_ico icons" id="isAgencyOnBoarding" href="javascript:rightclickmenu('carrier/onboardingComments.html','onboardingComments.showComments','','','div_ajaxpostiononboardingComments_freeform:sno');" title="Comments" />
+                             </span>
+                            </td>
+                            <td>
+                            <span id="showExpiredCancelledReactivationLink">
+                             <span id="isRowLevelInvitationStatusExpiredOrCancelled">
+                              <span id="hideReactivateButtonAsPerRole">
+                                <span id="block_field_reactivate_row_link">
+                                  <a id="agencyListPublicSubmitNInvitation_reactivate" title="Reactivate" href="javascript:submitform('carrier/homeAction.html','agencyListPublicSubmitNInvitation.reactivateInvitationLink','','');">
+                                    <img src="images/icons/icon_reactivate1.png" />
+                                  </a>
+                                </span>
+                              </span>
+                              </span>
+                             </span>
+                            </td>
+                            <td>
+                            	<span id="reassign_user_role_based_security">
+                              <span id="isRowLevelInvitationStatusNotDeclinedOrDuplicatedOrCompleted" align="right">
+                                <span id="block_field_reassign_row_link">
+                                  <a class="user_ico icons" id="isAgencyOnBoarding" href="javascript:rightclickmenu('carrier/reassignOnboardingUsers.html','reassignOnboardingUsers.showOnboardingUsers','','','div_ajaxpostiononboardingComments_freeform:sno');" title="Reassign Users" />
+                                </span>
+                              </span>
+                              </span>
+                            </td>
+                            <td align="right">
+								<span id="agencyListPublicSubmitNInvitation_Trash_Onboarded_Application_row_security">
+									<span id="block_field_delete_row_link">
+										<a class="delete_ico icons" title="Trash"
+											href="javascript:ajaxpageblocklink('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.trashOnboardedApplication','','','agencyListPublicSubmitNInvitationForProspects');" />
+									</span>
+								</span>
+							</td>
+                            
+                            <td align="right">
+                            <span id="onboardingAgencyAppointmentApplication_security">
+                            <span id="block_field_create_onboarding_application_row_link">
+                              <a class="comment_ico icons" id="isAgencyOnBoarding" href="javascript:submitform('carrier/sendOnboardingWorkdayApplicationStep1.html','agencyListPublicSubmitNInvitation.goToSendOnboardingWorkdayApplicationStep1','','');" title="On-boarding Application" >
+                              <img src="images/icons/icoAddApp.png" />
+                              </a>
+                              </span>
+                              </span>
+                              
+                              <!-- BMIC - customization -->
+                              <!-- Commenting below cust as part of feature 48680-Deleting an Onboarding Invitation implementation -->
+                               <!-- <span id="deleteApplication_security">
+                            <span id="block_field_create_delete_application_row_link">
+                              <a class="delete_ico icons" id="isDeleteAppointment" 
+                              href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.deleteAgencyApplication','','');" title="Delete Application" >
+                              <img src="images/icons/Delete.png" />
+                              </a>
+                              </span>
+                              </span> -->
+                                <!-- BMIC - customization -->
+                            </td>
+                            
+                            
+                            
+                            <td align="right">
+                            	<span id="1regenerate_security">
+	                              <span id="isRowLevelRegenerateLinkShow">
+	                                <span id="1isRowLevelRegenerateLinkForPendingEsignatureBucket">
+	                                  <span id="1hideRegeneratebutton">
+	                                    <span id="1isHideShowRegenerateButtonInOnholdbucketForMA">
+	                                      <span id="block_field_regenerate_row_link">
+	                                      <a id="agencyListPublicSubmitNInvitation_regenrate" class="regenerate_ico icons" 
+	                                        href="javascript:submitform('carrier/homeAction.html','agencyListPublicSubmitNInvitation.regenerate','','');"
+	                                        title="Regenerate" /> 
+	                                      </span>
+	                                    </span>
+	                                  </span>
+	                                </span>
+	                              </span>
+                              </span>
+                            </td>
+                            <td>
+                            	<span id="restore_duplicate_security">
+                              <span id="showRestoreFromDuplicateLink">
+                                <span id="block_field_restore_row_link">
+                                  <a id="agencyListPublicSubmitNInvitation_restore" class="icon_restore icons" href="javascript:submitform('carrier/homeAction.html','agencyListPublicSubmitNInvitation.restore','','');" title="Restore" />
+                                </span>
+                              </span>
+                              </span>
+                            </td>
+                            <!-- <td align="right">
+                              <span id="isRowLevelResentLinkShow">
+                                <span id="hideRegeneratebutton">
+                                  <span id="agencyListPublicSubmitNInvitation_sentLink_security">
+                                    <span id="block_field_resent_row_link">
+                                      <a class="regenerate_ico icons" id="agencyListPublicSubmitNInvitation_resend" href="javascript:submitform('carrier/homeAction.html','agencyListPublicSubmitNInvitation.resent','','');" title="Resend" />
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                            </td> -->
+                            <td align="right">
+                              <span id="isRowLevelResentLinkShow">
+                                    <span id="block_field_resent_row_link">
+                                      <a class="resend_ico icons"  id="agencyListPublicSubmitNInvitation_resend" href="javascript:submitform('carrier/homeAction.html','agencyListPublicSubmitNInvitation.resent','','');" title="Resend" />
+                                    </span>
+                              </span>
+                            </td>
+                            <td align="right">
+                          	<span id="isShowMoveWorkflowRowLink">
+                            	<span id="block_field_moveWorkflow_row_link" >
+                            		<a class="moveWorkflow_ico icons"  href="javascript:ajaxpageblocklink('carrier/onboardingCompleteChecklist.html','agencyListPublicSubmitNInvitation.moveWorkflow','','','popupEntityList');" title="Move Workflow" />
+                            	</span>
+                            </span>
+                          </td>
+                          <td align="right">
+                          	<span id="agencyListPublicSubmitNInvitation_resend_invitation_security">
+                            	<span id="block_field_resent_invitation_row_link" >
+                            		<!-- <a class="moveWorkflow_ico icons"  href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.resendInvitation','','','selectEmailTemplate');" title="Resend Invitation" /> -->
+                            		<a href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.resendInvitation','','');" title="Resend Invitation" >
+                            			<img src="images/icons/regenerate.png" border="0" />
+                            		</a>
+                            	</span>
+                            </span>
+                            <span id="agencyListPublicSubmitNInvitation_send_email_security">
+                            	<span id="block_field_email_sent_row_link" >
+                            	<a href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.sendEmail','','selectEmailTemplate');" title="Send Email" >
+                            			<img src="images/icons/email.png" border="0" />
+                            		</a>
+                            	</span>
+                            </span>
+                          </td>
+                                                   <td align="right">
+                            <span id="agencyListPublicSubmitNInvitation_send_welcome_letter_security">
+                            	<span id="block_field_send_welcome_letter_row_link" >
+                            	<a href="javascript:submitform('carrier/agencyListPublicSubmitNInvitation.html','agencyListPublicSubmitNInvitation.sendWelcomeLetter','','selectEmailTemplate');" title="Send Welcome Letter" >
+                            			<img src="images/icons/email.png" border="0" />
+                            	</a>
+                            	</span>
+                            </span>
+                          </td>
+                         
+                          </tr>
+                          <tr class="border0" id="agencyListPublicSubmitNInvitation_ajaxpostion_list_02">
+                            <td colspan="20" align="left" class="none">
+                              <div id="div_ajaxpostiononboardingComments_freeform:sno" class="bgAccordionN" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    	</div>
+                    	</div>
+                    </div>
+                    </div>
+                  </fieldset>
+                </section>
+              </div>
+              <!--=======Body content End========-->
+            </article>
+          </div>
+          <!--=======Footer Start========-->
+          <footer>
+            <span id="#Include:admin/adminFooter.html#" />
+          </footer>
+          <!--=======Footer End========-->
+        </div>
+      </div>
+      <div class="hiddenFields" id="agencyListPublicSubmitNInvitation_freeform_contextdata_0">
+        <input type="hidden" name="jsessionid" id="jsessionid" />
+        <input type="hidden" name="request_ids" id="request_ids" />
+        <input type="hidden" name="invitation_link" id="invitation_link" />
+        <input type="hidden" name="aar_statusid_desc" id="ajax_field_aar_statusid_desc" />
+        <input type="hidden" name="isShowRowLevelWelcomeLetterButton" id="ajax_field_isShowRowLevelWelcomeLetterButton" />
+        <input type="hidden" name="divHideShow" id="divHideShow" />
+        <input type="hidden" name="isdisplayusers" id="ajax_field_isdisplayusers" />
+        <input type="hidden" name="isReset" id="ajax_field_isReset" />
+        <input type="hidden" name="isallusers" id="ajax_field_isallusers" />
+        <input type="hidden" name="aar_statusid_desc_breadcrumb" id="ajax_field_aar_statusid_desc_breadcrumb" />
+        <input type="hidden" name="workflow_function_breadcrumb" id="ajax_field_workflow_function_breadcrumb" />
+        <input type="hidden" name="ajaxdeletedivid" id="ajaxdeletedivid" />
+      </div>
+    </form>
+  </body>
+</html>
+
+

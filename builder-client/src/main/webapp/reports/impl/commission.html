@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body>
+    <form>
+      <div id="general_freeform_contextdata_001">
+        <input type="hidden" value="reportsColumn3" id="reportsColumns" name="reportsColumn3" />
+      </div>
+      <div class="container-fluid bootstrap-node-1">
+        <div class="tableWidth">
+          <!--=======Header Start========-->
+          <header>
+            <span id="#Include:carrier/carrierHeader.html#" />
+          </header>
+          <!--=======Header End========-->
+          <div class="bgmain">
+            <!--=======Menu Level 1 Start========-->
+            <nav class="menu-level-1 tab">
+              <span id="#Include:reports/reportTabs.html#" />
+            </nav>
+            <!--=======Menu Level 1 End========-->
+            <article class="content sidebar-content">
+              <!--=======Sidebar Start========-->
+              <div id="sidebar_left_security_report" class="sideBar_report">
+                <span id="#Include:admin/adminSideBar.html#" />
+              </div>
+              <!--=======Sidebar End========-->
+              <!--=======Body content Start========-->
+              <div class="panel-body-wraper" id="tdContent">
+                <!--=======page Level msg Start========-->
+                <!--=======page Level msg End========-->
+                <section>
+                  <fieldset>
+                    <legend id="Commission_label"></legend>
+                    <div class="gridTopPadding4">
+                      <section class="free-form" id="commission_accounting_reports_security">
+                        <fieldset class="fieldset_appoint">
+                          <legend id="Accounting_Reports_label"></legend>
+                          <div class="reportsDivBlockMain generalBlock">
+                            <ul class="split-list">
+                            
+                           <li  id="agent_Level_GL_Adjustments_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|','|AgentLevelGLAdjustments|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span  id="agent_Level_GL_Adjustments_label"> Agent Level GL Adjustments </span></a>
+                                <div class="trigger" onclick="showBranch('branch3');swapFolder('folder3')">
+                                  <img src="images/plus.gif" name="folder3" border="0" id="folder3" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch3">
+                                  <div>Agent Level GL Adjustments</div>
+                                </div>
+                            </li>
+                             
+                            <li  id="Company_Level_GL_Balance_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|','|CompanyLevelLBalance|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span  id="Company_Level_GL_Balance_label">Company Level GL Balance </span></a>
+                                <div class="trigger" onclick="showBranch('branch3');swapFolder('folder3')">
+                                  <img src="images/plus.gif" name="folder3" border="0" id="folder3" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch3">
+                                  <div>Company Level GL Balance</div>
+                                </div>
+                            </li>
+                               
+                              <li id="commission_expense_stateLOB_security">
+                                <a href="javascript:managereport('|reportID|projectID|','|CommissionExpense|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+								<span  id="commission_expense_stateLOB_label"> Commission Expense (AIM109) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch1');swapFolder('folder1')">
+                                  <img src="images/plus.gif" name="folder1" border="0" id="folder1" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch1">
+                                  <div>List show Commission Expense by state, lob and company.</div>
+                                </div>
+                              </li>
+                              <li  id="commission_agingCommission_balance_security">
+                                <a href="javascript:managereport('|reportID|projectID|','|CommissionAging|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+								<span id="agingCommission_balance_label"> Aging Commission Balance (AIM107) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch2');swapFolder('folder2')">
+                                  <img src="images/plus.gif" name="folder2" border="0" id="folder2" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch2">
+                                  <div>
+                                    This report displays Aging Commission Balance by State,
+Company and
+                                    <span id="producerlabel">Agency Code</span>
+                                    .
+                                  </div>
+                                </div>
+                              </li>
+                              <li  id="commission_balanceStatement_report_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|','|CommissionBalance|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span  id="commission_balanceStatement_report_label"> Commission Balance &amp; Adjustment (AIM104) </span></a>
+                                <div class="trigger" onclick="showBranch('branch3');swapFolder('folder3')">
+                                  <img src="images/plus.gif" name="folder3" border="0" id="folder3" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch3">
+                                  <div>This report displays the List of Commission Balance and
+Adjustment.</div>
+                                </div>
+                              </li>
+                              <li id="commission_ProducerCode_adjustment_report_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|','|commissionBalance104-1|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="commission_ProducerCode_adjustment_report_label"> Commission Balance and Adjustment with Producer Code(AIM104-1) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch4');swapFolder('folder4')">
+                                  <img src="images/plus.gif" name="folder4" border="0" id="folder4" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch4">
+                                  <div>This report displays the List of Commission Balance and
+Adjustment with Producer Code.</div>
+                                </div>
+                              </li>
+                              <li id="commission_isHideShowCommissionAdjustmentReport"> 
+                                <a class="ico_block" href="javascript:submitform('reports/commissionAdjustmentReport.html','commission.getCommissionAdjustmentReport','','');">
+								<span id="commission_adjustment_label"> Commission Adjustment (AIM257) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch41');swapFolder('folder41')">
+                                  <img src="images/plus.gif" name="folder41" border="0" id="folder41" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch41">
+                                  <div>This report displays the List of Commission Adjustment.</div>
+                                </div>
+                              </li>
+                              <li id="commission_uncollected_premium_report_security">
+								<table width="100%" border="0"
+									cellspacing="0" cellpadding="4">
+									<tr>
+										<td width="10px">
+											<img
+												src="images/icons/icon_arrow1.gif"
+												width="16" height="16" />
+										</td>
+										<td align="left">
+											<a href="javascript:managereport('|reportID|projectID|','|uncollectedEarnedPremiumFeesAIM115|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+													<span id="uncollected_earnedPremium_label">Uncollected Earned Premium & Fees (AIM115)  </span>
+												</a>
+										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;
+											
+										</td>
+										<td>
+											<div class="trigger"
+												onclick="showBranch('branch55');swapFolder('folder55')">
+												<img src="images/plus.gif"
+													name="folder55" border="0"
+													id="folder55" />
+												Description
+											</div>
+											<div class="branch" id="branch55"
+												style="display: none; padding: 5px;">
+												<div style="padding-left: 7px">
+													This report displays all Uncollected Earned Premium & Fees.
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</li>
+                            </ul>
+                          </div>
+                        </fieldset>
+                      </section>
+                      <section class="free-form" id="commission_statement_reports_security">
+                        <fieldset class="fieldset_appoint">
+                          <legend id="Commission_Statement_Reports_label"></legend>
+                          <div class="reportsDivBlockMain generalBlock">
+                            <ul class="split-list">
+                              <li id="commission_cashControl_detail_report_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM100-1|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="cashControl_detail_report_label">Cash Control Details (AIM100-1) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch5');swapFolder('folder5')">
+                                  <img src="images/plus.gif" name="folder5" border="0" id="folder5" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch5">
+                                  <div>Cash control report which displays the written premium and
+commission by agency code, company, state and LOB</div>
+                                </div>
+                              </li>
+                              <li id="commission_isShow100_3Report">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM100-3|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="producer_commission_disbursement_label">Producer Commission Disbursement (AIM100-3) </span></a>
+                                <div class="trigger" onclick="showBranch('branch6');swapFolder('folder6')">
+                                  <img src="images/plus.gif" name="folder6" border="0" id="folder6" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch6">
+                                  <div>This report displays the commission amount paid to the agent
+company wise.</div>
+                                </div>
+                              </li>
+                              <li id="commission_advertisement_costcharges_summary_report_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM101-2|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span  id="costCharges_advertisement_label"> Advertisement Cost Charges Summary (AIM101-2) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch7');swapFolder('folder7')">
+                                  <img src="images/plus.gif" name="folder7" border="0" id="folder7" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch7">
+                                  <div>This Report displays Agent Commission Adjustment
+Details.</div>
+                                </div>
+                              </li>
+                              <li  id="commission_webLeads_report_security">
+                                <a href="javascript:managereport('|reportID|projectID|','|AIM102|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+								<span  id="commission_webLeads_report_label"> Web Leads Report (AIM102) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch8');swapFolder('folder8')">
+                                  <img src="images/plus.gif" name="folder8" border="0" id="folder8" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch8">
+                                  <div>This report displays Web Leads details.</div>
+                                </div>
+                              </li>
+                              <li id="commission_isShow102_2Report">
+                                <a href="javascript:managereport('|reportID|projectID|','|AIM102-2|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+								<span id="phone_leadsReport_label">Phone Leads Report(AIM102-2) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch9');swapFolder('folder9')">
+                                  <img src="images/plus.gif" name="folder9" border="0" id="folder9" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch9">
+                                  <div>The report displays list of phone leads details.</div>
+                                </div>
+                              </li>
+                              <li  id="commission_PoliciesPremium_report_security">
+                                <a href="javascript:managereport('|reportID|projectID|','|AIM105-2|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+							<span  id="commission_PoliciesPremium_report_label">Premium and Additional Commission for Policies (AIM105-2) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch10');swapFolder('folder10')">
+                                  <img src="images/plus.gif" name="folder10" border="0" id="folder10" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch10">
+                                  <div>This repoprt is a summary of the premium and commission for
+policies that are part of the California Medical Associations for
+the given month.</div>
+                                </div>
+                              </li>
+                              <li id="commission_paidDetail_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM110|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="commission_paidDetail_label"> Commission Paid Details (AIM110) </span></a>
+                                <div class="trigger" onclick="showBranch('branch11');swapFolder('folder11')">
+                                  <img src="images/plus.gif" name="folder11" border="0" id="folder11" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch11">
+                                  <div>This report display Commission Amount by Master Code.</div>
+                                </div>
+                              </li>
+                              <li id="commission_isShow113_1Report">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM112|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="ammount_Charged_label"> Amount Charged For MVR/CLUE (AIM112) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch12');swapFolder('folder12')">
+                                  <img src="images/plus.gif" name="folder12" border="0" id="folder12" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch12">
+                                  <div>MVR and CLUE Cost. The agents are charged from choice point
+while ordering MVR / CLUE in Quick Silver. This report reports the
+amount the agents are charged for ordering MVR / CLU (MVR and CLUE
+cost).</div>
+                                </div>
+                              </li>
+                              <li id="commission_isShow113_3Report">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|ACH113-2|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="monthly_producer_commission_validation_label">Monthly Producer Commission Validation ACH200 (ACH113-2) </span></a>
+                                <div class="trigger" onclick="showBranch('branch13');swapFolder('folder13')">
+                                  <img src="images/plus.gif" name="folder13" border="0" id="folder13" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch13">
+                                  <div>This report displays Monthly agent commission
+validation.</div>
+                                </div>
+                              </li>
+                              <li id="commission_CEA_coverage_report_security"> 
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|coverageLevel|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="commission_CEA_coverage_report_label"> CEA Coverage Report (AIM169) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch14');swapFolder('folder14')">
+                                  <img src="images/plus.gif" name="folder14" border="0" id="folder14" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch14">
+                                  <div>This report displays CEA Coverage Details.</div>
+                                </div>
+                              </li>
+                              <li id="commission_levies_agency_listing_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AgencyWithLevis|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                                 
+                                  <span id="commission_levies_agency_listing_label">  Levies Agency listing (AIM114)</span>
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch15');swapFolder('folder15')">
+                                  <img src="images/plus.gif" name="folder15" border="0" id="folder15" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch15">
+                                  <div>This report displays List of Agencies with payment type
+Levies.</div>
+                                </div>
+                              </li>
+                              <li id="commission_producerStatement_payments_receiveable_security">
+                                <a href="javascript:managereport('|reportID|projectID|','|AIM101-1|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+								<span id="producerStatement_payments_receiveable_label"> Producer Statement Payments Receivable </span>
+(AIM101-1)</a>
+                                <div class="trigger" onclick="showBranch('branch16');swapFolder('folder16')">
+                                  <img src="images/plus.gif" name="folder16" border="0" id="folder16" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch16">
+                                  <div>This report displays producer statement payments receivable
+details.</div>
+                                </div>
+                              </li>
+                              <li id="commission_advertisement_charegs_report_security"> 
+                                <a href="javascript:managereport('|reportID|projectID|','|AIM102-1|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+							<span id="advertisement_charegs_report_label">	Advertisement Charges Report (AIM102-1) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch17');swapFolder('folder17')">
+                                  <img src="images/plus.gif" name="folder17" border="0" id="folder17" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch17">
+                                  <div>This report displays advertisement charges details.</div>
+                                </div>
+                              </li>
+                              <li id="commission_PremiumExpensesLOB_report_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM105-1|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="commission_PremiumExpensesLOB_report_label">Producer Premium &amp; Commission Expenses (AIM105-1) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch18');swapFolder('folder18')">
+                                  <img src="images/plus.gif" name="folder18" border="0" id="folder18" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch18">
+                                  <div>This report displays the Premiums Written, Gross and Net
+Commissions, and Commission Expenses by Company, State and
+LOB.</div>
+                                </div>
+                              </li>
+                              <li id="commission_masterLevelExceeding_report_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM110-Master|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+							<span id="commission_masterLevelExceeding_report_label">Commission Paid at Master level exceeding $25,000 (AIM168) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch19');swapFolder('folder19')">
+                                  <img src="images/plus.gif" name="folder19" border="0" id="folder19" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch19">
+                                  <div>This report displays commission paid details at master level
+which exceeding $25000.</div>
+                                </div>
+                              </li>
+                              <li id="commission_amountPaid_byPaymentType_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM111|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="amountPaid_byPaymentType_label">Amount Paid By Payment Type (AIM111) </span></a>
+                                <div class="trigger" onclick="showBranch('branch20');swapFolder('folder20')">
+                                  <img src="images/plus.gif" name="folder20" border="0" id="folder20" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch20">
+                                  <div>This report populates the amount sent to IRS, on behalf of the
+levied agents from their commission produced.</div>
+                                </div>
+                              </li>
+                              <li id="commission_paidCommissionACH_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|ACH113-1|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="commission_paidCommissionACH_label">Paid Commissions by ACH and Check ACH100 (ACH113-1) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch21');swapFolder('folder21')">
+                                  <img src="images/plus.gif" name="folder21" border="0" id="folder21" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch21">
+                                  <div>This reoprt dispalys paid commissions by ACH and Check.</div>
+                                </div>
+                              </li>
+                              <li id="commission_isShow113_2Report">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|ACH113-3|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="producer_commission_statement_label">Producer Commission Statement ACS010 (ACH113-3) </span></a>
+                                <div class="trigger" onclick="showBranch('branch22');swapFolder('folder22')">
+                                  <img src="images/plus.gif" name="folder22" border="0" id="folder22" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch22">
+                                  <div>This report displays Agent commission statement monthly
+balancing.</div>
+                                </div>
+                              </li>
+                              <li id="commission_displayPolicyLevel_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|policyLevel|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="commission_displayPolicyLevel_label">Payment Details At Policy Level (AIM170) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch23');swapFolder('folder23')">
+                                  <img src="images/plus.gif" name="folder23" border="0" id="folder23" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch23">
+                                  <div>This report displays payment details at policy level.</div>
+                                </div>
+                              </li>
+                              
+                              
+                              <!-- Added for BMIC - new report phase 3 req -->
+                               <li id="TerminatedAgenciesReport_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|TerminatedAgenciesReport|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="TerminatedAgenciesReport_label">Terminated Agencies Report </span> </a>
+                                <div class="trigger" onclick="showBranch('branch124');swapFolder('folder124')">
+                                  <img src="images/plus.gif" name="folder124" border="0" id="folder124" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch124">
+                                  <div>This report will return the list of terminated agencies for which the commission statement has been generated.</div>
+                                </div>
+                              </li>
+							  <!-- BMIC specific -->
+                                <li id="AgencyTerminationPolicyReviewRPT_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AgencyTerminationPolicyReviewRPT|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="AgencyTerminationPolicyReviewRPT_label">Agency Termination Policy Review </span> </a>
+                                <div class="trigger" onclick="showBranch('branch125');swapFolder('folder125')">
+                                  <img src="images/plus.gif" name="folder125" border="0" id="folder125" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch125">
+                                  <div>Agency Termination Policy Review.</div>
+                                </div>
+                              </li>
+                              
+                              <!-- End - Added for BMIC - new report phase 3 req -->
+                            </ul>
+                          </div>
+                        </fieldset>
+                      </section>
+                      <section class="free-form" id="Commission_Rate_Reports_Security">
+                        <fieldset class="fieldset_appoint">
+                          <legend id="Rate_Reports_label"></legend>
+                          <div class="reportsDivBlockMain generalBlock">
+                            <ul class="split-list">
+                              <li id="commission_comm_rate_based_on_template_reports_link_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM106|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="comm_rate_based_on_template_reports_link_label">Commission Rate based on Template (AIM161) </span></a>
+                                <div class="trigger" onclick="showBranch('branch24');swapFolder('folder24')">
+                                  <img src="images/plus.gif" name="folder24" border="0" id="folder24" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch24">
+                                  <div>This report display details of commission rate based on
+template filter by state, company, LOB and product.</div>
+                                </div>
+                              </li>
+                              <li id="commission_comm_rate_based_on_schedule_reports_link_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM106-schedule|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="comm_rate_based_on_schedule_reports_link_label">Commission Rate based on Schedule (AIM163) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch25');swapFolder('folder25')">
+                                  <img src="images/plus.gif" name="folder25" border="0" id="folder25" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch25">
+                                  <div>This report display details of commission rate based on
+schedule filter by state, company, LOB and product.</div>
+                                </div>
+                              </li>
+                              <li id="commission_schedule_list_details_reports_link_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|scheduleList|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span  id="schedule_list_details_reports_link_label"> Schedule List Details (AIM165) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch26');swapFolder('folder26')">
+                                  <img src="images/plus.gif" name="folder26" border="0" id="folder26" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch26">
+                                  <div>This report display details List of Schedule.</div>
+                                </div>
+                              </li>
+                              <li id="commission_comm_rate_based_currentaplicable_global_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|currentApplicableRateForGlobal|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="comm_rate_based_currentaplicable_global_label"> Current Applicable Global Rate (AIM167) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch27');swapFolder('folder27')">
+                                  <img src="images/plus.gif" name="folder27" border="0" id="folder27" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch27">
+                                  <div>This report display details of current applicable global
+rates.</div>
+                                </div>
+                              </li>
+                              <li id="commission_comm_rate_based_on_template_by_agency_reports_link_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM106-agency|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                              
+                                  <span id="commission_comm_rate_based_on_template_by_agency_reports_link_label">   Commission Rate based on Template by Agency
+                                  (AIM162) </span>
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch28');swapFolder('folder28')">
+                                  <img src="images/plus.gif" name="folder28" border="0" id="folder28" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch28">
+                                  <div>This report display details of commission rate based on
+template filter by agency.</div>
+                                </div>
+                              </li>
+                              <li id="commission_comm_rate_based_on_schedule_by_agency_reports_link_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AIM106-schedule-agency|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                                  
+                                  <span id="comm_rate_based_on_schedule_by_agency_reports_link_label">Commission Rate based on Schedule by Agency
+                                  (AIM164)</span>
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch29');swapFolder('folder29')">
+                                  <img src="images/plus.gif" name="folder29" border="0" id="folder29" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch29">
+                                  <div>This report display details of commission rate based on
+schedule filter by agency.</div>
+                                </div>
+                              </li>
+                              <li id="commission_comm_rate_based_currentaplicable_rates_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|currentApplicableRate|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="comm_rate_based_currentaplicable_rates_label"> Current Applicable Rates (AIM166) </span> </a>
+                                <div class="trigger" onclick="showBranch('branch30');swapFolder('folder30')">
+                                  <img src="images/plus.gif" name="folder30" border="0" id="folder30" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch30">
+                                  <div>This report display details current Applicable Rates.</div>
+                                </div>
+                              </li>
+                              
+                                <li id="commission_comm_rate_based_CommissionRateReport_link_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|CommissionRateReport|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+								<span id="comm_rate_based_on_schedule_reportsnew_link_label">Commission Rate Report </span> </a>
+                                <div class="trigger" onclick="showBranch('branch31');swapFolder('folder31')">
+                                  <img src="images/plus.gif" name="folder25" border="0" id="folder25" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch31">
+                                  <div>This report display Commission Rates</div>
+                                </div>
+                             
+                              </li>
+                            </ul>
+                          </div>
+                        </fieldset>
+                      </section>
+                      <section class="free-form" id="Commission_Housekeeping_Reports_security">
+                        <fieldset class="fieldset_appoint">
+                          <legend id="Housekeeping_Reports_label"></legend>
+                          <div class="reportsDivBlockMain generalBlock">
+                            <ul class="split-list">
+                              <li id="commission_comm_rate_agencyCode_schedule_security">
+                                <a href="javascript:managereport('|reportID|projectID|','|AgencyWithoutSchedule|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+                                  <span id="comm_rate_agencyCode_schedule_label">Agency Without Schedule (AIM178)</span>
+
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch31');swapFolder('folder31')">
+                                  <img src="images/plus.gif" name="folder31" border="0" id="folder31" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch31">
+                                  <div>
+                                   
+                                    <span id="producernumberstablabel"> This report displays list of all Agency Codes  having no</span>
+                                   
+Schedule.
+                                  </div>
+                                </div>
+                              </li>
+                              <li id="commission_showAgencyCodeWhereRateChanged">
+                                <a href="javascript:managereport('|reportID|projectID|','|agencyCodeWhereRateChanged|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+                                  <span id="showAgencyCodeWhereRateChanged_label">Agency Where Commission Rate Changed (AIM175)</span>
+                               
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch32');swapFolder('folder32')">
+                                  <img src="images/plus.gif" name="folder32" border="0" id="folder32" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch32">
+                                  <div>This report display list all records where commission rate
+changed from last month.</div>
+                                </div>
+                              </li>
+                              <li id="commission_showAgencyHavingPendingRateApproval">
+                                <a href="javascript:managereport('|reportID|projectID|','|pendingRateApproval|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');" class="ico_block">
+                                  <span id="showAgencyHavingPendingRateApproval_label">Agency Having Pending Rate Approval (AIM179)</span>
+                                 
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch33');swapFolder('folder33')">
+                                  <img src="images/plus.gif" name="folder33" border="0" id="folder33" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch33">
+                                  <div>This report display list of all agencies having pending rate
+approval.</div>
+                                </div>
+                              </li>
+                              <li id="commission_comm_rate_agencyCodevalidation_schedule_security">
+                                <a class="ico_block" href="javascript:managereport('|reportID|projectID|','|AgencyCodeList|ProducerOne|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                                  <span id="comm_rate_agencyCodevalidation_schedule_label">Agency Having Validation without Schedule (AIM176)</span>
+                                 
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch34');swapFolder('folder34')">
+                                  <img src="images/plus.gif" name="folder34" border="0" id="folder34" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch34">
+                                  <div>
+                                    This report displays the List of all
+                                    <span id="producernumberstablabel">Agency Codes</span>
+                                    having Validation
+but not schedule.
+                                  </div>
+                                </div>
+                              </li>
+                              <li id="commission_isShowAgencyBillReconciliationReport">
+                                <a class="ico_block" href="javascript:submitform('reports/agencyBillReconciliationReport.html','commission.getAgencyBillReconciliationReport','','');">
+                                  <span id="isShowAgencyBillReconciliationReport_label">Agency Bill Reconciliation Report</span>
+                                  
+(AIM258)
+                                </a>
+                                <div class="trigger" onclick="showBranch('branch35');swapFolder('folder35')">
+                                  <img src="images/plus.gif" name="folder35" border="0" id="folder35" />
+                                  Description
+                                </div>
+                                <div class="branch" id="branch35">
+                                  <div>
+                                    This report displays the List of all
+                                    <span id="entitytablabel">Agency</span>
+                                    Bill Reconciliation.
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </fieldset>
+                      </section>
+                    </div>
+                  </fieldset>
+                </section>
+              </div>
+              <!--=======Body content End========-->
+              <!--=======Sidebar Start========-->
+              <div id="sidebar_right_security_report" class="sideBar_report">
+                <span id="#Include:admin/adminSideBarRight.html#" />
+              </div>
+              <!--=======Sidebar End========-->
+            </article>
+          </div>
+          <!--=======Footer Start========-->
+          <footer>
+            <span id="#Include:admin/adminFooter.html#" />
+          </footer>
+          <!--=======Footer End========-->
+        </div>
+      </div>
+      <div id="general_freeform_contextdata_0">
+        <input type="hidden" name="jsessionid" id="jsessionid" />
+      </div>
+    </form>
+  </body>
+</html>
+

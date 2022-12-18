@@ -1,0 +1,9 @@
+<projectcomponents project="ProducerOne">
+  <component name="sqlStatements">
+    <action name="view">
+      <workflow name="view" seq="0">
+      	<databaseoperation name="DeleteDependentDetail" sqlstmt="delete from agent_dependent_details where agent_dependent_details_id=#agent_dependent_details_id#" metaobject="agency_master" operation="2" executionsequence="100" />	
+    </workflow>
+    </action>
+  </component>
+</projectcomponents>

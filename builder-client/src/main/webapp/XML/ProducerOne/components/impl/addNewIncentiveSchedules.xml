@@ -1,0 +1,13 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="incentiveSchedules" name="addNewIncentiveSchedules" stackdisplayname="Add New incentivelabel" displayname="Bonus Schedule Details">
+    <action deltaind="M" name="expireSchedule">
+    <!-- Phase 3- Bug Id-29138 -->
+    
+    <actionparam deltaind="D" eval="ProducerOneRule.checkAdminIncentiveScheduleExpirationDate" executionsequence="0" form="Y" name="expiration_date" paramid="expiration_date" pre="Y"/>
+    
+     <actionparam deltaind="I" eval="ProducerOneRule.checkScheduleExpirationDateNotEmpty" executionsequence="0" form="Y" name="checkScheduleExpirationDateNotEmpty" paramid="checkScheduleExpirationDateNotEmpty" pre="Y"/>
+   
+    <!-- Phase 3- Bug Id-29138 -->
+    </action>
+      </component>
+</projectcomponents>

@@ -1,0 +1,1139 @@
+<tabsconfiguration project="Producer">
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show entityGeneralDetailsForSelfServiceApproval_agency_DEC_address_security" name="entityGeneralDetailsForSelfServiceApproval_agency_DEC_address_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="isShowAgencyAdminTaskDashBoard"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="agencyadmin_pendingesignrequestcount_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="esign_email_address_self_service_security" name="esign_email_address_self_service_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="selfservice_generateLetter_link_security" name="selfservice_generateLetter_link_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="agentGeneralDetailsForSelfServiceApproval_distributiongroup_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="addNewCyberLiabilityForSelfService_group_buttons_security" name="addNewCyberLiabilityForSelfService_group_buttons_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="homeActionAgencyAuditDashboardHideShow"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="homeActionCyberLiabilityDashboardHideShow" name="homeActionCyberLiabilityDashboardHideShow"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="social_media_site_security_tab" name="social_media_site_security_tab"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show Relationship actual vs plan" name="relationaship_mngmnt_ActualVsPlan_tab_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show Relationship bulletin" name="relationaship_mngmnt_Bulletin_tab_security"/>  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show Relationship annual plan" name="relationaship_mngmnt_annualplan_tab_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="carrierTabs_cyberliabilitytab" description="hide/show carrierTabs_cyberliabilitytab on menus" />
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="expire_renew_date_product_validation_security" name="productValidationDetail_expire_renew_date_product_validation_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show adminTabs_agencylimitation" name="adminTabs_agencylimitation"/>
+ <!-- Agency Onboarding - Send Invitation  -->
+
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="invitationStep1_commission_type_security" name="invitationStep1_commission_type_security"/>
+<!-- commented for phase 3 req. 46021 -->
+ <!-- <tabsconfigurationresource deltaind="M" accesslevel="0" description="invitationStep1_entity_type_general_Detail_security" name="invitationStep1_entity_type_general_Detail_security"/> -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="invitationStep1_any_rollover_potential_security" name="invitationStep1_any_rollover_potential_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="invitationStep1_commission_to_be_paid_security" name="invitationStep1_commission_to_be_paid_security"/>
+  
+  <!-- Phase 2 - P2-084 - Making Attachment Mandatory in Upload W9 Doc - This part is handled in Rule based Security -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="show validation to attcah eo document" name="validation_eo_document_security"/>
+  
+ <!--Sprint 1 : Onboarding Dashboard_Bucket -->
+
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show homeAction_pendingReview_security on homeAction page" name="homeAction_pendingReview_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="pending_approval_security" name="pending_approval_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="pending_approval_appointment_security" name="pending_approval_appointment_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="submitted_appointment_security" name="submitted_appointment_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="contracts_pending_review_security" name="contracts_pending_review_security"/>
+ <!-- Review Application -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Any Rollover Potential" name="agencyListEdit_general_any_rollover_potential_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show agency license number on agency summary page" name="agencyListEdit_agencylicensenumber_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="agencyListEdit_agency_review_security" name="agencyListEdit_agency_review_security"/> 
+  
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show date of organisation on agency summary page" name="agencyListEdit_DateOfOrigin_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyListEdit_general_Entity_Type_General_Detail_security" name="agencyListEdit_general_Entity_Type_General_Detail_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyListEdit_general_agency_association_security" name="agencyListEdit_general_agency_association_checkbox_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="business_fax_agency_address_security" name="business_fax_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="business_alt_phone_ext_agency_address_security" name="business_alt_phone_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="business_alt_ext_agency_address_security" name="business_alt_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_legal_name_address_security" name="w9_legal_name_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_agency_taxpayer_short_nm_agency_address_security" name="w9_agency_taxpayer_short_nm_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="w9_irs_tax_nm_1_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_irs_tax_nm_2_agency_address_security" name="w9_irs_tax_nm_2_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_phone_ext_agency_address_security" name="w9_phone_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_ext_agency_address_security" name="w9_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_alt_phone_ext_agency_address_security" name="w9_alt_phone_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_alt_ext_agency_address_security" name="w9_alt_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_fax_agency_address_security" name="w9_fax_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_email_id_agency_address_security" name="w9_email_id_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="mailing_phone_ext_agency_address_security" name="mailing_phone_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="mailing_fax_agency_address_security" name="mailing_fax_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="mailing_email_id_agency_address_security" name="mailing_email_id_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="mailing_alt_phone_ext_agency_address_security" name="mailing_alt_phone_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide\Show additional_location_address_section In agencyListPublicSubmitNInvitationEdit" name="agencyListPublicSubmitNInvitationEdit_additional_location_address_section_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_personal_references_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_agency_current_operations_security"/>
+  <tabsconfigurationresource deltaind="I" accesslevel="0" name="prospect_market_new_business_per_month_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_bank_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_bank_phone_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_account_type_trust_operating_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_accountopen_date_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_bank_commission_amt_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_average_balance_security"/>
+   
+ 
+ <!-- Agency Review  -->
+
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_production_information_security"/>
+   
+    
+   
+<!-- Agency Setup -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agency_sales_tax_certificate_nr_securityHeader" name="agency_sales_tax_certificate_nr_securityHeader"/>
+ 
+ <!-- Prod Bug 42972 -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="agencyestablished_date_securityHeader" name="agencyestablished_date_securityHeader"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="entityGeneralDetails_years_in_business_securityHeader" name="entityGeneralDetails_years_in_business_securityHeader"/>
+  <!-- phase 3-Agency Setup -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Entity_Type_General_Detail_securityHeader" name="Entity_Type_General_Detail_securityHeader"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="product_agency_License_Number_security" name="product_agency_License_Number_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowAgencyAssociationCheckbox" name="isShowAgencyAssociationCheckbox"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="business_phone_ext_agency_address_security" name="business_phone_ext_agency_address_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_type_id_agency_address_security" name="w9_type_id_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="social_media_site_security" name="entityGeneralDetails_social_media_site_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="hide show number of csr from agency page/readonly page" name="isShowNumberofCSR"/>
+ <!--Sprint 1 : Contract  -->
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowContractMinimumPremium" name="isShowContractMinimumPremium"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowContractDayStatementIsMailed" name="isShowContractDayStatementIsMailed"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowContractEOPolicyAmount" name="isShowContractEOPolicyAmount"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="doc_contract_type_security" name="doc_contract_type_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowContractTerminationNoticePeriod" name="isShowContractTerminationNoticePeriod"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowContractNoticeChangeAmountCommission" name="isShowContractNoticeChangeAmountCommission"/>
+
+  <tabsconfigurationresource deltaind="M" description="atleatst1DocumentMandatoryWhileSendInvitation" name="atleatst1DocumentMandatoryWhileSendInvitation" value="N"/>
+<!-- BUG ID : 0044 -->
+ 
+ <tabsconfigurationresource deltaind="M" description="Show/Hide agencyListPublicSubmitNInvitationEdit_agency_location_system_security" name="agencyListPublicSubmitNInvitationEdit_agency_location_system_security" accesslevel="0"/>
+ 
+ 
+ <!-- Email Template -->
+ <tabsconfigurationresource deltaind="I" name="sendInvitationForLicensedProducer_carrierHeaderInclude" value="N" />
+    <tabsconfigurationresource deltaind="I" name="sendInvitationForLicensedProducer_carrierTabs1Include" value="N" />
+    <tabsconfigurationresource deltaind="I" name="sendInvitationForLicensedProducer_carrierTabs2Include" value="N" />
+    <tabsconfigurationresource deltaind="I" name="sendInvitationForLicensedProducer_adminFooterInclude" value="N" />
+ 
+ <!-- lob auto selected -->
+ <tabsconfigurationresource deltaind="I" description="invitationStep1_agency_lob_mendatory_security" name="invitationStep1_agency_lob_mendatory_security" value="Y"/>
+ 
+ 	
+ <!-- Bug id : 0076 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyListEdit_general_chk_agency_comparativerate_security" name="agencyListEdit_general_chk_agency_comparativerate_security"/>
+ 
+ <!-- Sprint 3 : Agency and Agent Demographics- General- (Dashboard) -->
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show pending esignature bucket for self service bank request" name="allpendingesignaturecombinedrequests_security"/>
+  
+  <!-- Phase 3 : Show Commission and Bonus Dashboard -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="isCommissionManagementDashboardHideShow" name="isCommissionManagementDashboardHideShow"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="isShowDashboardCCBStatmentHideShow" name="isShowDashboardCCBStatmentHideShow"/>
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show Dashboard Profit Sharing Statment  security" name="isShowDashboardProfitSharingStatmentHideShow"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show Agency Profile Dashboard" name="isAgencyProfileDashboardHideShow"/>
+  
+<!-- Sprint 3 : Agency and Agent Demographics- General (Add new Agency) -->
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="addNewAgencyPage_po_box_business_security" name="addNewAgencyPage_po_box_business_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="addNewAgencyPage_fax_business_security" name="addNewAgencyPage_fax_business_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show addNewAgency_producer_type_security" name="addNewAgency_producer_type_security"/>
+  <!-- Sprint 3 : Agency and Agent Demographics- General (Agency - Background Questions) -->
+  
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide\Show Entity general details  agencyBackgroundQuestionCarrierTab_modify" name="agencyBackgroundQuestionCarrierTab_modify"/>
+
+<!-- Sprint 3 : Agency and Agent Demographics- General (Agency - Awards and Recognition) -->
+
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowAwardNRecognitionTab" name="isShowAwardNRecognitionTab"/>
+
+<!-- Sprint 3 : Agency and Agent Demographics- General (Add Secondary_Branch Agency) -->
+
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide\Show Entity general details  product_agency_License_Number_security" name="product_agency_License_Number_security"/>
+  
+  
+ <!-- Sprint 3 - Advanced Search -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_contactDetails_is_mailing_security" name="advance_contactDetails_is_mailing_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show advanceSearch is_affiliated_advanceSearch checkbox" name="is_affiliated_advanceSearch_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show advanceSearch distributiongroup_security checkbox group" name="distributiongroup_security"/>
+ 
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="adv_Entity_Type_General_Detail_securityHeader" name="adv_Entity_Type_General_Detail_securityHeader"/>
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="social_media_site_header_security" name="social_media_site_header_security"/>
+ 	 <tabsconfigurationresource deltaind="M" accesslevel="0" description="social_media_user_id_security" name="social_media_user_id_security"/>
+ 	 <tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_agencyCode_is_bonus_applicable_security" name="advance_agencyCode_is_bonus_applicable_security"/>
+ 	<tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_agencyCode_is_ccb_overridden_security" name="advance_agencyCode_is_ccb_overridden_security"/>
+ 	 <tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_agencyCode_probation_reason_id_security" name="advance_agencyCode_probation_reason_id_security"/>
+ 	 <tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_agencyCode_producersearch_dates_security" name="advance_agencyCode_producersearch_dates_security"/>
+ 	 
+ <!-- Sprint 3 - Banner Search -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Show/Hide advanceSearchResult_surplus_lines_indicator_security" name="advanceSearchResult_surplus_lines_indicator_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="advance_producer_search_no_eo_req_security"/>
+ 
+ <!-- Sprint 3 - Creation & maintenance of loc (Add secondary_branch_agency) -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide\Show Entity general details  Lexis Nexis" name="entityGeneralDetails_lexis_nexis_security"/>
+ 
+<!--Sprint 3 - Creation=on & maintenance of contact  -->
+  <tabsconfigurationresource deltaind="I" name="non_compete_agreement_security" accesslevel="0" description="Hide/Show Add_new_contact non_compete_agreement_security" />
+  <tabsconfigurationresource deltaind="I" name="does_intend_writing_business_security" accesslevel="0" description="Hide/Show Add_new_contact does_intend_writing_business_security" />
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agent_mailing_address_security" name="agent_mailing_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="contact_producer_type_security" name="contact_producer_type_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowBackgrndReqforContact" name="isShowBackgrndReqforContact"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show agent_hire_date_security security" name="agent_hire_date_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agentGeneralDetails_system_code_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show excluded_from_emails_security" name="excluded_from_emails_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="license_number_security" name="license_number_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show agent_gender_id_security security" name="agent_gender_id_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="checkbox for distribution group security" name="checkbox_for_distributiongroup_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide\Show StateCheckboxes in agentGenralDetails" name="agentGenralDetails_StateCheckboxes_security"/>  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="business_fax_agent_address_security" name="business_fax_agent_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="w9_fax_agent_address_security" name="w9_fax_agent_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="common.hidePersonalInfoTab"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="contact_agentBeneficiaryInfo_security"/>
+	
+ <!-- Bug id : 0076 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyListEdit_general_chk_agency_comparativerate_security" name="agencyListEdit_general_chk_agency_comparativerate_security"/>
+ 
+ <!--  change request-->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_info_section_security in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_info_section_security"/>
+ 
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="agency_bulk_license_states_security" name="bulkEntityAppointNew_agency_bulk_license_states_security"/>
+ 
+ <!-- Banner search  -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" name="advanceSearchResult_name_NIPR_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" name="advanceSearchResult_feintaxid_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" name="advanceSearchResult_producer_termination_date_security" description="hide/show advanceSearchResult_producer_termination_date_security on advanceSearchEntityResult.html" />   
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="advance_contact_search_producer_type_security"/>
+  
+ <!-- Sprint 3 - Agency Code Association -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show producerAssociationContact_section_security" name="producerAssociationContact_section_security"/>
+   <tabsconfigurationresource deltaind="M" accesslevel="0" description="awardsNRecognitions_security" name="awardsNRecognitions_security"/>
+  
+   <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show producerAssociationContact_contact_type_security" name="producerAssociationContact_contact_type_security"/>
+   <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show producerAssociationContact_login_id_security" name="producerAssociationContact_login_id_security"/>
+  
+  <!-- Sprint 3 : Agency and Agent Demographics- General (creation&main of Agency code) -->
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyCodeList_block_surplus_lines_indicator_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowProdNumSubAgencyCodeTrue" name="isShowProdNumSubAgencyCodeTrue"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="eo_insurance_required_security" name="eo_insurance_required_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowPolicyFeeApplicable" name="isShowPolicyFeeApplicable"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowAL3Applicable" name="isShowAL3Applicable"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowFixedCommissionPlan" name="isShowFixedCommissionPlan"/>
+ <!--  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowProdNumDBA" name="isShowProdNumDBA"/> change request 14 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="isShowProdNumDBA" name="isShowProdNumDBA"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="producerDetail_distribution_type_id_security" name="producerDetail_distribution_type_id_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show segmentation_security in producerDetails.html" name="producerDetails_segmentation_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowProdNumVendorTrue" name="isShowProdNumVendorTrue"/>
+<!--   <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowProdNumProbationTrue" name="isShowProdNumProbationTrue"/>
+ --> 
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="producerDetail_isShowProdNumZoneMarketRepDivTrue" name="producerDetail_isShowProdNumZoneMarketRepDivTrue"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="producerDetail_isShowProdNumUnderWriterDivTrue" name="producerDetail_isShowProdNumUnderWriterDivTrue"/>
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="is_commissionableDiv" name="is_commissionableDiv"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show state_id_prodOrgMapping security" name="state_id_prodOrgMapping_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="position_type_prodOrgMapping_security" name="position_type_prodOrgMapping_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="position_prodOrgMapping_security" name="position_prodOrgMapping_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="position_manager_id_prodOrgMapping_security" name="position_manager_id_prodOrgMapping_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="lob_id_prodOrgMapping_security" name="lob_id_prodOrgMapping_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Show Active,Closed,Pending in Agency code status dropdown on Agency Code Detail Page" name="all_producer_status_cde_security"/>
+  <tabsconfigurationresource deltaind="M" description="Show/Hide Affinity group section security on producer detail page" name="producerDetail_affinity_group_section_security" accesslevel="0"/> <!-- added on 12/11/20 by Aashutosh --> <!-- bug no 235: deltaind was missed  -->
+
+
+
+<!-- Contract Filters : Bud Id: 64-->
+
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="docContractDetails_isShowDocumentFilterSectionTrue" name="docContractDetails_isShowDocumentFilterSectionTrue"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="docContractDetails_isShowCancellationDate" name="docContractDetails_isShowCancellationDate"/>
+
+ <!-- Sugandha's Bug sheet - 0135 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_isShowDirectDepositCheckBox"/>
+  
+  <!-- US - OB-GEN-013-001 -->
+    <tabsconfigurationresource deltaind="M" accesslevel="0" name="checkIsShowProducerBillingTermTab"/>
+  <!--US - OB-GEN-014-001 -->
+  <!-- Phase 3 : Agency Demographics -->
+  <!-- Phase 3: Bank Info dropdown -->
+     <tabsconfigurationresource deltaind="M" accesslevel="1" name="isShowProdNumBankInformationTab"/>
+
+<!--OB-GEN-015-3-->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="doc_contract_contact_state_security" name="doc_contract_contact_state_security"/>
+ 
+
+<!-- Sprint 3 : Agency and Agent Demographics- General (Documents - E&O ) -->
+
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="doc_insurance_block_producer_number_id_security" name="doc_insurance_block_producer_number_id_security"/>
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="doc_insurance_block_producer_number_id_security" name="doc_insurance_block_producer_name_security"/>
+ 
+<!-- Sprint 3 : Agency and Agent Demographics- General (Documents - E&O ) --> 
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="add_new_note_type_security" name="add_new_note_type_security"/>
+  <!--  Hiding Agency Code column on Notepad tab- Phase 2 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="entity_notepad_Producer_number_security" name="entity_notepad_Producer_number_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="doc_insurance_producer_number_id_security" name="doc_insurance_producer_number_id_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="doc_insurance_expiration_date_from_security" name="doc_insurance_expiration_date_from_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="addNewInsuranceDetail_isShowCancellationDate" name="addNewInsuranceDetail_isShowCancellationDate"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="doc_insurance_review_status_security" name="doc_insurance_review_status_security"/>
+  <tabsconfigurationresource deltaind="M" name="add_new_insurance_details_eo_claims_declaration_security" accesslevel="1" description="add_new_insurance_details_for_self_service_eo_claims_declaration_security hide/show" />
+
+  
+<!-- Sprint 3 : Agency and Agent Demographics- General (Outofscope changes ) -->
+ <!-- Showing Relationship Management Tab Start - Phase 2  -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" name="relationaship_mngmnt_tab_security"/>
+<!-- Showing Relationship Management Tab End - Phase 2 -->
+  <!-- Phase 3 : Agency Demographics -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" name="checkIsShowCompensationMgmtTab"/>
+  
+  <!-- Phase 3 : Agency Demographics -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show external system tab for agency" name="isShowAgencyExternalSystemTabTrue"/>
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="checkIsShowRequestTab"/>
+  
+  <!-- Phase 3 : Agency Demographics -->
+  <!-- Phase 3: Policy dropdown -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" name="agencyClaimPolicy_tab_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show Commission Hierarchy Tab" name="commission_hierarchy_new_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" name="isShowIncentiveHierarchyTab"/>
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show Profit Sharing Hierarchy Tab" name="isShowProfitSharingHierarchyTab"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show activities tab at agent level" name="agent_activities_security"/>
+ 
+ <!-- Add Cyber LIability Button -->
+ 
+  <tabsconfigurationresource deltaind="M" name="addNewCyberLiability_full_page_security" accesslevel="1" description="hide/show addNewCyberLiability_full_page_security on docCyberLiability.html" />
+  <tabsconfigurationresource deltaind="M" name="ajax_cyber_liability_security" accesslevel="1" description="hide/show ajax_cyber_liability_security on docCyberLiability.html" />
+
+  <tabsconfigurationresource deltaind="M" name="doc_CyberLiability_block_producer_number_id_security" accesslevel="0" description="hide/show doc_CyberLiability_block_producer_number_id_security on docCyberLiability.html" />
+  <tabsconfigurationresource deltaind="M" name="doc_CyberLiability_block_producer_name_security" accesslevel="0" description="hide/show doc_CyberLiability_block_producer_name_security on docCyberLiability.html" />
+  <tabsconfigurationresource deltaind="M" name="doc_CyberLiability_producer_number_id_security" accesslevel="0" description="hide/show doc_CyberLiability_producer_number_id_security on docCyberLiability.html" />
+  <tabsconfigurationresource deltaind="M" name="doc_cyberLiability_aggregate_limit_security" accesslevel="0" description="hide/show doc_cyberLiability_aggregate_limit_security on docCyberLiability.html" />
+  <!-- <tabsconfigurationresource deltaind="M" name="doc_cyberLiability_deductible_security" accesslevel="0" description="hide/show doc_cyberLiability_deductible_security on docCyberLiability.html" /> -->
+
+<!-- CSR Field -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="num_csr_securityHeader" name="num_csr_securityHeader"/>
+  
+  
+  <!-- Sprint 3: E&O Dashboard -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="entity_insurance_expiration_producer_number_security" name="entity_insurance_expiration_producer_number_security"/>
+ <!-- Sprint 3:Agency Profile -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="profile_BA_fax_security" name="profile_BA_fax_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowAttachedCommissionScheduleInSummary" name="isShowAttachedCommissionScheduleInSummary"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show of doc_insurance_block_producer_number_id Column in agencyProfile_insurance_certificate_id_security.html" name="agencyProfile_doc_insurance_block_producer_number_id_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show of agencyProfile_doc_insurance_block_producer_name_security Column in agencyProfile_insurance_certificate_id_security.html" name="agencyProfile_doc_insurance_block_producer_name_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show of doc_insurance_block_operating_dvision Column in agencyProfile_insurance_certificate_id_security.html" name="agencyProfie_doc_insurance_block_operating_dvision_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show of Com_Rep Section Column in agencyProfile.html" name="agencyProfile_organization_role_id_prodOrgMapping_desc_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show of agencyProfile_effective_date_prodOrgMapping_security Section Column in agencyProfile.html" name="agencyProfile_effective_date_prodOrgMapping_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show of agencyProfile_effective_date_prodOrgMapping_security Section Column in agencyProfile.html" name="agencyProfile_expiration_date_prodOrgMapping_security"/>
+
+<tabsconfigurationresource deltaind="M" name="agencyProfile_state_id_prodOrgMapping_desc_security" accesslevel="1" description="Hide/Show agencyProfile_state_id_prodOrgMapping_desc_security " />
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show of position_prodOrgMapping Column in agencyProfile.html" name="agencyProfile_position_prodOrgMapping_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show of position_manager_id_prodOrgMapping Column in agencyProfile.html" name="agencyProfile_position_manager_id_prodOrgMapping_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show of prodOrgMapping_desc Column in agencyProfile.html" name="agencyProfile_position_prodOrgMapping_desc_security"/>
+
+<!-- OB-GEN-020 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="production_information_security" name="production_information_security"/>
+   <tabsconfigurationresource deltaind="M" accesslevel="0" description="personal_references_security" name="personal_references_security"/>
+  <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_foreign_languages_spoken_in_agency_security" name="entityOtherInformation_foreign_languages_spoken_in_agency_security" accesslevel="1"/>
+   <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_primary_company_usage_security" name="entityOtherInformation_primary_company_usage_security" accesslevel="1"/>
+ <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_current_advertising_methods_security" name="entityOtherInformation_current_advertising_methods_security" accesslevel="1"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_commercial_lines_security in market information screen" name="market_information_commercial_lines_security"/>
+ <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_narrative_info_section_security" name="entityOtherInformation_narrative_info_section_security" accesslevel="0"/><!-- change request -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_production_commitment_security information screen" name="market_information_production_commitment_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show entityOtherInformation_life_volume_security" name="entityOtherInformation_life_volume_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show entityOtherInformation_pl_volume_security" name="entityOtherInformation_pl_volume_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show entityOtherInformation_cl_volume_security" name="entityOtherInformation_cl_volume_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="interest_in_any_other_business_outside_security" name="interest_in_any_other_business_outside_security"/>
+ 
+
+<!-- Sprint 3 -user details -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="checkUserIsAgencyAdmin" name="checkUserIsAgencyAdmin"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="dashboard_Cyber_Liability_Records_security" name="dashboard_Cyber_Liability_Records_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="spinn_user_detailss_Security" name="spinn_user_detailss_Security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="spinn_userDetails_grid_security" name="spinn_userDetails_grid_security"/>
+<!-- Phase 3- user admin setup-->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="spinn_userRoleList_security" name="spinn_userRoleList_security"/>
+<!-- Sprint 3 : Agency and Agent Demographics- General (Bank Information) -->
+
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bankInformationListing_bank_account_type_usage_security" name="bankInformationListing_bank_account_type_usage_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bankInformationListing_pre_note_reason_security" name="bankInformationListing_pre_note_reason_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bankInformationListing_bank_average_balance_security" name="bankInformationListing_bank_average_balance_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bankInformationListing_bank_account_use_code_security" name="bankInformationListing_bank_account_use_code_security"/>
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="account_type_trust_operating_security" name="account_type_trust_operating_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_average_balance_security" name="bank_average_balance_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_address1_security" name="bank_address1_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_address2_security" name="bank_address2_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_account_use_code_security" name="bank_account_use_code_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_zipcode_security" name="bank_zipcode_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_country_code_security" name="bank_country_code_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_state_id_security" name="bank_state_id_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_city_security" name="bank_city_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_limit_amt_security" name="bank_limit_amt_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_limit_percentage_security" name="bank_limit_percentage_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="percentage_amt_flag_security" name="percentage_amt_flag_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="percentage_amt_value_security" name="percentage_amt_value_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="prenote_indicator_security" name="prenote_indicator_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_phone_security" name="bank_phone_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_altphone_security" name="bank_altphone_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_account_priority_order_security" name="bank_account_priority_order_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_effective_date_security" name="bank_effective_date_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_expiration_date_security" name="bank_expiration_date_security"/>
+  
+    
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="top_companies_written_premium_security" name="top_companies_written_premium_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show agency established date on agency summary page" name="agencyListEdit_agencyestablisheddate_security"/>
+<tabsconfigurationresource deltaind="M" description="Segment security on Entity General Details page" name="entityGeneralDetails_segment_security" accesslevel="1"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Show few Agency code status dropdown on Agency Code Detail Page on edit event" name="few_producer_status_cde_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="bq_group_buttons_security" name="bq_group_buttons_security"/>
+
+
+<!-- agency code status -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="few_producer_status_cde_security_2" name="few_producer_status_cde_security_2"/>
+
+<!-- Production Commitment -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_total_volume_commitment_security in market information screen" name="market_information_total_volume_commitment_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_production_commitment_first_year_security in market information screen" name="market_information_production_commitment_first_year_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_production_commitment_second_year_security in market information screen" name="market_information_production_commitment_second_year_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_production_commitment_third_year_security in market information screen" name="market_information_production_commitment_third_year_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_information_production_commitment_achieve_volume_security in market information screen" name="market_information_production_commitment_achieve_volume_security"/>
+
+ <!-- BUG ID : 216 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyFunctions_commission_reduction_rate_security" name="agencyFunctions_commission_reduction_rate_security"/>
+ 
+<!-- Sprint 4 -->
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="agencyFunctionListing_closingBusinessForOpenMarkets_mco_security" name="agencyFunctionListing_closingBusinessForOpenMarkets_mco_security"/>
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="Indicates whether Commissions movement exists in MNA or not" name="isMNACommissionsExists"/>
+  <tabsconfigurationresource deltaind="M" name="assignUserFromUserTable" description="Need to assign request users from table" value="Y"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide\Show CSR In Product Validation " name="isShowCSRInProductValidation"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show dashboard invitation buckets" name="isShowBusinessSegmentInProductValidation"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="MCO Security" name="massChange_mco_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="massChange_carrier_group_security" name="massChange_carrier_group_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="massChange_lau_id_security" name="massChange_lau_id_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="massChange_ppr_id_security" name="massChange_ppr_id_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show Contract Notice Date in Agency Termination" name="isShowContractNoticeDateInAgencyTermination"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show isDepartmentInformed field on agencyTerminationStep1 page" name="agencyTerminationStep1_isDepartmentInformed_security"/>
+  <tabsconfigurationresource deltaind="M" name="agencyTerminationStep1_seller_city_security" accesslevel="1" description="Hide/Show of agencyTerminationStep1_seller_producer_code_security in agencyTerminationStep1.html" />
+  <tabsconfigurationresource deltaind="M" name="agencyTerminationStep1_seller_state_security" accesslevel="1" description="Hide/Show of agencyTerminationStep1_seller_producer_code_security in agencyTerminationStep1.html" />
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show manage sso tab" name="isShowManageSSOTab"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" name="adminTabs2_transfer_security"/>
+  
+  <!-- Phase 3 : Administration : Agency Acquisitions : BOB transfers -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" name="adminTabs2_bobtransfers_security"/>
+  
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show mass hierachy tab in admin" name="massHierarchyListing_security"/>
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/show mass hierachy tab in admin" name="adminTabs_accountstab"/>
+ <!-- mass changes outof scope change -->
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="AdminTabs Car" name="renewal_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="AdminTabs Car" name="massReassign_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="AdminTabs Car" name="adminTabs_car"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="hide/show Car Report Matching Security" name="matching_car_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="hide/show Car Report Non Matching Security" name="non_matching_car_security"/>
+
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show commission_rate_hierarchy_security" name="commission_rate_hierarchy_security"/>
+  
+  <!-- Phase 3 : Administration : Compensation Mgmt -->
+  <tabsconfigurationresource deltaind="I" accesslevel="1" description="Hide/show adminTabs_compensationmgt" name="adminTabs_compensationmgt"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show custom events tab" name="isShowCustomEventsTab"/>
+ 
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="Hide/Show custom events tab" name="agencyFunctionListing_closingBusinessForOpenMarkets_product_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show Product validation Filters" name="productValidationDetails_filter_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show Carrier Group Product validation Filters" name="productValidationDetails_carrier_group_id_filter_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CSR Product validation Filters" name="productValidationDetails_csr_id_filter_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show business_segment_name Product validation Filters" name="productValidationDetails_business_segment_name_filter_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="productValidationDetails_is_include_close_product_validations_in_listing_filter_security" name="productValidationDetails_is_include_close_product_validations_in_listing_filter_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="csr_product_validation_security" name="csr_product_validation_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="business_segment_product_validation_security" name="business_segment_product_validation_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="csr_product_validation_security" name="productValidationDetail_csr_product_validation_security"/>
+ <!-- Bug no. : 174 -->
+    <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowContractState" name="isShowContractState"/>
+    
+    <!-- Bug no. : 165 -->
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyCodeList_block_eo_insurance_required_security" name="agencyCodeList_block_eo_insurance_required_security"/>
+   
+   <!-- Bug no. : 162 -->
+   
+     <tabsconfigurationresource deltaind="I" accesslevel="0" description="bq_group_buttons_security" name="bq_group_buttons_security"/>
+   
+   <!-- Bug no. : 158 -->
+    
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="former_name_security" name="former_name_security"/>
+   
+    <!-- Bug no. : 156 -->  
+     
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show of isAgencyTerminationDashboardApplicable in homeAction.html" name="isAgencyTerminationDashboardApplicable"/>
+    
+    <!-- Bug no. : 148 --> 
+    
+     <tabsconfigurationresource deltaind="M" accesslevel="0" name="entityGeneralDetails_new_business_term_date_security"/>
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="agency_comparativerate_securityHeader" name="agency_comparativerate_securityHeader"/>
+     <!-- sprint 4 - other reason -->
+     <tabsconfigurationresource deltaind="I" accesslevel="0" description="Suspension_Reason_Other_security" name="Suspension_Reason_Other_security"/>
+ <!-- New Req sent by Preeti -->
+ <tabsconfigurationresource deltaind="I" accesslevel="0" name="agencyListPublicSubmit_license_num_security"/>
+ 
+ <!-- Bug Id : 149 -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="w9_phone_ext_agency_address_security" name="w9_phone_ext_agency_address_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="w9_ext_agency_address_security" name="w9_ext_agency_address_security"/>
+ 
+ <!-- Bug Id : 77  -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="business_phone_ext_agency_address_security" name="business_phone_ext_agency_address_security"/>
+ 
+ <!-- Bug no. : 130 --> 
+     
+    <tabsconfigurationresource deltaind="M" description="Show/Hide agencyListPublicSubmitNInvitationEdit_narrative_question_1_security" name="agencyListPublicSubmitNInvitationEdit_narrative_question_1_security" accesslevel="1"/>
+    <tabsconfigurationresource deltaind="M" description="Show/Hide agencyListPublicSubmitNInvitationEdit_narrative_question_2_security" name="agencyListPublicSubmitNInvitationEdit_narrative_question_2_security" accesslevel="1"/>
+    <tabsconfigurationresource deltaind="M" description="Show/Hide agencyListPublicSubmitNInvitationEdit_narrative_question_3_security" name="agencyListPublicSubmitNInvitationEdit_narrative_question_3_security" accesslevel="1"/>
+	<tabsconfigurationresource deltaind="M" description="Show/Hide agencyListPublicSubmitNInvitationEdit_narrative_question_4_security" name="agencyListPublicSubmitNInvitationEdit_narrative_question_4_security" accesslevel="1"/>
+     <!-- VP role approval -->
+     <tabsconfigurationresource deltaind="M" description="isDocuSignFlowSequential" name="isDocuSignFlowSequential" value="Y"/>
+     
+     <!-- Bug no. : 247 --> 
+    <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencypdbalerts_tab_security"/>
+    
+     <!-- Bug no. : 254 -->
+     <tabsconfigurationresource deltaind="M" accesslevel="0" name="product_validation_tab_agencyLevel_security"/>
+     
+     <!-- Bug no. : 250 -->
+     <tabsconfigurationresource deltaind="I" accesslevel="0" name="1producerAssociation_edit_rowLink_security"/> <!-- deltaind I is added -->
+     
+      <!-- Bug no. : 248 -->
+      
+     <tabsconfigurationresource deltaind="I" accesslevel="0" name="county_id_prodOrgMapping_security"/> <!-- deltaind I is added -->
+     
+     <!-- Bug no. : 246 -->
+     
+     <tabsconfigurationresource deltaind="M" name="isShowOrderStampSelfService_security" accesslevel="0" description="Hide/Show addNewOrderStamp_numberofstamps_security in homeAction.html Dashboard Count" />
+     <tabsconfigurationresource deltaind="I" name="isRemoveAgencyFromClusterForSelfService_security" accesslevel="0" description="isRemoveAgencyFromClusterForSelfService_security" />
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show homeAction_floodInsuranceSelfService_security" name="homeAction_floodInsuranceSelfService_security"/>
+     
+     <!-- Bug no. : 240 -->
+     
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="isShowProdNumCommissionReductionDate" name="isShowProdNumCommissionReductionDate"/>
+     <tabsconfigurationresource deltaind="M" accesslevel="0" description="entityGeneralDetail_commission_reduction_date_security" name="entityGeneralDetail_commission_reduction_date_security"/>
+     
+     
+     <!-- Bug no. : 154 -->
+     
+     <tabsconfigurationresource deltaind="I" accesslevel="0" description="isShowProdNumCommissionReductionDate" name="agencyListPublicSubmit_license_num_security"/>
+      
+      <tabsconfigurationresource deltaind="M" accesslevel="0" name="agentpdbalerts_tab_security"/>
+     <tabsconfigurationresource deltaind="I" accesslevel="1" description="check whether producer number mandatory or not on producerdetail page" name="producer_number_mandatory_security" value="N"/>
+	    <!-- Sample insurance to BMIC -->
+      <tabsconfigurationresource deltaind="M" name="clientName" value="Builders Mutual Insurance Company"/>
+   	 <tabsconfigurationresource deltaind="M" description="agentEmailTypeForDocusignInContract" name="agentEmailTypeForDocusignInContract" value="PreferredEmail"/>
+    <!-- customization sprint 4  -->
+       <tabsconfigurationresource deltaind="I" accesslevel="1" name="agencymergernaquisition_letterTemplateList_security"/>
+  	   <!-- agency review screen  -->
+<tabsconfigurationresource deltaind="M" description="Show/Hide agencyListEdit_foreign_languages_spoken_in_agency_security" name="agencyListEdit_foreign_languages_spoken_in_agency_security" accesslevel="1"/>
+<tabsconfigurationresource deltaind="M" description="Show/Hide agencyListEdit_current_advertising_methods_security" name="agencyListEdit_current_advertising_methods_security" accesslevel="1"/>
+ <tabsconfigurationresource deltaind="M" description="Show/Hide agencyListEdit_primary_company_usage_security" name="agencyListEdit_primary_company_usage_security" accesslevel="1"/>
+ 
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="business_segment_product_validation_security" name="productValidationDetail_business_segment_product_validation_security"/>
+	    <!-- Hide Benefit Enrollment link  -->
+	     <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show navigation_link_security" name="navigation_link_security"/>
+	  
+    <!-- Narrative Section -->
+      
+      <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_loc_quality_security in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_loc_quality_security"/>
+      <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_agent_skills_security in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_agent_skills_security"/>
+      <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_is_company_contacted_security in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_is_company_contacted_security"/>
+      <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_agent_commission_level_label in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_agent_commission_level_security"/>
+      <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_kits_quantity_security in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_kits_quantity_security"/>
+	  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide show agencyListPublicSubmitNInvitationEdit_narrative_kit_delivery_security in agencyListPublicSubmitNInvitationEdit.html" name="agencyListPublicSubmitNInvitationEdit_narrative_kit_delivery_security"/>
+
+      <!-- Bug Id : 196 -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="agencyListEdit_CyberLiability_section_security" name="agencyListEdit_CyberLiability_section_security"/>
+
+<!-- Bug Id : 0099 -->
+	 <tabsconfigurationresource deltaind="M" accesslevel="0" description="agency_profile_general_information_general_detail_security" name="agency_profile_general_information_general_detail_security"/>
+ 
+      <!--bug id 0031  -->
+      <tabsconfigurationresource deltaind="M" accesslevel="1" description="entityCyberLiabilityExpirationListing_category_name_security" name="entityCyberLiabilityExpirationListing_category_name_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="isShowEMailonEntityCyberLiabilityExpireList" name="isShowEMailonEntityCyberLiabilityExpireList"/>
+
+
+     <!-- bug id : 57 --> 
+     <!-- Phase 2 US :SS-005-06 -->
+       <tabsconfigurationresource deltaind="M" name="cyberLiability_contact_security" value="E&amp;O/Cyber Liability Contact" description="Mention here the contact types you want to display in dropdown,you can pass comma seperated contact type or single values here eg principal,agency admin or hrp else All for all records" />
+	<!-- Phase 2 US : SS-004-06 -->
+	<!-- bug id : 58  -->
+<!-- 	 <tabsconfigurationresource deltaind="M" name="insurance_contact_security" value="E&amp;O Cyber Liability Contact" description="Mention here the contact types you want to display in SelfService dropdown,you can pass comma seperated contact type or single values here eg principal,agency admin or hrp" />  -->	<!-- override changes phase 2 --> 
+<tabsconfigurationresource deltaind="M" name="insurance_contact_security" value="E&amp;O/Cyber Liability Contact" description="Mention here the contact types you want to display in SelfService dropdown,you can pass comma seperated contact type or single values here eg principal,agency admin or hrp" /><!-- Make changes for phase 2 -->
+ 
+  <!-- Bug no. : 154 : Missing Section in Market Information -->
+	  
+	  <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_narrative_question_1_security" name="entityOtherInformation_narrative_question_1_security" accesslevel="1"/>
+	  <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_narrative_question_2_security" name="entityOtherInformation_narrative_question_2_security" accesslevel="1"/>
+	  <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_narrative_question_3_security" name="entityOtherInformation_narrative_question_3_security" accesslevel="1"/>
+	  <tabsconfigurationresource deltaind="M" description="Show/Hide entityOtherInformation_narrative_question_4_security" name="entityOtherInformation_narrative_question_4_security" accesslevel="1"/>
+	    
+	  <!-- production issue  -->
+     <!--    <tabsconfigurationresource deltaind="M" accesslevel="0" description="addAgencyTaskDetails_agent_name_security" name="addAgencyTaskDetails_agent_name_security"/> -->
+     <tabsconfigurationresource deltaind="M" accesslevel="1" description="addAgencyTaskDetails_agent_name_security" name="addAgencyTaskDetails_agent_name_security"/>
+	  
+	  
+	  <!-- Hide Benefit Enrollment link  -->
+	     <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show navigation_link_security" name="navigation_link_security"/>
+	  
+	   <!-- Show Agency Codes Hierarchy in M&A step 1  -->
+	  <tabsconfigurationresource deltaind="I" description="Show/Hide isMNAProducerNumberHierarchyNotEmpty" name="isMNAProducerNumberHierarchyNotEmpty" accesslevel="1"/>
+<tabsconfigurationresource deltaind="I" name="mergerSellingPhysicalLocation2_generateLetter_carrierHeaderInclude" value="N"/>
+<tabsconfigurationresource deltaind="I" name="mergerSellingPhysicalLocation2_generateLetter_carrierTabs1Include" value="N"/>
+<tabsconfigurationresource deltaind="I" name="mergerSellingPhysicalLocation2_generateLetter_carrierTabs2Include" value="N"/>
+<tabsconfigurationresource deltaind="I" name="mergerSellingPhysicalLocation2_generateLetter_adminFooterInclude" value="N"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="agencyListPublicSubmitNInvitation_resend_invitation_security" description="agencyListPublicSubmitNInvitation_resend_invitation_security"/>
+
+<!-- Showing Prospect Sign on Homepage - Phase 2 -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="hide_show_prospect_section_security" name="hide_show_prospect_section_security"/>
+ 
+ <!-- Show Cyber Liability Carrier Name -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Agency_declarationCyberLiability_security" name="Agency_declarationCyberLiability_security"/>
+ 
+ <!-- Hiding Comment and Question -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="agencyListEdit_cyber_liability_eo_claims_security" name="agencyListEdit_cyber_liability_eo_claims_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="cyber_liability_eo_claims_idDiv" name="cyber_liability_eo_claims_idDiv"/>
+ 
+ <!-- Hiding Report from Producer Compliance 14/04/2021 -->
+ <!-- Phase 2 - Bug Id- P2-057 - Report Dashboard - List Of producer Code Addresses -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="isShowReportsOnAgencyAdminDashboard"/>
+ 
+ <!-- Hiding Other Report Tabs -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide Show Adhoc report" name="showAdhocReport"/>
+ 
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide Show WhatifAnalysis report" name="showWhatifAnalysisReport"/>
+ 
+ <!-- Test -->
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide Show Plas report" name="plasreports_tab_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide Show Compensation report" name="compensationreports_tab_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide Show Relationship report" name="relationshipreports_tab_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide Show Performance report" name="performancereports_tab_security"/>
+ 
+ <!-- Phase 3 : Reports -->
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="Hide Show Audit report" name="auditreports_tab_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="Hide Show Bonus report" name="ccbreports_tab_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="Hide Show Commission report" name="commissionreports_tab_security"/>
+ 
+ <!-- Observations -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="agencyListEdit_top_companies_appointmentdate_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="agencyListEdit_general_other_office_location_security" name="agencyListEdit_general_other_office_location_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="agencyListPublicSubmitN_freeform_contextdata_1123" name="agencyListPublicSubmitN_freeform_contextdata_1123"/>
+
+
+ <!-- Email Event -->
+ <!-- Phase 3 - Feature - 48692 - Generating Welcome Letters Manually - Removing Previous Code -->
+ <tabsconfigurationresource deltaind="M" name="agencyListPublicSubmitNInvitation_send_email_security" accesslevel="0" description="Set this flag's accesslevel 1 to enable the resend invitation email functionality in Send Invitation Bucket" />
+
+
+ 
+ <!-- 30/04.2021 Copy Business Address to W9 Address -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_copy_business_to_w9_security" name="entityGeneralDetails_copy_business_to_w9_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show entityGeneralDetails_copy_mailing_to_w9_security" name="entityGeneralDetails_copy_mailing_to_w9_security"/>
+ 
+ <!--   PHASE 2 DEVELOPMENT LTI JUNE 2021   -->
+ 
+  <!-- Prospect - Hide Convert to Agency button - Phase 2 -->
+   <tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/show Convert to Agency Button" name="prospectAgencyDetails_convert_to_agency_security"/>
+  
+   
+ <!-- Hiding fields in Prospect - Phase 2-->
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="prospect_details_any_rollover_potential_security" name="prospect_details_any_rollover_potential_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="prospectDetails_rating_security" name="prospectDetails_rating_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="prospectDetails_years_in_business_security" name="prospectDetails_years_in_business_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="prospect_detail_distribution_type_security" name="prospect_detail_distribution_type_security"/>
+  <tabsconfigurationresource deltaind="M" accesslevel="0" description="prospectDetails_fax_business_security" name="prospectDetails_fax_business_security"/>
+
+ <!-- Showing Street Address 1 in Prospect Business Address - Phase 2  -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show dashboard invitation buckets" name="isShowProspectDetailsStreetAddress1"/> 
+
+<!-- Hiding Territory Column from Prospect Call Report - Phase 2 -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="zone_code_CallReportPage_Security" name="zone_code_CallReportPage_Security"/>
+
+<!-- Hiding Operation Division Prospect Call Report - Phase 2 -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="hide show addProspectCallReport_operating_division_call_report_security" name="addProspectCallReport_operating_division_call_report_security"/>
+
+<!-- Hiding Location Prospect Call Report - Phase 2 -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="hide show addProspectCallReport_location_description_security" name="addProspectCallReport_location_description_security"/>
+
+<!-- Hiding Territory Prospect Call Report - Phase 2 -->  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="hide show addProspectCallReport_territory_security" name="addProspectCallReport_territory_security"/>
+ 
+ <!-- Hiding Fax Prospect Call Report - Phase 2 --> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="hide show addProspectCallReport_report_fax_security" name="addProspectCallReport_report_fax_security"/>
+ 
+ <!-- Hide/show Duplicate Button on Prospect Clearance screen - Phase 2 -->
+<tabsconfigurationresource deltaind="M" name="isAgencyProspectClearanceListNotEmpty" accesslevel="1" description="Hide/show Dublicate Button on prospectClearance screen" />
+  
+ <!--Phase 2-Bug Id- P2-025  -->
+ <tabsconfigurationresource deltaind="M" accesslevel="1" description="market_rep_name_CallReportPage_Security" name="market_rep_name_CallReportPage_Security"/>
+ 
+  <!-- Phase 2 - Bug Id- P2-036 -->
+ <tabsconfigurationresource deltaind="I"  accesslevel="0" description="hide show prospect_showcallReports_security" name="prospect_showcallReports_security"/>
+ 
+ <!-- Additional Configuration on Requests dashboard for Phase 2-->
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="isAddUpdateSelfServiceDocCyberLiabilityApplicable_security" name="isAddUpdateSelfServiceDocCyberLiabilityApplicable_security"/>
+ <!-- Phase 2 Upgrade Bug U56 -->
+ <tabsconfigurationresource deltaind="I" accesslevel="0" name="isAddUpdateSelfServiceOthersApplicable"/>
+ 
+ <!-- Phase 2 - Task Id- SS-005-10 -->
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="addNewCyberLiabilityForSelfService_eo_claims_declaration_security" name="addNewCyberLiabilityForSelfService_eo_claims_declaration_security"/>
+ 
+ <!-- Phase 2 - Task Id- SS-005-05 -->
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="addNewCyberLiabilityForSelfService_producer_number_id_security" name="addNewCyberLiabilityForSelfService_producer_number_id_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="addNewCyberLiabilityForSelfService_aggregate_limit_security" name="addNewCyberLiabilityForSelfService_aggregate_limit_security"/>
+ <!-- <tabsconfigurationresource deltaind="I" accesslevel="0" description="addNewCyberLiabilityForSelfService_deductible_security" name="addNewCyberLiabilityForSelfService_deductible_security"/> -->
+ 
+ <!-- Phase 2 - Task Id- SS-005-02 -->
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="docCyberLiability_producer_number_id_security" name="docCyberLiability_producer_number_id_security"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="1" description="cyber_liability_id_security" name="cyber_liability_id_security"/>
+ 
+  <!-- Phase 2- SS-001-03- Hiding buttons on Update Location Page -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="addEntityRequests_add_new_location"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" name="addEntityRequests_close_location"/>
+ 
+<!-- Phase 2- Bug Id- P2-053 - Hiding sections on Dashboard -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="agency admindashboard profit sharing statement security" name="agencyadmindashboard_profit_sharing_statement_security"/>
+<!-- Phase 3 : Show Bonus Dashboard : Self Service -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="agencyadmindashboard_contingent_commission_bonus_statement_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="agency admindashboard agency profile report security" name="agencyadmindashboard_agency_profile_report_security"/>
+<!-- Phase 3 : Show Bonus Dashboard : Self Service -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="agencyadmindashboard_commission_security"/>
+ 
+<!-- Phase 2- Bug Id- P2-054 - Disable User Button on Update Contact Page --> 
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="addEntityRequests_disable_user"/>
+
+<!-- Phase 2- Bug Id- P2-057- Reports Dashboard--> 
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="isShowAgencyAdminReportDashBoard"/>
+
+<!-- Phase 2- SS-007-18- Disapprove Button on Upload W9 Document Page -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="addNewW9ForSelfService_disapprove"/>
+
+<!-- Phase 2  -->
+  <tabsconfigurationresource deltaind="M" accesslevel="1" description="addInsuranceDetailsForSelfServiceApproval_doc_insurance_expiration_date_from_security" name="addInsuranceDetailsForSelfServiceApproval_doc_insurance_expiration_date_from_security"/>
+  
+ <!-- Phase 2 - Self Service US :SS-004-05-->
+<!-- <tabsconfigurationresource deltaind="M" accesslevel="0" description="addInsuranceDetailsForSelfServiceApproval_doc_insurance_deductible_security" name="addInsuranceDetailsForSelfServiceApproval_doc_insurance_deductible_security"/> -->
+
+<!-- Phase 2 -US :SS-004-11 -->
+ <tabsconfigurationresource deltaind="M" name="add_new_insurance_details_for_self_service_eo_claims_declaration_security" accesslevel="0" description="add_new_insurance_details_for_self_service_eo_claims_declaration_security hide/show" />
+
+<!-- Phase 2- Bug Id- P2-063- Comparative Rater field on Update Location Page - Test -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="entityGeneralDetailsForSelfServiceApproval_agency_comparativerate_securityHeader" name="entityGeneralDetailsForSelfServiceApproval_agency_comparativerate_securityHeader"/>
+ 
+<!-- Phase 2- Bug Id- P2-065- Update Agency Location -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="w9_fax_address_agency_selfService_security"/>
+
+<!-- Phase 2- SS-006-21- Add Bank Information -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="bankInformation_disapprove"/>
+
+<!-- Phase 2- SS-006-06- Add Bank Information -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="bankInformationForSelfServiceApproval_account_type_trust_operating_security" name="bankInformationForSelfServiceApproval_account_type_trust_operating_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_expiration_date_self_service_security" name="bank_expiration_date_self_service_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="bank_effective_date_self_service_security" name="bank_effective_date_self_service_security"/>
+
+<!-- Phase 2 - Feedback From BMIC - Hiding Contact Status in Update Agency Location  -->
+<!-- <tabsconfigurationresource deltaind="M" accesslevel="0" description="agentGeneralDetailsForSelfServiceApproval_agent_isactive_security" name="agentGeneralDetailsForSelfServiceApproval_agent_isactive_security"/> -->
+
+<!-- Phase 2- Bug Id- P2-097- Add Bank Information- Account Type column -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="bankInformationForSelfServiceApproval_account_type_checking_saving_security" name="bankInformationForSelfServiceApproval_account_type_checking_saving_security"/>
+
+<!-- Phase 2- Bug id-P2-028  ‘Other Notes/Questions to be Asked’ & ‘Result of Call’ sections display -->
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="questions_to_be_tasked_security" name="questions_to_be_tasked_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="isCallReportResultOfCallApplicable" name="isCallReportResultOfCallApplicable"/>
+
+<!-- Prod- Bug Id- prod-0054 - Add Bank information page --> 
+<tabsconfigurationresource deltaind="I" name="isShowBankInformationForAllRelatedAgencies" value="N" description="Hide/Show isShowBankInformationForAllRelatedAgencies" />
+ <!-- prod support - issue 0062  -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show bulkAgentAppointNew_decline in bulkAgentAppointNew.html" name="bulkAgentAppointNew_decline"/>
+
+
+<!-- Maintenance Bug- Main- 003- Cyber liability dashboard -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="isShowCyberLiabilityNoticesSent" name="isShowCyberLiabilityNoticesSent"/>
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="ShowCyberLiabilityNoticesSent" name="dashboard_Cyber_Liability_Notices_Sent_label"/>
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="CyberLiabilityNoticesSent" name="Cyber_Liability_Notices_Sent"/>
+
+<!-- Main-006 - deleting contact -->
+<tabsconfigurationresource  deltaind="I" name="SkipProducerCodeLogicaldeletionvalidation" value="N"/>
+
+<!-- MR bug id Main-002 start -->
+<tabsconfigurationresource deltaind="M" name="doc_insurance_notice_listing_security" accesslevel="1" description="hide/show doc_insurance_notice_listing_security on docCyberLiability.html" />
+<!-- MR bug id Main-002 end -->
+  
+<!-- MR bug id Main-004 start -->
+<tabsconfigurationresource deltaind="M" name="doc_CyberLiability_notice_listing_security" accesslevel="1" description="hide/show doc_CyberLiability_notice_listing_security on docCyberLiability.html" />
+<!-- MR bug id Main-004 end -->
+<!-- Phase 3 : Agency Demographics -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="claim_policy_security" description="claim_policy_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="isShowAgentContractsTabAtTopLevel" name="contact_external_system_tab_security"/>
+<tabsconfigurationresource deltaind="M" name="ivans_security" accesslevel="1" description="show ivans security" /> 
+
+<!-- Phase 3 : Hide Flat Rate and Is Modelling fields -->
+<tabsconfigurationresource  deltaind="I" accesslevel="0" name="addNewcommission_schedule2_NB_RB_Split_security" />
+<tabsconfigurationresource  deltaind="I" accesslevel="0" name="showAddNewCommissionScheduleIsModeling" />
+
+<!-- Phase 3 : Hide Eligibility Criteria and Attachment Icons -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide Show commSchd_eligibility_column security" name="commSchd_eligibility_column_security"/>
+<tabsconfigurationresource  deltaind="M" accesslevel="0" name="commissonSch_mass_attachment_link_security"  description="Hide/show Commission Schedule mass attachment security" />
+
+<!-- Phase 3- Bug Id- P3-004- Is additive column -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="commissonSch_block_is_additive_security"  description="Hide/show commisson Sch is additive security" />
+
+<!-- Phase 3- Bug Id- P3-008- Hiding Is additive column -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="commission_is_additive_schedule_security"  description="Hide/show commisson Sch is additive security" />
+
+<!-- Phase 3: hiding aditional values in dropdowns -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="adminTabs2_campaign_schedule_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="adminTabs2_move_schedule_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="adminTabs2_change_incentive_eligibility_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="adminTabs2_change_attachSchedule_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="adminTabs2_change_whatifAnalysis_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="isShowMassAttachment"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" name="adminTabs2_paftab"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" name="adminTabs2_acrascheduletab"/>
+ <tabsconfigurationresource deltaind="I" accesslevel="0" name="adminTabs2_acrasoutputtab"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" name="isShowCommissionRecalculationTab"/> 
+
+<!-- Phase 3- hiding agency sweep section under bank info -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="producerBankInfo_sweep_account_section_security" name="producerBankInfo_sweep_account_section_security"/>
+
+<!-- Phase 3- hiding is one time column from adjustments -->
+<tabsconfigurationresource  deltaind="M" accesslevel="0" description="Hide/show compensationCommissionAdjustment is one time security" name="compensationCommissionAdjustment_is_one_time_security"/>
+
+<!-- Phase 3- hiding is one time column from adjustments listing screen-->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="is_one_time_security" name="is_one_time_security"/>
+
+<!-- Phase 3- hiding complete hierarchy-->
+<tabsconfigurationresource  deltaind="M" accesslevel="0" name="complete_hierarchy_security"/>
+
+<!-- Phase 3- hiding reporting hierarchy-->
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="reporting_hierarchy_security"/>
+
+<!-- Phase 3 : Hiding Non Relevant Audit Reports : Shobhit : Start -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_report_payout_summary_by_accounting_LOB_security" name="auditReport_report_payout_summary_by_accounting_LOB_security"/>     
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_ETL_process_postLoad_security" name="auditReport_ETL_process_postLoad_security"/>  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_payout_summaryReport_product_security" name="auditReport_payout_summaryReport_product_security"/>  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_agency_detailchanges_report_security" name="auditReport_agency_detailchanges_report_security"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_agency_addressChanges_report_security" name="auditReport_agency_addressChanges_report_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show auditReport_agent_detailChanges_report_security" name="auditReport_agent_detailChanges_report_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_agentAddress_changes_report_security" name="auditReport_agentAddress_changes_report_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show auditReport_agencyCode_detailsChanges_report_security" name="auditReport_agencyCode_detailsChanges_report_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_agencyCode_addressName_security" name="auditReport_agencyCode_addressName_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show auditReport_commission_audit_report_security" name="auditReport_commission_audit_report_security"/>
+<!-- Phase 3 : Hiding Non Relevant Audit Reports : Shobhit : End -->
+
+
+<!-- Task Id-18002-Hide Commission Reports -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_isHideShowCommissionAdjustmentReport" name="commission_isHideShowCommissionAdjustmentReport"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_webLeads_report_security" 	name="commission_webLeads_report_security"/>  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_uncollected_premium_report_security" name="commission_uncollected_premium_report_security"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_CEA_coverage_report_security" name="commission_CEA_coverage_report_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_isShow102_2Report" name="commission_isShow102_2Report"/>   
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_levies_agency_listing_security" name="commission_levies_agency_listing_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_advertisement_charegs_report_security" name="commission_advertisement_charegs_report_security"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_isShow113_1Report" name="commission_isShow113_1Report"/>
+
+<!-- Task Id-18002-rate reports -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_based_on_template_reports_link_security" name="commission_comm_rate_based_on_template_reports_link_security"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_based_currentaplicable_global_security" name="commission_comm_rate_based_currentaplicable_global_security"/>  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_based_on_schedule_by_agency_reports_link_security" name="commission_comm_rate_based_on_schedule_by_agency_reports_link_security"/>                       
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_based_on_schedule_reports_link_security" name="commission_comm_rate_based_on_schedule_reports_link_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_based_on_template_by_agency_reports_link_security" name="commission_comm_rate_based_on_template_by_agency_reports_link_security"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_based_currentaplicable_rates_security" name="commission_comm_rate_based_currentaplicable_rates_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_schedule_list_details_reports_link_security" name="commission_schedule_list_details_reports_link_security"/>  
+
+<!-- Task Id-18002-housekeeping reports -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_agencyCode_schedule_security" name="commission_comm_rate_agencyCode_schedule_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_showAgencyHavingPendingRateApproval" name="commission_showAgencyHavingPendingRateApproval"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_showAgencyHavingPendingRateApproval" name="commission_showAgencyHavingPendingRateApproval"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_showAgencyCodeWhereRateChanged" name="commission_showAgencyCodeWhereRateChanged"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_comm_rate_agencyCodevalidation_schedule_security" 	name="commission_comm_rate_agencyCodevalidation_schedule_security"/> 
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show commission_isShowAgencyBillReconciliationReport" name="commission_isShowAgencyBillReconciliationReport"/>
+
+<!-- Phase 3 : Show Adjustment/Reduction Field : Hide Status Column -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adjustment_deduction_type_list_security" name="adjustment_deduction_type_list_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show compensationCommissionAdjustment status security" name="compensationCommissionAdjustment_status_security"/>
+
+
+
+<!-- Maintenance Bug id- 023- Self Service page- add/update contact start -->
+<tabsconfigurationresource deltaind="M" name="agentGeneralDetailsForSelfServiceApproval_does_intend_writing_business_security" accesslevel="0" description="Hide/Show agentGeneralDetailsForSelfServiceApproval_does_intend_writing_business_security" />
+<!-- Maintenance Bug- 023- Self Service page- add/update contact end -->
+
+<!-- Upgrade Bug id- 026-Agency Demographics- start --> 
+<tabsconfigurationresource deltaind="I" name="entityGeneralDetails_downpayment_security" accesslevel="0" description="Hide/Show entityGeneralDetails_downpayment_security" />
+
+<tabsconfigurationresource deltaind="I" name="entityGeneralDetails_downpayment1_security" accesslevel="0" description="Hide/Show entityGeneralDetails_downpayment1_security" />
+<!-- Upgrade Bug id- 026-Agency Demographics- end -->
+
+<!-- Upgrade bug-U-033 start -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show call report agency personnel" name="isCallReportAgencyPersonnelApplicable"/>
+<!-- Upgrade bug-U-033 end -->
+
+<!-- Upgrade bug-U-059 Start -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="isCallReportAttendingEmployeesApplicable_security" name="isCallReportAttendingEmployeesApplicable_security"/>
+<!-- Upgrade bug-U-059 end -->  
+
+<!-- UAT Bug -002 start -->
+<tabsconfigurationresource deltaind="M" description="Decide whether all sent mails also sent to logged in user as bcc address" name="ISSENDMAILSTOLOGGEDINUSER" value="N"/>
+<!-- UAT Bug -002 end -->
+
+<!-- UAT2 Bug 17971 add/update contact email field start -->
+<!-- UAT2 Bug 43047 add/update contact email field -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="email_id_business_agent_ss_security" name="email_id_business_agent_ss_security"/>
+<!-- UAT2 Bug 17971 add/update contact email field end -->
+
+<!-- UAT2 Bug 17971 update agency location email field start -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="email_id_business_ss_security" name="email_id_business_ss_security"/>
+<!-- UAT2 Bug 17971 update agency location email field end -->
+
+<!-- UAT2 Bug 17971 add/update contact email section start -->
+ <tabsconfigurationresource deltaind="M" name="agentGeneralDetailsForSelfServiceApproval_additional_email_address_security" accesslevel="1" description="Hide/Show agentGeneralDetailsForSelfServiceApproval_additional_email_address_security" />
+<!-- UAT2 Bug 17971 add/update contact email section end -->
+
+<!-- UAT2 Bug 17971 update agency location email section start -->
+<tabsconfigurationresource deltaind="M" name="entityGeneralDetailsForSelfServiceApproval_additional_email_address_security" accesslevel="1" description="entityGeneralDetailsForSelfServiceApproval_additional_email_address_security hide/show" />
+<!-- UAT2 Bug 17971 update agency location email section end -->
+
+<!-- START - UAT2 Bug Id 0017 - Grey out CBIA Designation field in SS -->
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="Grey out CBIA Designation" name="ss_cbia_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="Grey out CBIA Designation" name="ss_year_recieved_security"/>
+<!-- END - UAT2 Bug Id 0017 - Grey out CBIA Designation field in SS -->
+
+<!--Prod Issue- Display History icon on bank information page -->
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="Hide/show bankinformation icon on addbankinformation screen" name="bankinformation_history_security"/>
+
+<!-- Phase 3: Hiding Pdf icon for commission statement -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="commissionStmt_exportpdf_security" name="commissionStmt_exportpdf_security"/>
+
+<!-- Phase 3- Extra fields for Requests Page -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="hide/show Request Period on Requests Page" name="request_period_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="hide/show Request License Num on Requests Page" name="request_license_num_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="hide/show Request Commission Statement on Requests Page" name="request_commission_statements_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="hide/show Request Policy Number on Requests Page" name="request_policy_number_security"/>
+
+<!-- Phase 3- Task Id- 25086- BOB Step 2 -->
+<tabsconfigurationresource  deltaind="M" accesslevel="0" description="Hide/Show bobtransfersStep2_LifePolicyTransferMessage_security" name="bobtransfersStep2_LifePolicyTransferMessage_security"/>
+ 
+<!-- Phase 3- Bug Id-25684- Hide Bob Id -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/show transfer bob id" name="bobtransferStep2_bobid"/>
+
+<!-- Phase 3- Hide Life Policy Transfer Form -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/show download life form" name="bobtransferstep2_filedownload"/>
+    
+<!-- START - UAT2 Bug Id - 0039 - Grey out HBA, Dividend Dist, Agent Copies, Policyholder Copies -->
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="Grey out HBA Designation" name="entityGeneralDeetails_hba_que_ss_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="1" description="Grey out HBA Designation" name="entityGeneralDeetails_hba_ss_dropdown_security"/>
+<!-- END - UAT2 Bug Id - 0039 - Grey out HBA, Dividend Dist, Agent Copies, Policyholder Copies -->
+
+<!-- Phase 3- Bug Id- 28330 -->  
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide earned premium" name="incentiveStatements_premium_earned_security"/>
+
+<!-- Phase 3- Hide Pdf icon on contingency commission statement -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/show pdf on  form" name="incentiveStatement_pdf"/>
+
+<!-- Phase 3- IVANS section --> 
+ <tabsconfigurationresource deltaind="M" name="ivans_download_type_security" accesslevel="1" description="Hide/Show Ivans Download Type Lookup" />
+
+<!-- Phase 3- Hide Calculation factors section -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/show factors grid" name="bonusCalculationFactor_freeform_contextdata_01"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide Show WRITTEN PREMIUM GROWTH CALCULATIONand GROWTH RATE FACTOR CHART (GRF) security" name="compIncentiveStmnt_wpg_grf_security"/>
+
+<!-- Phase 3- Payout detail and summary section -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="net_profit_payout_detail_security" name="net_profit_payout_detail_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="py_losses_payout_detail_security" name="py_losses_payout_detail_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="cy_profit_payout_detail_security" name="cy_profit_payout_detail_security"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="block_field_earned_premium" name="block_field_earned_premium"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="block_field_loss_adjustment_expense" name="block_field_loss_adjustment_expense"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="block_field_earned_commission_amount" name="block_field_earned_commission_amount"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="block_field_cy_profit" name="block_field_cy_profit"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="block_field_py_losses" name="block_field_py_losses"/>
+<tabsconfigurationresource deltaind="I" accesslevel="0" description="block_field_net_profit" name="block_field_net_profit"/>
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="earned_commission_amount_payout_detail_security" name="earned_commission_amount_payout_detail_security"/>
+
+<!-- Feature List 107740 adding Trash Onboarded Bucket start -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show  trashed_Onboarded_application_security" name="trashed_Onboarded_application_security"/>
+<!-- Feature List 107740 adding Trash Onboarded Bucket end -->
+	
+<!-- UAT2 Bug Id - 007 Agency Demo Market Info start -->
+	<!--  <tabsconfigurationresource deltaind="M" accesslevel="1" description="premium_volume_commitment_to_sample_security" name="premium_volume_commitment_to_sample_security"/>
+	
+	<tabsconfigurationresource deltaind="M" description="atleastOneLOBRequiredSecurity" name="atleastOneLOBRequiredSecurity" accesslevel="0"/>
+	
+	<tabsconfigurationresource deltaind="M" accesslevel="0" description="premium_volume_by_lob_security" name="premium_volume_by_lob_security"/>
+	-->
+	<!-- UAT2 Bug Id - 007 Agency Demo Market Info end -->
+	
+	<!-- UAT2 Bug Id - 27509 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="entityCyberLiabilityExpirationListing_security" name="entityCyberLiabilityExpirationListing_security"/>
+	
+<!-- Phase 3-Bug ID- 46418- Cont Reports -->
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_agentprofit_sharingSchedule_security" name="CCBReports_agentprofit_sharingSchedule_security"/> 
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_agentprofit_ProfileReport_security" name="CCBReports_agentprofit_ProfileReport_security"/> 
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_agentprofit_includedBuyCell_security" name="CCBReports_agentprofit_includedBuyCell_security"/> 
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_agentGroup_security" name="CCBReports_agentGroup_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBreport_agentcontigentCommission_security" name="CCBreport_agentcontigentCommission_security"/>  
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBreport_agentcommission_security" name="CCBreport_agentcommission_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBreport_agentcommissionLoss_security" name="CCBreport_agentcommissionLoss_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBreport_agentcommissionLossDetail_security" name="CCBreport_agentcommissionLossDetail_security"/>
+ <tabsconfigurationresource deltaind="M"  accesslevel="0" description="Hide/Show CCBReports_agentcontigent_reconciliation_security" name="CCBReports_agentcontigent_reconciliation_security"/> 
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_agentcontigent_CCBEligible_security" name="CCBReports_agentcontigent_CCBEligible_security"/>  
+ <tabsconfigurationresource deltaind="M" accesslevel="0"  description="Hide/Show CCBreport_agentcontigent_Commission_security" name="CCBreport_agentcontigent_Commission_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBreport_agentcontigent_adjustment_security" name="CCBreport_agentcontigent_adjustment_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_showAgencyProductionAndExperienceReport" name="CCBReports_showAgencyProductionAndExperienceReport"/>  
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBreport_agentcontigent_Profitsharing_security" name="CCBreport_agentcontigent_Profitsharing_security"/>
+ <tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show CCBReports_agentcontigent_IncuredLoss_security" name="CCBReports_agentcontigent_IncuredLoss_security"/> 
+
+	<!-- 39089 disapporve button hide  start --> 
+	<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show disapprove button on agency functions page" name="agencyFunctions_selectFunctionType_disapprove_security"/>
+	
+	<!-- CR 055 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="agent_business_email_address_security" name="agent_business_email_address_security"/>
+  
+  <!-- Hiding languages section on header which had accesslevel=1 in 2.10.3.8 -->
+	<tabsconfigurationresource deltaind="M" name="configuration_language_security" accesslevel="0" description="Hide/show configuration language on header page"/>
+	
+	<!-- Prod Bug Id - 43025 -->
+	<tabsconfigurationresource deltaind="I" accesslevel="0" description="docContract_addNewAgencyCode_security" name="docContract_addNewAgencyCode_security"/>
+	
+	<!-- Demographics-For showing E&O claim Y/N option added by product in 2.10.3.8 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="docInsuranceDetail_Demographics_eo_claims_security" description="Hide/Show of agency drop down in docInsuranceDetail_ss_comments_req_security for demographics" />
+	
+	<!-- SS-For showing E&O claim Y/N option added by product in 2.10.3.8 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="docInsuranceDetail_ss_eo_claims_security" description="Hide/Show of agency drop down in docInsuranceDetail_ss_comments_req_security for SS" />
+	
+	<!-- CR0065 - START -->
+	<tabsconfigurationresource deltaind="M" name="bankInformationForSelfServiceApproval_re_enter_bank_account_security" accesslevel="1" description="Hide/Show re_enter_bank_account on bankInformationForSelfServiceApproval" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="bankInformationForSelfServiceApproval_bank_account_name_security" name="bankInformationForSelfServiceApproval_bank_account_name_security"/>
+	<!-- CR0065 - END -->
+	
+	<!-- Phase 3 - Feature - 48692 - Generating Welcome Letters Manually - Start -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show  Agency list public submit page agencyListPublicSubmitNInvitation_send_welcome_letter_security" name="agencyListPublicSubmitNInvitation_send_welcome_letter_security"/>
+	<!-- Phase 3 Feature End -->
+	
+	<!--  Feature- 48722- template priority -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="hide Show Template priority Commission Schedule security" name="commission_schedule_template_priority_security" />
+	
+	<!-- Feature- 48723- Prefix copy -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Add new Commission Schedule Description Copy of security" name="commission_schedule_description_copyof_security" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Add new Incentive Schedule Description Copy of security" name="incentive_schedule_description_copyof_security" />
+	
+	<!-- Feature- IVANS -->
+
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="ivans_screen_account_status_security" description="Hide/Show ivans_screen_account_status_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="ivans_screen_effective_date_security" description="Hide/Show ivans_screen_effective_date_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="ivans_screen_expiration_date_security" description="Hide/Show ivans_screen_expiration_date_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="addNew_ivans_account_status_security" description="Hide/Show addNew_ivans_account_status_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="addNew_ivans_account_effective_date_security" description="Hide/Show addNew_ivans_account_effective_date_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" name="addNew_ivans_account_expiration_date_security" description="Hide/Show addNew_ivans_account_expiration_date_security"/>
+	
+<!--  Feature- 48722- agency status filter -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show AgencyStatus" name="entity_individual_AgencyStatus_security"/>
+
+<!-- Feature ADO - 48724 - Increasing file upload size limit -->
+<tabsconfigurationresource deltaind="I" value="50" description="Threshold for DMS Upload Document File Size" name="FILEUPLOADSIZETHRESHOLD" />
+
+	<!-- Upgrade-Feature 48677-viewing audit details -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="accountAgencyCodeAssociation_history_security"  description="Hide/Show accountAgencyCodeAssociation_history_security"/>
+	
+	<!-- Feature 48680 - Delete onboarding agency -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="agencyListPublicSubmitNInvitation_Trash_Onboarded_Application_row_security" name="agencyListPublicSubmitNInvitation_Trash_Onboarded_Application_row_security"/>
+	
+<!-- Feature-48689- M n A letter -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show MNA generate letter button" name="isshowMNAGenerateLetterMovingLocation"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show MNA generate letter button" name="isshowMNAGenerateLetter"/>
+
+	<!-- Feature ADO - 48673 - SS E&O and CyberL requests Agency Dropdown -->
+	<tabsconfigurationresource deltaind="M" name="doc_insurance_checkIsNewRequest_security" accesslevel="1" description="Hide/Show of agency drop down in docInsuranceForSelfServiceApproval.html" />
+	<tabsconfigurationresource deltaind="M" name="cyber_liability_checkIsNewRequest_security" accesslevel="1" description="Hide/Show of agency drop down in cyberLiabilityForSelfServiceApproval.html" />
+	
+	<!-- Feature 48705 - Adding Address Validation Indicator - start -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Show Verify Address Indicator" name="show_verified_address_indicator_security" />
+	
+<!-- Feature ADO - 48726 - Verifying Address for Self Service Requests -->	
+<!-- reverted feature change --><tabsconfigurationresource deltaind="M" name="adapter_address_verification_enabled" accesslevel="0" description="Enable/Disable integration platform" />
+<!-- reverted feature change --><tabsconfigurationresource deltaind="M" name="integration_address_verfication_enabled" accesslevel="1" description="Enable/Disable integration service" /> 
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="Show Verify Address for Self service" name="verify_address_self_service_security" />
+
+<!-- Feature ADO - 48691 - Configuring Territory Manager, Underwriter, and Company Representatives -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" description="agency_profile_general_information_underwriter_security" name="agency_profile_general_information_underwriter_security"/>
+
+<!-- Feature ADO - 48686 - Viewing Tasks Assigned to the User from the Dashboard - START -->
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="user_assignment_dashboard_security" name="user_assignment_dashboard_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userassigment_filter_security" name="userassigment_filter_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userassignment_filter_button_security" name="userassignment_filter_button_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userassignment_reset_button_security" name="userassignment_reset_button_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userassignment_listing_security" name="userassignment_listing_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userAssignmentListing_filter_requestType_security" name="userAssignmentListing_filter_requestType_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userAssignmentListing_filter_requestStatus_security" name="userAssignmentListing_filter_requestStatus_security"/>
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="userAssignmentListing_filter_userNames_security" name="userAssignmentListing_filter_userNames_security"/>
+<!-- Feature ADO - 48686 - Viewing Tasks Assigned to the User from the Dashboard - END -->
+
+<!-- Feature 48679 - Adding the Self Insured Retention (SIR) and Deductible Fields -start -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show doc_insurance_self_insured_retention_security" name="doc_insurance_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show addInsuranceDetailsForSelfServiceApproval_self_insured_retention_security" name="addInsuranceDetailsForSelfServiceApproval_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show addInsuranceDetailsForSelfServiceApproval_doc_insurance_self_insured_retention_security" name="addInsuranceDetailsForSelfServiceApproval_doc_insurance_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show addNewCyberLiabilityForSelfService_self_insured_retention_security" name="addNewCyberLiabilityForSelfService_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="doc_cyberLiability_self_insured_retention_security" description="hide/show doc_cyberLiability_self_insured_retention_security on docCyberLiability.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show agencyListEdit_cyber_liability_self_insured_retention_security" name="agencyListEdit_cyber_liability_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show agencyListEdit_cyber_liability_deductible_security" name="agencyListEdit_cyber_liability_deductible_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show agencyListEdit_EandOForm_self_insured_retention_security" name="agencyListEdit_EandOForm_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show agencyListEdit_EandOForm_deductible_security" name="agencyListEdit_EandOForm_deductible_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="doc_insurance_deductible_security" name="doc_insurance_deductible_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="0" description="Hide/Show deductible text box mandatory on Document Insurance" name="doc_insurance_deductible_mandatory_security"/>
+	<tabsconfigurationresource deltaind="I" accesslevel="0" description="Hide/Show deductible text box mandatory on Document Insurance doc_cyberLiability_deductible_mandatory_security" name="doc_cyberLiability_deductible_mandatory_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="entityCyberLiabilityExpirationListing_self_insured_retention_security" name="entityCyberLiabilityExpirationListing_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show entityInsuranceExpirationListing_self_insured_retention_security" name="entityInsuranceExpirationListing_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show docCyberLiability_self_insured_retention_security" name="docCyberLiability_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show doc_CyberLiability_block_self_insured_retention_security" name="doc_CyberLiability_block_self_insured_retention_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show insurance_self_insured_retention_security" name="insurance_self_insured_retention_security"/>
+	<!-- Feature 48679 - Adding the Self Insured Retention (SIR) and Deductible Fields-end -->
+	
+	<!-- Feature 48684 - Mass update -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="massUpdateImport_security" description="Hide/Show of mass Update Import security" />
+	
+	<!-- ADO 52160 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="checkEntityCyberLiabilityListExist_exportResult_security" name="checkEntityCyberLiabilityListExist_exportResult_security"/>
+	
+<!-- Feature- 48730- Cyber liability and E & O filters -->
+<tabsconfigurationresource deltaind="M" name="isShowCyberLiabilityFilterSectionTrue" accesslevel="1" description="hide/show isShowCyberLiabilityFilterSectionTrue on docCyberLiability.html" />
+<tabsconfigurationresource deltaind="M" accesslevel="1" description="isShowDocumentFilterSectionTrue" name="isShowDocumentFilterSectionTrue"/>
+	
+	<!-- ADO 48752 -->
+	<tabsconfigurationresource deltaind="M" name="ISSHOWLISTADDITIONALCOLUMNSLINK" value="Y" description="Define value to show additional columns link per list"></tabsconfigurationresource>
+	
+<!-- Bug ID-53057 -approval reports -->
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_licensing_report_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_BonusProgressReport_rising_star_report_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_BonusProgressReport_life_sales_bonus_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_BonusProgressReport_profit_plus_bonus_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_BonusProgressReport_policy_growth_bonus_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_BonusProgressReport_profit_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_ContingentCommissionReportByDetails_security" description="Hide/Show reports" />
+<tabsconfigurationresource deltaind="I" accesslevel="0" name="incentiveApprovalReports_ContingentCommissionReportByState_security" description="Hide/Show reports" />
+
+	
+	<!-- Feature 48695 - Adding Additional Fields to the Application-start -->
+	<!-- Upgrade-SS-Showing base fields -HBA, Div distr,Agent copies,Policyholder copies -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_ss_hba_association_id_security" name="entityGeneralDetails_ss_hba_association_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_ss_member_of_hba_security" name="entityGeneralDetails_ss_member_of_hba_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_ss_dividend_distribution_id_security" name="entityGeneralDetails_ss_dividend_distribution_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_ss_policyholder_copies_id_security" name="entityGeneralDetails_ss_policyholder_copies_id_security"/>
+	
+	<!-- Upgrade-AgencyListEdit-Showing base fields-HBA, Div distr,Policyholder copies -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show agencyListEdit_dividend_distribution_id_security" name="agencyListEdit_dividend_distribution_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show agencyListEdit_policyholder_copies_id_security" name="agencyListEdit_policyholder_copies_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show agencyListEdit_member_of_hba_security" name="agencyListEdit_member_of_hba_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show agencyListEdit_hba_association_id_security" name="agencyListEdit_hba_association_id_security"/>
+	
+	<!-- Upgrade-Agency Demographics-Showing base fields-HBA, Div distr,Agent copies, Policyholder copies -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_member_of_hba_security" name="entityGeneralDetails_member_of_hba_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_hba_association_id_security" name="entityGeneralDetails_hba_association_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_dividend_distribution_id_security" name="entityGeneralDetails_dividend_distribution_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_agent_copies_id_security" name="entityGeneralDetails_agent_copies_id_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/show entityGeneralDetails_policyholder_copies_id_security" name="entityGeneralDetails_policyholder_copies_id_security"/>
+	<!-- Feature 48695 - Adding Additional Fields to the Application-end -->
+	
+	<!-- ADO-54153 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_agencyCode_producersearch_probation_effective_date_range_security" name="advance_agencyCode_producersearch_probation_effective_date_range_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="0" description="advance_agencyCode_producersearch_probation_termination_date_range_security" name="advance_agencyCode_producersearch_probation_termination_date_range_security"/>
+	
+	
+<!-- Phase 3-Bug 36109- Housekeeping and Rate reports -->
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="Commission_Rate_Reports_Security" description="Hide/Show of Rate report Commission Grid" />
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="Commission_Housekeeping_Reports_security" description="Hide/Show of Housekeeping Commission Grid" />
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="Bobus_CCB_Housekeeping_Reports_security" description="Hide/Show of Housekeeping Commission Grid" />
+	
+	
+</tabsconfiguration>

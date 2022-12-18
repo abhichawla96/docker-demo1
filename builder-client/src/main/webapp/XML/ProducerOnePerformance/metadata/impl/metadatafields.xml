@@ -1,0 +1,10 @@
+<structure project="ProducerOnePerformance">
+
+  <field deltaind="I" decimallength="0" displayname="statement_run_date" length="10" name="statement_run_date" seq="684" type="D" viewlength="10"/>
+	
+<!-- Phase 3: Report filtration criteria change -->
+ <!--  <field deltaind="I" decimallength="0" displayname="reports_filter_amount" length="0" name="reports_filter_amount" seq="1410" type="I" viewlength="10"/>
+ -->	
+	
+	
+</structure>

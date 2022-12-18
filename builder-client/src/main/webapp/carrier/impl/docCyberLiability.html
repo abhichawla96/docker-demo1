@@ -1,0 +1,803 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body onload="javascript:loadUploadDiv()" class="carrierSection node31">
+    <div id="cover" />
+    <div id="contextLinks" />
+    <!-- <div id="downloadUploadDiv" style="width: 650px;">
+      <div id="isDocCyberLiabilityDetailsDefaultOpen">
+        <div id="DefaultOpenForm_MultiForm:uploadPopup" />
+      </div>
+    </div> -->
+    <form enctype="multipart/form-data">
+      <div id="deleteConfirmation">
+        <!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="docCyberLiability_close" href="#" class="close" onclick="closePopUp('deleteConfirmation')">
+                    <img src="images/close.png" />
+                  </a>
+                  Delete Cyber Liability
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <span class="delete_ico icons">#space#</span>
+                  Are you sure you want to
+delete this item?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="docCyberLiability_yes" onclick="closePopUp('deleteConfirmation');" href="javascript:document.forms[0].submit();" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a id="docCyberLiability_no" href="#" onclick="clean();closePopUp('deleteConfirmation');" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <div id="deleteDocument">
+        <!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="docCyberLiability_close1" href="#" class="close" onclick="closePopUp('deleteDocument')">
+                    <img src="images/close.png" />
+                  </a>
+                  Delete Cyber Liability Document
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <span class="delete_ico icons">#space#</span>
+                  Are you sure you want to
+delete this item?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="docCyberLiability_yes2" onclick="closePopUp('deleteDocument');" href="javascript:callAjaxDelete('attachmentDiv');" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a id="docCyberLiability_no2" href="#" onclick="clean();closePopUp('deleteDocument');" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <div class="container-fluid bootstrap-node-16" id="addNewDocCyberLiabilitySection">
+        <div class="tableWidth">
+          <!--=======Header Start========-->
+          <header>
+            <span id="#Include:carrier/carrierHeader.html#" />
+          </header>
+          <!--=======Header End========-->
+          <div class="bgmain">
+            <!--=======Menu Level 1 Start========-->
+            <nav class="menu-level-1 tab">
+              <span id="#Include:carrier/carrierTabs1.html#" />
+            </nav>
+            <!--=======Menu Level 1 End========-->
+            <!--=======Menu Level 2 Start========-->
+            <nav class="menu-level-2">
+              <span id="#Include:carrier/carrierTabs2.html#" />
+            </nav>
+            <!--=======Menu Level 2 End========-->
+            <article class="content sidebar-content">
+              <!--=======Sidebar Start========-->
+              <div id="isSideBarHiereachyExists" class="sideBar">
+                <span id="#Include:carrier/sideBar.html#" />
+              </div>
+              <!--=======Sidebar End========-->
+              <!--=======Body content Start========-->
+              <div class="panel-body-wraper" id="tdContent">
+                <!--=======page Level msg Start========-->
+                <div class="errorMsgAlign clear-both">
+                  <div id="error_pageError" class="error" />
+                  <div id="error_dateError" class="error" />
+                </div>
+                <div class="ConfirmationAlign clear-both" id="docCyberLiability_freeform_contextdata_100">
+                  <label name="pageMsg" id="pageMsg" class="conformationMsg" />
+                </div>
+                <!--=======page Level msg End========-->
+                <section id="isShowCyberLiabilityFilterSectionTrue" class="free-form">
+                  <fieldset class="fieldset_Level_1">
+                    <legend>
+                      <label id="CyberLiability_filter_label">Cyber Liability Filters</label>
+                    </legend>
+                    <div class="freeFormDiv paddingTop10 form-inline docCyberLiability">
+                      <div class="padding-left-form">
+                        <ul class="inlineBlock" id="CyberLiabilityFilter_freeform_contextdata_0">
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_producer_number_id_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_producer_number_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_filter_producer_number_id" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="filter_producer_number_id_label">Agency Code</label>
+                                  :
+                                </div>
+                                <div class="freeFormListTd tdInput">
+                                  <select class="form-control" name="docCyberLiability_filter_producer_number_id" 
+                                  	fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_producer_number_security.filter_producer_number_id_label.docCyberLiability_filter_producer_number_id"
+                                  	id="ajax_field_docCyberLiability_filter_producer_number_id">
+                                    <option value="">Select</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_producer_number_id_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#doc_carrier_other_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_carrier_name_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_doc_carrier_other" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_carrier_name_label">Carrier Name
+</label> :
+                                </div>
+                                <div class="freeFormListTd tdInput nowrapDiv">
+                                  <input name="doc_carrier_other" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_carrier_name_security.CyberLiability_freeform_carrier_name_label.doc_carrier_other"
+									maxlength="249" type="text" id="ajax_field_doc_carrier_other" class="form-control" />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#doc_carrier_other_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#activity_date_from_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_expiration_date_from_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_activity_date_from" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_expiration_date_from_label">Expiration Date
+From</label> :
+                                </div>
+                                    
+                                <div class="freeFormListTd tdInput text-nowrap">
+                                  <div class="input-group date">
+                                 <div class="input-group-addon" id="ico_fa_calender_security"> 
+                                 <i class="fa fa-calendar">&nbsp;</i> </div>
+                                <input name="activity_date_from" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_expiration_date_from_security.CyberLiability_freeform_expiration_date_from_label.activity_date_from"
+									id="ajax_field_activity_date_from" type="text" onkeyup="applyDateFormat(this,event);" class="form-control char10 datepicker" maxlength="10" />
+                                 </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#activity_date_from_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#activity_date_to_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_expiration_date_to_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_activity_date_to" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_expiration_date_to_label">Expiration Date To
+</label> :
+                                </div>
+                                <div class="freeFormListTd tdInput text-nowrap">
+                                <div class="input-group date">
+                              <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+                              <input onkeyup="applyDateFormat(this,event);" name="activity_date_to" 
+								fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_expiration_date_to_security.CyberLiability_freeform_expiration_date_to_label.activity_date_to"
+								id="ajax_field_activity_date_to" type="text" class="form-control char10 datepicker" maxlength="10" />
+                              </div>   <a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#activity_date_to_after#"></li>
+                                                  
+                          <li class="inlineBlock_2 extendedFieldHide" id="#doc_policy_number_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_policy_number_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_doc_policy_number" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_policy_number_label">Policy Number
+</label> :
+                                </div>
+                                <div class="freeFormListTd tdInput nowrapDiv">
+                                  <input name="doc_policy_number" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_policy_number_security.CyberLiability_freeform_policy_number_label.doc_policy_number"
+									type="text" id="ajax_field_doc_policy_number" maxlength="20" class="form-control char20" />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#doc_policy_number_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#doc_policy_limit_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_policy_limit_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_doc_policy_limit" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_policy_limit_label">Policy Limit
+</label> :
+                                </div>
+                                <div class="freeFormListTd tdInput nowrapDiv">
+                                  <input name="doc_policy_limit" type="text" id="ajax_field_doc_policy_limit" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_policy_limit_security.CyberLiability_freeform_policy_limit_label.doc_policy_limit"
+									maxlength="20" class="form-control char20"  />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#doc_policy_limit_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_deductible_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_deductible_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_filter_deductible" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_deductible_label">Deductible </label> :
+                                </div>
+                                <div class="freeFormListTd tdInput text-nowrap">
+                                  <input name="filter_deductible" type="text" id="ajax_field_filter_deductible" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_deductible_security.CyberLiability_freeform_deductible_label.filter_deductible"
+									maxlength="20" class="form-control char20"  />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_deductible_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_aggregate_limit_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_aggregate_limit_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_filter_aggregate_limit" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_aggregate_limit_label">Aggregate Limit
+ </label> :
+                                </div>
+                                <div class="freeFormListTd tdInput">
+                                  <input name="filter_aggregate_limit" type="text" id="ajax_field_filter_aggregate_limit" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_aggregate_limit_security.CyberLiability_freeform_aggregate_limit_label.filter_aggregate_limit"
+									maxlength="20" class="form-control char20"  />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_aggregate_limit_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#status_id1_before#"></li>
+                          <li class="inlineBlock_2" id="CyberLiability_freeform_review_status_security">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_status_id1" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_review_status_label">Review Status
+</label> :
+                                </div>
+                                <div class="freeFormListTd tdInput nowrapDiv">
+                                  <select class="form-control" name="status_id1" id="ajax_field_status_id1"
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).CyberLiability_freeform_review_status_security.CyberLiability_freeform_review_status_label.status_id1">
+                                    <option value="">Select</option>
+                                    <option value="1">Cancelled</option>
+                                    <option value="2">Expired</option>
+                                    <option value="3">Inforce</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#status_id1_after#"></li>
+                          
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_cancellation_date_before#"></li>
+                          <li class="inlineBlock_2" id="isShowCancellationDate">
+                            <div class="freeFormList form-group">
+                              <div class="freeFormListTr">
+                                <div class="freeFormListTdError">
+                                  <h6>#space#</h6>
+                                </div>
+                                <div class="freeFormListTdError paddingLeft3">
+                                  <div id="error_filter_cancellation_date" class="error" />
+                                </div>
+                              </div>
+                              <div class="freeFormListTr">
+                                 <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                  <label id="CyberLiability_freeform_cancellation_date_label">Cancellation Date
+</label> :
+                                </div>
+                                <div class="freeFormListTd tdInput text-nowrap">
+                                  <input name="filter_cancellation_date" type="text" id="ajax_field_filter_cancellation_date" 
+									fullid="CyberLiabilityFilter_freeform_contextdata_0(isShowDocumentFilterSectionTrue.CyberLiability_filter_label).isShowCancellationDate.CyberLiability_freeform_cancellation_date_label.filter_cancellation_date"
+									maxlength="10" class="form-control char10" onkeyup="applyDateFormat(this);" />
+                                  <a id="date_link" class="calender_ico icons" title="Select Date" onclick="show_calendar_widget(this);" />
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="inlineBlock_2 extendedFieldHide" id="#filter_cancellation_date_after#"></li>
+                          
+                         
+                        </ul>
+                      </div>
+                    </div>
+                    <section class="divButton buttons-section paddingTop10" id="CyberLiability_search_group_buttons_security">
+                      <div class="buttonwrapper">
+                        <span id="CyberLiability_filter_btn_security">
+                          <a id="docCyberLiability_filter" href="javascript:submitform('carrier/docCyberLiability.html','docCyberLiability.docCyberLiabilityFilter','','');" class="btn btn-primary">
+                            <span id="CyberLiability_filter_btn_label">Filter</span>
+                          </a>
+                        </span>
+                        <span id="CyberLiability_filter_reset_btn_security">
+                          <a id="docCyberLiability_reset" href="javascript:submitform('carrier/docCyberLiability.html','docCyberLiability.reset','','');" class="btn btn-default">
+                            <span id="CyberLiability_filter_reset_btn_label">Reset</span>
+                          </a>
+                        </span>
+                      </div>
+                    </section>
+                  </fieldset>
+                </section>
+                <section id="doc_cyber_liability_grid_security" class="list-grid">
+                  <fieldset>
+                    <legend>
+                      <label id="doc_CyberLiability_grid_label">Cyber Liability</label>
+                    </legend>
+                    <div class="gridTopPadding4">
+                      <section class="divButton buttons-section" id="1hideDocCyberLiabilityButton">
+                        <div class="buttonwrapper paddingBottom10">
+                          <span id="CyberLiability_add_CyberLiability_security">
+                            <span id="1isAgencyStatusNotInactive">
+                              <a id="docCyberLiability_addnewCyberLiability" 
+                              href="javascript:rightclickmenu('carrier/addNewCyberLiability.html','addNewCyberLiability.addCyberLiabilityAction','','','div_ajaxpostion_addNewCyberLiability:country');" class="btn btn-primary">
+                                <span id="newCyberLiabilityDetaillabel">Add Cyber Liability</span>
+                              </a>
+                            </span>
+                          </span>
+                        </div>
+                      </section>
+                      <section id="addressCountry_freeform_contextdata_112" class="ajax-div">
+                        <div id="div_ajaxpostion_addNewCyberLiability:country" />
+                      </section>
+                      <div id="ajax_sorting" class="clearDiv">
+                        <div class="gridTable grid-width CyberLiability-width" id="docCyberLiability_list_1">
+                          <ul id="isDocCyberLiabilityDetailListNotEmpty" class="paginationUL">
+                            <li class="width100" id="docOther_pagination_1">
+                              <div class="pagination">
+                                <div class="paginationTable">
+                                  <div class="paginationTr">
+                                    <div class="paginationTd width20">
+                                      <span>Records per Page :</span>
+                                      <span>
+                                        <select id="recordsperpage" onchange="ajax_sorting" name="recordsperpage" class="inputbox" />
+                                      </span>
+                                    </div>
+                                    <div align="center" class="width60 paginationTd">
+                                      <span class="linright">Viewing</span>
+                                      <span id="docOther_recordsfrom_1" class=" paginationTxt" />
+                                      <span class="linright">to</span>
+                                      <span id="docOther_recordsto_1" class=" paginationTxt" />
+                                      <span class="linright">of</span>
+                                      <span id="docOther_totalrecords_1" class=" paginationTxt" />
+                                    </div>
+                                    <div class="width20 paginationTd">
+                                      <div class="paginationTable2">
+                                        <div class="paginationTr">
+                                          <div class="paginationTd">
+                                            <span id="docOther_firstpagelink_1">
+                                              <a id="docCyberLiability_previousall" href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting','','');" title="First Page" tabindex="21">
+                                                <img src="images/previous_all.png" border="0" />
+                                              </a>
+                                            </span>
+                                          </div>
+                                          <div class="paginationTd">
+                                            <span id="docOther_previouspagelink_01">
+                                              <a id="docCyberLiability_previousone"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting','','');" title="Previous" tabindex="21">
+                                                <img src="images/previous_one.png" border="0" />
+                                              </a>
+                                            </span>
+                                          </div>
+                                          <div class="paginationTd">Page :</div>
+                                          <div class="paginationTd">
+                                            <select id="pagenumber" onchange="ajax_sorting" name="pagenumber" class="inputbox" />
+                                          </div>
+                                          <div class="paginationTd">
+                                            <span id="docOther_nextpagelink_1">
+                                              <a id="docCyberLiability_nextone"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting','','');" title="Next" tabindex="21">
+                                                <img src="images/next_one.png" border="0" />
+                                              </a>
+                                            </span>
+                                          </div>
+                                          <div class="paginationTd">
+                                            <span id="docOther_lastpagelink_1">
+                                              <a id="docCyberLiability_nextall"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting','','');" title="Last Page" tabindex="21">
+                                                <img src="images/next_all.png" border="0" />
+                                              </a>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <div class="clearDiv">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                              <tr id="docCyberLiability_list_header_1">
+                                <td style="display: none" id="CyberLiability_certificate_id_security">
+                                  <div id="block_field_CyberLiability_certificate_id" />
+                                </td>
+                                 <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_cyber_liability_id_security" width="10%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_cyber_liability_id">
+                                    <span id="doc_CyberLiability_block_cyber_liability_id_label">ID</span>
+                                  </div>
+                                </td>
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_producer_number_id_security" width="10%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_producer_number">
+                                    <span id="doc_CyberLiability_block_producer_number_id_label">Agency Code</span>
+                                  </div>
+                                </td>
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_producer_name_security" width="10%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_producer_name">
+                                    <span id="doc_CyberLiability_block_producer_name_label">Agency Code Description</span>
+                                  </div>
+                                </td>
+                                <td class="HeaderStyle header-cell" style="display: none" id="doc_CyberLiability_producer_number_id_security">
+                                  <div id="block_field_producer_number_id" />
+                                </td>
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_person_name_security"  width="12%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_person_name">
+                                    <label id="doc_CyberLiability_block_person_name_label">Cyber Liability Contact</label>
+                                  </div>
+                                </td>
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_carrier_other_security" width="17%" >
+                                  <div id="sorting(,A,ajax_sorting):block_field_carrier_other">
+                                    <label id="doc_CyberLiability_block_carrier_other_label">Carrier Name</label>
+                                  </div>
+                                </td>
+                                
+                                  <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_self_insured_retention_security" width="17%" >
+                                  <div id="sorting(,A,ajax_sorting):block_field_self_insured_retention">
+                                    <label id="doc_CyberLiability_block_self_insured_retention_label">SIR</label>
+                                  </div>
+                                </td>
+                                
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_policy_limit_security"  width="10%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_policy_limit">
+                                    <label id="doc_CyberLiability_block_policy_limit_label">Policy Limit</label>
+                                  </div>
+                                </td>
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_expiration_date_security"  width="9%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_expiration_date">
+                                    <label id="doc_CyberLiability_block_expiration_date_label">Expiration Date</label>
+                                  </div>
+                                </td>
+                                <td class="HeaderStyle header-cell" id="doc_CyberLiability_block_deductible_security"  width="9%">
+                                  <div id="sorting(,A,ajax_sorting):block_field_deductible">
+                                    <label id="CyberLiability_freeform_deductible_label">Deductible</label>
+                                  </div>
+                                </td>
+                                <td width="1%" class="HeaderStyle header-cell last-cell" id="CyberLiability_delete_row_security" >
+                                  <div class="col width5" id="block_field_delete_row_link" />
+                                </td>
+                              </tr>
+                              <tbody id="docCyberLiability_list_data_1">
+                                <tr>
+                                  <td style="display: none" class="data-cell" id="CyberLiability_certificate_id_security">
+                                    <span id="block_field_CyberLiability_certificate_id" />
+                                  </td>
+                                   <td class="data-cell" id="doc_CyberLiability_block_cyber_liability_id_security">
+                                    <span id="block_field_cyber_liability_id">
+                                    <a href="javascript:rightclickmenu('carrier/addNewCyberLiability.html','addNewCyberLiability.edit','','','div_ajaxpostionaddDocCyberLiability_freeform:cyber_liability_id');">
+                                        <label id="block_field_cyber_liability_id" />
+                                      </a>
+                                    </span>
+                                  </td>
+                                  <td class="data-cell" id="doc_CyberLiability_block_producer_number_id_security">
+                                    <span id="block_field_producer_number"/>
+                                  </td>
+                                  <td class="data-cell" id="doc_CyberLiability_block_producer_name_security">
+                                    <span id="block_field_producer_name" />
+                                  </td>
+                                  <td class="data-cell" style="display: none" id="doc_CyberLiability_producer_number_id_security">
+                                    <span id="block_field_producer_number_id" />
+                                  </td>
+                                  <td class="data-cell" id="doc_CyberLiability_block_person_name_security">
+                                    <span id="block_field_person_name" />
+                                  </td>
+                                  <td class="data-cell wrapword" id="doc_CyberLiability_block_carrier_other_security">
+                                    <span id="block_field_carrier_other" />
+                                  </td>
+                                  <td class="data-cell wrapword" id="doc_CyberLiability_block_self_insured_retention_security">
+                                    <span id="block_field_self_insured_retention" />
+                                  </td>
+                                  <td class="data-cell" id="doc_CyberLiability_block_policy_limit_security">
+                                    <span id="block_field_policy_limit" />
+                                  </td>
+                                  <td class="data-cell" id="doc_CyberLiability_block_expiration_date_security">
+                                    <span id="block_field_expiration_date" />
+                                  </td>
+                                  <td class="data-cell" id="doc_CyberLiability_block_expiration_date_security">
+                                    <span id="block_field_deductible" />
+                                  </td>
+                                  <td class="data-cell delete-col last-cell" id="CyberLiability_delete_row_security">
+                                    <b id="1hideDocCyberLiabilityButton">
+                                      <span id="block_field_delete_row_link">
+                                        <a id="docCyberLiability_delete"  class="delete_ico icons" href="javascript:submitform('carrier/docCyberLiability.html','docCyberLiability.delete','','');" title="Delete" />
+                                      </span>
+                                    </b>
+                                  </td>
+                                  <td class="data-cell" style="display: none" id="block_field_document_row_link">
+                                 
+                                      <!--  <a class="cursor" href="javascript:ajaxpageblocklink('carrier/uploadPopup.html','docCyberLiability.uploadedit','','','downloadUploadDiv');">-->
+                                      <!--<a href="#">
+                                                                                                                 <img src="images/icons/i_attach.gif" />
+                                                                                                                 </a>--> </td>
+                                  
+                                </tr>
+                                <tr class="border0" id="general_ajaxpostion_list_02">
+                                  <td colspan="10" align="left" class="none" border="0">
+                                    <div id="div_ajaxpostionaddDocCyberLiability_freeform:cyber_liability_id" class="bgAccordionN" />
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </section>
+                <section id="doc_CyberLiability_notice_listing_security" class="list-grid">
+                  <fieldset>
+                    <legend id="doc_CyberLiability_notice_listing_label">Cyber Liability Notice Listing</legend>
+                    <div id="ajax_sorting_5" class="gridTopPadding4">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0" id="docCyberLiabilityNoticeListing_list_1" class="gridTable grid-width CyberLiability-notice-width">
+                        <tr id="isDocCyberLiabilityNoticeListNotEmpty">
+                          <td class="pagination" colspan="9">
+                            <table cellpadding="2" cellspacing="0" width="100%">
+                              <tr id="docOther_pagination_5">
+                                <td align="left" width="1%" nowrap="nowrap" class="paginationCenter">Records per page :</td>
+                                <td align="left" width="1%">
+                                  <select id="recordsperpage_5" onchange="ajax_sorting_5" name="recordsperpage_5" class="inputbox" />
+                                </td>
+                                <td align="center">
+                                  <table cellpadding="1" cellspacing="0">
+                                    <tr>
+                                      <td nowrap="nowrap">#space#</td>
+                                      <td nowrap="nowrap">Viewing</td>
+                                      <td id="docOther_recordsfrom_5" class="paginationTxt" />
+                                      <td>#space#to#space#</td>
+                                      <td id="docOther_recordsto_5" class="paginationTxt" />
+                                      <td>#space#of#space#</td>
+                                      <td class="paginationTxt" id="docOther_totalrecords_5" />
+                                      <td width="5" />
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td align="right" width="8%" nowrap="nowrap">
+                                  <table border="0" cellspacing="0" cellpadding="1">
+                                    <tr>
+                                      <td id="docOther_firstpagelink_1">
+                                        <a id="docCyberLiability_previousall"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting_5','','');" title="First Page" tabindex="21">
+                                          <img src="images/previous_all.png" border="0" />
+                                        </a>
+                                      </td>
+                                      <td id="docOther_previouspagelink_5">
+                                        <a id="docCyberLiability_previousone"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting_5','','');" title="Previous" tabindex="21">
+                                          <img src="images/previous_one.png" border="0" />
+                                        </a>
+                                      </td>
+                                      <td nowrap="nowrap" class="paginationCenter">Page :</td>
+                                      <td>
+                                        <select id="pagenumber_5" onchange="ajax_sorting_5" name="pagenumber_5" class="inputbox" />
+                                      </td>
+                                      <td id="docOther_nextpagelink_5">
+                                        <a id="docCyberLiability_nextone"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting_5','','');" title="Next" tabindex="21">
+                                          <img src="images/next_one.png" border="0" />
+                                        </a>
+                                      </td>
+                                      <td id="docOther_lastpagelink_5">
+                                        <a id="docCyberLiability_nextall"  href="javascript:ajaxpagination('docCyberLiability.html','ajax_sorting_5','','');" title="Last Page" tabindex="21">
+                                          <img src="images/next_all.png" border="0" />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr id="docCyberLiabilityNoticeListing_list_header_1">
+                          <td id="doc_CyberLiability_notice_block_producer_number_security" class="HeaderStyle header-cell" width="100px">
+                            <span id="sorting(,A,ajax_sorting_5):block_field_producer_number">
+                              <span id="doc_CyberLiability_notice_block_producer_number_label">Producer Number</span>
+                            </span>
+                          </td>
+                          <td id="doc_CyberLiability_notice_block_person_name_security" class="HeaderStyle header-cell" width="100px">
+                          	<span id="sorting(,A,ajax_sorting_5):block_field_person_name">
+                          		<span id="doc_CyberLiability_notice_block_person_name_label">Cyber Liability Contact</span>
+                          	</span>
+                          	</td>
+                          <td id="doc_CyberLiability_notice_block_carrier_name_security" class="HeaderStyle header-cell" width="150px">
+                          	<span id="sorting(,A,ajax_sorting_5):block_field_carrier_name">
+                          		<span id="doc_CyberLiability_notice_block_carrier_name_label">Carrier Name</span>
+                          	</span></td>
+                          <td id="doc_CyberLiability_notice_block_policy_limit_security" class="HeaderStyle header-cell" width="100px">
+                            <div style="width: 50px"  id="sorting(,A,ajax_sorting_5):block_field_policy_limit">
+                            	<span id="doc_CyberLiability_notice_block_policy_limit_label">Policy Limit</span></div>
+                          </td>
+                          <td id="doc_CyberLiability_notice_block_expiration_date_security" class="HeaderStyle header-cell" width="100px">
+                            <div id="sorting(,A,ajax_sorting_5):block_field_expiration_date" style="width: 50px">
+                            	<span id="doc_CyberLiability_notice_block_expiration_date_label">Expiration Date</span></div>
+                          </td>
+                          <td id="doc_CyberLiability_notice_block_threshold_days_security" class="HeaderStyle header-cell" width="90px">
+                            <div id="sorting(,A,ajax_sorting_5):block_field_threshold_days" style="width: 50px">
+                            	<span id="doc_CyberLiability_notice_block_threshold_days_label">Notice Threshold</span></div>
+                          </td>
+                          <td id="doc_CyberLiability_notice_block_e_mail_security" class="HeaderStyle header-cell" width="130px">
+                          	<span id="sorting(,A,ajax_sorting_5):block_field_e_mail">
+                          		<span id="doc_CyberLiability_notice_block_e_mail_label">E-mail Address</span>
+                          	</span></td>
+                          <td id="doc_CyberLiability_notice_block_sent_date_security" class="HeaderStyle header-cell last-cell" width="80px">
+                          	<span id="sorting(,A,ajax_sorting_5):block_field_notice_sent_date">
+                          		<span id="doc_CyberLiability_notice_block_sent_date_label">Date Sent</span>
+                          	</span></td>
+                        </tr>
+                        <tr id="docCyberLiabilityNoticeListing_list_data_1">
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_producer_number_security">
+                            <span id="block_field_producer_number" />
+                          </td>
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_person_name_security"><span id="block_field_person_name"></span></td>
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_carrier_name_security"><span id="block_field_carrier_name"></span></td>
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_policy_limit_security"><span id="block_field_policy_limit"></span></td>
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_expiration_date_security"><span id="block_field_expiration_date"></span></td>
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_threshold_days_security"><span id="block_field_threshold_days"></span></td>
+                          <td class="data-cell" id="doc_CyberLiability_notice_block_e_mail_security"><span id="block_field_e_mail"></span></td>
+                          <td class="data-cell last-cell" id="doc_CyberLiability_notice_block_sent_date_security"><span id="block_field_notice_sent_date"></span></td>
+                          <!--  <a class="cursor" href="javascript:ajaxpageblocklink('carrier/uploadPopup.html','docCyberLiability.uploadedit','','','downloadUploadDiv');">-->
+                          <!--<a href="#">
+                                                                                                     <img src="images/icons/i_attach.gif" />
+                                                                                                     </a>-->
+                        </tr>
+                      </table>
+                    </div>
+                  </fieldset>
+                </section>
+              <!--   <section id="addNewCyberLiability">
+                  <div id="uploadDocumentDiv" />
+                </section> -->
+              </div>
+              <!--=======Body content End========-->
+              <!--=======Sidebar Right Start========-->
+              <div id="sidebar_right_security" class="sideBarRight">
+                <span id="#Include:carrier/sideBarRight.html#" />
+              </div>
+              <!--=======Sidebar Right End========-->
+            </article>
+          </div>
+          <!--=======Footer Start========-->
+          <footer>
+            <span id="#Include:admin/adminFooter.html#" />
+          </footer>
+          <!--=======Footer End========-->
+        </div>
+      </div>
+      <div>
+        <div class="calendar_widget" id="calendar_widget">
+          <iframe id="calendar_widget_iframe" name="calendar_widget_iframe" src="calendar_widget.html" frameborder="0" />
+        </div>
+        <div class="hiddenFields" id="docCyberLiability_freeform_contextdata_999">
+          <input type="hidden" name="jsessionid" id="jsessionid" />
+          <input type="hidden" name="showUploadDiv" id="showUploadDiv" />
+          <input type="hidden" name="eoCyberLiabilityRequired" id="eoCyberLiabilityRequired" />
+          <input type="hidden" name="agency_id" id="ajax_field_agency_id" />
+          <input type="hidden" name="htmlSource" id="htmlSource" />
+          <input type="hidden" name="coming_page" id="coming_page" />
+          <input type="hidden" name="divHideShow" id="divHideShow" />
+          <input type="hidden" name="doc_CyberLiability_policy_limit_mandatory_security" id="ajax_field_doc_CyberLiability_policy_limit_mandatory_security" />
+          <input type="hidden" name="doc_CyberLiability_carrier_name_mandatory_security" id="ajax_field_doc_CyberLiability_carrier_name_mandatory_security" />
+          <input type="hidden" name="doc_CyberLiability_policy_number_mandatory_security" id="ajax_field_doc_CyberLiability_policy_number_mandatory_security" />
+          <input type="hidden" name="doc_CyberLiability_aggregate_limit_mandatory_security" id="ajax_field_doc_CyberLiability_aggregate_limit_mandatory_security" />
+          <input type="hidden" name="doc_CyberLiability_review_status_mandatory_security" id="ajax_field_doc_CyberLiability_review_status_mandatory_security" />
+          <input type="hidden" name="doc_CyberLiability_deductible_mandatory_security" id="ajax_field_doc_CyberLiability_deductible_mandatory_security" />
+          <input type="hidden" name="isShowDocumentFilterSectionTrue" id="ajax_field_isShowDocumentFilterSectionTrue" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+

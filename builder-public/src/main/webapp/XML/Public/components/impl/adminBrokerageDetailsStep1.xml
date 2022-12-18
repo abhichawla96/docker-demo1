@@ -1,0 +1,11 @@
+<projectcomponents project="Public">
+<component deltaind="M" metaobject="tbl_agencyappointmentrequest;tbl_agencybankinformation;tbl_business_address;tbl_mailing_address;tbl_w9_address" name="adminBrokerageDetailsStep1" seq="0" stackdisplayname="breadcrumb_entity_label" objectcolumn="aar_requestid">
+	<action deltaind="M" name="view">
+		<actionparam deltaind="I" executionsequence="74" form="Y" name="agency_lob_id_0" paramid="agency_lob_id_0" post="Y" val="1"/>
+	</action>  
+	
+	<action deltaind="M" name="refreshState">
+		<actionparam deltaind="I" executionsequence="10" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y" />
+	</action> 		
+</component>	
+</projectcomponents>

@@ -1,0 +1,149 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="prospect_status_lku;prospect_address;prospect_source_lku;agencypremiumvolumecommitted;agencycompanieslicensed;agency_business_source;agencyterminated;agencypersonalinformation;agencymergers;agency_master;agency_marketinformation;segment_industry_classes" name="prospectMarketInformation" stackdisplayname="Prospects Market Information">
+
+ <!-- 	<action deltaind="M" name="save">
+	    Phase 2 - US : OB-PPRM-04-005
+		 <workflow deltaind="I" eval="foreign_languages_spoken_in_agency_security" name="insertUpdateForeignLanguagesSpokenInAgencyWorkflow" seq="1">
+     	         <storedprocedureoperation deltaind="I" dbspname="insertUpdateForeignLanguagesSpokenInAgency_p" executionsequence="1" id="insertUpdateForeignLanguagesSpokenInAgency_p" metaobject="tbl_marketinformation" name="insertUpdateForeignLanguagesSpokenInAgency_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="foreign_languages" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+		
+  Phase 2 - US : OB-PPRM-04-005
+		
+  	 <workflow deltaind="I" eval="primary_company_usage_security" name="insertUpdatePrimaryCompanyUsageWorkflow" seq="2">
+    	         <storedprocedureoperation deltaind="I" dbspname="insertUpdatePrimaryCompanyUsage_p" executionsequence="1" id="insertUpdatePrimaryCompanyUsage_p" metaobject="tbl_marketinformation" name="insertUpdatePrimaryCompanyUsage_p" operation="4" >
+				<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" property="primary_company_usage_desc" seq="2"/>
+				<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+			</storedprocedureoperation>
+		</workflow> 
+	 
+	Phase 2 - US : OB-PPRM-04-005
+	
+	  <workflow deltaind="I" name="insertUpdateCurrentAdvertisingMethodsWorkflow" seq="3">
+    	         <storedprocedureoperation deltaind="I" dbspname="insertUpdateCurrentAdvertisingMethods_p" executionsequence="1" id="insertUpdateCurrentAdvertisingMethods_p" metaobject="tbl_marketinformation" name="insertUpdateCurrentAdvertisingMethods_p" operation="4" >
+				<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" property="current_advertising_methods_desc" seq="2"/>
+				<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+			</storedprocedureoperation>
+		</workflow>  
+  Phase 2 - US : OB-PPRM-04-005 (Commercial Lines)
+			
+		 <workflow deltaind="I" name="insertUpdateTblMarketInformationLobSectionsWorkflow" seq="4">
+     	         <storedprocedureoperation deltaind="I" dbspname="insertUpdateTblMarketInformationLobSections_p" executionsequence="1" id="insertUpdateTblMarketInformationLobSections_p" metaobject="tbl_marketinformation_lob" name="insertUpdateTblMarketInformationLobSections_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="is_agency_share_contingency" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="agency_pay_commission_to_producers" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="is_agency_commercial_business" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="is_agencys_service_center" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="premium_threshold" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="commercial_premium_threshold" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="industry_makeup_agency_commercial" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" property="accounts_size" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="10"/> 
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow> 
+			
+			 Phase 2 - US : OB-PPRM-04-005 (Production Commitment)
+			 
+			<workflow deltaind="I"  name="insertUpdateTblMarketInformationProdCommitmentWorkflow" seq="5">
+     	         <storedprocedureoperation deltaind="I"  dbspname="insertUpdateTblMarketInformationProdCommitment_p" executionsequence="1" id="insertUpdateTblMarketInformationProdCommitment_p" metaobject="tbl_marketinformation_lob" name="insertUpdateTblMarketInformationProdCommitment_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="production_commitment_first_year" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="production_commitment_second_year" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="production_commitment_third_year" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="production_commitment_achieve_volume" seq="5"/>
+					<parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="6"/> 
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+			
+			Phase 2 - US : OB-PPRM-04-005 (Commercial Lines)
+			
+			<workflow deltaind="I" name="insertUpdateDeleteTblAgencyPremiumSizePercentProspectWorkflow" seq="6">
+     	         <storedprocedureoperation deltaind="I" dbspname="insertUpdateDeleteTblAgencyPremiumSizePercentProspect_p" executionsequence="1" id="insertUpdateDeleteTblAgencyPremiumSizePercentProspect_p" metaobject="tbl_agency_premium_size_percent" name="insertUpdateDeleteTblAgencyPremiumSizePercentProspect_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="agency_premium_size_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="agency_premium_size_percent" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="agency_premium_size_percent_id" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="last_updated_by" seq="5"/> 
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+    </action>
+    
+    <action deltaind="M" name="view">
+  		
+  		Phase 2 - US : OB-PPRM-04-005
+  	<workflow deltaind="I" name="prospectForeignLanguagesSpokenInAgencyWorkflow" seq="10">
+    	      <storedprocedureoperation deltaind="I" dbspname="agencyForeignLanguagesSpokenInAgency_p" executionsequence="0" id="agencyForeignLanguagesSpokenInAgency_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="agencyForeignLanguagesSpokenInAgency_p" operation="5" viewid="foreignLanguageSpokenInAgencyStep6_list_mom_1">
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			 </storedprocedureoperation>
+    	     <storedprocedureoperation deltaind="I" dbspname="getagencyForeignLanguagesSpokenInAgencyProspect_p" executionsequence="1" id="getagencyForeignLanguagesSpokenInAgencyProspect_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getagencyForeignLanguagesSpokenInAgencyProspect_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+		</workflow> 
+		
+		Phase 2 - US : OB-PPRM-04-005
+		
+  	<workflow deltaind="I" name="primaryCompanyUsageWorkflow" seq="11">
+    	     <storedprocedureoperation deltaind="I" dbspname="agencyPrimaryCompanyUsage_p" executionsequence="0" id="agencyPrimaryCompanyUsage_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="agencyPrimaryCompanyUsage_p" operation="5" viewid="primaryCompanyUsageStep6_list_mom_1">
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+    	    <storedprocedureoperation deltaind="I" dbspname="getAgencyPrimaryCompanyUsageProspect_p" executionsequence="1" id="getAgencyPrimaryCompanyUsageProspect_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getAgencyPrimaryCompanyUsageProspect_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+	 </workflow>
+	 
+	 Phase 2 - US : OB-PPRM-04-005
+	 
+	   <workflow deltaind="I" name="agencyCurrentAdvertisingMethodsWorkflow" seq="12">
+    	      <storedprocedureoperation deltaind="I" dbspname="agencyCurrentAdvertisingMethods_p" executionsequence="0" id="agencyCurrentAdvertisingMethods_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="agencyCurrentAdvertisingMethods_p" operation="5" viewid="currentAdvertisingMethodStep6_list_mom_1">
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+    	     <storedprocedureoperation deltaind="I" dbspname="getagencyCurrentAdvertisingMethodsProspect_p" executionsequence="1" id="getagencyCurrentAdvertisingMethodsProspect_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getagencyCurrentAdvertisingMethodsProspect_p" operation="3">
+				<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/> 
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+			</storedprocedureoperation>
+	</workflow> 
+	
+	 Phase 2 - US : OB-PPRM-04-005
+	 <workflow deltaind="I" name="getMarketInformationLobSections" seq="13">
+         		<storedprocedureoperation deltaind="I" dbspname="getTblMarketInformationLobSectionsProspect_p" executionsequence="0" id="getTblMarketInformationLobSectionsProspect_p" metaobject="tbl_marketinformation_lob" name="getTblMarketInformationLobSectionsProspect_p" operation="3">
+						<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+     	   </workflow> 
+     	   
+     Phase 2 - US : OB-PPRM-04-005
+     <workflow deltaind="I" name="getTblAgencyPremiumSizePercentSectionsProspectSections" seq="14">
+         		<storedprocedureoperation deltaind="I" dbspname="getTblAgencyPremiumSizePercentSectionsProspect_p" executionsequence="0" id="getTblAgencyPremiumSizePercentSectionsProspect_p" metaobject="tbl_agency_premium_size_percent" name="getTblAgencyPremiumSizePercentSectionsProspect_p" operation="5" viewid="adminBrokerageStep6_commercial_lines_list_mom_1">
+						<parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+     	   </workflow>
+  	</action>
+  	
+  	 Phase 2 - commercial lines
+  	 <action deltaind="I" name="refreshProspect">
+      <actionparam deltaind="I" executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+     <actionparam deltaind="I" executionsequence="0" name="is_agency_share_contingency_prospect" paramid="is_agency_share_contingency_prospect" pre="Y"/>
+   </action> -->
+   
+   <!-- START - UAT2 Bug Id 0004 - Remove Final Questions in PPRM Market Information -->
+	<action deltaind="M" name="view">
+  		<actionparam deltaind="I" executionsequence="0" form="Y" name="remove_final_questions" paramid="remove_final_questions" val="Y" post="Y" session="Y"/>
+	</action>
+   <!-- END - UAT2 Bug Id 0004 - Remove Final Questions in PPRM Market Information -->
+   
+  </component>
+</projectcomponents>

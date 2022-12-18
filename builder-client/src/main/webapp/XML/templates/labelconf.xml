@@ -1,0 +1,8 @@
+<labelconf project="" version="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+	<label labelkey="" labeldesc="" deltaind="">
+		<nodeinfo uniqueid="labelkey"/>
+	</label>
+</labelconf>

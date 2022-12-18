@@ -1,0 +1,58 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="category_lku;person_ss;agency_insurance_ss;" name="addNewInsuranceDetailForSelfService" stackdisplayname="Request" objectcolumn="request_ss_id" objecttype="Self Service">
+    
+   <!-- Phase 2 - Self Service US :SS-009-004-01 -->
+    <action deltaind="M" name="sendDocInsuraneDataForSaveApproval">
+    <actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+    <workflow deltaind="I" name="selfServiceInitiateEmail" seq="4">
+    	<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    <databaseoperation deltaind="I" executionsequence="0" metaobject="userprofiles" name="getMarketAssistantEmail" operation="3" sqlstmt="select  e_mail as e_mail from userprofiles where user_id=#workflow_user#"/>
+		<databaseoperation deltaind="I" executionsequence="1" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Agency_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+		<email deltaind="I" eventname="InitiateSelfServiceRequest" executionsequence="2" name="InitiateSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/>
+	 </workflow>
+    
+    </action>
+    
+     <action deltaind="M" name="approveRequests">
+     <!-- Task Id- SS-009-004-02 Add and update E&O page - Phase 2 Start-->
+       <actionparam deltaind="I" executionsequence="6" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+      <workflow deltaind="I" name="selfServiceApproveEmail" seq="4">
+	    <databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    <!-- Changes done for prod bug 31110  -->
+	    <databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+		<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+		<!-- <email deltaind="I" eventname="ApproveSelfServiceRequest" executionsequence="2" name="ApproveSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/> -->
+	  </workflow>
+    </action>
+    
+    
+   <action deltaind="M" name="declineRequests">
+   	<!-- Task Id- SS-009-004-02 Add and update E&O  - Phase 2 Start-->
+      <actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+   <workflow deltaind="I" name="selfServiceApproveEmail" seq="2">
+   		<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    <!-- Changes done for prod bug 31110  -->
+	    <databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+		<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+	</workflow>
+   </action>
+    
+     <!-- Phase 2- Bug Id-P2-073 -->
+       
+    <action deltaind="M" name="view">
+    <actionparam deltaind="I" executionsequence="0" form="Y" name="eo_claims_declaration" paramid="eo_claims_declaration" pre="Y" viewparam="Y" val="Y"/>
+    </action>
+    
+    <!-- Phase 2 - P2-084 - Removing Validation for Attach Document -->
+    <action deltaind="M" name="sendDocInsuraneDataForSaveApproval">
+    	<!-- Phase 2 - P2-110 - Request not getting sent without attachment - Start -->
+        <actionparam deltaind="D" eval="ProducerOneRule.uploadEODocument" executionsequence="12" form="Y" name="uploadEODocument" paramid="uploadEODocument" pre="Y"/>
+   		 <!-- Phase 2 - P2-110 - Request not getting sent without attachment - End -->
+    
+	    <validatefield deltaind="D" name="validatefieldFileUpload">
+	                <function name="uploadDocument" functionid="uploadDocument" parameters="context"/>
+		</validatefield>
+	</action>
+    
+  </component>
+</projectcomponents>

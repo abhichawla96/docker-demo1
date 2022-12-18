@@ -1,0 +1,118 @@
+<applicationworkflow project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	
+	<workflow name="" id="" description="" labelkey="" securitykey="" accesslevel="" contentid="" css="" statusgroup="">
+		<nodeinfo uniqueid="name">
+		</nodeinfo>
+		<event name="" id="" description="" labelkey="" securitykey="" accesslevel="" executionsequence="" assigneerole="" 
+			approverrole="" isapproval="" islink="" action="" forward="" status="" parentid="" css="" deltaind="" parentevent="">
+			<nodeinfo uniqueid="name">
+				<attribute name="executionsequence" datatype="int" />
+				<attribute name="isapproval" datatype="boolean"/>
+			</nodeinfo>
+			<approver name="" eval="" approverrole="" approver="" executionsequence="" status="" deltaind="">
+				<nodeinfo uniqueid="name">
+					<attribute name="executionsequence" datatype="int" />
+				</nodeinfo>
+			</approver>
+			<dropdown applid="" eval="" name="" property="" dataobject="" metaobject="" dropdowntype="" sqlstmt="" sorted="" deltaind="" 
+	           	parameters="" procname="" isrowlink="">
+	            <nodeinfo uniqueid="name">
+	                <attribute name="sorted" datatype="boolean"/>
+	                <attribute name="isrowlink" datatype="boolean"/>
+	            </nodeinfo>
+	            <valuefield field="" delimiter="" deltaind="" >
+	            	<nodeinfo uniqueid="field"/>
+	            </valuefield>
+	            <displayfield field="" delimiter="" deltaind="" >
+	            	<nodeinfo uniqueid="field"/>
+	            </displayfield>	
+	            <partialkey property="" deltaind="" >
+	            	<nodeinfo uniqueid="property"/>
+	            </partialkey>
+	        </dropdown>
+			<actionparam pre="" viewparam="" deltaind="" post="" eval=""
+				paramid="" scope="" namespace="" name="" val="" form="" session=""
+				populatename="" ismenuparam="" remove="" evalute=""
+				executionsequence="" removeparams="" checkfornullparams="" sessionparams="">
+				<nodeinfo uniqueid="paramid">
+					<extends class="Param" />
+					<attribute name="form" datatype="boolean" />
+					<attribute name="session" datatype="boolean" />
+					<attribute name="remove" datatype="boolean" />
+					<attribute name="pre" datatype="boolean" />
+					<attribute name="post" datatype="boolean" />
+					<attribute name="ismenuparam" datatype="boolean" />
+					<attribute name="viewparam" datatype="boolean" />
+					<attribute name="evalute" datatype="boolean" />
+					<attribute name="executionsequence" datatype="int" />
+				</nodeinfo>
+			</actionparam>
+			<status eval="" name="" workflowstatus="" workflowfunction="" assignee="" approver=""
+				emailnotificationid="" executionsequence="" statuscomment="" usergroup="" forward="" statusgroup=""
+				objectid="" objecttype="" isapproval="" assigneerole="" approverrole="" effectivedate="" deltaind="">
+				<nodeinfo uniqueid="name">
+					<implements
+						interface="com.manage.managecomponent.workflow.IExecutionSeq" /> 
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isapproval" datatype="boolean" />
+				</nodeinfo>
+				<role id=""></role>
+				<email mailto="" mailfrom="" cc="" bcc="" eval="" subject="" contenttype=""
+					msgstring="" msgfile="" attachmentpath="" executionsequence="" name=""
+					attachmentcontent="" isexecuteonsuccess="" eventname=""
+					objectid="" objecttype="" templatename="" ischeckfortemplates=""
+					lookupobjectmetaobject="" lookupobjectprocedure="" lookupobjectprocedureparameters="" applid=""
+					thanksname="" companyname="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.IExecutionSeq" />
+						<attribute name="executionsequence" datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+					<parameter name="" value="" executionsequence="">
+						<nodeinfo uniqueid="name">
+							<implements
+								interface="com.manage.managecomponent.workflow.IExecutionSeq" />
+							<attribute name="executionsequence" datatype="int" />	
+						</nodeinfo>
+					</parameter>
+				</email>
+				<actionparam pre="" viewparam="" deltaind="" post="" eval=""
+					paramid="" scope="" namespace="" name="" val="" form="" session=""
+					populatename="" ismenuparam="" remove="" evalute=""
+					executionsequence="" removeparams="" checkfornullparams="" sessionparams="">
+					<nodeinfo uniqueid="paramid">
+						<extends class="Param" />
+						<attribute name="form" datatype="boolean" />
+						<attribute name="session" datatype="boolean" />
+						<attribute name="remove" datatype="boolean" />
+						<attribute name="pre" datatype="boolean" />
+						<attribute name="post" datatype="boolean" />
+						<attribute name="ismenuparam" datatype="boolean" />
+						<attribute name="viewparam" datatype="boolean" />
+						<attribute name="evalute" datatype="boolean" />
+						<attribute name="executionsequence" datatype="int" />
+					</nodeinfo>
+				</actionparam>
+				<statusworkflow name="" eval="" isexecuteonsuccess="" executionsequence="">
+					<nodeinfo uniqueid="name">
+						<attribute name="executionsequence" datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />
+					</nodeinfo>
+					<businessobject eval="" name="" developercomments="" executionsequence="" 
+						obj="" isexecuteonsuccess="" deltaind="">
+						<nodeinfo uniqueid="name">
+							<implements
+								interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+							<attribute name="executionsequence" datatype="int" />
+							<attribute name="isexecuteonsuccess" datatype="boolean" />	
+						</nodeinfo>
+					</businessobject>
+				</statusworkflow>
+			</status>	
+		</event>
+	</workflow>
+</applicationworkflow>

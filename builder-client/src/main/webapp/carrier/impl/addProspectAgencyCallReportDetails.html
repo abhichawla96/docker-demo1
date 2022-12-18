@@ -1,0 +1,2504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <title>ProducerOne - Producer Management Center</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="script/manage.js" />
+    <script type="text/javascript" src="js/producerOne.js" />
+    <script type="text/javascript" src="js/producerOne_ext.js" />
+    <script type="text/javascript" src="script/calender.js" />
+	<script type="text/javascript" src="script/calender_conf.js" />
+	<script type="text/javascript" src="script/date-picker.js" /> 
+  </head>
+  <body onload="loadUploadDiv();checkPurposeOfCallForTextarea();" onclick="loadUploadDiv();checkPurposeOfCallForTextarea();">
+    <form>
+      <div id="addProspectAgencyCallReportDetails">
+        <div id="addAgencyCallReportDetails.isAgencyCallReportReadOnly">
+          <div id="uploadDocumentDiv">
+            <div id="divCallReport">
+              <div id="isRelationShipCallReportFlagY" class="prospectRelationship">
+                <div class="row" id="addAgencycallreportReadonNolyFields">
+                  <section class="free-form" id="ProspectAgecny_callReport_security">
+                    <fieldset>
+                      <legend id="addProspectAgencyCallReportDetails_label">
+                        Agency Entity Visit Details
+                      </legend>
+                      <div class="freeFormDiv form-inline" id="callreportProspect_freeform_contextdata_01">
+                        <div class="padding-left-form">
+                          <ul class="inlineBlock">
+                          	<li class="inlineBlock_2" id="#callreporttype_id_before#"></li>
+                            <li class="inlineBlock_2" id="addProspect_callreporttype_id_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_callreporttype_id" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspect_callreporttype_id_label">Call Report Type</span>  :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd">
+                                    <select name="callreporttype_id" 
+									fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspect_callreporttype_id_security.addProspect_callreporttype_id_label.callreporttype_id"
+									
+									id="ajax_field_callreporttype_id" class="form-control" onchange="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.refreshCallReport','','','divCallReport');">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#callreporttype_id_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#last_updated_by_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_last_updated_by_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspectCallReport_last_updated_by_label">Logged By</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd nonMandatory">
+                                    <span id="saveEvent">
+                                      <label name="user_id" id="user_id" />
+                                    </span>
+                                    <span id="editEvent">
+                                      <label name="last_updated_by"
+									fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_last_updated_by_security.addProspectCallReport_last_updated_by_label.last_updated_by"
+
+									  id="last_updated_by" class="nonMandatory"	/>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#last_updated_by_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#call_status_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_call_status_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_call_status_label">Status</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="call_status"
+					fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_call_status_security.addProspectCallReport_call_status_label.call_status"
+									id="ajax_field_call_status" class="form-control">
+                                      <option value="">Select</option>
+                                      <option value="1">Not Started</option>
+                                      <option value="2">In Progress</option>
+                                      <option value="3">Complete</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#call_status_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#Operating_division_id_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_operating_division_call_report_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_Operating_division_id" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspectCallReport_operating_division_call_report_label">Operating Division</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="Operating_division_id" 
+										fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_operating_division_call_report_security.addProspectCallReport_operating_division_call_report_label.Operating_division_id"
+									id="ajax_field_Operating_division_id" class="form-control">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#Operating_division_id_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#report_document_by_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_report_document_by_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_report_document_by" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspectCallReport_report_Documented_by_label">Report Documented by</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <input name="report_document_by" id="ajax_field_report_document_by" 
+										fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_report_document_by_security.addProspectCallReport_report_Documented_by_label.report_document_by"
+									
+									type="text" class="form-control" maxlength="30" readonly="readonly" />
+                                    <span id="isNotShowDataInReadOnlyMode">
+                                      <a id="imghide" href="javascript:ajaxsubmitform('carrier/searchDocumentedByPopup.html','addProspectAgencyCallReportDetails.searchReportDocumentedBy','','','popupEntityList');" style="padding-left: 5px;">
+                                        <img id="iconimg" src="images/icons/search.png" border="0" />
+                                      </a>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#report_document_by_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#business_segment_code_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_business_segment_code_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                    <div id="ajax_error_business_segment_code" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_business_segment_code_label">Product</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd">
+                                    <select name="business_segment_code" 
+										fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_business_segment_code_security.addProspectCallReport_business_segment_code_label.business_segment_code"
+									id="ajax_field_business_segment_code" class="form-control">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#business_segment_code_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#location_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_location_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_location" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_location_label">Visit Location</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd">
+                                    <select name="location" id="ajax_field_location" class="form-control"
+										fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_location_security.addProspectCallReport_location_label.location"
+									onchange="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.refreshAddressForVenue','','','locationAddressDiv');">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#location_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#call_type_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_call_type_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_call_type_label">Type</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <table cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td>
+                                          <input name="call_type" class="checkboxMargins" 
+										  fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_call_type_security.addProspectCallReport_call_type_label.call_type"
+										  id="ajax_field_call_type_1" type="radio" value="1" />
+                                        </td>
+                                        <td nowrap="nowrap" class="paddingLeft5">Physical Visit</td>
+                                        <td class="paddingLeft10">
+                                          <input name="call_type" class="checkboxMargins" 
+										  	fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_call_type_security.addProspectCallReport_call_type_label.call_type"
+										  id="ajax_field_call_type_2" type="radio" value="2" />
+                                        </td>
+                                        <td nowrap="nowrap" class="paddingLeft5">Phone Call</td>
+                                        <td class="paddingLeft10">
+                                          <input name="call_type" class="checkboxMargins" 
+										  	fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_call_type_security.addProspectCallReport_call_type_label.call_type"
+										  id="ajax_field_call_type_3" type="radio" value="3" />
+                                        </td>
+                                        <td nowrap="nowrap" class="paddingLeft5">Email</td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#call_type_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#date_time_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_date_time_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_date_time" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_date_time_label">Visit Date</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd nowrapDiv">
+                                   		<div id="isNotShowDataInReadOnlyMode">
+										<div class="input-group date mendatoryInput">
+											<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+											<input name="date_time" id="ajax_field_date_time" 
+												fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_date_time_security.addProspectCallReport_date_time_label.date_time"
+											
+											type="text" class="form-control datepicker" onkeyup="applyDateFormat(this,event);" maxlength="10" />
+										</div>
+										<a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+										</div>
+                                    
+                                    <div id="isShowDataInReadOnlyMode">
+										<div class="input-group date mendatoryInput">
+											<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+											<input name="date_time" id="ajax_field_date_time" type="text" class="form-control datepicker" 
+											fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_date_time_security.addProspectCallReport_date_time_label.date_time"
+											onkeyup="applyDateFormat(this,event);" maxlength="10" />
+										</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#date_time_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#location_description_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_location_description_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspectCallReport_location_description_label">Location</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <!-- <input name="location_description"
+                                                                    id="ajax_field_location_description"
+                                                                    type="text" class="textfield"
+                                                                    style="width: 221px" maxlength="30" /> -->
+                                    <select name="location_description" id="ajax_field_location_description" 
+										fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_location_description_security.addProspectCallReport_location_description_label.location_description"
+									
+									class="form-control" maxlength="30">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                             <!-- BMIC Specific-->          <li class="inlineBlock_2" id="#addProspectCallReport_date_time_security_after#"/> <!-- Added by Sudhir for BMIC phase II -->
+
+			    <li class="inlineBlock_2" id="#location_description_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#creation_date_before#"></li>
+                          <li class="inlineBlock_2" id="addProspectCallReport_created_date_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspectCallReport_created_date_label">Created Date</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd nonMandatory">
+                                    <label name="creation_date" 
+										fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_created_date_security.addProspectCallReport_created_date_label.creation_date"
+									id="creation_date" class="nonMandatory" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li> 
+                            <li class="inlineBlock_2" id="#creation_date_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#headerproducer_number_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_agency_entity_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addProspectCallReport_agency_entity_label">Entity</span> :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <label id="headername" name="headername" />
+                                    <span id="isShowAgencyCodeInHeader">
+                                      <label id="headerproducer_number"
+									  fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_agency_entity_security.addProspectCallReport_agency_entity_label.headerproducer_number"
+									  name="headerproducer_number" />
+                                    </span>
+                                    <span id="showHeaderCity">
+                                      - #space#
+                                      <label id="headercity" 
+									  fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_agency_entity_security.addProspectCallReport_agency_entity_label.headercity"
+name="headercity" />
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#headerproducer_number_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#market_rep_id_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_market_rep_id_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_market_rep_id" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <label id="addProspectCallReport_market_rep_id_label">Territory Manager</label>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput mendatoryInput nowrapDiv">
+                                    <select name="market_rep_id" 
+									fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_market_rep_id_security.addProspectCallReport_market_rep_id_label.market_rep_id"
+									id="ajax_field_market_rep_id" class="form-control" onchange="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.refreshProspectTerritoryByTerritryManager','','','territoryDiv');">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#market_rep_id_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#visit_duration_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_visit_duration_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_visit_duration_label">Visit Duration</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <select name="visit_duration" id="ajax_field_visit_duration" 
+									fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_visit_duration_security.addProspectCallReport_visit_duration_label.visit_duration"
+									
+									class="form-control">
+                                      <option value="">Select</option>
+                                      <option value="30 Minutes">30 Minutes</option>
+                                      <option value="1 Hour">1 Hour</option>
+                                      <option value="1 Hour 30 Minutes">1 Hour 30 Minutes</option>
+                                      <option value="2 Hour">2 Hour</option>
+                                      <option value="2 Hour 30 Minutes">2 Hour 30 Minutes</option>
+                                      <option value="3 Hour">3 Hour</option>
+                                      <option value="3 Hour 30 Minutes">3 Hour 30 Minutes</option>
+                                      <option value="4 Hour">4 Hour</option>
+                                      <option value="4 Hour 30 Minutes">4 Hour 30 Minutes</option>
+                                      <option value="5 Hour">5 Hour</option>
+                                      <option value="1 Day">1 Day</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#visit_duration_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#zone_code_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_territory_security">
+                              <div class="freeFormList form-group">
+                                <div id="territoryDiv">
+                                  <div class="freeFormListTr">
+                                    <div class="freeFormListTdError">
+                                      <h6>#space#</h6>
+                                    </div>
+                                    <div class="freeFormListTdError paddingLeft3">
+                                      <div id="ajax_error_zone_code" class="error" />
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTr">
+                                    <div class="freeFormListTd labelAlign">
+                                      <div class="freeFormLabelWidth">
+                                        <label id="addProspectCallReport_territory_label">Territory</label>
+                                        :
+                                      </div>
+                                    </div>
+                                    <div class="freeFormListTd tdInput mendatoryInput nowrapDiv">
+                                      <select name="zone_code" id="ajax_field_zone_code"
+fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_territory_security.addProspectCallReport_territory_label.zone_code"
+									  class="form-control">
+                                        <option value="">Select</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#zone_code_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#contact_name_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_contact_name_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormList">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_contact_name_label">Contact Name</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <input name="contact_name" id="ajax_field_contact_name" type="text"
+fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_contact_name_security.addProspectCallReport_contact_name_label.contact_name"
+
+									class="form-control" autocomplete="OFF" onkeyup="javascript:ajaxpageblocklink('carrier/addAgencyCallReportDetails.html','addAgencyCallReportDetails.getCallReportContactName','','','ajaxxmlname_ajax_field_contact_name');" onclick="nottoggleDivDisplay(this,'ajax_field_person_name','ajaxxmlname_ajax_field_contact_name');" />
+                                    <div>
+                                      <div id="ajaxxmlname_ajax_field_contact_name" class="transparent" style="border: solid 1px #cccccc; width: 234px !important;" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#contact_name_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#phone_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_report_phone_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_report_phone_label">Phone</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <label name="phone" id="ajax_field_phone" fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_report_phone_security.addProspectCallReport_report_phone_label.phone" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#phone_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#mailingaddress_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_mailing_address_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_mailing_address_label">Mailing Address</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <label name="mailingaddress" 
+									fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_mailing_address_security.addProspectCallReport_mailing_address_label.mailingaddress" 
+									
+									id="ajax_field_mailingaddress"  />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#mailingaddress_after#"></li>
+                            
+                            <li class="inlineBlock_2" id="#fax_before#"></li>
+                            <li class="inlineBlock_2" id="addProspectCallReport_report_fax_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addProspectCallReport_report_fax_label">Fax</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <input name="fax" id="ajax_field_fax" type="text" 
+									fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_report_fax_security.addProspectCallReport_report_fax_label.fax" 
+									
+									class="form-control" autocomplete="OFF" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="inlineBlock_2" id="#fax_after#"></li>
+                          </ul>
+                          <div id="addNewAgencyCallReportsAddressInfo_security">
+                            <ul class="inlineBlock" id="locationAddressDiv">
+                            	<li class="inlineBlock_2" id="#physicaladdress_before#"></li>
+                              <li class="inlineBlock_2" id="addProspectCallReport_physicalAddress_security">
+                                <div class="freeFormList form-group">
+                                  <div class="freeFormListTr">
+                                    <div class="freeFormListTdError">
+                                      <h6>#space#</h6>
+                                    </div>
+                                    <div class="freeFormListTdError paddingLeft3">
+                                      <div id="" class="error" />
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTr">
+                                    <div class="freeFormListTd labelAlign alignTopDiv">
+                                      <div class="freeFormLabelWidth alignTopDiv">
+                                        <span id="addNewAgencyCallReportsAddressInfo_label">Physical Address </span> :
+                                      </div>
+                                    </div>
+                                    <div class="freeFormListTd tdInput">
+                                      <textarea id="ajax_field_physicaladdress" name="physicaladdress" 
+									  fullid="callreportProspect_freeform_contextdata_01(ProspectAgecny_callReport_security.addProspectAgencyCallReportDetails_label).addProspectCallReport_physicalAddress_security.addNewAgencyCallReportsAddressInfo_label.physicaladdress"
+									  
+									  class="full_width" rows="4" onkeyup="updateTextAreaCharCountMsg(this,'physicaladdress_count',4000)" onfocus="showTextAreaCharCountMsg(this,'physicaladdress_count',4000)" onblur="hideTextAreaCharCountMsg(this,'physicaladdress_count',4000)" />
+                                      <div class="physicaladdress_count" id="physicaladdress_count" />
+                                      <div class="callpurposecharcount" id="callpurposecharcount" />
+                                    </div>
+                                    <!-- <div class="freeFormListTd tdInput">
+                                                                    <label name="physicaladdress"
+                                                                        id="ajax_field_physicaladdress" />
+                                                                </div> -->
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="inlineBlock_2" id="#physicaladdress_after#"></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </section>
+                  <section class="free-form" id="addNewCallReport_addition_visit_details_security">
+                    <fieldset>
+                      <legend id="addNewCallReport_addition_visit_details_label">Additional Visit Details</legend>
+                      <div class="freeFormDiv form-inline">
+                        <div class="padding-left-form" id="callreport_freeform_contextdata_05">
+                          <ul class="borderNone">
+                          	<li class="width100" id="#call_purpose_before#"></li>
+                            <li class="width100" id="addNewCallReport_purpose_of_call_security">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_call_purpose" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign">
+                                    <div class="freeFormLabelWidth">
+                                      <label id="addNewCallReport_purpose_of_call_label">Purpose of Call</label>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd mendatoryInput">
+                                    <select id="ajax_field_call_purpose" name="call_purpose"
+		fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_purpose_of_call_security.addNewCallReport_purpose_of_call_label.call_purpose"
+
+									onchange="checkPurposeOfCallForTextarea();" style="width: 793px">
+                                      <option value="">Select</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#call_purpose_after#"></li>
+                            
+                            <li class="width100" id="#purpose_of_call_desc_before#"></li>
+                            <li id="agency_call_report_purpose_of_call_desc_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="ajax_error_purpose_of_call_desc" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                	<div class="freeFormListTd labelAlign">
+										<div class="freeFormLabelWidth"><span id="purposeof_call_label">&nbsp;</div>
+									</div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_purpose_of_call_desc" name="purpose_of_call_desc"
+
+				fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).agency_call_report_purpose_of_call_desc_security.purposeof_call_label.purpose_of_call_desc"
+									style="width: 789px" rows="4" onkeyup="updateTextAreaCharCountMsg(this,'purpose_of_call_desc_count',4000)" onfocus="showTextAreaCharCountMsg(this,'purpose_of_call_desc_count',4000)" onblur="hideTextAreaCharCountMsg(this,'purpose_of_call_desc_count',4000)" />
+                                    <div class="purpose_of_call_desc_count" id="purpose_of_call_desc_count" />
+                                    <div class="callpurposecharcount" id="callpurposecharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#purpose_of_call_desc_after#"></li>
+                            <li style="list-style: none">
+                              <ul class="borderNone">
+                              	<li id="#call_objective_id_before#"></li>
+                                <li id="addNewCallReport_call_objective_id_security">
+                                  <div class="freeFormList">
+                                    <div class="freeFormListTr">
+                                      <div class="freeFormListTdError">
+                                        <h6>#space#</h6>
+                                      </div>
+                                      <div class="freeFormListTdError paddingLeft3">
+                                        <div id="" class="error" />
+                                      </div>
+                                    </div>
+                                    <div class="freeFormListTr" align="right">
+                                      <div class="freeFormListTd labelAlign alignTopDiv">
+                                        <div class="freeFormLabelWidth"><span id="addNewCallReport_call_objective_id_label">Call Objective</span> :</div>
+                                      </div>
+                                      <div class="freeFormListTd tdInput nowrapDiv">
+                                        <select style="width: 300px; height: 93px;" name="call_objective_id" id="ajax_field_call_objective_id"
+fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_call_objective_id_security.addNewCallReport_call_objective_id_label.call_objective_id"
+											size="4" multiple="multiple" onclick="javascript:GetMultipleCallObjectiveId();">
+                                          <!-- <option value="">All</option> -->
+                                        </select>
+                                        <input type="hidden" name="call_objective_ids" 
+                                        fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).call_objective_ids_security.call_objective_ids_label.call_objective_ids" 
+                                        id="ajax_field_call_objective_ids" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li id="#call_objective_id_after#"></li>
+                                
+                                <li id="#other_call_objective_before#"></li>
+                                <li id="addNewCallReport_other_call_objective_security">
+                                  <div class="freeFormList">
+                                    <div class="freeFormListTr">
+                                      <div class="freeFormListTdError">
+                                        <h6>#space#</h6>
+                                      </div>
+                                      <div class="freeFormListTdError paddingLeft3">
+                                        <div id="" class="error" />
+                                      </div>
+                                    </div>
+                                    <div class="freeFormListTr">
+                                      <div class="freeFormListTd labelAlign alignTopDiv">
+                                        <div class="freeFormLabelWidth">
+                                          <span id="addNewCallReport_other_call_objective_label">Other Call Objective</span>
+                                          :
+                                        </div>
+                                      </div>
+                                      <div class="freeFormListTd tdInput">
+                                        <textarea id="ajax_field_other_call_objective" name="other_call_objective" 
+										fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_other_call_objective_security.addNewCallReport_other_call_objective_label.other_call_objective"
+										style="width: 241px" rows="5" onkeyup="updateTextAreaCharCountMsg(this,'othercallobjectivecount',4000)" onfocus="showTextAreaCharCountMsg(this,'othercallobjectivecount',4000)" onblur="hideTextAreaCharCountMsg(this,'othercallobjectivecount',4000)" />
+                                        <div class="othercallobjectivecount" id="othercallobjectivecount" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li id="#other_call_objective_after#"></li>
+                              </ul>
+                            </li>
+                            <li class="width100" id="#questions_tobeasked_before#"></li>
+                            <li id="addNewCallReport_questions_to_be_tasked_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                    	<span id="addNewCallReport_questions_to_be_tasked_label">Other Notes/Questions to be Asked</span> :</div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_questions_tobeasked" name="questions_tobeasked" 
+										fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_questions_to_be_tasked_security.addNewCallReport_questions_to_be_tasked_label.questions_tobeasked"
+									
+									style="width: 789px" rows="4" onkeyup="updateTextAreaCharCountMsg(this,'questionstobeaskedcount',2000)" onfocus="showTextAreaCharCountMsg(this,'questionstobeaskedcount',2000)" onblur="hideTextAreaCharCountMsg(this,'questionstobeaskedcount',2000)" />
+                                    <div class="questionstobeaskedcount" id="questionstobeaskedcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#questions_tobeasked_after#"></li>
+                            
+                            <li class="width100" id="#topics_discussed_before#"></li>
+                            <li id="addNewCallReport_topics_discussed_security" class="width100">
+                              <div class="freeFormList" id="isCallReportItemsDiscussedApplicable_security">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addNewCallReport_topics_discussed_label">Topics/Accounts Discussed</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_topics_discussed" name="topics_discussed" style="width: 789px" rows="18"
+									fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_topics_discussed_security.addNewCallReport_topics_discussed_label.topics_discussed"
+
+									onkeyup="updateTextAreaCharCountMsg(this,'topicsdiscussedcount',4000)" onfocus="showTextAreaCharCountMsg(this,'topicsdiscussedcount',4000)" onblur="hideTextAreaCharCountMsg(this,'topicsdiscussedcount',4000)" />
+                                    <div class="topicsdiscussedcount" id="topicsdiscussedcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#topics_discussed_after#"></li>
+                            
+                            <li class="width100" id="#results_of_call_before#"></li>
+                            <li id="addNewCallReport_results_of_call_security" class="width100">
+                              <div class="freeFormList" id="isCallReportResultOfCallApplicable_security">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addNewCallReport_results_of_call_label">Results of Call</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_results_of_call" name="results_of_call" 
+									fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_results_of_call_security.addNewCallReport_results_of_call_label.results_of_call"
+									style="width: 789px" rows="6" onkeyup="updateTextAreaCharCountMsg(this,'resultsofcallcharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'resultsofcallcharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'resultsofcallcharcount',2000)" />
+                                    <div class="resultsofcallcharcount" id="resultsofcallcharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#results_of_call_after#"></li>
+                            
+                            <li class="width100" id="#competitive_intelligence_before#"></li>
+                            <li id="addNewCallReport_competitive_intelligence_security" class="width100">
+                              <div class="freeFormList" id="isCallReportCompetitiveIntelligenceApplicable_security">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addNewCallReport_competitive_intelligence_label">Competitive Intelligence</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_competitive_intelligence" name="competitive_intelligence"
+	fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_competitive_intelligence_security.addNewCallReport_competitive_intelligence_label.competitive_intelligence"
+									style="width: 789px" rows="6" onkeyup="updateTextAreaCharCountMsg(this,'competitiveintelligencecharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'competitiveintelligencecharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'competitiveintelligencecharcount',2000)" />
+                                    <div class="competitiveintelligencecharcount" id="competitiveintelligencecharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#competitive_intelligence_after#"></li>
+                            
+                            <li class="width100" id="#additional_comments_before#"></li>
+                            <li id="addNewCallReport_additional_comments_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="addNewCallReport_additional_comments_label">Additional Comments</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_additional_comments" name="additional_comments" style="width: 789px" 
+								fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).addNewCallReport_additional_comments_security.addNewCallReport_additional_comments_label.additional_comments"
+									rows="6" onkeyup="updateTextAreaCharCountMsg(this,'additionalcommentscharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'additionalcommentscharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'additionalcommentscharcount',2000)" />
+                                    <div class="additionalcommentscharcount" id="additionalcommentscharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#additional_comments_after#"></li>
+                            
+                            <li class="width100" id="#agency_quoting_before#"></li>
+                            <li id="isCallReportAgencyQuotingApplicable_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportAgencyQuotingApplicable_label">Agency Quoting</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_agency_quoting" name="agency_quoting" style="width: 789px"
+							fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportAgencyQuotingApplicable_security.isCallReportAgencyQuotingApplicable_label.agency_quoting"
+
+									rows="4" onkeyup="updateTextAreaCharCountMsg(this,'agencyquotingcharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'agencyquotingcharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'agencyquotingcharcount',2000)" />
+                                    <div class="agencyquotingcharcount" id="agencyquotingcharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#agency_quoting_after#"></li>
+                            
+                            <li class="width100" id="#agency_training_before#"></li>
+                            <li id="isCallReportAgencyTrainingApplicable_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportAgencyTrainingApplicable_label">Agency Training</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_agency_training" name="agency_training" style="width: 789px" 
+										fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportAgencyTrainingApplicable_security.isCallReportAgencyTrainingApplicable_label.agency_training"
+									
+									rows="4" onkeyup="updateTextAreaCharCountMsg(this,'agencytrainingcharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'agencytrainingcharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'agencytrainingcharcount',2000)" />
+                                    <div class="agencytrainingcharcount" id="agencytrainingcharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#agency_training_after#"></li>
+                            
+                            <li class="width100" id="#value_added_before#"></li>
+                            <li id="isCallReportValueAddedApplicable_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportValueAddedApplicable_label">Value Added</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_value_added" name="value_added" style="width: 789px"
+	fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportValueAddedApplicable_security.isCallReportValueAddedApplicable_label.value_added"
+
+									rows="4" onkeyup="updateTextAreaCharCountMsg(this,'valueaddedcharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'valueaddedcharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'valueaddedcharcount',2000)" />
+                                    <div class="valueaddedcharcount" id="valueaddedcharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#value_added_after#"></li>
+                            
+                            <li class="width100" id="#products_before#"></li>
+                            <li id="isCallReportProductsServicesApplicable_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportProductsServicesApplicable_label">Products and Services</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_products" name="products" style="width: 789px" rows="4" 
+									fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportProductsServicesApplicable_security.isCallReportProductsServicesApplicable_label.products"
+									onkeyup="updateTextAreaCharCountMsg(this,'productscharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'productscharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'productscharcount',2000)" />
+                                    <div class="productscharcount" id="productscharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#products_after#"></li>
+                            
+                            <li class="width100" id="#risk_name_before#"></li>
+                            <li id="isCallReportRiskNameApplicable_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportRiskNameApplicable_label">Name of Risk</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_risk_name" name="risk_name" style="width: 789px" 
+										fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportRiskNameApplicable_label.isCallReportRiskNameApplicable_label.risk_name"
+									rows="4" onkeyup="updateTextAreaCharCountMsg(this,'risknamecharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'risknamecharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'risknamecharcount',2000)" />
+                                    <div class="risknamecharcount" id="risknamecharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#risk_name_after#"></li>
+                            
+                            <li class="width100" id="#changes_in_agency_before#"></li>
+                            <li id="isCallReportChangesInAgencyApplicable_security" class="width100">
+                              <div class="freeFormList" id="">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportChangesInAgencyApplicable_label">Changes in Agency</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_changes_in_agency" name="changes_in_agency" style="width: 789px"
+			fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportChangesInAgencyApplicable_security.isCallReportChangesInAgencyApplicable_label.changes_in_agency"
+
+									rows="4" onkeyup="updateTextAreaCharCountMsg(this,'changesinagencycharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'changesinagencycharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'changesinagencycharcount',2000)" />
+                                    <div class="changesinagencycharcount" id="changesinagencycharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#changes_in_agency_after#"></li>
+                            
+                            <li class="width100" id="#quotenumber_before#"></li>
+                            <li id="isCallReportQuoteNumberApplicable_security" class="width100">
+                              <div class="freeFormList">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportQuoteNumberApplicable_label">Quotenumber</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_quotenumber" name="quotenumber" style="width:789px" rows="4"
+				fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportQuoteNumberApplicable_security.isCallReportQuoteNumberApplicable_label.quotenumber"
+
+									onkeyup="updateTextAreaCharCountMsg(this,'quotenumbercharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'quotenumbercharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'quotenumbercharcount',2000)" />
+                                    <div class="quotenumbercharcount" id="quotenumbercharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#quotenumber_after#"></li>
+                            
+                            <li class="width100" id="#approved_before#"></li>
+                            <li id="isCallReportApprovedApplicable_security" class="width100">
+                              <div class="freeFormList" id="">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign alignTopDiv">
+                                    <div class="freeFormLabelWidth">
+                                      <span id="isCallReportApprovedApplicable_label">Approved the following</span>
+                                      :
+                                    </div>
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <textarea id="ajax_field_approved" name="approved" style="width: 789px" 
+									
+									fullid="callreport_freeform_contextdata_05(addNewCallReport_addition_visit_details_security.addNewCallReport_addition_visit_details_label).isCallReportApprovedApplicable_security.isCallReportApprovedApplicable_label.approved"
+									rows="4" onkeyup="updateTextAreaCharCountMsg(this,'approvedcharcount',2000)" onfocus="showTextAreaCharCountMsg(this,'approvedcharcount',2000)" onblur="hideTextAreaCharCountMsg(this,'approvedcharcount',2000)" />
+                                    <div class="approvedcharcount" id="approvedcharcount" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="width100" id="#approved_after#"></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </section>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tr id="isCallReportAgencyPersonnelApplicable">
+                            <td class="paddingTop10">
+                              <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                  <td class="paddingLeft3">
+                                    <strong>
+                                      <span id="attending_personnel_label">Attending Agency Entity Personnel</span>
+                                    </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="spacerTd5">#space#</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div id="addAgencyPersonnelDiv">
+                                      <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                          <td align="center">
+                                            <div id="ajax_error_agencyPersonnelError" class="error" />
+                                            <div id="error_agencyPersonnelError" class="error" />
+                                          </td>
+                                        </tr>
+                                      </table>
+                                      <table cellpadding="0" cellspacing="0" width="100%" class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1" id="addAgencyPersonnel_list_listfreeform_1">
+                                        <tr id="addAgencyPersonnel_list_header_listfreeform_1">
+                                          <td class="HeaderStyle" width="28%" id="person_id_call_report_security">
+                                            <span id="block_field_attendee_desc">Name</span>
+                                          </td>
+                                          <td class="HeaderStyle" colspan="2" width="30%" id="person_id_call_report_security">
+                                            <span id="block_field_attendee_desc_SelectedText" />
+                                          </td>
+                                          <td class="HeaderStyle" width="30%" id="person_name_call_report_security">
+                                            <span id="block_field_person_name">Name</span>
+                                          </td>
+                                          <td class="HeaderStyle" width="25%" id="role_attendee_particpants_security">
+                                            <span id="block_field_role_attendee_particpants">Role</span>
+                                          </td>
+                                          <td class="HeaderStyle" width="25%" id="block_field_email">Email</td>
+                                          <td class="HeaderStyle" width="15%" id="is_notified_security">
+                                            <span id="block_field_is_notified">Notify Only</span>
+                                          </td>
+                                          <td class="HeaderStyle" width="15%" id="phone_call_report_security">
+                                            <span id="block_field_attendee_phone">Phone</span>
+                                          </td>
+                                          <td class="HeaderStyle" width="2%">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span id="isAgencyStatusNotInactive">
+                                                <span id="block_field_delete_row_link" />
+                                              </span>
+                                            </span>
+                                          </td>
+                                          <td class="HeaderStyle" width="2%" id="xaddAgencyPersonnel_edit_row_security">
+                                            <span id="block_field_edit_row_link" />
+                                          </td>
+                                        </tr>
+                                        <tr id="addAgencyPersonnel_list_mom_data_listfreeform_1">
+                                          <td id="person_id_call_report_security" style="padding-left: 3px">
+                                            <span id="isRowEditable">
+                                              <span id="block_field_attendee_desc">
+                                                <select name="attendee_desc" id="ajax_field_attendee_desc" onchange="setSelectedTextForDropdownInMomList('ajax_field_attendee_desc',this);" style="width: 200px;">
+                                                  <option value="">Select</option>
+                                                </select>
+                                              </span>
+                                            </span>
+                                            <span id="isRowNotEditable">
+                                              <span id="block_field_attendee_desc" />
+                                            </span>
+                                          </td>
+                                          <td colspan="2" id="person_id_call_report_security">
+                                            <span id="block_field_attendee_desc_SelectedText">
+                                              <input type="hidden" name="attendee_desc_SelectedText" id="ajax_field_attendee_desc_SelectedText" />
+                                            </span>
+                                          </td>
+                                          <td class="paddingLeft3" id="person_name_call_report_security">
+                                            <span id="isRowEditable">
+                                              <span id="block_field_person_name">
+                                                <input type="text" name="person_name" id="ajax_field_person_name" style="width: 320px;" />
+                                              </span>
+                                            </span>
+                                            <span id="isRowNotEditable">
+                                              <span id="block_field_person_name" />
+                                            </span>
+                                          </td>
+                                          <td class="paddingLeft3 paddingTop3" id="role_attendee_particpants_security">
+                                            <span id="isRowEditable">
+                                              <span id="block_field_role_attendee_particpants">
+                                                <input type="text" name="role_attendee_particpants" id="ajax_field_role_attendee_particpants" style="width: 200px" />
+                                              </span>
+                                            </span>
+                                            <span id="isRowNotEditable">
+                                              <span id="block_field_role_attendee_particpants" />
+                                            </span>
+                                          </td>
+                                          <td class="paddingLeft3">
+                                            <span id="isRowEditable">
+                                              <span id="block_field_email">
+                                                <input type="text" name="email" id="ajax_field_email" style="width: 200px" />
+                                              </span>
+                                            </span>
+                                            <span id="isRowNotEditable">
+                                              <span id="block_field_email" />
+                                            </span>
+                                          </td>
+                                          <td class="paddingLeft3" id="is_notified_security">
+                                            <span id="isRowEditable">
+                                              <span id="block_field_is_notified">
+                                                <input type="checkbox" name="is_notified" id="ajax_field_is_notified" value="Y" />
+                                              </span>
+                                            </span>
+                                            <span id="isRowNotEditable">
+                                              <span id="block_field_is_notified" />
+                                            </span>
+                                          </td>
+                                          <td class="paddingLeft3" id="phone_call_report_security">
+                                            <span id="isRowEditable">
+                                              <span id="block_field_attendee_phone">
+                                                <input type="text" name="attendee_phone" id="ajax_field_attendee_phone" onkeyup="checkNumericValue(this,event);loadCallReportDetails();" onkeypress="checkNumericValue(this,event);loadCallReportDetails();" maxlength="12" title="999-999-9999" />
+                                              </span>
+                                            </span>
+                                            <span id="isRowNotEditable">
+                                              <span id="block_field_attendee_phone" />
+                                            </span>
+                                          </td>
+                                          <td />
+                                          <td class="paddingLeft3" align="right">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span>
+                                                <span id="isShowModifyDeleteCallReportFlag">
+                                                  <span id="block_field_delete_row_link" style="padding-right:5px">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <span id="block_field_delete_row_link" style="padding-right:5px">
+                                                        <a id="addProspectAgencyCallReportDetails_delete" class="delete_ico icons" title="Delete" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.deleteAgencyPersonnel','','','addAgencyPersonnelDiv');" />
+                                                      </span>
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </td>
+                                          <td width="2%" id="addAgencyPersonnel_edit_row_security">
+                                            <span id="block_field_edit_row_link">
+                                              <span id="isRowNotEditable">
+                                                <span id="block_field_edit_row_link">
+                                                  <a id="addProspectAgencyCallReportDetails_edit" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.editAgencyPersonnelRow','','','addAgencyPersonnelDiv');">
+                                                    <img src="images/icons/icon_edit.png" alt="Edit" title="Edit" />
+                                                  </a>
+                                                </span>
+                                              </span>
+                                              <span id="isRowEditable">
+                                                <span id="block_field_edit_row_link">
+                                                  <a id="addProspectAgencyCallReportDetails_save" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.saveAgencyPersonnelRow','','','addAgencyPersonnelDiv');">
+                                                    <img src="images/icons/icon_save.png" alt="Save" title="Save" />
+                                                  </a>
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tbody id="addAgencyPersonnel_freeform_contextdata_1">
+                                          <tr>
+                                            <td id="person_id_call_report_security" class="paddingLeft3">
+                                              <div id="ajax_error_attendee" class="error" />
+                                              <div id="error_attendee" class="error" />
+                                            </td>
+                                            <td colspan="2" id="person_id_call_report_security" />
+                                            <td id="person_name_call_report_security" class="paddingLeft3">
+                                              <div id="ajax_error_person_name" class="error" />
+                                              <div id="error_person_name" class="error" />
+                                            </td>
+                                            <td id="role_attendee_particpants_security" class="paddingLeft3">
+                                              <div id="ajax_error_role_attendee_particpants" class="error" />
+                                              <div id="error_role_attendee_particpants" class="error" />
+                                            </td>
+                                            <td class="paddingLeft3">
+                                              <div id="error_email" class="error" />
+                                              <div id="ajax_error_email" class="error" />
+                                            </td>
+                                            <td id="is_notified_security" class="paddingLeft3">
+                                              <div id="ajax_error_is_notified" class="error" />
+                                              <div id="error_is_notified" class="error" />
+                                            </td>
+                                            <td id="phone_call_report_security" class="paddingLeft3">
+                                              <div id="ajax_error_attendee_phone" class="error" />
+                                              <div id="error_attendee_phone" class="error" />
+                                            </td>
+                                            <td />
+                                          </tr>
+                                          <tr>
+                                            <td id="person_id_call_report_security" class="add-cell">
+                                              <span id="block_field_attendee">
+                                                <select name="attendee" id="ajax_field_attendee" style="width: 200px" onchange="javascript:assignReasonTakenDesc(this);showAttendeeOtherDiv();javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.refresh','','','addAgencyPersonnelDiv');">
+                                                  <option value="">Select</option>
+                                                  <option value="-1">Other</option>
+                                                </select>
+                                              </span>
+                                            </td>
+                                            <td id="person_id_call_report_security" class="add-cell">
+                                              <span id="block_field_attendee_other" />
+                                              <div id="attendeeOtherDiv" style="display: none;">
+                                                <input type="text" name="attendee_other" style="width: 130px" id="ajax_field_attendee_other" maxlength="255" />
+                                              </div>
+                                            </td>
+                                            <td id="person_id_call_report_security" class="add-cell">
+                                              <span id="block_field_attendee_desc">
+                                                <input type="hidden" name="attendee_desc" id="ajax_field_attendee_desc" />
+                                              </span>
+                                            </td>
+                                            <td id="person_name_call_report_security" class="add-cell" style="width: 30%;">
+                                              <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                  <td class="paddingTop3">
+                                                    <input name="person_name" id="ajax_field_person_name" type="text" style="width: 300px" readonly="readonly" autocomplete="OFF" />
+                                                    <!-- onkeyup="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.getProducerParticipant','','','ajaxxmlname_ajax_field_person_name');" 
+                                                                                                                    onclick="nottoggleDivDisplay(this,'ajax_field_person_name','ajaxxmlname_ajax_field_person_name');"-->
+                                                    <a id="imghide" href="javascript:ajaxsubmitform('carrier/searchProducerParticipantsbyPopupProspect.html','addProspectAgencyCallReportDetails.searchProducerParticipantsBy','','','popupEntityList');" style="padding-left: 5px;">
+                                                      <img id="iconimg" src="images/icons/search.png" border="0" />
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                                <!-- <tr>
+                                                                                                                <td>
+                                                                                                                    <div
+                                                                                                                        id="ajaxxmlname_ajax_field_person_name"
+                                                                                                                        class="transparent"
+                                                                                                                        style="border: solid 1px #cccccc; width: 296px !important;" />
+                                                                                                                </td>
+                                                                                                            </tr> -->
+                                              </table>
+                                            </td>
+                                            <td class="add-cell" id="role_attendee_particpants_security">
+                                              <span id="block_field_role_attendee_particpants">
+                                                <input type="text" name="role_attendee_particpants" id="ajax_field_role_attendee_particpants" style="width: 200px" />
+                                              </span>
+                                            </td>
+                                            <td id="block_field_email" class="add-cell">
+                                              <input type="text" name="email" id="ajax_field_email" style="width: 200px" />
+                                            </td>
+                                            <td class="add-cell" id="is_notified_security">
+                                              <span id="block_field_is_notified">
+                                                <input type="checkbox" name="is_notified" id="ajax_field_is_notified" value="Y" />
+                                              </span>
+                                            </td>
+                                            <td class="add-cell" id="phone_call_report_security">
+                                              <span id="block_field_attendee_phone">
+                                                <input type="text" name="attendee_phone" id="ajax_field_attendee_phone" onkeyup="checkNumericValue(this,event);loadCallReportDetails();" onkeypress="checkNumericValue(this,event);loadCallReportDetails();" maxlength="12" title="999-999-9999" />
+                                              </span>
+                                            </td>
+                                            <td />
+                                            <td width="2%" align="right" style="padding-right:5px !important " class="add-cell">
+                                              <span id="hideSaveModifyRelationShipCallReport">
+                                                <span id="isAgencyStatusNotInactive">
+                                                  <span id="block_field_addnew_row_link">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <a id="addProspectAgencyCallReportDetails_add" class="add_ico icons" title="Add" href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addAgencyPersonnel','','','addAgencyPersonnelDiv');" />
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="spacerTd5" colspan="6">#space#</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <div id="addAttendingEmployees">
+                                      <input type="hidden" name="attendeeVal" 
+                                      fullid="page(attendeeVal_security.attendeeVal_label).attendeeVal_security.attendeeVal_label.attendeeVal" 
+                                      id="ajax_field_attendeeVal" />
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" style="padding-top:6px">
+                              <div id="ajax_error_attending_employees" class="error" />
+                            </td>
+                          </tr>
+                          <tr id="isShowAttendingCarrierEmployees">
+                            <td class="paddingTop10">
+                              <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                  <td class="" id="isCallReportAttendingEmployeesMandatory">
+                                    <strong>
+                                      <span id="attending_employees_label">Attending Employee(s)</span>
+                                    </strong>
+                                  </td>
+                                  <td class="" id="isCallReportAttendingEmployeesNotMandatory">
+                                    <strong>
+                                      <span id="attending_employees_label">Attending
+Employee(s)</span>
+                                    </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="spacerTd5">#space#</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div id="addCarrierEmployeesDiv">
+                                      <table cellpadding="0" cellspacing="0" width="100%" class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1" id="addCarrierEmployees_list_listfreeform_1">
+                                        <tr id="addCarrierEmployees_list_header_listfreeform_1">
+                                          <td class="HeaderStyle" id="attendee_employee_Id_security">
+                                            <span id="block_field_name">Name</span>
+                                          </td>
+                                          <td class="HeaderStyle" width="30%" id="attendee_employee_name_security">
+                                            <span id="block_field_attendee_employee_name">Name</span>
+                                          </td>
+                                          <td id="attendee_employee_Id_security" class="HeaderStyle" />
+                                          <td class="HeaderStyle" id="attendee_employee_role_security">
+                                            <span id="block_field_role">Role</span>
+                                          </td>
+                                          <td class="HeaderStyle" id="attendee_employee_email_security">
+                                            <span id="block_field_email1">Email</span>
+                                          </td>
+                                          <td class="HeaderStyle" id="attendee_employee_is_notify">
+                                            <span id="block_field_is_notified1">Notify Only</span>
+                                          </td>
+                                          <td class="HeaderStyle" id="attendee_employee_comments">
+                                            <span id="hide_show_attendee_employee_comments_security">
+                                              <span id="block_field_comments">Notes</span>
+                                            </span>
+                                          </td>
+                                          <td class="HeaderStyle">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span>
+                                                <span id="block_field_delete_row_link" />
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tr id="addCarrierEmployees_list_data_listfreeform_1">
+                                          <td id="attendee_employee_Id_security" class="paddingLeft3">
+                                            <span id="block_field_name" />
+                                          </td>
+                                          <td id="attendee_employee_name_security" class="paddingLeft3">
+                                            <span id="block_field_attendee_employee_name" />
+                                          </td>
+                                          <td id="attendee_employee_Id_security" />
+                                          <td id="attendee_employee_role_security" class="paddingLeft3">
+                                            <span id="block_field_role" />
+                                          </td>
+                                          <td id="attendee_employee_email_security" class="paddingLeft3">
+                                            <span id="block_field_email1" />
+                                          </td>
+                                          <td id="attendee_employee_is_notify" class="paddingLeft3">
+                                            <span id="block_field_is_notified1" />
+                                          </td>
+                                          <td id="attendee_employee_comments" class="paddingLeft3">
+                                            <span id="block_field_comments" />
+                                          </td>
+                                          <td class="paddingLeft3" align="right">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span>
+                                                <span id="isShowModifyDeleteCallReportFlag">
+                                                  <span id="block_field_delete_row_link">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <span id="block_field_delete_row_link">
+                                                        <a id="addProspectAgencyCallReportDetails_delete" class="delete_ico icons" title="Delete" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.deleteCarrierEmployees','','','addCarrierEmployeesDiv');" />
+                                                      </span>
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tbody id="addCarrierEmployees_freeform_contextdata_1">
+                                          <tr>
+                                            <td class="paddingLeft3" id="attendee_employee_Id_security">
+                                              <div id="ajax_error_name" class="error" />
+                                              <div id="error_name" class="error" />
+                                            </td>
+                                            <td id="attendee_employee_Id_security" colspan="2" />
+                                            <td class="paddingLeft3" id="attendee_employee_name_security">
+                                              <div id="ajax_error_attendee_employee_name" class="error" />
+                                              <div id="error_attendee_employee_name" class="error" />
+                                            </td>
+                                            <td id="attendee_employee_role_security" class="paddingLeft3">
+                                              <div id="ajax_error_role" class="error" />
+                                              <div id="error_role" class="error" />
+                                            </td>
+                                            <td id="attendee_employee_email_security" class="paddingLeft3">
+                                              <div id="error_email1" class="error" />
+                                              <div id="ajax_error_email1" class="error" />
+                                            </td>
+                                            <td id="attendee_employee_is_notify" class="paddingLeft3">
+                                              <div id="ajax_error_is_notified1" class="error" />
+                                              <div id="error_is_notified1" class="error" />
+                                            </td>
+                                            <td />
+                                          </tr>
+                                          <tr>
+                                            <td id="attendee_employee_Id_security" class="add-cell">
+                                              <span id="block_field_name">
+                                                <select type="text" name="name" id="ajax_field_name" style="width: 200px;" onchange="javascript:showEmployeeOtherDiv();">
+                                                  <option value="">Select</option>
+                                                  <option value="-1">Other</option>
+                                                </select>
+                                              </span>
+                                            </td>
+                                            <td id="attendee_employee_Id_security">
+                                              <span id="block_field_name_other" />
+                                              <div id="nameOtherDiv" class="hide">
+                                                <input type="text" name="name_other" style="width: 130px" id="ajax_field_name_other" maxlength="255" />
+                                              </div>
+                                            </td>
+                                            <td id="attendee_employee_name_security" class="add-cell tdInput" nowrap="nowrap">
+                                              <span id="block_field_attendee_employee_name">
+                                                <input type="text" name="attendee_employee_name" style="width: 280px;" id="ajax_field_attendee_employee_name" readonly="readonly" />
+                                                <a id="imghide" href="javascript:ajaxsubmitform('carrier/searchParticipantsEmployeesByPopup.html','addProspectAgencyCallReportDetails.searchParticipantsEmployeeBy','','','popupEntityList');" style="padding-left: 5px;">
+                                                  <img id="iconimg" src="images/icons/search.png" border="0" />
+                                                </a>
+                                                <!-- <select 
+                                                                                                            name="attendee_employee_name"
+                                                                                                            style="width: 280px;"
+                                                                                                            id="ajax_field_attendee_employee_name" >
+                                                                                                            <option value="">Select</option>
+                                                                                                            </select> -->
+                                              </span>
+                                            </td>
+                                            <td id="attendee_employee_role_security" class="add-cell">
+                                              <span id="block_field_role">
+                                                <select type="text" name="role" id="ajax_field_role" style="width: 200px;">
+                                                  <option value="">Select</option>
+                                                </select>
+                                              </span>
+                                            </td>
+                                            <td id="attendee_employee_email_security" class="add-cell">
+                                              <span id="block_field_email1">
+                                                <input type="text" name="email1" id="ajax_field_email1" style="width: 200px;" />
+                                              </span>
+                                            </td>
+                                            <td id="attendee_employee_is_notify" class="add-cell">
+                                              <span id="block_field_is_notified1">
+                                                <input type="checkbox" name="is_notified1" id="ajax_field_is_notified1" value="Y" />
+                                              </span>
+                                            </td>
+                                            <td id="attendee_employee_comments" class="add-cell">
+                                              <span id="hide_show_attendee_employee_comments_security">
+                                                <span id="block_field_comments">
+                                                  <textarea name="comments" id="ajax_field_comments" cols="50" onkeyup="updateTextAreaCharCountMsg(this,'commentsCharCountMsg',1024)" onfocus="showTextAreaCharCountMsg(this,'commentsCharCountMsg',1024)" onblur="hideTextAreaCharCountMsg(this,'commentsCharCountMsg',1024)" />
+                                                </span>
+                                              </span>
+                                            </td>
+                                            <td width="2%" align="right" class="add-cell">
+                                              <span id="hideSaveModifyRelationShipCallReport">
+                                                <span>
+                                                  <span id="block_field_addnew_row_link" style="padding-right:5px">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <a id="addProspectAgencyCallReportDetails_add" class="add_ico icons" title="Add" href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addCarrierEmployees','','','addCarrierEmployeesDiv');" />
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <div>
+                                      <input type="hidden" name="attendeeVal"
+                                      fullid="page(attendeeVal_security.attendeeVal_label).attendeeVal_security.attendeeVal_label.attendeeVal" 
+                                       id="ajax_field_attendeeVal" />
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr id="isShowAdditionalPersonToBeNotified">
+                            <td>
+                              <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                  <td class="spacerTd">#space#</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <strong>
+                                      <span id="show_additional_person_to_be_notified_label">Additional Contactto be Notified</span>
+                                    </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="spacerTd5">#space#</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div id="addNotifiedEmployeesDiv">
+                                      <table cellpadding="0" cellspacing="0" width="100%" class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1" id="addNotifiedEmployees_list_listfreeform_1">
+                                        <tr id="addNotifiedEmployees_list_header_listfreeform_1">
+                                          <td class="HeaderStyle" width="32%" id="block_field_Is_employee">Employee</td>
+                                          <td class="HeaderStyle" width="32%" id="block_field_name1">Name</td>
+                                          <td class="HeaderStyle" width="32%" id="block_field_email2">Email</td>
+                                          <td class="HeaderStyle" width="2%">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span id="isAgencyStatusNotInactive">
+                                                <span id="block_field_delete_row_link" />
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tr id="addNotifiedEmployees_list_data_listfreeform_1">
+                                          <td id="block_field_Is_employee" class="paddingLeft3" />
+                                          <td id="block_field_name1" class="paddingLeft3" />
+                                          <td id="block_field_email2" class="paddingLeft3" />
+                                          <td class="paddingLeft3" align="right">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span id="isAgencyStatusNotInactive">
+                                                <span id="isShowModifyDeleteCallReportFlag">
+                                                  <span id="block_field_delete_row_link">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <a id="addProspectAgencyCallReportDetails_delete" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.deleteNotifiedEmployees','','','addNotifiedEmployeesDiv');">
+                                                        <img src="images/icons/delete_icon.gif" alt="Delete" />
+                                                      </a>
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tbody id="addNotifiedEmployees_freeform_contextdata_1">
+                                          <tr>
+                                            <td class="paddingLeft3">
+                                              <div id="ajax_error_Is_employee" class="error" />
+                                              <div id="error_Is_employee" class="error" />
+                                            </td>
+                                            <td class="paddingLeft3">
+                                              <div id="ajax_error_name1" class="error" />
+                                              <div id="error_name1" class="error" />
+                                            </td>
+                                            <td class="paddingLeft3">
+                                              <div id="error_email2" class="error" />
+                                              <div id="ajax_error_email2" class="error" />
+                                            </td>
+                                            <td />
+                                          </tr>
+                                          <tr>
+                                            <td style="padding-bottom: 6px; padding-top: 3px; padding-left: 1px">
+                                              <input type="checkbox" name="Is_employee" maxlength="50" id="ajax_field_Is_employee" value="Y" />
+                                            </td>
+                                            <td class="paddingTop3 paddingBottom6 paddingLeft1">
+                                              <select type="text" name="name1" id="ajax_field_name1" style="width: 200px">
+                                                <option value="">Select</option>
+                                              </select>
+                                            </td>
+                                            <td class="paddingTop3 paddingBottom6 paddingLeft1">
+                                              <input type="text" name="email2" id="ajax_field_email2" />
+                                            </td>
+                                            <td width="2%" align="right" class="paddingBottom6 paddingLeft5">
+                                              <span id="hideSaveModifyRelationShipCallReport">
+                                                <span>
+                                                  <span id="block_field_addnew_row_link">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <a id="addProspectAgencyCallReportDetails_add" href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addNotifiedEmployees','','','addNotifiedEmployeesDiv');">
+                                                        <img src="images/icons/icon_notepadPlus.gif" title="Add" />
+                                                      </a>
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="spacerTd5" colspan="6">#space#</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr id="actionplan_security">
+                            <td class="paddingTop10">
+                              <table cellpadding="0" cellspacing="0" width="100%" id="isCallReportactionplan_security">
+                                <tr>
+                                  <td class="paddingLeft3">
+                                    <strong><span id="actionplan_label">Action Plan</span></strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="spacerTd5">#space#</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div id="addActionPlanDiv">
+                                      <table cellpadding="0" cellspacing="0" width="100%" class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1" id="addActionPlan_list_listfreeform_1">
+                                        <tr>
+                                          <td>
+                                            <div class="error" id="inet_errors_list" />
+                                          </td>
+                                        </tr>
+                                        <tr id="addActionPlan_list_header_listfreeform_1">
+                                          <td class="HeaderStyle" width="29%" id="block_field_action_plan_name_desc">Action Plan</td>
+                                          <td class="HeaderStyle" width="25%" id="block_field_Action_items">Description</td>
+                                          <td class="HeaderStyle" width="25%" id="block_field_Assigned_to">Assigned To</td>
+                                          <td class="HeaderStyle" width="15%" id="block_field_Due_date">Due
+Date</td>
+                                          <td class="HeaderStyle" width="2%">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span id="isAgencyStatusNotInactive">
+                                                <span id="block_field_delete_row_link" />
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tr id="addActionPlan_list_data_listfreeform_1">
+                                          <td id="block_field_action_plan_name_desc" width="29%" class="paddingLeft3" />
+                                          <td id="block_field_Action_items" width="25%" class="paddingLeft3" />
+                                          <td id="block_field_Assigned_to" width="25%" class="paddingLeft3" />
+                                          <td id="block_field_Due_date" width="15%" class="paddingLeft3" />
+                                          <td width="2%" class="paddingLeft3" align="right">
+                                            <span id="agencycallreportdeletebutton">
+                                              <span>
+                                                <span id="isShowModifyDeleteCallReportFlag">
+                                                  <span id="block_field_delete_row_link">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <span id="block_field_delete_row_link">
+                                                        <a id="addProspectAgencyCallReportDetails_delete" class="icons delete_ico" title="Delete" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.deleteActionPlan','','','addActionPlanDiv');" />
+                                                      </span>
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                        <tbody id="addActionPlan_freeform_contextdata_1">
+                                          <tr>
+                                            <td width="29%" class="paddingLeft3">
+                                              <div id="ajax_error_action_plan_name" class="error" />
+                                              <div id="error_action_plan_name" class="error" />
+                                            </td>
+                                            <td width="25%" class="paddingLeft3">
+                                              <div id="error_Action_items" class="error" />
+                                              <div id="ajax_error_Action_items" class="error" />
+                                            </td>
+                                            <td width="25%" class="paddingLeft3">
+                                              <div id="ajax_error_Assigned_to" class="error" />
+                                              <div id="error_Assigned_to" class="error" />
+                                            </td>
+                                            <td width="15%" class="paddingLeft3">
+                                              <div id="error_Due_date" class="error" />
+                                              <div id="ajax_error_Due_date" class="error" />
+                                            </td>
+                                            <td width="2%" />
+                                          </tr>
+                                          <tr>
+                                            <td class="add-cell" width="29%">
+                                              <!-- <input type="text" name="Next_planned_visit"
+                                                                                                        id="ajax_field_Next_planned_visit"
+                                                                                                        maxlength="10"
+                                                                                                        onkeyup="applyDateFormat(this,event);" /><span>#space#</span> <a
+                                                                                                        title="Select Date"
+                                                                                                        class="calendar-link icoCalendar"
+                                                                                                        id="date_link"
+                                                                                                        onclick="show_calendar_widget(this);"> <img
+                                                                                                            src="images/Spacer.gif" width="12px"
+                                                                                                            height="12px" title="Select Date" />
+                                                                                                    </a> -->
+                                              <select name="action_plan_name" id="ajax_field_action_plan_name" onchange="javascript:setDescInListFreeformDropDown(this);" style="width:200px">
+                                                <option value="">Select</option>
+                                                <!-- <option value="Compensation">Compensation</option>
+                                                <option value="Claim">Claim</option> -->
+                                              </select>
+                                            </td>
+                                            <td width="25%" class="add-cell">
+                                              <textarea id="ajax_field_Action_items" type="text" name="Action_items" style="width: 230px; height: 30px" onkeyup="updateTextAreaCharCountMsg(this,'itemsdiscussedCharCountMsg',1024)" onfocus="showTextAreaCharCountMsg(this,'itemsdiscussedCharCountMsg',1024)" onblur="hideTextAreaCharCountMsg(this,'itemsdiscussedCharCountMsg',1024)" />
+                                            </td>
+                                            <td width="25%" class="add-cell">
+                                              <!-- <select type="text" name="Assigned_to"
+                                                                                                        id="ajax_field_Assigned_to"
+                                                                                                        style="width: 200px">
+                                                                                                            <option value="">Select</option>
+                                                                                                    </select> -->
+                                              <input type="text" name="Assigned_to" style="width: 200px;" id="ajax_field_Assigned_to" readonly="readonly" />
+                                              <span id="isNotShowDataInReadOnlyMode">
+                                                <a id="imghide" href="javascript:ajaxsubmitform('carrier/searchActionPlanAssignToPopup.html','addProspectAgencyCallReportDetails.searchActionPlanAssignedTo','','','popupEntityList');" style="padding-left: 5px;">
+                                                  <img id="iconimg" src="images/icons/search.png" border="0" />
+                                                </a>
+                                              </span>
+                                            </td>
+                                            <td width="15%" class="add-cell">
+                                              <div id="isNotShowDataInReadOnlyMode">
+												<div class="input-group date">
+													<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+													<input id="ajax_field_Due_date" type="text" name="Due_date" maxlength="11" style="width:140px" class="textfield datepicker" onkeyup="applyDateFormat(this,event);" />
+												</div>
+                                                <a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+                                             </div>
+                                              <div id="isShowDataInReadOnlyMode">
+												<div class="input-group date">
+													<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+													<input id="ajax_field_Due_date" type="text" name="Due_date" maxlength="11" class="datepicker" onkeyup="applyDateFormat(this,event);" />
+												</div>
+                                                </div>
+                                             
+                                            </td>
+                                            <td id="block_field_action_plan_name_desc" style="display:none">
+                                                   <input type="hidden" name="action_plan_name_desc" id="ajax_field_action_plan_name_desc" />
+                                            </td>                                            
+                                            <td width="2%" align="right" class="add-cell">
+                                              <span id="hideSaveModifyRelationShipCallReport">
+                                                <span>
+                                                  <span id="block_field_addnew_row_link" style="padding-right:5px">
+                                                    <span id="isNotShowDataInReadOnlyMode">
+                                                      <a id="addProspectAgencyCallReportDetails_add" class="add_ico icons" title="Add" href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addActionPlan','','','addActionPlanDiv');" />
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="spacerTd">#space#</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr id="isShowBusinessProspects">
+                      <td class="paddingTop10">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td>
+                             <!--  <div id="addBusinessProspectsDiv">
+                                <table cellpadding="0" cellspacing="0" width="100%" class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1" id="addBusinessProspects_list_listfreeform_1">
+                                  <tr id="addBusinessProspects_list_header_listfreeform_1">
+                                    <td class="HeaderStyle" colspan="3" id="block_field_new_business_prospects" width="54%">New Business
+Prospects</td>
+                                    <td class="HeaderStyle" width="40%" id="block_field_expiration_date">Expiration Date</td>
+                                    <td class="HeaderStyle" width="2%" style="padding-right:6px">
+                                      <span id="agencycallreportdeletebutton">
+                                        <span>
+                                          <span id="block_field_delete_row_link" />
+                                        </span>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tr id="addBusinessProspects_list_data_listfreeform_1">
+                                    <td id="block_field_new_business_prospects" class="paddingLeft3" colspan="3" />
+                                    <td id="block_field_expiration_date" class="paddingLeft3" />
+                                    <td align="right">
+                                      <span id="agencycallreportdeletebutton">
+                                        <span>
+                                          <span id="isShowModifyDeleteCallReportFlag">
+                                            <span id="block_field_delete_row_link">
+                                              <span id="isNotShowDataInReadOnlyMode">
+                                                <span id="block_field_delete_row_link">
+                                                  <a id="addProspectAgencyCallReportDetails_delete" class="delete_ico icons" title="Delete" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.deleteBusinessProspects','','','addBusinessProspectsDiv');" />
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </span>
+                                        </span>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tbody id="addBusinessProspects_freeform_contextdata_1">
+                                    <tr>
+                                      <td class="paddingLeft1" colspan="3">
+                                        <div id="ajax_error_new_business_prospects" class="error" />
+                                        <div id="new_business_prospects" class="error" />
+                                      </td>
+                                      <td class="paddingTop3">
+                                        <div id="ajax_error_expiration_date" class="error" />
+                                        <div id="error_expiration_date" class="error" />
+                                      </td>
+                                      <td width="2%" />
+                                    </tr>
+                                    <tr>
+                                      <td id="block_field_new_business_prospects" colspan="3" class="add-cell">
+                                        <textarea rows="3" cols="10" style="width: 650px" name="new_business_prospects" id="ajax_field_new_business_prospects" maxlength="2000" />
+                                      </td>
+                                      <td id="block_field_expiration_date" class="add-cell">
+                                        <div id="isNotShowDataInReadOnlyMode">
+                                        	<div class="input-group date">
+				                    			<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+												 <input name="expiration_date" id="ajax_field_expiration_date" type="text" class="textfield" style="width: 150px" onkeyup="applyDateFormat(this,event);" />
+											</div>
+		                                    
+		                                    <a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+                                          
+                                        </div>
+                                        <div id="isShowDataInReadOnlyMode">
+                                        	<div class="input-group date">
+				                    			<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+												 <input name="expiration_date" id="ajax_field_expiration_date" type="text" class="textfield" style="width: 150px" onkeyup="applyDateFormat(this,event);" />
+											</div>
+                                          
+                                        </div>
+                                      </td>
+                                      <td class="add-cell">
+                                        <span id="hideSaveModifyRelationShipCallReport">
+                                          <span>
+                                            <span id="block_field_addnew_row_link">
+                                              <span id="isNotShowDataInReadOnlyMode">
+                                                <a id="addProspectAgencyCallReportDetails_add" class="add_ico icons" title="Add" href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addBusinessProspects','','','addBusinessProspectsDiv');" />
+                                              </span>
+                                            </span>
+                                          </span>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>-->
+                               <div class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1">
+                        
+									<div class="clear-both table-responsive">
+										<div id="addBusinessProspects_list_listfreeform_1"></div>
+									</div>
+	                              	<div>
+	                                <input type="hidden" name="attendeeVal" id="ajax_field_attendeeVal" />
+	                              </div> 
+	                           </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr id="isShowKeyRenewals">
+                      <td class="paddingTop10">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td class="spacerTd5">#space#</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <!-- <div id="addKeyRenewalsDiv">
+                                <table cellpadding="0" cellspacing="0" width="100%" class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1" id="addKeyRenewals_list_listfreeform_1">
+                                  <tr id="addKeyRenewals_list_header_listfreeform_1">
+                                    <td class="HeaderStyle" colspan="3" id="block_field_key_renewals" width="54%">Key Renewals</td>
+                                    <td class="HeaderStyle" width="40%" id="block_field_expiration_date1">Expiration Date</td>
+                                    <td class="HeaderStyle" width="2%">
+                                      <span id="agencycallreportdeletebutton">
+                                        <span id="isAgencyStatusNotInactive">
+                                          <span id="block_field_delete_row_link" />
+                                        </span>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tr id="addKeyRenewals_list_data_listfreeform_1">
+                                    <td id="block_field_key_renewals" class="paddingLeft3" colspan="3" width="50%" />
+                                    <td id="block_field_expiration_date1" class="paddingLeft3" width="22%" />
+                                    <td align="right" style="padding-right:5px !important">
+                                      <span id="agencycallreportdeletebutton">
+                                        <span id="isAgencyStatusNotInactive">
+                                          <span id="isShowModifyDeleteCallReportFlag">
+                                            <span id="block_field_delete_row_link">
+                                              <span id="isNotShowDataInReadOnlyMode">
+                                                <span id="block_field_delete_row_link">
+                                                  <a id="addProspectAgencyCallReportDetails_delete" class="delete_ico icons" title="Delete" href="javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.deleteKeyRenewals','','','addKeyRenewalsDiv');" />
+                                                </span>
+                                              </span>
+                                            </span>
+                                          </span>
+                                        </span>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tbody id="addKeyRenewals_freeform_contextdata_1">
+                                    <tr>
+                                      <td class="paddingLeft1" colspan="3">
+                                        <div id="ajax_error_key_renewals" class="error" />
+                                        <div id="key_renewals" class="error" />
+                                      </td>
+                                      <td class="paddingLeft3">
+                                        <div id="ajax_error_expiration_date1" class="error" />
+                                        <div id="error_expiration_date1" class="error" />
+                                      </td>
+                                      <td />
+                                    </tr>
+                                    <tr>
+                                      <td id="block_field_key_renewals" colspan="3" class="add-cell">
+                                        <textarea rows="3" cols="10" style="width: 650px" name="key_renewals" id="ajax_field_key_renewals" maxlength="2000" />
+                                      </td>
+                                      <td id="block_field_expiration_date1" class="add-cell">
+                                        <div id="isNotShowDataInReadOnlyMode">
+											<div class="input-group date">
+												<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+												<input name="expiration_date1" id="ajax_field_expiration_date1" type="text" class="textfield datepicker" style="width: 150px" onkeyup="applyDateFormat(this,event);" />
+											
+											</div>
+										  <a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+                                        </div>
+                                        <div id="isShowDataInReadOnlyMode">
+											<div class="input-group date">
+												<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+												<input name="expiration_date1" id="ajax_field_expiration_date1" type="text" class="textfield datepicker" style="width: 150px" onkeyup="applyDateFormat(this,event);" />
+											 </div>
+                                          </div>
+                                       
+                                      </td>
+                                      <td class="add-cell">
+                                        <span id="hideSaveModifyRelationShipCallReport">
+                                          <span id="isAgencyStatusNotInactive">
+                                            <span id="block_field_addnew_row_link">
+                                              <span id="isNotShowDataInReadOnlyMode">
+                                                <a id="addProspectAgencyCallReportDetails_add" class="add_ico icons" title="Add" href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addKeyRenewals','','','addKeyRenewalsDiv');" />
+                                              </span>
+                                            </span>
+                                          </span>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div>
+                                <input type="hidden" name="attendeeVal" 
+                                fullid="page(attendeeVal_security.attendeeVal_label).attendeeVal_security.attendeeVal_label.attendeeVal"
+                                id="ajax_field_attendeeVal" />
+                              </div> -->
+                              
+                              <div class="gridTable gridWidth marketInformationGrid marketInformation_G6 border_Level_1">
+                        
+									<div class="clear-both table-responsive" id="addKeyRenewalsDiv">
+										<div id="addKeyRenewals_list_listfreeform_1"></div>
+									</div>
+	                              	<div>
+	                                <input type="hidden" name="attendeeVal" id="ajax_field_attendeeVal" />
+	                              </div> 
+	                           </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr id="attachment_security">
+                      <td colspan="5" id="isCallReportattachment_security">
+                        <div id="attachmentDivContentStart" />
+                        <div id="attachmentDiv">
+                          <span id="#Include:carrier/uploadDocument.html#" />
+                        </div>
+                        <div id="attachmentDivContentEnd" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td>
+                              <div class="buttonwrapper11">
+                                <!--  <span id="eval:ProducerOneRule.iseditCallReportFlag"><a class="ovalbutton" href="javascript:submitform('carrier/agencyCallReportDetails.html','agencyCallReportDetails.showRelationshipAddtask','','');">
+                                                                                       <span>Add New Task</span></a></span>-->
+                                <span id="hideSaveModifyRelationShipCallReport">
+                                  <span id="isAgencyStatusNotInactive">
+                                    <span id="issaveCallReportFlag">
+                                      <a id="addProspectAgencyCallReportDetails_save" href="javascript:ajaxsubmitform('carrier/prospectCallReportDetails.html','addProspectAgencyCallReportDetails.saveCallReport','','','combineDiv');" onclick="GetMultipleCallObjectiveId();" class="btn btn-primary">
+                                        <span>Save</span>
+                                      </a>
+                                    </span>
+                                    <span id="">
+                                   
+                                      <span id="iseditCallReportFlag">
+                                        <span id="isShowModifyDeleteCallReportFlag">
+                                          <span id="isNotShowDataInReadOnlyMode">                                      
+                                            <a id="addProspectAgencyCallReportDetails_modify" href="javascript:ajaxsubmitform('carrier/prospectCallReportDetails.html','addProspectAgencyCallReportDetails.modifyCallReport','','','combineDiv');" onclick="GetMultipleCallObjectiveId();" class="btn btn-primary">
+                                              <span id="addProspectAgencyCallReportDetails_modify_label">Modify</span>
+                                            </a>
+                                           </span>
+                                          </span>
+                                        </span>
+                                      </span>
+                                     
+                                    </span>
+                                  </span>
+                                </span>
+                                <span>
+                                  <a id="addProspectAgencyCallReportDetails_cancel" href="javascript:submitform('carrier/prospectCallReportDetails.html','addProspectAgencyCallReportDetails.cancelCallReport','','');" class="btn btn-default">
+                                    <span>Cancel</span>
+                                  </a>
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="spacerTd">#space#</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="divEmpty" />
+            <table cellpadding="0" cellspacing="0" width="100%">
+              <tbody id="addAgencyPersonnel_freeform_contextdata_1" class="hide paddingTop3">
+                <tr>
+                  <td id="person_id_call_report_security" class="paddingTop5 paddingBottom6 paddingLeft1">
+                    <span id="block_field_attendee">
+                      <select name="attendee" id="ajax_field_attendee" style="width: 200px" onchange="javascript:assignReasonTakenDesc(this);showAttendeeOtherDiv();javascript:ajaxpageblocklink('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.refresh','','','addAgencyPersonnelDiv');">
+                        <option value="">Select</option>
+                        <option value="-1">Other</option>
+                      </select>
+                    </span>
+                  </td>
+                  <td id="person_id_call_report_security">
+                    <span id="block_field_attendee_other" />
+                    <div id="attendeeOtherDiv" class="hide">
+                      <input type="text" name="attendee_other" style="width: 130px" id="ajax_field_attendee_other" maxlength="255" />
+                    </div>
+                  </td>
+                  <td id="person_id_call_report_security" style="width: 1px;" class="paddingTop3">
+                    <span id="block_field_attendee_desc">
+                      <input type="hidden" name="attendee_desc" id="ajax_field_attendee_desc" />
+                    </span>
+                  </td>
+                  <td id="person_name_call_report_security" style="width: 30%;" class="paddingTop3">
+                    <span id="block_field_person_name">
+                      <input type="text" name="person_name" id="ajax_field_person_name" />
+                    </span>
+                  </td>
+                  <td style="width: 25%;" class="paddingTop3 paddingBottom6 paddingLeft1" id="role_attendee_particpants_security">
+                    <span id="block_field_role_attendee_particpants">
+                      <input type="text" name="role_attendee_particpants" id="ajax_field_role_attendee_particpants" style="width: 200px" />
+                    </span>
+                  </td>
+                  <td id="block_field_email" class="paddingTop3 paddingBottom6 paddingLeft1">
+                    <input type="text" name="email" id="ajax_field_email" style="width: 200px" />
+                  </td>
+                  <td class="paddingTop3 paddingBottom6 paddingLeft1" id="is_notified_security">
+                    <span id="block_field_is_notified">
+                      <input type="checkbox" name="is_notified" id="ajax_field_is_notified" value="Y" />
+                    </span>
+                  </td>
+                  <td class="paddingTop3 paddingBottom6 paddingLeft1" id="phone_call_report_security">
+                    <span id="block_field_attendee_phone">
+                      <input type="text" name="attendee_phone" id="ajax_field_attendee_phone" onkeyup="checkNumericValue(this,event);loadCallReportDetails();" onkeypress="checkNumericValue(this,event);loadCallReportDetails();" maxlength="12" title="999-999-9999" />
+                    </span>
+                  </td>
+                  <td width="2%" align="right" class="paddingBottom6 paddingLeft5">
+                    <span id="isAgencyStatusNotInactive">
+                      <span id="block_field_addnew_row_link">
+                        <span id="isNotShowDataInReadOnlyMode">
+                          <a href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addAgencyPersonnel','','','addAgencyPersonnelDiv');">
+                            <img src="images/icons/icon_notepadPlus.gif" title="Add" />
+                          </a>
+                        </span>
+                      </span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="spacerTd5" colspan="6">#space#</td>
+                </tr>
+              </tbody>
+              <tbody id="addCarrierEmployees_freeform_contextdata_1" class="hide">
+                <tr>
+                  <td id="attendee_employee_Id_security">
+                    <div id="ajax_error_name" class="error" />
+                    <div id="error_name" class="error" />
+                  </td>
+                  <td id="attendee_employee_Id_security" colspan="2" />
+                  <td id="attendee_employee_name_security">
+                    <div id="ajax_error_attendee_employee_name" class="error" />
+                    <div id="error_attendee_employee_name" class="error" />
+                  </td>
+                  <td id="attendee_employee_role_security">
+                    <div id="ajax_error_role" class="error" />
+                    <div id="error_role" class="error" />
+                  </td>
+                  <td id="attendee_employee_email_security">
+                    <div id="error_email1" class="error" />
+                    <div id="ajax_error_email1" class="error" />
+                  </td>
+                  <td id="attendee_employee_is_notify">
+                    <div id="ajax_error_is_notified1" class="error" />
+                    <div id="error_is_notified1" class="error" />
+                  </td>
+                  <td />
+                </tr>
+                <tr>
+                  <td id="attendee_employee_Id_security">
+                    <span id="block_field_name">
+                      <select type="text" name="name" id="ajax_field_name" style="width: 200px;" onchange="javascript:showEmployeeOtherDiv();">
+                        <option value="">Select</option>
+                        <option value="-1">Other</option>
+                      </select>
+                    </span>
+                  </td>
+                  <td id="attendee_employee_Id_security">
+                    <span id="block_field_name_other" />
+                    <div id="nameOtherDiv" style="display: none;">
+                      <input type="text" name="name_other" style="width: 130px" id="ajax_field_name_other" maxlength="255" />
+                    </div>
+                  </td>
+                  <td id="attendee_employee_name_security">
+                    <span id="block_field_attendee_employee_name">
+                      <input type="hidden" name="attendee_employee_name" id="ajax_field_attendee_employee_name" />
+                    </span>
+                  </td>
+                  <td id="attendee_employee_role_security">
+                    <span id="block_field_role">
+                      <select type="text" name="role" id="ajax_field_role" style="width: 200px;">
+                        <option value="">Select</option>
+                      </select>
+                    </span>
+                  </td>
+                  <td id="attendee_employee_email_security">
+                    <span id="block_field_email1">
+                      <input type="text" name="email1" id="ajax_field_email1" style="width: 200px;" />
+                    </span>
+                  </td>
+                  <td id="attendee_employee_is_notify">
+                    <span id="block_field_is_notified1">
+                      <input type="checkbox" name="is_notified1" id="ajax_field_is_notified1" value="Y" />
+                    </span>
+                  </td>
+                  <td id="attendee_employee_comments">
+                    <span id="hide_show_attendee_employee_comments_security">
+                      <span id="block_field_comments">
+                        <textarea name="comments" id="ajax_field_comments" cols="50" onkeyup="updateTextAreaCharCountMsg(this,'commentsCharCountMsg',1024)" onfocus="showTextAreaCharCountMsg(this,'commentsCharCountMsg',1024)" onblur="hideTextAreaCharCountMsg(this,'commentsCharCountMsg',1024)" />
+                      </span>
+                    </span>
+                  </td>
+                  <td width="2%" align="right">
+                    <span id="isAgencyStatusNotInactive">
+                      <span id="block_field_addnew_row_link">
+                        <span id="isNotShowDataInReadOnlyMode">
+                          <a href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addCarrierEmployees','','','addCarrierEmployeesDiv');">
+                            <img src="images/icons/icon_notepadPlus.gif" title="Add" />
+                          </a>
+                        </span>
+                      </span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="spacerTd5" colspan="6">#space#</td>
+                </tr>
+              </tbody>
+              <tbody id="addNotifiedEmployees_freeform_contextdata_1" class="hide">
+                <tr>
+                  <td width="32%">
+                    <div id="ajax_error_Is_employee" class="error" />
+                    <div id="error_Is_employee" class="error" />
+                  </td>
+                  <td width="32%">
+                    <div id="ajax_error_name1" class="error" />
+                    <div id="error_name1" class="error" />
+                  </td>
+                  <td width="32%">
+                    <div id="error_email2" class="error" />
+                    <div id="ajax_error_email2" class="error" />
+                  </td>
+                  <td width="2%" />
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox" name="Is_employee" maxlength="50" id="ajax_field_Is_employee" value="Y" />
+                  </td>
+                  <td>
+                    <select type="text" name="name1" id="ajax_field_name1" style="width: 200px">
+                      <option value="">Select</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" name="email2" id="ajax_field_email2" />
+                  </td>
+                  <td width="2%" align="right" style="padding-right:5px">
+                    <span id="isAgencyStatusNotInactive">
+                      <span id="block_field_addnew_row_link">
+                        <span id="isNotShowDataInReadOnlyMode">
+                          <a href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addNotifiedEmployees','','','addNotifiedEmployeesDiv');">
+                            <img src="images/icons/icon_notepadPlus.gif" title="Add" />
+                          </a>
+                        </span>
+                      </span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="spacerTd5" colspan="6">#space#</td>
+                </tr>
+              </tbody>
+              <tbody id="addActionPlan_freeform_contextdata_1" class="hide">
+                <tr>
+                  <td width="20%">
+                    <div id="ajax_error_action_plan_name" class="error" />
+                    <div id="error_action_plan_name" class="error" />
+                  </td>
+                  <td width="40%">
+                    <div id="error_Action_items" class="error" />
+                    <div id="ajax_error_Action_items" class="error" />
+                  </td>
+                  <td width="20%">
+                    <div id="ajax_error_Assigned_to" class="error" />
+                    <div id="error_Assigned_to" class="error" />
+                  </td>
+                  <td width="20%">
+                    <div id="error_Due_date" class="error" />
+                    <div id="ajax_error_Due_date" class="error" />
+                  </td>
+                  <td width="2%" />
+                </tr>
+                <tr>
+                  <td>
+                    <!-- <input type="text" name="Next_planned_visit"
+                                id="ajax_field_Next_planned_visit" maxlength="10"
+                                onkeyup="applyDateFormat(this,event);" /> <a
+                                title="Select Date" class="calendar-link icoCalendar"
+                                id="date_link" onclick="show_calendar_widget(this);"> <img
+                                    src="images/Spacer.gif" width="12px" height="12px"
+                                    title="Select Date" />
+                            </a> -->
+                    <select name="action_plan_name" id="ajax_field_action_plan_name" onchange="javascript:setDescInListFreeformDropDown(this);" class="selectDetail">
+                      <option value="">Select</option>
+                      <!-- <option value="Compensation">Compensation</option>
+                      <option value="Claim">Claim</option> -->
+                    </select>
+                  </td>
+                  <td width="32%">
+                    <textarea id="ajax_field_Action_items" type="text" name="Action_items" style="width: 230px; height: 30px" onkeyup="updateTextAreaCharCountMsg(this,'itemsdiscussedCharCountMsg',1024)" onfocus="showTextAreaCharCountMsg(this,'itemsdiscussedCharCountMsg',1024)" onblur="hideTextAreaCharCountMsg(this,'itemsdiscussedCharCountMsg',1024)" />
+                  </td>
+                  <td>
+                    <!-- <select type="text" name="Assigned_to"
+                                id="ajax_field_Assigned_to" style="width: 200px">
+                                    <option value="">Select</option>
+                            </select> -->
+                    <input type="text" name="Assigned_to" style="width: 200px;" id="ajax_field_Assigned_to" readonly="readonly" />
+                    <a id="imghide" href="javascript:ajaxsubmitform('carrier/searchActionPlanAssignToPopup.html','addProspectAgencyCallReportDetails.searchActionPlanAssignedTo','','','popupEntityList');" style="padding-left: 5px;">
+                      <img id="iconimg" src="images/icons/search.png" border="0" />
+                    </a>
+                  </td>
+                  <td>
+                    <div id="isNotShowDataInReadOnlyMode">
+                    	<div class="input-group date">
+	                  		<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+							<input id="ajax_field_Due_date" type="text" name="Due_date" maxlength="11" onkeyup="applyDateFormat(this,event);" />
+						</div>
+	                   <a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+                      
+                    </div>
+                    <div id="isShowDataInReadOnlyMode">
+                    	<div class="input-group date">
+	                  		<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+							<input id="ajax_field_Due_date" type="text" name="Due_date" maxlength="11" onkeyup="applyDateFormat(this,event);" />
+						</div>
+                      
+                    </div>
+                  </td>
+                  <td id="block_field_action_plan_name_desc" style="display:none">
+                                  <input type="hidden" name="action_plan_name_desc" id="ajax_field_action_plan_name_desc" />
+                                </td>                 
+                  <td width="2%" align="right">
+                    <span id="isAgencyStatusNotInactive">
+                      <span id="block_field_addnew_row_link">
+                        <span id="isNotShowDataInReadOnlyMode">
+                          <a href="javascript:ajaxsubmitform('carrier/addProspectAgencyCallReportDetails.html','addProspectAgencyCallReportDetails.addActionPlan','','','addActionPlanDiv');">
+                            <img src="images/icons/icon_notepadPlus.gif" title="Add" />
+                          </a>
+                        </span>
+                      </span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="spacerTd5" colspan="6">#space#</td>
+                </tr>
+              </tbody>
+            </table>
+           
+            <table cellpadding="0" cellspacing="0">
+              <tr id="callreport_freeform_contextdata_99">
+                <td>
+                  <input type="hidden" name="call_purpose_other_textarea_Hide_show" 
+                  fullid="callreport_freeform_contextdata_99(call_purpose_other_textarea_Hide_show_security.call_purpose_other_textarea_Hide_show_label).call_purpose_other_textarea_Hide_show_security.call_purpose_other_textarea_Hide_show_label.call_purpose_other_textarea_Hide_show" 
+                  id="ajax_field_call_purpose_other_textarea_Hide_show" />
+                </td>
+                <td>
+                  <input type="hidden" name="select_prospect_contact_id" 
+                  fullid="callreport_freeform_contextdata_99(select_prospect_contact_id_security.select_prospect_contact_id_label).select_prospect_contact_id_security.select_prospect_contact_id_label.select_prospect_contact_id" 
+                  id="ajax_field_select_prospect_contact_id" />
+                  <input type="hidden" name="dummyFieldToValidateAtleast1DocumentAttachment" id="ajax_field_dummyFieldToValidateAtleast1DocumentAttachment" />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+

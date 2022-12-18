@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- Mimic Internet Explorer 7 
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body id="divComplete" onload="javascript:loadUploadDiv();showPopUpList1('productValidationWizardStep1','isShowEffectiveDatePoup')">
+    <form enctype="multipart/form-data">
+      <div id="addNewRequestSection">
+        <div id="cyberLiabilityForSelfServiceApproval">
+          <div id="cover" />
+          <div id="contextLinks" />
+          <div id="cyberLiabilityForSelfServiceApprovalDiv">
+            <div id="divComplete">
+              <div id="downloadUploadDiv" style="width: 650px;">
+                <div id="isDocCyberLiabilityDetailsDefaultOpen">
+                  <div id="DefaultOpenForm_MultiForm:uploadPopup" />
+                </div>
+              </div>
+              <div id="deleteDocument">
+			    	<!-- Modal -->
+			        <div class="modal fade modal_popup">
+			          <div class="modal-dialog modal-dialog-width_350">
+			            <div class="modal-content">
+			              <div class="modal-header">
+			                <h4 class="modal-title">
+			                  <a class="close" id="entityrequest_close" href="#" onclick="closePopUp('deleteDocument')">
+			                    <img src="images/close.png" />
+			                  </a>
+			                  Delete Document
+			                </h4>
+			              </div>
+			              <div class="modal-body">
+			                <div class="modal-body-scroll popup_small_height">
+			                  <span class="delete_ico icons">#space#</span>
+			                  Are you sure you want to delete this item?
+			                </div>
+			              </div>
+			              <div class="modal-footer">
+			                <div class="buttonwrapper">
+			                  <a id="entityrequest_yes" onclick="closePopUp('deleteDocument');" href="javascript:callAjaxDelete('attachmentDiv');" class="btn btn-primary">
+			                    <span>Yes</span>
+			                  </a>
+			                  <a id="entityrequest_no"  href="#" onclick="clean();closePopUp('deleteDocument');" class="btn btn-default">
+			                    <span>No</span>
+			                  </a>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			        </div>
+			        <!-- Modal End -->
+			    </div>
+              <div id="deleteConfirmation" style="position: absolute; width: 400px">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" class="popupBg">
+                      <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tr>
+                          <td class="popupHeader">Approve</td>
+                        </tr>
+                        <tr>
+                          <td valign="top">
+                            <div class="popupDivSmall">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td />
+                                  <td style="padding-left:13%">Are you sure you want to Approve?</td>
+                                </tr>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="popupFooter">
+                            <table cellpadding="0" cellspacing="0" align="right">
+                              <tr>
+                                <td colspan="2">
+                                  <div class="buttonwrapper">
+                                    <a id="cyberLiabilityForSelfServiceApproval_yes" onclick="closePopUp('deleteConfirmation');" href="javascript:document.forms[0].submit();" class="ovalbutton">
+                                      <span>Yes</span>
+                                    </a>
+                                    <a id="cyberLiabilityForSelfServiceApproval_no" href="#" onclick="clean();closePopUp('deleteConfirmation');" class="ovalbutton">
+                                      <span>No</span>
+                                    </a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="27px" valign="top" class="backgroundNone">
+                      <a id="cyberLiabilityForSelfServiceApproval_close" href="#" onclick="closePopUp('deleteConfirmation')">
+                        <img src="images/close.png" />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div id="deleteConfirmation1" style="position: absolute; width: 400px">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" class="popupBg">
+                      <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tr>
+                          <td class="popupHeader">Disapprove</td>
+                        </tr>
+                        <tr>
+                          <td valign="top">
+                            <div class="popupDivSmall">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td />
+                                  <td>Are you sure you want to Disapprove?</td>
+                                </tr>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="popupFooter">
+                            <table cellpadding="0" cellspacing="0" align="right">
+                              <tr>
+                                <td colspan="2">
+                                  <div class="buttonwrapper">
+                                    <a id="cyberLiabilityForSelfServiceApproval_yes1" onclick="closePopUp('deleteConfirmation1');" href="javascript:document.forms[0].submit();" class="ovalbutton">
+                                      <span>Yes</span>
+                                    </a>
+                                    <a id="cyberLiabilityForSelfServiceApproval_no1" href="#" onclick="clean();closePopUp('deleteConfirmation1');" class="ovalbutton">
+                                      <span>No</span>
+                                    </a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="27px" valign="top" class="backgroundNone">
+                      <a id="cyberLiabilityForSelfServiceApproval_close" href="#" onclick="closePopUp('deleteConfirmation1')">
+                        <img src="images/close.png" />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div id="productValidationWizardStep1"
+				style="position: absolute; width: 400px; left: 36%;">
+				<div
+					id="cyberLiabilityForSelfServiceApproval.isShowEffectiveDatePoup">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td valign="top" class="popupBg">
+								<table cellpadding="0" cellspacing="0" width="100%"
+									border="0">
+									<tr>
+										<!-- <td class="popupHeader">Effective Date</td> -->
+										<td class="popupHeader">Confirmation</td>
+									</tr>
+									<tr id="entityRequest_freeform_contextdata_10">
+										<td valign="top">
+											<div class="popupDivSmall">
+												<table border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td />
+														<td class="error" style="padding-left: 4px">
+															<div id="ajax_error_effective_date_request"
+																style="width: 200px;" />
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2">Are you sure you want to submit
+															the request?</td>
+													</tr>
+													<tr id="cyberLiabilityRequest_effectiveDate_security">
+														<td nowrap="nowrap" style="padding-top: 8px">Effective
+															Date :</td>
+														<td class="tdInput" nowrap="nowrap"
+															style="padding-top: 8px">
+															<div class="input-group date">
+																<div class="input-group-addon"
+																	id="ico_fa_calender_security">
+																	<i class="fa fa-calendar">&nbsp;</i>
+																</div>
+																<input name="effective_date_request"
+																	style="width: 100px"
+																	id="ajax_field_effective_date_request" type="text"
+																	class="datepicker"
+																	onkeyup="applyDateFormat(this,event);"
+																	maxlength="10" />
+															</div> <a title="Select Date" class="calender_ico icons"
+															id="date_link" onclick="show_calendar_widget(this);" />
+
+														</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="popupFooter">
+											<table cellpadding="0" cellspacing="0" align="right">
+												<tr>
+													<td colspan="2">
+														<div class="buttonwrapper">
+															<span> <a
+																id="cyberLiabilityForSelfServiceApproval_yes2"
+																href="javascript:ajaxsubmitform('carrier/entityRequests.html','cyberLiabilityForSelfServiceApproval.sendDocCyberLiabilityDataForSaveApproval','','','addNewRequestSection');"
+																class="ovalbutton"> <span>Yes</span>
+															</a>
+															</span> <a id="cyberLiabilityForSelfServiceApproval_no2"
+																href="javascript:ajaxsubmitform('carrier/cyberLiabilityForSelfServiceApproval.html','cyberLiabilityForSelfServiceApproval.refreshPage','','','cyberLiabilityForSelfServiceApprovalDiv');"
+																onclick="cleanFlag();clean();closePopUp('productValidationWizardStep1');"
+																class="ovalbutton"> <span>No</span>
+															</a>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td width="27px" valign="top" style="background-color: none;">
+								<a id="cyberLiabilityForSelfServiceApproval_close3"
+								href="javascript:ajaxsubmitform('carrier/cyberLiabilityForSelfServiceApproval.html','cyberLiabilityForSelfServiceApproval.refreshPage','','','cyberLiabilityForSelfServiceApprovalDiv');"
+								onclick="cleanFlag();closePopUp('productValidationWizardStep1')">
+									<img src="images/close.png" />
+							</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+              
+<div class="container-fluid bootstrap-node-1" id="showContentDiv">
+	<div class="tableWidth" id="addNewCyberLiabilitySection">
+		<!---------Header Start---------->
+		<header>
+			<span id="#Include:carrier/carrierHeader.html#"></span>
+		</header>
+		<!---------Header End---------->
+		
+		<div class="bgmain">
+			<!---------Menu Level 1 Start---------->
+			<!-- <nav class="menu-level-1 tab">
+				<span id="#Include:carrier/carrierTabs1.html#"></span>
+			</nav> -->
+			<!---------Menu Level 1 End---------->
+			
+			<!---------Menu Level 2 Start---------->
+			<nav class="menu-level-2">
+				<span id="#Include:carrier/carrierTabs2.html#"></span>
+			</nav>
+			<!---------Menu Level 2 End---------->
+			
+			<article class="content sidebar-content">
+				<!---------Sidebar Start---------->
+				<div id="isSideBarHiereachyExists" class="sideBar">
+					<span id="#Include:carrier/sideBar.html#"></span>
+				</div>
+				<!---------Sidebar End---------->
+				
+				<!---------Body content Start---------->
+				<div class="panel-body-wraper" id="tdContent">
+					<!---------page Level msg Start---------->
+					<div class="errorMsgAlign clear-both">
+						<div id="error_pageError" class="error"></div>
+                        <div id="error_dateError" class="error"></div>
+					</div>
+					<div class="ConfirmationAlign clear-both" id="cyberLiabilityForSelfServiceApproval_freeform_contextdata_100">
+						<label name="pageMsg" id="pageMsg" class="Confirmation" />
+                        <label name="pageMsg_ss" id="pageMsg_ss" class="Confirmation" />
+					</div>
+					
+					<!---------page Level msg End---------->
+					<div>
+						<section id="cyber_liability_grid_security">
+                         <fieldset class="border_Level_1">
+                           <legend>
+                             <span id="cyberLiability">Cyber Liability</span>
+                           </legend>
+                           <div class="freeFormList paddingTop10"
+													id="cyber_liability_checkIsNewRequest_security">
+													<div class="freeFormListTr">
+														<div class="freeFormListTd labelAlign alignTopDiv">
+															<div class="freeFormLabelWidth_140">
+																<label id="entitytablabel">Agency</label> :
+															</div>
+														</div>
+														<div class="freeFormListTd tdInput"
+															id="cyberLiabilitySelfService_freeform_contextdata_10">
+															<select name="agency_id_requests"
+																id="ajax_field_agency_id_requests" style="width: 270px"
+																onchange="javascript:submitform('carrier/cyberLiabilityForSelfServiceApproval.html','cyberLiabilityForSelfServiceApproval.refreshNPopulateDocInsuranceData','','');">
+																<!-- <option value="">Select</option> -->
+															</select>
+														</div>
+													</div>
+												</div>
+                           
+                              <section class="divButton">
+                                <div id="checkIsNewRequest">
+                                  <div>
+                                    <div class="buttonwrapper paddingBottom10" >
+                                      <span >
+                                        <a id="cyberLiabilityForSelfServiceApproval_addNewCyberLiability" href="javascript:submitform('carrier/cyberLiabilityForSelfServiceApproval.html','cyberLiabilityForSelfServiceApproval.addNewCyberLiabilityForSelfServiceApproval','','');" class="ovalbutton">
+                                          	<span id="addNewCyberLiabilitylabel">Add new Cyber Liability</span>
+                                        </a>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                              <section id="isAddingNewCyberLiabilityForSelfserviceApproval">
+	                             <div id="DefaultOpenForm:carrier/addNewCyberLiabilityForSelfService" />
+	                           </section>
+	                           <section id="addNewCyberLiabilityForSelfService"></section>
+	                           <section id="isEditingDataForSelfserviceApproval">
+	                             <div id="isShowEffectiveDatePoup">
+	                               <div id="DefaultOpenForm:carrier/addNewCyberLiabilityForSelfService" />
+	                             </div>
+	                           </section>
+                              <section id="checkIsNewRequest">
+                                <div id="ajax_sorting">
+                                  <div class="width100 gridTable floatLeft border_Level_1" id="docCyberLiability_list_1">
+                                    <div class="clearDiv">
+                                      <ul id="isDocCyberLiabilityDetailListNotEmpty"
+											class="paginationUL">
+											<li class="width100" id="docCyberLiability_pagination_1">
+												<div class="pagination">
+													<div class="paginationTable">
+														<div class="paginationTr">
+															<div class="paginationTd width20">
+																<span>Records per Page :</span> <span> <select
+																	id="recordsperpage" onchange="ajax_sorting"
+																	name="recordsperpage" class="inputbox" />
+																</span>
+															</div>
+															<div align="center" class="width60 paginationTd">
+																<span class="linright">Viewing</span> <span
+																	id="docCyberLiability_recordsfrom_1" class=" paginationTxt" />
+																<span class="linright">to</span> <span
+																	id="docCyberLiability_recordsto_1" class=" paginationTxt" />
+																<span class="linright">of</span> <span
+																	id="docCyberLiability_totalrecords_1" class=" paginationTxt" />
+															</div>
+															<div class="width20 paginationTd">
+																<div class="paginationTable2">
+																	<div class="paginationTr">
+																		<div class="paginationTd">
+																			<span id="docCyberLiability_firstpagelink_1"> <a
+																				id="cyberLiabilityForSelfServiceApproval_previousall"
+																				href="javascript:ajaxpagination('cyberLiabilityForSelfServiceApproval.html','ajax_sorting','','');"
+																				title="First Page" tabindex="21"> <img
+																					src="images/previous_all.png" border="0" />
+																			</a>
+																			</span>
+																		</div>
+																		<div class="paginationTd">
+																			<span id="docCyberLiability_previouspagelink_01"> <a
+																				id="cyberLiabilityForSelfServiceApproval_previousone"
+																				href="javascript:ajaxpagination('cyberLiabilityForSelfServiceApproval.html','ajax_sorting','','');"
+																				title="Previous" tabindex="21"> <img
+																					src="images/previous_one.png" border="0" />
+																			</a>
+																			</span>
+																		</div>
+																		<div class="paginationTd">Page :</div>
+																		<div class="paginationTd">
+																			<select id="pagenumber" onchange="ajax_sorting"
+																				name="pagenumber" class="inputbox" />
+																		</div>
+																		<div class="paginationTd">
+																			<span id="docCyberLiability_nextpagelink_1"> <a
+																				id="cyberLiabilityForSelfServiceApproval_nextone"
+																				href="javascript:ajaxpagination('cyberLiabilityForSelfServiceApproval.html','ajax_sorting','','');"
+																				title="Next" tabindex="21"> <img
+																					src="images/next_one.png" border="0" />
+																			</a>
+																			</span>
+																		</div>
+																		<div class="paginationTd">
+																			<span id="docCyberLiability_lastpagelink_1"> <a
+																				id="cyberLiabilityForSelfServiceApproval_nextall"
+																				href="javascript:ajaxpagination('cyberLiabilityForSelfServiceApproval.html','ajax_sorting','','');"
+																				title="Last Page" tabindex="21"> <img
+																					src="images/next_all.png" border="0" />
+																			</a>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+                                    </div>
+                                    <div class="clearDiv">
+                                      <table cellpadding="0" cellspacing="0" width="100%">
+										<tr id="docCyberLiability_list_header_1">
+											<td class="HeaderStyle" id="cyber_liability_id_security">
+												<div id="block_field_cyber_liability_id" >
+													<label id="doc_CyberLiability_id_label">CyberLiability ID</label>
+												</div>
+											</td>
+											<td class="HeaderStyle"
+												id="docCyberLiability_producer_number_id_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_producer_name">
+													<span id="docCyberLiability_producer_name_label">Agency Code Description</span>
+												</div>
+											</td>
+											<td class="HeaderStyle" style="display: none"
+												id="docCyberLiability_producer_number_id_security">
+												<div id="block_field_producer_number_id" />
+											</td>
+											<td class="HeaderStyle" id="docCyberLiability_operating_dvision_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_operating_division_Description">
+													<label id="operating_division_label">Operating
+														Division</label>
+												</div>
+											</td>
+											<td class="HeaderStyle"
+												id="docCyberLiability_person_name_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_person_name">
+													<label id="doc_CyberLiability_block_person_name_label">CyberLiability
+														Contact</label>
+												</div>
+											</td>
+											<td class="HeaderStyle"
+												id="docCyberLiability_category_description_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_category_description">
+													<label id="insurance_category_description_label">Category</label>
+												</div>
+											</td>
+											<td class="HeaderStyle"
+												id="docCyberLiability_carrier_other_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_carrier_other">
+													<label id="insurance_carrier_other_label">Carrier
+														Name</label>
+												</div>
+											</td>
+											<td class="HeaderStyle"
+												id="docCyberLiability_policy_limit_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_policy_limit">
+													<label id="insurance_policy_limit_label">Policy
+														Limit</label>
+												</div>
+											</td>
+											
+											<td class="HeaderStyle"
+												id="docCyberLiability_self_insured_retention_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_self_insured_retention">
+													<label id="insurance_self_insured_retention_label">SIR
+													</label>
+												</div>
+											</td>
+											<!-- ADO-52160 - For Deductible customization -->
+											<td class="HeaderStyle"
+												id="cyberLiabilityForSelfServiceApproval_deductible_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_deductible">
+													<label id="CyberLiability_freeform_deductible_label">Deductible
+													</label>
+												</div>
+											</td>
+											
+											<td class="HeaderStyle"
+												id="docCyberLiability_expiration_date_security">
+												<div
+													id="sorting(,A,ajax_sorting):block_field_expiration_date">
+													<label id="insurance_expiration_date_label">Expiration
+														Date</label>
+												</div>
+											</td>
+											<td class="HeaderStyle" style="display: none" />
+											
+										</tr>
+										<tbody id="docCyberLiability_list_data_1">
+											<tr>
+												<td id="cyber_liability_id_security">
+													<span id="block_field_cyber_liability_id"> <a
+														id="cyberLiabilityForSelfServiceApproval_edit"
+														href="javascript:ajaxpageblocklink('carrier/addNewCyberLiabilityForSelfService.html','cyberLiabilityForSelfServiceApproval.edit','','','addNewCyberLiabilityForSelfService');">
+															<label id="block_field_cyber_liability_id" />
+													</a>
+												</span>
+												</td>
+												<td id="docCyberLiability_producer_number_id_security">
+													<span id="block_field_producer_name" />
+												</td>
+												<td style="display: none"
+													id="docCyberLiability_producer_number_id_security">
+													<span id="block_field_producer_number_id" />
+												</td>
+												<td id="docCyberLiability_operating_dvision_security"><span
+													id="block_field_operating_division_Description" /></td>
+												<td id="docCyberLiability_person_name_security">
+													<span id="block_field_person_name" />
+												</td>
+												<!-- <td id="docCyberLiability_category_description_security">
+													<span id="block_field_category_description"> <a
+														id="cyberLiabilityForSelfServiceApproval_edit"
+														href="javascript:ajaxpageblocklink('carrier/addNewCyberLiabilityForSelfService.html','cyberLiabilityForSelfServiceApproval.edit','','','addNewCyberLiabilityForSelfService');">
+															<label id="block_field_category_description" />
+													</a>
+												</span>
+												</td> -->
+												<td id="docCyberLiability_carrier_other_security"><span
+													id="block_field_carrier_other" /></td>
+												<td id="docCyberLiability_policy_limit_security"><span
+													id="block_field_policy_limit" /></td>
+												<td id="docCyberLiability_self_insured_retention_security"><span
+													id="block_field_self_insured_retention" /></td>
+													<td id="cyberLiabilityForSelfServiceApproval_deductible_security"><span
+													id="block_field_deductible" /></td>
+												<td id="docCyberLiability_expiration_date_security"><span
+													id="block_field_expiration_date" /></td>
+												<td style="display: none"><span
+													id="block_field_document_row_link"> 
+												</span></td>
+											</tr>
+										</tbody>
+									</table>
+                                 </div>
+                               </div>
+                             </div>
+                           </section>
+                         </fieldset>
+                       </section>
+                       
+                       <section class="extendedFields" id="extendedFields">
+                         <span id="#IncludeCustomFields#" />
+                       </section>
+					</div>
+				</div>
+				<!---------Body content End---------->
+				
+				<!---------Sidebar Right Start---------->
+				<div id="sidebar_right_security" class="sideBarRight">
+					<span id="#Include:carrier/sideBarRight.html#"></span>
+				</div>
+				<!---------Sidebar Right End---------->
+			</article>
+		</div>
+		<!---------Footer Start---------->
+		<footer>
+			<span id="#Include:admin/adminFooter.html#"></span>
+		</footer>
+		<!---------Footer End---------->
+	</div>
+</div>              
+        <div class="calendar_widget" id="calendar_widget">
+               <iframe id="calendar_widget_iframe" name="calendar_widget_iframe" src="calendar_widget.html" frameborder="0" />
+        </div>
+         <div class="hiddenFields" id="addNewCyberLiabilityForSelfService_freeform_contextdata_999">
+				<input type="hidden" name="showUploadDiv" id="showUploadDiv" />
+				<input type="hidden" name="eoInsuranceRequired"
+					id="eoInsuranceRequired" /> <input type="hidden"
+					name="agency_id" id="agency_id" /> <input type="hidden"
+					name="jsessionid" id="jsessionid" /> <input type="hidden"
+					name="coming_page" id="coming_page" /> <input type="hidden"
+					name="divHideShow" id="divHideShow" /> <input type="hidden"
+					name="doc_insurance_policy_limit_mandatory_security"
+					id="ajax_field_doc_insurance_policy_limit_mandatory_security" />
+				<input type="hidden"
+					name="doc_insurance_carrier_name_mandatory_security"
+					id="ajax_field_doc_insurance_carrier_name_mandatory_security" />
+				<input type="hidden"
+					name="doc_insurance_policy_number_mandatory_security"
+					id="ajax_field_doc_insurance_policy_number_mandatory_security" />
+				<input type="hidden"
+					name="doc_insurance_aggregate_limit_mandatory_security"
+					id="ajax_field_doc_insurance_aggregate_limit_mandatory_security" />
+				<input type="hidden"
+					name="doc_insurance_review_status_mandatory_security"
+					id="ajax_field_doc_insurance_review_status_mandatory_security" />
+				<input type="hidden"
+					name="doc_insurance_deductible_mandatory_security"
+					id="ajax_field_doc_insurance_deductible_mandatory_security" />
+				<input type="hidden" name="isShowDocumentFilterSectionTrue"
+					id="ajax_field_isShowDocumentFilterSectionTrue" /> <input
+					type="hidden" name="htmlSource" id="htmlSource" /> <input
+					type="hidden" name="request_reason_id"
+					id="ajax_field_request_reason_id" />
+				<!-- <input type="hidden" name="request_ss_id" id="ajax_field_request_ss_id"/> -->
+				<input type="hidden" name="isallusers" id="ajax_field_isallusers" />
+				<input type="hidden" name="isdisplayusers"
+					id="ajax_field_isdisplayusers" /> <input type="hidden"
+					name="request_type_str" id="ajax_field_request_type_str" /> <input
+					type="hidden" name="Status" id="ajax_field_Status" /> <input
+					type="hidden" name="assigned_to" id="ajax_field_assigned_to" />
+			</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+

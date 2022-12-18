@@ -1,0 +1,48 @@
+<evalrules project="Public">
+	<ruleset name="PublicRule">
+		<rule deltaind="I" id="checkIsCyberPolicyLimitEmpty"
+			expression="if(isEmpty(:cyber_liability_policy_limit)=>assign(:cyber_liability_policy_limit,returnNull());->assign(:cyber_liability_policy_limit,removeAmountFormat(:cyber_liability_policy_limit)));"></rule>
+		
+		<rule deltaind="I" id="checkIscheckIsENOCoverageAmountEmpty"
+			expression="if(isEmpty(:coverage_amount)=>assign(:coverage_amount,returnNull());->assign(:coverage_amount,removeAmountFormat(:coverage_amount)));"></rule>
+		<rule deltaind="I" id="checkIscheckIsCyberCoverageAmountEmpty"
+			expression="if(isEmpty(:cyber_liability_coverage_amount)=>assign(:cyber_liability_coverage_amount,returnNull());->assign(:cyber_liability_coverage_amount,removeAmountFormat(:cyber_liability_coverage_amount)));"></rule>
+				<rule deltaind="I" id="checkIsCurrencyTotalPrem"
+			expression="if(isEmpty(:total_premium_PC)=>assign(:total_premium_PC,returnNull());->assign(:total_premium_PC,removeAmountFormat(:total_premium_PC)));"></rule>
+		
+		
+		<rule deltaind="I" id="isBankInfoFilled"
+			expression="isGreaterThan(listSize(:agencybankinformation_list_1),0);"></rule>	
+			
+	<rule deltaind="I" id="isCBIAYesNo"
+			expression="isEqual(:cbia_designation,Y);"></rule>	
+		
+				<rule deltaind="I" id="isLicensedProducerNew"
+			expression="isEqual(:contactTypeFlag,Y);"></rule> 
+	<rule deltaind="I" id="checkIsRegistrationTypeProducerRegistration"
+			expression="isEqual(:registration_type,PRERG);"></rule>
+
+		<rule deltaind="I" id="isHBAYes" expression="isEqual(:member_of_hba1,Y);"></rule>
+	<rule deltaind="D" id="validateBusinessAddressAuthorization" expression="if(isEqual(:business_address_authorization,Y)=>isEqual(1,1);->populateError(context,business_address_authorization,selectEoClaimsDeclarationKey));"  />
+   <rule deltaind="I" id="checkPrincipalSelected" expression="isEqual(:contactTypeFlagPrincipal,Y);"></rule>
+   <rule deltaind="I" id="isLoadEntendedFields" expression="isNot(isEqual(:isLoadEntendedFields,Y));"/>
+
+<!-- UAT high priority issue -->
+    	<rule deltaind="M" id="checkContactType" expression="if(andCondition(isEqual(1,1),call_rule(PublicRule.checkIsRegistrationTypePRERG))=>assign(:contact_type_desc,Licensed Producer);assign(:contacttype_code,LS);assign(:contacttype,5);)"/>
+	<!-- Check registration type for PDF generation -->
+		<rule deltaind="I" id="isRegistrationTypePrimarySeconderyAgency" expression="orCondition(isEqual(:registration_type,PRAG),isEqual(:registration_type,SCAG));"/>
+		
+		<!-- START Customization to Configuration task - Registered with DOI default value No -->
+		<rule deltaind="M" id="assignDefaultValueForDBARegistered" expression="if(isEmpty(:isdbaregistered)=>assign(:isdbaregistered,0););"></rule>
+		<!-- END Customization to Configuration task - Registered with DOI default value No -->
+		
+		<!-- START - Customization to Configuration task - isShowAgencyComparativerateCheckboxMulti commented code fix -->
+		<rule deltaind="D" id="isShowAgencyComparativerateCheckboxMulti" expression="if(isEqual(:agency_comparativerate_security,N)=>isEqual(1,1)->isEqual(1,2))"></rule>
+		<!-- END - Customization to Configuration task - isShowAgencyComparativerateCheckboxMulti commented code fix -->
+		
+		<!-- ADO-27526 -->
+		<rule deltaind="I" id="isLicensedProducerCheckedPublic" expression="isGreaterThan(getBeanProperty(executeDBOperation(context,a,3,SqlStmts.sqlStatementsviewgetLicensedProducerCheckedPublic),licensedProducerCheckedPublic),0);" />
+		
+	</ruleset>
+</evalrules>	
+	

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<servlet>
+		<servlet-name>PublicServlet</servlet-name>
+		<servlet-class>
+			com.manage.process.PublicServlet
+		</servlet-class>
+		<init-param>
+			<param-name>app-properties</param-name>
+			<param-value>DMPublic.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>inet_project_id</param-name>
+			<param-value>Public</param-value>
+		</init-param>	
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	
+	<servlet>
+            <servlet-name>jcaptcha</servlet-name>
+            <servlet-class>com.manage.captcha.PIMCaptchaServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+            <servlet-name>jcaptcha</servlet-name>
+            <url-pattern>/jcaptcha.jpg</url-pattern>
+    </servlet-mapping> 
+       
+	<servlet-mapping>
+		<servlet-name>PublicServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<!--  
+	<security-constraint>
+      <web-resource-collection>
+                      <web-resource-name>Automatic SLL Forwarding</web-resource-name>
+                      <url-pattern>/*</url-pattern>
+      </web-resource-collection>
+      <user-data-constraint>
+        <transport-guarantee>
+                      CONFIDENTIAL
+        </transport-guarantee>
+      </user-data-constraint>
+    </security-constraint>
+	-->
+	<session-config id="Public">
+		<session-timeout>240</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>ManageIndex.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<resource-ref id="resource1">
+	   <description>DB Connection</description>
+	   <res-ref-name>jdbc/p1_publicdb</res-ref-name>
+	   <res-type>javax.sql.DataSource</res-type>
+	   <res-auth>Container</res-auth>
+	</resource-ref>
+	
+	<resource-ref id="resource2">
+	   <description>DB Connection</description>
+	   <res-ref-name>jdbc/p1_securedb</res-ref-name>
+	   <res-type>javax.sql.DataSource</res-type>
+	   <res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>

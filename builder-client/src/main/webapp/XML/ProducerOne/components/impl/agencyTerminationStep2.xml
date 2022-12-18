@@ -1,0 +1,20 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component metaobject="termination_log" name="agencyTerminationStep2" stackdisplayname="agencyterminationlabel - Step 2" displayname="Agency Termination Step 2" objectcolumn="termination_log_id" objecttype="Agency Termination">
+    	
+    	<action deltaind="M" name="submit">
+    	<!-- Prod bug - 0074 : Agency Termination Letter -->
+    	 <actionparam deltaind="I" executionsequence="6" form="Y" isexecuteonsuccess="Y" name="seller_name" paramid="seller_name" populatename="Entity_Name" pre="Y" viewparam="Y"/>
+          <workflow deltaind="I" isexecuteonsuccess="Y" name="agencyTerminationContactNamel" seq="7">          
+    	    <databaseoperation deltaind="I" executionsequence="1" metaobject="person" name="agencyTerminationContactNameforMail" operation="3" sqlstmt="Select prdcr_first_name +' ' + prdcr_last_name AS Agent_Name from person where person_id=#person_id#"/>     	 	
+      	  </workflow>
+      	</action>
+    	
+    	<action deltaind="M" name="approved">
+	    	<workflowevent deltaind="M" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="approved" isgetuser="Y" name="approved" userfield="workflow_user" workflow="agencyTermination" isshoweffectivedate="Y"/>
+	    </action>
+	    
+	    <action deltaind="M" name="declined">
+	    	<workflowevent deltaind="M" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="declined" isgetuser="Y" name="declined" userfield="workflow_user" workflow="agencyTermination" isshoweffectivedate="Y"/>
+	    </action>
+  	</component>
+</projectcomponents>

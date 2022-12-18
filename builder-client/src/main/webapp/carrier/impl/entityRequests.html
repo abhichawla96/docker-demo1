@@ -1,0 +1,1087 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- Mimic Internet Explorer 7 
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="script/producerOnePerformance.js"></script>
+    <script type="text/javascript" src="js/all_files.js" />
+
+  </head>
+  <body onload="checkAgencyLobSelections('ajax_field_agency_lob','agency_lob_id');loadEntityRequests();loadUploadDiv();showPopUpList('popupSubmitRequest','isAddRequestY');showPopUpList('popupPendingRequest','ispendingRequestY');showPopUpList('productValidationWizardStep1','isShowEffectiveDatePoup'); getCheckedAgencyComparativeRater1();loadOtherLocations();loadQuestions();setGetRadioButtonsFromRadioGroup('dividend_distribution_id','ajax_field_Selecteddividend_distribution_id','set');setGetRadioButtonsFromRadioGroup('agent_copies_id','ajax_field_Selectedagent_copies_id','set');setGetRadioButtonsFromRadioGroup('policyholder_copies_id','ajax_field_Selectedpolicyholder_copies_id','set');showdivOther(); showdivAssociationAgency();loadentityGeneralDetail();updateReadonlyFlagBusinessTerminationDatesDiv(); showOtherDiv();getCheckedAgencyComparativeRater(); addClassToFields();loadBankInfo();getAccountUsageValue();populateSelectedValueForLobCategorization();showTaskControlOtherDiv();getOtherContactTypeDiv();setGetMultiCheckboxValues('ajax_field_distribution_group_id','ajax_field_selectedobjectids','set');setGetMultiCheckboxValues('ajax_field_agent_state_id','ajax_field_agent_state','set');getCheckedAgencyAssociation();showdivAssociationAgency();setMultipleSelectedCheckBoxValue('is_producer_code_associated','ajax_field_producer_number_id','ajax_field_selectedproducernumberids');" class="carrierSection node43" id="divComplete">
+    <div id="cover" />
+    <div id="contextLinks" />
+    <div id="downloadUploadDiv" style="width: 700px;">
+      <div id="isDocEntityRequestsDefaultOpen">
+        <div id="DefaultOpenForm_MultiForm:uploadPopup" />
+      </div>
+    </div>
+    <div id="deleteDocument">
+    	<!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a class="close" id="entityrequest_close" href="#" onclick="closePopUp('deleteDocument')">
+                    <img src="images/close.png" />
+                  </a>
+                  Delete Document
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  <span class="delete_ico icons">#space#</span>
+                  Are you sure you want to
+delete this item?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="entityrequest_yes" onclick="closePopUp('deleteDocument');" href="javascript:callAjaxDelete('attachmentDiv');" class="btn btn-primary">
+                    <span>Yes</span>
+                  </a>
+                  <a id="entityrequest_no"  href="#" onclick="clean();closePopUp('deleteDocument');" class="btn btn-default">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+    </div>
+<form enctype="multipart/form-data">
+    
+<div class="container-fluid bootstrap-node-1" id="addNewRequestSection">
+	<div class="tableWidth">
+		<!---------Header Start---------->
+		<header>
+			<span id="#Include:carrier/carrierHeader.html#"></span>
+		</header>
+		<!---------Header End---------->
+		
+		<div class="bgmain">
+			<!---------Menu Level 1 Start---------->
+			<!-- <nav class="menu-level-1 tab" id="entitytRequests_carrier_tabs_hide_show_security">
+				<span id="#Include:carrier/carrierTabs1.html#"></span>
+			</nav> -->
+			
+			<!---------Menu Level 1 End---------->
+			
+			<!---------Menu Level 2 Start---------->
+			<!---------Menu Level 2 End---------->
+			<nav class="menu-level-2">
+				<span id="#Include:carrier/carrierTabs2.html#"></span>
+			</nav>
+			<article class="content sidebar-content">
+				<!---------Sidebar Start---------->
+				<div id="isSideBarHiereachyExists" class="sideBar">
+					<span id="#Include:carrier/sideBar.html#"></span>
+				</div>
+				<!---------Sidebar End---------->
+				
+				<!---------Body content Start---------->
+				<div class="panel-body-wraper" id="tdContent">
+					<!---------page Level msg Start---------->
+					<div class="errorMsgAlign clear-both">
+						<div class="error" id="ajax_error_pageError1" />
+					</div>
+					<div class="ConfirmationAlign clear-both" id="entityRequestMsg_freeform_contextdata_100">
+						 <label name="pageMsg" id="pageMsg" class="Confirmation" />
+                            <label name="pageMsg_ss" id="pageMsg_ss" class="Confirmation" />
+					</div>
+					<!---------page Level msg End---------->
+					
+					  <section class="paddingBottom10" id="isHideEntityRequestPageFilter">
+                            <div id="isNotShowRequestListing">
+                              <fieldset class="fieldset_Level_1">
+                                <legend id="isHideEntityRequestPageFilter_label">Request Filters</legend>
+                                <div class="freeFormDiv">
+                                  <div class="tdPaddingLeft">
+                                    <ul class="split-list" id="entityRequestFilter_freeform_contextdata_1">
+                                      <li id="entityrequests_filter_request_reason_id_security">
+                                        <div class="freeFormList">
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTdError">
+                                              <h6>#space#</h6>
+                                            </div>
+                                            <div class="freeFormListTdError paddingLeft3">
+                                              <div id="" class="error" />
+                                            </div>
+                                          </div>
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTd labelAlign">
+                                              <div class="freeFormLabelWidth_160"><span id="entityrequests_filter_request_reason_id_label">Request Type</span> :</div>
+                                            </div>
+                                            <div class="freeFormListTd tdInput">
+                                              <select name="filter_request_reason_id" 
+											  fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestPageFilter.isHideEntityRequestPageFilter_label).entityrequests_filter_request_reason_id_security.entityrequests_filter_request_reason_id_label.filter_request_reason_id"
+											  id="ajax_field_filter_request_reason_id" class="selectDetail">
+                                                <option value="">Select</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li id="request_status_security">
+                                        <div class="freeFormList">
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTdError">
+                                              <h6>#space#</h6>
+                                            </div>
+                                            <div class="freeFormListTdError paddingLeft3">
+                                              <div id="" class="error" />
+                                            </div>
+                                          </div>
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTd labelAlign">
+                                              <div class="freeFormLabelWidth_160"><span id="entityrequests_filter_request_status_label">Request Status</span> :</div>
+                                            </div>
+                                            <div class="freeFormListTd tdInput nowrapDiv">
+                                              <select name="filter_request_status" 
+											  fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestPageFilter.isHideEntityRequestPageFilter_label).request_status_security.entityrequests_filter_request_status_label.filter_request_status"
+											  id="ajax_field_filter_request_status" class="selectDetail">
+                                                <option value="">Select</option>
+                                                <option value="1">New</option>
+                                                <option value="4">Completed</option>
+                                                <option value="5">Declined</option>
+                                                <option value="3">UnderReview</option>
+                                                <option value="2">NeedMore</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li id="entityrequests_filter_assigned_to_security">
+                                        <div class="freeFormList">
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTdError">
+                                              <h6>#space#</h6>
+                                            </div>
+                                            <div class="freeFormListTdError paddingLeft3">
+                                              <div id="" class="error" />
+                                            </div>
+                                          </div>
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTd labelAlign">
+                                              <div class="freeFormLabelWidth_160"><span id="entityrequests_filter_assigned_to_label">Assigned To</span> :</div>
+                                            </div>
+                                            <div class="freeFormListTd tdInput nowrapDiv">
+                                              <select name="filter_assigned_to" 
+											  fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestPageFilter.isHideEntityRequestPageFilter_label).entityrequests_filter_assigned_to_security.entityrequests_filter_assigned_to_label.filter_assigned_to"
+											  id="ajax_field_filter_assigned_to" class="selectDetail">
+                                                <option value="">Select</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li id="hideRecordReasonFilterInEntityRequests">
+                                        <div class="freeFormList">
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTdError">
+                                              <h6>#space#</h6>
+                                            </div>
+                                            <div class="freeFormListTdError paddingLeft3">
+                                              <div id="" class="error" />
+                                            </div>
+                                          </div>
+                                          <div class="freeFormListTr">
+                                            <div class="freeFormListTd labelAlign">
+                                              <div class="freeFormLabelWidth_160"><label id="entityrequests_filter_record_reason_other_label">Request Reason</label> :</div>
+                                            </div>
+                                            <div class="freeFormListTd tdInput">
+                                              <input name="filter_record_reason_other" 
+											  fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestPageFilter.isHideEntityRequestPageFilter_label).hideRecordReasonFilterInEntityRequests.entityrequests_filter_record_reason_other_label.filter_record_reason_other"
+											  id="ajax_field_filter_record_reason_other" type="text" class="inputDetail" maxlength="100" />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="divButton">
+                                    <div class="buttonwrapper">
+                                      <a id="entityrequest_filter"
+                                      fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestPageFilter.isHideEntityRequestPageFilter_label).entityrequest_filter.entityrequest_filter_label.entityrequest_filter"
+                                      href="javascript:submitform('carrier/entityRequests.html','entityRequests.filterEntityRequests','','');" class="btn btn-primary">
+                                        <span id="entityrequest_filter_label">Filter</span>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </section>
+                          <section>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="IsAgencyTypeCheckForGADisclaimer">
+                              <tr id="ga_disclaimer_security">
+                                <td align="left" class="disclaimer">
+                                  <b>
+                                    <i>It is the responsibility
+of the GA to verify sub producer's E&amp;O coverage and license
+status.</i>
+                                  </b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="height:15px">#space#</td>
+                             </tr>
+                           </table>
+                         </section>
+                         
+                         <section  id="isHideEntityRequestListingPageFilter">
+                         <div id="isShowRequestListing" class="free-form" > 
+                  <fieldset class="fieldset_Level_1">
+                    <legend id="isHideEntityRequestListingPageFilter_label">Request Filters</legend>
+                    <div class="paddingTop10">
+                      <div class="freeFormDiv form-inline" >
+                        <div class="padding-left-form">
+                          <ul class="inlineBlock" id="entityRequestFilter_freeform_contextdata_1">
+                         
+                            <li  class="inlineBlock_2" id="entityrequests_searchByEntityNameAdvance_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                   <span id="entityrequests_searchByEntityNameAdvance_label">Agency Name</span> :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                     <input name="searchByEntityNameAdvance" 
+									 fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityrequests_searchByEntityNameAdvance_security.entityrequests_searchByEntityNameAdvance_label.searchByEntityNameAdvance"
+									 id="ajax_field_searchByEntityNameAdvance" type="text" autocomplete="OFF" maxlength="128" onkeyup="javascript:ajaxpageblocklink('carrier/entityRequests.html','entityRequests.getAgencyList','','','ajaxxmlname_searchByEntityNameAdvance');" onclick="nottoggleDivDisplay(this,'searchByEntityNameAdvance','ajaxxmlname_searchByEntityNameAdvance');"  style="width:274px"/>
+                                             <div id="ajaxxmlname_searchByEntityNameAdvance" class="transparent fixcolumnSearchDiv" style="display: none; border: solid 1px #cccccc; width: 271px; margin-left: 4px;" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          
+                            
+                            <li  class="inlineBlock_2"  id="entityRequests_contactname_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityrequests_searchByIndNameAdvance_label">Contact Last Name :</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    <input name="searchByIndNameAdvance" 
+									fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityRequests_contactname_security.entityrequests_searchByIndNameAdvance_label.searchByIndNameAdvance"
+									id="ajax_field_searchByIndNameAdvance" type="text" autocomplete="OFF" maxlength="128" onkeyup="javascript:ajaxpageblocklink('carrier/entityRequests.html','entityRequests.GetAgentLastNameList','','','ajaxxmlname_searchByIndNameAdvance');" onclick="nottoggleDivDisplay(this,'searchByIndNameAdvance','ajaxxmlname_searchByIndNameAdvance');" style="width: 274px" />
+                                             <div id="ajaxxmlname_searchByIndNameAdvance" class="transparent fixcolumnSearchDiv" style="display: none; border: solid 1px #cccccc; width: 230px; margin-left: 4px;" />
+
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                           <li  class="inlineBlock_2" id="entityrequests_assigned_to_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span  id="assigned_to_security">Assigned To</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                   <select name="assigned_to" 
+								   fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityrequests_assigned_to_security.assigned_to_security.assigned_to"
+								   id="ajax_field_assigned_to" style="width: 278px">
+                                               <option value="">Select</option>
+                                             </select>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            <li  class="inlineBlock_2"   id="entityRequests_producercode_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityrequests_producersearch_producer_name_label">Producer Code</span>
+                                    :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                                    
+                             <input type="text" style="width: 274px" name="producersearch_producer_name" 
+							 fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityRequests_producercode_security.entityrequests_producersearch_producer_name_label.producersearch_producer_name"
+							 id="ajax_field_producersearch_producer_name" autocomplete="OFF" onkeyup="javascript:ajaxpageblocklink('carrier/entityRequests.html','entityRequests.GetProducerNumberListOnEntityReqList','','','ajaxxmlname_producersearch_producer_name');" onclick="nottoggleDivDisplay(this,'producersearch_producer_name','ajaxxmlname_producersearch_producer_name');" />
+                             <div id="ajaxxmlname_producersearch_producer_name" class="transparent" style="display: none; border: solid 1px #cccccc; width: 154px; margin-left: 3px;" />
+
+
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            <li  class="inlineBlock_2"   id="entityRequests_producercode_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityrequests_agentSearch_dba_label">DBA Name:</span>
+                                    
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                               <input type="text" name="agentSearch_dba" 
+							   fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityRequests_producercode_security.entityrequests_agentSearch_dba_label.agentSearch_dba"
+							   id="ajax_field_agentSearch_dba" maxlength="255" style="width: 274px" autocomplete="OFF" onkeyup="javascript:ajaxpageblocklink('carrier/entityRequests.html','entityRequests.GetDbaListOnEntityReqList','','','ajaxxmlname_agentSearch_dba');" onclick="nottoggleDivDisplay(this,'agentSearch_dba','ajaxxmlname_agentSearch_dba');" />
+                                             <div id="ajaxxmlname_agentSearch_dba" class="transparent" style="display: none; border: solid 1px #cccccc; width: 130px; margin-left: 3px;" />
+
+
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            
+                            <li  class="inlineBlock_2"  id="request_type_str_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="request_type_str_label">Request Type</span> :                                 
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                              <select name="request_type_str" 
+							  fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).request_type_str_security.request_type_str_label.request_type_str"
+							  id="ajax_field_request_type_str" style="width: 278px">
+                                               <option value="">Select</option>
+                                             </select>
+
+
+
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            <li  class="inlineBlock_2" id="hideRecordReasonFilterInEntityRequests">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityrequests_filter_record_reason_other_label">Request Reason :</span>
+                                 
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                             <input name="filter_record_reason_other" 
+							 fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).hideRecordReasonFilterInEntityRequests.entityrequests_filter_record_reason_other_label.filter_record_reason_other"
+							 id="ajax_field_filter_record_reason_other" type="text" style="width: 265px" maxlength="100" />
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            <li  class="inlineBlock_2" id="entityrequests_Status_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityrequests_Status_label">Request Status </span> :
+                                 
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                         <select name="Status" 
+						 fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityrequests_Status_security.entityrequests_Status_label.Status"
+						 id="ajax_field_Status" style="width: 278px">
+                                               <option value="0,1,2,3,4">All</option>
+                                               <option value="0">Pending</option>
+                                               <option value="1">Approved</option>
+                                               <option value="2">Completed</option>
+                                               <option value="3">Declined</option>
+<!-- BMIC Specific-->                                               <!-- <option value="4">Pending Esignature</option -->>
+                                             </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            
+                            <li  class="inlineBlock_2" id="hideEntityNationalNameBasedOnRole">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityRequests_national_agency_desc_label">National Agency :
+ </span>
+                                 
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                         <input name="national_agency_name" 
+						 fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).hideEntityNationalNameBasedOnRole.entityRequests_national_agency_desc_label.national_agency_name"
+						 id="ajax_field_national_agency_name" type="text" style="width: 274px" maxlength="100" autocomplete="OFF" onkeyup="javascript:ajaxpageblocklink('carrier/entityRequests.html','entityRequests.getNationalAgencyDescList','','','ajaxxmlname_ajax_field_national_agency_name');" onclick="nottoggleDivDisplay(this,'ajax_field_national_agency_name','ajaxxmlname_ajax_field_national_agency_name');" />
+                                             <div id="ajaxxmlname_ajax_field_national_agency_name" class="transparent fixcolumnSearchDiv" style="display: none; border: solid 1px #cccccc; width: 271px; margin-left: 4px;" />
+
+ </div>
+                                </div>
+                              </div>
+                            </li>
+                            
+                            
+                             <li  class="inlineBlock_2" id="entityrequests_agent_number_security">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityRequests_agentnumber_label">Agent Number</span> :
+                                 
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+                           <input name="agent_number" 
+						   fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityrequests_agent_number_security.entityRequests_agentnumber_label.agent_number"
+						   id="ajax_field_agent_number" type="text" style="width: 274px" maxlength="100" autocomplete="OFF" onkeyup="javascript:ajaxpageblocklink('carrier/entityRequests.html','entityRequests.getNationalAgencyDescList','','','ajaxxmlname_ajax_field_national_agency_name');" onclick="nottoggleDivDisplay(this,'ajax_field_national_agency_name','ajaxxmlname_ajax_field_national_agency_name');" />
+ </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li  class="inlineBlock_2" id="hidestateFilterInEntityRequests">
+                              <div class="freeFormList form-group">
+                                <div class="freeFormListTr">
+                                  <div class="freeFormListTdError">
+                                    <h6>#space#</h6>
+                                  </div>
+                                  <div class="freeFormListTdError paddingLeft3">
+                                    <div id="" class="error" />
+                                  </div>
+                                </div>
+                                <div class="freeFormListTr" >
+                                  <div class="freeFormListTd labelAlign freeFormLabelWidth">
+                                    <span id="entityrequests_filter_state_id_label">State </span> :
+                                  </div>
+                                  <div class="freeFormListTd tdInput">
+									<select name="filter_state_id" 
+									fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).hidestateFilterInEntityRequests.entityrequests_filter_state_id_label.filter_state_id"
+									id="ajax_field_filter_state_id" style="width: 278px">
+                                               <option value="">Select</option>
+                                             </select>
+									</div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <section class="divButton buttons-section paddingTop10">
+                          <div class="buttonwrapper">
+                       <a id="entityrequest_go"
+                       fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityrequest_go.entityrequest_go_label.entityrequest_go"
+                       href="javascript:submitform('carrier/entityRequests.html','entityRequests.filterEntityRequests','','');" class="btn btn-primary">
+                                       <span id="entityrequest_go_label">Filter</span>
+                                     </a>
+
+                            <a id="entityrequest_reset"
+                            fullid="entityRequestFilter_freeform_contextdata_1(isHideEntityRequestListingPageFilter.isHideEntityRequestListingPageFilter_label).entityrequest_reset.entityrequest_reset_label.entityrequest_reset"
+                            href="javascript:submitform('carrier/entityRequests.html','entityRequests.resetEntityRequestFilterData','','');" class="btn btn-default">
+                                            <span id="entityrequest_reset_label">Reset</span>
+                                          </a>
+
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </fieldset>
+                  </div>
+                </section>
+                         
+                         
+                 
+                         
+                         
+                         
+                         
+                          <section class="clearDiv">
+                            <fieldset class="fieldset_Level_1 ">
+                              <legend>Requests</legend>
+                              <div id="completeRequestDiv">
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                  <tr id="checkDuplicateAddressDetailsOnEntityRequestKey">
+                                    <td>
+                                      <span>#space##space#</span>
+                                    </td>
+                                  </tr>
+                                  <tr id="checkDuplicateAddressDetailsOnEntityRequestKey">
+                                    <td>
+                                      <span>#space##space# WARNING: A duplicate agency location
+exists in the system !</span>
+                                    </td>
+                                  </tr>
+                                  <tr id="checkDuplicateContactOnEntityRequestKey">
+                                    <td>
+                                      <span>#space##space# WARNING: Duplicate contact already exists
+!</span>
+                                    </td>
+                                  </tr>
+                                  <tr id="checkDuplicateAddressDetailsOnEntityRequestKey">
+                                    <td>
+                                      <span>#space##space#</span>
+                                    </td>
+                                  </tr>
+                                  <tr id="isNotShowRequestListing">
+                                    <td align="left">
+                                      <!-- <div id="eval:ProducerOneRule.checkDefaultOpenAddNewEntityRequest"> -->
+                                     <div>
+                                       <div id="DefaultOpenForm:carrier/addEntityRequests" />
+                                     </div>
+                                   </td>
+                                 </tr>
+                                 <tr id="isShowRequestListing">
+                                   <td>
+                                     <table cellpadding="0" cellspacing="0" width="100%">
+                                       <tr id="add_new_requests_security">
+                                         <td id="common.hideRequestsAddNewButton" class="paddingTop5 paddingBottom10">
+                                           <div class="buttonwrapper">
+                                             <a href="javascript:submitform('carrier/entityRequests.html','entityRequests.addNewRequestAction','','');" class="btn btn-primary" onclick="clearDefaultAddNewEntityRequestDiv();">
+                                                <span id="newRequestDetailbuttonlabel">Add New Request</span>
+                                              </a>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <div id="ajax_sorting" class="gridTopPadding4">
+                                              <table cellpadding="2" cellspacing="0" width="100%" id="agencyInternalRequests_list_01" border="0" class="gridTable">
+                                                <tr id="Search_firm_pagination_02">
+                                                  <td colspan="14" class="pagination">
+                                                    <table width="100%" border="0" cellpadding="1" cellspacing="0">
+                                                      <tr>
+                                                        <td width="1%" nowrap="nowrap" class="linright">Records per Page
+:</td>
+                                                        <td width="1%" nowrap="nowrap">
+                                                          <select id="recordsperpage" onchange="ajax_sorting" name="recordsperpage" class="inputbox" />
+                                                        </td>
+                                                        <td align="center">
+                                                          <table cellpadding="1" cellspacing="0">
+                                                            <tr>
+                                                              <td class="linright">Viewing</td>
+                                                              <td id="Search_firm_recordsfrom" class=" paginationTxt" />
+                                                              <td class="linright">to</td>
+                                                              <td id="Search_firm_recordsto" class=" paginationTxt" />
+                                                              <td class="linright">of</td>
+                                                              <td id="Search_firm_totalrecords" class=" paginationTxt" />
+                                                            </tr>
+                                                          </table>
+                                                        </td>
+                                                        <td align="right" width="10%">
+                                                          <table cellpadding="1" cellspacing="0">
+                                                            <tr>
+                                                              <td id="Search_firm_firstpagelink">
+                                                                <a id="entityrequest_previousall"  href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="First Page" tabindex="21">
+                                                                  <img src="images/previous_all.png" border="0" />
+                                                                </a>
+                                                              </td>
+                                                              <td id="Search_firm_previouspagelink">
+                                                                <a id="entityrequest_previousone" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="Previous" tabindex="21">
+                                                                  <img src="images/previous_one.png" border="0" />
+                                                                </a>
+                                                              </td>
+                                                              <td nowrap="nowrap" class="linright">Page :</td>
+                                                              <td>
+                                                                <select id="pagenumber" onchange="ajax_sorting" name="pagenumber" class="inputbox" />
+                                                              </td>
+                                                              <td id="Search_firm_nextpagelink">
+                                                                <a id="entityrequest_nextone" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="Next" tabindex="21">
+                                                                  <img src="images/next_one.png" border="0" />
+                                                                </a>
+                                                              </td>
+                                                              <td id="Search_firm_lastpagelink">
+                                                                <a id="entityrequest_nextall" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="Last Page" tabindex="21">
+                                                                  <img src="images/next_all.png" border="0" />
+                                                                </a>
+                                                              </td>
+                                                            </tr>
+                                                          </table>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                                <tr id="agencyInternalRequests_list_header_1">
+                                                  <td id="sorting(,A,ajax_sorting):block_field_request_ss_id" class="HeaderStyle" width="8%">Request ID</td>
+                                                  <td width="20%" id="hideEntityNationalNameBasedOnRole" class="HeaderStyle">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_national_agency_name">
+                                                      <label id="entityRequests_national_agency_desc_label">National Agency</label>
+                                                    </span>
+                                                  </td>
+                                                  <td width="20%" id="entityrequests_name_security" class="HeaderStyle">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_agencyname">
+                                                      <label id="entityRequests_agencyname_label">National Agency</label>
+                                                    </span>
+                                                  </td>
+                                                  <td width="20%" id="entityrequests_AgentNumber_security" class="HeaderStyle">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_Agent_Number">
+                                                      <label id="entityRequests_AgentNumber_label">Agent Number</label>
+                                                    </span>
+                                                  </td>
+                                                  <td width="20%" id="entityrequests_producer_name_security" class="HeaderStyle">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_producer_name">
+                                                      <label id="entityRequests_producer_name_label">Agency Code Description</label>
+                                                    </span>
+                                                  </td>
+                                                  <td width="10%" id="entityRequests_dba_security" class="HeaderStyle">
+                                                  	<span id="sorting(,A,ajax_sorting):block_field_dba">
+                                                  	DBA</span></td>
+                                                  <td width="18%" id="sorting(,A,ajax_sorting):block_field_request_reason" class="HeaderStyle">Request Type</td>
+                                                  <td id="entity_requests_effective_date_security" class="HeaderStyle">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_effective_date">Effective
+Date</span>
+                                                  </td>
+                                                  <td width="10%" id="sorting(,A,ajax_sorting):block_field_submitted_date" class="HeaderStyle">
+                                                    <div style="width:80px">Submitted Date</div>
+                                                 </td>
+                                                 <td width="10%" id="sorting(,A,ajax_sorting):block_field_completion_date" class="HeaderStyle">
+                                                   <div style="width:80px">Completion Date</div>
+                                                 </td>
+                                                 <td id="sorting(,A,ajax_sorting):block_field_request_status" class="HeaderStyle" width="10%">
+                                                   <div style="width:80px">Request Status</div>
+                                                  </td>
+                                                  <td width="10%" id="sorting(,A,ajax_sorting):block_field_assigned_to" class="HeaderStyle">Assigned To</td>
+                                                  <td width="10%" id="sorting(,A,ajax_sorting):block_field_submitted_by_name" class="HeaderStyle">Submitted By</td>
+                                                  <td width="10%" id="entityRequests_last_updated_ts_security" class="HeaderStyle">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_last_updated_ts">Last
+Updated</span>
+                                                  </td>
+                                                  <td id="entityRequests_last_updated_by_security" class="HeaderStyle" width="10%">
+                                                    <span id="sorting(,A,ajax_sorting):block_field_last_updated_by">Last
+Updated By</span>
+                                                  </td>
+                                                  <td id="isShowReassignUserIconForRequestListing" class="HeaderStyle" width="1px">
+                                                    <span id="block_field_reassign_row_link" />
+                                                  </td>
+                                                  <td id="block_field_comments_row_link" class="HeaderStyle"></td>
+                                                </tr>
+                                                <tbody id="agencyInternalRequests_list_data_1">
+                                                  <tr>
+                                                    <td id="block_field_request_ss_id">
+                                                      <!-- <a id="entityrequest_edit" href="javascript:submitform('admin/agencyFunctions_selectFunctionType.html|admin/bobtransfersStep1.html|carrier/entityRequests.html|carrier/docInsuranceForSelfServiceApproval.html|carrier/docW9DetailsForSelfService.html','entityRequests.showGenEntityPersonRequest','forwardeval','EntityRequestsRule.isShowAgencyFunctionPage|MNARule.isTransfers|EntityRequestsRule.isShowEntityRequestForSelfService|EntityRequestsRule.isENORequestForDefaultOpen|EntityRequestsRule.isW9RequestForDefaultOpen');" /> -->
+                                                    </td>
+                                                    <td id="hideEntityNationalNameBasedOnRole">
+                                                      <span id="block_field_national_agency_name" />
+                                                    </td>
+                                                    <td id="entityrequests_name_security">
+                                                      <span id="block_field_agencyname" />
+                                                      <!-- <a
+                                                                                           href="javascript:submitform('carrier/entityRequests.html|carrier/entityGeneralDetails.html','agencyInternalRequests.showGenEntityPersonRequest','forwardeval','ProducerOneRule.isNotSelfServiceRequest|ProducerOneRule.isSelfServiceRequest');"></a> -->
+                                                     <!--<a
+                                                                                   href="javascript:submitform('carrier/selfserviceRequestSummary.html','agencyInternalRequests.showGenEntityPersonRequest','','');">
+                                                                                   </a>-->
+                                                   </td>
+                                                   <td id="entityrequests_AgentNumber_security">
+                                                   	<span id="block_field_Agent_Number"></span>
+                                                   </td>
+                                                   <td id="entityrequests_producer_name_security">
+                                                   	<span id="block_field_producer_name"></span>
+                                                   </td>
+                                                    
+                                                   
+                                                   <td id="entityRequests_dba_security">
+                                                   	<span id="block_field_dba"></span>
+                                                   </td>
+                                                   <td id="block_field_request_reason" />
+                                                   <td id="entity_requests_effective_date_security">
+                                                     <span id="block_field_effective_date" />
+                                                   </td>
+                                                   <td id="block_field_submitted_date" />
+                                                   <td id="block_field_completion_date" />
+                                                   <td id="block_field_request_status" />
+                                                   <td id="block_field_assigned_to" />
+                                                   <td id="block_field_submitted_by_name" />
+                                                   <td id="entityRequests_last_updated_ts_security">
+                                                     <span id="block_field_last_updated_ts" />
+                                                   </td>
+                                                   <td id="entityRequests_last_updated_by_security">
+                                                     <span id="block_field_last_updated_by" />
+                                                   </td>
+                                                   <td id="isShowReassignUserIconForRequestListing">
+                                                     <!-- showSelfServiceReassignUsers -->
+                                                     <span id="block_field_reassign_row_link" align="right">
+                                                       <a id="entityrequest_user" class="cursor" href="javascript:rightclickmenu('carrier/reassignUsersForSelfService.html','reassignUsersForSelfService.showOnboardingUsers','','','div_ajaxpostionrequestListingReassign_freeform:request_ss_id');" title="Reassign Users">
+                                                         <img src="images/icons/ico_user.png" />
+                                                       </a>
+                                                     </span>
+                                                   </td>
+                                                   <td id="block_field_comments_row_link">
+                                                      <a class="comment_ico icons" id="comments_row_link" href="javascript:rightclickmenu('carrier/selfserviceComments.html','entityRequests.showComments','','','div_ajaxpostionrequestListingReassign_freeform:request_ss_id');" title="Comments">
+                                                      </a>
+                                                   </td>
+                                                 </tr>
+                                                 <tr class="border0" id="general_ajaxpostion_list_02">
+                                                   <td colspan="20" align="left" class="none">
+                                                     <div id="div_ajaxpostionrequestListingReassign_freeform:request_ss_id" class="bgAccordionN" />
+                                                   </td>
+                                                 </tr>
+                                               </tbody>
+                                             </table>
+                                           </div>
+                                         </td>
+                                       </tr>
+                                     </table>
+                                   </td>
+                                 </tr>
+                                 <tr id="checkSelfServicePrivilege">
+                                   <td>
+                                     <div id="ajax_sorting">
+                                       <table width="100%" cellpadding="0" cellspacing="0" id="showRequestList_security">
+                                         <tr>
+                                           <td>
+                                             <table cellpadding="0" cellspacing="0" width="100%" class="gridTable border_Level_1" id="AgencyPendingRequest_list_01">
+                                               <tr id="Search_firm_pagination_02">
+                                                 <td class="pagination">
+                                                   <table width="100%" border="0" cellpadding="1" cellspacing="1">
+                                                     <tr>
+                                                       <td width="1%" nowrap="nowrap">Records per Page :</td>
+                                                       <td width="1%" nowrap="nowrap">
+                                                         <select id="recordsperpage" onchange="ajax_sorting" name="recordsperpage" class="inputbox" />
+                                                       </td>
+                                                       <td align="center">
+                                                         <table cellpadding="1" cellspacing="0">
+                                                           <tr>
+                                                             <td class="linright">Viewing</td>
+                                                             <td id="Search_firm_recordsfrom_02" class=" paginationTxt" />
+                                                             <td class="linright">to</td>
+                                                             <td id="Search_firm_recordsto_02" class=" paginationTxt" />
+                                                             <td class="linright">of</td>
+                                                             <td id="Search_firm_totalrecords_02" class=" paginationTxt" />
+                                                           </tr>
+                                                         </table>
+                                                       </td>
+                                                       <td align="right" width="10%">
+                                                         <table cellpadding="1" cellspacing="0">
+                                                           <tr>
+                                                             <td id="Search_firm_firstpagelink_02">
+                                                               <a id="entityrequest_previous_all" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="First Page" tabindex="21">
+                                                                 <img src="images/previous_all.png" border="0" />
+                                                               </a>
+                                                             </td>
+                                                             <td id="Search_firm_previouspagelink_02">
+                                                               <a id="entityrequest_previous_one" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="Previous" tabindex="21">
+                                                                 <img src="images/previous_one.png" border="0" />
+                                                               </a>
+                                                             </td>
+                                                             <td nowrap="nowrap">#space#Page :</td>
+                                                             <td>
+                                                               <select id="pagenumber" onchange="ajax_sorting" name="pagenumber" class="inputbox" />
+                                                             </td>
+                                                             <td id="Search_firm_nextpagelink_02">
+                                                               <a id="entityrequest_next_one" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="Next" tabindex="21">
+                                                                 <img src="images/next_one.png" border="0" />
+                                                               </a>
+                                                             </td>
+                                                             <td id="Search_firm_lastpagelink_02">
+                                                               <a id="entityrequest_next_all" href="javascript:ajaxpagination('entityRequests.html','ajax_sorting','','');" title="Last Page" tabindex="21">
+                                                                 <img src="images/next_all.png" border="0" />
+                                                               </a>
+                                                             </td>
+                                                           </tr>
+                                                         </table>
+                                                       </td>
+                                                     </tr>
+                                                   </table>
+                                                 </td>
+                                               </tr>
+                                               <tr>
+                                                 <td>
+                                                   <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                     <tr id="AgencyPendingRequest_list_header_01">
+                                                       <th width="5%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_request_id">
+                                                         <div style="width: 70px">Request ID</div>
+                                                       </th>
+                                                       <th id="sorting(,A,ajax_sorting):block_field_agent_name" width="15%" class="HeaderStyle">
+                                                         <span id="individualfieldlabel">Individual</span>
+                                                       </th>
+                                                       <th width="15%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_request_status">
+                                                         <div style="width:60px">Request Status</div>
+                                                        </th>
+                                                        <th class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_record_reason_other" width="32%">Request Reason</th>
+                                                        <th width="13%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_request_reason">Request
+Type</th>
+                                                        <th width="10%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_assigned_to">Assigned
+To</th>
+                                                        <th width="10%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_last_updated_ts">
+                                                          <div style="width:60px">Last Updated</div>
+                                                       </th>
+                                                       <th width="10%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_last_updated_by">
+                                                         <div style="width: 84px">Last Updated By</div>
+                                                       </th>
+                                                       <!-- <th width="2%" class="HeaderStyle">
+                                                                                                                               </th>
+                                                                                                                               <th width="2%" class="HeaderStyle"
+                                                                                                                               id="block_field_document_row_link">
+                                                                                                                               <a href="#"> <img
+                                                                                                                                       src="images/icons/i_attach.gif" /> </a>
+                                                                                                                           </th>-->
+                                                     </tr>
+                                                     <tbody id="AgencyPendingRequest_list_data_2">
+                                                       <tr>
+                                                         <td id="block_field_request_id">
+                                                           <a onclick="javascript:clearDefaultAddNewEntityRequestDiv();" href="javascript:rightclickmenu('carrier/pendingEntityRequests.html','pendingEntityRequests.showRequestPending','','','div_ajaxpostion_pendingEntityRequestsDiv:request_id');" />
+                                                         </td>
+                                                         <td id="block_field_agent_name" />
+                                                         <td id="block_field_request_status">
+                                                           <span id="requestStatusNew">New</span>
+                                                           <span id="requestStatusCompleted">Completed</span>
+                                                           <span id="requestStatusDeclined">Declined</span>
+                                                           <span id="requestStatusUnderReview">Under Review</span>
+                                                           <span id="requestStatusNeedMore">Need More Info</span>
+                                                         </td>
+                                                         <td id="block_field_record_reason_other" />
+                                                         <td id="block_field_request_reason" />
+                                                         <td id="block_field_assigned_to" />
+                                                         <td id="block_field_last_updated_ts" />
+                                                         <td id="block_field_last_updated_by" />
+                                                         <!-- 
+                                                                                                                               <td id="block_field_document_row_link">
+                                                                                                                                   <span>
+                                                                                                                                   <span
+                                                                                                                                       id="block_field_document_row_link"
+                                                                                                                                       class="icoAttach"> <a
+                                                                                                                                           class="cursor"
+                                                                                                                                           href="javascript:ajaxpageblocklink('carrier/uploadDocument.html','pendingEntityRequests.addAttachment','','','attachmentDiv');" title="Attach">
+                                                                                                                                                </a> </span> </span>
+                                                                                                                               </td> -->
+                                                       </tr>
+                                                       <tr id="general_ajaxpostion_list_02" class="border0">
+                                                         <td colspan="8" align="left" class="none" border="0">
+                                                           <div id="div_ajaxpostion_pendingEntityRequestsDiv:request_id" class="bgAccordionN" />
+                                                         </td>
+                                                       </tr>
+                                                     </tbody>
+                                                   </table>
+                                                   <table cellpadding="0" cellspacing="0" width="100%" border="0" id="isTabAgent">
+                                                     <tr id="AgencyPendingRequest_list_header_01">
+                                                       <th width="5%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_request_id">
+                                                         <div style="width: 70px">Request ID</div>
+                                                        </th>
+                                                        <th width="15%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_status">Request
+Status</th>
+                                                        <th class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_record_reason_other" width="15%">Request Reason</th>
+                                                        <th width="40%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_request_reason">Request
+Type</th>
+                                                        <th width="13%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_last_updated_ts">Last
+Updated</th>
+                                                        <th width="10%" class="HeaderStyle" id="sorting(,A,ajax_sorting):block_field_last_updated_by">
+                                                          <div style="width: 80px">Last Updated By</div>
+                                                       </th>
+                                                       <!--<th width="1%" class="HeaderStyle"
+                                                                                                                                   id="block_field_document_row_link">
+                                                                                                                                   <span class="icoAttach"><a
+                                                                                                                                       href="#" title="Attach">  </a> </span>
+                                                                                                                               </th>
+                                                                                                                           -->
+                                                     </tr>
+                                                     <tbody id="AgencyPendingRequest_list_data_2">
+                                                       <tr>
+                                                         <td id="block_field_request_id">
+                                                           <a onclick="javascript:clearDefaultAddNewEntityRequestDiv();" href="javascript:rightclickmenu('carrier/pendingEntityRequests.html','pendingEntityRequests.showRequestPending','','','div_ajaxpostion_pendingEntityRequestsDiv:request_id');" />
+                                                         </td>
+                                                         <td id="block_field_status">
+                                                           <span id="requestStatusNew">New</span>
+                                                           <span id="requestStatusCompleted">Completed</span>
+                                                           <span id="requestStatusDeclined">Declined</span>
+                                                           <span id="requestStatusUnderReview">Under Review</span>
+                                                           <span id="requestStatusNeedMore">Need More Info</span>
+                                                         </td>
+                                                         <td id="block_field_record_reason_other" />
+                                                         <td id="block_field_request_reason" />
+                                                         <td id="block_field_last_updated_ts" />
+                                                         <td id="block_field_last_updated_by" />
+                                                         <!--<td id="block_field_document_row_link">
+                                                                                                                                   <span
+                                                                                                                                       id="eval:ProducerOneRule.isDocumentsizeExists"><span
+                                                                                                                                       id="block_field_document_row_link"
+                                                                                                                                       class="icoAttach"> <a
+                                                                                                                                           class="cursor"
+                                                                                                                                           href="javascript:ajaxpageblocklink('carrier/uploadPopup.html','entityRequests.uploadedit','','','downloadUploadDiv');" title="Attach">
+
+                                                                                                                                                </a> </span> </span>
+                                                                                                                               </td>
+                                                                                                                           -->
+                                                       </tr>
+                                                       <tr id="general_ajaxpostion_list_02" class="border0">
+                                                         <td colspan="8" align="left" class="none" border="0">
+                                                           <div id="div_ajaxpostion_pendingEntityRequestsDiv:request_id" class="bgAccordionN" />
+                                                         </td>
+                                                       </tr>
+                                                     </tbody>
+                                                   </table>
+                                                 </td>
+                                               </tr>
+                                               <tr>
+                                                 <td class="spacerTd">#space#</td>
+                                               </tr>
+                                             </table>
+                                           </td>
+                                         </tr>
+                                       </table>
+                                     </div>
+                                   </td>
+                                 </tr>
+                               </table>
+                             </div>
+                           </fieldset>
+                         </section>
+                         <section id="addEntityRequests" class="clearDiv">
+                           <!-- <div id="uploadDocumentDiv">
+                                                                               <div id="addNewRequestDiv1"></div>
+                                                                           </div> -->
+                         </section>
+                         <section class="extendedFields" id="extendedFields">
+                           <span id="#IncludeCustomFields#" />
+                         </section>
+					
+				</div>
+				<!---------Body content End---------->
+				
+				<!---------Sidebar Right Start---------->
+				<div id="sidebar_right_security" class="sideBarRight">
+					<span id="#Include:carrier/sideBarRight.html#"></span>
+				</div>
+				<!---------Sidebar Right End---------->
+			</article>
+		</div>
+		<!---------Footer Start---------->
+		<footer>
+			<span id="#Include:admin/adminFooter.html#"></span>
+		</footer>
+		<!---------Footer End---------->
+	</div>
+   
+    
+    
+      <div >
+      
+        <div class="" id="entityRequest_freeform_contextdata_0145">
+          <input type="hidden" name="jsessionid" id="jsessionid" />
+          <input type="hidden" name="showUploadDiv" id="showUploadDiv" />
+          <input type="hidden" name="agency_id" id="ajax_field_agency_id" />
+          <input type="hidden" name="htmlSource" id="htmlSource" />
+          <input type="hidden" name="coming_page" id="coming_page" />
+          <input type="hidden" name="divHideShow" id="divHideShow" />
+          <input type="hidden" name="object_type_desc" id="ajax_field_object_type_desc" />
+          <input type="hidden" name="isallusers" id="ajax_field_isallusers" />
+          <input type="hidden" name="isdisplayusers" id="ajax_field_isdisplayusers" />
+          <input type="hidden" id="ajax_field_PAGE_DISABLED_FIELDS" name="PAGE_DISABLED_FIELDS" />
+          <input type="hidden" name="iscomingFromAgencyAdminDashboard" id="ajax_field_iscomingFromAgencyAdminDashboard" />
+          <input type="hidden" id="ajax_field_isCommingFromCarrierTab1" name="isCommingFromCarrierTab1" />
+         
+        </div>
+        <div id="requesterInfo" class="requestIdPopUp">
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td valign="top" class="popupBg">
+                <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                  <tr>
+                    <td class="popupHeader">Requester Info</td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="center">
+                      <table cellpadding="0" cellspacing="0" width="100%" class="gridTable">
+                        <tr>
+                          <td class="HeaderStyle" width="30%" style="height: 20px;">Requester
+Name</td>
+                          <td class="HeaderStyle" width="40%" style="height: 20px;">Email</td>
+                          <td class="HeaderStyle" style="height: 20px;">Phone</td>
+                        </tr>
+                        <tr id="requestPopup_freeform_contextdata_01">
+                          <td class="RowStyle">
+                            <label name="user_name" id="user_name" />
+                          </td>
+                          <td class="RowStyle" />
+                          <td class="RowStyle" />
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div> 
+      <div class="calendar_widget" id="calendar_widget">
+        <iframe id="calendar_widget_iframe" name="calendar_widget_iframe" src="calendar_widget.html" frameborder="0" />
+      </div>
+    </form>
+  </body>
+</html>
+

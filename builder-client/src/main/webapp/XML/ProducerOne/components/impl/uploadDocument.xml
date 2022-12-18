@@ -1,0 +1,15 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="uploadDocument" displayname="Document Attachment">
+    
+     <action name="deleteDocument" deltaind="M">
+     <actionparam deltaind="I" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="uploadDocument_list_1" session="Y"/>
+     
+    </action>
+    
+    
+    
+    
+  </component>
+  
+  
+</projectcomponents>

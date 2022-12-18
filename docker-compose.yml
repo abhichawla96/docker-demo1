@@ -1,0 +1,17 @@
+version: '3'
+services:
+    javcdemo:
+        image: builder-client
+        build:
+            context: builder-client/.
+            dockerfile: Dockerfile
+        ports:
+          - 8080:8080
+        
+        image: builder-public
+        build:
+            context: builder-public/.
+            dockerfile: Dockerfile
+        ports:
+          - 8080:8080
+                

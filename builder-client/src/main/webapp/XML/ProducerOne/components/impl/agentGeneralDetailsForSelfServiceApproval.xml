@@ -1,0 +1,66 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id,workflow_function,aar_statusid_desc,workflow_user" metaobject="entityRequestsSelfService;entityGeneralDetailsAddress_ss;agentMoObject;person_ss;cost_center_lku;background_check;compititor_appointments;hierarchy_details_master;" name="agentGeneralDetailsForSelfServiceApproval" stackdisplayname="individualtablabel General Detail" objectcolumn="request_ss_id" objecttype="Self Service">
+   
+   <!-- Task Id- SS-009-002-01 Add and update Contact page - Phase 2 Start-->
+   <action deltaind="I" name="sendUpdatedAgentDataForSaveApproval">
+      <workflow deltaind="I" name="selfServiceInitiateEmail" seq="8">
+      	<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    <databaseoperation deltaind="I" executionsequence="0" metaobject="userprofiles" name="getMarketAssistantEmail" operation="3" sqlstmt="select  e_mail as e_mail from userprofiles where user_id=#workflow_user#"/>
+		<databaseoperation deltaind="I" executionsequence="1" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Agency_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+		<email deltaind="I" eventname="InitiateSelfServiceRequest" executionsequence="2" name="InitiateSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/>
+	 </workflow>
+   </action>
+  
+  
+  <!-- Phase 3- Agent Checkbox -->
+   <action deltaind="M" name="view">
+       <workflow deltaind="M" name="view" seq="17">
+	 <function deltaind="I" executionsequence="0" functionid="showContactTypeList" name="showContactTypeList" parameters="context"/>
+	  	  </workflow>
+   </action>
+   
+   <!-- START - QA2_003 - SS - Add New Contact - Show/Hide CBIA Yes/No Menu -->
+   <action deltaind="I" name="refreshPage1">
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams1" pre="Y" remove="Y" removeparams="showEffectiveDatePopup,effective_date_request" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y" />
+    </action>
+    <!-- END - QA2_003 - SS - Add New Contact - Show/Hide CBIA Yes/No Menu -->
+    
+     <!-- UAT2 0035 & 0036 DOB and SSN make mandatory -->
+  <action deltaind="I" name="refreshdob_ssn">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam viewparam="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" form="Y"></actionparam>
+  </action>
+   
+     <!-- Bug 0033 -->
+   
+    <action deltaind="I" name="copyAgentBusinessToW9">
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="refreshDropDown" paramid="refreshDropDown" val="Y" viewparam="Y"/>
+      <actionparam eval="AgentGeneralDetailsRule.isCopyAgentBusinessToW9CheckedTrue" executionsequence="2" form="Y" name="isDbAddressSkip" paramid="isDbAddressSkip" pre="Y" val="Y"/>
+      <workflow eval="AgentGeneralDetailsRule.isCopyAgentBusinessToW9CheckedTrue" name="copyAgentBusinessToW9" seq="0">
+			<function executionsequence="1" expression="assign(:country_code_w9,:country_code_business);assign(:addressline1_w9,:addressline1_business);
+			assign(:addressline2_w9,:addressline2_business);assign(:city_w9,:city_business);assign(:state_id_w9,:state_id_business);assign(:zip_w9,:zip_business);
+			assign(:county_w9,:county_business);assign(:phone_w9,:phone_business);assign(:fax_w9,:fax_business);assign(:mobile_w9,:mobile_business);
+			assign(:e_mail_w9,:e_mail_business);assign(:e_mail_w9,:e_mail_business);assign(:extn_w9,:extn_business);assign(:billing_terms_id_w9,:billing_terms_id_business);
+			assign(:territory_id_w9,:territory_id_business);assign(:agency_zip_code_2_w9,:agency_zip_code_2_business);assign(:agency_foreign_addr_in_w9,:agency_foreign_addr_in_business);
+			assign(:po_box_w9,:po_box_business);assign(:po_box_w9,:po_box_business);assign(:alt_phone_w9,:alt_phone_business);assign(:alt_extn_w9,:alt_extn_business);
+			assign(:misc_phone_w9,:misc_phone_business);assign(:addressline3_w9,:addressline3_business);assign(:email_preferred_ind_w9,:email_preferred_ind_business);
+			assign(:phone_preferred_ind_w9,:phone_preferred_ind_business);assign(:alt_email_w9,:alt_email_business);" name="copyAgentBusinessToW9"/>
+	  </workflow>
+     </action>
+     
+     <!-- START - UAT2 0033 - Preloading Business Address -->
+     <action deltaind="M" name="refreshCurrentPageData">
+      		<actionparam deltaind="I" executionsequence="0" form="Y" name="person_agency_id" paramid="person_agency_id" session="Y"/>
+      		<workflow deltaind="I" name="populateBusinessAdd" seq="14">
+        		<databaseoperation eval="ProducerOneRule.isPersonIdNull" metaobject="address" executionsequence="1" name="populateBusinessAdd" operation="3" 
+        sqlstmt="select addressline1 as addressline1_business, addressline2 as addressline2_business, city as city_business, state_id as state_id_business, county as county_business, zip as zip_business, phone as phone_business, mobile as mobile_business from address where agency_id = #person_agency_id# and type=1 and person_id is null"/>
+	  		</workflow>
+      </action>
+     <!-- END - UAT2 0033 - Preloading Business Address -->
+   
+  </component>
+  
+</projectcomponents>

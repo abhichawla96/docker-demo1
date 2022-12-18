@@ -1,0 +1,8 @@
+<fields project="ProducerOne">
+  
+  <field deltaind="I" id="agencyFunctions_selectFunctionType_toBeProcessed_agent_id" screen="admin/agencyFunctions_selectFunctionType.html" name="toBeProcessed_agent_id" isextendedfield="N" executionsequence="0" isencrypt="N" isprintbeforelabel="N" iscacheenabled="N" requiredlength="0" lookupobjectsql="select person_id, prdcr_last_name + ' ' + prdcr_first_name as name  from person where isactive='1' and person_id in(select person_id from agency_person ap where ap.agency_id=#toBeProcessed_agency_id#)"  lookupobjecttype="sql" displayfield="name" valuefield="person_id" section="agencyFunctions_selectFunctionType_freeform_contextdata_2" labelkey="toBeProcessed_agent_id_label" tabsconfigurationresourcename="toBeProcessed_agent_id_security" protectedresourceuniquename="toBeProcessed_agent_id_security">
+    <event id="onchange" name="onchange" securitykey="showAgencyCodeDropDownForSelfServiceAgencyFunction" actiontype="submitform" screen="admin/agencyFunctions_selectFunctionType.html" action="agencyCodeFilter" executionsequence="0">
+      <forward id="admin/agencyFunctions_selectFunctionType.html" screen="admin/agencyFunctions_selectFunctionType.html" executionsequence="0" />
+    </event>
+  </field>
+</fields>

@@ -1,0 +1,12 @@
+<tabsconfiguration project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	
+	<tabsconfigurationresource name="" accesslevel="0" contextname="" description="" value="" deltaind="">
+		<nodeinfo uniqueid="name">
+			<attribute name="accesslevel" datatype="int" />
+		</nodeinfo>
+	</tabsconfigurationresource>
+	
+</tabsconfiguration>

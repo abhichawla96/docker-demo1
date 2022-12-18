@@ -1,0 +1,52 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="agency_w9_ss" name="addNewW9ForSelfService" objectcolumn="request_ss_id" objecttype="Self Service">
+    
+    <!-- Phase 2 - Email to Sales Support once the request is Assigned -->
+    <action deltaind="M" name="sendDocW9DataForSaveApproval">
+    	<workflow deltaind="I" name="selfServiceInitiateEmail" seq="4">
+    		<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    	<databaseoperation deltaind="I" executionsequence="0" metaobject="userprofiles" name="getMarketAssistantEmail" operation="3" sqlstmt="select e_mail as e_mail from userprofiles where user_id=#workflow_user#"/>
+			<databaseoperation deltaind="I" executionsequence="1" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Agency_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+			<email deltaind="I" eventname="InitiateSelfServiceRequest" executionsequence="2" name="InitiateSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/>
+	  	</workflow>
+	</action>
+    
+    <!-- Phase 2 - Email to Agency Admin once the request is Approved -->
+    <action deltaind="M" name="approveRequests">
+		<actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+	    <workflow deltaind="I" name="selfServiceApproveEmail" seq="2">
+	    	<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+			<!-- Changes done for prod bug 31110  -->
+			<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			<!-- <email deltaind="I" eventname="ApproveSelfServiceRequest" executionsequence="2" name="ApproveSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/> -->
+		</workflow>
+		
+		<!-- Feature ADO - 48687 -->
+		<workflowevent deltaind="M" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="approveSelfService" isgetuser="Y" name="approveSelfService" userfield="workflow_user" workflow="selfServiceWorkFlow" isshoweffectivedate="Y"/>
+	</action>
+	
+	<!-- Phase 2 - Email to Agency Admin once the request is Declined -->
+	<action deltaind="M" name="declineRequests">
+	  	<workflow deltaind="M" eval="ProducerOneRule.assignDateFields" name="disapprvoveRequests" seq="0">
+	  		<storedprocedureoperation deltaind="M" dbspname="getDataForEmailNotificationForSelfService_p" eval="ProducerOneRule.checkEmailNotificationSentOnApprovalSecurity" executionsequence="2" id="getDataForEmailNotificationForSelfService_p" metaobject="agency_master_ss" name="getDataForEmailNotificationForSelfService_p" operation="3">
+          		<parameteroperation indexno="1" mode="IN" property="email_notification_event_name" seq="2"/>
+          		<parameteroperation indexno="0" mode="IN" property="request_ss_id" seq="1"/>
+          		<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+        	</storedprocedureoperation>
+	  		<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	  		<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getAgencyAdminDisApproverName" operation="3" sqlstmt="select top 1 req.assignee as workflow_assignee from workflowrequests as req join tbl_invitation_status_lku as status on req.workflowstatus_id=status.invitation_status_id join workflowrequestsstatus as reqsts on reqsts.workflowrequests_id=req.workflowrequests_id where req.objectid=#request_ss_id# order by workflowrequestsstatus_id desc"/>
+			<databaseoperation deltaind="I" executionsequence="2" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Entity_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+			<!-- Changes done for prod bug 31110  -->
+	    	<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			
+		</workflow>
+		
+		<!-- Feature ADO - 48687 -->
+		<workflowevent deltaind="M" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="declineSelfService" isgetuser="Y" name="declineSelfService" userfield="workflow_user" workflow="selfServiceWorkFlow" isshoweffectivedate="Y"/>
+		
+     </action>
+    
+  </component>
+</projectcomponents>

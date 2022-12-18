@@ -1,0 +1,51 @@
+<businessrules project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+	<rule-set name="" seq="">
+		<nodeinfo uniqueid="name">					
+		</nodeinfo>
+		<rule name="" seq="">
+			<nodeinfo uniqueid="name">			
+			</nodeinfo>
+			<parameter-set>
+				<parameter type="" name="" metaobject="" seq=""/>
+				<nodeinfo uniqueid="name">			
+				</nodeinfo>
+			</parameter-set>
+			<compute name="" lvalue="" rvalue="" result="" operation="" datatype="" executionseq="">
+				<nodeinfo uniqueid="name">			
+				</nodeinfo>
+				<returnval  returnparameter="" />			
+			</compute>
+			<condition  name="" operator="" conditionobject="" datatype="" seq="">
+				<nodeinfo uniqueid="name">			
+				</nodeinfo>
+				<lval  property="" value="" valuetype="" />
+				<rval  property="" value="" valuetype="" />
+				<then computeid="" conditionid="" expid="">
+					<returnval  returnparameter="" />		
+				</then>
+				<otherwise computeid="" conditionid="" expid="">			
+					<returnval  returnparameter="" />			
+				</otherwise>	
+			</condition>
+			<expression name="" seq="">
+				<nodeinfo uniqueid="name">			
+				</nodeinfo>
+				<exp type="">
+					<param operator="">
+						<lval  property="" value="" valuetype="" />
+						<rval  property="" value="" valuetype="" />
+					</param>	
+				</exp>
+				<then computeid="" conditionid="" expid="">
+					<returnval  returnparameter="" />		
+				</then>
+				<otherwise computeid="" conditionid="" expid="">			
+					<returnval  returnparameter="" />			
+				</otherwise>		
+			</expression>
+		</rule>
+	</rule-set>
+</businessrules>

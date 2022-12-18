@@ -1,0 +1,67 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="bank_information;" name="addNewBankInformation">
+	<action deltaind="M" name="saveBankInfoForAgency">
+		<actionparam checkfornullparams="serviceName" executionsequence="0" form="Y" name="serviceName" paramid="serviceName" pre="Y" val="validateRoutingNumber" viewparam="Y"/>
+			 
+		
+		<actionparam eval="ProducerOneRule.assignLastFourDigitsOfAccountNumber" executionsequence="1" form="Y" name="bank_account_last_four_digits" paramid="bank_account_last_four_digits" pre="Y"/>		
+		<actionparam eval="ProducerOneRule.checkBankAverageBalance" form="Y" name="bank_average_balance" paramid="bank_average_balance" pre="Y"/>
+		<actionparam executionsequence="5" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="bank_account_priority_order,limit_percentage,limit_amt,bank_information_id,bank_country_code,bank_state_id,bank_name,bank_address1,bank_address2,bank_city,bank_contact_name,bank_phone,bank_extn,bank_altphone,bank_altextn,bank_email,bank_account,bank_account_id,bank_routing,bank_account_last_four_digits,bank_account_type,bank_accountopen_date,bank_average_balance,bank_account_use_code,bank_account_use_desc,bank_account_status,bank_payment_freq_code,bank_payment_freq_desc,bank_payment_freq_instruction_tx,sweep_account_code,prenote_indicator,payment_type,bank_comments,last_updated_by,last_updated_ts,bank_account_for_EFT,bank_zipcode,bank_account_type_usage,commission_amt,bank_account_name,is_acc_trust,is_acc_commission,percentage_amt_flag,percentage_amt_value,pageError,pageMsg3, bank_effective_date, bank_expiration_date" session="Y"/>
+		<actionparam eval="ProducerOneRule.assignBankAccountopenDate" form="Y" name="bank_accountopen_date" paramid="bank_accountopen_date" pre="Y"/>
+		<actionparam form="Y" name="is_ma_login" paramid="is_ma_login" val="Y" viewparam="Y"/>
+		<!-- Phase 3: Bug Id- 18088- bank info records -->
+		<actionparam deltaind="I" executionsequence="6" form="Y" name="sweep_account_code" paramid="sweep_account_code" val="N" viewparam="Y"/>
+		
+		<actionparam form="Y" name="operation_type" paramid="operation_type" val="I" viewparam="Y"/>
+		
+		<actionparam eval="ProducerOneRule.assignDateFields" executionsequence="54" form="Y" name="additonalFieldForInputXml" paramid="additonalFieldForInputXml" pre="Y" val="assigned_to,operation_type,agency_id,person_id,producer_number_id,last_updated_by"/>
+    	<actionparam executionsequence="52" form="Y" name="isIncludeNonPersistantField" paramid="isIncludeNonPersistantField" pre="Y" val="false"/>
+    	<actionparam executionsequence="51" form="Y" name="metadataObjectName" paramid="metadataObjectName" pre="Y" val="bank_information"/>
+    	<actionparam executionsequence="65" form="Y" name="outputFieldName" paramid="outputFieldName" pre="Y" val="inputXml"/>
+		<actionparam executionsequence="1" form="Y" name="commaSepeatedFieldforRemoveAmountFormat" paramid="commaSepeatedFieldforRemoveAmountFormat" pre="Y" val="limit_amt,percentage_amt_value"/>
+		<actionparam eval="ProducerOneRule.assignDateFields" executionsequence="7" form="Y" name="assignDateFields" paramid="assignDateFields" pre="Y"/>
+		
+		<actionparam executionsequence="37" form="Y" name="fieldListToRemoveHypen" paramid="fieldListToRemoveHypen" pre="Y" val="bank_zipcode,bank_phone,bank_altphone"/>
+		<actionparam eval="ProducerOneRule.removeHyphenFromCommaSeperatedStringInContext" executionsequence="38" form="Y" name="removeHyphenFromCommaSeperatedStringInContext" paramid="removeHyphenFromCommaSeperatedStringInContext" pre="Y"/>
+		
+		<actionparam eval="ProducerOneRule.checkReenteraccountNumber" executionsequence="39" form="Y" name="pageError2789" paramid="pageError2789" pre="Y"/>
+    	 <workflow eval="integration_routing_verfication_enabled" name="saveBankInfoForAgency0" seq="0">
+    	 <function executionsequence="0" functionid="validateRoutingNumberWS" name="validateRoutingNumberWS" parameters="context"/>
+    	</workflow>
+    	<workflow eval="adapter_routing_verification_enabled" name="saveBankInfoForAgency1" seq="1">
+    	<webservicecall name="validateRoutingNumber" adaptername="dm-validate-routing-number-adapter" version="1.0.0.0" 
+		     contenttype="application/json" datasource="payload" applicationcontext="addNewBankInformation" application="DCDM" requestedby="user_name" subject="producer_number" object="producer_num" errorkey="pageError" executionsequence="0" >
+          <webservicecallmappingparam name="bank_routing" isexecuteonsuccess="Y" executionsequence="0" contextvariable="bank_routing" servicevariable="routing_number"/> 
+          <webservicecallmappingparam name="bank_name" isexecuteonsuccess="Y" executionsequence="1"  contextvariable="bank_name" servicevariable="bank_name"/> 
+         </webservicecall>
+    	</workflow> 
+    	<workflow eval="ProducerOneRule.isInetErrorListEmpty" name="saveBankInfoForAgency" seq="2">
+			<storedprocedureoperation dbspname="GetAgencyBankInfoCountforDuplicate_p_java" eval="ProducerOneRule.assignDateFields" executionsequence="0" id="GetAgencyBankInfoCountforDuplicate_p_java" metaobject="bank_information" name="GetAgencyBankInfoCountforDuplicate_p_java" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="agency_id" seq="0"/>  
+					<parameteroperation indexno="1" mode="IN" property="bank_account" seq="1"/>
+					<parameteroperation indexno="2" mode="IN" property="bank_routing" seq="2"/>
+					<parameteroperation indexno="3" mode="IN" property="bank_information_id" seq="3"/>
+					<parameteroperation indexno="4" mode="IN" property="operationType" seq="4"/>
+					<parameteroperation indexno="5" mode="IN" property="sweep_account_code" seq="5"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+			</storedprocedureoperation>
+			 
+			 <function executionsequence="1" functionid="removeAmountFormatFromMultipleFields" name="removeAmountFormatFromMultipleFields" parameters="context,:commaSepeatedFieldforRemoveAmountFormat"/>
+			 <function executionsequence="2" functionid="getAllMetaFieldDataFromContextAsXML" name="getAllMetaFieldDataFromContextAsXML" parameters="context,additonalFieldForInputXml"/>
+			<storedprocedureoperation dbspname="InsertUpdateBankInformation_p" eval="ProducerOneRule.isDuplicateBankDetailsNotExists" executionsequence="3" id="InsertUpdateBankInformation_p" metaobject="bank_information" name="InsertUpdateBankInformation_p" operation="1">
+				<parameteroperation indexno="0" mode="IN" property="inputXml" seq="0"/>
+				<parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+				<parameteroperation indexno="2" mode="IN" property="roles" seq="2"/>
+				<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			
+				
+		</workflow>
+		<actionparam eval="ProducerOneRule.isDuplicateBankDetailsExists" executionsequence="6" form="Y" name="pageError" paramid="pageError" post="Y"/>
+		<actionparam eval="ProducerOneRule.isPageSaveMsgAddBankInfo" executionsequence="20" form="Y" name="pageMsg3" paramid="pageMsg3" post="Y"/>
+		<actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="21" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="bank_information_id,bank_state_id,bank_name,bank_address1,bank_address2,bank_city,bank_contact_name,     bank_phone,bank_extn,bank_altphone,bank_altextn,bank_email,bank_account,bank_account_id,bank_routing,bank_account_last_four_digits,     bank_account_type,bank_accountopen_date,bank_average_balance,bank_account_use_desc,bank_payment_freq_code,     bank_payment_freq_desc,bank_payment_freq_instruction_tx,prenote_indicator,payment_type,bank_comments,last_updated_by,last_updated_ts,bank_account_for_EFT,     bank_zipcode,re_enter_bank_account,bank_account_name,is_acc_trust,bank_account_status_id,direct_deposit_reason" session="Y"/>
+	</action>
+	
+	</component>
+</projectcomponents>

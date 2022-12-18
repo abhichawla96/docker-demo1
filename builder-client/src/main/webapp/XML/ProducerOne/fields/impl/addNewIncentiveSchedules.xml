@@ -1,0 +1,4 @@
+<fields project="ProducerOne">
+<!-- Phase 3-Bug Id- 50569- expiration date -->
+  <!-- <field deltaind="M" id="addNewIncentiveSchedules_expiration_date" name="expiration_date" screen="compensation/addNewIncentiveSchedules.html" section="editIncentive123_freeform_contextdata_01" labelkey="IncentiveSchedle_expirationDate_label" tabsconfigurationresourcename="IncentiveSchedle_expirationDate_security" protectedresourceuniquename="IncentiveSchedle_expirationDate_security" isrequired="Y" />
+   --></fields>

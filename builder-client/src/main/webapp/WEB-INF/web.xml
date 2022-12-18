@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<servlet>
+		<servlet-name>ProducerOneServlet</servlet-name>
+		<servlet-class>
+			com.manage.process.ProducerOneServlet
+		</servlet-class>
+		<init-param>
+			<param-name>app-properties</param-name>
+			<param-value>DMClient.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>inet_project_id</param-name>
+			<param-value>ProducerOne,ProducerOnePerformance,ProducerOneClient</param-value>
+		</init-param>		
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	<servlet>
+		<servlet-name>upload</servlet-name>
+		<servlet-class>
+			 com.manage.process.FileUploadServlet
+		</servlet-class>		
+	</servlet>
+	    
+	<servlet-mapping>
+		<servlet-name>ProducerOneServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+    	<servlet-name>upload</servlet-name>
+    	<url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FeedServlet</servlet-name>
+        <servlet-class>com.manage.process.FeedServlet</servlet-class>
+        <init-param>
+            <param-name>default.feed.type</param-name>
+            <param-value>rss_2.0</param-value>
+        </init-param>
+    </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestDataServlet</servlet-name>
+    <servlet-class>com.manage.process.TestDataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+         <servlet-name>FeedServlet</servlet-name>
+         <url-pattern>/FeedServlet</url-pattern>
+    </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestDataServlet</servlet-name>
+    <url-pattern>/TestDataServlet</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+        <servlet-name>ChartServlet</servlet-name>
+        <servlet-class>com.manage.process.ChartServlet</servlet-class>
+    </servlet>
+   <servlet-mapping>
+         <servlet-name>ChartServlet</servlet-name>
+         <url-pattern>/ChartServlet</url-pattern>
+    </servlet-mapping>
+   
+   <servlet>
+        <servlet-name>HierarchyServlet</servlet-name>
+        <servlet-class>com.manage.process.HierarchyServlet</servlet-class>
+    </servlet>
+   <servlet-mapping>
+         <servlet-name>HierarchyServlet</servlet-name>
+         <url-pattern>/HierarchyServlet</url-pattern>
+    </servlet-mapping> 
+	<servlet>
+        <servlet-name>GraphServlet</servlet-name>
+        <servlet-class>com.manage.process.GraphServlet</servlet-class>
+    </servlet>
+   <servlet-mapping>
+         <servlet-name>GraphServlet</servlet-name>
+         <url-pattern>/graph</url-pattern>
+    </servlet-mapping> 
+	 <!--  
+	<security-constraint>
+      <web-resource-collection>
+                      <web-resource-name>Automatic SLL Forwarding</web-resource-name>
+                      <url-pattern>/*</url-pattern>
+      </web-resource-collection>
+      <user-data-constraint>
+        <transport-guarantee>
+                      CONFIDENTIAL
+        </transport-guarantee>
+      </user-data-constraint>
+    </security-constraint>
+	-->
+	<filter> 
+      <filter-name>ProducerOneFilter</filter-name>
+      <filter-class>com.manage.process.PIMXSSFilter</filter-class> 
+ 	</filter> 
+ 	<filter-mapping> 
+      <filter-name>ProducerOneFilter</filter-name>
+      <url-pattern>*.do</url-pattern> 
+ 	</filter-mapping>
+	
+	<session-config id="ProducerOne">
+		<session-timeout>-1</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>ManageIndex.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<resource-ref id="resource1">
+	   <description>DB Connection</description>
+	   <res-ref-name>jdbc/p1_securedb</res-ref-name>
+	   <res-type>javax.sql.DataSource</res-type>
+	   <res-auth>Container</res-auth>
+	</resource-ref>
+  <resource-ref id="resource2">
+	   <description>DB Connection</description>
+	   <res-ref-name>jdbc/p1_performancedb</res-ref-name>
+	   <res-type>javax.sql.DataSource</res-type>
+	   <res-auth>Container</res-auth>
+	</resource-ref>
+
+</web-app>

@@ -1,0 +1,57 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="bulkAppointTerminationLetter">
+  
+    <action name="sendAttachmentInEmail" metaobject="bulkLetterMoObject" deltaind="I">
+      <actionparam deltaind="I" eval="ProducerOneRule.isEmailSentMsg" post="Y" name="pageMsg" paramid="pageMsg" form="Y" executionsequence="5" />
+      <actionparam deltaind="I" post="Y" name="TYPE" paramid="TYPE" val="AL" form="Y" executionsequence="0" />
+      <actionparam deltaind="I" pre="Y" name="LetterType" paramid="LetterType" eval="ProducerOneRule.assignLetterTypeValue" form="Y" executionsequence="0" />
+      <actionparam deltaind="I" post="Y" name="companyID" paramid="companyID" viewparam="Y" form="Y" session="Y" executionsequence="0" />
+      <actionparam deltaind="I" executionsequence="0" form="Y" name="isAppointmentLetter" paramid="isAppointmentLetter" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam deltaind="I" pre="Y" name="BulkAppointmentMode" paramid="BulkAppointmentMode" viewparam="Y" form="Y" session="Y" executionsequence="0" />
+      <actionparam deltaind="I" pre="Y" name="method" paramid="method" val="downloadBulkAppointmentLetter" viewparam="Y" form="Y" executionsequence="0" />
+      
+      <actionparam deltaind="I" executionsequence="9" form="Y" name="person_id" paramid="person_id" viewparam="Y"/>
+      
+      <workflow deltaind="I" name="sendEmail" eval="ProducerOneRule.checkAgentAppointTerminationLetter" seq="0">
+      	<databaseoperation deltaind="I" executionsequence="0" metaobject="person" name="getPreferredMail" operation="3" sqlstmt="select top 1 aae.email_id as email_id,p.prdcr_first_name as name from additional_address_emails aae,person p,master_lookup_data_lku lku where p.person_id=aae.object_id and aae.object_id=#person_id# and lku.master_lookup_detail_id=(select master_lookup_detail_id from master_lookup_detail_lku where lookup_table_name='email_category_lku') and master_lookup_data_desc='Preferred Email'"></databaseoperation>
+	<function deltaind="I" executionsequence="1" functionid="attachAndSendEmail" name="attachAndSendEmail" parameters="context"/>
+      </workflow>
+      
+<!-- Existing Agency Appointed to New Location - Dynamic Row Function - Start -->
+      
+      <actionparam executionsequence="0" form="Y" name="TYPE" paramid="TYPE" post="Y" val="AL"/>
+      <actionparam eval="ProducerOneRule.assignLetterTypeValue" executionsequence="0" form="Y" name="LetterType" paramid="LetterType" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="companyID" paramid="companyID" post="Y" session="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="BulkAppointmentMode" paramid="BulkAppointmentMode" pre="Y" session="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="method" paramid="method" pre="Y" val="downloadBulkAppointmentLetter" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.assignEmailContentDataValue" executionsequence="0" form="Y" name="a" paramid="a" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ISEXECUTEEMAILDATAPART" paramid="ISEXECUTEEMAILDATAPART" pre="Y" val="Y"/>
+	  <actionparam deltaind="I" executionsequence="10" form="Y" name="agency_licenses_appointment_id" paramid="agency_licenses_appointment_id" pre="Y"/>
+	  
+	  <workflow name="email" deltaind="I" eval="ProducerOneRule.checkAgencyAppointTerminationLetter"  seq="1">
+          <databaseoperation deltaind="I" executionsequence="0" metaobject="master_lookup_data_lku" name="newProducerEmail1" operation="3" sqlstmt=" select top 1 ad.email_id as email_id, p.person_id, (p.prdcr_first_name + ' ' + prdcr_last_name) name, p.person_id as person_id_row from person p with(nolock) inner join agency_person ap with(nolock) on ap.person_id=p.person_id inner join additional_address_emails ad on p.person_id = ad.object_id and isnull(p.is_highest_ranking_principal,0) = 1 and ap.agency_id=#agency_id#"/>
+      	  <databaseoperation deltaind="I" executionsequence="2" metaobject="master_lookup_data_lku" name="newStatement" operation="3" sqlstmt="select top 1 agency_licenses_appointment_id from agency_licenses_appointment where agency_id=#agency_id#"/>
+  
+	      <storedprocedureoperation deltaind="I" dbspname="getDataForagencyAppoiment_p" executionsequence="3" id="getDataForagencyAppoiment_p" metaobject="person" name="getDataForagencyAppoiment_p" operation="3">
+             <parameteroperation indexno="0" mode="IN" property="person_id" seq="0"/>
+             <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+          </storedprocedureoperation>
+          
+          
+          
+          <!-- 
+	  	  <databaseoperation deltaind="I" executionsequence="4" metaobject="agency_master" name="getPreferredEmail" operation="3" sqlstmt="select top 1 aae.email_id as email_id from additional_address_emails aae,agency_master am,master_lookup_data_lku lku where am.agency_id=aae.object_id and aae.object_id=#agency_id# and lku.master_lookup_detail_id=(select master_lookup_detail_id from master_lookup_detail_lku where lookup_table_name='email_category_lku') and master_lookup_data_desc='Preferred Email'"></databaseoperation>
+           -->
+           <function deltaind="I" executionsequence="5" functionid="sendEmailtoExistingAgency" name="attachAndSendEmail" parameters="context"/>
+	  </workflow>
+	  
+<!-- Existing Agency Appointed to New Location - Dynamic Row Function - End -->
+    </action>
+    
+     <action deltaind="M" name="downloadAppointmentLetter" metaobject="bulkLetterMoObject">
+     <workflow deltaind="M" name="downloadAppointmentLetter" seq="0">
+      <databaseoperation deltaind="I" executionsequence="2" metaobject="sendInvitation" name="existingAgencyLetterId" operation="3" sqlstmt="select person_id as personID from person where person_id=#person_id#" viewid="existingAgencyLetter_List_01"></databaseoperation>
+      </workflow>
+    </action>
+  </component>
+</projectcomponents>

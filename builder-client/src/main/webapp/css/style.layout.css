@@ -1,0 +1,2830 @@
+body {
+	margin: 0px 0px 0px 0px;
+	background-repeat: repeat-x;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+td, th, div{font-size: 13px;}
+td, div {
+	font-family: Verdana, Arial;
+	font-weight: normal;
+	word-spacing: 0px;
+	text-decoration: none;
+}
+.listReportRow1CSS, .listReportRow1CSS td {
+	height: 20px !important;
+	padding: 8px !important;
+}
+.listReportRow2CSS, .listReportRow2CSS td {
+	height: 20px !important;
+	padding: 8px !important;
+}
+.suggest_link {
+	padding: 2px 0px;
+	word-wrap: break-word;
+}
+
+.suggest_link_over {
+	padding: 2px 0px;
+	word-wrap: break-word;
+}
+.listRow1CSS {
+	height: 5px !important;
+	padding: 3px !important;
+}
+
+.listRow2CSS, #dvCSV table tr {
+	height: 5px !important;
+	padding: 3px !important;
+}
+.listRow2CSS td table tbody tr td, .listRow1CSS td table tbody tr td {
+	border: 0px;
+}
+
+.listRowCSSPrimary {
+	BORDER-TOP: 0px solid;
+	BORDER-RIGHT: 0px solid;
+	PADDING-BOTTOM: 3px;
+	TEXT-ALIGN: left;
+	PADDING-TOP: 3px;
+	PADDING-LEFT: 3px;
+	BORDER-LEFT: 0px solid;
+	PADDING-RIGHT: 3px;
+}
+
+.listRowCSSLocation {
+	BORDER-TOP: 0px solid;
+	BORDER-RIGHT: 0px solid;
+	PADDING-BOTTOM: 3px;
+	TEXT-ALIGN: left;
+	PADDING-TOP: 3px;
+	PADDING-LEFT: 3px;
+	BORDER-LEFT: 0px solid;
+	PADDING-RIGHT: 3px;
+}
+
+.listRowCSSOthers {
+	BORDER-TOP: 0px solid;
+	BORDER-RIGHT: 0px solid;
+	PADDING-BOTTOM: 3px;
+	TEXT-ALIGN: left;
+	PADDING-TOP: 3px;
+	PADDING-LEFT: 3px;
+	BORDER-LEFT: 0px solid;
+	PADDING-RIGHT: 3px;
+}
+
+.listRowCSSPrimary td, .listRowCSSLocation td, .listRowCSSOthers td {
+	padding: 0px !important
+}
+.welcome {
+	font-size: 10px;
+	font-weight: bold;
+	height: 22px;
+	text-align: right;
+	padding-right: 10px;
+}
+.note {
+	font-style: italic;
+}
+
+legend {
+	font-weight: bold;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+fieldset {
+	width: auto;
+	padding: 0px 10px 10px;
+	margin: 0px !important;
+}
+
+fieldset div table {
+	padding-top: 0px;
+}
+
+fieldset legend {
+	margin: 0px;
+	padding: 3px 5px;
+}
+.error {
+	padding-left: 8px !important;
+}
+.errorBold {
+	font-weight: bold;
+	margin: 0px auto;
+}
+.tr_errors {
+	padding-left: 5px;
+}
+.error .tr_errors{
+	padding-left:0px;
+}
+select {
+	margin-left: 3px;
+	height: 24px;
+	padding: 0px;
+}
+
+input[type=text], input[type=password], ajaxToolkit {
+	margin-left: 3px;
+	height: 22px;
+	padding: 0px;
+	padding-left: 2px;
+}
+
+textarea {
+	margin-left: 3px;
+	line-height: 18px;
+	padding: 0px;
+	padding-left: 2px;
+}
+input[type=submit] {
+	font-size: 13px !important;
+}
+fieldset  fieldset{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+}
+
+.fieldsetTop{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+}
+.frameHeader {
+    display: block;
+    padding: 10px;
+    position: relative;
+    height: 16px;
+}
+.dashboard-block-inner > .panel-default{
+    border-radius: 5px;
+}
+.frameHeader a {
+	text-decoration: none;
+}
+
+.frameHeader a:hover {
+	text-decoration: none;
+}
+.frameSubHeader {
+	font-weight: bold;
+	height: 25px;
+	padding-left: 5px;
+}
+.frameSubHeader td {
+	font-weight: bold;
+}
+.bgLeftTD {
+	width: 34px;
+	vertical-align: top;
+}
+.homeActionBgInnerLeft, .homeActionBgInnerRight {
+	width: 10px;
+}
+.bgCenterTD {
+	height: 370px;
+}
+.bgRightTD {
+	width: 34px;
+}
+.trigger {
+	cursor: pointer;
+	cursor: hand;
+}
+.trigger a {
+	color: #0265a8;
+}
+.trigger a:hover {
+	text-decoration: none;
+}
+.branchAdv {
+	display: none;
+}
+.branch {
+	display: none;
+	text-align: left;
+	padding: 0px;
+}
+.triggerHome {
+	padding: 5px;
+	padding-left: 5px;
+}
+.triggerHome a {
+	color: #000000;
+}
+.frameData .triggerHome a{
+	color: #000000;
+}
+.triggerHome a:hover {
+	text-decoration: none;
+}
+.branchHome {
+	display: none;
+	text-align: left;
+	padding: 5px;
+	padding-left: 5px;
+}
+.subTabArea {
+	width: 100%;
+	padding: 10px;
+}
+.modalBackground {
+	filter: alpha(opacity =   70);
+	opacity: 0.7;
+}
+
+.popupTop {
+	text-align: center;
+	padding: 5px;
+	font-weight: bold;
+}
+.popupBody {
+	position: relative;
+	z-index: 100;
+}
+.popupBodyHeight {
+	height: 250px;
+	vertical-align: top;
+}
+/*@@@@@@@@@@@@@    Grid View with Skin CSS       @@@@@@@@@@@@@@@@@@*/
+.RowStyle {
+	text-align: left;
+	padding: 3px !important;
+}
+.RowStyle a, .AltRowStyle a {
+	text-decoration: none;
+}
+.RowStyle a:hover, .AltRowStyle a:hover {
+	text-decoration: none;
+}
+.AltRowStyle {
+	border: solid 0px;
+	text-align: left;
+	padding: 3px !important;
+}
+
+.EmptyRowStyle td {
+	text-align: center;
+	font-weight: bold;
+}
+
+.EmptyRowStyle {
+	text-align: center;
+	font-weight: bold;
+	line-height: 25px;
+}
+.HeaderStyle, .gridheading, #dvCSV tr.myrows0 td {
+	font-weight: bold;
+	padding: 3px;
+	height: 30px;
+	text-align: left !important;
+}
+#dvCSV tr td{padding:5px;}
+#dvCSV table{padding:0px; border-spacing: 0;
+    border-collapse: collapse;}
+.HeaderStyle div{
+	font-weight: bold;
+}
+.HeaderStyle br {
+	height: 0px;
+}
+/*@@@@@@@@@@@@@    EndGrid View with Skin CSS       @@@@@@@@@@@@@@@@@@*/
+.req {
+	font-weight: bold;
+}
+.border1 {
+	text-align: left;
+}
+.Confirmation {
+	width: 100%;
+	color: #017d0a;
+	font-weight: bold;
+	text-align: center !important;
+}
+.Confirmation a {
+	float: left;
+	width: 100%;
+	font-weight: bold;
+	text-align: center !important;
+}
+.textarea {
+	font-weight: normal;
+	font-style: normal;
+}
+.bgmain {
+	height: 400px;
+}
+.bgmain2 {
+	min-height: 400px;
+	max-height: auto;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+.paginationTxt {
+	font-weight: bold;
+}
+
+.paginationCenter {
+	text-align: center;
+}
+/*--------------------------Header Section---------------------------*/
+.calendar_widget{display: none;}
+#welcomeBg {
+	padding: 1px 0px 3px;
+	text-align: right;
+	font-weight: normal;
+}
+#welcomeBg label {
+	font-weight: normal;
+}
+.topLineBg {
+	margin: 0px;
+	padding: 0px;
+}
+.logo {
+	height: 58px;
+	width: 183px;
+}
+.headerLeft {
+	width: 21px;
+}
+.headerRight {
+	width: 0px;
+}
+.headerBg {
+	height: 55px;
+}
+.tagLine {
+	margin: 0px;
+	padding: 0px 0px 0px 20px;
+}
+.tagLineNone {
+	display: none;
+}
+.tabsRight {
+	vertical-align: bottom;
+}
+.topLinkLeft {
+	width: 20px;
+	height: 24px;
+}
+.topLinkRight {
+	height: 24px;
+}
+.topLinkBg {
+	height: 30px;
+	padding-top: 5px;
+	padding-right: 21px;
+	font-weight: normal;
+	line-height: 22px;
+	vertical-align: bottom;
+}
+.topLinkBg a {
+	padding: 6px 3px 9px 3px;
+	vertical-align: bottom;
+}
+.topLinkBg a:hover {
+	text-decoration: none;
+}
+.topLinkBg a.active {
+	padding: 10px 8px;
+	font-weight: normal;
+}
+.topDetails {
+	padding-left: 20px;
+	font-weight: bold;
+	padding: 10px 0px;
+	font-size: 14px;
+}
+.topDetails span {
+	color: #000;
+	line-height: 20px;
+}
+.topDetails label {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.breadcrumb {
+	font-weight: bold;
+	padding: 8px 20px;
+}
+.breadcrumb span {
+	padding: 5px 0px 0px 0px;
+}
+.breadcrumb a:link, .breadcrumb a:active, .breadcrumb a:visited {
+	text-decoration: none;
+}
+.breadcrumb a:hover {
+	text-decoration: underline;
+}
+.breadcrumb .listRow1CSS, .breadcrumb .listRow2CSS {
+	border-top: 0px solid;
+	padding: 0px !important;
+}
+.breadcrumb label {
+	font-weight: bold !important;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    ROUND TABS CSS    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@  first level tab  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.tab {
+	height: 33px;
+	vertical-align: bottom;
+}
+ul.roundTab1 {
+	border-bottom: 0px;
+	padding-left: 20px;
+	z-index: 9999;
+}
+.roundTab1 li {
+	margin-right: 2px;
+	float: left;
+	list-style-type: none;
+	position: relative;
+}
+.roundTab1 li a {
+	text-transform: capitalize;
+	border: none;
+	font-weight: normal;
+	padding: 4px 12px;
+	height: 27px;
+    display: block;
+    line-height: 25px;
+}
+.roundTab1 li.active1 a span {
+	width: auto !important; 
+	padding-top: 0px; 
+	display: inline;
+}
+.roundTab1 li span.active1 > a, .roundTab1 li.active1 > a, .roundTab1 .active1 > a:hover  {
+	font-weight: normal;
+}
+
+.roundTab2 li span.active2 a , .roundTab2 li div.active2 a{
+	font-weight: bold;
+	padding: 2px 7px 1px;
+	margin-top: 0px;
+}
+.searchLabelInner {
+	font-weight: normal;
+	padding-left: 5px;
+	padding-bottom: 2px;
+}
+
+.borderBottom a:hover {
+	text-decoration: none;
+}
+
+.tabLeft {
+	width: 19px;
+	height: 6px;
+}
+
+.tabRight {
+	width: 19px;
+	height: 6px;
+}
+
+.required {
+	text-align: right;
+	line-height: 12px;
+	padding: 3px 0px;
+}
+
+.tabRoundLeft_WithoutTab {
+	width: 19px;
+	height: 14px;
+}
+
+.tabRoundRight_WithoutTab {
+	width: 19px;
+	height: 14px;
+}
+
+.tabRoundLeft_WithoutTab1 {
+	width: 19px;
+	height: 14px;
+}
+
+.tabRoundRight_WithoutTab1 {
+	width: 19px;
+	height: 14px;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@  second level tab  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.divUL1 ul {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	border-bottom: 0px !important;
+	border-top: 0px !important;
+}
+
+.divUL1 {
+	padding-left: 0px !important;
+	float: left;
+	padding-right: 0px !important;
+	border-bottom: 0px !important;
+	border: 0px;
+}
+.divUL1 ul li a {
+	margin-right: 0px !important;
+}
+.divUL1 .noindent {
+	margin: 0px;
+	padding: 0px;
+}
+.divUL1 .noindent li {
+	margin-right: 0px;
+}
+#roundTab2 {
+	margin: 0px;
+	padding: 0px;
+	line-height: 15px;
+}
+ul.roundTab2 {
+	border-bottom: 1px solid #e7e7e7;
+	min-height: 22px;
+	line-height: 21px;
+	padding-left: 27px;
+	z-index: 9999;
+	background: #f4f4f4;
+	xfloat: left;
+	display: inline-block;
+    width: 98%;
+}
+
+.roundTab2 li {
+	margin-right: 0px;
+	float: left;
+	list-style-type: none;
+	margin-top: 6px;
+}
+.roundTab2 li a span {
+	display: block;
+}
+.roundTab2 li a {
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 2px 7px 1px;
+	height: 20px;
+	line-height: 14px;
+}
+.roundTab2 li a:hover {
+	color: #0478ab;
+	text-decoration: none;
+}
+.roundTab2 li.active2 a {
+	font-weight: bold;
+	padding: 2px 7px 1px;
+	margin-top: 0px;
+}
+.roundTab2 div li {
+	margin: 0px;
+}
+.rmm-toggled ul li {
+	border-bottom: 0px !important;
+	padding: 10px 0px 10px 0px;
+}
+.rmm-toggled ul li:hover {
+	border-bottom: 0px !important;
+}
+/*----------------------------Footer Section-----------------------------------*/
+.footerLine {
+	line-height: 3px;
+}
+.footerTxt {
+	height: 28px;
+    padding: 0px 12px;
+    line-height: 28px;
+}
+.title {
+	font-weight: bold;
+	font-size: 14px;
+	height: 29px;
+}
+.asterisk {
+	font-weight: bold;
+	visibility: hidden;
+}
+/*   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  oval button css    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      */
+a.ovalbutton {
+	display: block;
+	float: left;
+	font: normal 13px Verdana, Arial, Helvetica, sans-serif;
+	/* Change 13px as desired */
+	line-height: 26px;
+	/* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
+	height: 26px; /* Height of button background height */
+	padding: 4px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	-webkit-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-left: 3px;
+}
+a:link .ovalbutton, a:visited .ovalbutton, a:active .ovalbutton {
+	margin-left: 2px;
+}
+a.ovalbutton span {
+	display: block;
+}
+.ovalbutton span b{font-weight: normal;}
+a.ovalbutton span label {
+	font-size: 13px;
+}
+/* @@@@@@@@@@@@@@@@@@@@  popup css    @@@@@@@@@@@@@@@@@@@ */
+.popupBg {
+	background-color: #ffffff;
+}
+.popupBorder {
+	background-color: #b0afaf;
+	height: 1px;
+}
+.popupContent {
+	padding: 20px;
+	height: 200px;
+	vertical-align: top;
+}
+.popupContentS {
+	padding: 20px;
+	height: 50px;
+	vertical-align: top;
+}
+.popupContentM {
+	padding: 20px;
+	height: 100px;
+	vertical-align: top;
+}
+.popupContentSmall {
+	padding: 20px;
+	height: 170px;
+	vertical-align: top;
+}
+.popupDiv {
+	width: 100%;
+	overflow-y: scroll;
+	min-height: 200px;
+	height: 330px;
+}
+.popupDivSelection {
+	width: 100%;
+	overflow-y: scroll;
+	min-height: 200px;
+	height: 330px;
+	line-height: 20px;
+}
+.popupDivNew {
+	width: 722px;
+	overflow-y: auto;
+	overflow-x: auto;
+	min-height: 200px;
+	height: auto;
+	max-height: 330px;
+}
+.popupDivSmall {
+	overflow-y: auto;
+	padding: 40px 20px;
+}
+.popupHeader {
+	font-weight: bold;
+	vertical-align: middle;
+	padding: 10px 20px !important;
+}
+.popupFooter {
+	background-color: #f2f3ed;
+	vertical-align: middle;
+	padding: 5px 10px !important;
+}
+.tabWidth {
+	width: 85%;
+}
+.transparent {
+	filter: alpha(opacity =   190);
+	display: none;
+	xwidth: 110px;
+	width: 169px !important;
+	position: absolute;
+	text-align: left;
+	margin-left: 3px;
+	padding-left: 4px;
+	z-index: 99999;
+}
+.homeBranch {
+	display: none;
+	margin-left: 16px;
+	text-align: left;
+}
+.content {
+	padding-top: 11px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.contentWithoutTabs {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+#downloadUploadDiv {
+	display: none;
+	position: absolute;
+	z-index: 1009;
+	padding: 0px;
+}
+.pagination {
+	padding: 3px;
+}
+.paginationHome {
+	padding: 0px 3px;
+}
+.blockHeightCar {
+	height: 260px;
+}
+.bg1 {
+	font-weight: bold;
+}
+.loginBtm {
+	height: 40px;
+}
+.mendatoryAsterisk {
+	font-size: 11px;
+	font-weight: bold;
+	color: transparent;
+	width: 10px;
+	text-align: right;
+	height: 24px;
+	visibility: hidden;
+}
+
+.mendatoryAsterisk2 {
+	font-size: 11px;
+	font-weight: bold;
+	width: 10px;
+	text-align: right;
+	height: 22px;
+}
+#dvCSV table {width:100%!important
+	}
+h3 {
+	color: #2e7399;
+	font-size: 18px;
+}
+.listRowCSSTasks td {
+	padding: 3px;
+}
+.listRowCSSCloseTasks td {
+	padding: 3px;
+}
+.gridLegendTxt {
+	padding-left: 5px;
+}
+.conformationMsg {
+	text-align: center !important;
+	font-weight: bold !important;
+	line-height: 18px !important;
+	padding: 3px 0px !important;
+}
+.InternalRequests, .ProducerRequests, .AppointmentWithNIPR, .TerminateWithNIPR, .TerminateWithoutNIPR, .AppointmentWithoutNIPR, .newAndImporting,
+.Authorize, .UnAuthorize, .Copiedfromwithinsystem, .RetrievedfromNIPRandimported, .RetrievedfromNIPRbutnotimported, .notImporting, .overdueTasks,
+.oldAndImporting{
+	width: 14px;
+	height: 14px;
+}
+.welcomeArea {
+	padding: 0px 20px;
+}
+.borderBottom a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.statusLabel {
+	font-weight: bold;
+}
+.statusData {
+	font-weight: normal;
+}
+.requestIdPopUp {
+	position: absolute;
+	visibility: hidden;
+	z-Index: 1001;
+	text-transform: inherit;
+	width: 500px;
+	height: 50px;
+}
+/*   @@@@@@@@@@@@@@@@@ legends colors  @@@@@@@@@@@@@@@@@   */
+.licence {
+	width: 14px;
+}
+.licence td {
+	padding: 3px;
+}
+.appointment {
+	width: 14px;
+}
+.appointment td {
+	padding: 3px;
+}
+.authorization {
+	width: 14px;
+}
+.authorization td {
+	padding: 3px;
+}
+.termination, .inactiveLicenseState {
+	width: 14px;
+}
+.termination td, .inactiveLicenseState td {
+	padding: 3px;
+}
+.legendChar {
+	font-size: 13px;
+	font-weight: bold;
+}
+.errorBoldTB {
+	font-weight: bold !important;
+}
+/* @@@@@@@@@@@@@@@@   LOGIN PAGE WHITE BACKGROUND       @@@@@@@@@@@@@@@@@@@@@ */
+.loginBg {
+	text-align: center;
+	-webkit-border-top-right-radius: 12px;
+	-webkit-border-top-left-radius: 12px;
+	-webkit-border-bottom-right-radius: 12px;
+	-webkit-border-bottom-left-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	height: 320px;
+	width: 675px;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@  Sub Tab level 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.homeActionBg {
+	min-height: 360px;
+	height: auto;
+}
+.accordionBg {
+	border: 1px solid #ececec;
+	padding: 10px;
+	vertical-align: top;
+}
+.stepBorderBtm {
+	border-bottom: solid 1px #ffcc99;
+}
+
+.wizardTitle {
+	font-weight: bold;
+	padding: 2px 8px 3px;
+}
+.heading {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 5px;
+	padding-left: 35px;
+	text-align: left;
+}
+.heading a {
+	text-decoration: none;
+}
+.heading a:hover {
+	text-decoration: none;
+}
+.borderScoreCard {
+	border-bottom: solid 1px #333333;
+	margin-left: 10px;
+	line-height: 20px;
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+}
+.HeaderStyleNormal {
+	font-weight: bold;
+	padding: 3px;
+	text-align: left !important;
+	text-decoration: none;
+}
+.bulkLabelHeading {
+	font-weight: bold;
+}
+/*   add new classes for New Dashboard page */
+.homeActionGridBg {
+    height: 25px;
+    font-weight: bold;
+    padding: 3px;
+    margin: 0px;
+    padding-left: 15px;
+}
+.headings {
+	margin: 0px;
+	padding: 3px;
+	font-weight: bold;
+	text-align: center;
+}
+.headings_2 {
+	height: 20px;
+	width: 100%;
+	font-weight: bold;
+	padding: 3px;
+	margin: 0px;
+}
+.headings_3 {
+	margin: 0px;
+	padding: 3px;
+	font-weight: bold;
+	text-align: left;
+}
+/*Calender Css End*/
+.DashboardHeaderStyle {
+	font-weight: bold;
+	padding: 3px;
+	text-decoration: none;
+}
+.dashboardCalenderHeading {
+	padding: 5px 10px;
+}
+.dashboardCalenderHeading a {
+	text-decoration: underline;
+}
+.dashboardCalenderHeading a:hover {
+	text-decoration: none;
+}
+.gridTopPadding4 {
+	padding-top: 3px;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add new CSS - 10-July, 2012 @@@@@@@@@@@@@@@@@@@@@@@@ */
+.dashboardTop1 {
+	display: none;
+}
+
+.dashboardTop2 {
+	padding: 20px 25px 0px;
+	background-color: #25688b;
+}
+
+.dashboardTop3 {
+	display: none;
+}
+.paddingLeftError2 {
+	padding-left: 2px;
+}
+
+.bgAccordion {
+	xbackground-color: #fbfcd2;
+	background-color: #f7f7f7;
+	xborder: solid 1px #fbe89a;
+}
+
+.branchNone {
+	background-color: #ffffff;
+	margin: 0px 15px;
+}
+
+.branchAdvSearch {
+	background-color: #ffffff;
+	margin: 0px;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   report section   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.frameData .seprator {
+	width: 1px;
+}
+.frameData h2 {
+	height: 24px;
+	text-align: left;
+}
+.frameData ul {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: 0px;
+}
+.frameData ul li {
+	padding-left: 16px;
+	list-style-type: none;
+	line-height: 24px;
+	text-align: left;
+	float: left;
+	clear: both;
+}
+.frameData .readmore {
+	clear: both;
+}
+.frameData .readmore a {
+	text-decoration: none;
+	font-weight: bold;
+	text-align: right;
+	line-height: 28px;
+	float: right;
+}
+.frameData .readmore a:hover {
+	text-decoration: none;
+}
+.innersection {
+	height: 20px;
+	color: #FFF;
+}
+.trigger1 {
+	cursor: pointer;
+	cursor: hand;
+}
+.trigger1 a {
+	text-decoration: none;
+}
+
+.trigger1 a:hover {
+	text-decoration: none;
+}
+.NotImportingLicenses, .NewAndImportingLicenses, .OLDAndImportingLicenses {
+	width: 14px;
+}
+.innersection1 {
+	margin: 0px;
+	padding: 0px;
+	height: 20px;
+}
+.paddingTop10 {
+	padding-top: 10px;
+}
+.commSchName td {
+	font-weight: bold;
+}
+.commGrandTotal td {
+	font-weight: bold;
+}
+.listRowNoteCSS {
+	height: 24px;
+}
+.bgAccordionN {
+	padding: 0px 10px;
+}
+.borderRow {
+	padding: 5px;
+	width: 99.1%;
+}
+.borderRow2 {
+	border: 0px !important;
+}
+.borderRow2 ul {
+	border: 0px !important;
+	list-style: circle !important;
+}
+.listhomeRow1CSS {
+	padding: 3px !important;
+}
+.listhomeRow2CSS {
+	height: 5px !important;
+	padding: 3px !important;
+}
+.listRowChk1CSS {
+	text-align: left;
+	padding: 5px !important;
+}
+.filterPlaceHolder  a {
+	padding: 2px 5px;
+	display: block;
+}
+.filterPlaceHolder a:hover, .filterPlaceHolder a.selectd {
+	padding: 2px 5px;
+	display: block;
+	color: #000000;
+}
+.savedSearchDiv {
+	max-height: 57px;
+	overflow: scroll;
+	overflow-x: hidden;
+	padding: 5px 0px;
+}
+.savedSearchRow {
+	margin: 0px 10px 5px;
+	float: left;
+	width: 185px;
+	padding: 5px;
+}
+.savedSearchName {
+	float: left;
+	overflow: hidden;
+	width: 150px;
+}
+.AdditionalAddress {
+	width: 450px;
+	float: left;
+	height: auto;
+}
+.listRowChk3CSS {
+	background-color: #ffffff;
+	color: #000000;
+	border-bottom: solid 1px #e0e3e5;
+	text-align: left;
+}
+.homebg {
+	color: #ffffff;
+	text-align: center;
+	background-color: #25688b;
+}
+.formHeading {
+	background-color: #feecde;
+	border-top: solid 1px #ffffff;
+	outline: solid 1px #dedede;
+	border-bottom: 0px;
+	padding: 5px 15px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.divUL3 ul {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	border-bottom: 0px !important;
+	border-top: 0px !important;
+}
+.divUL3 {
+	padding-left: 0px !important;
+	float: right;
+	padding-right: 0px !important;
+	border-bottom: 0px !important;
+	border: 0px;
+}
+.divUL3 .noindent {
+	margin: 0px;
+	padding: 0px;
+}
+.divUL3 .noindent li {
+	margin-right: 1px;
+}
+.fixcolumnGrid {
+	max-width: 1000px;
+	word-wrap: break-word;
+	text-align: center !important;
+}
+.searchWidth {
+	text-align: center;
+	width: 100% !important;
+}
+.divReport {
+	width: 449px;
+	float: left;
+}
+ul.noindent {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	border-bottom: 0px !important;
+	border-top: 0px !important;
+}
+a.bucketHighlight {
+	font-weight: bold !important;
+}
+.fixcolumnInputTd {
+	table-layout: fixed;
+	max-width: 250px;
+	word-wrap: break-word;
+}
+.menu-item {
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	height: 40px;
+	text-align: center;
+	width: 20px;
+}
+.menu-item-hover {
+	border-bottom: none;
+}
+.border5 {
+	text-align: left;
+}
+.listRow1CSSBg {
+	border-top: solid 1px #f2f2f2;
+	height: 5px !important;
+	padding: 3px !important;
+}
+.listRow2CSSBg {
+	height: 5px !important;
+	padding: 3px !important;
+}
+.advanceSearchHide {
+	padding-top: 15px;
+	width: 166px;
+	text-align: right;
+}
+.advanceSearchHide a {
+	padding: 5px 0px;
+	text-decoration: underline;
+	font-weight: normal;
+}
+.advanceSearchHide a:hover {
+	text-decoration: none;
+}
+.advanceSearch {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	float: left;
+}
+.searchHeading {
+	width: 100%;
+	float: left;
+	display: none;
+}
+.searchHeading h1 {
+	padding: 4px 0px;
+	margin: 0px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.searchSectionWidth {
+	width: 15%;
+	vertical-align: top;
+	padding-top: 20px;
+	display: none;
+}
+.searchDiv {
+	width: 25%;
+	padding-top: 1px;
+	float: left;
+	position: relative;
+}
+.searchTable {
+	width: 90%;
+	text-align: left;
+}
+.searchFieldTD {
+	width: 53%;
+	margin-left: 42%;
+	position: absolute;
+	margin-top: -5px;
+}
+.searchField {
+	width: 93%;
+	text-align: left;
+}
+.searchIcon {
+	width: 5%;
+	text-align: left;
+	padding-left: 0px;
+	position: absolute;
+	right: 0%;
+}
+.welcomeTopBgRight {
+	padding: 1px 26px 2px 0px;
+}
+.username {
+	font-weight: normal;
+}
+.tagline2 {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 30px 0px 0px;
+	width: 412px;
+	height: 14px;
+	vertical-align: bottom;
+}
+.taglineSperator {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	height: 55px;
+	vertical-align: bottom;
+}
+.taglineSperator1 {
+	padding-left: 10px;
+}
+.taglineBottom {
+	margin: 0px;
+	padding: 0px 20px 0px 0px;
+}
+.homeActionHeader .topDetails, .homeActionHeader .breadcrumb {
+	display: none;
+}
+.searchResults .topDetails {
+	height: 2px;
+	line-height: 2px;
+}
+/*----------------------------22,Aug-2014----------------------------------------------*/
+#fl_menu, #fl_menu2 {
+	position: fixed;
+	top: 181px;
+	z-index: 9999;
+	height: 30px;
+}
+#fl_menu .label, #fl_menu2 .label {
+	font-weight: bold;
+	width: 20px;
+}
+#fl_menu .menu, #fl_menu2 .menu  {
+	display: none;
+}
+#fl_menu .menu .menu_item, #fl_menu2 .menu .menu_item {
+	display: block;
+	background: #000;
+	color: #bbb;
+	border-top: 1px solid #333;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+.AlertHeading {
+	width: 110px;
+	font-weight: bold;
+	padding-left: 0px;
+	height: 30px;
+	text-decoration: none;
+}
+.AlertBranch {
+	margin: 0px;
+}
+.AlertTrigger {
+	height: 30px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.AlertTrigger a {
+	text-decoration: none;
+}
+.AlertTrigger a:hover {
+	text-decoration: none;
+}
+.AlertReadmore {
+	padding: 0px;
+}
+.AlertReadmore a {
+	padding: 4px 8px;
+}
+.ReportLink {
+	height: 25px;
+	padding: 2px;
+}
+.ReportLink a {
+	padding-left: 12px;
+}
+.btmTabs .roundTab4 {
+	margin-left: 1px !important;
+}
+.border10 {
+	padding: 10px;
+}
+.dashboardHeading {
+	font-family: 'ErasDemiITCRegular';
+	font-size: 26px;
+	color: #fff;
+	padding-bottom: 5px;
+}
+.dashboardHeading div span {
+	font-family: 'ErasDemiITCRegular';
+	font-size: 20px;
+	color: #000;
+	padding-bottom: 5px;
+	padding-left: 52px;
+}
+.carrierDashboardLeft{
+	margin-left: 10px;
+}
+.carrierDashboardLeft .strip{
+	line-height: 1px;
+	margin: 1px 0px;
+}
+.searchBlock {
+	float: left;
+	width: 49%;
+	margin: 0px;
+	padding: 0px;
+}
+.searchBlockWidth {
+	width: 174px;
+}
+.searchBlockWidthDetail {
+	width: 170px;
+}
+.searchBlockWidthLicense {
+	width: 170px;
+}
+
+.searchBlockWidthReference {
+	width: 122px;
+}
+
+.searchBlockWidthContact {
+	width: 170px;
+}
+
+.searchBlockWidthContactLicense {
+	width: 170px;
+}
+
+.searchBlockWidthContactPerson {
+	width: 135px;
+}
+.homeActionBlock {
+	float: left;
+	width: 50%;
+	margin: 0px;
+	padding: 0px;
+}
+.homeActionBlockHeight {
+	height: 258px;
+}
+.homeActionBlock2 {
+	float: left;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.lookupBlocksOuter, .homeActionBlockMain {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.lookupBlocks {
+	float: left;
+	width: 31%;
+	margin: 0px;
+	padding: 5px;
+	height: 18px;
+}
+.lookupImg {
+	width: 20px;
+}
+.docfieldset {
+	margin-top: 10px !important;
+}
+.bgAccordionN .docfieldset {
+	margin-bottom: 0px !important;
+}
+.BankInformWidth {
+	width: 183px;
+}
+.buttonwrapper14 {
+	float: right;
+	padding-right: 11px;
+	padding-top: 10px
+}
+/*  @@@@@@@@@@@@@@@@@  end css  @@@@@@@@@@@@@@@@@@@@ */
+.popupDivSmall1 {
+	width: 100%;
+	overflow-y: auto;
+	font-weight: bold;
+	color: #000000;
+	padding-right: 40px;
+}
+.paddingRight10 {
+	padding-right: 10px;
+}
+.productValidationExist td {
+	padding: 3px !important;
+}
+.reportcomponenttextdate input {
+	width: 211px;
+}
+.reportcomponenttext input {
+	width: 229px;
+}
+.reportspacerTd40 {
+	width: 40px;
+}
+.reportcomponentmultiselect select {
+	width: 220px;
+}
+.reportlabel label {
+	text-align: left;
+}
+.reportsDivBlockMain {
+	width: 100%;
+}
+.reportsDivBlock {
+	float: left;
+	height: auto;
+	margin-bottom: 5px;
+	width: 100%;
+}
+.roundCornerTop {
+	display: none;
+}
+.tdPaddingLeft4 {
+	padding-left: 5%;
+}
+.tdPaddingLeft5 {
+	padding-left: 0%;
+}
+.tdPaddingLeft {
+	padding-left: 5%;
+}
+.outerBlock {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.innerBlock {
+	float: left;
+	width: 50%;
+	margin: 0px;
+}
+.ContractWidth {
+	width: 245px;
+	white-space: nowrap;
+}
+.ValidationsWidth {
+	width: 128px;
+}
+.ContractInput {
+	width: 240px;
+}
+.ContractInputCal {
+	width: 222px;
+}
+.ContractDropDown {
+	width: 244px;
+	xwidth: 145px;
+}
+.logo8 {
+	width: 24%;
+	padding: 4px 4px;
+}
+.contactType {
+	padding-left: 21%;
+	width: 88.5%;
+}
+.tree1 {
+	padding-left: 25px !important;
+}
+.tree2 {
+	padding-left: 40px !important;
+}
+.tree3 {
+	padding-left: 55px !important;
+}
+.tree4 {
+	padding-left: 70px !important;
+}
+.hierarchyData img {
+	margin-right: 3px;
+}
+.hierarchyData img {
+	float: left;
+}
+.hierarchyData td {
+	padding: 3px 5px;
+}
+.logOut_Top {
+	padding-right: 15px;
+	display: none;
+}
+.welcomeTopBg_ShowHide_2 {
+	display: none;
+	padding-top: 5px;
+}
+.welcomeTopBg_ShowHide_1 {
+	padding-top: 5px;
+}
+.extendedFields {
+	padding: 10px 0px 0px;
+}
+.detailTrigger {
+	cursor: pointer;
+	cursor: hand;
+}
+.detailTrigger a {
+	text-decoration: none;
+}
+.detailTrigger a:hover {
+	text-decoration: none;
+}
+.agencyDetailsMain {
+	width: 100%;
+}
+.agencyDetails_Width {
+	width: 173px;
+}
+.addressMain {
+	width: 100%;
+}
+.addressInnerWidth {
+	width: 173px;
+}
+.addressInnerWidth2 {
+	width: 173px;
+}
+.addressInnerWidth3 {
+	width: 188px;
+}
+.agentDetailsMain {
+	width: 100%;
+}
+.agentDetailsWidth {
+	width: 173px;
+}
+/*-------------------------------------4,Sep 2014 -- New Login Css-------------------------------*/
+.Privileges {
+	margin: 0px;
+	padding: 4px 4px 4px 10px;
+	float: left;
+	width: 180px;
+}
+.Privileges ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.Privileges ul li {
+	margin: 0px 0px;
+	padding: 0px 0px;
+	list-style: none;
+}
+.Privileges ul li div.left {
+	margin: 0px 0px;
+	padding: 2px 0px;
+	list-style: none;
+	float: left;
+	width: 160px;
+	height: 17px;
+	text-align: left;
+}
+.Privileges ul li div.right {
+	margin: 0px;
+	padding: 2px 0px;
+	list-style: none;
+	float: right;
+	width: 20px;
+	height: 17px;
+}
+.header_Login {
+	padding: 3px;
+	font-weight: bold;
+	height: 30px;
+}
+.RowStyle_Login {
+	margin: 0px;
+}
+.RowStyle_Login td {
+	margin: 0px;
+	padding: 0px 3px;
+	height: 25px;
+}
+.altRowStyle_Login {
+	margin: 0px;
+}
+.altRowStyle_Login td {
+	margin: 0px;
+	padding: 0px 3px;
+	height: 25px;
+}
+.subcontent {
+	position: absolute;
+	z-index: 99999999;
+	visibility: visible;
+	margin-left: -120px;
+	margin-top: -88px;
+	width: 200px;
+	padding: 0px;
+	left: 400px !important
+}
+#progressBarDiv {
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1000000;
+	width: 100%;
+}
+.triggerHome1 {
+	padding: 5px;
+	padding-left: 19px;
+}
+.triggerHome1 a {
+	text-decoration: none;
+}
+.triggerHome1 a:hover {
+	text-decoration: none;
+}
+.hierarchyImg span img {
+	float: left;
+	margin-right: 3px;
+}
+.divMain4 {
+	width: 430px;
+	float: left;
+}
+.agentExtendedFields {
+	margin: 0;
+	padding-bottom: 10px;
+}
+.agentExtendedFields .tdPaddingLeft {
+	padding-left: 0px;
+}
+.agentExtendedFields .tdPaddingLeft .labelAlign {
+	width: 182px;
+}
+.agentExtendedFields .agentSpacerTd40 {
+	width: 150px !important;
+}
+.agentExtendedFields2 {
+	margin: 0;
+}
+.agentExtendedFields2 .tdPaddingLeft {
+	padding-left: 0px;
+}
+.agentExtendedFields2 .tdPaddingLeft .labelAlign {
+	width: 182px;
+}
+.agentExtendedFields2 .agentSpacerTd40 {
+	width: 150px !important;
+}
+.insuranceSpacerTd40 {
+	padding-left: 40px;
+}
+.tdPaddingLeft9 {
+	padding-left: 12%;
+}
+.note_Grid {
+	width: 1186px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+.contactType_Width {
+	width: 87.4% !important;
+}
+.contactType_Padding tr.listRow2CSS td, .contactType_Padding tr.listRow1CSS td{
+	padding: 1px !important;
+	border: none;
+}
+.contactType_Width2 {
+	width: 85%;
+}
+.required_F1 {
+	display: none;
+}
+.clusterLeft {
+	padding-left: 33px;
+	height: 22px;
+}
+.copyAddress {
+	width: 186px;
+}
+.residenceExtn {
+	width: 45px;
+}
+.bgCheckWidth {
+	width: 102px;
+}
+.bgCheckWidth2 {
+	width: 123px;
+}
+.headingHeight {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+.gridHeader {
+	padding: 2px;
+	border-bottom: #d1d1d1 1px solid;
+	border-right: #d1d1d1 1px solid;
+}
+.bankPhone {
+	width: 106px;
+}
+.split-list {
+	border-bottom: medium none;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 100%; /*  add width for ie 8 issue. */
+}
+.split-list ul.sub-list {
+	width: 557px;
+} /* add width for ie 8 issue. */
+.split-list ul {
+	border-bottom: medium none;
+	float: left;
+	margin-left: 0;
+	padding: 0;
+}
+.split-list li {
+	float: none;
+	line-height: 1.5em;
+	padding-right: 0;
+}
+.paddingtab {
+	padding-top: 4px;
+}
+.tab1_relation {
+	width: 90px !important
+}
+.tab1_comp {
+	width: 100px !important
+}
+
+.borderMom td {
+	text-align: left;
+}
+.bankForm {
+	width: 90px !important;
+}
+.EO_Declaration_Comments {
+	width: 90.5%;
+}
+.userProfileDiv {
+	width: 420px;
+	float: left;
+	height: auto;
+}
+.manageReportTemplateDiv {
+	width: 1216px;
+	height: 500px;
+	overflow: scroll
+}
+.detailLeftLableWidth {
+	width: 263px;
+}
+.detail_Split_List .split-list ul, .detail_Split_List .split-list  {
+	float: left;
+	margin-left: 0em;
+	padding: 0em;
+	border-bottom: none;
+}
+.detail_Split_List .split-list li {
+	padding-right: 0em;
+	float: none;
+}
+.addressDetailBorder_1 {
+	border: none;
+}
+.addressLableWidth {
+	width: 176px;
+}
+.detailPageRight, .detailPageLeft {
+	float: left;
+	width: 100%;
+}
+.roundTabAlign {
+	float: left;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+.roundTabAlign div {
+	margin-left: 0px !important;
+}
+.copyBusinessAdd {
+	line-height: 0px;
+	width: 190px;
+}
+.detailLeftLableWidth2 {
+	width: 188px;
+}
+.contactTypeNone1 {
+	display: none;
+}
+.contactTypeNone2 {
+	padding-top: 3px;
+}
+.mendatoryContactType {
+	padding-left: 8px !important;
+}
+.extnContact {
+	width: 61%;
+}
+.roundTabULAlign {
+	margin-left: 0em !important;
+}
+.footerTxtSession {
+	line-height: 26px;
+	height: 28px;
+}
+.icoDeleteMini a {
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+.templateBuilderDiv ul {
+	float: left;
+	width: 96%;
+	padding: 0px;
+}
+.templateBuilderDiv ul li {
+	width: 18.8%;
+	padding: 5px;
+	padding-right: .5%;
+	padding-bottom: 3px;
+	overflow: hidden;
+	margin-bottom: -1px;
+	margin-right: -1px;
+}
+.templateTypeTable .gridTable {
+	width: 96%;
+}
+.templateBuilderDecisionTable {
+	padding-top: 10px;
+	margin-right: 20px;
+	width: 96% !important;
+	padding-bottom: 0px !important;
+	margin-top: 30px
+}
+.templateBuilderDecisionTable ul {
+	width: 98%;
+}
+.templateTypeDecisionTable {
+	width: 97%;
+	float: left;
+	clear: both;
+	padding-left: 1%
+}
+templateTypeDecisionTableField {
+	width: 98%;
+	float: left;
+	clear: both;
+}
+.manageSecurityDiv {
+	width: 1240px;
+	overflow-x: scroll
+}
+.homeActionBlockInner {
+	margin: 5px;
+}
+.homeActionBlockInner2 {
+	width: 99.8%;
+	margin: 5px;
+}
+/*  @@@@@@@@@@@@@@@@@@@@@@@ add new class for home action	 @@@@@@@@@@@@@@ */
+#manageSecurityDiv {
+	overflow: hidden;
+	overflow-x: auto;
+	width: 1216px;
+}
+.bottomColor tbody.listRow2CSS td {
+	height: 8px !important;
+	padding: 3px !important;
+}
+.bottomColor tbody.listRow2CSS td table tr td {
+	border: 0px !important;
+}
+.dashboardGird {
+	margin: 0px;
+	padding: 10px;
+}
+.buliten_1 .dashboardGird{padding: 0px;}
+/* BMIC Specific */
+.dashboardGird td.HeaderStyle, .dashboardGird th.HeaderStyle {
+	background: #D6D6D2;
+	font-weight: normal;
+	    color: #000 !important;
+}
+.dashboardGird td.HeaderStyle div, .dashboardGird td.HeaderStyle span,
+.dashboardGird th.HeaderStyle div, .dashboardGird th.HeaderStyle span{
+	font-weight: normal;
+}
+.dashboardGird .afterDivDataTable{background: #f1f1f1;}
+.dashboardGird .dataTables_wrapper{padding-top: 0px;}
+.dashboardGird table.paginationHome {
+	background: none;
+}
+.RecentChanges {
+	margin: 0;
+}
+.RecentChanges tr.listRow2CSS td, .RecentChanges tr.listRow1CSS td {
+	padding: 0px;
+	height: 20px;
+}
+
+.bottomColor2 tbody.listRow2CSS td, .bottomColor2 tbody.listRow1CSS td {
+	height: 8px !important;
+	padding: 3px !important;
+}
+.tab2Left {
+	float: left;
+}
+.fixCongGrid {
+	max-height: 160px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.tab2Left {
+	float: left;
+}
+.tab2Left li a {
+	float: left;
+	margin-right: 2px;
+}
+.acraSchdule tbody.listRow2CSS td, .acraSchdule tbody.listRow1CSS td {
+	padding: 3px !important;
+}
+#red, #blue {
+	width: 560px;
+	height: 400px;
+	position: absolute;
+	left: 39%;
+	margin-left: -150px;
+	top: 20%;
+	margin-top: -50px;
+	z-index: 999999
+}
+#blue {
+	left: 150%;
+}
+
+#login, #table {
+	z-index: 999999;
+}
+#red {
+	padding-top: 65px;
+}
+.fixcolumnSearchRule {
+	table-layout: fixed;
+	width: 497.5px !important;
+	word-wrap: break-word;
+}
+#manageSecurityDiv {
+	overflow-y: hidden;
+	overflow-x: auto;
+	width: 1216px;
+}
+.manageRuleDiv {
+	overflow-y: hidden;
+	overflow-x: auto;
+	width: 1216px;
+}
+.labelAlign {
+	height: 24px;
+	padding-left: 10px;
+}
+.isShowPageLevelHelp {
+	float: left;
+}
+.tabDiv {
+	vertical-align: bottom;
+}
+.none2 td {
+	padding: 0px !important
+}
+.dynamicPadding {
+	padding-left: 6px;
+	font-weight: bold;
+	
+}
+.templateBuilderDiv  .icoAttachRule {
+	position: absolute;
+	top: 36px;
+	right: 25px;
+}
+/*-------------HTML-5-Grid-----------------------*/
+.table {
+	display: table;
+	width: 100%;
+}
+
+.table .row {
+	display: table-row;
+}
+
+.table .row .col {
+	display: table-cell;
+	vertical-align: middle;
+	border-bottom: solid 1px #cccccc;
+}
+
+.table .rowHeading {
+	display: table-row;
+}
+
+.table .rowHeading .col {
+	display: table-cell;
+	background: #6bc2f8;
+	color: #000;
+	text-align: left;
+	font-weight: bold;
+	vertical-align: middle;
+	height: 30px
+}
+
+.table .row .col span, .table .rowHeading .col span {
+	padding: 3px;
+	display: block;
+}
+
+.table .rowEdit {
+	display: list-item;
+	width: 100%;
+	xbackground: #FFC;
+	background: #f7f7f7
+}
+
+.paginationUL {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+ul.grid {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border: none;
+}
+
+ul.grid li {
+	list-style-type: none;
+	width: 100%;
+	border-bottom: solid 1px #f3f3f3;
+	float: left;
+	border: none;
+}
+
+ul.grid li div {
+	float: left
+}
+
+ul.grid li div span {
+	padding: 3px;
+	display: block;
+}
+
+ul.grid li.gridRowEdit {
+	xbackground: #FFC;
+	background: #f7f7f7
+}
+
+ul.grid li.listRow1CSS {
+	background-color: #ffffff;
+	border-top: solid 1px #f2f2f2;
+	height: auto !important;
+	padding: 0px !important;
+}
+
+ul.grid li.listRow2CSS {
+	background-color: #ffffff;
+	border-top: solid 1px #f2f2f2;
+	height: auto !important;
+	padding: 0px !important;
+}
+
+ul.listRow1CSS {
+	background-color: #ffffff;
+	border-top: solid 1px #f2f2f2 !important;
+	height: auto !important;
+	padding: 0px !important;
+	border: none;
+	width: 100%;
+	float: left;
+}
+
+ul.listRow2CSS {
+	background-color: #ffffff;
+	border-top: solid 1px #f2f2f2 !important;
+	height: auto !important;
+	padding: 0px !important;
+	border: none;
+	width: 100%;
+	border: none;
+	float: left;
+}
+
+ul.listRow1CSS li, ul.listRow2CSS li {
+	list-style-type: none;
+	width: 100%;
+	border-bottom: solid 1px #f3f3f3;
+	float: left;
+	border: none;
+}
+
+ul.listRow1CSS li div.gridRowCol, ul.listRow2CSS li div.gridRowCol {
+	float: left
+}
+
+ul.listRow1CSS li div.gridRowCol span, ul.listRow2CSS li div.gridRowCol span
+	{
+	padding: 3px;
+	display: block;
+}
+
+ul.listRow1CSS li.gridRowEdit, ul.listRow2CSS li.gridRowEdit {
+	xbackground: #FFC;
+	background: #f7f7f7;
+}
+
+.gridBorderN {
+	border: 1px solid #CEEFF2;
+	xfloat: left;
+}
+
+#flip {
+	width: 100%;
+	text-align: center;
+	background-color: #e5eecc;
+	border: solid 1px #c3c3c3;
+	z-index: 9999;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	height: 20px;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@    SPLIT VIEW  @@@@@@@@@@@@@@@@@@@@@ */
+table#table1 {
+	width: 100%;
+	font-size: 14px;
+}
+table#table1 thead th {
+	padding: 5px 8px;
+}
+table#table1 td {
+	padding: 5px 8px;
+}
+table.sorting-table {
+	cursor: move;
+}
+table#table1.sorting-table {
+	cursor: ns-resize;
+	box-shadow: none;
+}
+table#table1.sorting-table tbody tr:not (.sorting-row ) td {
+	opacity: 1;
+}
+table#table2 {
+	width: 100%;
+	font-size: 14px;
+}
+table#table2 thead th {
+	padding: 5px 8px;
+}
+table#table2 td {
+	padding: 5px 8px;
+}
+table#table2.sorting-table {
+	cursor: ns-resize;
+	box-shadow: none;
+}
+table#table2.sorting-table tbody tr:not (.sorting-row ) td {
+	opacity: 1;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+.showhim {
+	padding-left: 5px;
+}
+.showme {
+	display: none;
+}
+.showhim:hover .showme {
+	display: block;
+	position: absolute;
+	width: 200px;
+	right: 5px;
+	top: 15px;
+	z-index: 9
+}
+.showhim2:hover .showme {
+	display: block;
+	position: absolute;
+	width: 200px;
+	right: 5px;
+	top: 15px;
+	z-index: 9
+}
+.showme2 {
+	display: none;
+}
+.showhim:hover .showme2 {
+	display: block;
+	position: absolute;
+	width: 200px;
+	left: 18px;
+	top: -25px;
+	z-index: 9
+}
+.showme2 .HeaderStyle {
+	font-weight: bold;
+	padding: 3px;
+	height: 30px;
+	text-align: left !important;
+	-webkit-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.showhim .gridBorder {
+	-webkit-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.showme2 .RowStyle {
+	text-align: left;
+	padding: 5px 3px !important;
+}
+#configurationDiv {
+	width: 95%;
+	margin: 0px auto;
+	padding: 15px 0px;
+}
+.reportNotesColumnWidth {
+	width: 450px;
+}
+.bodyColor {
+	float: left;
+	width: 100%;
+}
+.icoPrintCheck, .icoPrintCheck a {
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+.addressType1 div.mendatoryInput_address, .agencyAddressType2 div.mendatoryInput_address, .addressType1 td.mendatoryInput_address, 
+.agencyAddressType2 td.mendatoryInput_address, .emailRequired .tdInput_address, .emailRequired .tdInput_Emailaddress, .fieldsRequired .tdInput_producerDetail,
+.fieldsRequired .tdInput_sendForReviewPopupComment, .termReasonRequired .tdInput_address, .businessPhoneRequired .mendatoryPhoneInput_address,
+.mailingRequired .mendatoryMailingInput_address, .makeTypeofOrgMendatory .typeofOrgNonMendatory, .addressType1 .tdInput_Emailaddress, .ssnRequired .mendatoryInput, .payemntRequired .tdInput,
+.addressType1 .tdInput_address, .agencyAddressType2 .tdInput_Emailaddress, .tdInput_w9_legal_name, .addressType1 .mendatoryInput_agent_zip, .mendatoryInput_zip,
+.fieldsRequired .tdInput_producerDetailDBA {
+	margin: 0px 0px;
+	padding-left: 5px !important;
+}
+
+fieldset .mendatoryAsterisk {
+	visibility: visible;
+}
+.none .bgAccordionN .listRow2CSS tr td, .none .bgAccordionN .listRow1CSS tr td
+	{
+	padding: 3px !important;
+}
+.admin_accordian_bg {
+	background: #f7f7f7;
+	padding: 5px;
+}
+.growthRetention {
+	overflow-x: scroll;
+	width: 1266px;
+	overflow-y: hidden;
+}
+.amountHeaderCarrier {
+	text-align: right !important;
+}
+.oldValue {
+	font-style: italic;
+	display: block;
+	font-weight: bold !important;
+	padding-left: 4px;
+}
+.valignTop {
+	vertical-align: top;
+	padding-top: 3px;
+}
+.fixcolumnInputTdAgent {
+	table-layout: fixed;
+	max-width: 340px;
+	word-wrap: break-word;
+}
+td.mendatoryInput strong {
+	padding-left: 6px;
+	line-height: 22px;
+}
+.detailLeftLableWidthContact {
+        width: 256px;
+}
+.tdPaddingLeft2 {
+	padding-left: 2%;
+}
+.tdPaddingLeft9{padding-left:9%}
+.tdPaddingLeft12{padding-left:12%;}
+.agencyCodesDivReqWidth {
+	width: 224px;
+}
+.wizard{
+	clear:both;
+	width:99.9%;
+	text-align:center;
+	padding:20px 0px;
+	height:56px;
+}
+#step .hide .buttonwrapper{
+	padding:10px;
+}
+.wizard_border{
+	border-top:none;
+}
+.wizard_scroll{
+	min-height:180px;
+	max-height:auto;
+	width:100%;
+	padding-bottom: 10px;
+}
+ul.progress-tracker {
+  padding: 0;
+  border:none;
+}
+ul.progress-tracker li{
+	display:table-cell;
+	width:14%;
+	margin:0px;
+	position:relative;
+	z-index:999;
+} 
+ul.progress-tracker li .step{
+	border-radius:100%;
+	margin:0px auto;
+	text-align:center;
+	vertical-align:middle;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	font-weight:bold;
+}
+ul.progress-tracker li .label{
+	text-align:center;
+	vertical-align:middle;
+	line-height:16px;
+	margin:0px auto;
+	margin-top:5px;
+	font-weight:bold;
+	display: block;
+}
+ul.progress-tracker li .label a{
+	color:#979494;
+}
+ul.progress-tracker .progressLine{
+	position:absolute;
+	width:100%;
+	top:0px;
+	left:50%;
+	z-index:-2;
+}
+ul.progress-tracker .active .step{
+	background:#f5740e;
+	color:#fff;
+}
+ul.progress-tracker .active .label, ul.progress-tracker .active .label a{
+	font-weight:bold;
+}
+.progress-tracker.progresstfullwidth li{
+	width:33%;
+}
+.wizard_chkbox_bg{
+	width:98%;
+	margin:0px auto;
+}
+.wizard_checkbox{
+	display:inline-block;
+	padding:5px 15px;
+	width:15%;
+}
+.tableLeft{
+	float:left;
+	border-right: none;
+	border-bottom: none;
+}
+.tableLeft1 {
+	float:left;
+	width:97%;
+    padding-left:24px;
+}
+.tableLeftChkBx{position:absolute;}
+#step3 table tr td{
+	padding: 5px !important;
+}
+#step3 table tr td input{
+	margin:0px !important;
+	padding:0px !important;
+}
+.upload{
+	width:100%;
+}
+.document_data{
+	padding-top:5px;
+	padding-left:6px;
+}
+.document_data a{
+	cursor:pointer
+}
+.importGrid{position:relative;overflow:hidden;min-height:42px;height:auto;}
+
+.freeFormDiv ul.split-list li{padding: 0px 0px;}
+ul.split-list li .freeFormListTr .freeFormListTd, ul.inline-blocks li .freeFormListTr .freeFormListTd{padding: 1px 0px 1px 0px;}
+.relationshiptask .mendatoryInput, .relationshiptask .tdInput{padding: 2px 0px 2px 0px;}
+.infor .mendatoryInput, .infor .tdInput{padding: 3px 0px 3px 0px;}
+.no-borders .listRow2CSS td, .no-borders .listRow1CSS td{ padding: 2px !important;}
+.listRow2CSS td.none .no-borders tr.listRow2CSS td, 
+.listRow2CSS td.none .no-borders tr.listRow1CSS td,
+.listRow1CSS td.none .no-borders tr.listRow2CSS td,
+.listRow1CSS td.none .no-borders tr.listRow1CSS td
+{
+	 padding: 2px !important;
+} 
+.contact_1 .detail_Split_List .split-list .tdInput, .contact_1 .detail_Split_List .split-list .mendatoryInput{padding: 1px 0px 1px 5px;}
+.contact_1 #addressTypeDiv .tdInput, .contact_1 #addressTypeDiv .mendatoryInput, .contact_1 #addressTypeDiv .mendatoryInput_address{padding: 1px 0px 1px 5px;}
+.listRow2CSS tr.padding0 td .tdPadding3_grid .listRow2CSS td, 
+.listRow2CSS tr.padding0 td .tdPadding3_grid .listRow1CSS td, 
+.listRow1CSS tr.padding0 td .tdPadding3_grid .listRow1CSS td,
+.listRow1CSS tr.padding0 td .tdPadding3_grid .listRow2CSS td,
+.listRow1CSS tr.padding0 td .tdPadding3_grid .HeaderStyle,
+.listRow2CSS tr.padding0 td .tdPadding3_grid .HeaderStyle,
+.listRow2CSS tr.padding0 td .tdPadding3_grid .netTotal td, 
+.listRow1CSS tr.padding0 td .tdPadding3_grid .netTotal td
+{	
+	padding: 3px !important;
+}
+.netTotal td{
+	padding: 3px !important;
+}
+.accGrid tbody .listRow2CSS td,
+.accGrid tbody .listRow2CSS td{padding:3px!important;}
+.accGrid tbody .listRow2CSS tr td,
+.accGrid tbody .listRow2CSS tr td{padding:3px!important;}
+.listRow2CSS tr.padding0 td.HeaderStyle, .listRow1CSS tr.padding0 td.HeaderStyle{padding:3px!important}
+.bgAccordion .accordionGrid tbody.listRow1CSS tr td,
+.bgAccordion .accordionGrid tbody.listRow2CSS tr td{padding:0px 3px!important;}
+.advSearchLeftDivAuto1{
+	overflow-y:auto!imortant;
+	width: 100%;
+    min-height: 200px;
+    height: 522px;
+}
+.advSearchLeftDivAuto2{
+	overflow-y:auto!imortant;
+	width: 100%;
+    min-height: 200px;
+    height: 400px;
+}
+.headerChange .DashboardHeaderStyle,.headerChange .HeaderStyle {text-align: left;}  
+.headerChange .gridTable{border: 1px solid #e2e1e1 !important;}
+.freeFormLabelWidth_184 {
+	width: 184px;
+}
+.fieldsetMandatory .mendatoryLegend{
+	padding-left: 13px !important;
+}
+#graph_div2, #graph_div3{text-align: center; font-weight: bold; line-height: 26px;}
+.full_border{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.whiteBg tbody .listRow2CSS td, .whiteBg tbody .listRow2CSS td, .whiteBg tbody .netTotal td{padding: 3px !important;}
+.sidebar-content{
+ padding-left: 20px;
+}
+.sidebar-content {
+    transition: all .4s ease 0s;
+	min-height: 280px;   
+}
+.sideBar {
+    z-index: 10000;
+    transition: all .4s ease 0s;
+    border-top:none;
+    border-left:none;
+    width:17px;
+    margin-top: 0px;
+}
+.sidebar-nav .scrollH{
+	position: absolute;
+	margin-top: 0px;
+	margin-right: -1200px;
+	z-index:999;
+	right: 0px;
+    padding: 10px;
+    margin-top: 0px;
+    border-radius: 4px;
+}
+.sidebar-nav .scrollH .hierarchyPadding{
+	xoverflow:auto;
+	min-height:auto;
+	max-height:430px;
+	min-width: 100px;
+    max-width: auto;
+    padding-right:0px
+}
+.sidebar-nav {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	width:245px;
+}
+.scrollH:before{
+	content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -9px;
+    right: 53px;
+}
+.scrollH:after{
+	content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    position: absolute;
+	top: -8px;
+    right: 54px;
+}
+#sidebar_menu{
+	height: 31px;
+	background:#b4b4b4;
+	width:36px;
+	margin-top:4px;
+}
+.panel-body-wraper {
+    padding-bottom: 20px;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.active {
+	transition: all .4s ease 0s;
+}
+.active .scrollH{
+	margin-right: 40px;
+}
+.changeIcon .fa, .changeIcon2 .fa{color:#3d464d;}
+#sidebar_menu li a, .sidebar-nav li a {
+    color: #fff;
+    display: block;
+    float: none;
+    text-decoration: none;
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -o-transition: background .5s;
+    -ms-transition: background .5s;
+    transition: background .5s;
+    behavior: url(styles/htc/PIE.htc);
+    
+}
+.sidebar_name {
+    padding-top: 25px;
+    opacity: .7;
+}
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  text-decoration: none;
+}
+.scrollH  .listRow1CSS td td{
+	padding:0px !important;
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand {
+  line-height: 18px;
+  font-size: 16px;
+}
+.changeIcon2 #main_icon{
+	float: right;
+}
+@media (max-width:767px) {
+    .sidebar-content {
+	    padding-left: 70px;
+	    transition: all .4s ease 0s;
+	}
+	#sidebar-wrapper {
+	    left: 100px;
+	}
+	
+	.tableWidth.active .sideBar {
+	    left: 150px;
+	    width: 150px;
+	    transition: all .4s ease 0s;
+	}
+}
+.sideBar .roundCornerTop, .sideBar .roundCornerBottom{display: none;}
+.sidebar-brand .changeIcon2 .icon:before{
+	content: "\f100"!important;
+	font-size:28px;
+}
+.sidebar-brand .changeIcon .icon:before{content: "\f101";font-size:28px;}
+.sidebar-nav .scrollH .hierarchyPadding .headerHierarchy{
+	display: none;
+}
+.sidebar-nav .scrollH .hierarchyPadding .RowStyle{
+	background: transparent;
+}
+.sidebar-nav .scrollH .hierarchyPadding .RowStyle, .sidebar-nav .scrollH .hierarchyPadding .RowStyle .label{
+	white-space: nowrap;
+	vertical-align: top;
+}
+.sidebar-nav .scrollH .hierarchyPadding .RowStyle a:hover{
+	text-decoration: underline;
+}
+.control, .expander, .label{
+	float: none !important;
+	display: inline-block;
+}
+.sidebar-nav .scrollH .hierarchyPadding .RowStyle .label a{
+	padding-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	max-width: 500px;
+	position: relative;
+    padding-right: 15px;
+}
+.sidebar-nav .scrollH .hierarchyPadding table#table1 td{
+	padding: 0px;
+}
+.sidebar-nav .scrollH .hierarchyPadding .active a {
+    position: relative;
+}
+.sidebar-nav .scrollH .hierarchyPadding .active a{font-weight:bold;}
+.sidebar-nav .scrollH .hierarchyPadding .active a:before{
+	width: 0;
+    height: 0;
+    content: ' ';
+    position: absolute;
+    z-index: 9999;
+    margin-top: 3px;
+	right: 3px;    
+}
+.HierarchyViewTree .hierarchyPadding .active a{position:relative}
+.HierarchyViewTree .hierarchyPadding .active a:before{
+	width: 0;
+    height: 0;
+    content: ' ';
+    position: absolute;
+    z-index: 9999;
+    margin-top: 3px;
+	right: -12px;    
+}
+.sidebar-nav .scrollH .hierarchyPadding table#table1 #level_1_1 td{padding-bottom: 5px;}
+.header-outer{width: 100%}
+.header-inner{padding: 0px 20px;}
+.header-top-block{
+	min-height: 54px !important;
+	float: right;
+}
+.frameData_onBording {
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+}
+ul.progress-tracker .progressLine{
+      position:absolute;
+      width:100%;
+      top:0px;
+      left:50%;
+      z-index:-2;
+}
+.sectionHealth .listRow2CSS, .sectionHealth .listRow1CSS {
+    margin-right: 20px;
+    width: 180px;
+    float: left;
+    border-top: none;
+}
+.healthLab {
+    padding: 5px;
+    float: left;
+    margin: 0px;
+    height: 20px;
+    width: 100px;
+    text-align: right;
+    line-height: 20px;
+}
+.healthChk {
+    padding: 5px;
+    height: 20px;
+    float: left;
+}
+.termAndCondition {
+	margin: 20px 0px 5px 0px;
+	padding: 10px;
+}
+.dashboardHeading_outer{
+    margin: 0px !important;
+    position: fixed;
+    z-index: 99;
+    margin-top: -1px !important;
+}
+.dashboardHeading_outer + .content{
+	padding-top: 73px !important;
+}
+.content .btn.btn-primary, .content .btn.btn-default, .modal_popup .btn.btn-primary, .modal_popup .btn.btn-default{
+    padding: 4px 18px;
+    line-height: 26px;
+    text-transform: uppercase;
+    margin-left: 3px;
+}
+.content a.btn.btn-primary span, .content a.btn.btn-default span {
+	display: inline-block;
+}
+.content a.btn.btn-primary span b, .content a.btn.btn-default span{font-weight: normal;}
+.logo-app img{
+	width: 80%
+}
+.HeaderStyle a:hover{text-decoration: underline;}
+.menu-Bottom-new a{margin: 13px 0px}
+.topSearch{padding-top: 14px !important;}
+.dropdown-menu.user_dropdown{margin-top: 2px;}

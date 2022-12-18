@@ -1,0 +1,17 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="producer_number;category_lku;person;agency_insurance;" name="docInsuranceDetail" 
+  	stackdisplayname="doc_insurance_grid_label" displayname="Insurance Listing">
+  	<html path="carrier/docInsuranceDetail.html">
+    	<block ajaxcontainerid="ajax_sorting_1" id="docInsuranceDetail_list_1" isshowpagination="Y" name="docInsuranceDetail_list_1" securitykey="doc_insurance_grid_security" type="accordianlist" labelkey="doc_insurance_grid_label">
+			<!-- ADO-52160 - For Deductible customization -->
+			<field deltaind="I" displaytype="label" executionsequence="11" id="block_field_deductible" format="amount" issorting="Y" labelkey="insurance_freeform_deductible_label" name="deductible" securitykey="doc_insurance_block_deductible_security" style="width:10%;"/>
+			<field deltaind="M" displaytype="link" executionsequence="12" id="block_field_delete_row_link" name="delete_row_link" securitykey="insurance_delete_row_security" style="width:1%;" tooltip="Delete" displayname="Show Delete Row Link">
+				<event action="delete" actiontype="submitform" id="href" name="href" linkcss="delete_ico icons" screen="carrier/docInsuranceDetail.html">
+			  		<forward id="carrier/docInsuranceDetail.html" screen="carrier/docInsuranceDetail.html"/>
+			  	</event>
+			</field>
+			<field deltaind="M" displaytype="accordianid" executionsequence="13" id="div_ajaxpostionaddDocInsurance_freeform:insurance_certificate_id" name="div_ajaxpostionaddDocInsurance_freeform:insurance_certificate_id"/>
+		</block>	
+    </html>
+  </component>
+</projectcomponents>

@@ -1,0 +1,8 @@
+<messages project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+    <message msglevel="" msgkey="" message="" deltaind="">
+    	<nodeinfo uniqueid="msgkey"/>
+    </message>
+</messages>

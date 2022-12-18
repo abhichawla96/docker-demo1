@@ -1,0 +1,17 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component name="frameworksqlStatements">
+		<!-- Phase 3 - Variance Approval Email - Sprint 2 -->
+		<!-- <action deltaind="M" name="view">
+      		<workflow deltaind="M" name="view" seq="0">
+      			Phase 2- BugId- P2-085- Initiate Email Notification- Wrong Entity Name
+		        <storedprocedureoperation deltaind="D" dbspname="getNotificationEmailData_p" executionsequence="7" id="getNotificationEmailData_p" metaobject="framework" name="getNotificationEmailData_p" operation="3">
+		          	<parameteroperation indexno="0" mode="IN" property="xml" seq="1"/>
+		          	<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1">
+		          		<result column="xml" indexno="1" javaType="java.lang.String" property="xml"/>
+		          	</resultsetoperation>
+		        </storedprocedureoperation>
+		        
+	        </workflow>
+      	</action> -->
+    </component>
+</projectcomponents>

@@ -1,0 +1,17 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="additional_address_emails;prospect_status_lku;prospect_address;prospect_source_lku;" name="prospectAgencyDetails" stackdisplayname="Prospects Detail">    
+
+<!-- Phase 2 - Lines of Business - Commercial Lines -->
+
+ <html path="carrier/prospectAgencyDetails.html">
+ 	<block deltaind="M" id="agency_lob_list_mom_1" name="agency_lob_list_mom_1" labelkey="prospectDetails_agency_lob_label" securitykey="isShowAgencyLobCheckboxProspectDetails" type="momchilddatalist1" css="">
+			<field deltaind="M" id="agency_lob" name="agency_lob" displaytype="multicheckbox" executionsequence="0" isrequired="MA" labelkey="agency_lob_label"
+				lookupobjecttype="procedure" lookupobjectmetaobject="agency_master" lookupobjectprocedure="getAgencyLob_P" 
+				displayfield="agency_lob_desc" valuefield="agency_lob_id">
+				<validation name="validateAgencyLob" expression="if(andCondition(isEmpty(:agency_lob),isEqual(:isShowAgencyLobCheckboxProspectDetails,Y))=&gt;isEqual(1,2)-&gt;isEqual(1,1));" message="prospectAgencyDetails_agency_lobErrorKey" executionsequence="0" />
+			</field>
+	</block>
+ </html>
+            
+    </component>
+</projectcomponents>

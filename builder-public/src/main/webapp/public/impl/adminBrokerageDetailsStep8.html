@@ -1,0 +1,1914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=11" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<!-- tag for resolution change -->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<title>ProducerOne - Producer Management Center</title>
+<!-- css -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/all_files.js" /> 
+
+</head>
+<body
+	onload="disableStatefromStep1();getCheckedAgencyComparativerate();showdivOtherAgency();showProgramDiv();loadQuestions();loadAdminBrokerageDetails1();showOtherDiv();showLegalOtherDiv();">
+	<form>
+		<div id="progressBarDiv" />
+		<div id="cover"></div>
+		<div id="contextLinks"></div>
+<div id="unsavedDataConfirmation" style="position: absolute; width: 400px">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top" class="popupBg">
+				<table cellpadding="0" cellspacing="0" width="100%" border="0">
+					<tr>
+						<td class="popupHeader">Unsaved Data</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<div class="popupDivSmall" style="width: auto;">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td>You have unsaved data on page. Are you sure you want to continue?</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="popupFooter">
+							<table cellpadding="0" cellspacing="0" align="right">
+								<tr>
+									<td colspan="2">
+										<div class="buttonwrapper">
+											<a
+												id="unsavedDataConfirmation_yes"
+												onclick="closePopUp('unsavedDataConfirmation'); disableBody(); document.forms[0].submit();" 
+												class="ovalbutton"><span>Continue</span> </a>
+											<a
+												id="unsavedDataConfirmation_no" href="#" onclick="clean(); closePopUp('unsavedDataConfirmation');"
+												class="ovalbutton"><span>Cancel</span> </a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="27px" valign="top" style="background-color: none;">
+				<a href="#" onClick="closePopUp('unsavedDataConfirmation')"><img
+					src="images/close.png" /> </a>
+			</td>
+		</tr>
+	</table>
+</div>		
+		<div id="deleteConfirmation" style="position: absolute; width: 400px">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td valign="top" class="popupBg">
+						<table cellpadding="0" cellspacing="0" width="100%" border="0">
+							<tr>
+								<td class="popupHeader">Delete</td>
+							</tr>
+							<tr>
+								<td valign="top">
+									<div class="popupDivSmall">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td><img src="images/icons/delete_icon.gif" width="16"
+													height="16" alt="" /></td>
+												<td>Are you sure you want to delete this item?</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="popupFooter">
+									<table cellpadding="0" cellspacing="0" align="right">
+										<tr>
+											<td colspan="2">
+												<div class="buttonwrapper">
+													<a
+														onclick="closePopUp('deleteConfirmation');callAjaxDelete('bankInfoDiv');"
+														href="#" class="ovalbutton"><span>Yes</span> </a> <a
+														href="#"
+														onClick="clean();closePopUp('deleteConfirmation');"
+														class="ovalbutton"><span>No</span> </a>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="27px" valign="top" style="background-color: none;">
+						<a href="#" onClick="closePopUp('deleteConfirmation')"><img
+							src="images/close.png" /> </a>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div id="contentDiv" class="checkUnsavedData">
+			<div class="container-fluid bootstrap-node-1"
+				id="common.readOnlyFieldsIfNotComingFromInviation">
+				<div class="tableWidth">
+					<!---------Header Start---------->
+					<header>
+						<span id="#Include:public/publicHeader.html#" />
+					</header>
+					<!---------Header End---------->
+					<div class="bgmain formWidth_180">
+						<div class="contentWithoutTabs">
+
+							<section class="main-step-box width100 floatLeft"
+								id="agency_appointment_application_security">
+
+							<div class="step-box">
+								<div class="step_table_cell one-cell"
+									id="public_step1_agency_information_security">
+									<div class="step-box-inner firstMargin step-box-done">
+										<h1 id="public_step1_agency_information_label">Step 1 -
+											Agency Information</h1>
+										<div class="scroll-box">
+											<ul>
+												<li id="public_step1_general_info_security"><span
+													id="public_step1_general_info_label">General
+														Information</span></li>
+												<li id="public_step1_address_security"><span
+													id="public_step1_address_label">Address - Business,
+														Mailing, W-9</span></li>
+												<li id="public_step1_locations_security"><span
+													id="public_step1_locations_label">Location</span></li>
+												<li id="public_step1_questions_security"><span
+													id="public_step1_questions_label">Questions</span></li>
+												<li id="public_step1_eo_policies_security"><span
+													id="public_step1_eo_policies_label">E&amp;O Policies</span></li>
+													<li id="public_step1_cyber_liability_policies_security"><span
+													id="public_step1_cyber_liability_policies_label">Cyber Liability Policies</span></li>
+												<li id="public_step1_image_verification_security"><span
+													id="public_step1_image_verification_label">Image
+														Verification</span></li>
+											</ul>
+										</div>
+										<span class="step-approve">&nbsp;</span>
+									</div>
+								</div>
+								<div class="step_table_cell two-cell"
+									id="public_step2_agency_banking_security">
+									<div class="step-box-inner step-box-active">
+										<h1 id="public_step2_agency_banking_label">Step 2 -
+											Agency Banking</h1>
+										<div class="step-box">
+											<ul>
+												<li id="public_step2_bank_information_security"><span
+													id="public_step2_bank_information_label">Bank
+														Information</span></li>
+												<li id="public_step2_trust_account_security"><span
+													id="public_step2_trust_account_label">Trust Account</span></li>
+												<li id="public_step2_commission_account_security"><span
+													id="public_step2_commission_account_label">Commission
+														Account</span></li>
+											</ul>
+										</div>
+										<span class="step-icon">&nbsp;</span>
+									</div>
+								</div>
+
+
+								<div class="step_table_cell three-cell"
+									id="public_step3_agency_contracts_security">
+									<div class="step-box-inner">
+										<h1 id="public_step3_agency_contracts_label">Step 3 -
+											Agency Contacts</h1>
+										<div class="scroll-box">
+											<ul>
+												<li id="public_step3_contact_information_security"><span
+													id="public_step3_contact_information_label">Contact
+														Information</span></li>
+												<li id="public_step3_contact_type_security"><span
+													id="public_step3_contact_type_label">Contact Type</span></li>
+												<li id="public_step3_contact_details_security"><span
+													id="public_step3_contact_details_label">Contact
+														Details</span></li>
+												<li id="public_step3_address_security"><span
+													id="public_step3_address_label">Address - Residence</span></li>
+												<li id="public_step3_bgQuestions_security"><span
+													id="public_step3_bgQuestions_label">Questions</span></li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="step_table_cell four-cell"
+									id="public_step4_market_information_security">
+									<div class="step-box-inner">
+
+										<h1 id="public_step4_market_information_label">Step 4 -
+											Market Information</h1>
+										<div class="scroll-box">
+											<ul>
+												<li id="public_step4_market_info_security"><span
+													id="public_step4_market_info_label">Market
+														Information</span></li>
+												<li id="public_step4_largest_carriers_security"><span
+													id="public_step4_largest_carriers_label">Largest
+														Carriers</span></li>
+												<li id="public_step4_growth_rate_security"><span
+													id="public_step4_growth_rate_label">Agent's Growth
+														Rate</span></li>
+												<li id="public_step4_growth_rate_security"><span
+													id="terminated_suspended_restricted_companies_label">Terminated,
+														Suspended, Restricted Companies</span></li>
+												<li id="public_step4_anticipated_sample_volume_security"><span
+													is="public_step4_anticipated_sample_volume_label">Anticipated
+														Sample Volume</span></li>
+												<li
+													id="public_step4_anticipated_production_analysis_security"><span
+													id="public_step4_anticipated_production_analysis_label">Production
+														Analysis</span></li>
+												<li id="public_step4_key_lines_security"><span
+													id="public_step4_key_lines_label">Key Lines &
+														Comments</span></li>
+												<li id="public_step4_brief_profile_security"><span
+													id="public_step4_brief_profile_label">Brief profile
+														of the agency</span></li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="step_table_cell"
+									id="public_step5_document_upload_security">
+									<div class="step-box-inner">
+
+										<h1 id="public_step5_document_upload_label">Step 5 -
+											Document Upload</h1>
+										<div class="scroll-box">
+											<ul>
+												<li id="public_step5_upload_security"><span
+													id="public_step5_upload_label">Document Upload</span></li>
+												<li id="public_step5_eo_policies_security"><span
+													id="public_step5_eo_policies_label">E&O Policies</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="step_table_cell" id="public_step6_summary_security">
+									<div class="step-box-inner">
+										<h1 id="public_step6_summary_label">Step 6 - Summary</h1>
+										<div class="step-box">
+											<ul>
+												<li id="public_step6_document_contracts_security"><span
+													id="public_step6_document_contracts_label">Document
+														& Contracts</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							</section>
+
+
+
+							<div class="errorMsgAlign clear-both">
+								<div id="error_pageError" class="error"></div>
+								<div id="ajax_error_pageError" class="error"></div>
+							</div>
+
+
+							<div class="required">*= required field</div>
+							<section class="list-grid panel-body-wraper" id="isShowBankReference">
+							<div id="bankInfoDiv">
+								<fieldset>
+									<legend>
+										<span id="bank_information_label">Bank Information</span>
+									</legend>
+									<div class="msg-box" id="adminBrokerageStep8_note_security">
+										<ul class="information">
+											<li><b><span id="public2_note_label">Add
+														Minimum of one Trust account and one Commission account
+														type.</span></b></li>
+
+										</ul>
+									</div>
+
+									<div id="adminBrokerageDetailsStep1_freeform_contextdata_4">
+										<div class="errorMsgAlign clear-both">
+											<div id="error_pageError1" class="error"></div>
+											<div id="ajax_error_pageError1" class="error"></div>
+										</div>
+										<div class="ConfirmationAlign clear-both">
+											<label name="pageMsg" id="pageMsg" class="Confirmation"></label>
+										</div>
+									</div>
+									<!-- <div class="divButton buttons-section paddingTop10">
+									<div class="buttonwrapper0">
+										<span
+											id="eval:PublicRule.isRequestInvited">
+												<a
+												href="javascript:rightclickmenu('public/addBankInformation.html','addBankInformation.show','','','div_ajaxpostion_addBankInformation:country');"
+												class="ovalbutton" tabindex="54"><span id="add_bank_information_label">Add Bank Information</span> </a>
+										
+										</span> <span
+											id="eval:PublicRule.isAarStatusIdEmpty">
+												<a
+												href="javascript:rightclickmenu('public/addBankInformation.html','addBankInformation.show','','','div_ajaxpostion_addBankInformation:country');"
+												class="ovalbutton" tabindex="54"><span id="add_bank_information_label">Add Bank Information</span> </a>
+										</span>
+									</div>
+								</div> -->
+									<div class="clear-both ajax-div"
+										id="bankInformation_freeform_contextdata_112">
+										<div id="div_ajaxpostion_addBankInformation:country"></div>
+									</div>
+									<section id="bankInfo_grid_security">
+									<div class="table-layout">
+									<div id="ajax_sorting"
+										class="table-responsive border">
+										<table cellspacing="0" cellpadding="0"
+											class="grid-width bank-info-width"
+											id="agencybankinformation_list_1">
+											<thead>
+												<tr id="agencybankinformation_list_header_1">
+													<td class="HeaderStyle header-cell" width="20%"
+														id="bankInfo_block_bank_name_security">
+														<div id="sorting(,A,ajax_sorting):block_field_bank_name">
+															<span id="bankInfo_block_bank_name_label">Bank
+																Name</span>
+														</div>
+													</td>
+													<td id="bank_account_last_four_digits_security"
+														class="HeaderStyle header-cell" width="60pt">
+														<div
+															id="sorting(,A,ajax_sorting):block_field_bank_account_last_four_digits">
+															<span id="bank_account_last_four_digits_label">Bank
+																Account Number (Last 4 digits)</span>
+														</div>
+													</td>
+													<!--<td id="block_field_bank_routing_new"
+												class="HeaderStyle">
+												<div style="width: 60px">Bank
+													Routing Number</div>
+											</td>
+											-->		
+											
+													<td
+														id="adminBrokeage8_account_type_checking_saving_security"
+														class="HeaderStyle header-cell" width="70pt">
+														<div
+															id="sorting(,A,ajax_sorting):block_field_bank_account_type_desc">
+															<span
+																id="adminBrokeage8_account_type_checking_saving_label">Account
+																Type</span>
+														</div>
+													</td>
+													<td
+														id="adminBrokeage8_account_type_trust_operating_security"
+														class="HeaderStyle header-cell" width="70pt">
+														<div
+															id="sorting(,A,ajax_sorting):block_field_bank_account_type_usage_desc">
+															<span id="public2_bank_account_type_usage_label">Account
+																Type Usage</span>
+														</div>
+													</td>
+													<td id="adminBrokeage8_average_balance_security"
+														class="HeaderStyle header-cell" width="80pt"><span
+														id="sorting(,A,ajax_sorting):block_field_average_balance_format">
+															<span id="adminBrokeage8_average_balance_label">Average
+																Balance</span>
+													</span></td>
+													<td class="HeaderStyle header-cell" width="80pt"
+														id="adminBrokeage8_payment_type_security">
+														<div
+															id="sorting(,A,ajax_sorting):block_field_payment_type_description">
+															<span id="adminBrokeage8_payment_type_label">Payment
+																Type</span>
+														</div>
+													</td>
+													<td id="bank_addressHeader_security"
+														class="HeaderStyle header-cell" width="100pt">
+														<div style="width: 70px"
+															id="sorting(,A,ajax_sorting):block_field_BankAddress">
+															<span id="bank_addressHeader_label">Bank Address</span>
+														</div>
+													</td>
+													<td id="adminBrokeage8_bank_phone_security"
+														class="HeaderStyle header-cell" width="80pt">
+														<div style="width: 40px"
+															id="sorting(,A,ajax_sorting):block_field_bank_phone_format">
+															<span id="adminBrokeage8_bank_phone_label">Phone</span>
+														</div>
+													</td>
+													<td id="bank_routing_in_list_security"
+														class="HeaderStyle header-cell" width="80pt"><span
+														id="sorting(,A,ajax_sorting):block_field_bank_routing">
+															<div style="width: 70px">
+																<label id="bank_routing_in_list_label">Bank
+																	Routing Number</label>
+															</div>
+													</span></td>
+													<td id="bank_account_in_list_security"
+														class="HeaderStyle header-cell" width="80pt">
+														<div
+															id="sorting(,A,ajax_sorting):block_field_bank_account">
+															<span id="bank_account_in_list_label">Account
+																Number</span>
+														</div>
+													</td>
+													
+													
+													<td id="adminBrokeage8_accountopen_date_security"
+														class="HeaderStyle header-cell" width="70pt">
+														<div style="width: 100px"
+															id="sorting(,A,ajax_sorting):block_field_accountopen_date">
+															<span id="adminBrokeage8_accountopen_date_label">Account
+																Opening Date</span>
+														</div>
+													</td>
+													
+													<td id="adminBrokeage8_bank_commission_amt_security"
+														class="HeaderStyle header-cell" width="80pt">
+														<div style="width: 100px"
+															id="sorting(,A,ajax_sorting):block_field_commission_amt">
+															<span id="adminBrokeage8_bank_commission_amt_label">%
+																Commission Amount</span>
+														</div>
+													</td>
+													
+													<td id="adminBrokeage8_bank_account_for_EFT_security"
+														class="HeaderStyle header-cell" width="20pt">
+														<div style="width: 80px"
+															id="sorting(,A,ajax_sorting):block_field_bank_account_for_EFT">
+															Use <span id="adminBrokeage8_bank_account_for_EFT_label">Account
+																for Direct Deposit</span>
+														</div>
+													</td>
+													<td id="adminBrokeage8_bank_edit_security"
+														class="HeaderStyle header-cell" width="1%">
+														<div id="block_field_edit_row_link"
+															class="edit_delete_width">
+															<span id="adminBrokeage8_bank_edit_label">Edit</span>
+														</div>
+													</td>
+													<td width="1%" id="adminBrokeage8_bank_delete_security"
+														class="HeaderStyle header-cell last-cell">
+														<div
+															id="eval:PublicRule.isStatusInvitedOrComingFromInviation">
+															<div class="edit_delete_width"
+																id="block_field_delete_row_link">
+																<span id="adminBrokeage8_bank_delete_label">Delete</span>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr id="agencybankinformation_list_data_1">
+													<td class="data-cell"
+														id="bankInfo_block_bank_name_security"><span
+														id="block_field_bank_name"> <!-- <a
+													href="javascript:rightclickmenu('public/addBankInformation.html','addBankInformation.edit','','','div_ajaxpostion_addBankInformation:bank_information_id');">
+													 -->
+															<label id="block_field_bank_name"></label> <!-- </a> -->
+													</span></td>
+													<td id="bank_account_last_four_digits_security"
+														class="data-cell"><span
+														id="block_field_bank_account_last_four_digits"></span></td>
+													<td
+														id="adminBrokeage8_account_type_checking_saving_security"
+														class="data-cell"><span
+														id="block_field_bank_account_type_desc"></span></td>
+													<td
+														id="adminBrokeage8_account_type_trust_operating_security"
+														class="data-cell"><span
+														id="block_field_bank_account_type_usage_desc"></span></td>
+													<td id="adminBrokeage8_average_balance_security"
+														class="data-cell"><span
+														id="block_field_average_balance_format"></span></td>
+													<td id="adminBrokeage8_payment_type_security"
+														class="data-cell"><span
+														id="block_field_payment_type_description"></span></td>
+													<!--<td id="block_field_bank_routing_new"></td>-->
+													<td id="bank_addressHeader_security" class="data-cell">
+														<span id="block_field_BankAddress"></span>
+													</td>
+													<td id="adminBrokeage8_bank_phone_security" nowrap="nowrap"
+														class="data-cell"><span
+														id="block_field_bank_phone_format"></span></td>
+													<td id="bank_routing_in_list_security" class="data-cell">
+														<span id="block_field_bank_routing"></span>
+													</td>
+													<td id="bank_account_in_list_security" class="data-cell">
+														<span id="block_field_bank_account"></span>
+													</td>
+													
+													
+													<td id="adminBrokeage8_accountopen_date_security"
+														class="data-cell"><span
+														id="block_field_accountopen_date"></span></td>
+													
+
+													<td id="adminBrokeage8_bank_commission_amt_security"
+														class="data-cell"><span
+														id="block_field_commission_amt"></span></td>
+													
+													<td id="adminBrokeage8_bank_account_for_EFT_security"
+														class="data-cell"><span
+														id="block_field_bank_account_for_EFT"> <input
+															name="bank_account_for_EFT" id="bank_account_for_EFT"
+															type="checkbox" value="1" disabled="disabled" />
+													</span></td>
+
+													<td class="data-cell"
+														id="adminBrokeage8_bank_edit_security"><span
+														id="block_field_edit_row_link"> <a
+															class="edit_ico icons" title="Edit"
+															href="javascript:ajaxpageblocklink('public/adminBrokerageDetailsStep8.html','adminBrokerageDetailsStep8.editLinkForBankInformationSection','','','BankInformationDiv');">
+														</a>
+													</span></td>
+
+													<td class="data-cell delete-col last-cell" width="10pt"
+														id="adminBrokeage8_bank_delete_security"><span
+														id="eval:PublicRule.isStatusInvitedOrComingFromInviation">
+															<span id="eval:PublicRule.isRequestNewOrInvited">
+																<span id="block_field_delete_row_link"> <a
+																	class="delete_ico icons" title="Delete"
+																	href="javascript:ajaxpageblocklink('public/adminBrokerageDetailsStep8.html','adminBrokerageDetailsStep8.deleteBankInformationSection','','','bankInfoDiv');"></a>
+															</span>
+														</span> <span id="eval:PublicRule.isAarStatusIdEmpty"> <span
+																id="block_field_delete_row_link"> <a
+																	class="delete_ico icons" title="Delete"
+																	href="javascript:ajaxpageblocklink('public/adminBrokerageDetailsStep8.html','adminBrokerageDetailsStep8.deleteBankInformationSection','','','bankInfoDiv');">
+																</a>
+															</span>
+														</span>
+													</span></td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+									</div>
+									</section>
+									<div id="BankInformationDiv">
+										<div id="common.readonlyrelation"
+											class="free-form-padding-top">
+
+											<div id="public2_bank_info_detail_security">
+
+												<div class="freeFormDiv">
+													<div class="errorMsgAlign clear-both"
+														id="adminBrokerageDetailsStep1_freeform_contextdata_412">
+														<div id="ajax_error_bankpageError" class="error"></div>
+														<div id="error_bankpageError" class="error"></div>
+													</div>
+
+													<div class="freeFormDiv form-inline">
+															
+																<ul class="split-column" id="adminBrokerageDetailsStep1_freeform_contextdata_41">
+																
+																<li class="extendedFieldHide"
+																		id="#bank_account_before#"></li>
+																	<li id="public2_bank_account_number_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft8">
+																					<div id="ajax_error_bank_account" class="error"></div>
+																					<div id="error_bank_account" class="error"></div>
+																					
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<label id="bank_account_number_label">Bank
+																							Account Number</label> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd mendatoryInput">
+																					<input name="bank_account"
+																						id="ajax_field_bank_account" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).public2_bank_account_number_security.bank_account_number_label.bank_account"
+																						onkeyup="checkNumericValue(this,event);"
+																						onkeypress="checkNumericValue(this,event);"
+																						class="form-control form-control-200"
+																						maxlength="17" oncopy="return false"
+																						onpaste="return false" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_account_after#"></li>
+																	
+																	<li class="extendedFieldHide"
+																		id="#reenter_account_number_before#"></li>
+																	<li id="public2_reenter_account_number_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft8">
+																					<div id="ajax_error_reenter_account_number"
+																						class="error">
+																						<div id="error_reenter_account_number"
+																							class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<label id="reenter_account_number_label">Re-Enter
+																							Account Number</label> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd mendatoryInput">
+																					<input name="reenter_account_number"
+																						id="ajax_field_reenter_account_number" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).public2_reenter_account_number_security.reenter_account_number_label.reenter_account_number"
+																						onkeyup="checkNumericValue(this,event);"
+																						onkeypress="checkNumericValue(this,event);"
+																						class="form-control form-control-200"
+																						maxlength="17" oncopy="return false"
+																						onpaste="return false" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#reenter_account_number_after#"></li>
+																	
+																	
+																	
+																	<li class="extendedFieldHide"
+																		id="#bank_account_name_before#"></li>
+																	<li id="bank_account_name_security">
+																		
+																			<div class="freeFormList form-group">
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTdError">
+																						<h6>&nbsp;</h6>
+																					</div>
+																					<div class="freeFormListTdError paddingLeft3">
+																						<div id="ajax_error_bank_account_name"
+																							class="error">
+																							<div id="error_bank_account_name" class="error"></div>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTd labelAlign">
+																						<div class="freeFormLabelWidth">
+																							<span id="public2_bank_account_name_label">Bank
+																								Account Name</span> :
+																						</div>
+																					</div>
+																					<div class="freeFormListTd ">
+																						<input name="bank_account_name"
+																							id="ajax_field_bank_account_name" type="text"
+																								fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_account_name_security.public2_bank_account_name_label.bank_account_name"
+																							class="form-control form-control-250"
+																							maxlength="30" />
+																					</div>
+																				</div>
+																			</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_account_name_after#"></li>
+																																		
+																	
+																	<li class="extendedFieldHide"
+																		id="#bank_routing_before#"></li>
+																	<li id="public2_bank_routing_number_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft8">
+																					<div id="ajax_error_bank_routing" class="error">
+																						<div id="error_bank_routing" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<label id="bank_routing_number_label">Bank
+																							Routing Number</label> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd mendatoryInput ">
+																					<input name="bank_routing"
+																						id="ajax_field_bank_routing" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).public2_bank_routing_number_security.bank_routing_number_label.bank_routing"
+																						onkeyup="checkNumericValue(this,event);"
+																						onkeypress="checkNumericValue(this,event);"
+																						class="form-control form-control-100"
+																						maxlength="9" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_routing_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#bank_name_before#"></li>
+																	<li id="public2_bank_name_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft8">
+																					<div id="ajax_error_bank_name" class="error">
+																						<div id="error_bank_name" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_name_label">Bank
+																							Name</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd mendatoryInput ">
+																					<input name="bank_name" id="ajax_field_bank_name"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).public2_bank_name_security.public2_bank_name_label.bank_name"
+																						type="text" maxlength="50"
+																						class="form-control form-control-250" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_name_after#"></li>
+
+																	<li class="extendedFieldHide"
+																		id="#bank_account_type_usage_before#"></li>
+																	<li id="account_type_trust_operating_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft8">
+																					<div id="ajax_error_bank_account_type_usage"
+																						class="error">
+																						<div id="error_bank_account_type_usage"
+																							class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_account_type_usage_label">Account
+																							Type Usage</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd mendatoryInput">
+																					<select name="bank_account_type_usage"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).account_type_trust_operating_security.public2_bank_account_type_usage_label.bank_account_type_usage"
+																						id="ajax_field_bank_account_type_usage"
+																						class="form-control selectWidth">
+																						<option value="">Select</option>
+																						<!-- <option value="S">Agency Sweep</option>
+																						<option value="O">Direct Deposit</option> -->
+																						<!-- <option value="A">Agency Sweep</option>
+																	<option value="D">Direct Deposit</option> -->
+																					</select> <input type="hidden"
+																						name="bankAccountTypeUsageSubstitute"
+																						id="ajax_field_bankAccountTypeUsageSubstitute" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_account_type_usage_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#average_balance_before#"></li>
+																	<li id="average_balance_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="" class="error">
+																						<div id="" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_average_balance_label">Average
+																							Balance</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput ">
+																					<input name="average_balance"
+																						id="ajax_field_average_balance" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).average_balance_security.public2_bank_average_balance_label.average_balance"
+																						class="form-control form-control-150"
+																						maxlength="15"
+																						onkeyup="checkNumericValue(this,event);"
+																						onkeypress="checkNumericValue(this,event);" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#average_balance_after#"></li>
+																	
+																	<li class="extendedFieldHide"
+																		id="#bank_account_type_before#"></li>
+																	<li id="adminBrokerageDetailsStep8_refresh_account_type" >
+																		<div class="freeFormList form-group" id="account_type_checking_saving_security">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft8">
+																					<div id="ajax_error_bank_account_type"
+																						class="error">
+																						<div id="error_bank_account_type" class="error">
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<label id="public2_bank_account_type_label">Account
+																							Type</label> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd">
+																					<div id="hide_account_type_saving_security" class="mendatoryInput"> 
+																						<select name="bank_account_type"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).account_type_checking_saving_security.public2_bank_account_type_label.bank_account_type"
+																							id="ajax_field_bank_account_type"
+																							class="form-control selectWidth">
+																								<option value="">Select</option>
+																						</select>
+																					</div> 
+																					
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide width49"
+																		id="#bank_account_type_after#"></li>
+																	<li class="extendedFieldHide width49"
+																		id="#payment_type_before#"></li>
+																	<li class="width49" id="payment_type_security">
+																		<div id="payemtTypeDiv" class="">
+																			<div class="freeFormList form-group">
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTdError">
+																						<h6>&nbsp;</h6>
+																					</div>
+																					<div class="freeFormListTdError paddingLeft8">
+																						<div id="ajax_error_payment_type" class="error">
+																							<div id="error_payment_type" class="error"></div>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="freeFormListTr">
+																					<div class="freeFormListTd labelAlign">
+																						<div class="freeFormLabelWidth">
+																							<span id="public2_bank_payment_type_label">Payment
+																								Type</span> :
+																						</div>
+																					</div>
+																					<div class="freeFormListTd tdInput">
+																						<select name="payment_type"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).payment_type_security.public2_bank_payment_type_label.payment_type"
+																							id="ajax_field_payment_type"
+																							class="form-control selectWidth">
+																							<option value="">Select</option>
+																						</select>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#payment_type_after#"></li>
+																	
+																	
+																	
+												<li id="#bank_effective_before#" class="extendedFieldHide"></li>
+												<li id="bank_effective_date_security">
+												<div class="freeFormList form-group">
+													<div class="freeFormListTr">
+														<div class="freeFormListTdError">
+															<h6>#space#</h6>
+														</div>
+														<div class="freeFormListTdError paddingLeft3">
+															<div id="ajax_error_bank_effective_date" class="tr_errors" />
+															<div id="error_bank_effective_date" class="error" />
+														</div>
+													</div>
+
+													<div class="freeFormListTr">
+														<div class="freeFormListTd labelAlign">
+															<div class="freeFormLabelWidth">
+																<span id="bank_effective_date_label">Effective
+																	Date</span> :
+															</div>
+														</div>
+														<div class="freeFormListTd text-nowrap">
+																	
+			                           									<div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+																		<input name="bank_effective_date" type="text"
+																		fullid="addNewBankInformationNew1_freeform_contextdata_01(addNewBankInformation_page.addNewBankInformation_page_label).bank_effective_date_security.bank_effective_date_label.bank_effective_date"
+																		id="ajax_field_bank_effective_date" maxlength="10"
+																		class="form-control char10 form-control-date"
+																		onkeyup="applyDateFormat(this,event);" />
+																		<a
+																		title="Select Date" class="calender_ico icons"
+																		id="date_link" onclick="show_calendar_widget(this);" />
+																	
+														</div>
+													</div>
+												</div>
+											</li>
+
+											<li id="#bank_effective_date_after#" class="extendedFieldHide"></li>
+												
+																	<li class="extendedFieldHide "
+																		id="#bank_country_code_before#"></li>
+																	<li id="adminBrokerageDetailsStep8_bank_country_code_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_country_code" class="error"></div>
+																					<div id="error_bank_country_code" class="error"></div>
+																					
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="adminBrokerageDetailsStep8_bank_country_code_label">county</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput ">
+																					<select class="form-control selectWidth"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).adminBrokerageDetailsStep8_bank_country_code_security.adminBrokerageDetailsStep8_bank_country_code_label.bank_country_code"
+																						id="ajax_field_bank_country_code"
+																						name="bank_country_code" onchange="">
+																						<option value="">Select</option>
+																					</select>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_country_code_after#"></li>
+																	
+																	<li class="extendedFieldHide"
+																		id="#accountopen_date_before#"></li>
+																	<li id="bank_phone_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_accountopen_date" class="error">
+																						<div id="error_accountopen_date" class="error">
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_accountopen_date_label">Phone</span>
+																						:
+																					</div>
+																				</div>
+																				<div class="freeFormListTd text-nowrap">
+																					<span class="tdInput"
+																						id="eval:PublicRule.isStatusInvitedOrComingFromInviation">
+																						<input name="accountopen_date" type="text"
+																						id="ajax_field_accountopen_date"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_phone_security.public2_bank_accountopen_date_label.accountopen_date"
+																						onkeyup="applyDateFormat(this);"
+																						class="form-control form-control-date"
+																						maxlength="11" /> <a id="date_link"
+																						class="calendar-link" title="Select Date"
+																						onClick="show_calendar_widget(this);"> <img
+																							src="images/icon_calender.gif" alt="calendar"
+																							width="12" height="12" border="0" />
+																					</a>
+																					</span> <span class="tdInput"
+																						id="eval:PublicRule.isStatusOtherThenInvitedNNotComingFromInviation">
+																						<input name="accountopen_date" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_phone_security.public2_bank_accountopen_date_label.accountopen_date"
+																						id="ajax_field_accountopen_date"
+																						onkeyup="applyDateFormat(this);"
+																						class="form-control form-control-100"
+																						maxlength="11" />
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#accountopen_date_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#bank_phone_before#"></li>
+																	<li id="accountopen_date_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_phone" class="error">
+																						<div id="error_bank_phone" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_phone_label">Account
+																							Opening Date</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="bank_phone" id="ajax_field_bank_phone"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).accountopen_date_security.public2_bank_phone_label.bank_phone"
+																						type="text" maxlength="12"
+																						class="form-control-100"
+																						onkeyup="javascript:checkExtnEditable('ajax_field_bank_phone', 'ajax_field_bank_extn');" />
+																					<span id="adminBrokeage8_extn_security"> <span>&nbsp;<span
+																							id="adminBrokeage8_extn_label">Extn.</span> :
+																					</span> <input name="bank_extn" id="ajax_field_bank_extn"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).adminBrokeage8_extn_security.adminBrokeage8_extn_label.bank_extn"
+																						type="text" class="form-control-50" maxlength="5" />
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_phone_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#bank_altphone_before#"></li>
+																	<li id="bank_alt_phone_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_altphone" class="error">
+																						<div id="error_bank_altphone" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_altphone_label">Alt
+																							Phone</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="bank_altphone"
+																						id="ajax_field_bank_altphone" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_alt_phone_security.public2_bank_altphone_label.bank_altphone"
+																						maxlength="12" class="form-control-100"
+																						onkeyup="javascript:checkExtnEditable('ajax_field_bank_altphone', 'ajax_field_bank_altextn');" />
+																					<span id="bank_alt_extn_security"> <span>&nbsp;<span
+																							id="bank_alt_extn_label">Extn.</span> :
+																					</span> <input name="bank_altextn"
+																						id="ajax_field_bank_altextn" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_alt_extn_security.bank_alt_extn_label.bank_altextn"
+																						class="form-control-50" maxlength="5" />
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_altphone_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#bank_account_for_EFT_before#"></li>
+																	<li id="bank_account_for_EFT_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_account_for_EFT"
+																						class="error">
+																						<div id="error_bank_account_for_EFT" class="error">
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign nowrapDiv">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_account_for_EFT_label">Use
+																							Account for Direct Deposit</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput text-nowrap">
+																					<input
+																						name="bank_account_for_EFT"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_account_for_EFT_security.public2_bank_account_for_EFT_label.bank_account_for_EFT"
+																						id="ajax_field_bank_account_for_EFT"
+																						type="checkbox" value="1" />
+																					<img
+																						src="images/icons/Tooltip.png"
+																						title="Only one account must be marked/selected as Direct Deposit"
+																						class="iconpdp1" /> 
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_account_for_EFT_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#bank_email_before#"></li>
+																	<li id="bank_email_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_email" class="error">
+																						<div id="error_bank_email" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_email_label">Contact
+																							E-mail ID</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="bank_email" id="ajax_field_bank_email"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_email_security.public2_bank_email_label.bank_email"
+																						type="text" class="form-control form-control-250"
+																						maxlength="50" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_email_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#commission_amt_before#"></li>
+																	<li id="bank_commission_amt_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_commission_amt" class="error">
+																						<div id="error_commission_amt" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_commission_amt_label">%
+																							Commission Amount</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="commission_amt"
+																						id="ajax_field_commission_amt" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_commission_amt_security.public2_bank_commission_amt_label.commission_amt"
+																						class="form-control form-control-50" maxlength="5"
+																						onkeyup="javascript:checkNumericValueLossRatio(this,event);"
+																						onkeypress="javascript:checkNumericValueLossRatio(this,event);" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#commission_amt_after#"></li>
+																	
+
+																	<li class="extendedFieldHide"
+																		id="#bank_address_before#"></li>
+																	<li id="bank_address_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="error_bank_address" class="error"></div>
+																					<div id="ajax_error_bank_address" class="error"></div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_address_label">Street
+																							Address #1</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="bank_address"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_address_security.public2_bank_address_label.bank_address"
+																						id="ajax_field_bank_address" type="text"
+																						class="form-control form-control-250"
+																						maxlength="50" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_address_after#"></li>
+																		
+																		<li class="extendedFieldHide"
+																		id="#bank_address2_before#"></li>
+																	<li id="bank_address2_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="error_bank_address2" class="error"></div>
+																					<div id="ajax_error_bank_address2" class="error"></div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_address2_label">Street
+																							Address #2</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="bank_address2"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_address2_security.public2_bank_address2_label.bank_address2"
+																						id="ajax_field_bank_address2" type="text"
+																						class="form-control form-control-250"
+																						maxlength="50" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_address2_after#"></li>
+																		
+																		
+																		<li class="extendedFieldHide"
+																		id="#bank_city_before#"></li>
+																	<li id="Public_bank_city_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_city" class="error"></div>
+																						 <div id="error_bank_city" class="error"></div> 
+																					
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_city_label">City</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput ">
+																					<input name="bank_city" id="ajax_field_bank_city"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).Public_bank_city_security.public2_bank_city_label.bank_city"
+																						type="text" class="form-control form-control-250"
+																						onkeypress="allowCharacterOnly(this);"
+																						onkeyup="allowCharacterOnly(this);" maxlength="50" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_city_after#"></li>
+																	
+																	<li class="extendedFieldHide"
+																		id="#bank_state_id_before#"></li>
+																	<li id="public_bank_state_id_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_state_id" class="error"></div>
+																					<div id="error_bank_state_id" class="error"></div>
+																					
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_state_label">State</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<select name="bank_state_id"
+																						id="ajax_field_bank_state_id"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).public_bank_state_id_security.public2_bank_state_label.bank_state_id"
+																						class="form-control selectWidth"
+																						onchange="javascript:setStateDesc()">
+																						<option value="">Select</option>
+																					</select>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_state_id_after#"></li>
+																	
+																	
+																		
+																		<li class="extendedFieldHide"
+																		id="#bank_county_before#"></li>
+																	<li id="adminBrokerageDetailsStep8_bank_county_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_county" class="error">
+																						<div id="error_bank_county" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="adminBrokerageDetailsStep8_bank_county_label">County</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<select class="form-control selectWidth"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).adminBrokerageDetailsStep8_bank_county_security.adminBrokerageDetailsStep8_bank_county_label.bank_county"
+																						name="bank_county" id="ajax_field_bank_county">
+																						<option value="">Select</option>
+																					</select>
+																				</div>
+
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_county_after#"></li>	
+																	
+																	
+																	<li class="extendedFieldHide"
+																		id="#bank_zipcode_before#"></li>
+																	<li id="public_bank_zipcode_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="ajax_error_bank_zipcode" class="error">
+																						<div id="error_bank_zipcode" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="adminBrokerageDetailsStep8_bank_zipcode_label">Zip Code</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="bank_zipcode"
+																						id="ajax_field_bank_zipcode" type="text"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).public_bank_zipcode_security.adminBrokerageDetailsStep8_bank_zipcode_label.bank_zipcode"
+																						class="form-control form-control-100" title="99999-9999"" />
+																				</div>
+																				<!-- <div class="freeFormListTd tdInput">
+																					<input name="bank_zipcode"
+																						id="ajax_field_bank_zipcode" type="text"
+																						class="form-control form-control-100"
+																						maxlength="10" title="99999-9999"
+																						onkeyup="loadAdminBrokerageDetails1();addHyphen(this,event);"
+																						onmouseover="setTitleForZipCode(this);" />
+																				</div> -->
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#bank_zipcode_after#"></li>
+																	<li class="extendedFieldHide"
+																		id="#contact_no_before#"></li>
+																	<li id="contact_no_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="" class="error"></div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_contact_no_label">Contact
+																							Name</span> :
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																					<input name="contact_no" id="ajax_field_contact_no"
+																					fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).contact_no_security.public2_contact_no_label.contact_no"
+																						type="text" class="form-control form-control-250"
+																						maxlength="50" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide"
+																		id="#contact_no_after#"></li>
+																	
+																</ul>
+															
+															<ul class="inlineBlock" id="adminBrokerageDetailsStep1_freeform_contextdata_42">
+																<li class="extendedFieldHide inlineBlock_1"
+																		id="#bank_comments_before#"></li>
+																	<li class="inlineBlock_1" id="bank_comments_security">
+																		<div class="freeFormList form-group">
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTdError">
+																					<h6>&nbsp;</h6>
+																				</div>
+																				<div class="freeFormListTdError paddingLeft3">
+																					<div id="" class="error">
+																						<div id="" class="error"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="freeFormListTr">
+																				<div class="freeFormListTd labelAlign width10"
+																					style="vertical-align: top">
+																					<div class="freeFormLabelWidth">
+																						<span id="public2_bank_comments_label">Comments</span>
+																						:
+																					</div>
+																				</div>
+																				<div class="freeFormListTd tdInput">
+																						<textarea name="bank_comments"
+																						fullid="adminBrokerageDetailsStep1_freeform_contextdata_41(isShowBankReference.bank_information_label).bank_comments_security.public2_bank_comments_label.bank_comments"
+																							id="ajax_field_bank_comments"
+																							class="form-control textareaWidth full_width"
+																							style="height: 70px"
+																							onkeyup="updateTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)"
+																							onfocus="showTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)"
+																							onblur="hideTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)"></textarea>
+																					<div class="textareacharcount"
+																						id="descriptionCharCountMsg"></div>
+																					<input type="hidden"
+																						name="bankInformationCommentsSize"
+																						id="ajax_field_bankInformationCommentsSize"
+																						value="1024" />
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="extendedFieldHide inlineBlock_1"
+																		id="#bank_comments_after#"></li>
+															</ul>
+															<ul class="inlineBlock">
+																<li class="inlineBlock_1" id="#is_acc_trust_before#"></li>
+																<li class="inlineBlock_1" id="signature_acceptance_trust_acc_security" style="display: none;">
+																	<div id="adminBrokerageDetailsStep1_freeform_contextdata_43">
+																		<div>
+																			<h6>&nbsp;</h6>
+																		</div>
+																		<fieldset>
+																			<div align="center" class="paddingTop10">
+																				<b> <label
+																					id="signature_acceptance_trust_acc_heading_label"></label>
+																				</b>
+																			</div>
+																			<div>
+																				<div>&nbsp;&nbsp;</div>
+																				<div align="center">
+																					<div id="ajax_error_is_acc_trust" class="error"></div>
+																						<div id="error_is_acc_trust" class="error"></div>
+																				</div>
+																				<span class="padding2_TopBottom"> <input
+																					type="checkbox" name="is_acc_trust" value="Y"
+																					id="ajax_field_is_acc_trust" />
+																				</span> <span> 
+																							<b> 
+																								<span id="adminBrokerageDetailsStep8_signature_acceptance_label">
+																									SIGNATURE AND ACCEPTANCE
+																								</span> 
+																							</b>
+																						</span>
+																			</div>
+																			<div>
+																				<div>
+																					<div>
+																						<p>
+																							<label id="signature_acceptance_trust_acc_label"></label>
+																						</p>
+																						<p>
+																							<span id="adminBrokerageDetailsStep8_signature_acceptance1_label">
+																								I request that this Authorization, unless
+																								previously revoked, continue to apply to any
+																								changes later made in products or services
+																								provided. Due to bank processing procedures, I
+																								understand that my first debit may not occur for
+																								one or two days from the date the policy is
+																								uploaded. This pre-authorized payment agreement
+																								will remain in effect until cancelled in writing
+																								by either party.
+																						    </span>
+																						</p>
+																						<p><span id="adminBrokerageDetailsStep8_signature_acceptance2_label">
+																							The Company may terminate the plan
+																							immediately if any withdrawals are not paid when
+																							presented for payment.
+																							</span>
+																						</p>
+																						<p>
+																						<span id="adminBrokerageDetailsStep8_signature_acceptance3_label">
+																						    As a convenience to me, I hereby request
+																							the Financial Institution named above to accept
+																							and honor the draft or transfer withdrawals from
+																							my account. I agree that their rights in respect
+																							to each draft or transfer shall be the same as if
+																							it were a check drawn on them and signed
+																							personally by me and that they shall be fully
+																							protected in honoring such draft or transfer. I
+																							further agree that if any such withdrawal is
+																							dishonored, whether with or without cause and
+																							whether intentionally or inadvertently, the
+																							Financial Institution shall have no liability
+																							whatsoever if such dishonor results in the
+																							forfeiture of benefits. This Authorization shall
+																							remain in effect until revoked in writing, mailed
+																							to the other parties at the address of record.
+																							The Company or Financial Institution shall have a
+																							reasonable time to act on the revocation notice.
+																						</span>
+																						</p>
+																						<p>
+																						<span id="adminBrokerageDetailsStep8_signature_acceptance4_label">
+																							I authorize the Company and the designated
+																							Financial Institution to begin automatic
+																							deductions of my client's initial insurance
+																							premium payments.
+																						</span>	
+																						</p>
+																					</div>
+																				</div>
+																			</div>
+																		</fieldset>
+																	</div>
+																</li>
+																<li class="inlineBlock_1" id="#is_acc_trust_after#"></li>
+																
+																<li class="inlineBlock_1" id="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security">
+																	<div class="freeFormList form-group">
+																		<div>
+																			<h6>&nbsp;</h6>
+																		</div>
+																			<div>
+																				<div>&nbsp;&nbsp;</div>
+																				<div class="freeFormListTdError paddingLeft8" align="center">
+																					<div id="ajax_error_agency_direct_deposit" class="error"></div>
+																					<div id="error_agency_direct_deposit" class="error"></div>
+																				</div>
+																			</div>
+																			<div align="center">
+																				<b> 
+																					<span id="adminBrokerageDetailsStep8_agency_direct_deposit_main_label">
+																							Agency Direct Deposit
+																					</span> 
+																				</b>
+																					
+																			</div>
+																			<div>
+																				<p id="adminBrokerageDetailsStep1_freeform_contextdata_44">
+																				<span class="padding2_TopBottom"> 
+																					<input type="checkbox" name="agency_direct_deposit" value="1" id="ajax_field_agency_direct_deposit" />
+																				</span>
+																				<span> 
+																					<b> 
+																						<span id="adminBrokerageDetailsStep8_signature_acceptance_label">
+																							SIGNATURE AND ACCEPTANCE
+																						</span> 
+																					</b>
+																				</span> 
+																				</p>
+																				<!-- <p>
+																				<span id="adminBrokerageDetailsStep8_agency_direct_deposit_authorization_label">
+																					I (we) hereby authorize Sample Mutual Insurance Company to initiate credit entries to my (our) account indicated below. This authorization is to remain in full force and effect until Sample Mutual Insurance Company has received written notification from me (or either of us) of its termination, in such time and in such manner as to afford the company and bank a 
+																					reasonable opportunity to act on it.
+																				</span>	
+																				</p> -->
+																				<span id="#Include:public/directDepositDeclaration.html#" />
+																				<!-- include Direct Deposit  -->
+																			</div>
+																	</div>
+																</li>
+																<li class="inlineBlock_1" id="adminBrokerageDetailsStep8_agencySweep_authorization_security">
+																	<div>
+																		<div>
+																			<h6>&nbsp;</h6>
+																		</div>
+																		<fieldset>
+																			<div>
+																				<div>&nbsp;&nbsp;</div>
+																				<div align="center">
+																					<div id="ajax_error_agency_sweep" class="error"></div>
+																						<div id="error_agency_sweep" class="error"></div>
+																				</div>
+																			</div>
+																			<div align="center">
+																				<b> 
+																					<span id="adminBrokerageDetailsStep8_agency_sweep_main_label">
+																							Agency Sweep
+																					</span> 
+																				</b>
+																					
+																			</div>
+																			<div>
+																				<p id="adminBrokerageDetailsStep1_freeform_contextdata_45">
+																				<span class="padding2_TopBottom"> 
+																					<input type="checkbox" name="agency_sweep" value="Y" id="ajax_field_agency_sweep" />
+																				</span>
+																				<span> 
+																					<b> 
+																						<span id="adminBrokerageDetailsStep8_signature_acceptance_label">
+																							SIGNATURE AND ACCEPTANCE
+																						</span> 
+																					</b>
+																				</span> 
+																				</p>
+																				<!-- <p>
+																				<span id="adminBrokerageDetailsStep8_agency_sweep_authorization_label">
+																					I understand the payment amounts I enter in Sample Connect will be withdrawn from my account. Withdrawals that cannot be made, due to insufficient funds, will result in the recall of my EFT privilege. 
+																				</span>	
+																				</p> -->
+																				<!-- include Agency Sweep  -->
+																				<span id="#Include:public/agencySweepDeclaration.html#" /> 
+																			</div>
+																		</fieldset>
+																	</div>
+																</li>
+																</ul>
+															<ul class="inlineBlock" id="adminBrokerageDetailsStep1_freeform_contextdata_43">
+																<li class="inlineBlock_1"
+																	id="signature_acceptance_commission_acc_security"
+																	style="display: none;">
+																	<div>
+																		<div>
+																			<h6>&nbsp;</h6>
+																		</div>
+																		<fieldset>
+																			<div align="center" class="paddingTop10">
+																				<b> <label
+																					id="signature_acceptance_commission_acc_heading_label"></label>
+																				</b>
+																			</div>
+																			<div>
+																				<div>&nbsp;&nbsp;</div>
+																				<div align="center">
+																					<div id="ajax_error_is_acc_commission"
+																						class="error">
+																						<div id="error_is_acc_commission" class="error"></div>
+																					</div>
+																				</div>
+																				<div class="freeFormList form-group">
+																					<div class="freeFormListTr">
+																						<div class="freeFormListTd mendatoryInput ">
+																							&nbsp;<input type="checkbox"
+																								name="is_acc_commission" value="Y"
+																								id="ajax_field_is_acc_commission" />
+																						</div>
+																						<div class="freeFormListTd txtbold media-middle">
+																							<span id="adminBrokerageDetailsStep8_signature_acceptance_label">
+																								SIGNATURE AND ACCEPTANCE
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+
+
+																			</div>
+																			<div>
+																				<div>
+																					<div>
+																						<p>
+																							<label
+																								id="signature_acceptance_commission_acc_label"></label>
+																						</p>
+																						
+																					</div>
+																				</div>
+																			</div>
+																		</fieldset>
+																	</div>
+																</li>
+																<li class="width49 hide"
+																	id="bank_information_id_security">
+																	<div id="payemtTypeDiv" class="">
+																		<div id="ajax_error_bank_information_id" class="error">
+																			<div id="error_bank_information_id" class="error"></div>
+																		</div>
+																		<input name="bank_information_id"
+																			id="ajax_field_bank_information_id" type="hidden"
+																			class="form-control-50" />
+																	</div>
+																</li>
+
+															</ul>
+														
+													</div>
+													<!-- 
+													-->
+													<div
+														class="buttons step8buttons paddingTop10 step8buttonBank">
+														<div class="buttonwrapper ">
+															<!-- hide add button after one record   -->	
+															<!-- <span> <span -->
+															<span id="hideBankDetailsAddBtn"> <span
+																id="eval:PublicRule.isSaveBankInformationSecitionTrue">
+																	<a href="javascript:ajaxsubmitform('public/adminBrokerageDetailsStep8.html','adminBrokerageDetailsStep8.saveBankInformationSection','','','bankInfoDiv');"
+																	class="ovalbutton marginRight0"><span id ="adminBrokerageDetailsStep8_add_btn_label">Add</span> </a>
+															</span> <span
+																id="eval:PublicRule.isEditBankInformationSecitionTrue">
+																	<a href="javascript:ajaxsubmitform('public/adminBrokerageDetailsStep8.html','adminBrokerageDetailsStep8.cancelBankInformationSection','','','bankInfoDiv');"
+																	class="ovalbutton"> <span id ="adminBrokerageDetailsStep8_cancel_btn_label">Cancel</span>
+																</a> <a id="adminBrokerageDetailsStep8_modify_btn_security" 
+																	href="javascript:ajaxsubmitform('public/adminBrokerageDetailsStep8.html','adminBrokerageDetailsStep8.updateBankInformationSection','','','bankInfoDiv');"
+																	class="ovalbutton"> <span id ="adminBrokerageDetailsStep8_modify_btn_label">Modify</span>
+																</a>
+
+
+															</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							</section>
+							<section
+								class="divButton buttons-section paddingTop10 footer-buttons">
+							<div class="buttonwrapper">
+
+								<span id="eval:PublicRule.isComingFromInvitation"> <span
+									id="eval:PublicRule.isRequestNotInvited"> <a
+											id="adminBrokeage8_back_security"
+											fullid="page(page.page).adminBrokeage8_back_security.adminBrokerageDetailsStep8_back_btn_label.adminBrokeage8_back_security"
+											href="javascript:submitform('public/adminBrokerageDetailsStep1.html','adminBrokerageDetailsStep8.previous','','');"
+											class="ovalbutton back_btn"> <span
+												id="adminBrokerageDetailsStep8_back_btn_label">Back</span>
+										</a><a
+										id="adminBrokeage8_next_security"
+										fullid="page(page.page).adminBrokeage8_next_security.adminBrokerageDetailsStep8_next_btn_label.adminBrokeage8_next_security"
+										href="javascript:submitform('public/adminBrokerageDetailsStep2.html','adminBrokerageDetailsStep8.update','','');"
+										class="ovalbutton next_btn"> <span
+											id="adminBrokerageDetailsStep8_next_btn_label">Next</span>
+									</a>
+								</span> <span id="eval:PublicRule.isRequestInvited"> <span
+										id="edit_btn_security"> <a
+											id="adminBrokeage8_back_security"
+											fullid="page(page.page).adminBrokeage8_back_security.adminBrokerageDetailsStep8_back_btn_label.adminBrokeage8_back_security"
+											href="javascript:submitform('public/adminBrokerageDetailsStep1.html','adminBrokerageDetailsStep8.previous','','');"
+											class="ovalbutton back_btn"> <span
+												id="adminBrokerageDetailsStep8_back_btn_label">Back</span>
+										</a> <a id="adminBrokeage8_next_security"
+											fullid="page(page.page).adminBrokeage8_next_security.adminBrokerageDetailsStep8_next_btn_label.adminBrokeage8_next_security"
+											href="javascript:submitform('public/adminBrokerageDetailsStep2.html','adminBrokerageDetailsStep8.update','','');"
+											class="ovalbutton next_btn"> <span
+												id="adminBrokerageDetailsStep8_next_btn_label">Next</span>
+										</a> <a href="#" id="adminBrokeage8_save_exist_security"
+											fullid="page(page.page).adminBrokeage8_save_exist_security.adminBrokerageDetailsStep8_save_exist_btn_label.adminBrokeage8_save_exist_security"
+											onclick="showPopUp('exitConfirmation');"
+											class="ovalbutton save_exit_btn"> <span
+												id="adminBrokerageDetailsStep8_save_exist_btn_label">Save & Exit</span>
+										</a>
+
+									</span>
+								</span>
+
+								</span>
+							</div>
+							</section>
+						</div>
+					</div>
+					<!---------Footer Start---------->
+					<footer>
+						<span id="#Include:public/publicFooter.html#" />
+					</footer>
+					<!---------Footer End---------->
+				</div>
+
+
+</div>
+</div>
+
+				<div class="calendar_widget" id="calendar_widget">
+					<iframe id="calendar_widget_iframe" name="calendar_widget_iframe"
+						src="calendar_widget.html" frameborder="0"> </iframe>
+
+				</div>
+				<!-- <table style="display: none;">
+					<tr id="agencyOfficersPartners_freeform_contextdata_1">
+						<td id="block_field_name" width="20%" style="padding-top: 3px">
+							<input type="text" maxlength="100" name="name"
+							id="ajax_field_name" />
+						</td>
+						<td id="block_field_title" width="20%" style="padding-top: 3px">
+							<input type="text" maxlength="50" name="title"
+							id="ajax_field_title" />
+						</td>
+						<td id="block_field_ind_experience" width="20%"
+							style="padding-top: 3px"><input type="text" maxlength="50"
+							name="ind_experience" id="ajax_field_ind_experience" /></td>
+						<td id="eval:PublicRule.isStatusInvitedOrComingFromInviation"
+							width="2%" align="right" style="padding-right: 3px"><span
+							id="block_field_addnew_row_link"> <a
+								href="javascript:ajaxsubmitform('public/adminBrokerageDetailsStep6.html','adminBrokerageDetailsStep6.addCorporationPartnershipDetails','','','corporationPartnershipDiv');">
+									<img src="images/icons/icon_notepadPlus.gif" title="Add" />
+							</a>
+						</span></td>
+					</tr>
+				</table> -->
+				<table cellpadding="0" cellspacing="0">
+					<tr id="adminBrokerageDetailsStep1_freeform_contextdata_999">
+						<td><input type="hidden" name="bankInformationCommentsSize"
+							id="ajax_field_bankInformationCommentsSize" value="1024" /> <input
+							type="hidden" name="jsessionid" id="jsessionid" /> <input
+							type="hidden" name="aar_requestid" id="aar_requestid" /> <input
+							type="hidden" name="aar_statusid_desc"
+							id="ajax_field_aar_statusid_desc" /> <input type="hidden"
+							name="bank_state_id_desc" id="ajax_field_bank_state_id_desc" />
+							<input type="hidden" name="ajaxdeletedivid" id="ajaxdeletedivid" />
+
+							<input type="hidden" name="bankInformationCommentsSize"
+							id="ajax_field_bankInformationCommentsSize" value="1024" /> <input
+							type="hidden"
+							name="agency_bank_information_payment_type_mandatory_security"
+							id="ajax_field_agency_bank_information_payment_type_mandatory_security" />
+							<input type="hidden" name="divHideShow" id="divHideShow" /> <input
+							type="hidden" name="dummyFieldToCheckBankRowCount"
+							id="ajax_field_dummyFieldToCheckBankRowCount" /></td>
+
+					</tr>
+
+				</table>
+	</form>
+
+	<script type="text/javascript">
+		loadAdminBrokerageDetails1();
+		loadQuestions();
+	</script>
+</body>
+</html>

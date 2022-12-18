@@ -1,0 +1,1142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<!-- tag for resolution change -->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<title>ProducerOne - Producer Management Center</title>
+<!-- css -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Scripts -->
+<script type="text/javascript" src="js/all_files.js" />
+</head>
+<body onload="loadAgencyTerminationStep1();getSelectedAgencyTerminationContracts();"
+	onclick="toggleDivDisplay('ajaxxmlname_ajax_field_national_agency_name_search,ajaxxmlname_ajax_field_national_agency_code_search,ajaxxmlname_ajax_field_producer_code,ajaxxmlname_national_agency_code_search');">
+	<form enctype="multipart/form-data">
+		<div id="cover"></div>
+		<div id="contextLinks"></div>
+		<div id="popupAprooved4">
+			<!-- Modal -->
+			<div class="modal fade modal_popup">
+				<div class="modal-dialog modal-dialog-width_900">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">
+								<a id="mergeracquistion_close"
+									href="javascript:submitform('admin/agencyTerminationStep1.html','agencyTerminationStep1.cancel','','');"
+										onclick="closePopUp('popupAprooved4')" class="close">
+									<img src="images/close.png" />
+								</a> Search <span id="agencyTerminationStep1_national_agency_desc_label">National Agency</span>
+							</h4>
+						</div>
+	 					<div class="modal-body">
+							<div class="modal-body-scroll scroll_300">
+								<section class="free-form">
+								<fieldset class="fieldset_appoint">
+									<legend>Search</legend>
+									<div class="freeFormDiv form-inline popup_national_code">
+										<div class="padding-left-form">
+											<ul class="inlineBlock"
+												id="agencyTerminationStep1_freeform_contextdata_15">
+												<li class="inlineBlock_2">
+													<div class="freeFormList form-group">
+														<div class="freeFormListTr">
+															<div class="freeFormListTdError">
+																<h6>#space#</h6>
+															</div>
+															<div class="freeFormListTdError paddingLeft3">
+															</div>
+														</div>
+														<div class="freeFormListTr">
+															<div class="freeFormListTd labelAlign freeFormLabelWidthPopup">
+																<span id="agencyTerminationStep1_national_agency_desc_label">National Agency</span> :
+															</div>
+															<div class="freeFormListTd tdInput">
+																<input name="national_agency_name_search"
+																	id="ajax_field_national_agency_name_search"
+																	type="text" style="width: 150px" maxlength="100"
+																	autocomplete="OFF"
+																	onkeyup="javascript:ajaxpageblocklink('admin/agencyTerminationStep1.html','agencyTerminationStep1.getNationalAgencyNameList','','','ajaxxmlname_ajax_field_national_agency_name_search');"
+																	onclick="nottoggleDivDisplay(this,'national_agency_name_search','ajaxxmlname_ajax_field_national_agency_name_search');"/>
+																	<div
+																		id="ajaxxmlname_ajax_field_national_agency_name_search"
+																		class="transparent fixcolumnSearchM"
+																		style="display: none; border: solid 1px #cccccc; width: 150px;"></div>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li class="inlineBlock_2" id="isShowNationalCodeSearch">
+													<div class="freeFormList form-group">
+														<div class="freeFormListTr">
+															<div class="freeFormListTdError">
+																<h6>#space#</h6>
+															</div>
+															<div class="freeFormListTdError paddingLeft3">
+																<div id="" class="error" />
+															</div>
+														</div>
+														<div class="freeFormListTr">
+															<div class="freeFormListTd labelAlign freeFormLabelWidthPopup">
+																<span id="national_agency_code_label">National Code</span> :
+															</div>
+															<div class="freeFormListTd tdInput">
+																<input
+																	name="national_agency_code_search"
+																	id="ajax_field_national_agency_code_search"
+																	type="text" style="width: 150px" maxlength="20"
+																	onkeyup="javascript:ajaxpageblocklink('admin/agencyTerminationStep1.html','agencyTerminationStep1.getNationalAgencySearch','','','ajaxxmlname_national_agency_code_search');"
+																	onclick="nottoggleDivDisplay(this,'producer_code','ajaxxmlname_national_agency_code_search');"/>
+																	
+																	<div
+																	id="ajaxxmlname_national_agency_code_search"
+																	class="transparent fixcolumnSearchM"
+																	style="display: none; border: solid 1px #cccccc; width: 150px;"></div>	
+															</div>
+														</div>
+													</div>
+												</li>
+												<li class="inlineBlock_2" id="isShowAgencyCodeSearch">
+													<div class="freeFormList form-group">
+														<div class="freeFormListTr">
+															<div class="freeFormListTdError">
+																<h6>#space#</h6>
+															</div>
+															<div class="freeFormListTdError paddingLeft3">
+																<div id="" class="error" />
+															</div>
+														</div>
+														<div class="freeFormListTr">
+															<div class="freeFormListTd labelAlign freeFormLabelWidthPopup">
+																<span id="termination_agency_code_label">Agency Code</span> :
+															</div>
+															<div class="freeFormListTd tdInput">
+																<input
+																	name="agency_code_search"
+																	id="ajax_field_agency_code_search"
+																	type="text" style="width: 150px" maxlength="20"
+																	autocomplete="OFF"
+																	onkeyup="javascript:ajaxpageblocklink('admin/agencyTerminationStep1.html','agencyTerminationStep1.getNationalAgencyCodeList','','','ajaxxmlname_ajax_field_agency_code_search');"
+																	onclick="nottoggleDivDisplay(this,'agency_code_search','ajaxxmlname_ajax_field_agency_code_search');"/>
+																<div
+																	id="ajaxxmlname_ajax_field_agency_code_search"
+																	class="transparent fixcolumnSearchM"
+																	style="display: none; border: solid 1px #cccccc; width: 150px;"></div>	
+																
+															</div>
+														</div>
+													</div>
+												</li>
+												
+											<li class="inlineBlock_2" id="agencyTerminationStep1_producer_code_security">
+													<div class="freeFormList form-group">
+														<div class="freeFormListTr">
+															<div class="freeFormListTdError">
+																<h6>#space#</h6>
+															</div>
+															<div class="freeFormListTdError paddingLeft3">
+																<div id="error_producer_code" class="error" />
+																<div id="ajax_error_producer_code" class="error" />
+															</div>
+														</div>
+														<div class="freeFormListTr">
+															<div class="freeFormListTd labelAlign freeFormLabelWidthPopup">
+																<span id="agencyTerminationStep1_producer_code_label">Location Number</span> :
+															</div>
+															<div class="freeFormListTd tdInput">
+																<input
+																	name="producer_code"
+																	id="ajax_field_producer_code" autocomplete="OFF"
+																	type="text" style="width: 150px" maxlength="20"
+																	onkeyup="javascript:ajaxpageblocklink('admin/agencyTerminationStep1.html','agencyTerminationStep1.getAgencySystemCodeSearch','','','ajaxxmlname_ajax_field_producer_code');"
+																	onclick="nottoggleDivDisplay(this,'producer_code','ajaxxmlname_ajax_field_producer_code');"/> 
+																<div
+																	id="ajaxxmlname_ajax_field_producer_code"
+																	class="transparent fixcolumnSearchM"
+																	style="display: none; border: solid 1px #cccccc; width: 150px;"></div>	
+																
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												
+												<li>
+													<input name="searchtype" id="searchtype" type="hidden" style="width: 150px"/>
+												</li>
+											</ul>
+										</div>
+										<section class="divButton buttons-section paddingTop10">
+										<div class="buttonwrapper paddingBottom10">
+											<a
+												href="javascript:submitform('admin/agencyTerminationStep1.html','agencyTerminationStep1.search','','');"
+												onclick="showDivArea(['divPF2_2'],['divPF2_1']);"
+												class="ovalbutton"><span>Search</span> </a>
+										</div>
+										</section>
+									</div>
+								</fieldset>
+								</section>
+								<div class="errorMsgAlign clear-both">
+									<div id="error_selectError" class="error"></div>
+								</div>
+								<section class="list-grid">
+								<fieldset>
+									<legend>Search Result</legend>
+									<div id="ajax_sorting" class="gridTopPadding4">
+										<table cellpadding="0" class="gridTable" cellspacing="0" width="100%" id="agencyTerminationStep1_search_list_mom_1">
+											<tr id="agencyTerminationStep1_search_pagination_1">
+												<td class="pagination" colspan="10">
+													<table cellpadding="0" cellspacing="0" border="0" width="100%">
+														<tr>
+															<td align="left" width="2%" nowrap="nowrap"
+																class="paginationCenter">Records per page :</td>
+															<td align="left" width="1%"><select
+																id="recordsperpage" onchange="ajax_sorting"
+																name="recordsperpage" class="inputbox">
+															</select></td>
+															<td align="center">
+																<table cellpadding="1" cellspacing="1">
+																	<tr>
+																		<td nowrap="nowrap" align="center">Viewing
+																		</td>
+																		<td
+																			id="agencyTerminationStep1_search_recordsfrom_1"
+																			class="paginationTxt"></td>
+																		<td class="linright">to</td>
+																		<td
+																			id="agencyTerminationStep1_search_recordsto_1"
+																			class="paginationTxt"></td>
+																		<td class="linright">of</td>
+																		<td
+																			id="agencyTerminationStep1_search_totalrecords_1"
+																			class="paginationTxt"></td>
+																	</tr>
+																</table>
+															</td>
+															<td align="right" width="160px" nowrap="nowrap">
+																<table border="0" cellspacing="1" cellpadding="1">
+																	<tr>
+																		<td
+																			id="agencyTerminationStep1_search_firstpagelink_1">
+																			<a
+																			href="javascript:ajaxpagination('agencyTerminationStep1.html','ajax_sorting','','');"
+																			title="First Page" tabindex="21"> <img
+																				src="images/previous_all.png" border="0" />
+																		</a>
+																		</td>
+																		<td
+																			id="agencyTerminationStep1_search_previouspagelink_01">
+																			<a
+																			href="javascript:ajaxpagination('agencyTerminationStep1.html','ajax_sorting','','');"
+																			title="PreviousPage" tabindex="21"> <img
+																				src="images/previous_one.png" border="0" />
+																		</a>
+																		</td>
+																		<td class="paginationCenter" nowrap="nowrap">Page
+																			:</td>
+																		<td><select id="pagenumber"
+																			onchange="ajax_sorting" name="pagenumber"
+																			class="inputbox">
+																		</select></td>
+																		<td
+																			id="agencyTerminationStep1_search_nextpagelink_1">
+																			<a
+																			href="javascript:ajaxpagination('agencyTerminationStep1.html','ajax_sorting','','');"
+																			title="Next" tabindex="21"> <img
+																				src="images/next_one.png" border="0" />
+																		</a>
+																		</td>
+																		<td
+																			id="agencyTerminationStep1_search_lastpagelink_1">
+																			<a
+																			href="javascript:ajaxpagination('agencyTerminationStep1.html','ajax_sorting','','');"
+																			title="Last Page" tabindex="21"> <img
+																				src="images/next_all.png" border="0" />
+																		</a>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr id="agencyTerminationStep1_search_list_header_1">
+												<td width="5%" class="HeaderStyle"
+													id="block_field_object_code_details_id1">&nbsp;</td>
+												<td width="40%" class="HeaderStyle"
+													id="sorting(,A,ajax_sorting):block_field_obj_code_desc">
+													<span id="agencyTerminationStep1_national_agency_desc_label">National
+														Agency</span>
+												</td>
+												
+													<td class="HeaderStyle"  id="isShowNationalCodeSearch">
+														<span id="sorting(,A,ajax_sorting):block_field_obj_code">
+														<span id="national_agency_code_label">National
+															Code</span>
+														</span>
+													</td>
+												
+												<td class="HeaderStyle"
+													id="sorting(,A,ajax_sorting):block_field_producer_number">
+													<span id="termination_agency_code_label">Agency
+														Code</span>
+												</td>
+												
+												<td class="HeaderStyle" id="agencyTerminationStep1_producer_code_block_field_security">
+													 <span id="sorting(,A,ajax_sorting):block_field_producer_code">
+													<span id="agencyTerminationStep1_producer_code_label">Location Code</span>
+													</span>
+												</td>
+												
+												<td class="HeaderStyle" id="agencyTerminationStep1_city_security">
+													<span id="sorting(,A,ajax_sorting):block_field_city">
+													<span id="agencyTerminationStep1_city_label">City</span>
+													</span>
+												</td>
+												
+												<td class="HeaderStyle" id="agencyTerminationStep1_state_security">
+													<span id="sorting(,A,ajax_sorting):block_field_state">
+													<span id="agencyTerminationStep1_state_label">State</span>
+													</span>
+												</td>
+												
+												
+												<td id="block_field_object_code_details_id"
+													class="HeaderStyle"></td>
+												
+											</tr>
+	
+											<tbody id="agencyTerminationStep1_search_list_mom_data_1">
+												<tr>
+													<td id="block_field_object_code_details_id1">
+														<input
+														type="radio" name="object_code_details_id1"
+														id="object_code_details_id1"
+														onclick="javascript:checAgencyTerminationSearch(this,'N');"/>
+													</td>
+													<td id="block_field_obj_code_desc"></td>
+													
+													<td id="isShowNationalCodeSearch">
+														<span id="block_field_obj_code"></span>
+													</td>
+													<td >
+														<span id="block_field_producer_number"></span>
+													</td>
+													<td id="agencyTerminationStep1_producer_code_block_field_security">
+														<span id="block_field_producer_code"></span>
+													</td>
+													<td id="agencyTerminationStep1_city_security">
+														<span id="block_field_city"></span>
+													</td>
+													<td id="agencyTerminationStep1_state_security">
+														<span id="block_field_state"></span>
+													</td>
+													<td id="block_field_object_code_details_id">
+													<input
+														name="object_code_details_id"
+														id="object_code_details_id" type="hidden"/>
+													</td>
+													
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</fieldset>
+								</section>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="buttonwrapper">
+								<span id="common.adminmna"> <span
+									id="eval:ProducerOneRule.isAgencyTerminationSearchListNotEmpty">
+										<a onclick="getSelectedAgencyTerminationSearch();getSelectedAgencyTerminationContracts();"
+										href="javascript:submitform('admin/agencyTerminationStep1.html','agencyTerminationStep1.submitsearch','','');"
+										class="ovalbutton"><span>Submit </span> </a>
+								</span>
+								</span><a
+									href="javascript:submitform('admin/agencyTerminationStep1.html','agencyTerminationStep1.cancel','','');"
+									onclick="closePopUp('popupAprooved4')" class="ovalbutton"><span>Cancel</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal End -->
+		</div>
+		<div id="deleteDocument">
+			<!-- Modal -->
+			<div class="modal fade modal_popup">
+				<div class="modal-dialog modal-dialog-width_350">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">
+								<a id="agencyTerminationStep1_close" href="#" class="close"
+									onClick="closePopUp('deleteDocument')"> <img
+									src="images/close.png" />
+								</a> Delete Document
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body-scroll popup_small_height">
+								<span class="delete_ico icons">#space#</span> Are you sure you
+								want to delete this item?
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="buttonwrapper">
+								<a onclick="closePopUp('deleteDocument');" id="agencyTerminationStep1_yes"
+									href="javascript:callAjaxDelete('attachmentDiv');"
+									class="ovalbutton"><span>Yes</span> </a> <a href="#"  id="agencyTerminationStep1_no"
+									onclick="clean();closePopUp('deleteDocument');"
+									class="ovalbutton"><span>No</span> </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal End -->
+			
+		</div>
+		
+<div class="container-fluid bootstrap-node-1">
+	<div class="tableWidth">
+		<!---------Header Start---------->
+		<header>
+			<span id="#Include:carrier/carrierHeader.html#"></span>
+		</header>
+		<!---------Header End---------->
+		
+		<div class="bgmain">
+			<!---------Menu Level 1 Start---------->
+			<nav class="menu-level-1 tab">
+				<span id="#Include:admin/adminTabs.html#"></span>
+			</nav>
+			<!---------Menu Level 1 End---------->
+			
+			<!---------Menu Level 2 Start---------->
+			<nav class="menu-level-2">
+				<span id="#Include:admin/adminTabs2.html#"></span>
+			</nav>
+			<!---------Menu Level 2 End---------->
+			
+			<article class="content sidebar-content">
+				<!---------Sidebar Start---------->
+				<div id="sidebar_left_security_admin" class="sideBar_admin">
+					<span id="#Include:admin/adminSideBar.html#"></span>
+				</div>
+				<!---------Sidebar End---------->
+				
+				<!---------Body content Start---------->
+				<div class="panel-body-wraper agencyTerminationStep1" id="tdContent">
+					<!---------page Level msg Start---------->
+					<div class="errorMsgAlign clear-both">
+						<div id="error_pageError" class="error"></div>
+					</div>
+					<div class="ConfirmationAlign clear-both">
+					</div>
+					<div class="errorMsgAlign clear-both">
+									<div id="error_duplicateAgencyTerimationMsg" class="error"></div>
+				    </div>
+				
+					<!---------page Level msg End---------->
+					<section class="free-form" id="agency_termination_details_security">
+						<fieldset class="fieldset_Level_1">
+							<legend>
+								<span id="agencyterminationlabel">Agency
+									Termination</span>
+							</legend>
+							<div class="gridTopPadding4">
+								<section class="free-form">
+									<div class="freeFormDiv padding10 form-inline docInsurance">
+				                      <div class="padding-left-form">
+				                        <ul class="inlineBlock" id="agencyTerminationStep1_freeform_contextdata_1">
+				                          <!-- <li class="inlineBlock_2" id="contract_terminations_date_security">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_termination_date" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                 <span id="contractlabel">Contract</span> Termination Date  :
+				                                </div>
+				                                <div class="freeFormListTd tdInput">
+				                                  	<div id="eval:events.editEvent">
+				                                  		<div class="input-group date">
+						                                 <div class="input-group-addon" id="ico_fa_calender_security"> 
+						                                 <i class="fa fa-calendar">&nbsp;</i> </div>
+						                                <input name="termination_date" id="termination_date" type="text" onkeyup="applyDateFormat(this,event);" class="form-control char10 datepicker" maxlength="10" />
+						                                 </div>
+						                              	<a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+													</div>
+													<div id="eval:events.saveEvent">
+														<div class="input-group date">
+						                                 <div class="input-group-addon" id="ico_fa_calender_security"> 
+						                                 <i class="fa fa-calendar">&nbsp;</i> </div>
+						                                <input name="termination_date" id="termination_date" type="text" onkeyup="applyDateFormat(this,event);" class="form-control char10 datepicker" maxlength="10" />
+						                                 </div>
+						                              	<a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+															
+													</div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li> -->
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#termination_type_id_before#"></li>
+				                          <li class="inlineBlock_2" id="agencyTerminationStep1_termination_type_security">
+			                                <div class="freeFormList form-group">
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTdError">
+			                                      <h6>#space#</h6>
+			                                    </div>
+			                                    <div class="freeFormListTdError paddingLeft3">
+			                                      <div id="error_termination_type_id" class="error" />
+			                                    </div>
+			                                  </div>
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+			                                    
+			                                    	<span id="termination_type_label"> Termination Type </span> : </div>
+			                                    <div class="freeFormListTd">
+			                                      	<span>
+															<select name="termination_type_id"
+															fullid="agencyTerminationStep1_freeform_contextdata_1(agency_termination_details_security.agencyterminationlabel).agencyTerminationStep1_termination_type_security.termination_type_label.termination_type_id"
+															id="termination_type_id"
+															class="form-control selectWidth">
+																<option value="">Select</option>
+														</select>
+													</span> 
+													
+			                                    </div>
+			                                  </div>
+			                                </div>
+			                              </li>
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#termination_type_id_after#"></li>
+			                              
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#notice_date_before#"></li>
+				                          <li class="inlineBlock_2" id="isShowContractNoticeDateInAgencyTermination">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_notice_date" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                 <span id="agencyTerminationNoticeDateLabel"> Contract Notice Date</span>:
+				                                </div>
+				                                <div class="freeFormListTd">
+				                                  	<!-- <div id="eval:events.editEvent">
+				                                  		<div class="input-group date">
+						                                 <div class="input-group-addon" id="ico_fa_calender_security"> 
+						                                 <i class="fa fa-calendar">&nbsp;</i> </div>
+						                                <input name="termination_date" id="termination_date" type="text" onkeyup="applyDateFormat(this,event);" class="form-control char10 datepicker" maxlength="10" 
+						                                />
+						                                 </div>
+						                              	<a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+													</div> -->
+												<!-- 	<div id="eval:events.saveEvent"> -->
+														<div class="input-group date">
+						                                 <div class="input-group-addon" id="ico_fa_calender_security"> 
+						                                 <i class="fa fa-calendar">&nbsp;</i> </div>
+						                                <input name="notice_date" id="notice_date" type="text" onkeyup="applyDateFormat(this,event);" 
+														fullid="agencyTerminationStep1_freeform_contextdata_1(agency_termination_details_security.agencyterminationlabel).isShowContractNoticeDateInAgencyTermination.agencyTerminationNoticeDateLabel.notice_date"
+														class="form-control char10 datepicker" maxlength="10" />
+						                                 </div>
+						                              	<a title="Select Date" class="calender_ico icons" id="date_link" onclick="show_calendar_widget(this);" />
+															
+												<!-- 	</div> -->
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li>
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#notice_date_after#"></li>
+				                         </ul>
+				                       </div>
+				                     </div>
+								</section>
+								<section class="free-form" id="agency_termination_national_security">
+									<div class="text-heading txtbold">Select <span
+													id="agency_termination_national_label"></span>
+									</div>
+									<div class="border1 clearDiv">
+										<div class="padding10 headerChange no-borders">
+											<div class="freeFormDiv form-inline mergerSelection">
+												<div class="padding-left-form paddingBottom10">
+													<ul class="inlineBlock" id="agencyTerminationStep1_freeform_contextdata_3">
+														<li class="inlineBlock_2 extendedFieldHide" id="#from_object_name_before#"></li>
+														<li class="inlineBlock_2" id="national_agency_security">
+								                            <div class="freeFormList form-group">
+								                              <div class="freeFormListTr">
+								                                <div class="freeFormListTdError">
+								                                  <h6>#space#</h6>
+								                                </div>
+								                                <div class="freeFormListTdError paddingLeft3">
+								                                  <div id="error_from_object_name" class="error" />
+								                                </div>
+								                              </div>
+								                              <div class="freeFormListTr">
+								                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+								                                  <span id="lookupNationalAgency_label">National Agency</span> :
+								                                </div>
+								                                <div class="freeFormListTd mendatoryInput nowrapDiv">
+								                                  <input
+																			name="from_object_name"
+																			type="text" id="from_object_name"
+																			fullid="agencyTerminationStep1_freeform_contextdata_3(agency_termination_national_security.agency_termination_national_label).national_agency_security.lookupNationalAgency_label.from_object_name"
+																			class="form-control"
+																			maxlength="100"
+																			readonly="readonly" />
+																		
+								                                </div>
+								                                <div class="freeFormListTd paddingLeft3">
+								                                	<a title="Search" id="agencyTerminationStep1_agency_search_button_security"
+																			href="javascript:submitform('admin/agencyTerminationStep1.html','agencyTerminationStep1.nationalAgencySearch','','');"><img
+																				src="images/icons/search.png" />
+																		</a>
+								                                </div>
+								                              </div>
+								                            </div>
+								                          </li>
+								                          <li class="inlineBlock_2 extendedFieldHide" id="#from_object_name_after#"></li>
+													</ul>
+												</div>
+													<div class="row">
+														<section class="bgAccordionMerger col-sm-6" id="agencyTerminationStep1_agencydata_security">
+															<div class="row" id="agencyTerminationStep1_freeform_contextdata_4">
+																<ul class="ul_float_none li_padding inlineBlock mergerSelling">
+																	<li id="agencyTerminationStep1_national_name_security" class="inlineBlock_1">
+																		<div class="label_1 labelAlign"><span id="agencyTerminationStep1_national_agency_desc_label">National Agency Name</span> :</div>
+																		<div class="data_1 tdInput"><label id="seller_name" name="seller_name" class="paddingLeft3"></label></div>
+																	</li>
+																	<li id="agencyTerminationStep1_national_code_security" class="inlineBlock_1">
+																		<div class="label_1 labelAlign"><span id="agencyTerminationStep1_national_code_label">National Code</span> :</div>
+																		<div class="data_1 tdInput"><label id="seller_system_code" name="seller_system_code" class="paddingLeft3"></label></div>
+																	</li>
+																	<li id="agencyTerminationStep1_agency_code_security" class="inlineBlock_1">
+																		<div class="label_1 labelAlign"><span id="agencyTerminationStep1_agency_code_label">Agency Code</span> :</div>
+																		<div class="data_1 tdInput"><label id="seller_agency_code" name="seller_agency_code" class="paddingLeft3"></label></div>
+																	</li>
+																	
+																	<li id="agencyTerminationStep1_seller_producer_code_security" class="inlineBlock_1">
+																		<div class="label_1 labelAlign"><span id="agencyTerminationStep1_seller_producer_code_label">Location Code</span> :</div>
+																		<div class="data_1 tdInput"><label id="seller_producer_code" name="seller_producer_code" class="paddingLeft3"></label></div>
+																	</li>
+																	
+																	<li id="agencyTerminationStep1_seller_city_security" class="inlineBlock_1">
+																		<div class="label_1 labelAlign"><span id="agencyTerminationStep1_seller_city_label">City</span> :</div>
+																		<div class="data_1 tdInput"><label id="seller_city" name="seller_city" class="paddingLeft3"></label></div>
+																	</li>
+																	<li id="agencyTerminationStep1_seller_state_security" class="inlineBlock_1">
+																		<div class="label_1 labelAlign"><span id="agencyTerminationStep1_view_state_label">State</span> :</div>
+																		<div class="data_1 tdInput"><label id="seller_state" name="seller_state" class="paddingLeft3"></label></div>
+																	</li> 
+																</ul>
+															</div>
+														</section>
+													</div>
+													<div class="row">
+														<section class="bgAccordionMerger col-sm-6" id="agencyTerminationStep1_contractsdata_security">
+															<div class="row" align="center">
+																<div id="error_selectedContractIds" class="error"></div>
+															</div>
+															<div class="row">
+																	<ul class="div_checkbox div_checkbox3" id="agencyTerminationStep1_list_mom_1_1">
+																		<li id="agencyTerminationStep1_list_header_1_1" style="display: none">
+																			<span id="block_field_contract_id"></span>
+																			<span id="block_field_contract_name"></span>
+																			<span id="block_field_agency_id"></span>
+																		</li>
+																		<li id="agencyTerminationStep1_list_mom_data_1_1">
+																			<div id="mom_child_data">
+																				<span id="block_field_contract_id">
+																					<input name="contract_id"
+																						id="contract_id"
+																						type="checkbox"
+																						checked="checked"
+																						disabled="disabled" />
+																				</span>
+																				<!-- <span id="block_field_contract_id">
+																					<span
+																					id="eval:events.saveEvent">
+																						<span
+																						id="block_field_contract_id">
+																							<input name="contract_id" 
+																							id="contract_id" checked="checked"
+																							type="checkbox" />
+																					</span>
+																				</span> <span
+																					id="eval:events.editEvent">
+																						<span
+																						id="block_field_contract_id">
+																							<input name="contract_id"
+																							id="contract_id"
+																							type="checkbox"
+																							checked="checked"
+																							disabled="disabled" />
+																					</span>
+																				</span>
+																				</span> -->
+																				<span
+																					id="block_field_contract_name"></span>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+														</section>
+													</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section class="free-form" id="agencyTerminationFreeformInputDiv">
+								<div id="agencyTerminationFreeformInputDiv_label">
+									<div class="freeFormDiv padding10 form-inline docInsurance">
+				                      <div class="padding-left-form">
+				                        <ul class="inlineBlock" id="agencyTerminationStep1_freeform_contextdata_12">
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#termination_date_before#"></li>
+				                          <li class="inlineBlock_2" id="agencyTerminationStep1_termination_date_security">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_termination_date" class="error" />
+			                                      <div id="ajax_error_termination_date" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                 <label id="effective_termination_date_label">Effective Date of Termination</label> :
+				                                </div>
+				                                <div class="freeFormListTd">
+				                                  	<div class="input-group date" id="establishedDateDiv">
+                                                        <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input name="termination_date" 
+														onkeyup="applyDateFormat(this,event);"
+														fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_termination_date_security.effective_termination_date_label.termination_date"
+														class="form-control form-control-date"
+															id="ajax_field_termination_date"
+															type="text" maxlength="100"/>
+													</div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li>
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#termination_date_after#"></li>
+				                          
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#commission_reduction_date_before#"></li>
+				                          <li class="inlineBlock_2" id="agencyTerminationStep1_commission_reduction_date_security">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_commission_reduction_date" class="error" />
+			                                      <div id="ajax_error_commission_reduction_date" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                <label id="commision_reduction_date_label"> Commission Reduction Date</label> :
+				                                </div>
+				                                <div class="freeFormListTd">
+				                                  	<div class="input-group date" id="establishedDateDiv">
+                                                        <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input name="commission_reduction_date" class="form-control"
+														onkeyup="applyDateFormat(this,event);"														
+														fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_commission_reduction_date_security.commision_reduction_date_label.commission_reduction_date"
+															id="ajax_field_commission_reduction_date"
+															type="text" maxlength="100"/>
+													</div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li>
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#commission_reduction_date_after#"></li>
+				                          
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#effective_date_policy_before#"></li>
+				                          <li class="inlineBlock_2" id="agencyTerminationStep1_effective_date_policy_security">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_effective_date_policy" class="error" />
+			                                      <div id="ajax_error_effective_date_policy" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                <label id="dateofpolicy_non_renew_label"> Effective Date for Policy Non-Renewals</label> : 
+				                                </div>
+				                                <div class="freeFormListTd">
+				                                  	<div class="input-group date" id="establishedDateDiv">
+                                                        <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input name="effective_date_policy" class="form-control"
+															onkeyup="applyDateFormat(this,event);"
+															fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_effective_date_policy_security.dateofpolicy_non_renew_label.effective_date_policy"
+															id="ajax_field_effective_date_policy"
+															type="text" maxlength="100"/>
+													</div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li>
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#effective_date_policy_after#"></li>
+				                          
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#person_id_before#"></li>
+				                          <li class="inlineBlock_2" id="agencyTerminationStep1_person_id_security">
+			                                <div class="freeFormList form-group">
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTdError">
+			                                      <h6>#space#</h6>
+			                                    </div>
+			                                    <div class="freeFormListTdError paddingLeft3">
+			                                      <div id="error_person_id" class="error" />
+			                                    </div>
+			                                  </div>
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+			                                    	<span id="personNamelabel">Contact</span> :</div>
+			                                    <div class="freeFormListTd">
+			                                      <select name="person_id"
+												  fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_person_id_security.personNamelabel.person_id"
+														id="person_id"
+														 class="form-control selectWidth">
+															<option value="">Select</option>
+													</select>
+			                                    </div>
+			                                  </div>
+			                                </div>
+			                              </li>
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#person_id_after#"></li>
+			                              
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#reason_id_before#"></li>
+			                              <li class="inlineBlock_2" id="agencyTerminationStep1_reason_id_security">
+			                                <div class="freeFormList form-group">
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTdError">
+			                                      <h6>#space#</h6>
+			                                    </div>
+			                                    <div class="freeFormListTdError paddingLeft3">
+			                                      <div id="error_reason_id" class="error" />
+			                                    </div>
+			                                  </div>
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+			                                    	<label id="termination_reason_label"> Termination Reason</label> :</div>
+			                                    <div class="freeFormListTd">
+			                                      	<select name="reason_id"
+													  fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_reason_id_security.termination_reason_label.reason_id"
+														id="ajax_field_reason_id"
+														class="form-control selectWidth">
+															<option value="">Select</option>
+													</select>
+			                                    </div>
+			                                  </div>
+			                                </div>
+			                              </li>
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#reason_id_after#"></li>
+			                              
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#recieved_date_before#"></li>
+			                              <li class="inlineBlock_2" id="agencyTerminationStep1_recieved_date_security">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_recieved_date" class="error" />
+			                                      <div id="ajax_error_recieved_date" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                 <label id="recieved_date_label">Received Date</label> :
+				                                </div>
+				                                <div class="freeFormListTd">
+				                                  	<div class="input-group date" id="establishedDateDiv">
+                                                        <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input name="recieved_date" class="form-control form-control-date"
+															onkeyup="applyDateFormat(this,event);"
+															fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_recieved_date_security.recieved_date_label.recieved_date"
+															id="ajax_field_recieved_date"
+															type="text" maxlength="100"/>
+													</div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li>
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#recieved_date_after#"></li>
+				                          
+				                          <li class="inlineBlock_2 extendedFieldHide" id="#termination_reason_other_before#"></li>
+			                              <!-- BMIC Specific-->  <li class="inlineBlock_2" id="agencyTerminationStep1_terminationReasonOther_security">
+			                                <div class="freeFormList form-group">
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTdError">
+			                                      <h6>#space#</h6>
+			                                    </div>
+			                                    <div class="freeFormListTdError paddingLeft3">
+			                                      <div id="error_termination_reason_other" class="error" />
+			                                      <div id="ajax_error_termination_reason_other" class="error" />
+			                                    </div>
+			                                  </div>
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTd labelAlign freeFormLabelWidth">
+			                                    	<span id="termination_reason_other_label">Termination Reason Other</span> :
+			                                    </div>
+			                                    <div class="freeFormListTd tdInput divTdWidth_3 text-nowrap  nonMandatory">
+			                                    	<input name="termination_reason_other" id="ajax_field_termination_reason_other" 
+													fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_terminationReasonOther_security.termination_reason_other_label.termination_reason_other"
+													type="text" 
+			                                    	class="form-control" maxlength="200" />
+												</div>
+			                                  </div>
+			                                </div>
+			                                <!-- <input type="hidden" name="termination_reason_code" id="ajax_field_termination_reason_code" /> -->
+			                              </li>
+			                              <li class="inlineBlock_2 extendedFieldHide" id="#termination_reason_other_after#"></li>
+				                          
+				                           <li class="inlineBlock_1" id="#non_renewal_notice_target_before#"></li>
+			                               <li class="inlineBlock_2" id="agencyTerminationStep1_non_renewal_notice_target_security">
+				                            <div class="freeFormList form-group">
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTdError">
+				                                  <h6>#space#</h6>
+				                                </div>
+				                                <div class="freeFormListTdError paddingLeft3">
+				                                  <div id="error_non_renewal_notice_target_id" class="error" />
+			                                      <div id="ajax_error_non_renewal_notice_target_id" class="error" />
+				                                </div>
+				                              </div>
+				                              <div class="freeFormListTr">
+				                                <div class="freeFormListTd labelAlign freeFormLabelWidth">
+				                                 <label id="non_renewal_notice_target_label">Non-renewal Notices</label> :
+				                                </div>
+				                                <div class="freeFormListTd">
+				                                  	<select name="non_renewal_notice_target_id"
+													fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_non_renewal_notice_target_security.non_renewal_notice_target_label.non_renewal_notice_target_id"
+														id="ajax_field_non_renewal_notice_target_id"
+														class="form-control selectWidth">
+															<option value="">Select</option>
+													</select>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </li>
+				                           <li class="inlineBlock_1" id="#non_renewal_notice_target_after#"></li>
+			                              
+			                              <li class="inlineBlock_1" id="#isDepartmentInformed_before#"></li>
+			                              <li class="inlineBlock_1" id="agencyTerminationStep1_isDepartmentInformed_security">
+			                              	<div class="freeFormList form-group">
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTdError">
+			                                      <h6>#space#</h6>
+			                                    </div>
+			                                    <div class="freeFormListTdError paddingLeft3">
+			                                      <div id="error_isDepartmentInformed" class="error" />
+			                                    </div>
+			                                  </div>
+			                                  <div class="freeFormListTr">
+			                                    <div class="freeFormListTd labelAlign">
+			                                    	<label id="agencyTerminationStep1_isDepartmentInformed_label">Have the appropriate departments been informed of this Termination Request where applicable and Approve ? i.e Personal, Commercial, Farm</label> :</div>
+			                                    	<div class="freeFormListTd">
+			                                      		<input type="radio" name="isDepartmentInformed" 
+														fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_isDepartmentInformed_security.agencyTerminationStep1_isDepartmentInformed_label.isDepartmentInformed"
+														id="ajax_field_isDepartmentInformed" value="Y"/> Yes
+			                                      		<input type="radio" name="isDepartmentInformed" 
+														fullid="agencyTerminationStep1_freeform_contextdata_12(agencyTerminationFreeformInputDiv.agencyTerminationFreeformInputDiv_label).agencyTerminationStep1_isDepartmentInformed_security.agencyTerminationStep1_isDepartmentInformed_label.isDepartmentInformed"
+														id="ajax_field_isDepartmentInformed" value="N"/> No
+			                                    	</div>
+			                                  	</div>
+			                                </div>
+			                              </li>
+			                              <li class="inlineBlock_1" id="#isDepartmentInformed_after#"></li>
+				                         </ul>
+				                       </div>
+				                     </div>
+								</div>
+								</section>
+								<section id="agencyTerminationStep1_questions_grid_security">
+									<fieldset>
+										<legend>Narrative Supplement </legend>
+										<div class="row">
+											<div class="row">
+												<div id="ajax_error_lblquestioncommentmessage" style="width: 100%; font-weight: bold; text-align: center;" class="errorBold" />
+				                                <div id="ajax_error_lblquestionmessage" style="width: 100%; font-weight: bold; text-align: center" class="errorBold" />
+				                                <div id="agencyBackgroundQuestionCarrierTab_freeform_contextdata_2">
+					                                <label name="agencyBgQuestionpageMsg" id="ajax_agencyBgQuestionpageMsg" class="Confirmation" />
+					                            </div>
+											</div>
+								        	<div class="row">
+								        		<ul class="div_checkbox agencyTermination1" id="getterminationquestions_list_2">
+													<li id="getterminationquestions_list_header_2" style="display: none">
+														<span class="tableinfoheader" id="block_field_question_text" />
+				                                        <span class="tableinfoheader" id="block_field_question_code" />
+				                                        <span class="tableinfoheader" id="block_field_comments"></span>
+													</li>
+													
+													<li id="getterminationquestions_list_mom_data_2">
+														<div id="mom_child_data">
+															<div id="background_question_security" class="text-heading">
+					                                            <span id="block_field_question_text" />
+					                                          </div>
+					                                          <span class="hide" id="background_question_security">
+					                                           <span id="block_field_question_code">
+					                                           <input type="hidden" name="question_code" id="question_code" />
+					                                           </span>
+					                                          </span>
+					                                         <div id="agencyTerminationStep1_questionscomments_security">
+						                                         <div id="block_field_comments" class="form-inline clear-both">
+						                                         	<textarea id="ajax_field_comments" name="comments" style="height: 70px; width: 99.5%; margin: 0px;"  />
+					                                            </div>
+				                                            </div>
+														</div>
+													</li>
+												</ul>
+												
+								        		
+								        	</div>      
+								        </div>
+									</fieldset>
+								</section>
+								<!-- <section id="attachment_security">
+									<div id="attachmentDivContentStart"></div>
+									<div id="attachmentDiv">
+										<span
+											id="#Include:carrier/uploadDocument.html#"></span>
+									</div>
+									<div id="attachmentDivContentEnd"></div>
+								</section> -->
+								<section class="free-form extendedFieldHide" id="#comments_before#"></section>
+								<section class="free-form" id="agencyTerminationStep1_comments_security">
+									<div class="row"><div id="error_comments" class="error"></div></div>
+									<div class="text-heading txtbold" id="agencyTerminationStep1_comments_label">
+										Comments :
+									</div>
+									<section class="free-form textarea_bottom" id="agencyTerminationStep1_freeform_contextdata_7">
+										<div class="form-inline clear-both">
+	                                        <textarea name="comments" 
+	                                        fullid="page(page.page).agencyTerminationStep1_comments_security.agencyTerminationStep1_comments_label.comments"
+	                                        style="height: 70px; width: 99.5%; margin: 0px;" rows="4" id="comments" 
+	                                        onkeyup="updateTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)"
+											onfocus="showTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)"
+											onblur="hideTextAreaCharCountMsg(this,'descriptionCharCountMsg',1024)"/>
+	                                      <div class="textareacharcount" id="descriptionCharCountMsg" />
+	                                    </div>
+									</section>
+			                      </section>
+			                    <section class="free-form extendedFieldHide" id="#comments_after#"></section>
+							</div>
+							
+						</fieldset>
+					</section>
+					<section>
+						<div class="buttonwrapper0">
+						
+						        <!-- <a id="sendfor_esign_button_security"
+								href="javascript:submitform('admin/agencyTerminationList.html','agencyTerminationStep1.agencyTerminationList3','','');"
+								class="ovalbutton"><span>SEND FOR E-Signature</span> </a>
+								<a id="generate_ag_form_button_security"
+								href="javascript:submitform('admin/agencyTerminationList.html','agencyTerminationStep1.agencyTerminationList4','','');"
+								class="ovalbutton"><span>Generate AG-28 FORM</span> </a> -->
+							<a onclick="javascript:getSelectedAgencyTerminationContracts();" id="agencyTermination_nextsecurity"
+							fullid="page(page.page).agencyTermination_nextsecurity.agencyterminaion_next_label.agencyTermination_nextsecurity"
+								href="javascript:submitform('admin/agencyTerminationStep2.html','agencyTerminationStep1.agencyTerminationStep2','','');"
+								class="ovalbutton"><span id="agencyterminaion_next_label">Next</span> </a> <a id="agencyTermination_cancelsecurity"
+								fullid="page(page.page).agencyTermination_cancelsecurity.agencyterminaion_cancel_label.agencyTermination_cancelsecurity"
+								href="javascript:submitform('admin/agencyTerminationList.html','agencyTerminationStep1.agencyTerminationList','','');"
+								class="ovalbutton"><span id="agencyterminaion_cancel_label">Cancel</span> </a>
+						</div>
+					</section>
+				</div>
+				<!---------Body content End---------->
+				
+				<!---------Sidebar Start---------->
+				<div id="sidebar_right_security_admin" class="sideBar_admin">
+					<span id="#Include:admin/adminSideBarRight.html#"></span>
+				</div>
+				<!---------Sidebar End---------->
+			
+			</article>
+		</div>
+		<!---------Footer Start---------->
+		<footer>
+			<span id="#Include:admin/adminFooter.html#"></span>
+		</footer>
+		<!---------Footer End---------->
+	</div>
+</div>
+		
+		
+		<div class="calendar_widget" id="calendar_widget">
+			<iframe id="calendar_widget_iframe" name="calendar_widget_iframe"
+				src="calendar_widget.html" frameborder="0" />
+			</iframe>
+		</div>
+		<table id="agencyTerminationStep1_freeform_contextdata_999"
+			cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<input type="hidden" name="jsessionid" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(jsessionid_security.jsessionid_label).jsessionid_security.jsessionid_label.jsessionid"
+					id="jsessionid" />
+					<input type="hidden" name="from_object_id" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(from_object_id_security.from_object_id_label).from_object_id_security.from_object_id_label.from_object_id"
+					id="from_object_id" />
+					<input type="hidden" name="notSelect" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(notSelect_security.notSelect_label).notSelect_security.notSelect_label.notSelect"
+					id="notSelect" /> 
+					<input type="hidden" name="issearch" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(issearch_security.issearch_label).issearch_security.issearch_label.issearch"
+					id="issearch" />
+					<input type="hidden" name="selectedContractIds" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(selectedContractIds_security.selectedContractIds_label).selectedContractIds_security.selectedContractIds_label.selectedContractIds"
+					id="selectedContractIds" />
+					<input type="hidden" name="Status" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(Status_security.Status_label).Status_security.Status_label.Status"
+					id="Status" /> 
+					<input type="hidden" name="workflow_user" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(workflow_user_security.workflow_user_label).workflow_user_security.workflow_user_label.workflow_user"
+					id="workflow_user" /> 
+					<input type="hidden" name="document_category" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(document_category_security.document_category_label).document_category_security.document_category_label.document_category"
+					id="document_category" /> 
+					<input type="hidden" name="htmlSource" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(htmlSource_security.htmlSource_label).htmlSource_security.htmlSource_label.htmlSource"
+					id="htmlSource" /> 
+					<input type="hidden" name="terminationStatus" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(terminationStatus_security.terminationStatus_label).terminationStatus_security.terminationStatus_label.terminationStatus"
+					id="terminationStatus" />
+					<input type="hidden" name="termQuestionsListSize" 
+					fullid="agencyTerminationStep1_freeform_contextdata_999(termQuestionsListSize_security.termQuestionsListSize_label).termQuestionsListSize_security.termQuestionsListSize_label.termQuestionsListSize"
+					id="termQuestionsListSize" />
+					
+					
+					</td>
+					
+					
+			</tr>
+		</table>
+
+
+	</form>
+</body>
+
+</html>

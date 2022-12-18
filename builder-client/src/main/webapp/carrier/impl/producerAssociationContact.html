@@ -1,0 +1,1429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<!-- tag for resolution change -->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<title>ProducerOne - Producer Management Center</title>
+<!-- css -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Scripts -->
+<script type="text/javascript" src="js/all_files.js" />
+</head>
+<body onload="loadUploadDiv();onLoadProducerCodeAssociation();setHierarchyObjTypeDescInListFreeformDropDown();"
+	class="node27 carrierSection">
+	<form>
+		<div id="cover" />
+		<div id="contextLinks" />
+		<div id="popupEntityList" />
+		<div id="deleteConfirmation">
+			<!-- Modal -->
+			<div class="modal fade modal_popup">
+				<div class="modal-dialog modal-dialog-width_350">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">
+								<a href="#" class="close" id="producerAssociationContact_close"
+									onclick="closePopUp('deleteConfirmation')"> <img
+									src="images/close.png" />
+								</a> Delete
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body-scroll">
+								<span class="delete_ico icons">#space#</span> Are you sure you
+								want to delete this item?
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="buttonwrapper">
+								<a id="producerAssociationContact_yes"
+									onclick="closePopUp('deleteConfirmation');callAjaxDelete('ConferenceAwardsDiv');"
+									href="#" class="btn btn-primary"> <span>Yes</span>
+								</a> <a href="#" id="producerAssociationContact_no"
+									onclick="clean();closePopUp('deleteConfirmation');"
+									class="btn btn-default"> <span>No</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal End -->
+		</div>
+		<div class="container-fluid bootstrap-node-9"
+			id="producerAssociationDiv">
+			<div class="tableWidth">
+				<!--=======Header Start========-->
+				<header> <span id="#Include:carrier/carrierHeader.html#" />
+				</header>
+				<!--=======Header End========-->
+				<div class="bgmain">
+					<!--=======Menu Level 1 Start========-->
+					<nav class="menu-level-1 tab"> <span
+						id="#Include:carrier/carrierTabs1.html#" /> </nav>
+					<!--=======Menu Level 1 End========-->
+					<!--=======Menu Level 2 Start========-->
+					<nav class="menu-level-2"> <span
+						id="#Include:carrier/carrierTabs2.html#" /> </nav>
+					<!--=======Menu Level 2 End========-->
+					<article class="content sidebar-content"> <!--=======Sidebar Start========-->
+					<div id="isSideBarHiereachyExists" class="sideBar">
+						<span id="#Include:carrier/sideBar.html#" />
+					</div>
+					<!--=======Sidebar End========--> <!--=======Body content Start========-->
+					<div class="panel-body-wraper" id="tdContent">
+						<!--=======page Level msg Start========-->
+						<div id="agentProducerAssociation_freeform_contextdata_100">
+							<div class="errorMsgAlign clear-both">
+								<div id="ajax_error_agentProducerNumberPageError" class="error" />
+								<div id="error_agentProducerNumberPageError" class="error" />
+							</div>
+							<div class="ConfirmationAlign clear-both">
+								<label name="pageMsg" id="pageMsg" class="Confirmation" />
+							</div>
+						</div>
+						<!--=======page Level msg End========-->
+						<section id="producerAssociationContact_agency_code_section_security">
+							<div class="freeFormList form-group paddingBottom10"
+								id="producerAssociationContact_freeform_contextdata_456">
+								<div class="freeFormListTr">
+									<div class="freeFormListTdError">
+										<h6>#space#</h6>
+									</div>
+									<div class="freeFormListTdError paddingLeft3">
+										<div id="" class="error" />
+									</div>
+								</div>
+								<div class="freeFormListTr">
+									<div
+										class="freeFormListTd labelAlign">
+										<strong><span id="producerAssociationContact_agency_code_label">Agency Code</span> :</strong>
+									</div>
+									<div class="freeFormListTd">
+										&nbsp;<label  name="producer_number"
+											id="ajax_field_producer_number" />
+									</div>
+								</div>
+							</div>
+						</section>
+						<div class="checkUnsavedData">
+						<section class="free-form"
+							id="producerAssociationContact_section_security">
+						<fieldset>
+							<legend>
+								<span id="producerAssociationContact_section_label">Contact
+									Details</span>
+							</legend>
+							<div class="freeFormDiv form-inline">
+								<ul class="inlineBlock">
+									<li class="inlineBlock_2_fix"
+										id="producerAssociationContact_login_id_security">
+										<div class="freeFormList form-group"
+											id="producerAssociationContact_freeform_contextdata_0">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_login_id" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign freeFormLabelWidth">
+													<label id="producerAssociationContact_login_id_label">Login
+														Id</label> :
+												</div>
+												<div class="freeFormListTd tdInput">
+													<input type="text" class="form-control" name="login_id"
+														fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_login_id_security.producerAssociationContact_login_id_label.login_id"
+														id="ajax_field_login_id" />
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="inlineBlock_2"
+										id="producerAssociationContact_years_in_service_security">
+										<div class="freeFormList form-group"
+											id="producerAssociationContact_freeform_contextdata_1">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>&nbsp;</h6>
+												</div>
+
+												<div class="freeFormListTdError paddingLeft3">
+
+													<div id="ajax_error_years_in_service" class="error"></div>
+													<div id="error_years_in_service" class="error"></div>
+
+													<div id="ajax_error_months_in_service" class="error"></div>
+													<div id="error_months_in_service" class="error"></div>
+												</div>
+											</div>
+
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign freeFormLabelWidth">
+													<label
+														id="producerAssociationContact_prior_years_in_service_label">Prior
+														Years of Service</label> :
+												</div>
+
+												<div class="freeFormListTd tdInput">
+													<input name="years_in_service" class="form-control"
+														fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_years_in_service_security.producerAssociationContact_prior_years_in_service_label.years_in_service"
+														id="ajax_field_years_in_service" type="text"
+														maxlength="4" style="width: 68px;"
+														onkeyup="checkNumericValue(this,event);"
+														onkeypress="checkNumericValue(this,event);" value="" />
+												</div>
+												<div class="freeFormListTd labelAlign">Years</div>
+												<div class="freeFormListTd">
+													<input name="months_in_service" class="form-control"
+														id="ajax_field_months_in_service" type="text"
+														maxlength="4" style="width: 45px;"
+														fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_years_in_service_security.producerAssociationContact_prior_years_in_service_label.months_in_service"
+														onkeyup="checkNumericValue(this,event);"
+														onkeypress="checkNumericValue(this,event);" value="" />
+												</div>
+												<div class="freeFormListTd labelAlign">Months</div>
+											</div>
+										</div>
+									</li>
+									<li class="inlineBlock_2_fix"
+										id="producerAssociationContact_supervisor_security">
+										<div class="freeFormList form-group"
+											id="producerAssociationContact_freeform_contextdata_2">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_supervisor" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign freeFormLabelWidth">
+													<label id="producerAssociationContact_supervisor_label">Supervisor</label>
+													:
+												</div>
+												<div class="freeFormListTd tdInput">
+													<select class="form-control" name="supervisor"
+														fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_supervisor_security.producerAssociationContact_supervisor_label.supervisor"
+														id="ajax_field_supervisor">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="inlineBlock_2_fix"
+										id="producerAssociationContact_privilege_id_security">
+										<div class="freeFormList form-group"
+											id="producerAssociationContact_freeform_contextdata_4">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_privilege_id" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign freeFormLabelWidth">
+													<label id="producerAssociationContact_privilege_id_label">Privilege</label>
+													:
+												</div>
+												<div class="freeFormListTd tdInput">
+													<select class="form-control" name="privilege_id"
+														fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_privilege_id_security.producerAssociationContact_privilege_id_label.privilege_id"
+														id="ajax_field_privilege_id">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="inlineBlock_1_fix"
+										id="producerAssociationContact_contact_type_security">
+										<div class="freeFormList form-group">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_contact_type" class="error" />
+													<div id="error_selectedContacttype" class="error" />
+													<div id="ajax_error_selectedContacttype" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div
+													class="freeFormListTd labelAlign valignTop freeFormLabelWidth">
+													<label id="producerAssociationContact_contact_type_label">Contact
+														Type</label> :
+												</div>
+												<div class="freeFormListTd align-top">
+													<div id="contacttypeDiv" class="mendatoryInput">
+				                                     	<ul class="div_checkbox div_checkbox3" id="contacttype_lku_mom_list_1" style="padding-left: 1px;">
+															<li id="contacttype_lku_mom_list_header_1" style="display: none">
+																<span class="tableinfoheader"
+																	id="block_field_contact_typ_desc" />
+																<span class="tableinfoheader"
+																	id="block_field_contact_typ_id" width="69" />
+																<span class="tableinfoheader"
+																	id="block_field_ispersoncontact" width="69" />
+																<span class="tableinfoheader"
+																	id="block_field_contact_typ_code" />
+															</li>
+															<li id="contacttype_lku_mom_list_mom_data_1">
+																<div id="mom_child_data">
+																	<span id="contactType_checkBox_security" width="10">
+																		<span id="block_field_ispersoncontact"> <input
+																			type="checkbox" id="ispersoncontact"
+																			name="ispersoncontact" value="Y"
+																			/>
+																	</span>
+																	</span>
+																	<span id="block_field_contact_typ_desc" />
+																	<span id="block_field_contact_typ_id" width="1">
+																		<input type="hidden" id="contact_typ_id"
+																		name="contact_typ_id" />
+																	</span>
+																	<span id="block_field_contact_typ_desc"><input
+																		type="hidden" id="contact_typ_desc"
+																		name="contact_typ_desc" /></span>
+																	<span id="block_field_contact_typ_code"><input
+																		type="hidden" id="contact_typ_code"
+																		name="contact_typ_code" /></span>
+																	<span id="block_field_other_contacttype_desc"><input
+																		type="text" style="display: none;"
+																		id="other_contacttype_desc" maxlength="50"
+																		name="other_contacttype_desc"
+																		onblur="insertOtherDesc();" /></span>
+																</div>
+															</li>
+														</ul>										
+				                                      </div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="inlineBlock_2_fix"
+										id="producerAssociationContact_start_date_security">
+										<div class="freeFormList form-group"
+											id="producerAssociationContact_freeform_contextdata_7">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_start_date" class="error" />
+													<div id="ajax_error_start_date" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign">
+													<div class="freeFormLabelWidth">
+														<label id="producerAssociationContact_start_date_label">Start
+															Date</label> :
+													</div>
+												</div>
+												<div class="freeFormListTd text-nowrap">
+													<div class="input-group date">
+														<div class="input-group-addon"
+															id="ico_fa_calender_security">
+															<i class="fa fa-calendar">&nbsp;</i>
+														</div>
+														<input name="start_date" id="ajax_field_start_date" type="text"
+															fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_start_date_security.producerAssociationContact_start_date_label.start_date"
+															class="form-control datepicker form-control-date"
+															maxlength="10" onkeyup="applyDateFormat(this,event);" />
+													</div>
+														<a title="Select Date" class="calender_ico icons"
+															id="date_link" onclick="show_calendar_widget(this);" />
+													
+
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="inlineBlock_2_fix"
+										id="producerAssociationContact_end_date_security">
+										<div class="freeFormList form-group"
+											id="producerAssociationContact_freeform_contextdata_8">
+											<div class="freeFormListTr">
+												<div class="freeFormListTdError">
+													<h6>#space#</h6>
+												</div>
+												<div class="freeFormListTdError paddingLeft3">
+													<div id="error_end_date" class="error" />
+													<div id="ajax_error_end_date" class="error" />
+												</div>
+											</div>
+											<div class="freeFormListTr">
+												<div class="freeFormListTd labelAlign">
+													<div class="freeFormLabelWidth">
+														<label id="producerAssociationContact_end_date_label">End
+															Date</label> :
+													</div>
+												</div>
+												<div class="freeFormListTd text-nowrap">
+													<div class="input-group date">
+														<div class="input-group-addon"
+															id="ico_fa_calender_security">
+															<i class="fa fa-calendar">&nbsp;</i>
+														</div>
+														<input name="end_date" id="ajax_field_end_date" type="text"
+															fullid="producerAssociationContact_freeform_contextdata_0(producerAssociationContact_section_security.producerAssociationContact_section_label).producerAssociationContact_end_date_security.producerAssociationContact_end_date_label.end_date"
+															class="form-control datepicker form-control-date"
+															maxlength="10" onkeyup="applyDateFormat(this,event);" />
+													</div>
+														<a title="Select Date" class="calender_ico icons"
+															id="date_link" onclick="show_calendar_widget(this);" />
+													
+
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</fieldset>
+						</section>
+												
+						<div id="sub_producer_and_hiearchy">
+							<section class="list-grid" id="sub_producer_association_security">
+							<fieldset>
+								<legend> 
+									<label id="sub_producer_code_association_section_label">Sub Producer Code</label>	
+								</legend>
+								<div id="subProducerAssociationDiv" class="gridTopPadding4">
+									<div class="errorMsgAlign clear-both">
+										<label class="error2" name="pageError"
+											id="ajax_error_subProducerAssociationError" />
+									</div>
+									<div class="ConfirmationAlign clear-both"
+										id="subProducerAssociation_freeform_contextdata_100">
+										<label name="subProducerAssociationpageMsg" id="subProducerAssociationpageMsg" class="conformationMsg" />
+									</div>
+									<div class="clear-both table-responsive">
+										<table cellspacing="0" cellpadding="0"
+											class="gridTable grid-width reporting_manager_width"
+											id="subProducerAssociation_list_listfreeform_1">
+											<tr id="subProducerAssociation_list_header_listfreeform_1">
+
+												<td width="18%" class="HeaderStyle"
+													id="subProducerAssociation_sub_producer_security">
+													<span id="block_field_sub_producer"> 
+														<span id="subProducerAssociation_sub_producer_label">Sub Producer</span>
+													</span>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="subProducerAssociation_effective_date_security">
+													<span id="block_field_effective_date"> 
+														<span id="subProducerAssociation_effective_date_label">Effective Date</span>
+													</span>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="subProducerAssociation_termination_date_security">
+													<div id="block_field_termination_date">
+														<span
+															id="subProducerAssociation_termination_date_label">Termination Date</span>
+													</div>
+												</td>
+												<td width="1%" class="HeaderStyle"><span
+													id="subProducerAssociation_delete_row_security"> <span
+														id="block_field_delete_row_link" />
+												</span></td>
+												
+												
+											</tr>
+											<tr id="subProducerAssociation_list_data_listfreeform_1">
+												<td id="subProducerAssociation_sub_producer_security">
+													<span id="block_field_sub_producer" />
+												</td>
+												<td id="subProducerAssociation_effective_date_security">
+													<span id="block_field_effective_date" />
+												</td>
+												<td
+													id="subProducerAssociation_termination_date_security">
+													<span id="block_field_termination_date" />
+												</td>
+												
+												<td align="right">
+													<span id="subProducerAssociation_delete_row_security">
+														<span id="block_field_delete_row_link">
+															<a class="delete_ico icons" title="Delete"
+																href="javascript:ajaxpageblocklink('carrier/producerAssociationContact.html','producerAssociationContact.deleteSubProducerAssociation','','','subProducerAssociationDiv#hierarchyDiv');" />
+													</span>
+												</span></td>
+												
+											</tr>
+											<tbody id="subProducerAssociation_freeform_contextdata_1"
+												class="bgAccordionN">
+												<tr>
+													<td class="paddingLeft3" id="subProducerAssociation_sub_producer_security">
+														<div id="ajax_error_sub_producer" class="error" />
+														<div id="error_sub_producer" class="error" />
+													</td>
+
+													<td class="paddingLeft3" id="subProducerAssociation_effective_date_security">
+														<div id="ajax_error_effective_date" class="error" />
+														<div id="error_effective_date" class="error" />
+													</td>
+													<td class="paddingLeft3" id="subProducerAssociation_termination_date_security">
+														<div id="ajax_error_termination_date" class="error" />
+														<div id="error_termination_date" class="error" />
+													</td>
+													<td />
+													
+												</tr>
+												<tr>
+													<td width="250px" id="subProducerAssociation_sub_producer_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_sub_producer">	
+															<!-- BMIC Specific--> <input name="sub_producer" id="ajax_field_sub_producer" style="width: 115px" type="text" maxlength="10" onkeyup="checkNumericValue(this,event);"
+																		onkeypress="checkNumericValue(this,event);" disabled="disabled"/>
+																		<!-- Added by Sudhir for Sub Producer customization  -->
+														</div>
+													</td>
+													<td width="250px" id="subProducerAssociation_effective_date_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_effective_date" class="mendatoryInput">
+															<div class="input-group date">
+																<div class="input-group-addon"
+																	id="ico_fa_calender_security">
+																	<i class="fa fa-calendar">&nbsp;</i>
+																</div>
+																<input name="effective_date" id="ajax_field_effective_date"
+																	type="text" style="width: 200px;"
+																	class="form-control datepicker form-control-date"
+																	maxlength="10" onkeyup="applyDateFormat(this,event);" />
+																<a title="Select Date" class="calender_ico icons"
+																	id="date_link" onclick="show_calendar_widget(this);" />
+															</div>
+														</div>
+													</td>
+
+													<td width="250px"
+														id="subProducerAssociation_termination_date_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														
+														<div id="block_field_termination_date">
+															<div class="input-group date">
+																<div class="input-group-addon"
+																	id="ico_fa_calender_security">
+																	<i class="fa fa-calendar">&nbsp;</i>
+																</div>
+																<input name="termination_date" id="ajax_field_termination_date"
+																	type="text"
+																	class="form-control datepicker form-control-date"
+																	maxlength="10" onkeyup="applyDateFormat(this,event);" />
+																<a title="Select Date" class="calender_ico icons"
+																	id="date_link" onclick="show_calendar_widget(this);" />
+															</div>
+														</div>
+													</td>
+													
+													<td  width="2%" id="subProducerAssociation_addNewRowLink_security"
+														align="right"
+														style="padding-right: 5px; padding-top: 2px; padding-left: 5px;">
+														<span id="add_subproducer_link_security">
+														<span id="block_field_addnew_row_link">
+															<a href="javascript:ajaxsubmitform('carrier/producerAssociationContact.html','producerAssociationContact.addNewsubProducerAssociation','','','subProducerAssociationDiv#hierarchyDiv');" onclick="getSelectedSearchContactTypeForAgentAssociation();">
+																<img src="images/icons/icon_notepadPlus.gif" title="Add" />
+															</a>
+														</span>
+														</span>
+													</td>
+													
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+								<div style="display: none;">
+									<table id="subProducerAssociation_freeform_contextdata_1"
+												class="bgAccordionN">
+												<tr>
+													<td class="paddingLeft3" id="subProducerAssociation_sub_producer_security">
+														<div id="ajax_error_sub_producer" class="error" />
+														<div id="error_sub_producer" class="error" />
+													</td>
+
+													<td class="paddingLeft3" id="subProducerAssociation_effective_date_security">
+														<div id="ajax_error_effective_date" class="error" />
+														<div id="error_effective_date" class="error" />
+													</td>
+													<td class="paddingLeft3" id="subProducerAssociation_termination_date_security">
+														<div id="ajax_error_termination_date" class="error" />
+														<div id="error_termination_date" class="error" />
+													</td>
+													<td style="display: none;" />
+													
+												</tr>
+												<tr>
+													<td width="250px" id="subProducerAssociation_sub_producer_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_sub_producer">	
+															<input name="sub_producer" id="ajax_field_sub_producer" style="width: 115px" type="text" maxlength="200" />
+														</div>
+													</td>
+													<td width="250px" id="subProducerAssociation_effective_date_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_effective_date">
+															<div class="input-group date">
+																<div class="input-group-addon"
+																	id="ico_fa_calender_security">
+																	<i class="fa fa-calendar">&nbsp;</i>
+																</div>
+																<input name="effective_date" id="ajax_field_effective_date"
+																	type="text"
+																	class="form-control datepicker form-control-date"
+																	maxlength="10" onkeyup="applyDateFormat(this,event);" />
+																<a title="Select Date" class="calender_ico icons"
+																	id="date_link" onclick="show_calendar_widget(this);" />
+															</div>
+														</div>
+													</td>
+
+													<td width="250px"
+														id="subProducerAssociation_termination_date_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														
+														<div id="block_field_termination_date">
+															<div class="input-group date">
+																<div class="input-group-addon"
+																	id="ico_fa_calender_security">
+																	<i class="fa fa-calendar">&nbsp;</i>
+																</div>
+																<input name="termination_date" id="ajax_field_termination_date"
+																	type="text"
+																	class="form-control datepicker form-control-date"
+																	maxlength="10" onkeyup="applyDateFormat(this,event);" />
+																<a title="Select Date" class="calender_ico icons"
+																	id="date_link" onclick="show_calendar_widget(this);" />
+															</div>
+														</div>
+													</td>
+													
+													<td  width="2%" id="subProducerAssociation_addNewRowLink_security"
+														align="right"
+														style="padding-right: 5px; padding-top: 2px; padding-left: 5px;">
+														<span id="block_field_addnew_row_link">
+															<a href="javascript:ajaxsubmitform('carrier/producerAssociationContact.html','producerAssociationContact.addNewsubProducerAssociation','','','subProducerAssociationDiv');">
+																<img src="images/icons/icon_notepadPlus.gif" title="Add" />
+															</a>
+														</span>
+													</td>
+													
+												</tr>
+											</table>
+								</div>
+
+							</fieldset>
+						</section>
+						
+						<section id="isShowHierarchyAgencyCodeSection" class="list-grid">
+								<fieldset class="fieldset_Level_1">
+									<legend>
+										<span id="masterHierarchyAgencyCodelabel">Vendor</span>
+									</legend>
+									<div id="hierarchyDiv" class="clear-both table-responsive">
+										<div class="errorMsgAlign clear-both"
+											id="producerDetail_freeform_contextdata_20">
+
+											<div id="ajax_error_hierarchyError" class="error" />
+											<div id="error_hierarchyError" class="error" />
+										</div>
+										
+										<div class="ConfirmationAlign clear-both"
+										id="Hierarchy_cnf_freeform_contextdata_100">
+											<label name="hierarchypageMsg" id="hierarchypageMsg" class="conformationMsg" />
+										</div>
+										<table cellspacing="0" cellpadding="0"
+											class="gridTable grid-width vendor-width hideNoRecordFound"
+											id="masterAgencyCodeDiv">
+											<tbody id="masterCodes_list_01">
+												<tr id="masterCodes_list_header_01">
+													<td id="pn_block_hierarchy_type_code_security"
+														class="HeaderStyle header-cell" width="30%"><span
+														id="block_field_hierarchy_type_code_desc"> <span
+															id="pn_block_hierarchy_type_Association_contatct_code_label">Master
+																Type</span>
+													</span></td>
+													<td class="HeaderStyle" width="29%" id="sub_producer_type_masterAgencyCode_security">
+													<span id="block_field_hierarchy_sub_producer">
+														<span id="block_field_hierarchy_sub_producer_desc">
+														<span id="pn_block_hierarchy_sub_producer_type_masterAgencyCode_label">Sub Producer Type</span>
+													</span></td>
+													
+													<td id="pn_block_masterProducer_hierarchy_security"
+														class="HeaderStyle header-cell" width="25%"><span
+														id="block_field_hierarchy_parent_producer_number"> <span
+															id="pn_block_masterProducer_association_hierarchy_label">Master
+																Agency Code</span>
+													</span></td>
+													<td id="pn_block_masterProducer_hierarchy_security"
+														class="HeaderStyle header-cell" width="1%"><span
+														id="block_field_hierarchy_parent_producer_id">
+													</span></td>
+													<td width="15%" class="HeaderStyle"
+													id="hierarchy_object_type_masterAgencyCode_security">
+														<div id="block_field_hierarchy_object_type">
+															<span id="block_field_hierarchy_object_type_desc" />
+															<span id="pn_block_hierarchy_object_type_masterAgencyCode_label">Object Type</span>
+														</div>
+													</td>
+													
+													<td id="pn_block_hierarchy_effective_date_masterAgencyCode_security"
+														class="HeaderStyle header-cell" width="25%"><span
+														id="block_field_hierarchy_effective_date_masterAgencyCode"> <span
+															id="pn_block_hierarchy_effective_date_masterAgencyCode_label">
+																Effective Date</span></span></td>
+													<td
+														id="pn_block_hierarchy_termination_date_masterAgencyCode_security"
+														class="HeaderStyle header-cell" width="25%"><span
+														id="block_field_hierarchy_termination_date_masterAgencyCode">
+															<span
+															id="pn_block_hierarchy_termination_date_masterAgencyCode_label">Termination
+																Date</span>
+													</span></td>
+													<td class="HeaderStyle header-cell" width="2%"
+														style="padding-right: 4px;"><span
+														id="delete_row_role_based_security"><span
+															id="block_field_delete_row_link" /></span></td>
+													<td id="block_field_hierarchy_type_code_desc"
+														style="display: none" />
+													<td id="block_field_masterProducer_hierarchy_desc"
+														style="display: none" />
+												</tr>
+												<tr id="masterCodes_list_data_01">
+													<td class="data-cell"
+														id="pn_block_hierarchy_type_code_security"><span
+														id="block_field_hierarchy_type_code_desc"></span></td>
+													<td class="data-cell"
+														id="sub_producer_type_masterAgencyCode_security"><span id="block_field_hierarchy_sub_producer_desc" />
+														</td>
+													<td class="data-cell"
+														id="hierarchy_parent_producer_number_with_search_option_security"><span
+														id="block_field_hierarchy_parent_producer_number" />
+													</td>
+													<td class="data-cell"
+														id="hierarchy_parent_producer_number_with_search_option_security">
+														<span id="block_field_hierarchy_parent_producer_id">
+														<input name="hierarchy_parent_producer_id" id="hierarchy_parent_producer_id" type="hidden"/></span>
+													</td>	
+													<td class="data-cell"
+														id="hierarchy_object_type_masterAgencyCode_security">
+															<span id="block_field_hierarchy_object_type_desc" />
+													</td>
+														
+													<td class="data-cell"
+														id="pn_block_hierarchy_effective_date_masterAgencyCode_security">
+														<span id="block_field_hierarchy_effective_date_masterAgencyCode"></span>
+													</td>
+													<td class="data-cell"
+														id="pn_block_hierarchy_termination_date_masterAgencyCode_security">
+														<span id="block_field_hierarchy_termination_date_masterAgencyCode"></span>
+													</td>
+													<td class="data-cell last-cell delete-col" align="right">
+														<span id="1delete_row_role_based_security"><span
+															id="block_field_delete_row_link"> <a
+																id="producerDetail_deletehierarchy"
+																href="javascript:ajaxpageblocklink('carrier/producerAssociationContact.html','producerAssociationContact.deleteHierarchyProducerAssociation','','','hierarchyDiv');">
+																	<img src="images/icons/Delete.png" title="Delete" />
+															</a></span> </span>
+													</td>
+												</tr>
+											</tbody>
+											<tbody id="hierarchy_masterCodes_freeform_contextdata_1"
+												class="bgAccordionN">
+												<tr>
+													<td id="pn_block_hierarchy_type_code_security">
+														<div id="ajax_error_hierarchy_type_code"
+															class="error paddingLeft3" />
+														<div id="error_hierarchy_type_code"
+															class="error paddingLeft3" />
+													</td>
+													<td id="sub_producer_type_masterAgencyCode_security">
+														<div id="ajax_error_hierarchy_sub_producer"
+															class="error paddingLeft3" />
+														<div id="error_hierarchy_sub_producer"
+															class="error paddingLeft3" />
+													</td>
+													<td id="pn_block_masterProducer_hierarchy_security">
+														<div id="ajax_error_hierarchy_parent_producer_number"
+															class="error paddingLeft3" />
+														<div id="error_hierarchy_parent_producer_number"
+															class="error paddingLeft3" />
+													</td>
+													<td id="pn_block_masterProducer_hierarchy_security">
+														<div id="ajax_error_hierarchy_parent_producer_id"
+															class="error paddingLeft3" />
+														<div id="error_hierarchy_parent_producer_id"
+															class="error paddingLeft3" />
+													</td>
+													
+													<td id=hierarchy_object_type_masterAgencyCode_security>
+														<div id="ajax_error_hierarchy_object_type"
+															class="error paddingLeft3" />
+														<div id="error_hierarchy_object_type"
+															class="error paddingLeft3" />
+													</td>
+													
+													<td id="pn_block_hierarchy_effective_date_masterAgencyCode_security">
+														<div id="ajax_error_hierarchy_effective_date_masterAgencyCode"
+															class="error paddingLeft3" style="width: 170px" />
+														<div id="error_hierarchy_effective_date_masterAgencyCode"
+															class="error paddingLeft3" style="width: 170px" />
+													</td>
+													
+													<td
+														id="pn_block_hierarchy_termination_date_masterAgencyCode_security">
+														<div id="ajax_error_hierarchy_termination_date_masterAgencyCode"
+															class="error paddingLeft3" style="width: 170px" />
+														<div id="error_hierarchy_termination_date_masterAgencyCode"
+															class="error paddingLeft3" style="width: 170px" />
+													</td>
+													<td />
+												</tr>
+												<tr>
+													<td id="pn_block_hierarchy_type_code_security"
+														height="25px" class="add-cell"><select
+														name="hierarchy_type_code"
+														id="ajax_field_hierarchy_type_code" style="width: 200px"
+														class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+															<option value="">Select</option>
+															<option value="LFH">Marketing Hierarchy</option>															
+													</select></td>
+													<td id="sub_producer_type_masterAgencyCode_security" class="add-cell">
+														<select name="hierarchy_sub_producer" id="ajax_field_hierarchy_sub_producer" class="selectDetail" onchange="javascript:setDescInListFreeformDropDown(this);">
+	                                                        		<option value="">Select</option>
+	                                                    </select>
+													</td>
+													<td id="pn_block_masterProducer_hierarchy_security"
+														class="add-cell">
+														<!-- <div
+															id="hierarchy_parent_producer_number_with_dropdown_option_security">
+															<div style="float: left">
+																<select name="hierarchy_parent_producer_number"
+																	class="form-control-grid"
+																	id="ajax_field_hierarchy_parent_producer_number"
+																	style="width: 200px">
+																	<option value="">Select</option>
+																</select>
+															</div>
+														</div> -->
+														<div
+															id="hierarchy_parent_producer_number_with_search_option_security">
+															<div style="float: left" id="hierarchy_parent_producer_number_editing_security">
+																<input name="hierarchy_parent_producer_number"
+																	id="ajax_field_hierarchy_parent_producer_number"
+																	type="text" class="form-control-grid"
+																	style="width: 150px" />
+															</div>
+															<div>
+																<a id="imghide" href="javascript:ajaxsubmitform('carrier/searchHierarchyForProducerContactbyPopup.html','producerAssociationContact.searchProducerParticipantsBy','','','popupEntityList');" 
+																 style="padding-left: 5px;">  
+																	<img id="iconimg" src="images/icons/search.png" border="0" />
+																</a>
+															</div>
+														</div>
+													</td>
+													
+													<td id="pn_block_masterProducer_hierarchy_security"	class="add-cell">
+														<div
+															id="hierarchy_parent_producer_number_with_search_option_security">
+															<div style="float: left" id="hierarchy_parent_producer_number_editing_security">
+																<input name="hierarchy_parent_producer_id"
+																	id="ajax_field_hierarchy_parent_producer_id"
+																	type="hidden" />
+															</div>
+														</div>
+													</td>
+													
+													<td 
+														id="hierarchy_object_type_masterAgencyCode_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+															<div style="float: left" id="hierarchy_hierarchy_object_type_editing_security">
+																<select name="hierarchy_object_type" id="ajax_field_hierarchy_object_type" style="width: 115px" onchange="javascript:setDescInListFreeformDropDown(this);" >
+																	<option value="">Select</option>
+	                                                      		</select>
+															</div>
+													</td>
+													<td id="pn_block_hierarchy_effective_date_masterAgencyCode_security"
+														class="add-cell">
+														<div class="input-group date">
+															<div class="input-group-addon"
+																id="ico_fa_calender_security">
+																<i class="fa fa-calendar">&nbsp;</i>
+															</div>
+															<input type="text" style="width: 150px;"
+																class="form-control-grid"
+																name="hierarchy_effective_date_masterAgencyCode"
+																onkeyup="applyDateFormat(this);"
+																onkeydown="applyDateFormat(this);"
+																onkeypress="applyDateFormat(this);" maxlength="10"
+																id="ajax_field_hierarchy_effective_date_masterAgencyCode" />
+														</div> <a id="date_link" class="calender_ico icons"
+														title="Select Date" onclick="show_calendar_widget(this);">
+													</a>
+													</td>
+													<td
+														id="pn_block_hierarchy_termination_date_masterAgencyCode_security"
+														class="add-cell">
+														<div class="input-group date">
+															<div class="input-group-addon"
+																id="ico_fa_calender_security">
+																<i class="fa fa-calendar">&nbsp;</i>
+															</div>
+															<input type="text" style="width: 150px;"
+																class="form-control-grid"
+																name="hierarchy_termination_date_masterAgencyCode"
+																onkeyup="applyDateFormat(this);"
+																onkeydown="applyDateFormat(this);"
+																onkeypress="applyDateFormat(this);" maxlength="10"
+																id="ajax_field_hierarchy_termination_date_masterAgencyCode" />
+														</div> <a id="date_link" class="calender_ico icons"
+														title="Select Date" onclick="show_calendar_widget(this);">
+													</a>
+													</td>
+													<td style="display: none;" 	id="pn_block_hierarchy_type_code_security">
+														<input type="hidden" name="hierarchy_type_code_desc" id="ajax_field_hierarchy_type_code_desc" />
+													</td>
+													<td style="display: none;" 	id="hierarchy_object_type_masterAgencyCode_security">
+														<input type="hidden" name="hierarchy_object_type_desc" id="ajax_field_hierarchy_object_type_desc" />
+													</td>
+													<td style="display: none;" 	id="sub_producer_type_masterAgencyCode_security">
+														<input type="hidden" name="hierarchy_sub_producer_desc" id="ajax_field_hierarchy_sub_producer_desc" />
+													</td>
+													<td style="padding: 5px 3px" class="add-cell add-col"
+														align="right"><span
+														id="pn_add_row_hierarchy_security"><span
+															id="common.hideproducerdetailbutton"> <a
+																href="javascript:ajaxsubmitform('carrier/producerAssociationContact.html','producerAssociationContact.addNewHierarchyProducerAssociation','','','hierarchyDiv');">
+																	<img src="images/icons/icon_notepadPlus.gif"
+																	title="Add" />
+															</a></span> </span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</fieldset>
+							</section>
+						</div>
+							<section id="awardsNRecognitions_security">
+							<fieldset>
+								<legend id="awardNRecognition_grid_label"> Award & Recognition </legend>
+								<div id="ConferenceAwardsDiv" class="gridTopPadding4">
+									<div class="errorMsgAlign clear-both">
+										<label class="error2" name="pageError"
+											id="ajax_error_awardsNRecognitionsError" />
+									</div>
+									<div class="ConfirmationAlign clear-both"
+										id="ConferenceAwards_freeform_contextdata_100">
+										<label name="awardsNRecognitionspageMsg"
+											id="awardsNRecognitionspageMsg" class="conformationMsg" />
+									</div>
+									<div class="clear-both table-responsive">
+										<table cellspacing="0" cellpadding="0"
+											class="gridTable grid-width reporting_manager_width"
+											id="awardsNRecognitions_list_listfreeform_1">
+											<tr id="awardsNRecognitions_list_header_listfreeform_1">
+
+												<td width="25%" class="HeaderStyle"
+													id="awardsNRecognitions_producer_num_id_security">
+													<span id="block_field_producer_num_id_1_desc"> 
+														<span id="awardsNRecognitions_agency_code_label">Agency Code</span>
+													</span>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="awardsNRecognitions_conference_type_id_security">
+													<span id="block_field_conference_type_id_desc"> 
+														<span id="awardsNRecognitions_conference_type_id_label">Award Type</span>
+													</span>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="awardsNRecognitions_award_name_recognition_id_security">
+													<div id="block_field_award_name_recognition_id">
+														<span
+															id="awardsNRecognitions_award_name_recognition_id_label">Award Name</span>
+													</div>
+												</td>
+
+												<td width="15%" class="HeaderStyle"
+													id="awardsNRecognitions_award_calendar_year_security">
+													<div id="block_field_award_calendar_year">
+														<span id="awardsNRecognitions_award_calendar_year_label">Year of Award</span>
+													</div>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="awardsNRecognitions_quarter_of_the_year_security">
+													<div id="block_field_quarter_of_the_year_desc">
+														<span id="awardsNRecognitions_quarter_of_the_year_label">Quarter of the Year</span>
+													</div>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="awardsNRecognitions_trip_location_security">
+													<div id="block_field_trip_location">
+														<label id="awardsNRecognitions_trip_location_label">Trip Location</label>
+													</div>
+												</td>
+												<td width="15%" class="HeaderStyle"
+													id="awardsNRecognitions_rank_security">
+													<div id="block_field_rank">
+														<label id="awardsNRecognitions_rank_label">Rank</label>
+													</div>
+												</td>
+												<td width="15%" class="HeaderStyle"
+												id="awardsNRecognitions_effective_date_security">
+													<div id="block_field_awards_effective_date">
+														<label id="awardsNRecognitions_effective_date_label">Effective Date</label>
+													</div>
+											   </td>
+											
+											  <td width="15%" class="HeaderStyle"
+												id="awardsNRecognitions_expiration_date_security">
+												<div id="block_field_expiration_date">
+													<label id="awardsNRecognitions_expiration_date_label">Expiration Date</label>
+												</div>
+											  </td>
+												
+
+												<td width="1%" class="HeaderStyle"><span
+													id="awardsNRecognitions_delete_row_security"> <span
+														id="block_field_delete_row_link" />
+												</span></td>
+												<td style="display: none;" />
+												<td style="display: none;" />
+												<td style="display: none" />
+												<td style="display: none" />
+											</tr>
+											<tr id="awardsNRecognitions_list_data_listfreeform_1">
+												<td id="awardsNRecognitions_producer_num_id_security">
+													<span id="block_field_producer_num_id_1_desc" />
+												</td>
+												<td id="awardsNRecognitions_conference_type_id_security">
+													<span id="block_field_conference_type_id_desc" />
+												</td>
+												<td
+													id="awardsNRecognitions_award_name_recognition_id_security">
+													<span id="block_field_award_name_recognition_id" />
+												</td>
+												<td id="awardsNRecognitions_award_calendar_year_security">
+													<span id="block_field_award_calendar_year" />
+												</td>
+												<td id="awardsNRecognitions_quarter_of_the_year_security">
+													<span id="block_field_quarter_of_the_year_desc" />
+												</td>
+												<td id="awardsNRecognitions_trip_location_security"><span
+													id="block_field_trip_location" /></td>
+												<td id="awardsNRecognitions_rank_security"><span
+													id="block_field_rank" /></td>
+												<td id="awardsNRecognitions_effective_date_security"><span
+												    id="block_field_awards_effective_date" /></td>
+											    <td id="awardsNRecognitions_expiration_date_security"><span
+												    id="block_field_expiration_date" /></td>
+												<td align="right"><span
+													id="awardsNRecognitions_delete_row_security"> <span
+														id="block_field_delete_row_link"> <a
+															class="delete_ico icons" title="Delete"
+															href="javascript:ajaxpageblocklink('carrier/producerAssociationContact.html','producerAssociationContact.deleteAwardNRecognitions','','','ConferenceAwardsDiv');" />
+													</span>
+												</span></td>
+												<td style="display: none;" />
+												<td style="display: none;" />
+												<td style="display: none" />
+												<td style="display: none" />
+
+											</tr>
+											<tbody id="ConferenceAwards_freeform_contextdata_1"
+												class="bgAccordionN">
+												<tr>
+													<td class="paddingLeft3" id="awardsNRecognitions_producer_num_id_security">
+														<div id="ajax_error_producer_num_id_1" class="error" />
+														<div id="error_producer_num_id_1" class="error" />
+													</td>
+
+													<td class="paddingLeft3" id="awardsNRecognitions_conference_type_id_security">
+														<div id="ajax_error_conference_type_id" class="error" />
+														<div id="error_conference_type_id" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_award_name_recognition_id_security">
+														<div id="ajax_error_award_name_recognition_id"
+															class="error" />
+														<div id="error_award_name_recognition_id" class="error" />
+													</td>
+
+
+													<td class="paddingLeft3" id="awardsNRecognitions_award_calendar_year_security">
+														<div id="ajax_error_award_calendar_year" class="error" />
+														<div id="error_award_calendar_year" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_quarter_of_the_year_security">
+														<div id="ajax_error_quarter_of_the_year" class="error" />
+														<div id="error_quarter_of_the_year" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_trip_location_security">
+														<div id="ajax_error_trip_location" class="error" />
+														<div id="error_trip_location" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_rank_security">
+														<div id="ajax_error_rank" class="error" />
+														<div id="error_rank" class="error" />
+													</td>
+													<td class="paddingLeft3"
+													   id="awardsNRecognitions_effective_date_security">
+													<div id="ajax_error_awards_effective_date" class="error" />
+													<div id="error_awards_effective_date" class="error" />
+												   </td>
+												   <td class="paddingLeft3"
+													   id="awardsNRecognitions_expiration_date_security">
+													<div id="ajax_error_expiration_date" class="error" />
+													<div id="error_expiration_date" class="error" />
+												</td>
+													<td />
+													<td style="display: none;" />
+													<td style="display: none" />
+													<td style="display: none" />
+													<td style="display: none" />
+												</tr>
+												<tr>
+													<td id="awardsNRecognitions_producer_num_id_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_producer_num_id">	
+															<select name="producer_num_id_1" id="ajax_field_producer_num_id_1" style="width: 150px"
+															class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select>
+														</div>
+													</td>
+													<td id="awardsNRecognitions_conference_type_id_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_conference_type_id">	
+															<select name="conference_type_id" id="ajax_field_conference_type_id" style="width: 140px"
+																class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select>
+														</div>
+													</td>
+
+													<td 
+														id="awardsNRecognitions_award_name_recognition_id_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														
+														<div id="block_field_award_name_recognition_id">	
+															<!-- <select name="award_name_recognition_id" id="ajax_field_award_name_recognition_id"
+																style="width: 180px" class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select> -->
+															<input name="award_name_recognition_id" id="ajax_field_award_name_recognition_id" style="width: 115px" type="text"/>
+														</div>
+													</td>
+													<td id="awardsNRecognitions_award_calendar_year_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_award_calendar_year">
+															<input name="award_calendar_year" id="ajax_field_award_calendar_year" style="width: 115px" type="text" maxlength="4" onkeyup="checkNumericValue(this,event);" />
+														</div>
+													</td>
+													<td id="awardsNRecognitions_quarter_of_the_year_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_quarter_of_the_year">
+															<select name="quarter_of_the_year" id="ajax_field_quarter_of_the_year" style="width: 115px"
+																class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select>
+														</div>
+													</td>
+													<td id="awardsNRecognitions_trip_location_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_trip_location">
+															<input
+															type="text" name="trip_location"
+															id="ajax_field_trip_location" style="width: 115px"
+															class="form-control-grid" />
+														</div>
+														</td>
+													<td id="awardsNRecognitions_rank_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+															<div id="block_field_rank">
+																<input type="text" name="rank" id="ajax_field_rank" style="width: 115px" class="form-control-grid" onkeyup="checkNumericValue(this,event);" />
+															</div>
+														</td>
+												<td id="awardsNRecognitions_effective_date_security"
+													class="add-cell">
+													<div class="input-group date" id="block_field_awards_effective_date">
+					                          		   <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input type="text" style="width: 150px; margin-right: 5px; margin-left: 2px"
+																name="awards_effective_date" class="form-control-grid"
+																onkeyup="applyDateFormat(this);" maxlength="10" id="ajax_field_awards_effective_date" />
+														</div>
+												</td>
+												
+												<td id="awardsNRecognitions_expiration_date_security"
+													class="add-cell">
+													<div class="input-group date" id="block_field_expiration_date">
+					                          		   <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input type="text" style="width: 150px; margin-right: 5px; margin-left: 2px"
+																name="expiration_date" class="form-control-grid"
+																onkeyup="applyDateFormat(this);" maxlength="10" id="ajax_field_expiration_date" />
+														</div>
+												</td>
+													<td id="awardsNRecognitions_addNewRowLink_security"
+														align="right"
+														style="padding-right: 5px; padding-top: 2px; padding-left: 5px;">
+														<span id="add_subproducer_link_security">
+														<span id="block_field_addnew_row_link">
+															<a href="javascript:ajaxsubmitform('carrier/producerAssociationContact.html','producerAssociationContact.addNewAward','','','ConferenceAwardsDiv');" onclick="getSelectedSearchContactTypeForAgentAssociation();">
+																<img src="images/icons/icon_notepadPlus.gif" title="Add" />
+															</a>
+														</span>
+														</span>
+													</td>
+													<td style="display: none;"
+														id="block_field_producer_num_id_desc"><input
+														type="hidden" name="producer_num_id_1_desc"
+														id="ajax_field_producer_num_id_1_desc" /></td>
+													<td style="display: none;"
+														id="block_field_conference_type_id_desc"><input
+														type="hidden" name="conference_type_id_desc"
+														id="ajax_field_conference_type_id_desc" /></td>
+													<!-- <td style="display: none;"
+														id="block_field_award_name_recognition_id_desc"><input
+														type="hidden" name="award_name_recognition_id_desc"
+														id="ajax_field_award_name_recognition_id_desc" /></td> -->
+													<td id="block_field_quarter_of_the_year_desc"
+														style="display: none"><input type="hidden"
+														name="quarter_of_the_year_desc"
+														id="ajax_field_quarter_of_the_year_desc" /></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+								<div style="display: none;">
+									<table id="ConferenceAwards_freeform_contextdata_1"
+												class="bgAccordionN">
+												<tr>
+													<td class="paddingLeft3" id="awardsNRecognitions_producer_num_id_security">
+														<div id="ajax_error_producer_num_id_1" class="error" />
+														<div id="error_producer_num_id_1" class="error" />
+													</td>
+
+													<td class="paddingLeft3" id="awardsNRecognitions_conference_type_id_security">
+														<div id="ajax_error_conference_type_id" class="error" />
+														<div id="error_conference_type_id" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_award_name_recognition_id_security">
+														<div id="ajax_error_award_name_recognition_id"
+															class="error" />
+														<div id="error_award_name_recognition_id" class="error" />
+													</td>
+
+
+													<td class="paddingLeft3" id="awardsNRecognitions_award_calendar_year_security">
+														<div id="ajax_error_award_calendar_year" class="error" />
+														<div id="error_award_calendar_year" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_quarter_of_the_year_security">
+														<div id="ajax_error_quarter_of_the_year" class="error" />
+														<div id="error_quarter_of_the_year" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_trip_location_security">
+														<div id="ajax_error_trip_location" class="error" />
+														<div id="error_trip_location" class="error" />
+													</td>
+													<td class="paddingLeft3" id="awardsNRecognitions_rank_security">
+														<div id="ajax_error_rank" class="error" />
+														<div id="error_rank" class="error" />
+													</td>
+													<td class="paddingLeft3"
+														id="awardsNRecognitions_effective_date_security">
+														<div id="ajax_error_awards_effective_date" class="error" />
+														<div id="error_awards_effective_date" class="error" />
+													</td>
+													<td class="paddingLeft3"
+														id="awardsNRecognitions_expiration_date_security">
+														<div id="ajax_error_expiration_date" class="error" />
+														<div id="error_expiration_date" class="error" />
+													</td>
+													
+													<td style="display: none;" />
+													<td style="display: none;" />
+													<td style="display: none" />
+													<td style="display: none" />
+													<td style="display: none" />
+												</tr>
+												<tr>
+													<td width="250px" id="awardsNRecognitions_producer_num_id_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_producer_num_id">	
+															<select name="producer_num_id_1" id="ajax_field_producer_num_id_1" style="width: 150px"
+															class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select>
+														</div>
+													</td>
+													<td width="250px" id="awardsNRecognitions_conference_type_id_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_conference_type_id">	
+															<select name="conference_type_id" id="ajax_field_conference_type_id" style="width: 180px"
+																class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select>
+														</div>
+													</td>
+
+													<td width="250px"
+														id="awardsNRecognitions_award_name_recognition_id_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														
+														<div id="block_field_award_name_recognition_id">	
+															<!-- <select name="award_name_recognition_id" id="ajax_field_award_name_recognition_id"
+																style="width: 180px" class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select> -->
+															<input name="award_name_recognition_id" id="ajax_field_award_name_recognition_id" style="width: 115px" type="text"/>
+														</div>
+													</td>
+													<td width="250px" id="awardsNRecognitions_award_calendar_year_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_award_calendar_year">
+															<input name="award_calendar_year" id="ajax_field_award_calendar_year" style="width: 115px" type="text" maxlength="4" />
+														</div>
+													</td>
+													<td width="250px" id="awardsNRecognitions_quarter_of_the_year_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_quarter_of_the_year">
+															<select name="quarter_of_the_year" id="ajax_field_quarter_of_the_year" style="width: 180px"
+																class="form-control-grid" onchange="javascript:setDescInListFreeformDropDown(this);">
+																<option value="">Select</option>
+															</select>
+														</div>
+													</td>
+													<td width="250px" id="awardsNRecognitions_trip_location_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+														<div id="block_field_trip_location">
+															<input
+															type="text" name="trip_location"
+															id="ajax_field_trip_location" style="width: 170px"
+															class="form-control-grid" />
+														</div>
+														</td>
+													<td width="250px" id="awardsNRecognitions_rank_security"
+														style="padding-top: 5px; padding-bottom: 5px">
+															<div id="block_field_rank">
+																<input type="text" name="rank" id="ajax_field_rank" style="width: 170px" class="form-control-grid" />
+															</div>
+														</td>
+													<td width="250px" id="awardsNRecognitions_effective_date_security"
+											style="padding-top: 5px; padding-bottom: 5px">
+											<div class="input-group date" id="block_field_awards_effective_date">
+					                          		   <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+														<input type="text" style="width: 150px; margin-right: 5px; margin-left: 2px"
+																name="awards_effective_date" class="form-control-grid"
+																onkeyup="applyDateFormat(this);" maxlength="10" id="ajax_field_awards_effective_date" />
+														</div>
+													 <a id="awardsNRecognitionCalenderHideForReadonly"
+														class="calender_ico icons calender_none" title="Select Date"
+														onclick="show_calendar_widget(this);"> </a>
+										</td>
+												<td width="250px" id="awardsNRecognitions_expiration_date_security"
+													style="padding-top: 5px; padding-bottom: 5px">
+														<div class="input-group date" id="block_field_expiration_date">
+							                          		   <div class="input-group-addon" id="ico_fa_calender_security"> <i class="fa fa-calendar">&nbsp;</i> </div>
+																<input type="text" style="width: 150px; margin-right: 5px; margin-left: 2px"
+																		name="expiration_date" class="form-control-grid"
+																		onkeyup="applyDateFormat(this);" maxlength="10" id="ajax_field_expiration_date" />
+																</div>
+															 <a id="awardsNRecognitionCalenderHideForReadonly"
+																class="calender_ico icons calender_none" title="Select Date"
+																onclick="show_calendar_widget(this);"> </a>
+												</td>	
+														
+														
+														
+													<td  width="2%" id="awardsNRecognitions_addNewRowLink_security"
+														align="right"
+														style="padding-right: 5px; padding-top: 2px; padding-left: 5px;">
+														<span id="block_field_addnew_row_link">
+															<a href="javascript:ajaxsubmitform('carrier/producerAssociationContact.html','producerAssociationContact.addNewAward','','','ConferenceAwardsDiv');">
+																<img src="images/icons/icon_notepadPlus.gif" title="Add" />
+															</a>
+														</span>
+													</td>
+													<td style="display: none;"
+														id="block_field_producer_num_id_desc"><input
+														type="hidden" name="producer_num_id_1_desc"
+														id="ajax_field_producer_num_id_1_desc" /></td>
+													<td style="display: none;"
+														id="block_field_conference_type_id_desc"><input
+														type="hidden" name="conference_type_id_desc"
+														id="ajax_field_conference_type_id_desc" /></td>
+													<!-- <td style="display: none;"
+														id="block_field_award_name_recognition_id_desc"><input
+														type="hidden" name="award_name_recognition_id_desc"
+														id="ajax_field_award_name_recognition_id_desc" /></td> -->
+													<td id="block_field_quarter_of_the_year_desc"
+														style="display: none"><input type="hidden"
+														name="quarter_of_the_year_desc"
+														id="ajax_field_quarter_of_the_year_desc" /></td>
+												</tr>
+											</table>
+								</div>
+
+							</fieldset>
+						</section>
+						
+						<section class="divButton buttons-section paddingTop10">
+						<div class="buttonwrapper">
+							<a id="producerAssociationContact_save_btn_security" onclick="getSelectedSearchContactTypeForAgentAssociation();"
+								href="javascript:submitform('carrier/producerAssociation.html','producerAssociationContact.updateProducerAssociationData','','');"
+								class="btn btn-primary"> <span
+								id="producerAssociationContact_save_btn_label">Save</span>
+							</a> <a id="producerAssociationContact_cancel_btn_security"
+								href="javascript:submitform('carrier/producerAssociation.html','producerAssociationContact.back','','');"
+								class="btn btn-default"> <span
+								id="producerAssociationContact_cancel_btn_label">Cancel</span>
+							</a>
+						</div>
+	
+						</section>
+						</div>
+					</div>
+					<!--=======Body content End========--> <!--=======Sidebar Right Start========-->
+					<div id="sidebar_right_security" class="sideBarRight">
+						<span id="#Include:carrier/sideBarRight.html#" />
+					</div>
+					<!--=======Sidebar Right End========--> </article>
+				</div>
+				<!--=======Footer Start========-->
+				<footer> <span id="#Include:admin/adminFooter.html#" /> </footer>
+				<!--=======Footer End========-->
+			</div>
+		</div>
+		<div class="hiddenFields" id="Agency_producer_freeform_contextdata_0">
+			<input type="hidden" name="jsessionid" id="ajax_field_jsessionid" />
+			<input type="hidden" name="producer_number_id" id="ajax_field_producer_number_id" />
+			<input type="hidden" name="ajaxdeletedivid" id="ajaxdeletedivid" />
+			<input type="hidden" name="contactTypeListSize" id="ajax_field_contactTypeListSize" />
+			<input type="hidden" name="selectedContacttype" id="ajax_field_selectedContacttype" />
+			<input type="hidden" name="selected_search_result_id" id="ajax_field_selected_search_result_id" />
+			<input type="hidden" name="selected_search_result_desc" id="ajax_field_selected_search_result_desc" />
+	        <input type="hidden" name="selected_search_result_name" id="ajax_field_selected_search_result_name" />
+			
+		</div>
+		<div class="calendar_widget" id="calendar_widget">
+			<iframe id="calendar_widget_iframe" name="calendar_widget_iframe"
+				src="calendar_widget.html" frameborder="0" />
+		</div>
+	</form>
+</body>
+</html>
+

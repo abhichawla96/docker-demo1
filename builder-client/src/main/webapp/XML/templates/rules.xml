@@ -1,0 +1,14 @@
+<evalrules project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+    <ruleset name="" deltaind="">
+    	<nodeinfo uniqueid="name"/>
+        <rule id="" main="" expression="" description="" message="" obj="" method="" deltaind="">
+        	<nodeinfo uniqueid="id">
+        		<implements interface="IEvaluate"/>
+        		<attribute name="main" datatype="boolean"/>
+        	</nodeinfo>        	
+        </rule>
+    </ruleset>   
+</evalrules>

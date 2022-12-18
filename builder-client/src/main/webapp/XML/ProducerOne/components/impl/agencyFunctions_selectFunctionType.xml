@@ -1,0 +1,136 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component metaobject="agency_function" name="agencyFunctions_selectFunctionType" stackdisplayname="agencyFunctions_selectFunctionType_stackDisplayName_label"
+		displayname="Agency Functions Selection">
+		<html path="admin/agencyFunctions_selectFunctionType.html">
+		<block deltaind="M" ajaxcontainerid="ajax_sorting_1" id="agencyFunctions_summary_list_2" isshowpagination="N" name="agencyFunctions_summary_list_2" type="momlist">
+			<field displaytype="label" executionsequence="1" id="block_field_closingBusinessForOpenMarkets_producer_number" name="closingBusinessForOpenMarkets_producer_number" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_producer_number_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_producer_number_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="2" id="block_field_closingBusinessForOpenMarkets_state" name="closingBusinessForOpenMarkets_state" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_state_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_state_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="3" id="block_field_closingBusinessForOpenMarkets_market" name="closingBusinessForOpenMarkets_market" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_market_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_market_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="4" id="block_field_closingBusinessForOpenMarkets_company" name="closingBusinessForOpenMarkets_company" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_company_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_company_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="5" id="block_field_closingBusinessForOpenMarkets_mco" name="closingBusinessForOpenMarkets_mco" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_mco_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_mco_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="6" id="block_field_closingBusinessForOpenMarkets_carrier_group" name="closingBusinessForOpenMarkets_carrier_group" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_carrier_group_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_carrier_group_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="7" id="block_field_closingBusinessForOpenMarkets_effective_date" name="closingBusinessForOpenMarkets_effective_date" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_effective_date_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_effective_date_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="8" id="block_field_closingBusinessForOpenMarkets_nb_expiration_date" name="closingBusinessForOpenMarkets_nb_expiration_date" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_nb_expiration_date_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_nb_expiration_date_security" style="width:10%;"/>
+			<field displaytype="label" executionsequence="9" id="block_field_closingBusinessForOpenMarkets_rb_expiration_date" name="closingBusinessForOpenMarkets_rb_expiration_date" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_rb_expiration_date_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_rb_expiration_date_security" style="width:10%;"/>
+			<field deltaind="I" displaytype="label" executionsequence="10" id="block_field_closingBusinessForOpenMarkets_product" name="closingBusinessForOpenMarkets_product" issorting="Y" labelkey="agencyFunctionListing_closingBusinessForOpenMarkets_product_label" securitykey="agencyFunctionListing_closingBusinessForOpenMarkets_product_security" style="width:10%;"/>
+		</block>
+	</html>
+   	    <action deltaind="M" name="save">
+			<actionparam deltaind="M" executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" pre="Y" val="Y" viewparam="Y" eval="ProducerOneRule.isAgencyFunctionRequestSSIdEmpty"/>
+   	    	<validatefield deltaind="D" name="validateAttachedDocumentListSize" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeCloseAgencyCode">
+   	    		<function deltaind="D" name="validateAttachedDocumentListSize" eval="AgencyFunctionsRule.checkIsUploadDocumentListEmpty" expression="isEqual(1,1)"></function>
+   	    	</validatefield>
+   	    	
+   	    	<!-- Upgrade bug Id-029 start -->
+   	    	<workflow deltaind="I" name="selfServiceInitiateEmail" seq="4">
+	    		<!-- UAT 2 bug id 0045 start -->
+				<databaseoperation deltaind="I" executionsequence="0" metaobject="reason_request_lku" name="dbOberationDCSubject" operation="3" sqlstmt="select display_name as request_type_desc from reason_request_lku where description = #selectFunctionType_code#"/>
+				<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getMarketAssistantEmail" operation="3" sqlstmt="select e_mail as e_mail from userprofiles where user_id=#workflow_user#"/>
+				<databaseoperation deltaind="I" executionsequence="2" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Entity_Name from agency_master where agency_id = #toBeProcessed_agency_id#"/>
+				<!-- UAT2 Bug-45571 -->
+				<databaseoperation deltaind="I" executionsequence="3" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeCloseAgencyCode" metaobject="agency_master" name="getAgencyID" operation="3" sqlstmt="Select agency_id from requests_ss where request_ss_id= #request_ss_id#"/>
+				<databaseoperation deltaind="I" executionsequence="4" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeCloseAgencyCode" metaobject="agency_master" name="getCACAgencyName" operation="3" sqlstmt="select name as Entity_Name from agency_master where agency_id = #agency_id#"/>
+				<email deltaind="I" eventname="InitiateSelfServiceRequest" executionsequence="5" mailto="e_mail" name="InitiateSelfServiceRequest" objectid="object_id" objecttype="Other"/>
+				<!-- UAT 2 bug id 0045 end -->
+			</workflow>
+	 		
+	 		  <!-- Upgrade bug Id-029 end -->
+	 		</action>
+	  	
+   		
+   		<action deltaind="M" name="generateLetter">
+   		
+   			<workflow deltaind="I"  seq="0">
+	  			<databaseoperation deltaind="I" executionsequence="0" metaobject="master_lookup_data_lku" name="getSuspensionReason" operation="3" sqlstmt="select master_lookup_data_desc as agency_suspension_reason from master_lookup_data_lku where master_lookup_data_id= #suspension_reason# "/>
+	  		</workflow>
+	  		
+	  		<workflow deltaind="M" name="generateLetter" seq="1">
+	  		<!-- Store Procedure for DC change request -->
+	  		<storedprocedureoperation deltaind="I" dbspname="getDataForDeactivateContact_p"  executionsequence="0" id="getDataForDeactivateContact_p" metaobject="person" name="getDataForDeactivateContact_p" operation="3">
+             <parameteroperation indexno="0" mode="IN" property="toBeProcessed_agent_id" seq="0"/>
+             <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+            </storedprocedureoperation>
+                        
+	    		<function executionsequence="0" functionid="generateLetterFromTemplate" name="generateLetterFromTemplate" parameters="context,selectedTemplateType,uploadPopup_list_1,inDocCategory,outDocCategory,currentcontext"/>
+	    		<function executionsequence="1" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsList,PAGEDATAXML"/>
+	    		<!-- <document name="generateLetterFromTemplate" method="generatetolist" templateinput="selected_producer_number_ids" datafields="AgencyAddresType,AgentAddresType,reason_id,person_id,user_id,termination_date"
+    				templateoutput="uploadPopup_list_1" indoccategory="41" outdoccategory="39" data="context" objectid="from_object_id" objecttype="Agency Termination" executionsequence="0"/> -->	
+	    	</workflow>
+	  	</action>
+	  	<action deltaind="I" name="completeTransactionDeactivateContact">
+   	    	<workflow eval="ProducerOneRule.isInetErrorListEmpty" name="completeDeactivateContact" seq="0">
+	        	<storedprocedureoperation dbspname="completeTransactionDeactivateContact_p" executionsequence="1" id="completeTransactionDeactivateContact_p" metaobject="person" name="completeTransactionDeactivateContact_p" operation="4">
+          			<parameteroperation indexno="1" mode="IN" property="toBeProcessed_agent_id" seq="1"/>
+		  			<parameteroperation indexno="2" mode="IN" property="user_id" seq="2"/>
+		  			<parameteroperation indexno="3" mode="IN" property="suspension_date" seq="3"/>
+		  			<parameteroperation indexno="4" mode="IN" property="toBeProcessed_agency_id" seq="4"/>
+		  			
+          		</storedprocedureoperation>
+      		</workflow>
+	  	</action>
+ 	
+	  	<!--BMIC req request not moved to approved bucket start -->
+	  <action deltaind="M" name="approveAgencyFunction">
+	  <workflowevent deltaind="D" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeDeactivateContact" ajaxcontainerid="contentTableDiv" event="approveAgencyFunctionDC" isgetuser="Y" name="approveAgencyFunctionDC" userfield="workflow_user" workflow="agencyFunctions" executionsequence="3"/>
+	  <!-- Changes done for prod bug 31110  -->
+	           <!--  <workflowevent deltaind="I" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="approveSelfService" isgetuser="Y" name="approveSelfService" userfield="workflow_user" workflow="selfServiceWorkFlow" executionsequence="0"/> -->
+	           <workflowevent deltaind="I" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeDeactivateContact" ajaxcontainerid="contentTableDiv" event="approveAgencyFunctionDCNew" isgetuser="Y" name="approveAgencyFunctionDCNew" userfield="workflow_user" workflow="agencyFunctions" executionsequence="7"/>
+	    
+	    	
+	    	<!-- Upgrade bug Id-029 start -->
+	    	<actionparam deltaind="I" executionsequence="6" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+      			<workflow deltaind="I" name="selfServiceApproveEmail" seq="4">
+	    		<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    		
+				<!-- 0016 UAT2 Bug -->
+	    		<databaseoperation deltaind="D" executionsequence="2" metaobject="userprofiles" name="getApproverUserName" operation="3" sqlstmt="select  user_name as user_name from userprofiles where e_mail in(select e_mail  from userprofiles where user_id=#workflow_assignee#)"/>	
+				<!-- Changes done for prod bug 31110  -->
+			   <databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			   <databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			   <databaseoperation deltaind="I" executionsequence="3" metaobject="userprofiles" name="getAgencyAdminApproverEmailName" operation="3" sqlstmt="select e_mail as e_mail_name from userprofiles where user_id=#workflow_assignee#"/>
+			   <databaseoperation deltaind="I" executionsequence="4" eval="AgencyFunctionsRule.checkisFunctionTypeDCselfservice" metaobject="additional_address_emails" name="getAgencyAdminApproverEmailNameDC" operation="3" sqlstmt="select email_id as e_mail_name from additional_address_emails 
+                                   where object_id=(select person_id from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id# and objecttype = 'Agency Function'))
+                                   and object_type_code='I' and email_category=(
+                                   select master_lookup_data_id from master_lookup_data_lku where master_lookup_data_code ='PreferredEmail' and 
+                                   master_lookup_detail_id =(select master_lookup_detail_id from master_lookup_detail_lku where lookup_table_name='email_category_lku'))"/>
+			   <email deltaind="I" eventname="ApproveSelfServiceRequest" executionsequence="12" name="ApproveSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail_name"/>
+	            </workflow>
+	            <!-- Upgrade bug Id-029 end -->
+	            </action>
+	    <!--BMIC req request not moved to approved bucket end -->
+	    
+	    <!--BMIC req request not moved to Declined bucket start -->
+	      <action deltaind="M" name="declineAgencyFunction">
+	   
+	      
+	    	<workflowevent deltaind="D" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeDeactivateContact" ajaxcontainerid="contentTableDiv" event="declineAgencyFunctionDC" isgetuser="Y" name="declineAgencyFunctionDC" userfield="workflow_user" workflow="agencyFunctions" executionsequence="3"/>
+	    	<!-- Changes done for prod bug 31110  -->
+   			<!-- <workflowevent deltaind="I" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="contentTableDiv" event="declineSelfService" isgetuser="Y" name="declineSelfService" userfield="workflow_user" workflow="selfServiceWorkFlow" executionsequence="0"/> -->
+	    	<workflowevent deltaind="I" eval="AgencyFunctionsRule.isShowAgencyFunctionsTypeDeactivateContact" ajaxcontainerid="contentTableDiv" event="declineAgencyFunctionDCNew" isgetuser="Y" name="declineAgencyFunctionDCNew" userfield="workflow_user" workflow="agencyFunctions" executionsequence="7"/>
+	    	
+	    	
+	    	<workflow deltaind="I" name="selfServiceDeclineEmail" seq="14">
+				<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    		<!-- <databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select e_mail as e_mail,user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/> -->
+	    		<databaseoperation deltaind="I" executionsequence="2" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Entity_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+				<!-- Changes done for prod bug 31110  -->
+	    	    <databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			    <databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			    <databaseoperation deltaind="I" executionsequence="3" metaobject="userprofiles" name="getAgencyAdminApproverEmailName" operation="3" sqlstmt="select e_mail as e_mail_name from userprofiles where user_id=#workflow_assignee#"/>
+			    <databaseoperation deltaind="I" executionsequence="4" eval="AgencyFunctionsRule.checkisFunctionTypeDCselfservice" metaobject="additional_address_emails" name="getAgencyAdminApproverEmailNameDC" operation="3" sqlstmt="select email_id as e_mail_name from additional_address_emails 
+                                   where object_id=(select person_id from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id# and objecttype = 'Agency Function'))
+                                   and object_type_code='I' and email_category=(
+                                   select master_lookup_data_id from master_lookup_data_lku where master_lookup_data_code ='PreferredEmail' and 
+                                   master_lookup_detail_id =(select master_lookup_detail_id from master_lookup_detail_lku where lookup_table_name='email_category_lku'))"/>
+			    <email deltaind="I" eventname="declineSelfServiceRequest" executionsequence="12" name="declineSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail_name"/>
+			</workflow>
+	    	 <!-- Upgrade bug Id-029 start -->
+	    	 <actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+   			<!-- Upgrade bug Id-029 end -->
+   			
+   			</action>
+	    	 <!--BMIC req request not moved to Declined bucket end -->
+	    	 
+	    	 
+	</component>
+ </projectcomponents>

@@ -1,0 +1,17 @@
+<fields project="Public">
+ 
+  <field deltaind="M" name="bank_account_type" screen="adminBrokerageDetailsStep8" objectcolumn="agency_id" labeldesc="Account Type" isrequired="MA" labelkey="public2_bank_account_type_label" tabsconfigurationresourcename="account_type_checking_saving_security" accesslevel="1" protectedresourceuniquename="account_type_checking_saving_security" id="adminBrokerageDetailsStep8_bank_account_type" 
+  		lookupobjectsql="select master_lookup_data_code as account_type_code, master_lookup_data_desc as description from master_lookup_data_lku where master_lookup_detail_id in (select master_lookup_detail_id from master_lookup_detail_lku where lookup_table_name='account_type_lku')" lookupobjecttype="sql" displayfield="description" valuefield="account_type_code">
+  </field> 
+	
+	<field deltaind="M" name="total_annual_revenue" screen="adminBrokerageDetailsStep6" objectcolumn="aar_requestid" labeldesc="Total Agency Volume"
+		isrequired="N" labelkey="total_annual_revenue_label" tabsconfigurationresourcename="prospect_market_total_annual_revenue_security"
+		protectedresourceuniquename="prospect_market_total_annual_revenue_security" id="adminBrokerageDetailsStep6_total_annual_revenue" format="percentage" >
+	</field>
+
+	<field deltaind="M" name="total_written_premium_previous_year_end" screen="adminBrokerageDetailsStep6" objectcolumn="aar_requestid" labeldesc="Agency&apos;s Total P&amp;C Written Premium Previous Year"
+		isrequired="Y" format="amount" labelkey="total_written_premium_previous_year_end_label" tabsconfigurationresourcename="total_written_premium_previous_year_end_security"
+		protectedresourceuniquename="total_written_premium_previous_year_end_security" id="public6_total_written_premium_previous_year_end"  >
+	</field>
+	
+	</fields>

@@ -1,0 +1,35 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="sqlStatements">
+    <action name="view" deltaind="M">
+      <workflow deltaind="M" name="view" seq="0">
+      
+       <storedprocedureoperation deltaind="I" dbspname="getLatestSubProducerCode_p" executionsequence="27" id="getLatestSubProducerCode_p" metaobject="person" name="getLatestSubProducerCode_p" operation="5">
+		  <parameteroperation indexno="0" mode="IN" property="producer_number_id" seq="1"/>
+		  <parameteroperation indexno="1" mode="OUT" property="output" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+       </storedprocedureoperation>
+       
+       <!-- Phase 3 - Agent Role -->	
+       <databaseoperation deltaind="I" executionsequence="1" metaobject="person" name="getAgentChecked" operation="3" sqlstmt="select count(*) as agentChecked from contacttype_lku where contact_typ_id in (select items from split(#contacttype#,',')) and contact_typ_code = 'RSCV'"/>
+		
+	<!-- Phase 3-Adjustments Recalculation -->
+	<storedprocedureoperation deltaind="M" dbspname="UpdateCCBProfitSharingDetail_Temp" executionsequence="125" id="UpdateCCBProfitSharingDetail_Temp" metaobject="producer_number" name="UpdateCCBProfitSharingDetail_Temp" operation="4">
+	 <parameteroperation deltaind="I" indexno="22" mode="IN" property="CY_Eval" seq="22"/>
+      <parameteroperation deltaind="I"  indexno="23" mode="IN" property="PY_Eval" seq="23"/>
+      <parameteroperation  deltaind="I" indexno="24" mode="IN" property="Loss_amt_Cont_Comm" seq="24"/>
+      <parameteroperation  deltaind="I" indexno="25" mode="IN" property="payout_factor" seq="25"/>
+  		<parameteroperation  deltaind="I" indexno="26" mode="IN" property="cont_comm_pay" seq="26"/>
+      
+  
+  </storedprocedureoperation>	
+        
+        <!-- UAT2 0035 & 0036 DOB and SSN make mandatory -->
+       <databaseoperation deltaind="I" executionsequence="30" metaobject="person" name="getLicensedProducerChecked" operation="3" sqlstmt="select count(*) as licensedProducerChecked from contacttype_lku where contact_typ_id in (select items from split(#contacttype#,',')) and contact_typ_code = 'LS'"/>
+       <!-- START - UAT2 - Login Id Non Mandatory -->
+       <databaseoperation deltaind="M"  executionsequence="0" metaobject="person" name="checkLoginIDForUpdateAgentGeneralDetails" operation="3" sqlstmt="select count(*) loginid_count from person where LOGIN_ID=#LOGIN_ID# and  isnull(is_deleted,0) &lt;&gt; 1 and ltrim(rtrim(LOGIN_ID))!='' and person_id!=#person_id#"/>
+       <!-- END - UAT2 - Login Id Non Mandatory -->
+
+	</workflow>
+    </action>
+  </component>
+</projectcomponents>

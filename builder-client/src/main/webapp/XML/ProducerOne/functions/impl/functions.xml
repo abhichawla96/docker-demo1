@@ -1,0 +1,46 @@
+<functionsdef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/functions_XSD.xsd">
+ 
+  
+ <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="getCustomizedProducerCode" name="getCustomizedProducerCode" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition> 
+ <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="getSevenDigitAgencyCode" name="getSevenDigitAgencyCode" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition> 
+  <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="checkContains" name="checkContains" returntype="V" >
+     <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition>
+  
+   <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="generateMovingLocationLetter" name="generateMovingLocationLetter" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition>
+  
+  <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="attachAndSendEmail" name="attachAndSendEmail" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition>
+  
+  <!-- Existing Agency Appointed to New Location - Dynamic Row Function - Start -->
+  
+  <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="sendEmailtoExistingAgency" name="sendEmailtoExistingAgency" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition>
+  
+  <!-- Existing Agency Appointed to New Location - Dynamic Row Function - End -->
+  
+  
+   <!-- Phase 3: Contact type list -->
+  <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="showContactTypeList" name="showContactTypeList" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition>
+    <!-- phase 3 - indivdual transfer  -->
+   <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="getToSubProdCodeForIndTransfer" name="getToSubProdCodeForIndTransfer" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+  </functiondefinition>
+  
+   <functiondefinition deltaind="I" classname="com.userbo.common.impl.ProducerOneUtilsImpl" method="displayCollectedPremium" name="displayCollectedPremium" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+    <argument seq="1" name="key" datatype="java.lang.String"/>	
+    <argument seq="2" name="value" datatype="java.lang.String"/>	
+  </functiondefinition>
+  
+</functionsdef>

@@ -1,0 +1,246 @@
+<tabsconfiguration project="Public">
+	<tabsconfigurationresource deltaind="M" name="clientName" description="Client Full Name" value="Builders Mutual Insurance Company"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="clientFullName" description="Client Full Name" value="Builders Mutual Insurance Company"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep2_verify_business_address_public_security" accesslevel="1" description="Hide/Show Verify Business Address Button on adminBrokerageDetailsStep2 page, possible values 0/1"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep2_verify_residence_address_public_security" accesslevel="1" description="Hide/Show Verify Residence Address Button on adminBrokerageDetailsStep2 page, possible values 0/1"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="agency_DEC_address_security" accesslevel="1" description="Hide/Show agency_DEC_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="public1_ivans_information_security" accesslevel="1" description="Hide/Show public1_ivans_information_security on step1"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="isShowLOB" accesslevel="1" description="Hide/Show LOB flag"/>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep1_agency_location_system_security" accesslevel="1" description="show/hide adminBrokerageDetailsStep1_agency_location_system_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="isShowNumberofCSR" accesslevel="1" description="Hide/Show Number of CSR flag"/>
+	<tabsconfigurationresource deltaind="M" name="signature_acceptance_name_security" accesslevel="1" description="hide show name from signature and acceptance section on step4"/>
+	<tabsconfigurationresource deltaind="M" name="signature_acceptance_title_security" accesslevel="1" description="hide show title from signature and acceptance section on step4"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_copy_business_to_dec_security"  description="Hide/Show public1_source_security on step1" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_copy_mailing_to_dec_security"  description="Hide/Show public1_source_security on step1" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_copy_w9_to_dec_security"  description="Hide/Show public1_source_security on step1" />
+	<tabsconfigurationresource deltaind="M" name="DEC_country_agency_address_security" accesslevel="1" description="Hide/Show DEC_country_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_addressline1_agency_address_security" accesslevel="1" description="Hide/Show DEC_addressline1_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_addressline2_agency_address_security" accesslevel="1" description="Hide/Show DEC_addressline2_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_city_agency_address_security" accesslevel="1" description="Hide/Show DEC_city_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_state_agency_address_security" accesslevel="1" description="Hide/Show DEC_state_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="county_DEC_security" accesslevel="1" description="Hide/Show county_DEC_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_zip_code_agency_address_security" accesslevel="1" description="Hide/Show DEC_zip_code_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_phone_ext_agency_address_security" accesslevel="1" description="Hide/Show DEC_phone_ext_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_ext_agency_address_security" accesslevel="1" description="Hide/Show DEC_ext_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_fax_agency_address_security" accesslevel="1" description="Hide/Show DEC_fax_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="DEC_email_id_agency_address_security" accesslevel="1" description="Hide/Show DEC_email_id_agency_address_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="verify_dec_address_public_security" accesslevel="1" description="Hide/Show verify_dec_address_public_security"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="agencyAppointmentstep1_CyberLiability_section_security" name="agencyAppointmentstep1_CyberLiability_section_security"/>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security" accesslevel="1" description="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security"></tabsconfigurationresource>	
+	<tabsconfigurationresource deltaind="M" name="contact_details_login_id_security" accesslevel="0" description="Hide show login id field from contact page"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="contact_details_middle_name_security" accesslevel="1" description="Hide show login id field from contact page"/>
+	<tabsconfigurationresource deltaind="M" name="yrs_in_agency_security" accesslevel="1" description="hide show yrs in agency on step2"/>
+	<tabsconfigurationresource deltaind="I" name="adminBrokerageDetailsStep2_beneficiaries_section" accesslevel="0" description="Hide/Show Beneficiary section"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="adminBrokerageDetailsStep2_beneficiary_info_section_security"  description="Hide/Show adminBrokerageDetailsStep2_beneficiary_info_section_security section on adminBrokerageDetailsStep2.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_monthly_application_written_security" name="adminBrokerageDetailsStep6_monthly_application_written_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_annual_application_written_security" name="adminBrokerageDetailsStep6_annual_application_written_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_life_volume_security" name="adminBrokerageDetailsStep6_life_volume_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_pl_volume_security" name="adminBrokerageDetailsStep6_pl_volume_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_cl_volume_security" name="adminBrokerageDetailsStep6_cl_volume_security"/>
+	<tabsconfigurationresource deltaind="M" name="primary_company_usage_security" accesslevel="1" description="Hide/Show primary_company_usage_security in Step 4"/>
+	<tabsconfigurationresource deltaind="M" name="current_advertising_methods_security" accesslevel="1" description="Hide/Show current_advertising_methods_security in Step 4"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="foreign_languages_spoken_in_agency_security" accesslevel="1" description="Hide/Show foreign_languages_spoken_in_agency_security in Step 4"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageStep6_marketinformation_lob_section_security" accesslevel="0" description="Hide/Show marketinformation_lob_section in adminBrokerageDetailsStep6"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep6_is_premium_mining_date_to_be_completed_security" accesslevel="1" description="Hide/Show of is_premium_mining and date_to_be_completed in adminBrokerageDetailsStep6.html"></tabsconfigurationresource>
+	
+	<!-- Sprint 1 : Bug 0007 -->
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep1_agency_location_system_security" accesslevel="0" description="show/hide adminBrokerageDetailsStep1_agency_location_system_security"></tabsconfigurationresource>
+	<!-- Sprint 1 : Bug 0008 -->
+	<tabsconfigurationresource deltaind="M" name="agency_DEC_address_security" accesslevel="0" description="Hide/Show agency_DEC_address_security"></tabsconfigurationresource>
+
+
+<!--Sprint 1 : Completion of Agency Application : Step1_Agency Application -->
+
+	<tabsconfigurationresource deltaind="I" accesslevel="0" description="public_step1_image_verification_security" name="public_step1_image_verification_security"/>
+	<tabsconfigurationresource deltaind="I" accesslevel="1" description="public_step1_cyber_liability_policies_security" name="public_step1_cyber_liability_policies_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="0" description="adminBrokerageDetailsStep1_cyber_liability_eo_claims_security" name="adminBrokerageDetailsStep1_cyber_liability_eo_claims_security"/>  <!-- Bug ID: 0015 -->
+	
+	 
+  
+ <tabsconfigurationresource deltaind="I" accesslevel="0" description="contracts_pending_review_security" name="public1_source_security"/> 
+ 
+ 	<tabsconfigurationresource deltaind="I" accesslevel="0" description="isShowAgencyDateOfOrigin" name="isShowAgencyDateOfOrigin"/>
+	
+	
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageStep1_agency_association_security" accesslevel="0" description="hide agency association on step1"/>	
+  	<tabsconfigurationresource deltaind="I" accesslevel="0" description="public_agency_License_Number_security" name="public_agency_License_Number_security"/>
+
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="public1_fax_business_security" name="public1_fax_business_security"/>
+  <tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep1_businessblastemail" accesslevel="0" description="hide/show adminBrokerageDetailsStep1_businessblastemail on step1 page" />
+  <tabsconfigurationresource deltaind="I" name="public1_type1099_desscription_security" accesslevel="0" description="hide/show public1_type1099_desscription_security on step1 page" />
+  <tabsconfigurationresource deltaind="I" name="public1_w9_legal_name_w9_security" accesslevel="0" description="hide/show public1_w9_legal_name_w9_security on step1 page" />
+  <tabsconfigurationresource deltaind="M" name="isShowLOB" accesslevel="1" description="Hide/Show LOB flag" value="1"/>
+  <tabsconfigurationresource deltaind="I" name="public1_ivans_download_types_security" accesslevel="1" description="Hide/Show LOB flag"/>
+  <tabsconfigurationresource deltaind="I" accesslevel="1" description="agencyAppointmentstep1_CyberLiability_section_security" name="agencyAppointmentstep1_CyberLiability_section_security"/>
+  
+  <!--Sprint 1 : Completion of Agency Application : Step2_Agency Application -->
+
+  <tabsconfigurationresource deltaind="I" accesslevel="0" description="adminBrokeage8_account_type_trust_operating_security" name="adminBrokeage8_account_type_trust_operating_security"/>
+  <tabsconfigurationresource deltaind="M" name="adminBrokeage8_average_balance_security" accesslevel="0" description="adminBrokeage8_average_balance_security"/>
+  <tabsconfigurationresource deltaind="M" name="bank_effective_date_security" accesslevel="0" description="hide show effective date field on bank information screen"></tabsconfigurationresource>
+  <tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep8_bank_country_code_security" accesslevel="0" description="Hide/Show adminBrokerageDetailsStep8_bank_country_code_security on bank Information step2"></tabsconfigurationresource>
+  <tabsconfigurationresource deltaind="M" name="bank_address_security" accesslevel="0" description="hide show all bank address fields on step1"/>
+  <tabsconfigurationresource deltaind="M" name="bank_address2_security" accesslevel="0" description="hide show all bank address fields on step1"/>
+  <tabsconfigurationresource deltaind="M" name="Public_bank_city_security" accesslevel="0" description="hide show all bank address fields on step1"/>
+  <tabsconfigurationresource deltaind="M" name="public_bank_zipcode_security" accesslevel="0" description="hide show all bank address fields on step1"/>
+  <tabsconfigurationresource deltaind="M" name="account_type_trust_operating_security" accesslevel="0" description="show hide account type with trust and operating value"/>
+  <tabsconfigurationresource deltaind="M" name="average_balance_security" accesslevel="0" description="Hide show py WRITTEN PREMIUM FROM largest carriers"/>
+  <tabsconfigurationresource deltaind="M" name="public_bank_state_id_security" accesslevel="0" description="hide show all bank address fields on step1"/>
+  
+  <tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security" accesslevel="1" description="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security"></tabsconfigurationresource>	
+  <tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep8_agencySweep_authorization_security" accesslevel="0" description="adminBrokerageDetailsStep8_agencySweep_authorization_security"></tabsconfigurationresource>
+  
+   <tabsconfigurationresource deltaind="I" name="public_step2_trust_account_security" accesslevel="0" description="public_step2_trust_account_security"></tabsconfigurationresource>
+   <tabsconfigurationresource deltaind="I" name="public_step2_commission_account_security" accesslevel="0" description="public_step2_commission_account_security"></tabsconfigurationresource>
+ 
+ 	<tabsconfigurationresource deltaind="M" name="adminBrokeage8_save_exist_security" description="adminBrokeage8 save exist security" accesslevel="0" />  <!-- Bug ID: 0018 -->
+ 
+  
+  <!--Sprint 1 : Completion of Agency Application : Step3_Agency Application -->
+  
+	<tabsconfigurationresource deltaind="M" name="license_number_security" accesslevel="0" description="hide show license number on step2"/>
+	<tabsconfigurationresource deltaind="M" name="ownership_security" accesslevel="1" description="Hide show login id field from contact page"/>
+	<tabsconfigurationresource deltaind="I" name="public3_fax_business_security" accesslevel="0" description="Hide show public3_fax_business_security"/>
+	<tabsconfigurationresource deltaind="I" name="verify_residence_address_security" accesslevel="0" description="Hide show verify_residence_address_security"/>
+	<tabsconfigurationresource deltaind="I" name="public3_fax_residence_security" accesslevel="0" description="Hide show public3_fax_residence_security"/>
+	<tabsconfigurationresource deltaind="I" name="non_compete_agreement_security" accesslevel="0" description="Hide show non_compete_agreement_security"/>
+	<tabsconfigurationresource deltaind="I" name="does_intend_writing_business_security" accesslevel="0" description="Hide show does_intend_writing_business_security"/>
+	<tabsconfigurationresource deltaind="M" name="public3_mailing_address_security" accesslevel="0" description="Hide/Show Mailing Address div on step3"></tabsconfigurationresource>
+	
+	<tabsconfigurationresource deltaind="M" name="public3_contact_types_information1_security" accesslevel="1" description="Hide/Show public3_contact_types_information1_security"></tabsconfigurationresource>  <!-- Bug ID: 0020 but again changing as per bug 206-->
+	<tabsconfigurationresource deltaind="M" name="producertype_security" accesslevel="0" description="Hide/Show Producer Type on step2"/>
+	
+<!-- Rajshree's changes -->
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep2_verify_business_address_public_security" accesslevel="1" description="Hide/Show Verify Business Address Button on adminBrokerageDetailsStep2 page, possible values 0/1"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep2_verify_residence_address_public_security" accesslevel="1" description="Hide/Show Verify Residence Address Button on adminBrokerageDetailsStep2 page, possible values 0/1"></tabsconfigurationresource>
+
+  <!--Sprint 1 : Completion of Agency Application : Step4_Agency Application -->
+ 
+ 
+ 	<tabsconfigurationresource deltaind="I" accesslevel="0" name="adminBrokeage6_block_monthly_premium_security" description="adminBrokeage6_block_monthly_premium_security"/>
+	<tabsconfigurationresource deltaind="M" name="personal_references_security" accesslevel="0" description="Hide/Show Personal References section on step3">
+	</tabsconfigurationresource>
+
+	<tabsconfigurationresource deltaind="I" name="adminBrokerageDetailsStep6_Surplus_security" accesslevel="0" description="adminBrokerageDetailsStep6_Surplus_security">
+	</tabsconfigurationresource>
+
+	<tabsconfigurationresource deltaind="I" name="agency_review_security" accesslevel="0" description="agency_review_security">
+	</tabsconfigurationresource> 
+<tabsconfigurationresource deltaind="M" name="personal_references_security" accesslevel="0" description="Hide/Show Personal References section on step3">
+</tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_monthly_application_written_security" name="adminBrokerageDetailsStep6_monthly_application_written_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_annual_application_written_security" name="adminBrokerageDetailsStep6_annual_application_written_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="foreign_languages_spoken_in_agency_security" description="Hide/Show foreign_languages_spoken_in_agency_security in Step 4"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="I" name="public_step4_anticipated_production_analysis_security" accesslevel="0" />
+<tabsconfigurationresource deltaind="M" accesslevel="0" name="mom_child_data" description="Hide/Show mom_child_data in Step 4"></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="I" accesslevel="0" name="public_step4_anticipated_production_analysis_security" description="Hide/Show mom_child_data in Step 4"></tabsconfigurationresource>
+
+<!--Sprint 1 : Completion of Agency Application : Step5_Agency Application -->
+<!-- BUG ID - 0034 -->
+<tabsconfigurationresource deltaind="M" name="public_step4_final_questions_security" accesslevel="1" description="Hide/Show public_step4_final_questions_security on step4"></tabsconfigurationresource>
+
+<tabsconfigurationresource deltaind="I" name="public_step4_brief_profile_security" accesslevel="1" description="Hide/Show brief_profile section on step3">
+</tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep9_instructions_security" accesslevel="0" />
+
+<!-- Sprint 1- Producer Application -->
+
+<tabsconfigurationresource deltaind="M" name="producertype_security" accesslevel="0" description="Hide/Show Producer Type on step2">
+	</tabsconfigurationresource>
+<tabsconfigurationresource deltaind="M" name="license_number_security" accesslevel="0" description="hide show license number on step2">
+	</tabsconfigurationresource>
+<tabsconfigurationresource deltaind="M" name="ownership_security" accesslevel="1" description="Hide show login id field from contact page">
+	</tabsconfigurationresource>
+<tabsconfigurationresource deltaind="I" name="non_compete_agreement_security" accesslevel="0" description="non_compete_agreement_security">
+	</tabsconfigurationresource>
+<tabsconfigurationresource deltaind="I" name="does_intend_writing_business_security" accesslevel="0" description="does_intend_writing_business_security">
+	</tabsconfigurationresource>	
+<tabsconfigurationresource deltaind="I" name="public3_fax_business_security" accesslevel="0" description="public3_fax_business_security">
+	</tabsconfigurationresource>	
+<tabsconfigurationresource deltaind="I" name="verify_residence_address_security" accesslevel="0" description="verify_residence_address_security">
+	</tabsconfigurationresource>	
+<tabsconfigurationresource deltaind="I" name="public3_fax_residence_security" accesslevel="0" description="public3_fax_residence_security">
+	</tabsconfigurationresource>	
+<tabsconfigurationresource deltaind="M" name="public3_mailing_address_security" accesslevel="0" description="Hide/Show Mailing Address div on step3">
+</tabsconfigurationresource>
+<!--  Bug id 0032 -->
+<tabsconfigurationresource deltaind="I" name="public_step3_contact_type_security" accesslevel="0" description="public_step3_contact_type_security">
+</tabsconfigurationresource>
+ <tabsconfigurationresource deltaind="I" name="public_step3_contact_information_security" accesslevel="0" description="public_step3_contact_information_security">
+</tabsconfigurationresource>
+<tabsconfigurationresource deltaind="I" name="public_step3_contact_type_security" accesslevel="0" description="public_step3_contact_type_security"> <!-- hiding it as per bug 242 -->
+</tabsconfigurationresource>
+<!--  Bug id 0032 -->
+<tabsconfigurationresource deltaind="M" name="publicStep3_business_address_authorization_security" accesslevel="0" description="Business Address Authorization Security">
+</tabsconfigurationresource>
+<!-- bug id 0018 -->
+<tabsconfigurationresource deltaind="M" name="adminBrokeage8_save_exist_security" description="adminBrokeage8 save exist security" accesslevel="0" />
+		
+
+ <!-- Rajshree's changes -->
+ <tabsconfigurationresource deltaind="M" name="public_step4_final_questions_security" accesslevel="1" description="Hide/Show public_step4_final_questions_security on step4"></tabsconfigurationresource>
+ <tabsconfigurationresource deltaind="I" name="public_step4_brief_profile_security" accesslevel="1" description="Hide/Show brief_profile section on step3">
+</tabsconfigurationresource>
+
+
+ 
+ <!-- Bug Id : 0040 -->
+ <tabsconfigurationresource deltaind="M" name="adminBrokerageStep6_marketinformation_accounts_size_section_security" accesslevel="1" description="Hide/Show of adminBrokerageStep6_marketinformation_premium_threshold_section_security Section in adminBrokerageDetailsStep6.html"></tabsconfigurationresource>
+ 
+ <!-- Bug id 57 -->
+ <tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep6_is_premium_mining_discussed_security" accesslevel="0" description="Hide/Show of is_premium_mining_discussed_security in adminBrokerageDetailsStep6.html"></tabsconfigurationresource>
+ <tabsconfigurationresource deltaind="M" name="adminBrokerageDetailsStep6_date_to_be_completed_security" accesslevel="0" description="Hide/Show of date_to_be_completed_security in adminBrokerageDetailsStep6.html"></tabsconfigurationresource>
+ <!-- Bug id 144 -->
+ <tabsconfigurationresource deltaind="M" name="contactTypeDescRequiredForOnBoarding" value="Principal,Licensed Producer,Primary Mail Recipient,Agency Admin,Primary Claim Contact, Marketing Contact, Commission Contact, E&amp;O/Cyber Liability" description="set value of contact type desc for multiple checks based on contact type">
+	</tabsconfigurationresource>
+	
+	<!-- <tabsconfigurationresource deltaind="M" accesslevel="1" name="contactTypeCodeRequiredForOnBoarding" value="P,LS,LC,BILL,AC,MC,INS,EOC" description="set value of contact type code for multiple checks based on contact type">
+	</tabsconfigurationresource> -->
+
+	<!-- Jitendra- changes commented due to DocuSign ProducerApplicaion error -->
+	<!-- CR 0055 -->
+  	<tabsconfigurationresource deltaind="M" accesslevel="1" name="contactTypeCodeRequiredForOnBoarding" value="P,LS,LC,BILL,AC,MC,INS,EOC,OFM,PR" description="set value of contact type code for multiple checks based on contact type">
+    </tabsconfigurationresource>
+     <tabsconfigurationresource deltaind="M" name="isAllContactRequiredInDocuEsign" accesslevel="1" description="Hide/Show All Contact Required InDocuEsign flag">
+    </tabsconfigurationresource>
+    <tabsconfigurationresource deltaind="M" name="AgentAddresType" description="Address type for Agent" value="2">
+	</tabsconfigurationresource>
+	
+    
+	<!-- step 4 - total field -->
+	<tabsconfigurationresource deltaind="M" name="agencyPremiumVolumeCommittedStep6_total_section" accesslevel="1" description="Hide/Show of agencyPremiumVolumeCommitted Total Section in Step6 "></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="I" name="adminBrokeage6_block_yearly_premium_security" accesslevel="1" description="Hide/Show of agencyPremiumVolumeCommitted Total Section in Step6 "></tabsconfigurationresource>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_annual_application_written_total_security" name="adminBrokerageDetailsStep6_annual_application_written_total_security"/>
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Hide/Show adminBrokerageDetailsStep6_monthly_application_written_total_security" name="adminBrokerageDetailsStep6_monthly_application_written_total_security"/>
+    
+    <!-- Prod bug - 34734 changes-->
+	<tabsconfigurationresource deltaind="M" name="thirdSubLine_part2_step4_security" accesslevel="0" description="thirdSubLine_part2_step4_security"></tabsconfigurationresource>
+	
+	<!-- Feature 48705 - Adding Address Validation Indicator-->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" description="Show Verify Address Indicator" name="show_verified_address_indicator_public_security" />
+	
+	<!-- Feature - ADO 48687 - Increasing file upload size -->
+	<tabsconfigurationresource deltaind="I" value="50" description="Threshold for DMS Upload Document File Size" name="FILEUPLOADSIZETHRESHOLD" />
+	
+	<!-- Feature 48679 - Adding the Self Insured Retention (SIR) and Deductible Fields -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="adminBrokerageDetailsStep1_self_insured_retention_security"  description="Hide/show adminBrokerageDetailsStep1_self_insured_retention_security on adminBrokerageDetailsStep1.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="adminBrokerageDetailsStep1_cyber_liability_self_insured_retention_security"  description="Hide/show adminBrokerageDetailsStep1_cyber_liability_self_insured_retention_security on adminBrokerageDetailsStep1.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="adminBrokerageDetailsStep1_deductible_security"  description="Hide/show adminBrokerageDetailsStep1_deductible_security on adminBrokerageDetailsStep1.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="adminBrokerageDetailsStep1_cyber_liability_deductible_security"  description="Hide/show adminBrokerageDetailsStep1_cyber_liability_self_deductible_security on adminBrokerageDetailsStep1.html" />
+	
+	<!-- Feature 48695 - Adding Additional Fields to the Application - Showing base fields-HBA, Div distr, Policyholder copies -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_member_of_hba_security"  description="Hide/show public1_member_of_hba_security on adminBrokerageDetailsStep1.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_hba_association_id_security"  description="Hide/show public1_hba_association_id_security on adminBrokerageDetailsStep1.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_dividend_distribution_id_security"  description="Hide/show public1_dividend_distribution_id_security on adminBrokerageDetailsStep1.html" />
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="public1_policyholder_copies_id_security"  description="Hide/show public1_policyholder_copies_id_security on adminBrokerageDetailsStep1.html" />
+	
+	<!-- DocuSign Feature - ADO 48682 -->
+	<tabsconfigurationresource deltaind="M" accesslevel="1" name="esign_custom_tab_security"  description="customtab enable or disable" />
+	<tabsconfigurationresource deltaind="I" accesslevel="0" name="questions_section_security"  description="hide/show questions_section_security" />
+	
+	<!-- MR 2.10.7.4 -->
+	<tabsconfigurationresource deltaind="I" accesslevel="0" name="selectall_tab_security"  description="hide/show selectall_tab_security" />
+	
+</tabsconfiguration>	 
+
+

@@ -1,0 +1,63 @@
+	<projectcomponents project="Public">
+<component metaobject="step2MoObject;tbl_agencyprincipal;tbl_address;dummyMetaObjectToCheckContactRowCount;tbl_business_address;tbl_mailing_address" name="adminBrokerageDetailsStep2" seq="0" stackdisplayname="Principal/Key Contact/Producer Information" objectcolumn="person_id">
+		
+	<action name="refreshAssignProducerNumber">
+	
+		<workflow name="refreshAssignProducerNumber" seq="0"  deltaind="I">
+			<function  deltaind="I" executionsequence="0" functionid="splitContactType" name="splitContactType" parameters="context"/>
+		</workflow>
+	</action>
+		<action name="view">
+		<actionparam deltaind="I" form="Y" name="isEditClicked" paramid="isEditClicked" viewparam="Y"/>
+		<actionparam deltaind="I" form="Y" name="isLoadEntendedFields" paramid="isLoadEntendedFields" viewparam="Y"/>
+		
+		<actionparam deltaind="I" form="Y" name="adminBrokerageDetailsStep2_list_1" paramid="adminBrokerageDetailsStep2_list_1" post="Y"/>
+	<workflow eval="PublicRule.isDbAddressSkip" name="view3" seq="3" deltaind="M">
+				<databaseoperation deltaind="D" eval="PublicRule.isContactTypeEmpty" executionsequence="9" metaobject="tbl_agencyprincipal" name="getContactTypeData" operation="3" sqlstmt="select contact_typ_id as contacttype from contacttype_lku where contact_typ_code='P'"/>		 		
+	</workflow>
+	<workflow name="checkHRPAndOwernship" seq="16" deltaind="I">
+	<function  deltaind="I" executionsequence="0" functionid="splitContactType" name="splitContactType" parameters="context"/>
+	</workflow>
+	
+	<!-- Phase 3- Agent checkbox -->
+	<workflow deltaind="M" name="view" seq="17">
+	 <function deltaind="I" executionsequence="10" functionid="showContactTypeList1" name="showContactTypeList1" parameters="context"/>
+	 </workflow>
+   	 
+	</action>  
+	
+	 <action name="save">
+	 <actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+	<actionparam deltaind="I" form="Y" name="adminBrokerageDetailsStep2_list_1" paramid="adminBrokerageDetailsStep2_list_1" viewparam="Y"/>
+	<actionparam deltaind="I" form="Y" name="isEditClicked" paramid="isEditClicked" val="Y" post="Y"/>
+	<workflow name="save" seq="0" deltaind="M">
+		<function deltaind="I" name="setHRPAndOwnership" functionid="setHRPAndOwnership"  parameters="context" executionsequence="2" />		
+				
+			</workflow>
+	<!-- TestCR55 -->		
+	<!-- <actionparam deltaind="I" executionsequence="1" eval="PublicRule.is_highest_ranking_principalEmpty" form="Y" name="contactTypeCodeRequiredForOnBoarding" paramid="contactTypeCodeRequiredForOnBoarding" val="LS" viewparam="Y"/> -->
+	</action>
+	<action name="update">
+	<actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+	<actionparam deltaind="I" form="Y" name="isEditClicked" paramid="isEditClicked" val="Y" post="Y"/>
+	</action>
+	
+	
+	<action name="savenext">
+	<actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+	</action>
+	
+	<action name="refreshAddendumQuestions">
+	<actionparam deltaind="I" name="isLoadEntendedFields" paramid="isLoadEntendedFields" val="Y" post="Y"/>
+	<actionparam deltaind="I" executionsequence="4" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" pre="Y" val="Y"/>
+	<workflow name="refreshAddendumQuestions" seq="16" deltaind="I">
+	<function  deltaind="I" executionsequence="0" functionid="splitContactType" name="splitContactType" parameters="context"/>
+	</workflow>
+	</action>
+	
+	<action name="updatenext">
+	<actionparam deltaind="I" name="isSaveExtendedFields" paramid="isSaveExtendedFields" val="Y" viewparam="Y"/>
+	</action>
+	
+	</component>
+</projectcomponents>

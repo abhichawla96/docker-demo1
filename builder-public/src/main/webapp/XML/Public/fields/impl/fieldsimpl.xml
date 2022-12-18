@@ -1,0 +1,350 @@
+<fields project="Public">
+	<field deltaind="M" name="aar_carrierid" screen="adminBrokerageDetailsStep6" objectcolumn="aar_requestid" labeldesc="Company Name"
+		isrequired="N" labelkey="company_label" tabsconfigurationresourcename="public4_aar_carrierid_security"
+		protectedresourceuniquename="public4_aar_carrierid_security" id="public4_aar_carrierid"  >
+		<validation deltaind="D" name="checkCarrier" expression="if(andCondition(isEmpty(:agencyMarketInformation_list_1),isEqual(:isTopCompaniesAppointedStep4Mandatory,Y))=>populateError(context,carrierError2,minCarrierErrorKey)->isEqual(1,1));"  message="minCarrierErrorKey" executionsequence="0" isskip="N" />
+	</field>
+
+	
+	<field deltaind="I" name="aar_zipcode_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_zipcode_business_label" labeldesc="Zip Code" tabsconfigurationresourcename="public1_zipcode_business_security" 
+	protectedresourceuniquen1me="public1_zipcode_business_security" id="aar_zipcode_business">
+	</field>
+	<!-- end bug id 0016 -->
+	
+	<field deltaind="I" name="country_code_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_country_code_business_label" tabsconfigurationresourcename="public1_country_code_business_security" 
+	protectedresourceuniquename="public1_country_code_business_security" id="country_code_business">
+	</field>
+	
+	<field deltaind="I" name="aar_streetaddress1_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_streetaddress1_business_label" tabsconfigurationresourcename="public1_streetaddress1_business_security" 
+	protectedresourceuniquename="public1_streetaddress1_business_security" id="aar_streetaddress1_business">
+	</field>
+	
+	<field deltaind="I" name="aar_city_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_city_business_label" labeldesc="City" tabsconfigurationresourcename="public1_city_business_security" 
+	protectedresourceuniquename="public1_city_business_security" id="aar_city_business">
+	</field>
+	
+	<!-- start bug id - 0016 -->
+	<!-- <field deltaind="I" name="aar_state_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_state_business_label" tabsconfigurationresourcename="public1_state_business_security" 
+	protectedresourceuniquename="public1_state_business_security" id="aar_state_business">
+	</field> -->
+	
+	<field deltaind="M" name="aar_state_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" isrequired="Y" labeldesc="State" labelkey="state_Business_Field_Label" tabsconfigurationresourcename="public1_state_business_security" protectedresourceuniquename="public1_state_business_security" id="adminBrokerageDetailsStep1_business_state" 
+	lookupobjecttype="sql" lookupobjectmetaobject="tbl_agencyappointmentrequest" lookupobjectsql="select state_id as aar_state_business,description from state_lku where country_code like #country_code_business# order by description asc"
+	displayfield="description" valuefield="aar_state_business">
+	</field>
+	<!-- End bug id - 0016 -->
+	<!-- UAT2 Bug-27510 Onboarding Step 1 validation message start -->
+	<field deltaind="M" name="taxpayer_name" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" labeldesc="W-9 Legal Name" 
+	isrequired="Y" labelkey="public1_tax_payer_name_label" tabsconfigurationresourcename="isShowTaxPayerName" 
+	protectedresourceuniquename="isShowTaxPayerName" id="adminBrokerageDetailsStep1_taxpayer_name">
+	</field>
+	<!-- UAT2 Bug-27510 Onboarding Step 1 validation message end -->
+	
+	<field deltaind="I" name="agencyestablished_date" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="agencyEstablishedDateLabel" tabsconfigurationresourcename="isShowAgencyEstablishedDate" 
+	protectedresourceuniquename="isShowAgencyEstablishedDate" id="agencyestablished_date">
+	</field>
+	
+	<!-- commented code for bug id 0013
+	 <field deltaind="M" name="aar_state_w9" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_state_w9_label" tabsconfigurationresourcename="public1_state_w9_security" 
+	protectedresourceuniquename="public1_state_w9_security" id="aar_state_w9">
+	</field> -->
+	
+	<field deltaind="I" name="cyber_liability_carrier_other" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="public1_cyberLiabilitycarriername" tabsconfigurationresourcename="Agency_declarationCyberLiability_security" 
+	protectedresourceuniquename="Agency_declarationCyberLiability_security" id="cyber_liability_carrier_other">
+	</field>
+	<field deltaind="M" name="cyber_liability_coverage_amount" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="adminBrokerageDetailsStep1_cyber_liability_coverage_amount_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_cyber_liability_coverage_amount_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_cyber_liability_coverage_amount_security" id="cyber_liability_coverage_amount">
+	</field> 
+	
+	
+	
+	<field deltaind="I" name="cyber_liability_policy_number" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="adminBrokerageDetailsStep1_cyber_liability_policy_number_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_policy_cyber_liability_number_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_policy_cyber_liability_number_security" id="cyber_liability_policy_number">
+	</field>	
+	
+	<!--
+bug id 0017
+<field deltaind="I" name="cyber_liability_policy_limit" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="adminBrokerageDetailsStep1_cyber_liability_policy_limit_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_cyber_liability_policy_limit_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_cyber_liability_policy_limit_security" id="cyber_liability_policy_limit">
+	</field> -->
+	
+	<field deltaind="M" name="cyber_liability_policy_limit" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="adminBrokerageDetailsStep1_cyber_liability_policy_limit_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_cyber_liability_policy_limit_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_cyber_liability_policy_limit_security" id="cyber_liability_policy_limit">
+</field>
+	<!-- bug id 0017  -->
+	
+	<!-- <field deltaind="I" name="cyber_liability_effective_date" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="cyber_liability_effective_date_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_cyber_liability_Effective_date_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_cyber_liability_Effective_date_security" id="cyber_liability_effective_date">
+	</field> -->
+	
+	<!-- bug id 0062  -->
+	<!-- UAT2 Bug 27510 Onboarding Step 1 Expiration Date start -->
+	 <field deltaind="M" name="cyber_liability_effective_date" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="cyber_liability_effective_date_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_cyber_liability_Effective_date_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_cyber_liability_Effective_date_security" id="cyber_liability_effective_date">
+	</field>
+	<field deltaind="M" name="cyber_liability_expiration_date" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="cyber_liability_expiration_date_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_cyber_liability_Expiration_date_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_cyber_liability_Expiration_date_security" id="cyber_liability_expiration_date" >
+	<validation name="checkExpirationDateGreaterThanEffectiveDateCyberliability" executionsequence="2" expression="if(orCondition(isEmpty(:cyber_liability_expiration_date),orCondition(isDateEqual(:cyber_liability_effective_date,:cyber_liability_expiration_date),isDateBefore(:cyber_liability_effective_date,:cyber_liability_expiration_date)))=>isEqual(1,1);->isEqual(1,2));" message="ENOExpirationDateErrorKey"/>
+	</field> 
+	 
+	<!-- UAT2 Bug 27510 Onboarding Step 1 Expiration Date end -->
+	
+	<field deltaind="I" name="cyber_liability_eo_claims_declaration" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="cyber_liability_eo_claims_declaration_label" tabsconfigurationresourcename="cyber_liability_eNo_declaration_security" 
+	protectedresourceuniquename="cyber_liability_eNo_declaration_security" id="cyber_liability_eo_claims_declaration">	
+	</field>
+	
+	<field deltaind="M" name="agency_direct_deposit" screen="adminBrokerageDetailsStep8" objectcolumn="agency_id" labeldesc="Agency Direct Deposit" 
+	isrequired="N" labelkey="adminBrokerageDetailsStep8_agency_direct_deposit_authorization_label" tabsconfigurationresourcename="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security" 
+	accesslevel="1" protectedresourceuniquename="adminBrokerageDetailsStep8_agencyDirectDeposit_authorization_security" id="adminBrokerageDetailsStep8_agency_direct_deposit">
+  
+   </field>
+   
+   <field deltaind="I" name="is_highest_ranking_principal" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="N" requiredeval="PublicRule.isMethodAddChild"
+		labelkey="is_highest_ranking_principal_label" tabsconfigurationresourcename="is_highest_ranking_principal_security" labeldesc="Highest Ranking Principal"
+		protectedresourceuniquename="is_highest_ranking_principal_security" id="is_highest_ranking_principal">
+	</field>
+	
+	<field deltaind="I" name="npn" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y" requiredeval="PublicRule.isMethodAddChild"
+		labelkey="public3_npn_label" tabsconfigurationresourcename="npn_security" labeldesc="National Producer Number"
+		protectedresourceuniquename="npn_security" id="npn">
+	</field>
+   
+   <field deltaind="I" name="contact_detail_email" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y" requiredeval="PublicRule.isMethodAddChild"
+		labelkey="public3_email_label" tabsconfigurationresourcename="public3_email_leftside_security"
+		protectedresourceuniquename="public3_email_leftside_security" id="contact_detail_email">
+	</field>
+	
+   <!--  <field deltaind="I" name="aar_streetaddress1" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y" requiredeval="PublicRule.isMethodAddChild"
+		labelkey="adminBrokerageDetailsStep2_beneficiary_last_name_label" tabsconfigurationresourcename="adminBrokerageDetailsStep2_beneficiary_last_name_security"
+		protectedresourceuniquename="adminBrokerageDetailsStep2_beneficiary_last_name_security" id="aar_streetaddress1">
+	</field> -->
+	<!-- modified for Change request 12 and CR 055-->
+	<field deltaind="I" name="email" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y" requiredeval="PublicRule.isMethodAddChild"
+		labelkey="public3_email_business_label" tabsconfigurationresourcename="business_address_agent_email_security"
+		protectedresourceuniquename="business_address_agent_email_security" id="email">
+	</field>
+   
+   <!-- sprint 1 producer onboarding -->
+   
+<field deltaind="I" isextendedfield="Y" name="cbia_designation" screen="public/adminBrokerageDetailsStep2.html" objectcolumn="person_id" section="adminBrokerageDetailsStep2_freeform_contextdata_1002" displaytype="radio" 
+	isrequired="Y" labelkey="cbia_designation_label" labeldesc="CBIA Designation" accesslevel="1" tabsconfigurationresourcename="public3_cbia_security" mappedto="f26"
+	protectedresourceuniquename="public3_cbia_security" id="cbia_designation" position="#designation_after#">
+	
+	<event id="onchange" name="onchange" screen="public/adminBrokerageDetailsStep2.html" actiontype="ajaxpageblocklink" action="refreshAddendumQuestions" actiontypeid="public3_general_information_security" executionsequence="0">
+	  	<forward id="public/adminBrokerageDetailsStep2.html" screen="public/adminBrokerageDetailsStep2.html" />
+	 </event>
+	 <mapping name= "mapping1" screen="carrier/agentGeneralDetails.html" section="entityPersonDetails_freeform_contextdata_2" field="review_cbia_designation">
+	</mapping>
+	<!--  phase 2  added mappings-->
+	 <!-- Bug ID - 35968 Onboarding/Selfservice start -->
+	 <!-- <mapping name= "mapping17" screen="carrier/agentGeneralDetailsForSelfServiceApproval.html" section="entityPersonDetails_freeform_contextdata_2" field="review_cbia_designation">
+	</mapping> -->
+	<!-- Bug ID - 35968 Onboarding/Selfservice end -->
+	</field>
+	
+<field deltaind="I" isextendedfield="Y" name="year_recieved" screen="public/adminBrokerageDetailsStep2.html" objectcolumn="person_id" section="adminBrokerageDetailsStep2_freeform_contextdata_1002" displaytype="text" 
+	isrequired="Y" labelkey="year_recieved_label" labeldesc="Year Received" accesslevel="1" tabsconfigurationresourcename="year_recieved_security" mappedto="f25"
+	protectedresourceuniquename="year_recieved_security" id="year_recieved" position="#cbia_designation_after#">
+	<mapping name= "mapping2" screen="carrier/agentGeneralDetails.html" section="entityPersonDetails_freeform_contextdata_2" field="review_year_recieved">
+	</mapping>
+	<!--  phase 2 added mappings-->
+	<!-- Bug ID - 35968 Onboarding/Selfservice start -->
+	<!-- <mapping name= "mapping18" screen="carrier/agentGeneralDetailsForSelfServiceApproval.html" section="entityPersonDetails_freeform_contextdata_2" field="ss_year_recieved">
+	</mapping> -->
+	<!-- Bug ID - 35968 Onboarding/Selfservice end -->
+	</field>
+	
+	<!-- start - bug id 0013 -->
+	<field deltaind="I" name="aar_phoneno_business" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" labeldesc="Phone"
+	isrequired="Y" labelkey="public1_phone_business_label" tabsconfigurationresourcename="public1_business_security" 
+	protectedresourceuniquename="public1_business_security" id="aar_phoneno_business">
+	</field>
+
+	<field deltaind="M" name="aar_state_w9" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" isrequired="Y" labeldesc="State" labelkey="state_w9_Field_Label" tabsconfigurationresourcename="public1_state_w9_security" protectedresourceuniquename="public1_state_w9_security" id="adminBrokerageDetailsStep1_w9_state" 
+	lookupobjecttype="sql" lookupobjectmetaobject="tbl_agencyappointmentrequest" lookupobjectsql="select state_id as aar_state_w9,description from state_lku where country_code like #country_code_w9# order by description asc"
+	displayfield="description" valuefield="aar_state_w9">
+</field>
+ <field deltaind="I" name="eo_claims_declaration" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" 
+	isrequired="Y" labelkey="eo_claims_declaration_label" tabsconfigurationresourcename="eNo_declaration_security" 
+	protectedresourceuniquename="eNo_declaration_security" id="eo_claims_declaration">	
+	</field> 
+	<!-- end - bug id 0013 -->
+<!-- start - bug id 0028  -->
+	<field deltaind="I" name="designation" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="N"
+		labelkey="public3_designation_label" tabsconfigurationresourcename="public3_designation_security" labeldesc="designation"
+		protectedresourceuniquename="public3_designation_security" id="designation">
+	</field>
+   <!-- end- bug id 0028 -->
+<!-- start - bug id 0030  -->
+	<field deltaind="I" name="aar_streetaddress1" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="public3_streetaddress1_business_label" tabsconfigurationresourcename="public3_streetaddress1_business_security" labeldesc="Street Address #1  - Busines"
+		protectedresourceuniquename="public3_streetaddress1_business_security" id="aar_streetaddress1">
+	</field>
+   <!-- end- bug id 0030 -->
+<!-- start - bug id 0029  -->
+	<!-- <field deltaind="I" name="fcra_consent_declaration" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="background_fcra_consent_declaration_label" tabsconfigurationresourcename="adminBrokerageDetailsStep2fcra_consent_declaration_freeform_contextdata_1000" 
+		protectedresourceuniquename="adminBrokerageDetailsStep2fcra_consent_declaration_freeform_contextdata_1000" id="fcra_consent_declaration">
+	</field>  -->   <!-- Commented to change message through metadata by Aashutosh  -->
+	
+	<!--  <field deltaind="I" name="consent_e_delivery" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="consent_e_delivery_label_heading" tabsconfigurationresourcename="consent_e_delivery_label_heading" 
+		protectedresourceuniquename="consent_e_delivery_label_heading" id="consent_e_delivery">
+	</field>  -->
+	<field deltaind="I" name="aar_phoneno" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="public3_phoneno_business_label" tabsconfigurationresourcename="business_address_agent_phone_security" labeldesc="Phone  - Busines"
+		protectedresourceuniquename="business_address_agent_phone_security" id="aar_phoneno">
+	</field>
+	
+	<field deltaind="I" name="ownership" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="N"
+		labelkey="public3_ownership_label" tabsconfigurationresourcename="ownership_security" labeldesc="Ownership"
+		protectedresourceuniquename="ownership_security" id="ownership">
+	</field>
+	<field deltaind="I" name="aar_city" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="public3_city_business_label" tabsconfigurationresourcename="public3_city_business_security" labeldesc="City - Business"
+		protectedresourceuniquename="public3_city_business_security" id="aar_city">
+	</field>
+	<field deltaind="I" name="aar_zipcode" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="public3_zipcode_business_label" tabsconfigurationresourcename="public3_zipcode_business_security" labeldesc="Zip Code - Busines"
+		protectedresourceuniquename="public3_zipcode_business_security" id="aar_zipcode">
+	</field>
+	
+	
+	<field deltaind="I" name="mobile" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="Y"
+		labelkey="public3_mobile_business_label" tabsconfigurationresourcename="business_address_agent_mobile_security" labeldesc="Mobile - Busines"
+		protectedresourceuniquename="business_address_agent_mobile_security" id="mobile">
+	</field>  <!-- bug id : 147 - Making email non mandatory -->
+	
+	
+	
+   <!-- end- bug id 0029-->
+   <!-- Bug id 17 -->
+   <field deltaind="I" name="coverage_amount" screen="adminBrokerageDetailsStep1" objectcolumn="aar_requestid" format="amount"
+	isrequired="Y" labelkey="adminBrokerageDetailsStep1_coverage_amount_label" tabsconfigurationresourcename="adminBrokerageDetailsStep1_coverage_amount_security" 
+	protectedresourceuniquename="adminBrokerageDetailsStep1_coverage_amount_security" labeldesc="Coverage Amount" id="coverage_amount">
+	</field> 
+	<!-- bug id 17 -->
+	
+		
+	<!-- BUG ID 0045 : -->
+	
+  <field deltaind="M" name="bank_account_type" screen="adminBrokerageDetailsStep8" objectcolumn="agency_id" labeldesc="Account Type" isrequired="MA" labelkey="public2_bank_account_type_label" tabsconfigurationresourcename="account_type_checking_saving_security" accesslevel="1" protectedresourceuniquename="account_type_checking_saving_security" id="adminBrokerageDetailsStep8_bank_account_type" 
+  		lookupobjectsql="select master_lookup_data_code as account_type_code, master_lookup_data_desc as description from master_lookup_data_lku where master_lookup_detail_id in (select master_lookup_detail_id from master_lookup_detail_lku where lookup_table_name='account_type_lku')" lookupobjecttype="sql" displayfield="description" valuefield="account_type_code">
+</field>
+
+<!-- Feature 48695 - Adding Additional Fields to the Application-Commenting below extended fields as they are added by product -->
+<!-- HBA field step1 onboarding -->
+
+	
+	<!-- <field deltaind="I" isextendedfield="Y" name="member_of_hba1" screen="public/adminBrokerageDetailsStep1.html" objectcolumn="aar_requestid" section="adminBrokerageDetailsStep1_freeform_contextdata_1" displaytype="radio" 
+	isrequired="Y" labelkey="member_of_hba_label" labeldesc="Are you a member of an HBA?" accesslevel="1" tabsconfigurationresourcename="member_of_hba_security" 
+	protectedresourceuniquename="member_of_hba_security" id="member_of_hba" position="#aar_noofliccsr_after#" mappedto="f29">
+	<event id="onchange" name="onchange" screen="public/adminBrokerageDetailsStep1.html" actiontype="ajaxpageblocklink" action="refreshState" actiontypeid="hba_dropdown_security" executionsequence="0">
+	  	<forward id="public/adminBrokerageDetailsStep1.html" screen="public/adminBrokerageDetailsStep1.html" />
+	 </event>	 
+	<mapping name= "mapping3" screen="carrier/entityGeneralDetails.html" section="entityGeneralDetailsResult_freeform_contextdata_2" field="member_of_hba2">
+	</mapping>
+	<mapping name= "mapping9" screen="carrier/agencyListPublicSubmitNInvitationEdit.html" section="agencyListPublicSubmitNInvitationEdit_freeform_contextdata_1" field="review_member_of_hba">
+	</mapping>
+	phase 2 extended fields	
+	<mapping name= "mapping13" screen="carrier/entityGeneralDetailsForSelfServiceApproval.html" section="entityGeneralDetailsForSelfServiceApproval_freeform_contextdata_2" field="member_of_hba_ss">
+	</mapping>
+	</field>
+	<field deltaind="I" isextendedfield="Y" name="hba_dropdown" screen="public/adminBrokerageDetailsStep1.html" objectcolumn="aar_requestid" section="adminBrokerageDetailsStep1_freeform_contextdata_1" displaytype="select" 
+	isrequired="Y" labelkey="hba_dropdown_label" labeldesc="If Yes, please select the HBA Chapter you are a member of " accesslevel="1" tabsconfigurationresourcename="hba_dropdown_security" 
+	protectedresourceuniquename="hba_dropdown_security" id="hba_dropdown" position="#agency_management_after#" css="selectWidth"
+	lookupobjectname="hba_chapter_lku" lookupobjecttype="mastertable"
+	  	valuefield="master_lookup_data_code" displayfield="master_lookup_data_desc" mappedto="f30" > 
+	<mapping name= "mapping10" screen="carrier/agencyListPublicSubmitNInvitationEdit.html" section="agencyListPublicSubmitNInvitationEdit_freeform_contextdata_1" field="review_det_hba_dropdown">
+	</mapping>
+	<mapping name= "mapping11" screen="carrier/entityGeneralDetails.html" section="entityGeneralDetailsResult_freeform_contextdata_2" field="entity_gen_det_hba_dropdown">
+	</mapping>
+	phase 2 extended fields	
+	<mapping name= "mapping14" screen="carrier/entityGeneralDetailsForSelfServiceApproval.html" section="entityGeneralDetailsForSelfServiceApproval_freeform_contextdata_2" field="entity_gen_det_hba_dropdown_ss">
+	</mapping>
+	</field>
+	
+	dividend distribution	
+	<field deltaind="I" isextendedfield="Y" id="dividend_distribution" labelkey="Divided_label" name="dividend_distribution" objectcolumn="aar_requestid"  section="adminBrokerageDetailsStep1_freeform_contextdata_3240" screen="public/adminBrokerageDetailsStep1.html" isrequired="MA" accesslevel="1"
+	  	tabsconfigurationresourcename="secDividendDist" displaytype="multiradio" css="exteded_new_radio_seciton"
+	  	protectedresourceuniquename="secDividendDist" position="#distDistiShow_after#"
+		lookupobjectname="dividend_dist_lku" lookupobjecttype="mastertable"
+	  	valuefield="master_lookup_data_code" displayfield="master_lookup_data_desc" mappedto="f28">
+		<validation deltaind="I" name="isDividendDistributionSelected" expression="if(isEmpty(:dividend_distribution)=&gt;isEqual(1,2)-&gt;isEqual(1,1))" message="DividendDistributionErrorKey" executionsequence="0" />
+		
+		<mapping name= "mapping19" screen="carrier/entityGeneralDetails.html" section="entityGeneralDetails_freeform_contextdata_3234" field="dividend_distribution">
+	</mapping>
+		<mapping name= "mapping4" screen="carrier/agencyListPublicSubmitNInvitationEdit.html" section="agencyListPublicSubmitNInvitationEdit_freeform_contextdata_3232" field="review_dividend_distribution">
+	</mapping>
+	phase 2 extended fields	
+	<mapping name= "mapping15" screen="carrier/entityGeneralDetailsForSelfServiceApproval.html" section="entityGeneralDetailsForSelfServiceApproval_freeform_contextdata_3234" field="dividend_distribution_ss">
+	</mapping>
+		</field> 
+		
+		Policyholder Copies
+		
+		<field deltaind="I" isextendedfield="Y" id="policyholder_copies" labelkey="policy_label" name="policyholder_copies" objectcolumn="aar_requestid"  section="adminBrokerageDetailsStep1_freeform_contextdata_3241" screen="public/adminBrokerageDetailsStep1.html" isrequired="MA" accesslevel="1"
+	  	tabsconfigurationresourcename="policyHolderSection" displaytype="multiradio" css="exteded_new_radio_seciton"
+	  	protectedresourceuniquename="policyHolderSection" position="#policyholdercopies_after#"
+		lookupobjectname="policyholder_copies_lku" lookupobjecttype="mastertable"
+	  	valuefield="master_lookup_data_code" displayfield="master_lookup_data_desc" mappedto="f27">
+		<validation deltaind="I" name="isPolicyHolderCopiesSelected" expression="if(isEmpty(:policyholder_copies)=&gt;isEqual(1,2)-&gt;isEqual(1,1))" message="PolicyHolderCopiesErrorKey" executionsequence="0" />
+		<mapping name= "mapping5" screen="carrier/agencyListPublicSubmitNInvitationEdit.html" section="agencyListPublicSubmitNInvitationEdit_freeform_contextdata_3233" field="review_policyholder_copies">
+	</mapping>
+	phase 2 extended fields	
+	<mapping name= "mapping16" screen="carrier/entityGeneralDetailsForSelfServiceApproval.html" section="entityGeneralDetailsForSelfServiceApproval_freeform_contextdata_3235" field="policyholder_copies_ss">
+	</mapping>
+	ADO - 35968
+	<mapping name= "mapping20" screen="carrier/entityGeneralDetails.html" section="entityGeneralDetails_freeform_contextdata_3235" field="policyholder_copies">
+    </mapping>
+	
+		</field>
+    -->
+   <!-- BUG ID 0045 : -->
+	
+ 	 <field deltaind="I" name="email_business" screen="adminBrokerageDetailsStep1" objectcolumn="tbl_mailing_address" isrequired="Y"
+		labelkey="public1_email_business_label" tabsconfigurationresourcename="public1_email_business_security" labeldesc="Email"
+		protectedresourceuniquename="public1_email_business_security" id="email_business">
+	</field>
+	
+	<!-- Bug ID : 0133  -->
+<field deltaind="M" name="total_premium_PC" screen="adminBrokerageDetailsStep6" objectcolumn="aar_requestid" labeldesc="entityOtherInformation_totalpremiumforpc_label"
+		isrequired="N" labelkey="entityOtherInformation_totalpremiumforpc_label" tabsconfigurationresourcename="prospectMarket_totalpremiumforpc_security"
+		protectedresourceuniquename="prospectMarket_totalpremiumforpc_security" id="adminBrokerageDetailsStep6_interest_total_premium_PC"
+		format="amount"  >
+	</field>
+
+   <field deltaind="M" name="total_annual_revenue" screen="adminBrokerageDetailsStep6" objectcolumn="aar_requestid" labeldesc="total_annual_revenue_label"
+		isrequired="N" labelkey="total_annual_revenue_label" tabsconfigurationresourcename="prospect_market_total_annual_revenue_security"
+		protectedresourceuniquename="prospect_market_total_annual_revenue_security" id="adminBrokerageDetailsStep6_total_annual_revenue" format="amount" >
+	</field>
+	
+	<!-- upgrade bugs U-037 -  Email address is not mandatory-->
+	<field deltaind="M" name="email" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" isrequired="N" labeldesc="Email Address" labelkey="public3_email_business_label" tabsconfigurationresourcename="business_address_agent_email_security" protectedresourceuniquename="business_address_agent_email_security" id="adminBrokerageDetailsStep2_businessemail">	
+	<validation deltaind="D" name="email_validation" expression="if(andCondition(isEqual(:signature_acceptance_security,Y),isEmpty(:email))=>isEqual(1,2)->call_rule(PublicRule.checkEmailForAjaxForAgency));" message="emailAdddrErrorKey" executionsequence="1"  />
+   </field>	
+   
+   <!-- Prod Bug -32996 -->
+   <field deltaind="M"  name="designation" screen="adminBrokerageDetailsStep2" objectcolumn="aar_requestid" labeldesc="Designation" isrequired="N" labelkey="public3_designation_label" tabsconfigurationresourcename="public3_designation_security" protectedresourceuniquename="public3_designation_security" id="adminBrokerageDetailsStep2_designation" >
+  </field>
+	
+	<!-- ADO 43241 -->
+	<field deltaind="M" id="adminBrokerageDetailsStep9_title" screen="adminBrokerageDetailsStep9.html" name="title"  tabsconfigurationresourcename="signature_acceptance_title_security" protectedresourceuniquename="signature_acceptance_title_security" isextendedfield="N" executionsequence="0" isencrypt="N" isprintbeforelabel="N" iscacheenabled="N" maxlength="255"/>
+	
+</fields>

@@ -1,0 +1,9 @@
+<projectcomponents project="Public">
+<component name="sqlStatements">
+		<action name="view" deltaind="M">
+			<workflow name="view" seq="0" deltaind="M">
+					 <databaseoperation deltaind="I" executionsequence="30" metaobject="person" name="getLicensedProducerCheckedPublic" operation="3" sqlstmt="select count(*) as licensedProducerCheckedPublic from contacttype_lku where contact_typ_id in (select items from split(#contacttype#,',')) and contact_typ_code = 'LS'"/>       
+			</workflow>
+		</action>
+	</component>
+</projectcomponents>

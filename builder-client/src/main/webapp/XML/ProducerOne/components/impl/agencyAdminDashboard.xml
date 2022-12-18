@@ -1,0 +1,188 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="homeAction;sendInvitation;" name="agencyAdminDashboard" stackdisplayname="Home" displayname="Agency Admin Dashboard">
+    <action deltaind="M" name="view">
+      <actionparam eval="ProducerOneRule.checkExternalSystemValue" executionsequence="0" form="Y" name="external_system" paramid="external_system" pre="Y"/>
+      <actionparam checkfornullparams="ccb_bonus_year,datefrom,dateto,Commissionable_Producer_ID,hierarchy_type_code_filter,producer_number_id,person_id,primaryAgencyAddressType,primaryAgentAddressType         ,filterXml,include_parent,hierarchyNumberOfRows,domicile_state,city_filter" executionsequence="50" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="cluster_hierarchy" paramid="cluster_hierarchy" pre="Y" val="0"/>
+      <actionparam eval="ProducerOneRule.checkSubProducerNameValue" executionsequence="0" form="Y" name="sub_producer_name" paramid="sub_producer_name" pre="Y"/>
+      <actionparam eval="ProducerOneRule.checkForExpirationInvitation" executionsequence="0" form="Y" name="checkForExpirationInvitation" paramid="checkForExpirationInvitation" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="additionalEmailAddress_list_listfreeform_1,lexisNexis_list_listfreeform_1,showRequestListing,request_reason_id,,maxrows,startindex,sortexpression,order,hide_show,            searchByEntityName,searchByEntityNameAdvance,county_id,county,tax_id,npn,agency_system_code,system_code,addressline1,            addressline2,country_code,city,state_id,zip,is_business,is_mailing,is_residence,w9_legal_name,            agentbroker_agent_fname,searchByIndNameAdvance,agentbroker_agent_ssn_num,agentbroker_npn,agentbroker_System_Code,agentbroker_ind_status,            agentbroker_contacttype,agentbroker_addressline1,agentbroker_addressline2,agentbroker_agent_city,agent_county_id,agent_state_id,agentbroker_agent_zip,            agentbroker_is_business,agentbroker_is_mailing,agentbroker_is_residence,producersearch_probation_termination_date_to,producersearch_probation_termination_date_from,            producersearch_probation_effective_date_to,producersearch_probation_effective_date_from,probation_reason_id,producersearch_expire_renew_date_to,producersearch_expire_renew_date_from,            producersearch_effective_date_to,producersearch_effective_date_from,producer_state_id,producer_company_id,business_segment_code,profit_center_code,producersearch_no_eo_req,producersearch_subproducer,            producersearch_surplus_indicator,producersearch_producer_name,producersearch_producer_num_status,producersearch_system_code,producersearch_npn,producersearch_name,producersearch_tax_id,            agency_licence_appointment_termination_date_to,agency_licence_appointment_termination_date_from,agency_licence_appointment_effective_date_to,agency_licence_appointment_effective_date_from,entityappoint_auth_reason_id,            entityprocessing_status_id,authorised_status_id,company_id,license_reason_id,auth_state_id,agency_licence_license_exp_date_to,agency_licence_license_exp_date_from,agency_licence_license_issue_date_to,agency_licence_license_issue_date_from,            juri_state_id,agency_license_num,agency_licence_system_code,agency_licence_npn,agency_licence_tax_id,agencylicencename,            agentlicence_appointment_termination_date_to,agentlicence_appointment_termination_date_from,agentlicence_appointment_effective_date_to,agentlicence_appointment_effective_date_from,agent_lic_authorised_status_id,agentappoint_auth_reason_id,            agentprocessing_status_id,agent_lic_company_id,agent_auth_state_id,agentlicence_license_exp_date_to,agentlicence_license_exp_date_from,agentlicence_license_issue_date_to,agentlicence_license_issue_date_from,agent_license_reason_id,agent_lic_state_id,            agentlicence_license_num,agentlicence_System_Code,agentlicence_npn,agentlicence_agent_ssn_num,agentlicenceagentlname,agentlicence_agent_fname,            notepad_note,notepad_subject,notepad_date_range_to,notepad_date_range_from,notepad_producer_num,notepadname,searchByEntityName,            searchByIndName,searchByProdNumber,advanceSearchEntityResult_list_1,advanceSearchAgentResult_list_1,advanceSearchProducerSearchResult_list_1,advanceSearchAgencyLicenceResult_list_1,advanceSearchAgentLicenceResult_list_1,            tax_id,npn,system_code,addressline1,addressline2,country_code,city,state_id,zip,county_id,is_business,is_mailing,is_residence,agentbroker_agent_fname,            agentbroker_agent_ssn_num,agentbroker_System_Code,agentbroker_ind_status,agentbroker_contacttype,agentbroker_addressline1,agentbroker_addressline2,agentbroker_agent_country,agentbroker_agent_city,agentbroker_agent_state,            agentbroker_agent_zip,agentbroker_agent_county,agentbroker_is_business,agentbroker_is_mailing,agentbroker_is_residence,producersearch_name,producersearch_tax_id,producersearch_npn,producersearch_system_code,            searchByProdNumber,producersearch_producer_num_status,producersearch_producer_name,producersearch_surplus_indicator,producersearch_subproducer,producersearch_no_eo_req,producersearch_profit_center_code,producersearch_business_segment_code,            producersearch_company_id,producersearch_state_id,producersearch_effective_date_from,producersearch_effective_date_to,producersearch_expire_new_date_from,producersearch_expire_new_date_to,producersearch_expire_renew_date_from,            producersearch_expire_renew_date_to,producersearch_probation_effective_date_from,producersearch_probation_effective_date_to,producersearch_probation_code,producersearch_probation_termination_date_from,producersearch_probation_termination_date_to,agentlicence_agent_fname,            agentlicenceagentlname,agentlicence_agent_ssn_num,producersearch_system_code,agentlicence_npn,agentlicence_System_Code,agentlicence_license_num,agentlicence_license_state_id,agentlicence_license_issue_date_from,            agentlicence_license_issue_date_to,agentlicence_license_exp_date_from,agentlicence_license_exp_date_to,agentlicence_appointment_state_id,agentlicence_company_id,      agentlicence_appointment_status_id,agentlicence_appointment_effective_date_from,agentlicence_appointment_effective_date_to,agentlicence_appointment_termination_date_from,      agentlicence_appointment_termination_date_to,agencylicencename,agency_licence_tax_id,agency_licence_npn,agency_licence_system_code,agency_license_num,agency_licence_license_state_id,      agency_licence_license_issue_date_from,agency_licence_license_issue_date_to,agency_licence_license_exp_date_from,agency_licence_license_exp_date_to,agency_licence_appointment_state_id,      company_id,agency_licence_appointment_status_id,agency_licence_appointment_effective_date_from,agency_licence_appointment_effective_date_to,agency_licence_appointment_termination_date_from,      agency_licence_appointment_termination_date_to,search_xml,isReadOnly,comingFromEntityInsuranceNoticeListing,tabs1next_page,tabs2next_page,carrier_tab,is_person,request_type_str,invitation_status,      comingFromAccPublicSubmitNInvitation,aar_agencyname,email,aar_state,aar_statusid,aar_statusid_desc,workflow_function,workflow_user,request_ss_id,show_menu,domicile_state" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="roles" paramid="roles" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agentbroker_npn" paramid="pid_agentbroker_npn" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.checkinclude_location" executionsequence="0" form="Y" name="include_location" paramid="include_location" pre="Y"/>
+      <actionparam eval="ProducerOneRule.addnipprAppointValues" evalute="Y" executionsequence="2" form="Y" name="niprAppointCount" paramid="niprAppointCount" post="Y" session="Y"/>
+      <actionparam evalute="Y" executionsequence="3" form="Y" name="niprTerminationCount" paramid="niprTerminationCount" post="Y" session="Y" val="ProducerOneRule.addnipprTerminationValues"/>
+      <actionparam evalute="Y" executionsequence="4" form="Y" name="authorizationCount" paramid="authorizationCount" post="Y" session="Y" val="ProducerOneRule.addauthorizationValues"/>
+      <actionparam eval="ProducerOneRule.sendDefaultIncludeSubAgencyCodeInfilterForLOCH" executionsequence="24" form="Y" name="include_sub_agency_code" paramid="include_sub_agency_code" pre="Y" val="1"/>
+      <actionparam evalute="Y" executionsequence="5" form="Y" name="withoutNiprAppointCount" paramid="withoutNiprAppointCount" post="Y" session="Y" val="ProducerOneRule.addwithoutNiprAppointValues"/>
+      <actionparam evalute="Y" executionsequence="6" form="Y" name="withoutNiprTerminationCount" paramid="withoutNiprTerminationCount" post="Y" session="Y" val="ProducerOneRule.addwithoutNiprTerminationValues"/>
+      <actionparam evalute="Y" executionsequence="7" form="Y" name="PDBTransactionsCount" paramid="PDBTransactionsCount" post="Y" session="Y" val="ProducerOneRule.addPDBTransactionsValues"/>
+      <actionparam eval="ProducerOneRule.checkIsEmptyHierarchyType" executionsequence="19" form="Y" name="hierarchy_type_code_filter" paramid="hierarchy_type_code_filter" pre="Y" val="LOCH"/>
+      <actionparam eval="ProducerOneRule.isLocationHierarchy1" executionsequence="20" form="Y" name="columnsToBeDisplayedOnHierarchyListForAgencyCode" paramid="columnsToBeDisplayedOnHierarchyListForAgencyCode" populatename="columnsToBeDisplayedOnHierarchyList" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isReportingHierarchy" executionsequence="21" form="Y" name="columnsToBeDisplayedOnHierarchyListOnReportingHierarchyNewForRPH" paramid="columnsToBeDisplayedOnHierarchyListOnReportingHierarchyNewForRPH" populatename="columnsToBeDisplayedOnHierarchyList" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isReportingHierarchy" executionsequence="22" form="Y" name="linksToBeDisplayedOnHierarchyListForRPH" paramid="linksToBeDisplayedOnHierarchyListForRPH" populatename="linksToBeDisplayedOnHierarchyList" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isLocationHierarchy1" executionsequence="23" form="Y" name="linksToBeDisplayedOnHierarchyListOnAgencyAdminDashbord" paramid="linksToBeDisplayedOnHierarchyListOnAgencyAdminDashbord" populatename="linksToBeDisplayedOnHierarchyList" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="user_name" paramid="user_name" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.checkSubProducerNumberValue" executionsequence="0" form="Y" name="sub_producer_number" paramid="sub_producer_number" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="include_producer_number" paramid="include_producer_number" pre="Y" val="1"/>
+      <actionparam eval="ProducerOneRule.checkLatestStatementYear" executionsequence="0" form="Y" name="calander_year" paramid="calander_year" pre="Y"/>
+      <actionparam evalute="Y" executionsequence="25" form="Y" name="filterXml" paramid="filterXml" pre="Y" val="ProducerOneRule.assignFilterXml"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="TotalExpirationCount" paramid="TotalExpirationCount" post="Y" session="Y" val="ProducerOneRule.TotalExpirationCount"/>
+      <actionparam eval="ProducerOneRule.checkDocumentUploadMode" executionsequence="0" form="Y" name="uploadMode" paramid="uploadMode" post="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.assignVersion" executionsequence="0" form="Y" name="CopyRight" paramid="CopyRight" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.checkForSubmittedAppointmentsInvitation" executionsequence="0" form="Y" name="checkForSubmittedAppointmentsInvitation" paramid="checkForSubmittedAppointmentsInvitation" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="user_name_display" paramid="user_name_display" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.generateRandomNumber" executionsequence="0" form="Y" name="generateRandomNumber" paramid="generateRandomNumber" post="Y"/>
+      <actionparam evalute="Y" executionsequence="0" form="Y" name="user_email" paramid="user_email" pre="Y" val="ProducerOneRule.getUserEmailId"/>
+      <actionparam eval="ProducerOneRule.assignVersion" executionsequence="0" form="Y" name="version" paramid="version" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agent" paramid="agent" val="1" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agencyadmin_agency_id" paramid="agencyadmin_agency_id" pre="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.isHierarchyViewTree" executionsequence="0" form="Y" name="hierarchyTree_list_1" paramid="hierarchyTree_list_1" post="Y" session="Y"/>
+      <actionparam eval="ProducerOneRule.assignMonthFlagForENO" executionsequence="0" form="Y" name="monthFlag" paramid="monthFlag" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="user_id" paramid="user_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agencyadmin_agency_id" paramid="agencyadmin_agency_id1" populatename="agency_id" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="agencyadmin_agencyname" paramid="agencyadmin_agencyname" pre="Y" session="Y"/>
+      <actionparam executionsequence="0" form="Y" name="include_sub_producer" paramid="include_sub_producer" pre="Y" val="1"/>
+      <actionparam eval="ProducerOneRule.getUserNameDisplay" executionsequence="0" form="Y" name="a" paramid="a" pre="Y"/>
+      <actionparam executionsequence="0" form="Y" name="nofDays" paramid="nofDays" pre="Y" val="90"/>
+      <actionparam eval="ProducerOneRule.setCalanderMonthDefualt" executionsequence="0" form="Y" name="calander_month" paramid="calander_month" pre="Y"/>
+      <actionparam executionsequence="26" form="Y" name="include_closed_producers" paramid="include_closed_producers" pre="Y" val="1"/>
+      <actionparam form="Y" name="agencyadmin_person_id" paramid="agencyadmin_person_id" pre="Y" session="Y"/>
+	  <actionparam form="Y" name="person_id_selfservice" paramid="person_id_selfservice" pre="Y" session="Y"/>
+	  <actionparam form="Y" name="agency_id" paramid="agency_id" pre="Y" session="Y"/>
+	  <actionparam form="Y" name="producer_number_id" paramid="producer_number_id" pre="Y" session="Y"/>
+	  <actionparam form="Y" name="agencyadmin_producer_number_id" paramid="agencyadmin_producer_number_id" pre="Y" session="Y"/>
+			
+      <workflow name="view1" seq="1">
+        <businessobject executionsequence="1" name="AgencyAdminSelfServiceBO" obj="com.userbo.AgencyAdminSelfServiceBO"/>
+        <storedprocedureoperation dbspname="GetAgencyAdminDashboardRequestsCount_p" executionsequence="0" id="GetAgencyAdminDashboardRequestsCount_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardRequestsCount_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GetAgencyAdminDashboardStatementDetail_p" executionsequence="2" id="GetAgencyAdminDashboardStatementDetail_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardStatementDetail_p" operation="5" viewid="agencyAdminDashboard_commission_list_1">
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="calander_year" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="Commissionable_Producer_ID" seq="3"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GenerateHierarchyTree_p_nlevel_agency_admin" executionsequence="3" id="GenerateHierarchyTree_p_nlevel_agency_admin" metaobject="agencyAdmin" name="GenerateHierarchyTree_p_nlevel_agency_admin" operation="5" viewid="generateHierarchyTree_list_1">
+          <parameteroperation indexno="11" mode="IN" property="producer_number_id" seq="10"/>
+          <parameteroperation indexno="12" mode="IN" property="individual_status" seq="11"/>
+          <parameteroperation indexno="13" mode="IN" property="include_producer_number" seq="12"/>
+          <parameteroperation indexno="17" mode="IN" property="user_id" seq="16"/>
+          <parameteroperation indexno="15" mode="IN" property="include_location" seq="14"/>
+          <parameteroperation indexno="10" mode="IN" property="sub_producer_number" seq="9"/>
+          <parameteroperation indexno="14" mode="IN" property="cluster_hierarchy" seq="13"/>
+          <parameteroperation indexno="9" mode="IN" property="sub_producer_name" seq="8"/>
+          <parameteroperation indexno="16" mode="IN" property="include_closed_producers" seq="15"/>
+          <parameteroperation indexno="7" mode="IN" property="ClientID" seq="6"/>
+          <parameteroperation indexno="6" mode="IN" property="external_system" seq="5"/>
+          <parameteroperation indexno="5" mode="IN" property="producer_status" seq="4"/>
+          <parameteroperation indexno="4" mode="IN" property="personproducer" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="agent_appointment" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="agent" seq="1"/>
+          <parameteroperation indexno="8" mode="IN" property="include_sub_producer" seq="7"/>
+          <parameteroperation indexno="1" mode="IN" property="agencyadmin_agency_id" seq="0"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        <storedprocedureoperation dbspname="GetAgencyAdminDashboardCCBStatementDetail_p" executionsequence="4" id="GetAgencyAdminDashboardCCBStatementDetail_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardCCBStatementDetail_p" operation="5" viewid="agencyAdminDashboard_ccbStatement_list_01">
+       		<parameteroperation indexno="1" mode="IN" property="ccb_bonus_year" seq="1"/>
+       		<parameteroperation indexno="2" mode="IN" property="user_id" seq="2"/>
+       		<parameteroperation indexno="3" mode="IN" property="Client_ID" seq="3"/>
+       		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       	</storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.checkRoleIDSalesAdmin" name="view2" seq="2">
+        <businessobject executionsequence="24" name="MarketRepDashBoardBo" obj="com.userbo.obsolete.MarketRepDashBoardBo"/>
+      </workflow>
+      <workflow eval="ProducerOneRule.checkSelfServicePrivilege" name="view3" seq="3">
+        <function eval="ProducerOneRule.checkIsAgencyIdEmpty" executionsequence="0" functionid="putValueIncontextFromSession" name="assignValueFromSession" parameters="context,agency_id"/>
+        <storedprocedureoperation dbspname="getSelfServiceDataByUserId_p_java" executionsequence="0" id="getSelfServiceDataByUserId_p_java" metaobject="homeAction" name="getSelfServiceDataByUserId_p_java" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="contact_spinn_security" seq="2"/>
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="getHierarchyListByTypeForAgencyAdmin_p" executionsequence="1" eval="ProducerOneRule.isShowingLocationHierarchyAgencyAdmin" id="getHierarchyListByTypeForAgencyAdmin_p" metaobject="hierarchy" name="getHierarchyListByTypeForAgencyAdmin_p" operation="5" viewid="hierarchyTree_list_1">
+          <parameteroperation indexno="1" mode="IN" property="hierarchy_type_code_filter" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="agency_id" seq="1"/>
+          <parameteroperation indexno="3" mode="IN" property="producer_number_id" seq="2"/>
+          <parameteroperation indexno="4" mode="IN" property="person_id" seq="3"/>
+          <parameteroperation indexno="5" mode="IN" property="primaryAgencyAddressType" seq="4"/>
+          <parameteroperation indexno="6" mode="IN" property="primaryAgentAddressType" seq="5"/>
+          <parameteroperation indexno="7" mode="IN" property="filterXml" seq="6"/>
+          <parameteroperation indexno="8" mode="IN" property="ClientID" seq="7"/>
+          <parameteroperation indexno="9" mode="IN" property="hierarchyNumberOfRows" seq="8"/>
+          <parameteroperation indexno="10" mode="IN" property="isNationalAgencyAsLocationRequired" seq="9"/>
+          <parameteroperation indexno="11" mode="IN" property="user_id" seq="10"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        
+        
+         <storedprocedureoperation dbspname="GenerateagencycodehierarchyForAgencyAdmin_p" eval="ProducerOneRule.isShowingReportingOrCommisionHierarchy" executionsequence="2" id="GenerateagencycodehierarchyForAgencyAdmin_p" metaobject="hierarchy" name="GenerateagencycodehierarchyForAgencyAdmin_p" operation="5" viewid="hierarchyTree_list_1">
+          <parameteroperation indexno="0" mode="IN" property="agency_id" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="show_address_reporting_hierarchy_security" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="show_agencycode_reporting_hierarchy_security" seq="3"/>
+          <parameteroperation indexno="3" mode="IN" property="show_associated_contact_reporting_hierarchy_security" seq="4"/>
+          <parameteroperation indexno="4" mode="IN" property="hierarchy_type_code_filter" seq="5"/>
+          <parameteroperation indexno="5" mode="IN" property="filterXml" seq="6"/>
+          <parameteroperation indexno="6" mode="IN" property="is_show_national_agency_code" seq="7"/>
+          <parameteroperation indexno="7" mode="IN" property="user_id" seq="8"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+        </storedprocedureoperation>
+        
+      </workflow>
+      <workflow eval="ProducerOneRule.checkSelfServicePrivilege" name="view5" seq="5">
+        <storedprocedureoperation dbspname="GetAgencyAdminProducerOneMessages_p" executionsequence="0" id="GetAgencyAdminProducerOneMessages_p" metaobject="homeAction" name="GetAgencyAdminProducerOneMessages_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="isShowAgencyAdminTaskDashBoard" name="view6" seq="6">
+        <storedprocedureoperation dbspname="getWorkflowStatusCount_p" executionsequence="1" id="getWorkflowStatusCount_p" metaobject="homeAction" name="getWorkflowStatusCount_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="audit_year" seq="2"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      
+      <workflow name="view7" seq="7" eval="isShowAgencyAdminAgencyProfileReportDasboard"> 
+        <storedprocedureoperation dbspname="GetAgencyAdminDashboardProfileReportDetail_p" executionsequence="4" id="GetAgencyAdminDashboardProfileReportDetail_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardProfileReportDetail_p" operation="5" viewid="agencyAdminDashboardAgencyProfileReport_list_01">
+             		<parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+             		<parameteroperation indexno="1" mode="IN" property="ap_calander_year" seq="2"/>
+             		<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+             	</storedprocedureoperation>
+      </workflow>
+      <workflow name="view8" seq="8" eval="isShowAgencyAdminACRAOutputDashBoard">
+      	<storedprocedureoperation dbspname="GetAgencyAdminDashboardACRAOutputDetail_p" executionsequence="3" id="GetAgencyAdminDashboardACRAOutputDetail_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardACRAOutputDetail_p" operation="5" viewid="agencyAdminDashboard_ACRAOutput_list_01">
+             		<parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+             		<parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+             		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+         </storedprocedureoperation>
+         <storedprocedureoperation dbspname="GetAgencyAdminDashboardACRAOutputDetailWithoutAnnualRun_p" executionsequence="3" id="GetAgencyAdminDashboardACRAOutputDetailWithoutAnnualRun_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardACRAOutputDetailWithoutAnnualRun_p" operation="5" viewid="agencyAdminDashboard_ACRAOutputWithOutAnnualRun_list_01">
+          		<parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+          		<parameteroperation indexno="2" mode="IN" property="Client_ID" seq="2"/>
+          		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+          </storedprocedureoperation>
+      </workflow>
+      
+      <workflow name="view9" seq="9" eval="isShowAgencyAdminProfitSharingDasboard">
+      	<storedprocedureoperation dbspname="GetAgencyAdminDashboardProfitSharingStatementDetail_p" executionsequence="4" id="GetAgencyAdminDashboardProfitSharingStatementDetail_p" metaobject="agencyAdmin" name="GetAgencyAdminDashboardProfitSharingStatementDetail_p" operation="5" viewid="agencyAdminDashboard_ProfitSharingStatement_list_01">
+       		<parameteroperation indexno="1" mode="IN" property="ccb_bonus_year_profitsharing" seq="1"/>
+       		<parameteroperation indexno="2" mode="IN" property="user_id" seq="2"/>
+       		<parameteroperation indexno="3" mode="IN" property="Client_ID" seq="3"/>
+       		<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       	</storedprocedureoperation>
+      </workflow>
+      
+ 		<!-- Phase 3- Agent Role -->
+       <workflow deltaind="I" name="go3" seq="10">
+       <databaseoperation deltaind="I" executionsequence="1" metaobject="person" name="getAgentChecked" operation="3" sqlstmt="select contacttype from person where LOGIN_ID=#user_id#"/> 
+      </workflow>
+    <actionparam deltaind="I" executionsequence="1" form="Y" name="contacttype" paramid="contacttype" post="Y" session="Y"/>
+        <!-- Phase 3- Agent Role -->      
+      
+    </action>
+      </component> 
+</projectcomponents>

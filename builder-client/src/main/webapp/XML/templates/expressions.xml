@@ -1,0 +1,32 @@
+<evalrules project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+    <conditionset name="">
+    	<nodeinfo uniqueid="name"/>
+        <condition id="" operator="" conditionobject="" datatype="">
+        	<nodeinfo uniqueid="id">
+        		<implements interface="IEvaluate"/>
+        	</nodeinfo>
+        	<lvalue value="" valuetype="">
+        		<nodeinfo uniqueid="seq">
+        			<extends class="ConditionValue"/>
+            	</nodeinfo>
+            </lvalue>
+            <rvalue value="" valuetype="">
+            	<nodeinfo uniqueid="seq">
+            		<extends class="ConditionValue"/>
+            	</nodeinfo>
+            </rvalue>
+        </condition>
+    </conditionset>
+
+    <expressionset name="">
+    	<nodeinfo uniqueid="name"/>
+    	<expression id="" evaluate="">
+    		<nodeinfo uniqueid="id">
+        		<implements interface="IEvaluate"/>
+        	</nodeinfo>
+    	</expression>	
+    </expressionset>
+</evalrules>

@@ -1,0 +1,8 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component metaobject="producer_number_transfer;producer_number_transfer_filters" name="bobtransfersStep1" stackdisplayname="Transfers Step1" displayname="BOB Transfers Step1">
+		<action deltaind="M" name="submitsearch">
+			<actionparam deltaind="I" executionsequence="1" form="Y" name="producer_number_from_varchar" paramid="producer_number_from_varchar" pre="Y" session="Y" />
+			<actionparam deltaind="I" executionsequence="1" form="Y" name="producer_number_to_varchar" paramid="producer_number_to_varchar" pre="Y" session="Y" />
+		</action>
+	</component>
+</projectcomponents>

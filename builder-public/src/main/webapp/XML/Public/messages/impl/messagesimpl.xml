@@ -1,0 +1,22 @@
+<messages  project="Public">
+
+<!--Sprint 1 : Completion of Agency Application: Step1_Agency Application -->
+
+	<message deltaind="M" msglevel="W" msgkey="taxPayerNameErrorKey" message="Please enter W-9 Legal Name"></message>
+	
+<!-- bug id 0016 -->
+<message deltaind="M" msglevel="W" msgkey="legalFormSelectErrorKey" message="Please select Legal Form"></message>
+<message deltaind="I" msglevel="W" msgkey="pleaseSelectHRP" message="Please select Highest Ranking Principal"></message>
+<message deltaind="I" msglevel="W" msgkey="hrpAlreadyExists" message="Highest Ranking Principal Exists Already"></message>
+<!-- bug id 0106 -->
+
+	 <message deltaind="M" msglevel="W" msgkey="StreetAddress1BusinessErrorKey" message="Please enter Street Address #1 - businessAddressLabel"></message>
+	 <message deltaind="M" msglevel="W" msgkey="ZipCodeResidenceErrorKey" message="Please enter Zip Code - businessAddressLabel"></message>
+	 <message deltaind="M" msglevel="W" msgkey="CityBusinessErrorKey" message="Please enter City - businessAddressLabel"></message>
+<!-- bug id 0082 -->
+ <message deltaind="I" message="Please select dividend distribution" msgkey="DividendDistributionErrorKey" msglevel="W"/>
+ <message deltaind="I" message="Please select policyholder copies" msgkey="PolicyHolderCopiesErrorKey" msglevel="W"/>
+
+
+</messages>
+

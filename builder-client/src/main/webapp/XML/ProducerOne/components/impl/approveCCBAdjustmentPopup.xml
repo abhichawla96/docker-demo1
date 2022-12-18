@@ -1,0 +1,19 @@
+<projectcomponents project="ProducerOne">
+  <component name="approveCCBAdjustmentPopup" metaobject="approveRates">
+    <action deltaind="M" name="submitForApproval">  
+ <!-- Phase 3- Task Id- 30033- CCB initiate mail -->
+     	<workflow  deltaind="M" name="submitForApproval" seq="0" eval="ProducerOneRule.assignDateFields">   
+   			<email deltaind="I" eventname="CCBAdjustmentSendForApproval" executionsequence="3" name="CCBAdjustmentSendForApproval" workflow="selfServiceWorkFlow" mailto="email_notification_agency_toemail_address"/>
+ 		</workflow>
+     </action>
+     
+ <!-- Phase 3 : CCB Approval Disapproval Email -->
+ 	<action deltaind="M" name="approveDisapprove">
+      	<workflow deltaind="M" name="approveDisapprove" seq="0" eval="ProducerOneRule.assignDateFields">
+      		<email deltaind="I" eval="ProducerOneRule.checkCCBStatementDisApproved" eventname="CCBAdjustmentReject" executionsequence="6" name="CCBAdjustmentReject" workflow="selfServiceWorkFlow" mailto="email_notification_agency_toemail_address"/>
+      		<email deltaind="I" eval="ProducerOneRule.checkCCBStatementApproved" eventname="CCBAdjustmentApprove" executionsequence="6" name="CCBAdjustmentApprove" workflow="selfServiceWorkFlow" mailto="email_notification_agency_toemail_address"/>
+      </workflow>
+    </action>
+    
+  </component>
+</projectcomponents>

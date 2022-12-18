@@ -1,0 +1,60 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="bank_information_ss;entityRequestsSelfService;requests" name="bankInformationForSelfServiceApproval" stackdisplayname="Request">
+    
+    <!-- Phase 2 - SS-009-006-01 - Email to Sales Support once the request is Assigned -->
+    <action deltaind="M" name="sendBankInformationForAgencySelfserviceApprovalOnModify">
+    	<workflow deltaind="I" name="selfServiceInitiateEmail" seq="4">
+	    	<databaseoperation deltaind="I" executionsequence="0" metaobject="userprofiles" name="getMarketAssistantEmail" operation="3" sqlstmt="select e_mail as e_mail from userprofiles where user_id=#workflow_user#"/>
+			<databaseoperation deltaind="I" executionsequence="1" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Agency_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+			<email deltaind="I" eventname="InitiateSelfServiceRequest" executionsequence="2" name="InitiateSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/>
+	  	</workflow>
+    </action>
+    
+    <!-- Phase 2 - SS-009-006-02 - Email to Agency Admin once the request is Approved -->
+    <action deltaind="M" name="apprvoveRequests">
+    	<actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+    	<actionparam deltaind="I" executionsequence="0" form="Y" name="request_ss_id" paramid="request_ss_id" viewparam="Y"/>
+    	
+	    <workflow deltaind="I" name="selfServiceApproveEmail" seq="2">
+	    	<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+			<databaseoperation deltaind="I" executionsequence="1" metaobject="requests" name="getAgencyAdminApproverName" operation="3" sqlstmt="select top 1 req.assignee as workflow_assignee from workflowrequests as req join tbl_invitation_status_lku as status on req.workflowstatus_id=status.invitation_status_id join workflowrequestsstatus as reqsts on reqsts.workflowrequests_id=req.workflowrequests_id where req.objectid=#request_ss_id# order by workflowrequestsstatus_id desc"/>
+			<!-- Changes done for prod bug 31110  -->
+			<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			<!-- <email deltaind="I" eventname="ApproveSelfServiceRequest" executionsequence="2" name="ApproveSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/> -->
+		</workflow>
+		<!-- Phase 2 - Bug ID- P2-103 - Changed the name of workflowevent as the earlier one contained the 'parentevent' attribute - Start -->
+		
+		<workflowevent deltaind="M" ajaxcontainerid="divComplete" event="approveSelfServiceBankRequestSelfServiceNew" isgetuser="Y" name="approveSelfServiceBankRequestSelfService1" userfield="workflow_user" workflow="selfServiceWorkFlow"/>
+   		
+   		<!-- Phase 2 - Bug ID- P2-103 - Changed the name of workflowevent as the earlier one contained the 'parentevent' attribute - End -->
+    </action>
+    
+   <!-- Phase 2 - SS-006-03 - Add Bank Information - Default values in Drop-down -->
+	<action deltaind="M" name="view">
+		<actionparam deltaind="I" executionsequence="0" form="Y" pre="Y" name="bank_account_status" paramid="bank_account_status" val="1" viewparam="Y"/>
+		<actionparam deltaind="I" executionsequence="0" form="Y" pre="Y" name="payment_type" paramid="payment_type" val="3" viewparam="Y"/>
+	</action>	    
+	    
+	<!-- Phase 2 - P2-084 - Removing Validation for Attach Document -->
+	<action deltaind="M" name="sendBankInformationForAgencySelfserviceApprovalOnModify">
+      <validatefield deltaind="M" name="validatefieldFileUpload">
+                <function deltaind="D" name="uploadDocumentEmptyCheck" functionid="uploadDocumentEmptyCheck" parameters="context" executionsequence="0" />
+      </validatefield>
+	 </action>
+	  
+	  <!-- Phase 2 - SS-009-006-03 - Email to Agency Admin once the request is Declined -->
+	  <action deltaind="M" name="declineRequests">
+	  	<actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+	  	<workflow deltaind="M" eval="ProducerOneRule.assignDateFields" name="disapprvoveRequests" seq="0">
+	  		<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getAgencyAdminDisApproverName" operation="3" sqlstmt="select top 1 req.assignee as workflow_assignee from workflowrequests as req join tbl_invitation_status_lku as status on req.workflowstatus_id=status.invitation_status_id join workflowrequestsstatus as reqsts on reqsts.workflowrequests_id=req.workflowrequests_id where req.objectid=#request_ss_id# order by workflowrequestsstatus_id desc"/>
+		<!-- 18480 UAT2 Bug -->
+	    	
+	    	<!-- Changes done for prod bug 31110  -->
+	    	<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+		
+		</workflow>
+	  </action>
+  </component>
+</projectcomponents>

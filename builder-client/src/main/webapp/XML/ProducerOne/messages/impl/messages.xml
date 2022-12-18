@@ -1,0 +1,17 @@
+<messages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/messages_XSD.xsd">
+  <!-- bug id 0082 -->
+ <message deltaind="I" message="Please select dividend distribution" msgkey="DividendDistributionErrorKey" msglevel="W"/>
+ <message deltaind="I" message="Please select policyholder copies" msgkey="PolicyHolderCopiesErrorKey" msglevel="W"/>
+ <message deltaind="I" message="Please select Agent copies" msgkey="AgentCopiesErrorKey" msglevel="W"/>
+ <message deltaind="I" message="Welcome email has been sent successfully." msgkey="WelcomeemailSentSuccessfullyErrorKey" msglevel="W "/>
+  <!-- BMIC customization - delete icon -->
+ <message deltaind="I" message="Invitation deleted successfully." msgkey="deleteInvitationErrorKey" msglevel="W "/>
+ 
+ <!-- START bug id U-081 - double asterisk sign for close agency code -->
+ <message deltaind="I" message="Please enter Agency Code" msgkey="agencyCodeMendatoryErrorMsg" msglevel="W "/>
+ <!-- END bug id U-081 - double asterisk sign for close agency code -->
+  	<message deltaind="M" message="From Agency Code does not exists" msgkey="fromagentNumberNotExistsErrorKey" msglevel="W " />
+	<message deltaind="M" message="Destination Agency Code does not exists" msgkey="agentNumberNotExistsErrorKey" msglevel="W " />
+	<message deltaind="M" message="From Agency Code and Destination Agency Code can not be same" msgkey="fromToAgentNumberCanNotSameErrorKey" msglevel="W " />
+
+ </messages>

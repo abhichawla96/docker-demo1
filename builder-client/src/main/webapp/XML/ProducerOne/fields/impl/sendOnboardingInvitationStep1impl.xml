@@ -1,0 +1,12 @@
+<fields project="ProducerOne">
+<field deltaind="M" id="sendOnboardingInvitationStep1_comments" screen="carrier/sendOnboardingInvitationStep1.html" name="comments" isrequired="N" requiredeval="invitationStep1_comments_manadatory_security" labelkey="invitationStep1_comments_label" tabsconfigurationresourcename="invitationStep1_comments_security" protectedresourceuniquename="invitationStep1_comments_security" isextendedfield="N" executionsequence="0" isencrypt="N" isprintbeforelabel="N" iscacheenabled="N" requiredlength="0" />
+ 
+ <field id="sendOnboardingInvitationStep1_entity_name_forInvitation" screen="carrier/sendOnboardingInvitationStep1.html" name="entity_name_forInvitation" isrequired="Y" labelkey="invitationStep1_entity_name_label" tabsconfigurationresourcename="invitationStep1_entity_name_security" protectedresourceuniquename="invitationStep1_entity_name_security" isextendedfield="N" executionsequence="0" isencrypt="N" isprintbeforelabel="N" iscacheenabled="N" requiredlength="0">
+    <validation name="checkEntityNameForInvitation" expression="if(andCondition(isEqual(:isSendInvitationNewClicked,Y),isEmpty(:entity_name_forInvitation))=&gt;isEqual(1,2)-&gt;isEqual(1,1));" message="agencyEntityBlankErrorKey" ruleid="ProducerOneRule.checkEntityNameForInvitation" executionsequence="0" />
+  </field>
+  
+<field deltaind="M" id="sendOnboardingInvitationStep1_dummyFieldToValidateAtleast1DocumentAttachment" screen="carrier/sendOnboardingInvitationStep1.html" name="dummyFieldToValidateAtleast1DocumentAttachment" isrequired="N" isextendedfield="N" executionsequence="0" isencrypt="N" isprintbeforelabel="N" iscacheenabled="N" requiredlength="0">
+    <validation name="validateAtleast1DocumentAttachment" isskip="Y" expression="if(isEqual(:atleatst1DocumentMandatoryWhileSendInvitation,Y)=&gt;checkAtleatst1DocumentMandatoryWhileSendInvitationValidation(context);isEqual(1,1)-&gt;isEqual(1,1))" ruleid="SendInvitationRule.validateAtleast1DocumentAttachment" executionsequence="0" />
+  </field>
+  
+</fields>

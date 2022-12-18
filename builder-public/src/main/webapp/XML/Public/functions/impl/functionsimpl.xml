@@ -1,0 +1,17 @@
+<functionsdef seq="0" project="Public">
+  
+ <functiondefinition deltaind="I" classname="com.userbo.impl.PublicUtils" method="splitContactType" name="splitContactType" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+   </functiondefinition>
+   
+   <functiondefinition deltaind="I" classname="com.userbo.impl.PublicUtils" method="setHRPAndOwnership" name="setHRPAndOwnership" returntype="V">
+    <argument datatype="com.util.Context" name="context" seq="0"/>
+   </functiondefinition>
+   
+   <!-- Phase 3-Agent Checkbox -->
+ <functiondefinition deltaind="I" classname="com.userbo.impl.PublicUtils" method="showContactTypeList1" name="showContactTypeList1" returntype="V">
+ <argument datatype="com.util.Context" name="context" seq="0"/>
+ </functiondefinition>
+ 
+ 
+</functionsdef>

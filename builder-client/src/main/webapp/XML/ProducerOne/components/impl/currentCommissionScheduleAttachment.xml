@@ -1,0 +1,17 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="commission" name="currentCommissionScheduleAttachment" objectcolumn="Producer_Number_Commission_Schedule_ID" objecttype="Commission Rate">
+    
+    <!-- Phase 3 : Agency Code in Variance Approval Email : Start -->
+    <action deltaind="M" name="modifyAttachSchedule">
+      <actionparam deltaind="I" executionsequence="3" form="Y" name="producer_numbers" paramid="producer_numbers" viewparam="Y"/>
+    </action>
+    <action deltaind="M" name="approveNew">
+	      <actionparam deltaind="I" executionsequence="0" form="Y" name="producer_numbers" paramid="producer_numbers" viewparam="Y" post="Y"/>
+	 </action>
+     <action deltaind="M" name="disApproveNew">
+	      <actionparam deltaind="I" executionsequence="0" form="Y" name="producer_numbers" paramid="producer_numbers" viewparam="Y" post="Y"/>
+	 </action>
+	 <!-- Phase 3 : Agency Code in Variance Approval Email : End -->
+	 
+  </component>
+</projectcomponents>

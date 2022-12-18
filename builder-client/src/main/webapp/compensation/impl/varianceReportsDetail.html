@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body>
+    <form>
+      <div id="cover" />
+      <div id="contextLinks" />
+      <div id="ITApprovePopup">
+      	<!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="varianceReportsdetail_close" href="#" onclick="clean();closePopUp('ITApprovePopup');" class="close">
+                    <img src="images/close.png" />
+                  </a>
+                  Approve
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  Are you sure you want to Approve?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="varianceReportsdetail_yes"  href="javascript:submitform('carrier/homeAction.html','varianceReportsDetail.approve','','');" class="ovalbutton">
+                    <span>Yes</span>
+                  </a>
+                  <a id="varianceReportsdetail_no" href="#" onclick="clean();closePopUp('ITApprovePopup');" class="ovalbutton">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <div id="ITDisApprovePopup">
+      	<!-- Modal -->
+        <div class="modal fade modal_popup">
+          <div class="modal-dialog modal-dialog-width_350">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  <a id="varianceReportsdetail_clsoe2" href="#" onclick="clean();closePopUp('ITDisApprovePopup');" class="close">
+                    <img src="images/close.png" />
+                  </a>
+                  Disapprove
+                </h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body-scroll popup_small_height">
+                  Are you sure you want to Disapprove?
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttonwrapper">
+                  <a id="varianceReportsdetail_yes1" href="javascript:submitform('carrier/homeAction.html','varianceReportsDetail.disapprove','','');" class="ovalbutton">
+                    <span>Yes</span>
+                  </a>
+                  <a id="varianceReportsdetail_no1" href="#" onclick="clean();closePopUp('ITDisApprovePopup');" class="ovalbutton">
+                    <span>No</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>  
+<div class="container-fluid bootstrap-node-varianceReport searchResults">
+	<div class="tableWidth no-sidebar">
+		<!---------Header Start---------->
+		<header>
+			<span id="#Include:carrier/carrierHeader.html#"></span>
+		</header>
+		<!---------Header End---------->
+		
+		<div class="bgmain">
+			<!---------Menu Level 2 Start---------->
+			<nav class="menu-level-2">
+				<span id="#Include:carrier/blankTabs.html#"></span>
+			</nav>
+			<!---------Menu Level 2 End---------->
+			
+			<article class="content sidebar-content">
+				<!---------Body content Start---------->
+				<div class="panel-body-wraper" id="tdContent">
+					<!---------page Level msg Start---------->
+					<div class="errorMsgAlign clear-both">
+						
+					</div>
+					<div class="ConfirmationAlign clear-both">
+						
+					</div>
+					<!---------page Level msg End---------->
+					
+					<section class="free-form">
+						<fieldset>
+	                        <legend>Commission Variance Reports</legend>
+	                        <div class="generalBlock">
+	                        	<ul class="split-list">
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|projectID|backPageAction|','|ACH113-1|ProducerOne|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+	                              	Paid Commissions by ACH and Check ACH100 (ACH113-1)</a>
+	                              	
+	                                <div class="trigger" onclick="showBranch('branch1af');swapFolder('folder1af')">
+                                      <img src="images/plus.gif" name="folder1af" border="0" id="folder1af" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch1af">
+	                                  <div>
+	                                    This report displays detailed variance report.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|projectID|backPageAction|','|ACH113-2|ProducerOne|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+	                                	Monthly Producer Commission Validation ACH200 (ACH113-2)</a>
+	                              	
+	                                <div class="trigger" onclick="showBranch('branch1ab');swapFolder('folder1ab')">
+                                      <img src="images/plus.gif" name="folder1ab" border="0" id="folder1ab" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch1ab">
+	                                  <div>
+	                                    This report displays detailed variance report.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                              
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|projectID|backPageAction|','|ACH113-3|ProducerOne|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+	                              		Producer Commission Statement ACS010 (ACH113-3)</a>
+	                              	
+	                                <div class="trigger" onclick="showBranch('branch2ac');swapFolder('folder2ac')">
+                                      <img src="images/plus.gif" name="folder2ac" border="0" id="folder2ac" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch2ac">
+	                                  <div>
+	                                    This report displays Monthly agent commission validation.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                              
+	                              <li>
+	                              <!-- Phase 3- Reports- BMIC specific -->
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|projectID|backPageAction|','|AIM110-Master|ProducerOne|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+	                              		Commission Paid at Master level exceeding $50000</a>
+	                              	
+	                                <div class="trigger" onclick="showBranch('branch2ad');swapFolder('folder2ad')">
+                                      <img src="images/plus.gif" name="folder2ad" border="0" id="folder2ad" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch2ad">
+	                                  <div>
+	                                  	 <!-- Phase 3- Reports- BMIC specific -->
+	                                    This report displays commission paid details at master level which exceeding $50000.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                            </ul>
+	                        </div>
+	                     </fieldset>
+					</section>
+					
+					<section class="free-form">
+						<fieldset>
+	                        <legend>Audit Reports</legend>
+	                        <div class="generalBlock">
+	                        	<ul class="split-list">
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|backPageAction|','|preLoadControl|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                                    	Audit Pre Load Report</a>
+                                    <div class="trigger" onclick="showBranch('branch1a');swapFolder('folder1a')">
+                                      <img src="images/plus.gif" name="folder1a" border="0" id="folder1a" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch1a">
+	                                  <div>
+	                                    This report displays pre load details.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|backPageAction|','|postLoadControl|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+	                              		<label id="etl_label">ETL</label> Process Post load</a>
+                                    <div class="trigger" onclick="showBranch('branch1b');swapFolder('folder1b')">
+                                      <img src="images/plus.gif" name="folder1b" border="0" id="folder1b" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch1b">
+	                                  <div>
+	                                    This report displays post load details.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|projectID|backPageAction|','|errorLog|ProducerOne|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                                  		<label id="etl_label">ETL</label> Transaction Error</a>
+                                    <div class="trigger" onclick="showBranch('branch2a');swapFolder('folder2a')">
+                                      <img src="images/plus.gif" name="folder2a" border="0" id="folder2a" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch2a">
+	                                  <div>
+	                                    This report displays <label id="etl_label">ETL</label> Transaction error details.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                              <li>
+	                              	<a class="ico_block" href="javascript:managereport('|reportID|backPageAction|','|commissionErrorLog|homeAction.getStatementGenerated|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');">
+                                    	Commission Calculation Error Log</a>
+                                    <div class="trigger" onclick="showBranch('branch2b');swapFolder('folder2b')">
+                                      <img src="images/plus.gif" name="folder2b" border="0" id="folder2b" />
+                                      Description
+                                    </div>
+	                                <div class="branch" id="branch2b">
+	                                  <div>
+	                                    This report displays commission calculation error log.
+	                                  </div>
+	                                </div>
+	                              </li>
+	                            </ul>
+	                        </div>
+	                     </fieldset>
+					</section>
+					
+					<section id="hide_show_commission_statement_approver_list_security" class="list-grid">
+						<fieldset>
+							<legend>Approvals</legend>
+							<div id="ajax_sorting_1" class="gridTopPadding4">
+                               <table cellpadding="3" cellspacing="0" width="100%" class="gridTable" id="GetRoleHistory_list_01">
+                                 <tr id="GetRoleHistory_list_header_01">
+                                   <td width="6%" class="HeaderStyle" id="block_field_role_id">Role/User</td>
+                                   <td class="HeaderStyle" id="block_field_approved" width="7%">Approval Status</td>
+                                   <td width="8%" class="HeaderStyle" id="block_field_user_name">Approved by</td>
+                                   <td width="8%" class="HeaderStyle" id="block_field_LogTime">Approved Time</td>
+                                 </tr>
+                                 <tr id="GetRoleHistory_list_data_01">
+                                   <td id="block_field_role_id" />
+                                   <td id="block_field_approved" />
+                                   <td id="block_field_user_name" />
+                                   <td id="block_field_LogTime" />
+                                 </tr>
+                               </table>
+                             </div>
+						</fieldset>
+					</section>
+					
+					<section>
+						<div class="buttonwrapper" id="varianceReportsDetail123_freeform_contextdata_01">
+	                       <span id="checkVarianceReportApproval">
+	                         <span id="hide_show_commission_statement_approver_list_security">
+	                           <a href="#" onclick="showPopUp('ITApprovePopup');" class="ovalbutton">
+	                             <span>APPROVE</span>
+	                           </a>
+	                           <a href="#" onclick="showPopUp('ITDisApprovePopup');" class="ovalbutton">
+	                             <span>DISAPPROVE</span>
+	                           </a>
+	                         </span>
+	                        </span>
+	                        <a href="javascript:submitform('carrier/homeAction.html','varianceReportsDetail.cancel','','');" class="ovalbutton">
+	                           <span>Cancel</span>
+	                         </a>
+	                       </div>
+					</section>
+					
+				</div>
+				<!---------Body content End---------->
+				
+			</article>
+		</div>
+		<!---------Footer Start---------->
+		<footer>
+			<span id="#Include:admin/adminFooter.html#"></span>
+		</footer>
+		<!---------Footer End---------->
+	</div>
+</div>      
+      
+      <div id="agencyPendingComplianceSubmission_freeform_contextdata_0">
+            <input type="hidden" name="jsessionid" id="jsessionid" />
+            <input type="hidden" name="pone_alert_id" id="ajax_field_pone_alert_id" />
+            <input type="hidden" name="curr_month" id="ajax_field_curr_month" />
+            <input type="hidden" name="curr_year" id="ajax_field_curr_year" />
+            <input type="hidden" name="curr_period" id="ajax_field_curr_period" />
+            <input type="hidden" name="Status" id="ajax_field_Status" />
+            <input type="hidden" name="statusOutput" id="ajax_field_statusOutput" />
+            <input type="hidden" name="roles" id="ajax_field_roles" />
+            <input type="hidden" name="user_id" id="ajax_field_user_id" />
+            <input type="hidden" name="Period_D" id="ajax_field_Period_D" />
+            <input type="hidden" name="statement_period" id="ajax_field_statement_period" />
+      </div>
+    </form>
+  </body>
+</html>
+

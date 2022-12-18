@@ -1,0 +1,15 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="producertype_lku;agencyListAccPublicSubmitNInvitationEditImport;" name="agencyListAccPublicSubmitNInvitationEditImport" stackdisplayname="entitytablabel Name Clearance Confirmation">
+  
+    <action name="submitAgencyNew" deltaind="M">
+      <workflow deltaind="I" name="createHouseAccount" seq="5">      		
+      	<storedprocedureoperation dbspname="insertHouseAccount_p" executionsequence="0" id="insertHouseAccount_p" metaobject="person" name="insertHouseAccount_p" operation="1">
+          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+        </storedprocedureoperation>
+      </workflow> 
+    </action>
+   
+  </component>
+</projectcomponents>

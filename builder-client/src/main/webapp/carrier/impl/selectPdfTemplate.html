@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <!-- tag for resolution change -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>ProducerOne - Producer Management Center</title>
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/all_files.js" />
+  </head>
+  <body class="adminSection node1" onload="javascript:showPdfTemplateReadOnly();initSample();">
+    <form>
+     <div id="selectPdfTemplate">
+      <div id="cover" />
+      <div id="contextLinks" />
+      <div id="divComplete">
+	      <div class="container-fluid bootstrap-node-1">
+	        <div class="tableWidth">
+	          <!--=======Header Start========-->
+	         <header id="#selectPdfTemplate_carrierHeaderInclude#"> 
+	         	<span id="#Include:carrier/carrierHeader.html#" />
+			 </header>
+			<!--  <header id="#selectPdfTemplate_adminHeaderInclude#"> 
+	         	<span id="#Include:carrier/carrierHeader.html#" />
+			 </header> -->
+	          <!--=======Header End========-->
+	          <div class="bgmain">
+				<nav class="menu-level-1 tab" id="#selectPdfTemplate_carrierTabs1Include#"> <span
+					id="#Include:carrier/carrierTabs1.html#" /> </nav>
+				<nav class="menu-level-2" id="#selectPdfTemplate_carrierTabs2Include#"> <span
+					id="#Include:carrier/carrierTabs2.html#" /> </nav>
+				<nav class="menu-level-1 tab" id="#selectPdfTemplate_adminTabsInclude#"> <span
+					id="#Include:admin/adminTabs.html#" /> </nav>
+				<nav class="menu-level-2" id="#selectPdfTemplate_adminTabs2Include#"> <span
+					id="#Include:admin/adminTabs2.html#" /> </nav>			
+	            
+	            <article class="content sidebar-content" id="contentTableDiv">
+	              	<!--=======Sidebar Start========-->
+		              <div id="sidebar_left_security_admin" class="sideBar_admin">
+		                <span id="#Include:admin/adminSideBar.html#" />
+		              </div>
+		              <!--=======Body content Start========-->
+		              <div class="panel-body-wraper selectPdf" id="tdContent">
+		                <!--=======page Level msg End========-->
+		                <span id="selectPdfTemplate_label"></span>
+		                <div class="wizard_border paddingTop30">
+		                  <div class="wizard_scroll form-inline" id="selectPdfTemplate_freeform_contextdata_1">
+		                    <div>
+		                  		<center><label name="pageMsg" id="pageMsg" class="Confirmation"/></center>
+		                  	</div>
+		                  	<div>
+		                  		&nbsp;
+		                  	</div>
+		                    <ul>
+		                      <li class="inlineBlock_1" id="selectPdfTemplate_document_name_security">
+		                        <div class="freeFormList form-group">
+		                          <div class="freeFormListTr">
+		                            <div class="freeFormListTdError">
+		                              <h6>#space#</h6>
+		                            </div>
+		                            <div class="freeFormListTdError">
+			                            <div id="ajax_error_document_name" class="error" />
+			                          </div>
+		                          </div>
+		                          <div class="freeFormListTr">
+		                            <div class="freeFormListTd labelAlign valignTop" style="width:500px;">
+		                            	<span id="selectPdfTemplate_document_name_label">Document</span> :</div>
+			                            <div class="freeFormListTd tdInput">
+			                              <select name="document_name" 
+			                              fullid="selectPdfTemplate_freeform_contextdata_1(selectPdfTemplate.selectPdfTemplate_label).selectPdfTemplate_document_name_security.selectPdfTemplate_document_name_label.document_name"
+			                              id="ajax_field_document_name" class="form-control" style="width: 320px"
+			                              	onchange="javascript:ajaxpageblocklink('carrier/selectPdfTemplate.html','selectPdfTemplate.refresh','','','selectPdfTemplate_freeform_contextdata_1');">
+			                              </select>
+			                            </div>
+		                          </div>
+		                        </div>
+		                      </li>
+		                      <li>
+		                      	<textarea rows="25" cols="100" name="beforeHeaderFlow" id="ajax_field_beforeHeaderFlow" style="width: 100%;display: none;"></textarea>
+		                      	<textarea rows="25" cols="100" name="beforeFoFlow" id="ajax_field_beforeFoFlow" style="width: 100%;display: none;"/>
+		                      	<textarea rows="25" cols="100" name="afterFoFlow" id="ajax_field_afterFoFlow" style="width: 100%;display: none;"/>
+		                      </li>
+		                      <li class="inlineBlock_1 paddingTop10" id="invitationStep3_email_body_security" style="width:100%">
+		                        <div id="emailEventDetailDiv">
+		                           <div id="selectPdfTemplate_readonlybody_security">
+		                             <textarea rows="25" cols="100" name="bodyContent" id="ajax_field_bodyContent" style="width: 100%;display: none;"/>
+		                             <textarea rows="25" cols="100" name="body" id="ajax_field_body" style="width: 100%;display: none;"/>
+		                             <textarea id="selectPdfTemplate_readonlybody"/>
+		                           </div>
+		                         </div> 
+		                      </li>
+		                    </ul>
+		                    <section class="divButton buttons-section paddingTop10 row">
+		                      <div class="buttonwrapper paddingRight10 paddingBottom10">
+		                        <a id="selectPdfTemplate_back_security" class="ovalbutton" 
+		                        	href="javascript:submitform('carrier/selectPdfTemplate.html','selectPdfTemplate.back','','');">
+		                            <span id="selectPdfTemplate_back_label">Back</span>
+		                          </a>
+		                         <!-- <a id="editPdfBtn" class="ovalbutton editbtnPDF" onclick="javascript:showSaveChanges(1);" >Edit PDF</a>
+		                         <a id="previewPdfBtn" class="ovalbutton hidden savebtnPDF" onclick="refreshEmailBodyContent();">Preview PDF</a> -->
+		                         
+		                        <a id="selectPdfTemplate_submit_security" class="ovalbutton" onclick="javascript:refreshPdfBodyContent();"
+		                        	href="javascript:ajaxsubmitform('carrier/selectPdfTemplate.html','selectPdfTemplate.submit','','','tdContent');">
+		                            <span id="selectPdfTemplate_submit_label">Save Changes</span>
+		                          </a>
+		                          <a id="cancelPdfBtn" class="ovalbutton hidden cancelbtnPDF" onclick="javascript:showSaveChanges(2);"
+		                          	href="javascript:ajaxpageblocklink('carrier/selectPdfTemplate.html','selectPdfTemplate.refresh','','','selectPdfTemplate_freeform_contextdata_1');">
+		                          	<span id="selectPdfTemplate_cancelchanges_label">Cancel Changes</span>
+		                          </a>
+		                          <!-- <a id="selectPdfTemplate_cancelchanges_security" class="ovalbutton cancelchangesbtnPDF" onclick="javascript:showSaveChanges(2);">
+		                          	<span id="selectPdfTemplate_cancelchanges_label">Cancel Changes</span>
+		                          </a> -->
+		                      </div>
+		                    </section>
+		                  </div>
+		                </div>
+		              </div>
+		              <!--=======Body content End========-->
+	              </article>
+	            <!-- </article> -->
+	          </div>
+	          <!--=======Footer Start========-->
+	          <footer id="#selectPdfTemplate_adminFooterInclude#">
+	            <span id="#Include:admin/adminFooter.html#" />
+	          </footer>
+	          <!--=======Footer End========-->
+	        </div>
+	      </div>
+	      <div class="hiddenFields" id="selectPdfTemplate_freeform_contextdata_999">
+        <input type="hidden" name="jsessionid" id="ajax_field_jsessionid" />
+        <!-- <input type="hidden" name="dataContainerName" id="ajax_field_dataContainerName" />-->
+        <input type="hidden" name="PAGEDATAXML" id="ajax_field_PAGEDATAXML" /> 
+        <input type="hidden" name="backpagedata_context" id="ajax_field_backpagedata_context"/>
+        <input type="hidden" name="templateType" id="ajax_field_templateType" /> 
+        <input type="hidden" name="EDIT_PDF_TEMPLATE_LIST" id="ajax_field_EDIT_PDF_TEMPLATE_LIST"/>
+        <!-- Added by Sudhir for BMIC-->
+		<input type="hidden" name="Buying_Code" id="ajax_field_Buying_Code" />
+		<input type="hidden" name="Buying_Agency" id="ajax_field_Buying_Agency" />
+		<input type="hidden" name="selling_Code" id="ajax_field_selling_Code" />
+		<input type="hidden" name="Selling_Agency" id="ajax_field_Selling_Agency" />
+		<input type="hidden" name="date1" id="ajax_field_date1" />
+		<input type="hidden" name="hrp" id="ajax_field_hrp" />
+		<input type="hidden" name="addressline1" id="ajax_field_addressline1"/>
+		<input type="hidden" name="addressline2" id="ajax_field_addressline2"/>
+		<input type="hidden" name="state" id="ajax_field_state"/>
+		<input type="hidden" name="city" id="ajax_field_city"/>
+		<input type="hidden" name="zip" id="ajax_field_zip"/>
+      </div>
+      </div>
+      </div>
+    </form>
+  </body>
+</html>
+

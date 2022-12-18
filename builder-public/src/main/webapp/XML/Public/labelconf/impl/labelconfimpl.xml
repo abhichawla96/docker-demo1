@@ -1,0 +1,101 @@
+<labelconf project="Public">
+<label deltaind="M" labelkey="public1_desired_appointment_authorization_states_label" labeldesc="Please select the states you are currently licensed in and the states you are seeking Sample Insurance appointment. Sample Insurance states are in bold."/>
+<label deltaind="M" labelkey="business_address_authorization_label1" labeldesc="I authorize Sample Insurance to text or call me for claims, underwriting, marketing, or other insurance services using live operators,	automated telephone dialing systems, or prerecorded messages. Message and data rates may apply."></label>
+<label deltaind="M" labelkey="consent_e_delivery_label_heading" labeldesc="By selecting the 'I AGREE' button, you consent, at no additional cost to you, to receive the information about your agent agreement, subsequent amendments, and other information related to Builders Mutual Insurance Company solely in electronic format; you agree to use an electronic signature for the records to be signed by you. Where allowed by law, failure to acknowledge and accept these terms promptly will result in cancellation of your agency agreement."></label>   <!-- consent changed -->
+<label deltaind="M" labelkey="consent_e_delivery_label_d" labeldesc="You will be able to access notices, disclosures, authorizations, acknowledgements and other documents at this web portal via the internet. To retain the materials we provide to you in electronic format, you may print or save/download copies. You may access this information at any time by logging into this secure web portal. If you have trouble accessing the web portal to retrieve information to be provided in this way, you may contact us 1-800-809-4859 or email us at "></label>
+<label deltaind="M" labelkey="background_fcra_consent_disclosure_1_label" labeldesc="I authorize all persons and entities having information about me, including but not limited to: business, corporations, credit agencies, governmental agencies, departments of motor vehicles, schools, law enforcement agencies, state insurance departments to release all written and verbal information about me to Builders Mutual Insurance Company (BMIC), to Accurate Background, 7515 Irvine Center Dr., Irvine, CA 92618, (800) 216-8024, "></label>
+
+<label deltaind="I" labelkey="background_fcra_consent_disclosure_1_1_label" labeldesc=", a credit reporting agency selected by BMIC. I release all person and entities from all liability and responsibility for such release of information. This release, in original or copy form, shall be valid for this application and during the term of the appointment and for any future investigative or credit reports which may be requested by BMIC."></label>
+<label deltaind="M" labelkey="consent_e_delivery_label_f" labeldesc="At any time, you have the right to opt-out (withdraw your consent) of electronic delivery of documents as described above. To opt-out of electronic delivery, you must write to us at Builders Mutual Insurance Company,PO Box 150005, Raleigh, NC  27624 and in the body of such request provide your email address, full name, US Postal address, telephone number and agent number. Withdrawing from our electronic program will result in documentation printing and mailing fees of $25.00 per document to mail the paper copies to you."></label>
+<label deltaind="M" labelkey="consent_e_delivery_label_e" labeldesc="You can change the email address where we send  documents to you by visiting the web portal. Once logged into the web portal, you can update your email address via the 'Manage' my profile tab. If you have trouble accessing the web portal to retrieve information to be provided in this way, you may contact us at 1-800-809-4859 or email us at "></label>
+<label deltaind="M" labelkey="consent_e_delivery_label_g" labeldesc="All documents regarding your agent appointment are available on this web portal. If you would like to receive a paper copy of the materials delivered via this web portal, you may write to us at Builders Mutual Insurance Company,PO Box 150005, Raleigh, NC  27624 and request a copy. If you do, please include your full name, US Postal address, telephone number, policy number and a description of the particular records you would like in paper. There is a fee of $25.00 per document to mail the paper copies to you. If you have trouble accessing the web portal to retrieve information to be provided in this way, you may contact us at 1-800-809-4859 or email us at "></label>
+<label deltaind="M" labelkey="min_prod_req_comments_label" labeldesc="How will Builders Mutual Insurance Company meet the needs of your agency and how will you meet your minimum production requirement?"></label>
+<label deltaind="M" labelkey="adminBrokerageStep6_marketinformation_lob_production_commitment_sectionHeading_label" labeldesc="Total volume commitment with Builders Mutual Insurance Company Used for :"/>
+<label deltaind="I" labelkey="public_step3_agency_contracts_producer_label" labeldesc="Step 1 - Agency Contacts"></label>
+<label deltaind="I" labelkey="public_step5_document_upload_producer_label" labeldesc="Step 2 - Document Upload"></label>
+<label deltaind="M" labelkey="adminBrokerageDetailsStep8_agency_direct_deposit_authorization_label" labeldesc="I (we) hereby authorize Sample Insurance Company to initiate credit entries to my (our) account indicated below. This authorization is to remain in full force and effect until Sample Insurance Company has received written notification from me (or either of us) of its termination, in such time and in such manner as to afford the company and bank a reasonable opportunity to act on it."/>
+<label deltaind="M" labelkey="adminBrokerageDetailsStep8_agency_sweep_authorization_label" labeldesc="I understand the payment amounts I enter in Sample Insurance Connect will be withdrawn from my account. Withdrawals that cannot be made, due to insufficient funds, will result in the recall of my EFT privilege."/>
+<label deltaind="M" labelkey="background_fcra_consent_authorization_label" labeldesc=" By signing below, you authorize Accurate Background to obtain information about you from a third-party consumer reporting agency for employment purposes.  Thus, you may be the subject of a consumer report which may include information about your character, general reputation, personal characteristics, and/or mode of living.  These reports may contain information regarding your criminal history, social security verification, motor vehicle records ('driving records'), verification of your education or employment history, or other background checks. "/>
+<label deltaind="M" labelkey="background_fcra_consent_disclosure_2_label" labeldesc="BMIC may obtain a consumer report pursuant to the Fair Credit Reporting Act as part of the appointment process. This consumer report may include information as to your character, general reputation, personal characteristics, and mode of living. This information may be obtained by contacting your present and previous employers or references supplied by you. Please be advised that you have the right to request, in writing, within a reasonable time, a complete and accurate disclosure of the nature and scope of the investigation."></label> 
+
+ 
+ 
+<label deltaind="I" labelkey="background_fcra_consent_disclosure_3_label" labeldesc="Moreover, in the event that information from consumer report is used in whole or in part in making an adverse decision affecting the appointment process, we will provide you with a copy of the consumer report together with a description in writing of your rights under the Fair Credit Reporting Act."></label> 
+	
+
+<!--Sprint 1 : Completion of Agency Application: Step1_Agency Application -->
+
+	<label deltaind="I" labelkey="public1_tax_payer_name_label" labeldesc="W-9 Legal Name"/>
+	<label deltaind="M" labelkey="agency_office_name_label" labeldesc="Agency Name"/>
+	<label deltaind="I" labelkey="public1_email_business_label" labeldesc="Email"/>
+ 	<label deltaind="M" labeldesc="Please Verify Business Address" labelkey="verify_business_address_label"/>
+  	<label deltaind="M" labeldesc="Please Verify Mailing Address" labelkey="verify_mailing_address_label"/>
+  	<label deltaind="M" labeldesc="Please Verify Address" labelkey="verify_w9_address_label"/>  <!-- Bug ID: 0013 -->
+	<label deltaind="M" labelkey="public1_desired_appointment_authorization_states_label" labeldesc="Please select the states you are currently licensed.  Builders Mutual Insurance states are in bold. You will be appointed in the Builders Mutual states you are licensed."/>
+	<label deltaind="M" labelkey="eo_claims_declaration_label" labeldesc="I understand that I am required to obtain and maintain errors and omissions insurance in an amount not less than $1,000,000 of coverage.  Please attach a copy of your current declaration page in the Additional Documents section at the end of the application.Click the box to agree these terms."></label>
+	<label deltaind="M" labelkey="cyber_liability_eo_claims_declaration_label" labeldesc="I understand it&apos;s required to obtain and maintain a policy or policies of cyber liability insurance coverage with limits of liability of at least $500,000. Please attach a copy of your current declaration page in the Additional Documents section at the end of the application. Click the box to agree to these terms."/> <!-- Bug Id: 0048 -->
+	<!-- <label deltaind="M" labelkey="total_num_of_staff_label" labeldesc="Total Number of Employee" />     -->  <!-- remove this label -->
+	<label deltaind="M" labelkey="public1_agency_lob_label" labeldesc="Line of Business"/>
+	<label deltaind="M" labelkey="public1_no_of_csr_label" labeldesc="Numbers of CSR&apos;s"/>
+	<label deltaind="M" labelkey="adminBrokerageDetailsStep1_eo_claims_label" labeldesc="Have any E &amp; O claims been made during the past five years against the agency, agency partners, officers, or any members of the staff?"/>  <!-- Bug ID:0014 -->
+	
+	
+<!--Sprint 1 : Completion of Agency Application: Step2_Agency Application -->
+
+	<label deltaind="M" labelkey="adminBrokerageDetailsStep8_agency_direct_deposit_authorization_label" labeldesc="I authorize Builders Mutual Insurance Company and the financial institution listed above to deposit the agency commission check into this account each month."/>
+
+<!--Sprint 1 : Completion of Agency Application : Step3_Agency Application -->
+
+	<label deltaind="M" labelkey="public3_designation_label" labeldesc="Designations"/>
+	<label deltaind="M" labelkey="public3_contact_types_information_label" labeldesc="Please add at least one Principal, Producer, Primary Mail Recipient, Agency Admin, Primary Claim Contact, Marketing Contact, Commission Contact and E&amp;O/Cyber Liability Contact."/>
+	<label deltaind="M" labelkey="public3_contact_types_information_label2" labeldesc="Please add all Licensed Producers."/>
+	<label deltaind="M" labelkey="public3_contact_types_information_label1" labeldesc="Please select only one contact as Highest Ranking Principal and also indicate that person as a Commission Contact."/>
+	<label deltaind="M" labelkey="public3_email_business_label" labeldesc="Email"></label>
+	<label deltaind="M" labelkey="public3_email_residence_label" labeldesc="Email"></label>
+	<label deltaind="I" labelkey="verify_business_address_label" labeldesc="Please Verify Address"></label>
+	<label deltaind="I" labelkey="verify_mailing_address_label" labeldesc="Please Verify Address"></label>
+
+<!--Sprint 1 : Completion of Agency Application : Step4_Agency Application -->
+
+	<label deltaind="M" labelkey="total_written_premium_previous_year_end_label" labeldesc="Agency&apos;s Total P&amp;C Written Premium Previous Year"></label>
+ 	<label deltaind="M" labelkey="adminBrokeage6_block_lob_description_label" labeldesc="Line of Business"/>
+
+<!--Sprint 1 : Completion of Agency Application : Step5_Agency Application -->	
+	
+	<label deltaind="M" labelkey="thirdLine_step4_service_email_label" labeldesc=""></label>
+	
+   <!-- Sprint 1 - Producer Application -->
+   <label deltaind="M" labelkey="public3_designation_label" labeldesc="Designations"/>
+	<!-- bug id  -->
+<label deltaind="M" labelkey="contact_type_label" labeldesc="Contact Type (Please check all that apply)"/>	
+  <!-- Bug id : 0050 -->
+  <label deltaind="M" labelkey="public1_agency_lob_label" labeldesc="Line of Business"/>
+
+	
+<!-- Bug id : 0131 -->
+
+  <label deltaind="M" labeldesc="Explain any interest in any other business or occupation outside of this agency" labelkey="agencyListEdit_comments_interest_outside_label"/>
+
+<label deltaind="I" labeldesc="" labelkey="Divided_label"/>
+<label deltaind="I" labeldesc="" labelkey="policy_label"/>
+
+
+<label deltaind="I" labelkey="salesSupport_step10_label" labeldesc="Sales Support"/>
+<label deltaind="M" labelkey="secondLine_step4_label" labeldesc="The next step in the process is to electronically sign your Application. You will soon receive an e-mail from DocuSign to complete the electronic signature process. Please look for it in your Inbox. Depending on your e-mail settings, it may be routed to your junk or deleted items folder."></label>
+
+<!-- Prod bug - 34734 changes-->
+<label deltaind="M" labelkey="thirdLine_step4_label" labeldesc="Once you complete the electronic signature process we will review the information and be in touch with you should we require additional information."></label>
+
+<!-- Feature 48695 - Adding Additional Fields to the Application -->
+<label deltaind="M" labelkey="public1_member_of_hba_label" labeldesc="Are you a member of an HBA?"/>
+<label deltaind="M" labelkey="public1_hba_association_id_label" labeldesc="If Yes, please select the HBA Chapter you are a member of"/>
+
+<!-- 2.10.7.4 change -->
+<label deltaind="I" labelkey="policyholder_copies_desc_label" labeldesc="Your agency can select how you would like Builders Mutual to distribute copies of policyholders' new and renewal policies. If you choose to receive your policyholders"/>
+<label deltaind="M" labeldesc="(It is required for all North Carolina Agencies
+to be a member of a Home Builders Association)" labelkey="public1_member_of_hba_desc_label"/>
+<label deltaind="M" labeldesc="Your agency can select how you would like Builders Mutual to distribute copies of policyholders' new and renewal policies. If you choose to receive your policyholders'
+documents, we will send your agency the documents so you can personalize the delivery. (Note- If your policyholder selects to Go Paperless, policyholder copies will not print.
+Instead, they will receive an email to review their policies online). Please select one option below" labelkey="public1_policyholder_copies_desc_label"/>
+
+</labelconf>

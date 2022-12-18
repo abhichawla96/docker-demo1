@@ -1,0 +1,1800 @@
+<projectcomponents project="Public">
+<component deltaind="I" metaobject="tbl_marketinformation;tbl_agency_current_market_informations;tbl_segment_industry_classes;" name="adminBrokerageDetailsStep6">
+		<action deltaind="M" name="view">
+				<workflow name="view" seq="0">
+				
+				<databaseoperation eval="events.editEvent" executionsequence="2" metaobject="tbl_marketinformation" name="getMarketInformationRecord" operation="3" sqlstmt="select * from tbl_marketinformation where aar_requestid=#aar_requestid# and marketinformation_id=#marketinformation_id#"/>
+				<databaseoperation executionsequence="1" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="SELECT (SELECT TOP 1 wrs.workflow_function FROM workflowrequestsstatus wrs WHERE wrs.workflowrequests_id = wr.workflowrequests_id           ORDER BY workflowrequestsstatus_id DESC) AS workflow_function        ,(SELECT DESCRIPTION FROM tbl_invitation_status_lku WHERE invitation_status_id=wr.workflowstatus_id) AS aar_statusid_desc        FROM workflowrequests wr WHERE objecttype='Onboarding' AND wr.objectid=#aar_requestid#"/>
+				<databaseoperation eval="PublicRule.isShowMarketInformationFreeformFields" executionsequence="3" metaobject="tbl_agency_current_market_informations" name="getAgencyCurrentMarketInfoRecord" operation="3" sqlstmt="select dbo.getAmountFormat(cast(total_annual_revenue as numeric(18,2))) as total_annual_revenue,dbo.getAmountFormat(cast(commercial_premium as numeric(18,2))) as commercial_premium,cast(percentage_premium_standard as numeric(5,2)) as percentage_premium_standard,      cast(percentage_speciality_lines as numeric(5,2)) as percentage_speciality_lines,      total_commercial_carriers,surplus_license_holder,is_current_business_written_exist,agency_profitiblity_last_3years,agent_market_monoline_auto_n_worker_comp,agent_market_worker_comp,agent_growth_rate_last_3years,agent_growth_rate_last_3years_yr2,agent_growth_rate_last_3years_yr3,new_business,mix_of_personal_business,mix_of_commercial_business,total_premium_PC,dbo.getAmountFormat(cast(total_written_premium_previous_year_end as numeric(18,0))) as total_written_premium_previous_year_end from tbl_agency_current_market_informations where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<databaseoperation executionsequence="4" metaobject="tbl_marketinformation" name="getAgencyReviewResponses" operation="3" sqlstmt="select learn_about,interest_in_other_business,interest_for_appointment,agency_experience,agency_financials,perpetuation_plan,marketing_plan,location_of_agency,other_companies_representated,agency_brief_profile from tbl_agency_review where aar_requestid=#aar_requestid#">
+				</databaseoperation>	
+				
+			</workflow>
+			<workflow name="view1" seq="1">
+				<storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedList_p_java" executionsequence="6" id="getAgencyPremiumVolumeCommittedList_p_java" metaobject="tbl_agency_current_market_informations" name="getAgencyPremiumVolumeCommittedList_p_java" operation="5" viewid="agencyPremiumVolumeCommittedStep6_list_mom_1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="premium_volume_table_type" seq="3"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+			</workflow>
+			<workflow name="view2" seq="2">
+				<databaseoperation eval="PublicRule.isTopCompanyLicensedListEmpty" executionsequence="1" metaobject="tbl_marketinformation" name="getMarketInformationList" operation="5" sqlstmt="select row_number() over(order by marketinformation_id) rownum,case when aar_carrierid = -1 then other_company_description else (select description from carrier_lku where carrier_id=aar_carrierid) end  as aar_carrierid_desc,       (select description from tbl_lob_lku where lob_id=aar_lobid) as lob_desc,       case when loss_ratio is null or loss_ratio='' then '' else loss_ratio end as loss_ratio,       dbo.getAmountFormat(writtenpremium) as writtenpremium,retentionrate,commissionrate,marketinformation_id,dbo.getAmountFormat(cast(class1volume as numeric(18,2))) as class1volume,dateofappointment,yearofappointment,       convert(varchar(20),dateofappointment,101) as dateofappointmentFormatted,aar_carrierid,aar_requestid,years_represented,       dbo.getAmountFormat(cast(PY_written_premium as numeric(18,2))) as PY_written_premium, cgl.carrier_group_desc ,dbo.getAmountFormat(cast(total_volume as numeric(18,2))) as total_volume, life_volume, pl_volume, cl_volume, case when is_cl_auto_lsc_carrier is null or is_cl_auto_lsc_carrier=0 then 'N' else 'Y' end as is_cl_auto_lsc_carrier_desc from tbl_marketinformation tm       left join carrier_group_lku cgl on cgl.carrier_group_id=tm.carrier_group_id        where aar_requestid=#aar_requestid#" viewid="agencyMarketInformation_list_1">
+				</databaseoperation> 
+				<databaseoperation eval="PublicRule.isAgencyPersonalInformationListEmpty" executionsequence="2" metaobject="tbl_marketinformation" name="getPersonalInformationList" operation="5" sqlstmt="select row_number() over(order by personalinformation_id) rownum,personalinformation_id,aar_requestid,name,company,address,        case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4)         else phone end as phone,relationship,last_updated_by,last_updated_ts from tbl_agencypersonalinformation         where aar_requestid=#aar_requestid#" viewid="personalinformation_list_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isAgencyTerminatedListEmpty" executionsequence="3" metaobject="tbl_agencyterminated" name="getAgencyTerminatedList" operation="5" sqlstmt="select row_number() over(order by agencyterminated_id) rownum,agencyterminated_id,aar_requestid,company_name        ,dbo.getAmountFormat(cast(annual_premium_volume as numeric(18,2))) as annual_premium_volume        ,date_closed,convert(varchar(20),date_closed,101) as dateClosedFormatted,reason_for_action_taken,        case when reason_for_action_taken='0' then 'Low Production'         else case when reason_for_action_taken='1' then 'High Loss Ratio'        else case when reason_for_action_taken='2' then 'Other' end end end as reason_for_action_taken_desc,reason_other from tbl_agencyterminated where aar_requestid=#aar_requestid#" viewid="agencyterminated_list_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isAgencyMergerListEmpty" executionsequence="4" metaobject="tbl_agencymergers" name="getAgencyMergersList" operation="5" sqlstmt="select row_number() over(order by agencymerger_id) rownum,agencymerger_id,aar_requestid,agencymerger_name,date_acquired,      convert(varchar(20),date_acquired,101) as dateAcquiredFormatted,dbo.getAmountFormat(volume) as volume         from tbl_agencymergers where aar_requestid=#aar_requestid#" viewid="agencymergers_list_1">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyBusinessSourceList_p_java" executionsequence="5" id="getAgencyBusinessSourceList_p_java" metaobject="tbl_agency_business_source" name="getAgencyBusinessSourceList_p_java" operation="5" viewid="agencyBusinessSourceStep6_list_mom_1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+						</resultsetoperation>		
+				</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="getAgencyCompaniesLicenseList_p_java" executionsequence="7" id="getAgencyCompaniesLicenseList_p_java" metaobject="tbl_agencycompanieslicensed" name="getAgencyCompaniesLicenseList_p_java" operation="5" viewid="agencyCompaniesLicenseStep6_list_mom_1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+						</resultsetoperation>		
+				</storedprocedureoperation>
+				<databaseoperation executionsequence="8" metaobject="tbl_agencyappointmentrequest" name="getCommentsfromTblAgencyappointmnetRequest" operation="3" sqlstmt="select comments from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+				<databaseoperation executionsequence="9" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="SELECT (SELECT TOP 1 wrs.workflow_function FROM workflowrequestsstatus wrs WHERE wrs.workflowrequests_id = wr.workflowrequests_id           ORDER BY workflowrequestsstatus_id DESC) AS workflow_function        ,(SELECT DESCRIPTION FROM tbl_invitation_status_lku WHERE invitation_status_id=wr.workflowstatus_id) AS aar_statusid_desc        FROM workflowrequests wr WHERE objecttype='Onboarding' AND wr.objectid=#aar_requestid#"/>
+				<databaseoperation executionsequence="10" metaobject="tbl_marketinformation" name="getCorporationPartnershipList" operation="5" sqlstmt="select row_number() over(order by corporation_partnership_details_id) rownum,name,title,ind_experience,aar_requestid, corporation_partnership_details_id       from tbl_corporation_partnership_details where aar_requestid=#aar_requestid#" viewid="agencyOfficersPartners_list_listfreeform_1">
+				</databaseoperation>
+				<!-- eval="PublicRule.isSegmentClassesListEmpty" -->
+				
+				<databaseoperation executionsequence="11" metaobject="tbl_segment_industry_classes" name="getSegmentClassesList1" operation="5" sqlstmt="select row_number() over(order by segment_industry_classes_id) rownum,segment_class_name,aar_requestid,segment_industry_classes_id,         dbo.getAmountFormat(cast(annual_premium as numeric(18,2))) as annual_premium,Key_contact_name,Key_contact_email         from tbl_segment_industry_classes s where aar_requestid=#aar_requestid#" viewid="agencySegmentClasses_list_1">
+				</databaseoperation>
+				
+				<databaseoperation eval="PublicRule.isProgramBusinessListEmpty" executionsequence="12" metaobject="tbl_program_business" name="getProgramBusinessList" operation="5" sqlstmt="select row_number() over(order by program_business_id) rownum,aar_requestid,program_business_id,dbo.getAmountFormat(cast(premium as numeric(15,0))) as premium,program_name,segment_class_name as segment_class_name1,product_lines,mga_mgu       from tbl_program_business where aar_requestid=#aar_requestid#" viewid="agencyProgramBusiness_list_listfreeform_1">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedList_p_java" eval="PublicRule.isShowPremiumVolumeByLob" executionsequence="13" id="getAgencyPremiumVolumeCommittedList_p_java" metaobject="tbl_agencypremiumvolumecommitted" name="getAgencyPremiumVolumeCommittedList_p_java" operation="5" viewid="agencyPremiumVolumeByLOBStep6_list_mom_1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="premium_volume_table_type" seq="3"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>	
+				
+				<databaseoperation eval="PublicRule.isSegmentClassesListEmpty" executionsequence="14" metaobject="tbl_segment_industry_classes" name="getSegmentClassesList4" operation="5" sqlstmt="select row_number() over(order by segment_industry_classes_id) rownum        ,segment_class_name,aar_requestid,segment_industry_classes_id        ,dbo.getAmountFormat(cast(annual_premium as numeric(18,2))) as annual_premium,contact        ,Key_contact_name,Key_contact_email       from tbl_segment_industry_classes s  where aar_requestid=#aar_requestid#" viewid="agencySegmentClasses_list_listfreeform_1">
+				</databaseoperation>
+				<databaseoperation executionsequence="12" metaobject="tbl_business_address" name="getBusinessStateCode" operation="3" sqlstmt="select top 1 s.abbreviation as state_code from tbl_address a left join state_lku s ON s.state_id = a.state_id where type = 1 and aar_requestid = #aar_requestid#"/>
+				<databaseoperation executionsequence="13" metaobject="tbl_marketinformation" name="getClAutolscCarrierStatus" operation="3" sqlstmt="SELECT CASE WHEN EXISTS (select 1 from tbl_marketinformation tm left join carrier_group_lku cgl on cgl.carrier_group_id=tm.carrier_group_id where is_cl_auto_lsc_carrier = 1 and aar_requestid = #aar_requestid# and isnull(#marketinformation_id#,0) != marketinformation_id) THEN 'Y' ELSE 'N' END as is_cl_auto_lsc_carrier_selected"/>
+			
+			</workflow>
+			
+			
+			<workflow eval="PublicRule.isEventTypeLobContractEdit" name="getTblMarketInformationLobContractByID" seq="3">
+				<storedprocedureoperation dbspname="getTblMarketInformationLobContractByID_p" executionsequence="1" id="getTblMarketInformationLobContractByID_p" metaobject="tbl_marketinformation_lob_contract" name="getTblMarketInformationLobContractByID_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="marketinformation_lob_contract_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="PublicRule.isEventTypeMarketInformationLobSurplusEdit" name="getTblMarketInformationLobSurplusCompanyVolumeByID" seq="4">
+				<storedprocedureoperation dbspname="getTblMarketInformationLobSurplusCompanyVolumeByID_p" executionsequence="1" id="getTblMarketInformationLobSurplusCompanyVolumeByID_p" metaobject="tbl_marketinformation_lob_surplus_company_volume" name="getTblMarketInformationLobSurplusCompanyVolumeByID_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+				    <parameteroperation indexno="1" mode="IN" property="marketinformation_lob_surplus_company_volume_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>		
+				</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="adminBrokerageDetailsStep6_contract_bond_view_security" name="getTblMarketInformationLobContract" seq="5">
+				<storedprocedureoperation dbspname="getTblMarketInformationLobContract_p" executionsequence="1" id="getTblMarketInformationLobContract_p" metaobject="tbl_marketinformation_lob_contract" name="getTblMarketInformationLobContract_p" operation="5" viewid="contract_bond_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+				    <resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>		
+				</storedprocedureoperation>
+			</workflow>
+			<workflow eval="adminBrokerageDetailsStep6_surplus_company_volume_view_security" name="getTblMarketInformationLobSurplusCompanyVolume" seq="6">
+				<storedprocedureoperation dbspname="getTblMarketInformationLobSurplusCompanyVolume_p" executionsequence="1" id="getTblMarketInformationLobSurplusCompanyVolume_p" metaobject="tbl_marketinformation_lob_surplus_company_volume" name="getTblMarketInformationLobSurplusCompanyVolume_p" operation="5" viewid="surplus_company_volume_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+				    <resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>		
+				</storedprocedureoperation>
+			</workflow>
+			
+		 	
+	     <workflow eval="PublicRule.isNotComingFromAgencysServiceCenterChecked" name="getMarketInformationLobSections" seq="7">
+         		<storedprocedureoperation dbspname="getTblMarketInformationLobSections_p" executionsequence="0" id="getTblMarketInformationLobSections_p" metaobject="tbl_marketinformation_lob" name="getTblMarketInformationLobSections_p" operation="3">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+     	   </workflow> 
+     	   
+     	   
+     	   <workflow eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" name="getTblAgencyPremiumSizePercentSections_p" seq="8">
+     	         <storedprocedureoperation dbspname="getTblAgencyPremiumSizePercentSections_p" executionsequence="1" id="getTblAgencyPremiumSizePercentSections_p" metaobject="tbl_marketinformation_lob_contract" name="getTblAgencyPremiumSizePercentSections_p" operation="5" viewid="adminBrokerageStep6_commercial_lines_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow> 
+			
+			<workflow eval="foreign_languages_spoken_in_agency_security" name="foreignLanguagesSpokenInAgencyWorkflow" seq="9">
+     	        <storedprocedureoperation dbspname="foreignLanguagesSpokenInAgency_p" executionsequence="0" id="foreignLanguagesSpokenInAgency_p" metaobject="tbl_marketinformation" name="foreignLanguagesSpokenInAgency_p" operation="5" viewid="foreignLanguageSpokenInAgencyStep6_list_mom_1">
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+				</storedprocedureoperation>
+     	        <storedprocedureoperation dbspname="getForeignLanguagesSpokenInAgency_p" executionsequence="1" id="getForeignLanguagesSpokenInAgency_p" metaobject="tbl_marketinformation" name="getForeignLanguagesSpokenInAgency_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow> 
+			
+			<workflow eval="current_advertising_methods_security" name="currentAdvertisingMethodsWorkflow" seq="10">
+     	        <storedprocedureoperation dbspname="currentAdvertisingMethods_p" executionsequence="0" id="currentAdvertisingMethods_p" metaobject="tbl_marketinformation" name="currentAdvertisingMethods_p" operation="5" viewid="currentAdvertisingMethodStep6_list_mom_1">
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+				</storedprocedureoperation>
+     	        <storedprocedureoperation dbspname="getCurrentAdvertisingMethods_p" executionsequence="1" id="getCurrentAdvertisingMethods_p" metaobject="tbl_marketinformation" name="getCurrentAdvertisingMethods_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="primary_company_usage_security" name="primaryCompanyUsageWorkflow" seq="11">
+     	        <storedprocedureoperation dbspname="primaryCompanyUsage_p" executionsequence="0" id="primaryCompanyUsage_p" metaobject="tbl_marketinformation" name="primaryCompanyUsage_p" operation="5" viewid="primaryCompanyUsageStep6_list_mom_1">
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+				</storedprocedureoperation>
+     	        <storedprocedureoperation dbspname="getPrimaryCompanyUsage_p" executionsequence="1" id="getPrimaryCompanyUsage_p" metaobject="tbl_marketinformation" name="getPrimaryCompanyUsage_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/> 
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"></resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+			 
+			 <workflow name="changeStepThreeToFiveLabelsForSecondaryRegistrationType" seq="12">
+				<function executionsequence="0" functionid="changeStepThreeToFiveLabelsForSecondaryRegistrationType" name="changeStepThreeToFiveLabelsForSecondaryRegistrationType" parameters="context"/>
+	     	</workflow>
+
+			<actionparam form="Y" name="personalinformation_list_listfreeform_1" paramid="personalinformation_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam form="Y" name="agencymergers_list_listfreeform_1" paramid="agencymergers_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam form="Y" name="agencyterminated_list_listfreeform_1" paramid="agencyterminated_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.assignBusinessSourceListsize" form="Y" name="businessSourceListsize" paramid="businessSourceListsize" post="Y"/>
+			<actionparam deltaind="M" form="Y" name="agencyPremiumVolumeCommittedListsize" paramid="agencyPremiumVolumeCommittedListsize" post="Y"/>
+			<actionparam eval="PublicRule.assignAgencyCompaniesLicensedListsize" form="Y" name="agencyCompaniesLicensedListsize" paramid="agencyCompaniesLicensedListsize" post="Y"/>
+			<actionparam form="Y" name="agencyMarketInformation_list_1" paramid="agencyMarketInformation_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam form="Y" name="agencyOfficersPartners_list_listfreeform_1" paramid="agencyOfficersPartners_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam form="Y" name="agencySegmentClasses_list_listfreeform_1" paramid="agencySegmentClasses_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam form="Y" name="agencyProgramBusiness_list_listfreeform_1" paramid="agencyProgramBusiness_list_listfreeform_1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.assignAgencyPremiumVolumeByLOBListsize" form="Y" name="agencyPremiumVolumeByLOBListsize" paramid="agencyPremiumVolumeByLOBListsize" post="Y"/>
+			<actionparam form="Y" name="agencyPremiumVolumeByLOBStep6_list_mom_1" paramid="agencyPremiumVolumeByLOBStep6_list_mom_1" post="Y" session="Y"/>
+
+<!--			<actionparam pre="Y"  eval="PublicRule.validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" name="validateAgencyCompanyPremiumLicensedData" form="Y"></actionparam>-->
+		</action>
+		
+	<action name="deleteContractBond">
+	    <actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		<actionparam executionsequence="15" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="marketinformation_lob_contract_id,operationType,aar_requestid,user_id"/>
+		<actionparam form="Y" name="operationType" paramid="operationType" pre="Y" val="D"/>
+		<actionparam form="Y" name="marketinformation_lob_contract_id" paramid="marketinformation_lob_contract_id" viewparam="Y"/>
+		<workflow name="deleteMarketInformationLobContract_p" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblMarketInformationLobContract_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateDeleteTblMarketInformationLobContract_p" metaobject="tbl_marketinformation_lob_contract" name="insertUpdateDeleteTblMarketInformationLobContract_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	     </workflow>
+		</action>
+		<action name="editContractBond">
+		   <actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="marketinformation_lob_contract_id" paramid="marketinformation_lob_contract_id" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" val="lobContractEdit" viewparam="Y"/>
+		</action>
+		<action name="updateContractBond">
+		<actionparam executionsequence="1" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="marketinformation_lob_contract_id,bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio,operationType,aar_requestid,user_id"/>
+		<actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		<actionparam form="Y" name="marketinformation_lob_contract_id" paramid="marketinformation_lob_contract_id" viewparam="Y"/>
+		<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio" viewparam="Y"/>
+		<workflow name="saveMarketInformationLobContract_p" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblMarketInformationLobContract_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateDeleteTblMarketInformationLobContract_p" metaobject="tbl_marketinformation_lob_contract" name="insertUpdateDeleteTblMarketInformationLobContract_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	     </workflow>
+	   <actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio" session="Y"/>
+		</action>
+		<action name="cancelContractBond">
+		<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio" session="Y"/>
+		</action>
+		<action name="saveContractBond">
+		<actionparam executionsequence="1" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio,operationType,aar_requestid,user_id"/>
+		<actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+		<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio" viewparam="Y"/>
+		<workflow name="saveMarketInformationLobContract_p" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblMarketInformationLobContract_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateDeleteTblMarketInformationLobContract_p" metaobject="tbl_marketinformation_lob_contract" name="insertUpdateDeleteTblMarketInformationLobContract_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	   </workflow>
+	   <actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio" session="Y"/>
+	   </action>
+		<action name="updateSurplusCompanyVolume">
+		<actionparam executionsequence="1" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="marketinformation_lob_surplus_company_volume_id,excess_surplus_company,surplus_loss_ratio,premium_volume,operationType,aar_requestid,user_id"/>
+		<actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		<actionparam form="Y" name="marketinformation_lob_surplus_company_volume_id" paramid="marketinformation_lob_surplus_company_volume_id" viewparam="Y"/>
+<actionparam form="Y" name="marketinformation_lob_surplus_company_volume_id" paramid="marketinformation_lob_surplus_company_volume_id" viewparam="Y"/>
+		<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="surplus_loss_ratio,premium_volume,excess_surplus_company" viewparam="Y"/>
+		<workflow name="updateMarketInformationLobSurplusCompanyVolume_p" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" metaobject="tbl_marketinformation_lob_surplus_company_volume" name="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			</workflow>
+		<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="excess_surplus_company,surplus_loss_ratio,premium_volume" session="Y"/>
+		</action>
+		<action name="cancelSurplusCompanyVolume">
+		<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="excess_surplus_company,surplus_loss_ratio,premium_volume" session="Y"/>
+		</action>
+		<action name="saveSurplusCompanyVolume">
+		<actionparam executionsequence="1" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="excess_surplus_company,surplus_loss_ratio,premium_volume,operationType,aar_requestid,user_id"/>
+		<actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+		<actionparam executionsequence="0" form="Y" name="VALIDATEFIELDS" paramid="VALIDATEFIELDS" val="surplus_loss_ratio,premium_volume,excess_surplus_company" viewparam="Y"/>
+		<workflow name="saveMarketInformationLobSurplusCompanyVolume_p" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" metaobject="tbl_marketinformation_lob_surplus_company_volume" name="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			
+	   </workflow>
+	   <actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="excess_surplus_company,surplus_loss_ratio,premium_volume" session="Y"/>
+	   
+		</action>
+		<action name="deleteSurplusCompanyVolume">
+		<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		<actionparam form="Y" name="operationType" paramid="operationType" pre="Y" val="D"/>
+		<actionparam executionsequence="15" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="marketinformation_lob_surplus_company_volume_id,aar_requestid,user_id,operationType"/>
+		<actionparam form="Y" name="marketinformation_lob_surplus_company_volume_id" paramid="marketinformation_lob_surplus_company_volume_id" viewparam="Y"/>
+		<workflow name="deleteMarketInformationLobSurplusCompanyVolume_p" seq="1">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" metaobject="tbl_marketinformation_lob_surplus_company_volume" name="insertUpdateDeleteTblMarketInformationLobSurplusCompanyVolume_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	    </workflow>
+	     <actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="excess_surplus_company,surplus_loss_ratio,premium_volume" session="Y"/>
+		</action>
+		<action name="editSurplusCompanyVolume">
+		<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="marketinformation_lob_surplus_company_volume_id" paramid="marketinformation_lob_surplus_company_volume_id" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" val="lobSurplusEdit" viewparam="Y"/>
+		
+		</action>
+		
+		
+		
+		<action name="editMarketInfo">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editMarketInfosection" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+
+			<workflow name="editMarketInfo" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_marketinformation" name="editMarketInfoForEdit" operation="3" sqlstmt="select row_number() over(order by marketinformation_id) as  rownum,(select description from carrier_lku where carrier_id=aar_carrierid)  as aar_carrierid_desc,     (select description from tbl_lob_lku where lob_id=aar_lobid) as lob_desc,       case when loss_ratio is null or loss_ratio='' then '' else loss_ratio end as loss_ratio,     dbo.getAmountFormat(writtenpremium) as writtenpremium,retentionrate,commissionrate,marketinformation_id,dbo.getAmountFormat(cast(class1volume as numeric(15,0))) as class1volume,     dateofappointment, convert(varchar(20),dateofappointment,101) as dateofappointmentFormatted,aar_carrierid,aar_requestid,years_represented,      dbo.getAmountFormat(cast(PY_written_premium as numeric(15,0))) as PY_written_premium, dbo.getAmountFormat(cast(total_volume as numeric(15,0))) as total_volume, life_volume, pl_volume, cl_volume, is_cl_auto_lsc_carrier from tbl_marketinformation where aar_requestid=#aar_requestid# and marketinformation_id=#marketinformation_id#"/>
+			</workflow>
+			
+		</action>
+		
+		
+		<action name="saveMarketInfo">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="save" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+			<actionparam eval="PublicRule.assignDateFields" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+			
+			<actionparam eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y" name="class1volume" paramid="class1volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y" name="PY_written_premium" paramid="PY_written_premium1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForTotalVolumeOnMarketInformation" form="Y" name="total_volume" paramid="total_volume" pre="Y"/>
+			
+			<workflow name="saveMarketInfo" seq="0">
+				
+				<databaseoperation executionsequence="0" metaobject="tbl_marketinformation" name="saveMarketInfo" operation="1" sqlstmt="insert into tbl_marketinformation(aar_requestid,aar_carrierid,class1volume,last_updated_by,last_updated_ts,loss_ratio,PY_written_premium,years_represented,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier) values (#aar_requestid#,#aar_carrierid#,#class1volume#,#last_updated_by#,#last_updated_ts#,#loss_ratio#,#PY_written_premium#,#years_represented#,#total_volume#,#life_volume#,#pl_volume#,#cl_volume#,#is_cl_auto_lsc_carrier#)"/>
+			</workflow>
+			
+			
+		</action>
+		
+		<action name="adminBrokerageDetailsStep1">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="agencyMarketInformation_list_1,isShowMarketInformationDiv,personalinformation_list_listfreeform_1,agencyPremiumVolumeByLOBStep6_list_mom_1     ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,agencyMarketInformation_list_listfreeform_1,agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,agencyProgramBusiness_list_listfreeform_1" session="Y"/>
+		</action>
+		<action name="adminBrokerageDetailsStep8">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="agencyMarketInformation_list_1,isShowMarketInformationDiv,personalinformation_list_listfreeform_1,agencyPremiumVolumeByLOBStep6_list_mom_1     ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,agencyMarketInformation_list_listfreeform_1,agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,agencyProgramBusiness_list_listfreeform_1" session="Y"/>
+		</action>
+		<action name="next">
+		 <actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="inet_eventid,isShowMarketInformationDiv,agencyMarketInformation_list_1,personalinformation_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,agencyPremiumVolumeByLOBStep6_list_mom_1        ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,agencyMarketInformation_list_listfreeform_1,agencyOfficersPartners_list_listfreeform_1,agencyProgramBusiness_list_listfreeform_1        ,applicationEsigner_list_1,person_first_name,person_last_name,person_email" session="Y">
+		   </actionparam> 
+		</action>
+		<action name="save">
+			<actionparam executionsequence="1" form="Y" name="method" paramid="method" val="insertDataToDB" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeHyphenForPhoneOnPersonalInformationSection" executionsequence="2" form="Y" name="phone" paramid="phone1" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" executionsequence="3" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="dateofappointment" name="dateofappointment" eval="PublicRule.checkYearAppointmentDate" form="Y" executionsequence="6" ></actionparam> -->
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+			<actionparam eval="PublicRule.assignDateFields" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatFromMarketInfo" form="Y" name="abc" paramid="abc" pre="Y"/>
+			<actionparam checkfornullparams="market_num_locations,total_premium_PC,total_premium_compensation,no_workers_policies,total_writtenpremium,total_commercial_carriers,surplus_license_holder,     total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,hear_about_comments,interest_outside_comments,min_prod_req_comments,is_current_business_written_exist,agent_market_monoline_auto_n_worker_comp,agency_profitiblity_last_3years,agent_growth_rate_last_3years,agent_market_worker_comp     ,agent_growth_rate_last_3years_yr2,agent_growth_rate_last_3years_yr3,lob_id,lob_id_agencyCompaniesLicensedList,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,aar_requestid,yearofappointment    ,agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken, personalinformation_id,address,phone,relationship,company,name,    agencymerger_id,agencymerger_name,date_acquired,volume,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentagePremiumStandard" executionsequence="9" form="Y" name="PercentagePremiumStandard" paramid="PercentagePremiumStandard" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentageSpecialityLines" executionsequence="10" form="Y" name="PercentageSpecialityLines" paramid="PercentageSpecialityLines" pre="Y"/>
+			<actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<actionparam eval="PublicRule.validateSegmentClassesDetails" form="Y" name="validateSegmentClassesDetails" paramid="validateSegmentClassesDetails" pre="Y"/>
+			<actionparam eval="PublicRule.validateProgramBusinessDetails" form="Y" name="validateProgramBusinessDetails" paramid="validateProgramBusinessDetails" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormat" form="Y" name="removeAmountFormat" paramid="removeAmountFormat" pre="Y"/>
+			
+			
+			<actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y" name="class1volume" paramid="class1volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y" name="PY_written_premium" paramid="PY_written_premium1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForTotalVolumeOnMarketInformation" form="Y" name="total_volume" paramid="total_volume" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumVolumeOnAgencyTerminatedSection" form="Y" name="annual_premium_volume" paramid="annual_premium_volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeHyphenFromFieldsMarket" executionsequence="13" form="Y" name="phone" paramid="phone" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForvolumeOnAgencyMergersSection" form="Y" name="volume" paramid="volume1" pre="Y"/>
+			<actionparam eval="PublicRule.validateMixOfBusiness" form="Y" name="mix_of_business" paramid="mix_of_business" pre="Y"/>
+			<actionparam executionsequence="15" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="marketinformation_lob_id,lexis_nexis_node_id,is_allow_incentives,auto_liability_percentage,umbrella_coverage_percentage,renters_coverage_percentage,is_producers_dedicated_personal_lines,is_agency_owner_personal_lines,personal_lines_package_policies,is_agency_association_business_commission,is_service_center_personal_lines,agency_pay_commission_to_producers,is_agency_share_contingency,is_agency_commercial_business,industry_makeup_agency_commercial,is_agencys_service_center,production_commitment_first_year,production_commitment_second_year,production_commitment_third_year,production_commitment_achieve_volume,operationType,aar_requestid,user_id,bonds_billing_option,is_premium_mining_discussed,date_to_be_completed,premium_threshold,accounts_size,commercial_premium_threshold"/>	
+			<actionparam eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" executionsequence="16" form="Y" name="fieldsForInputListXml" paramid="fieldsForInputListXml" pre="Y" val="adminBrokerageStep6_commercial_lines_list_mom_1,aar_requestid,user_id"/>
+		    <actionparam form="Y" name="marketinformation_lob_id" paramid="marketinformation_lob_id" viewparam="Y"/>
+		   	<actionparam eval="PublicRule.validateProgramBusinessDetails" form="Y" name="validateProgramBusinessDetails" paramid="validateProgramBusinessDetails" pre="Y"/>
+		    <workflow eval="PublicRule.isInetErrorListEmpty" name="saveTop3Companies" seq="0">
+			<storedprocedureoperation dbspname="InsertUpdateDeleteMarketInformationDetails_p" eval="PublicRule.checkTop3CompaniesNotEmpty" executionsequence="1" id="InsertUpdateDeleteMarketInformationDetails_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteMarketInformationDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="marketinformation_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="class1volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_ts" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="loss_ratio" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="PY_written_premium" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="years_represented" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="operationType" seq="10"/>
+		          <parameteroperation indexno="11" mode="IN" property="carrier_group_id" seq="11"/>
+		          <parameteroperation indexno="12" mode="IN" property="yearofappointment" seq="12"/>
+		          <parameteroperation indexno="13" mode="IN" property="other_company_description" seq="13"/>
+		          <parameteroperation indexno="14" mode="IN" property="total_volume" seq="14"/>
+		          <parameteroperation indexno="15" mode="IN" property="life_volume" seq="15"/>
+		          <parameteroperation indexno="16" mode="IN" property="pl_volume" seq="16"/>
+		          <parameteroperation indexno="17" mode="IN" property="cl_volume" seq="17"/>
+		          <parameteroperation indexno="18" mode="IN" property="is_cl_auto_lsc_carrier" seq="18"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <workflow name="saveAgenciesTerminatedSection" seq="1">
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyTerminated_p" eval="PublicRule.checkCompaniesTerminatedFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyTerminated_p" isexecuteonsuccess="Y" metaobject="tbl_agencyterminated" name="InsertUpdateDeleteAgencyTerminated_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencyterminated_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="company_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium_volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="date_closed" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="reason_for_action_taken" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="reason_other" seq="10"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <workflow name="savePersonalInformationSection" seq="2">
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyPersonalInformation_p" eval="PublicRule.checkPersonalReferencesAllFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyPersonalInformation_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteAgencyPersonalInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="personalinformation_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="name" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="company" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="relationship" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="phone" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="address" seq="8"/>
+			          <parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="9"/>
+			          <parameteroperation indexno="10" mode="IN" property="last_updated_ts" seq="10"/>
+			          <parameteroperation indexno="11" mode="IN" property="operationType" seq="11"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+			</workflow>
+			
+			<workflow name="saveAgencyMergerSection" seq="3">
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyMergersInformation_p" eval="PublicRule.checkMergerandAcquisitionAllFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyMergersInformation_p" isexecuteonsuccess="Y" metaobject="tbl_agencymergers" name="InsertUpdateDeleteAgencyMergersInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="agencymerger_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="agencymerger_name" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="date_acquired" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="volume" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="last_updated_ts" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="operationType" seq="8"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveMarketInformation" seq="4">
+			    <function executionsequence="0" functionid="checkPremiumVolumeAndTopThreeCompaniesAppointedEmpty" name="checkPremiumVolumeAndTopThreeCompaniesAppointedEmpty" parameters="context"/>
+				<businessobject executionsequence="1" name="saveMarketInformation" obj="com.userbo.MarketInformationBO"/>
+				<databaseoperation eval="PublicRule.isInetErrorListEmpty" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="insertCommentInTblAgencyAppntReq" operation="4" sqlstmt="update tbl_agencyappointmentrequest set  comments = #comments#  where aar_requestid =#aar_requestid#  "/>
+				<storedprocedureoperation dbspname="insert_update_delete_agency_current_market_information" eval="PublicRule.isShowMarketInformationFreeformFields" executionsequence="3" id="insert_update_delete_agency_current_market_information" metaobject="tbl_agency_current_market_informations" name="insert_update_delete_agency_current_market_information" operation="1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="market_num_locations" property="market_num_locations" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="total_premium_PC" property="total_premium_PC" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" name="total_premium_compensation" property="total_premium_compensation" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" name="no_workers_policies" property="no_workers_policies" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" name="total_writtenpremium" property="total_writtenpremium" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" name="total_annual_revenue" property="total_annual_revenue" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" name="commercial_premium" property="commercial_premium" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" name="percentage_premium_standard" property="percentage_premium_standard" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" name="percentage_speciality_lines" property="percentage_speciality_lines" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" name="total_commercial_carriers" property="total_commercial_carriers" seq="11"/>
+					<parameteroperation indexno="11" mode="IN" name="surplus_license_holder" property="surplus_license_holder" seq="12"/>
+					
+					<parameteroperation indexno="12" mode="IN" name="is_current_business_written_exist" property="is_current_business_written_exist" seq="13"/>
+					<parameteroperation indexno="13" mode="IN" name="agency_profitiblity_last_3years" property="agency_profitiblity_last_3years" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" name="agent_market_monoline_auto_n_worker_comp" property="agent_market_monoline_auto_n_worker_comp" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" name="agent_market_worker_comp" property="agent_market_worker_comp" seq="16"/>
+					<parameteroperation indexno="16" mode="IN" name="agent_growth_rate_last_3years" property="agent_growth_rate_last_3years" seq="17"/>
+					<parameteroperation indexno="17" mode="IN" name="agent_growth_rate_last_3years_yr2" property="agent_growth_rate_last_3years_yr2" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" name="agent_growth_rate_last_3years_yr3" property="agent_growth_rate_last_3years_yr3" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" name="new_business" property="new_business" seq="20"/>
+					<parameteroperation indexno="20" mode="IN" name="mix_of_personal_business" property="mix_of_personal_business" seq="21"/>
+					<parameteroperation indexno="21" mode="IN" name="mix_of_commercial_business" property="mix_of_commercial_business" seq="22"/>
+					<parameteroperation indexno="22" mode="IN" name="total_written_premium_previous_year_end" property="total_written_premium_previous_year_end" seq="23"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="insert_update_delete_marketInformation" eval="PublicRule.isInetErrorListEmpty" executionsequence="4" id="insert_update_delete_marketInformation" metaobject="tbl_marketinformation" name="insert_update_delete_marketInformation" operation="1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="hear_about_comments" property="hear_about_comments" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="interest_outside_comments" property="interest_outside_comments" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" name="min_prod_req_comments" property="min_prod_req_comments" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" name="last_updated_by" property="last_updated_by" seq="5"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+			
+			</workflow>
+		<workflow name="saveAgencyReviewQuestions" seq="5">
+	    	<storedprocedureoperation dbspname="InsertORUpdatePublicAgencyReviewQuestions_p" executionsequence="4" id="InsertORUpdatePublicAgencyReviewQuestions_p" metaobject="tbl_marketinformation" name="InsertORUpdatePublicAgencyReviewQuestions_p" operation="1">
+          	<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          	<parameteroperation indexno="1" mode="IN" property="learn_about" seq="2"/>
+          	<parameteroperation indexno="2" mode="IN" property="interest_in_other_business" seq="3"/>
+          	<parameteroperation indexno="3" mode="IN" property="interest_for_appointment" seq="4"/>
+          	<parameteroperation indexno="4" mode="IN" property="agency_experience" seq="5"/>
+          	<parameteroperation indexno="5" mode="IN" property="agency_financials" seq="6"/>
+          	<parameteroperation indexno="6" mode="IN" property="perpetuation_plan" seq="7"/>
+          	<parameteroperation indexno="7" mode="IN" property="marketing_plan" seq="8"/>
+          	<parameteroperation indexno="8" mode="IN" property="location_of_agency" seq="9"/>
+          	<parameteroperation indexno="9" mode="IN" property="other_companies_representated" seq="10"/>
+          	<parameteroperation indexno="10" mode="IN" property="agency_brief_profile" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+        </storedprocedureoperation>
+        </workflow>
+        
+        <workflow eval="PublicRule.validatemarketInformationLobCommercialLineSection" name="saveMarketInformationLobSections" seq="6">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="InsertUpdateDeleteTblMarketInformationLobSections_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="InsertUpdateDeleteTblMarketInformationLobSections_p" metaobject="tbl_marketinformation_lob" name="InsertUpdateDeleteTblMarketInformationLobSections_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+			
+			
+	   </workflow>
+	    
+	    <workflow eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" name="getTblAgencyPremiumSizePercentSections_p" seq="7">
+     	         <storedprocedureoperation dbspname="getTblAgencyPremiumSizePercentSections_p" executionsequence="1" id="getTblAgencyPremiumSizePercentSections_p" metaobject="tbl_marketinformation_lob_contract" name="getTblAgencyPremiumSizePercentSections_p" operation="5" viewid="adminBrokerageStep6_commercial_lines_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+	     
+        <workflow eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" name="saveMarketLobCommercialLinesPremiumSize" seq="8">
+         <function executionsequence="0" functionid="updateMomListDataFromContextToMap" name="updateMomListDataFromContextToMap" parameters="context,adminBrokerageStep6_commercial_lines_list_mom_1"/> 
+         <function executionsequence="1" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputListXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblAgencyPremiumSizePercent_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="2" id="insertUpdateDeleteTblAgencyPremiumSizePercent_p" metaobject="tbl_agency_premium_size_percent" name="insertUpdateDeleteTblAgencyPremiumSizePercent_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	   </workflow>
+	   
+	      <workflow eval="foreign_languages_spoken_in_agency_security" name="insertUpdateForeignLanguagesSpokenInAgencyWorkflow" seq="9">
+     	         <storedprocedureoperation dbspname="insertUpdateForeignLanguagesSpokenInAgency_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateForeignLanguagesSpokenInAgency_p" metaobject="tbl_marketinformation" name="insertUpdateForeignLanguagesSpokenInAgency_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="foreign_languages" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+		
+		   <workflow eval="current_advertising_methods_security" name="insertUpdateCurrentAdvertisingMethodsWorkflow" seq="10">
+    	         <storedprocedureoperation dbspname="insertUpdateCurrentAdvertisingMethods_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateCurrentAdvertisingMethods_p" metaobject="tbl_marketinformation" name="insertUpdateCurrentAdvertisingMethods_p" operation="4" >
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" property="current_advertising_methods_desc" seq="2"/>
+				<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+			</storedprocedureoperation>
+		</workflow>
+		
+		 <workflow eval="primary_company_usage_security" name="insertUpdatePrimaryCompanyUsageWorkflow" seq="11">
+    	         <storedprocedureoperation dbspname="insertUpdatePrimaryCompanyUsage_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdatePrimaryCompanyUsage_p" metaobject="tbl_marketinformation" name="insertUpdatePrimaryCompanyUsage_p" operation="4" >
+				<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+				<parameteroperation indexno="1" mode="IN" property="primary_company_usage_desc" seq="2"/>
+				<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+				<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+			</storedprocedureoperation>
+		</workflow>
+	    
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,isShowMarketInformationDiv,agencyMarketInformation_list_1,personalinformation_list_listfreeform_1        ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,name,company,address,phone,relationship        ,agencymerger_name,date_acquired,volume,company_name,annual_premium_volume,date_closed,reason_for_action_taken        ,reason_other,aar_carrierid,class1volume,loss_ratio,dateofappointment,agencyMarketInformation_list_listfreeform_1,PY_written_premium,        total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,name,total_commercial_carriers,surplus_license_holder,title,        ind_experience,agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,annual_premium,contact,email,segment_class_name,agencyPremiumVolumeByLOBStep6_list_mom_1,        agencyProgramBusiness_list_listfreeform_1,premium,program_name,segment_class_name1,product_lines,mga_mgu,years_represented,Key_contact_name,Key_contact_email,hear_about_comments,interest_outside_comments,min_prod_req_comments, yearofappointment,new_business,mix_of_commercial_business,mix_of_personal_business,lexis_nexis_node_id,is_allow_incentives,auto_liability_percentage,umbrella_coverage_percentage,renters_coverage_percentage,is_producers_dedicated_personal_lines        ,is_agency_owner_personal_lines,personal_lines_package_policies,is_agency_association_business_commission,is_service_center_personal_lines,agency_pay_commission_to_producers,is_agency_share_contingency,is_agency_commercial_business,industry_makeup_agency_commercial,is_agencys_service_center,production_commitment_first_year,production_commitment_second_year,production_commitment_third_year,production_commitment_achieve_volume,premium_threshold,accounts_size,foreign_languages,foreignLanguageSpokenInAgencyStep6_list_mom_1,currentAdvertisingMethodStep6_list_mom_1,primaryCompanyUsageStep6_list_mom_1,primary_company_usage_desc,current_advertising_methods_desc,total_volume,commercial_premium_threshold,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" session="Y"/>				
+			<actionparam eval="PublicRule.checkSaveMsg" executionsequence="22" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="update">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="inet_eventid,isShowMarketInformationDiv,agencyMarketInformation_list_1,personalinformation_list_listfreeform_1        ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,,name,company,address,phone,relationship        ,agencymerger_name,date_acquired,volume,company_name,annual_premium_volume,date_closed,reason_for_action_taken,reason_other,        ,aar_carrierid,class1volume,loss_ratio,dateofappointment,agencyMarketInformation_list_listfreeform_1,agencyPremiumVolumeByLOBStep6_list_mom_1,        total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,name,total_commercial_carriers,surplus_license_holder,title,        ind_experience,agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,annual_premium,contact,email,segment_class_name,        agencyProgramBusiness_list_listfreeform_1,premium,program_name,segment_class_name1,product_lines,mga_mgu,years_represented,Key_contact_name,Key_contact_email,        hear_about_comments,interest_outside_comments,min_prod_req_comments" session="Y"/>
+		</action>
+		<action name="previous">
+			<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="ISCHECKFORUNSAVEDDATA" paramid="ISCHECKFORUNSAVEDDATA" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="1" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,market_carrierid,isShowMarketInformationDiv,agencyMarketInformation_list_1,agencyPremiumVolumeByLOBStep6_list_mom_1,      personalinformation_list_listfreeform_1,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,agencyMarketInformation_list_listfreeform_1,      agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,agencyProgramBusiness_list_listfreeform_1" session="Y"/>
+			<workflow name="previous" seq="0">
+				<!-- To display address section data for agent -->
+				<!-- <databaseoperation name="getRequestDataForAgent" metaobject="tbl_agencyappointmentrequest" operation="3" executionsequence="0"
+					sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,
+						aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,
+						extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"></databaseoperation> -->
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+						
+			</workflow>
+			<actionparam form="Y" name="addNewContact" paramid="addNewContact" pre="Y" remove="Y" session="Y"/>
+		</action>
+		<action name="deleteMarketInformation">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam form="Y" name="method" paramid="method" val="deleteDataFromSession" viewparam="Y"/>
+			<workflow name="deleteBankInformation" seq="0">
+				<businessobject executionsequence="0" name="deleteMarketInformation" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			<actionparam form="Y" name="agencyMarketInformation_list_1" paramid="agencyMarketInformation_list_1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action metaobject="tbl_marketinformation" name="saveMarketInformation">
+			<actionparam form="Y" name="method" paramid="method" val="addDataToSession" viewparam="Y"/>
+			<workflow eval="PublicRule.assignDateFields" name="saveMarketInformation" seq="0">
+				<businessobject executionsequence="0" name="addMarketInformation" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			<actionparam executionsequence="0" form="Y" name="agencyMarketInformation_list_1" paramid="agencyMarketInformation_list_1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="isShowMarketInformationDiv,name,annual_premium_volume,date_closed,reason_for_action_taken,reason_other,company,address,phone,relationship      ,date_acquired,volume,agencymerger_name,company_name" session="Y"/>
+		</action>
+		<action name="addNewMarketInformation">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isShowMarketInformationDiv" paramid="isShowMarketInformationDiv" pre="Y" session="Y" val="Y"/>
+		</action>
+		<action name="addPersonalInformation">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="personalinformation_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="personalinformation_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+<!--			<actionparam pre="Y" paramid="phone" name="phone" eval="PublicRule.removeHyphenFromFieldsMarket" form="Y"></actionparam>-->
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addPersonalInformation" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addPersonalInformation" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="name,company,address,phone,relationship" session="Y"/>
+		</action>
+		<action name="deletePersonalInformation">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="personalinformation_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_agencypersonalinformation.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="deletePersonalInformation" seq="0">
+				<businessobject executionsequence="0" name="deletePersonalInformation" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="editPersonalInformationRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="personalinformation_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="personalinformation_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="editPersonalInformationRow" seq="0">
+				<businessobject executionsequence="0" name="editPersonalInformationRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="savePersonalInformationRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="savePersonalInformationRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="savePersonalInformationRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="savePersonalInformationRow" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			
+		</action>
+		<action name="addAgencyMergers">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencymergers_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencymergers_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addAgencyMergers" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addAgencyMergers" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="agencymerger_name,date_acquired,volume" session="Y"/>
+		</action>
+		<action name="deleteAgencyMergers">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencymergers_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_agencymergers.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="deleteAgencyMergers" seq="0">
+				<businessobject executionsequence="0" name="deleteAgencyMergers" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="editAgencyMergersRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencymergers_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencymergers_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="editAgencyMergersRow" seq="0">
+				<businessobject executionsequence="0" name="editAgencyMergersRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="saveAgencyMergersRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="saveAgencyMergersRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgencyMergersRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="saveAgencyMergersRow" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			
+		</action>
+		<action name="addAgencyTerminated">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyterminated_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyterminated_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addPersonalInformation" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addPersonalInformation" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="company_name,annual_premium_volume,date_closed,reason_for_action_taken,reason_other" session="Y"/>
+		</action>
+		<action name="deleteAgencyTerminated">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyterminated_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_agencyterminated.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="deleteAgencyTerminated" seq="0">
+				<businessobject executionsequence="0" name="deleteAgencyTerminated" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		
+		<action name="editAgencyTerminatedRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyterminated_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyterminated_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="editAgencyTerminatedRow" seq="0">
+				<businessobject executionsequence="0" name="editAgencyTerminatedRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="saveAgencyTerminatedRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="saveAgencyTerminatedRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgencyTerminatedRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="saveAgencyTerminatedRow" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			
+		</action>
+		<action name="addAgencyCompanyPremiumLicensed">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyMarketInformation_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyMarketInformation_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			<actionparam eval="PublicRule.checkYearAppointmentDate" executionsequence="6" form="Y" name="dateofappointment" paramid="dateofappointment" pre="Y"/>
+			<actionparam executionsequence="2" form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addAgencyCompanyPremiumLicensed" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="AgencyCompanyPremiumLicensed" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="aar_carrierid,class1volume,loss_ratio,dateofappointment,PY_written_premium,years_represented,total_volume,life_volume,pl_volume,cl_volume" session="Y"/>
+		</action>
+		<action name="deleteAgencyCompanyPremiumLicensed">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyMarketInformation_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_marketinformation.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam executionsequence="2" form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<workflow name="deleteAgencyCompanyPremiumLicensed" seq="0">
+				<businessobject executionsequence="0" name="deleteAgencyCompanyPremiumLicensed" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+	    
+	    <action name="editAgencyCompanyPremiumLicensedRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyMarketInformation_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyMarketInformation_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam executionsequence="2" form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<workflow name="editAgencyCompanyPremiumLicensedRow" seq="0">
+				<businessobject executionsequence="0" name="editAgencyCompanyPremiumLicensedRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="saveAgencyCompanyPremiumLicensedRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="saveAgencyCompanyPremiumLicensedRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgencyCompanyPremiumLicensedRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="saveAgencyCompanyPremiumLicensedRow" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			
+		</action>
+	    
+	    <action name="savenext">
+	    	<actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+	        <actionparam form="Y" name="marketinformation_lob_id" paramid="marketinformation_lob_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y" name="class1volume" paramid="class1volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y" name="PY_written_premium" paramid="PY_written_premium1" pre="Y"/>
+			<actionparam checkfornullparams="market_num_locations,total_premium_PC,total_premium_compensation,no_workers_policies,total_writtenpremium,total_commercial_carriers,surplus_license_holder,total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,is_current_business_written_exist,agent_market_monoline_auto_n_worker_comp,agency_profitiblity_last_3years,agent_growth_rate_last_3years,agent_market_worker_comp,agent_growth_rate_last_3years_yr2,agent_growth_rate_last_3years_yr3,carrier_group_id,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,aar_requestid,yearofappointment    ,agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken, personalinformation_id,address,phone,relationship,company,name,    agencymerger_id,agencymerger_name,date_acquired,volume,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumVolumeOnAgencyTerminatedSection" form="Y" name="annual_premium_volume" paramid="annual_premium_volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeHyphenForPhoneOnPersonalInformationSection" executionsequence="0" form="Y" name="phone" paramid="phone1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForvolumeOnAgencyMergersSection" form="Y" name="volume" paramid="volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForTotalVolumeOnMarketInformation" form="Y" name="total_volume" paramid="total_volume" pre="Y"/>
+			<actionparam eval="PublicRule.validateMixOfBusiness" form="Y" name="mix_of_business" paramid="mix_of_business" pre="Y"/>
+			<actionparam executionsequence="10" form="Y" name="fieldsForInputXml" paramid="fieldsForInputXml" pre="Y" val="marketinformation_lob_id,lexis_nexis_node_id,is_allow_incentives,auto_liability_percentage,umbrella_coverage_percentage,renters_coverage_percentage,is_producers_dedicated_personal_lines,is_agency_owner_personal_lines,personal_lines_package_policies,is_agency_association_business_commission,is_service_center_personal_lines,agency_pay_commission_to_producers,is_agency_share_contingency,is_agency_commercial_business,industry_makeup_agency_commercial,is_agencys_service_center,production_commitment_first_year,production_commitment_second_year,production_commitment_third_year,production_commitment_achieve_volume,operationType,aar_requestid,user_id,bonds_billing_option,is_premium_mining_discussed,date_to_be_completed,premium_threshold,accounts_size,commercial_premium_threshold"/>
+			<actionparam eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" executionsequence="16" form="Y" name="fieldsForInputListXml" paramid="fieldsForInputListXml" pre="Y" val="adminBrokerageStep6_commercial_lines_list_mom_1,aar_requestid,user_id"/>
+			<actionparam eval ="adminBrokerageDetailsStep6_contract_bond_section_security" executionsequence="17" form="Y" name="fieldsForInputXml3" paramid="fieldsForInputXml3" pre="Y" val="bond_company,contract_premium_volume,non_contract_premium_volume,contract_loss_ratio,operationType,aar_requestid,user_id"/>
+			<actionparam eval ="adminBrokerageDetailsStep6_surplus_company_volume_section_security" executionsequence="18" form="Y" name="fieldsForInputXml4" paramid="fieldsForInputXml4" pre="Y" val="excess_surplus_company,surplus_loss_ratio,premium_volume,operationType,aar_requestid,user_id"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveMarketInformation" seq="0">
+				<function executionsequence="0" functionid="checkPremiumVolumeAndTopThreeCompaniesAppointedEmpty" name="checkPremiumVolumeAndTopThreeCompaniesAppointedEmpty" parameters="context"/>
+				<businessobject executionsequence="1" name="saveMarketInformation" obj="com.userbo.MarketInformationBO"/>
+				<databaseoperation eval="PublicRule.isInetErrorListEmpty" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="insertCommentInTblAgencyAppntReq" operation="4" sqlstmt="update tbl_agencyappointmentrequest set  comments = #comments#  where aar_requestid =#aar_requestid#  "/>
+				<storedprocedureoperation dbspname="insert_update_delete_agency_current_market_information" eval="PublicRule.isShowMarketInformationFreeformFields" executionsequence="3" id="insert_update_delete_agency_current_market_information" metaobject="tbl_agency_current_market_informations" name="insert_update_delete_agency_current_market_information" operation="1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="market_num_locations" property="market_num_locations" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="total_premium_PC" property="total_premium_PC" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" name="total_premium_compensation" property="total_premium_compensation" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" name="no_workers_policies" property="no_workers_policies" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" name="total_writtenpremium" property="total_writtenpremium" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" name="total_annual_revenue" property="total_annual_revenue" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" name="commercial_premium" property="commercial_premium" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" name="percentage_premium_standard" property="percentage_premium_standard" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" name="percentage_speciality_lines" property="percentage_speciality_lines" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" name="total_commercial_carriers" property="total_commercial_carriers" seq="11"/>
+					<parameteroperation indexno="11" mode="IN" name="surplus_license_holder" property="surplus_license_holder" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" name="is_current_business_written_exist" property="is_current_business_written_exist" seq="13"/>
+					<parameteroperation indexno="13" mode="IN" name="agency_profitiblity_last_3years" property="agency_profitiblity_last_3years" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" name="agent_market_monoline_auto_n_worker_comp" property="agent_market_monoline_auto_n_worker_comp" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" name="agent_market_worker_comp" property="agent_market_worker_comp" seq="16"/>
+					<parameteroperation indexno="16" mode="IN" name="agent_growth_rate_last_3years" property="agent_growth_rate_last_3years" seq="17"/>
+					<parameteroperation indexno="17" mode="IN" name="agent_growth_rate_last_3years_yr2" property="agent_growth_rate_last_3years_yr2" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" name="agent_growth_rate_last_3years_yr3" property="agent_growth_rate_last_3years_yr3" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" name="new_business" property="new_business" seq="20"/>
+					<parameteroperation indexno="20" mode="IN" name="mix_of_personal_business" property="mix_of_personal_business" seq="21"/>
+					<parameteroperation indexno="21" mode="IN" name="mix_of_commercial_business" property="mix_of_commercial_business" seq="22"/>
+					<parameteroperation indexno="22" mode="IN" name="total_written_premium_previous_year_end" property="total_written_premium_previous_year_end" seq="23"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>	
+				<databaseoperation executionsequence="4" metaobject="tbl_address" name="getStateAbreviationForDocumentTemplate" operation="3" sqlstmt="select sl.abbreviation as stateAbbreviation from tbl_address adr left join state_lku sl on sl.state_id = adr.state_id where type = #AgencyAddresType#         and person_id is null and adr.aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="insert_update_delete_marketInformation" eval="PublicRule.isInetErrorListEmpty" executionsequence="4" id="insert_update_delete_marketInformation" metaobject="tbl_marketinformation" name="insert_update_delete_marketInformation" operation="1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="hear_about_comments" property="hear_about_comments" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="interest_outside_comments" property="interest_outside_comments" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" name="min_prod_req_comments" property="min_prod_req_comments" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" name="last_updated_by" property="last_updated_by" seq="5"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				<databaseoperation executionsequence="8" metaobject="tbl_address" name="getAccountTypeForDocumentTemplate" operation="3" sqlstmt="select top 1 bank_account_type as accountType from tbl_agencybankinformation where aar_requestid=#aar_requestid# and bank_account_type='T'">
+				</databaseoperation>
+			</workflow>
+			
+		    <workflow eval="PublicRule.isInetErrorListEmpty" name="saveNextTop3Companies" seq="1">
+			<storedprocedureoperation dbspname="InsertUpdateDeleteMarketInformationDetails_p" eval="PublicRule.checkTop3CompaniesNotEmpty" executionsequence="1" id="InsertUpdateDeleteMarketInformationDetails_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteMarketInformationDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="marketinformation_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="class1volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_ts" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="loss_ratio" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="PY_written_premium" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="years_represented" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="operationType" seq="10"/>
+		          <parameteroperation indexno="11" mode="IN" property="carrier_group_id" seq="11"/>
+		          <parameteroperation indexno="12" mode="IN" property="yearofappointment" seq="12"/>
+		          <parameteroperation indexno="13" mode="IN" property="other_company_description" seq="13"/>
+		          <parameteroperation indexno="14" mode="IN" property="total_volume" seq="14"/>
+		          <parameteroperation indexno="15" mode="IN" property="life_volume" seq="15"/>
+		          <parameteroperation indexno="16" mode="IN" property="pl_volume" seq="16"/>
+		          <parameteroperation indexno="17" mode="IN" property="cl_volume" seq="17"/>
+		          <parameteroperation indexno="18" mode="IN" property="is_cl_auto_lsc_carrier" seq="18"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	    	
+	    	<workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgenciesTerminatedSection" seq="2" >
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyTerminated_p" eval="PublicRule.checkCompaniesTerminatedFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyTerminated_p" isexecuteonsuccess="Y" metaobject="tbl_agencyterminated" name="InsertUpdateDeleteAgencyTerminated_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencyterminated_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="company_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium_volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="date_closed" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="reason_for_action_taken" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="reason_other" seq="10"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <workflow eval="PublicRule.isInetErrorListEmpty" name="savePersonalInformationSection" seq="3">
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyPersonalInformation_p" eval="PublicRule.checkPersonalReferencesAllFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyPersonalInformation_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteAgencyPersonalInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="personalinformation_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="name" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="company" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="relationship" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="phone" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="address" seq="8"/>
+			          <parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="9"/>
+			          <parameteroperation indexno="10" mode="IN" property="last_updated_ts" seq="10"/>
+			          <parameteroperation indexno="11" mode="IN" property="operationType" seq="11"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgencyMergerSection" seq="4">
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyMergersInformation_p" eval="PublicRule.checkMergerandAcquisitionAllFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyMergersInformation_p" isexecuteonsuccess="Y" metaobject="tbl_agencymergers" name="InsertUpdateDeleteAgencyMergersInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="agencymerger_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="agencymerger_name" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="date_acquired" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="volume" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="last_updated_ts" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="operationType" seq="8"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+			</workflow>
+		<workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgencyReviewQuestions" seq="5">
+	    	<storedprocedureoperation dbspname="InsertORUpdatePublicAgencyReviewQuestions_p" executionsequence="4" id="InsertORUpdatePublicAgencyReviewQuestions_p" metaobject="tbl_marketinformation" name="InsertORUpdatePublicAgencyReviewQuestions_p" operation="1">
+          	<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          	<parameteroperation indexno="1" mode="IN" property="learn_about" seq="2"/>
+          	<parameteroperation indexno="2" mode="IN" property="interest_in_other_business" seq="3"/>
+          	<parameteroperation indexno="3" mode="IN" property="interest_for_appointment" seq="4"/>
+          	<parameteroperation indexno="4" mode="IN" property="agency_experience" seq="5"/>
+          	<parameteroperation indexno="5" mode="IN" property="agency_financials" seq="6"/>
+          	<parameteroperation indexno="6" mode="IN" property="perpetuation_plan" seq="7"/>
+          	<parameteroperation indexno="7" mode="IN" property="marketing_plan" seq="8"/>
+          	<parameteroperation indexno="8" mode="IN" property="location_of_agency" seq="9"/>
+          	<parameteroperation indexno="9" mode="IN" property="other_companies_representated" seq="10"/>
+          	<parameteroperation indexno="10" mode="IN" property="agency_brief_profile" seq="11"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+        </storedprocedureoperation>
+        </workflow>
+      <workflow eval="PublicRule.validatemarketInformationLobCommercialLineSection" name="saveMarketInformationLobSections" seq="6">
+         <function executionsequence="0" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputXml,inputXml"/>
+			<storedprocedureoperation dbspname="InsertUpdateDeleteTblMarketInformationLobSections_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="InsertUpdateDeleteTblMarketInformationLobSections_p" metaobject="tbl_marketinformation_lob" name="InsertUpdateDeleteTblMarketInformationLobSections_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	  </workflow>
+	   
+	  <workflow eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" name="getTblAgencyPremiumSizePercentSections_p" seq="7">
+     	         <storedprocedureoperation eval="PublicRule.isInetErrorListEmpty" dbspname="getTblAgencyPremiumSizePercentSections_p" executionsequence="1" id="getTblAgencyPremiumSizePercentSections_p" metaobject="tbl_marketinformation_lob_contract" name="getTblAgencyPremiumSizePercentSections_p" operation="5" viewid="adminBrokerageStep6_commercial_lines_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+	  </workflow>
+	   
+	   <workflow eval="adminBrokerageStep6_marketinformation_lob_commercial_lines_premium_sized_security" name="saveMarketLobCommercialLinesPremiumSize" seq="8">
+         <function executionsequence="0" functionid="updateMomListDataFromContextToMap" name="updateMomListDataFromContextToMap" parameters="context,adminBrokerageStep6_commercial_lines_list_mom_1"/> 
+         <function executionsequence="1" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsForInputListXml,inputXml"/>
+			<storedprocedureoperation dbspname="insertUpdateDeleteTblAgencyPremiumSizePercent_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="2" id="insertUpdateDeleteTblAgencyPremiumSizePercent_p" metaobject="tbl_agency_premium_size_percent" name="insertUpdateDeleteTblAgencyPremiumSizePercent_p" operation="4">
+					<parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+			</storedprocedureoperation>
+	   </workflow>
+	   
+	    <workflow eval="foreign_languages_spoken_in_agency_security" name="insertUpdateForeignLanguagesSpokenInAgencyWorkflow" seq="9">
+     	         <storedprocedureoperation dbspname="insertUpdateForeignLanguagesSpokenInAgency_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateForeignLanguagesSpokenInAgency_p" metaobject="tbl_marketinformation" name="insertUpdateForeignLanguagesSpokenInAgency_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="foreign_languages" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+			
+			
+			 <workflow eval="current_advertising_methods_security" name="insertUpdateCurrentAdvertisingMethodsWorkflow" seq="10">
+     	         <storedprocedureoperation dbspname="insertUpdateCurrentAdvertisingMethods_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdateCurrentAdvertisingMethods_p" metaobject="tbl_marketinformation" name="insertUpdateCurrentAdvertisingMethods_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="advertising_methods" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+				</storedprocedureoperation>
+			</workflow>
+			
+			 <workflow eval="primary_company_usage_security" name="insertUpdatePrimaryCompanyUsageWorkflow" seq="11">
+    	         <storedprocedureoperation dbspname="insertUpdatePrimaryCompanyUsage_p" eval="PublicRule.isInetErrorListEmpty" executionsequence="1" id="insertUpdatePrimaryCompanyUsage_p" metaobject="tbl_marketinformation" name="insertUpdatePrimaryCompanyUsage_p" operation="4" >
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="primary_company_usage_desc" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="last_updated_by" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>		
+			  </storedprocedureoperation>
+		  </workflow>
+	   
+			<actionparam form="Y" name="method" paramid="method" val="insertDataToDB" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeHyphenForPhoneOnPersonalInformationSection" executionsequence="1" form="Y" name="phone" paramid="phone1" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" executionsequence="2" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="dateofappointment" name="dateofappointment" eval="PublicRule.checkYearAppointmentDate" form="Y" executionsequence="6" ></actionparam> -->
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+			<actionparam eval="PublicRule.assignDateFields" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatFromMarketInfo" form="Y" name="abc" paramid="abc" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentagePremiumStandard" executionsequence="9" form="Y" name="PercentagePremiumStandard" paramid="PercentagePremiumStandard" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentageSpecialityLines" executionsequence="10" form="Y" name="PercentageSpecialityLines" paramid="PercentageSpecialityLines" pre="Y"/>
+			<actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<actionparam eval="PublicRule.validateSegmentClassesDetails" form="Y" name="validateSegmentClassesDetails" paramid="validateSegmentClassesDetails" pre="Y"/>
+			<actionparam eval="PublicRule.validateProgramBusinessDetails" form="Y" name="validateProgramBusinessDetails" paramid="validateProgramBusinessDetails" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormat" form="Y" name="removeAmountFormat" paramid="removeAmountFormat" pre="Y"/>
+			<actionparam eval="PublicRule.removeHyphenFromFieldsMarket" executionsequence="13" form="Y" name="phone" paramid="phone" pre="Y"/>
+			
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,isShowMarketInformationDiv,agencyMarketInformation_list_1,personalinformation_list_listfreeform_1        ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,name,company,address,phone,relationship        ,agencymerger_name,date_acquired,volume,company_name,annual_premium_volume,date_closed,reason_for_action_taken        ,reason_other,aar_carrierid,class1volume,loss_ratio,dateofappointment,agencyMarketInformation_list_listfreeform_1,        total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,name,total_commercial_carriers,surplus_license_holder,title,        ind_experience,agencyOfficersPartners_list_listfreeform_1,PY_written_premium,agencySegmentClasses_list_listfreeform_1,annual_premium,contact,email,segment_class_name,agencyPremiumVolumeByLOBStep6_list_mom_1,        agencyProgramBusiness_list_listfreeform_1,premium,program_name,segment_class_name1,product_lines,mga_mgu,name,years_represented,Key_contact_name,Key_contact_email,hear_about_comments,interest_outside_comments,min_prod_req_comments        ,applicationEsigner_list_1,person_first_name,person_last_name,person_email,yearofappointment,lexis_nexis_node_id,is_allow_incentives,auto_liability_percentage,umbrella_coverage_percentage,renters_coverage_percentage,is_producers_dedicated_personal_lines        ,is_agency_owner_personal_lines,personal_lines_package_policies,is_agency_association_business_commission,is_service_center_personal_lines,agency_pay_commission_to_producers,is_agency_share_contingency,is_agency_commercial_business,industry_makeup_agency_commercial,is_agencys_service_center        ,production_commitment_first_year,production_commitment_second_year,production_commitment_third_year,production_commitment_achieve_volume,foreign_languages,foreignLanguageSpokenInAgencyStep6_list_mom_1,currentAdvertisingMethodStep6_list_mom_1,primaryCompanyUsageStep6_list_mom_1,primary_company_usage_desc,current_advertising_methods_desc,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" session="Y"/>
+		</action>
+		<action name="deleteCorporationPartnershipDetails">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyOfficersPartners_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_corporation_partnership_details.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="deleteCorporationPartnershipDetails" seq="0">
+				<businessobject executionsequence="0" name="deleteCorporationPartnershipDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="addCorporationPartnershipDetails">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyOfficersPartners_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyOfficersPartners_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			
+			<actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addCorporationPartnershipDetails" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addCorporationPartnershipDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="name,title,ind_experience" session="Y"/>
+		</action>
+		<action name="deleteSegmentClassesDetails">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencySegmentClasses_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_segment_industry_classes.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="deleteSegmentClassesDetails" seq="0">
+				<businessobject executionsequence="0" name="deleteSegmentClassesDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="addSegmentClassesDetails">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencySegmentClasses_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencySegmentClasses_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			
+			<actionparam eval="PublicRule.validateSegmentClassesDetails" form="Y" name="validateSegmentClassesDetails" paramid="validateSegmentClassesDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addSegmentClassesDetails" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addSegmentClassesDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="segment_class_name,annual_premium,contact,email,Key_contact_name,Key_contact_email" session="Y"/>
+		</action>
+		<action name="editSegmentClassesDetailsRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencySegmentClasses_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencySegmentClasses_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="editSegmentClassesDetailsRow" seq="0">
+				<businessobject executionsequence="0" name="editSegmentClassesDetailsRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="saveSegmentClassesDetailsRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="saveSegmentClassesDetailsRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateSegmentClassesDetails" form="Y" name="validateSegmentClassesDetails" paramid="validateSegmentClassesDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveSegmentClassesDetailsRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="saveSegmentClassesDetailsRow" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			
+		</action>
+		
+		
+		<action name="deleteProgramBusinessDetails">
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyProgramBusiness_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="tbl_program_business.delete" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="deleteProgramBusinessDetails" seq="0">
+				<businessobject executionsequence="0" name="deleteProgramBusinessDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="addProgramBusinessDetails">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyProgramBusiness_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyProgramBusiness_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			
+			<actionparam eval="PublicRule.validateProgramBusinessDetails" form="Y" name="validateProgramBusinessDetails" paramid="validateProgramBusinessDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addProgramBusinessDetails" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addProgramBusinessDetails" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="program_name,segment_class_name1,product_lines,mga_mgu,premium" session="Y"/>
+		</action>
+		<action name="editProgramBusinessDetailsRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="agencyProgramBusiness_list_listfreeform_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="makeRowEditable" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="agencyProgramBusiness_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="editProgramBusinessDetailsRow" seq="0">
+				<businessobject executionsequence="0" name="editProgramBusinessDetailsRow" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+		</action>
+		<action name="saveProgramBusinessDetailsRow">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<actionparam name="method" paramid="method" val="saveProgramBusinessDetailsRow" viewparam="Y"/>
+			<actionparam eval="PublicRule.validateProgramBusinessDetails" form="Y" name="validateProgramBusinessDetails" paramid="validateProgramBusinessDetails" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveProgramBusinessDetailsRow" seq="0">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="1" name="saveProgramBusinessDetailsRow" obj="com.userbo.MarketInformationBO"/>
+			</workflow>
+			
+		</action>
+		<action name="refresh">
+			<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<workflow name="view" seq="1">
+				<databaseoperation metaobject="tbl_marketinformation" name="getEmailforPerson" operation="3" sqlstmt="select top 1 e_mail as email from tbl_address where person_id = #contact# and aar_requestid=#aar_requestid# and type=1">
+				</databaseoperation>
+			</workflow>
+		</action>
+		<action name="saveExit">
+			<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="method" paramid="method" val="insertDataToDB" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeHyphenFromFieldsMarket" form="Y" name="phone" paramid="phone" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+			<actionparam eval="PublicRule.checkYearAppointmentDate" executionsequence="6" form="Y" name="dateofappointment" paramid="dateofappointment" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+			<actionparam eval="PublicRule.assignDateFields" form="Y" name="last_updated_by" paramid="last_updated_by" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatFromMarketInfo" form="Y" name="abc" paramid="abc" pre="Y"/>
+			<actionparam checkfornullparams="market_num_locations,total_premium_PC,total_premium_compensation,no_workers_policies,total_writtenpremium,total_commercial_carriers,surplus_license_holder,total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,is_current_business_written_exist,agent_market_monoline_auto_n_worker_comp,agency_profitiblity_last_3years,agent_growth_rate_last_3years,agent_market_worker_comp    ,agent_growth_rate_last_3years_yr2,agent_growth_rate_last_3years_yr3" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentagePremiumStandard" executionsequence="9" form="Y" name="PercentagePremiumStandard" paramid="PercentagePremiumStandard" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentageSpecialityLines" executionsequence="10" form="Y" name="PercentageSpecialityLines" paramid="PercentageSpecialityLines" pre="Y"/>
+			<actionparam eval="PublicRule.validateCorporationPartnershipDetails" form="Y" name="validateCorporationPartnershipDetails" paramid="validateCorporationPartnershipDetails" pre="Y"/>
+			<actionparam eval="PublicRule.validateSegmentClassesDetails" form="Y" name="validateSegmentClassesDetails" paramid="validateSegmentClassesDetails" pre="Y"/>
+			<actionparam eval="PublicRule.validateProgramBusinessDetails" form="Y" name="validateProgramBusinessDetails" paramid="validateProgramBusinessDetails" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormat" form="Y" name="removeAmountFormat" paramid="removeAmountFormat" pre="Y"/>
+
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="saveMarketInformation" seq="0">
+				<businessobject executionsequence="1" name="saveMarketInformation" obj="com.userbo.MarketInformationBO"/>
+				<databaseoperation eval="PublicRule.isInetErrorListEmpty" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="insertCommentInTblAgencyAppntReq" operation="4" sqlstmt="update tbl_agencyappointmentrequest set  comments = #comments#  where aar_requestid =#aar_requestid#  "/>
+				<storedprocedureoperation dbspname="insert_update_delete_agency_current_market_information" eval="PublicRule.isShowMarketInformationFreeformFields" executionsequence="3" id="insert_update_delete_agency_current_market_information" metaobject="tbl_agency_current_market_informations" name="insert_update_delete_agency_current_market_information" operation="1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="market_num_locations" property="market_num_locations" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="total_premium_PC" property="total_premium_PC" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" name="total_premium_compensation" property="total_premium_compensation" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" name="no_workers_policies" property="no_workers_policies" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" name="total_writtenpremium" property="total_writtenpremium" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" name="total_annual_revenue" property="total_annual_revenue" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" name="commercial_premium" property="commercial_premium" seq="8"/>
+					<parameteroperation indexno="8" mode="IN" name="percentage_premium_standard" property="percentage_premium_standard" seq="9"/>
+					<parameteroperation indexno="9" mode="IN" name="percentage_speciality_lines" property="percentage_speciality_lines" seq="10"/>
+					<parameteroperation indexno="10" mode="IN" name="total_commercial_carriers" property="total_commercial_carriers" seq="11"/>
+					<parameteroperation indexno="11" mode="IN" name="surplus_license_holder" property="surplus_license_holder" seq="12"/>
+					<parameteroperation indexno="12" mode="IN" name="is_current_business_written_exist" property="is_current_business_written_exist" seq="13"/>
+					<parameteroperation indexno="13" mode="IN" name="agency_profitiblity_last_3years" property="agency_profitiblity_last_3years" seq="14"/>
+					<parameteroperation indexno="14" mode="IN" name="agent_market_monoline_auto_n_worker_comp" property="agent_market_monoline_auto_n_worker_comp" seq="15"/>
+					<parameteroperation indexno="15" mode="IN" name="agent_market_worker_comp" property="agent_market_worker_comp" seq="16"/>
+					<parameteroperation indexno="16" mode="IN" name="agent_growth_rate_last_3years" property="agent_growth_rate_last_3years" seq="17"/>
+					<parameteroperation indexno="17" mode="IN" name="agent_growth_rate_last_3years_yr2" property="agent_growth_rate_last_3years_yr2" seq="18"/>
+					<parameteroperation indexno="18" mode="IN" name="agent_growth_rate_last_3years_yr3" property="agent_growth_rate_last_3years_yr3" seq="19"/>
+					<parameteroperation indexno="19" mode="IN" name="new_business" property="new_business" seq="20"/>
+					<parameteroperation indexno="20" mode="IN" name="mix_of_personal_business" property="mix_of_personal_business" seq="21"/>
+					<parameteroperation indexno="21" mode="IN" name="mix_of_commercial_business" property="mix_of_commercial_business" seq="22"/>
+					<parameteroperation indexno="22" mode="IN" name="total_written_premium_previous_year_end" property="total_written_premium_previous_year_end" seq="23"/>
+					
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="insert_update_delete_marketInformation" eval="PublicRule.isInetErrorListEmpty" executionsequence="4" id="insert_update_delete_marketInformation" metaobject="tbl_marketinformation" name="insert_update_delete_marketInformation" operation="1">
+					<parameteroperation indexno="0" mode="IN" name="aar_requestid" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" name="hear_about_comments" property="hear_about_comments" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" name="interest_outside_comments" property="interest_outside_comments" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" name="min_prod_req_comments" property="min_prod_req_comments" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" name="last_updated_by" property="last_updated_by" seq="5"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>	
+			</workflow>
+			<workflowevent event="submitPublic" isexecuteonsuccess="Y" name="submitPublic" workflow="onboardingDashboard"/>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,isShowMarketInformationDiv,agencyMarketInformation_list_1,personalinformation_list_listfreeform_1        ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,name,company,address,phone,relationship        ,agencymerger_name,date_acquired,volume,company_name,annual_premium_volume,date_closed,reason_for_action_taken        ,reason_other,aar_carrierid,class1volume,loss_ratio,dateofappointment,agencyMarketInformation_list_listfreeform_1,        total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,name,total_commercial_carriers,surplus_license_holder,title,        ind_experience,agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,annual_premium,contact,email,segment_class_name,agencyPremiumVolumeByLOBStep6_list_mom_1,        agencyProgramBusiness_list_listfreeform_1,premium,program_name,segment_class_name1,product_lines,mga_mgu,years_represented,Key_contact_name,Key_contact_email,hear_about_comments,interest_outside_comments,min_prod_req_comments" session="Y"/>
+							
+			<actionparam eval="PublicRule.checkSaveMsg" executionsequence="22" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="updateExit">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="inet_eventid,isShowMarketInformationDiv,agencyMarketInformation_list_1,personalinformation_list_listfreeform_1        ,agencymergers_list_listfreeform_1,agencyterminated_list_listfreeform_1,,name,company,address,phone,relationship        ,agencymerger_name,date_acquired,volume,company_name,annual_premium_volume,date_closed,reason_for_action_taken,reason_other,        ,aar_carrierid,class1volume,loss_ratio,dateofappointment,agencyMarketInformation_list_listfreeform_1,agencyPremiumVolumeByLOBStep6_list_mom_1,        total_annual_revenue,commercial_premium,percentage_premium_standard,percentage_speciality_lines,name,total_commercial_carriers,surplus_license_holder,title,        ind_experience,agencyOfficersPartners_list_listfreeform_1,agencySegmentClasses_list_listfreeform_1,annual_premium,contact,email,segment_class_name,        agencyProgramBusiness_list_listfreeform_1,premium,program_name,segment_class_name1,product_lines,mga_mgu,years_represented,Key_contact_name,Key_contact_email,hear_about_comments,interest_outside_comments,min_prod_req_comments" session="Y"/>
+		</action>
+	
+		
+		
+		<action name="saveAgenciesTerminatedSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+	        <!-- <actionparam pre="Y" name="checkCompaniesTerminatedFieldsEmpty" paramid="checkCompaniesTerminatedFieldsEmpty" eval="PublicRule.checkCompaniesTerminatedFieldsEmpty" form="Y"></actionparam> -->
+	        <actionparam form="Y" name="agencyterminated_id" paramid="agencyterminated_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumVolumeOnAgencyTerminatedSection" form="Y" name="annual_premium_volume" paramid="annual_premium_volume1" pre="Y"/>
+			<actionparam checkfornullparams="agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+		      <workflow name="saveAgenciesTerminatedSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyTerminated_p" eval="PublicRule.checkCompaniesTerminatedFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyTerminated_p" isexecuteonsuccess="Y" metaobject="tbl_agencyterminated" name="InsertUpdateDeleteAgencyTerminated_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencyterminated_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="company_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium_volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="date_closed" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="reason_for_action_taken" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="reason_other" seq="10"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType" session="Y"/>
+		
+	        
+	        
+		</action>
+		<action name="updateAgenciesTerminatedSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		      <actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		      <actionparam eval="PublicRule.checkCompaniesTerminatedFieldsEmpty" form="Y" name="checkCompaniesTerminatedFieldsEmpty" paramid="checkCompaniesTerminatedFieldsEmpty" pre="Y"/>
+		      <actionparam form="Y" name="agencyterminated_id" paramid="agencyterminated_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumVolumeOnAgencyTerminatedSection" form="Y" name="annual_premium_volume" paramid="annual_premium_volume1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyTerminatedData" form="Y" name="validateAgencyTerminatedData" paramid="validateAgencyTerminatedData" pre="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editAgenciesTerminatedSection" viewparam="Y"/>
+		      <workflow name="updateAgenciesTerminatedSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyTerminated_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencyTerminated_p" isexecuteonsuccess="Y" metaobject="tbl_agencyterminated" name="InsertUpdateDeleteAgencyTerminated_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencyterminated_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="company_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium_volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="date_closed" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="reason_for_action_taken" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="reason_other" seq="10"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+       		
+		      </workflow>
+		      <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType" session="Y"/>
+		
+		      
+		</action>
+		<action name="deleteAgenciesTerminatedSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="D" viewparam="Y"/>
+			<actionparam form="Y" name="agencyterminated_id" paramid="agencyterminated_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumVolumeOnAgencyTerminatedSection" form="Y" name="annual_premium_volume" paramid="annual_premium_volume1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+		      <workflow name="deleteAgenciesTerminatedSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyTerminated_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencyTerminated_p" metaobject="tbl_agencyterminated" name="InsertUpdateDeleteAgencyTerminated_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencyterminated_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="company_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium_volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="date_closed" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="reason_for_action_taken" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="reason_other" seq="10"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+				
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType,inet_eventid" session="Y"/>
+		</action>
+		<action name="cancelAgenciesTerminatedSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,agencyterminated_id,company_name,annual_premium_volume,date_closed,reason_for_action_taken,last_updated_by,last_updated_ts,operationType" session="Y"/>
+		
+		</action>
+		<action name="editLinkForAgenciesTerminatedSection">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editAgenciesTerminatedSection" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam form="Y" name="agencyterminated_id" paramid="agencyterminated_id" viewparam="Y"/>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+
+			
+
+			<workflow name="editLinkForAgenciesTerminatedSection" seq="0">
+				
+				<storedprocedureoperation dbspname="GeAgencyTerminatedForPublic_p" executionsequence="1" id="GeAgencyTerminatedForPublic_p" metaobject="tbl_agencyterminated" name="GeAgencyTerminatedForPublic_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="agencyterminated_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+			</workflow>
+			
+		</action>
+		
+		
+		
+		
+		<action name="savePersonalInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+	        <!-- <actionparam pre="Y" name="checkPersonalReferencesAllFieldsEmpty" paramid="checkPersonalReferencesAllFieldsEmpty" eval="PublicRule.checkPersonalReferencesAllFieldsEmpty" form="Y"></actionparam> -->
+	        <actionparam form="Y" name="personalinformation_id" paramid="personalinformation_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeHyphenForPhoneOnPersonalInformationSection" executionsequence="0" form="Y" name="phone" paramid="phone1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" executionsequence="3" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+		      <workflow name="savePersonalInformationSection" seq="0">
+				
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyPersonalInformation_p" eval="PublicRule.checkPersonalReferencesAllFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyPersonalInformation_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteAgencyPersonalInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="personalinformation_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="name" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="company" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="relationship" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="phone" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="address" seq="8"/>
+			          <parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="9"/>
+			          <parameteroperation indexno="10" mode="IN" property="last_updated_ts" seq="10"/>
+			          <parameteroperation indexno="11" mode="IN" property="operationType" seq="11"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+				
+			</workflow>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid" session="Y"/>
+		
+	        
+		</action>
+		<action name="updatePersonalInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		      <actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		      <actionparam eval="PublicRule.checkPersonalReferencesAllFieldsEmpty" form="Y" name="checkPersonalReferencesAllFieldsEmpty" paramid="checkPersonalReferencesAllFieldsEmpty" pre="Y"/>
+		      <actionparam form="Y" name="personalinformation_id" paramid="personalinformation_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeHyphenForPhoneOnPersonalInformationSection" executionsequence="0" form="Y" name="phone" paramid="phone1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyPersonalInfoData" executionsequence="3" form="Y" name="validateAgencyPersonalInfoData" paramid="validateAgencyPersonalInfoData" pre="Y"/>
+		      <actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editPersonalInformationSection" viewparam="Y"/>
+		      <workflow name="updatePersonalInformationSection" seq="0">
+				
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyPersonalInformation_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencyPersonalInformation_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteAgencyPersonalInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="personalinformation_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="name" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="company" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="relationship" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="phone" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="address" seq="8"/>
+			          <parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="9"/>
+			          <parameteroperation indexno="10" mode="IN" property="last_updated_ts" seq="10"/>
+			          <parameteroperation indexno="11" mode="IN" property="operationType" seq="11"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+				
+			</workflow>
+		      
+		      <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid" session="Y"/>
+		
+		      
+		</action>
+		<action name="deletePersonalInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="D" viewparam="Y"/>
+			<actionparam form="Y" name="personalinformation_id" paramid="personalinformation_id" viewparam="Y"/>
+			<actionparam checkfornullparams="aar_requestid,personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+		      <workflow name="deletePersonalInformationSection" seq="0">
+				
+				<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyPersonalInformation_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencyPersonalInformation_p" metaobject="tbl_marketinformation" name="InsertUpdateDeleteAgencyPersonalInformation_p" operation="2">
+			          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+			          <parameteroperation indexno="2" mode="IN" property="personalinformation_id" seq="2"/>
+			          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+			          <parameteroperation indexno="4" mode="IN" property="name" seq="4"/>
+			          <parameteroperation indexno="5" mode="IN" property="company" seq="5"/>
+			          <parameteroperation indexno="6" mode="IN" property="relationship" seq="6"/>
+			          <parameteroperation indexno="7" mode="IN" property="phone" seq="7"/>
+			          <parameteroperation indexno="8" mode="IN" property="address" seq="8"/>
+			          <parameteroperation indexno="9" mode="IN" property="last_updated_by" seq="9"/>
+			          <parameteroperation indexno="10" mode="IN" property="last_updated_ts" seq="10"/>
+			          <parameteroperation indexno="11" mode="IN" property="operationType" seq="11"/>
+			          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+	       		</storedprocedureoperation>
+				
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid,inet_eventid" session="Y"/>
+		</action>
+		<action name="cancelPersonalInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,personalinformation_id,operationType,last_updated_ts,last_updated_by,address,phone,relationship,company,name,aar_carrierid" session="Y"/>
+		
+		</action>
+		<action name="editLinkForPersonalInformationSection">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editPersonalInformationSection" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam form="Y" name="personalinformation_id" paramid="personalinformation_id" viewparam="Y"/>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+
+			
+
+			<workflow name="editLinkForPersonalInformationSection" seq="0">
+				
+				<storedprocedureoperation dbspname="GeAgencyPersonalInformationForPublic_p" executionsequence="1" id="GeAgencyPersonalInformationForPublic_p" metaobject="tbl_marketinformation" name="GeAgencyPersonalInformationForPublic_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="personalinformation_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+			</workflow>
+			
+		</action>
+		
+		
+		
+		<action name="saveAgencyMergerSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+	        <actionparam form="Y" name="agencymerger_id" paramid="agencymerger_id" viewparam="Y"/>
+	        <!-- <actionparam pre="Y" name="checkMergerandAcquisitionAllFieldsEmpty" paramid="checkMergerandAcquisitionAllFieldsEmpty" eval="PublicRule.checkMergerandAcquisitionAllFieldsEmpty" form="Y"></actionparam> -->
+			<actionparam eval="PublicRule.removeAmountFormatForvolumeOnAgencyMergersSection" form="Y" name="volume" paramid="volume1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+			
+		      <workflow name="saveAgencyMergerSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyMergersInformation_p" eval="PublicRule.checkMergerandAcquisitionAllFieldsNotEmpty" executionsequence="1" id="InsertUpdateDeleteAgencyMergersInformation_p" isexecuteonsuccess="Y" metaobject="tbl_agencymergers" name="InsertUpdateDeleteAgencyMergersInformation_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencymerger_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="agencymerger_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="date_acquired" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="volume" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_ts" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="operationType" seq="8"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+				
+			</workflow>
+	        
+	        <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="8" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType" session="Y"/>
+		
+	        
+		</action>
+		<action name="updateAgencyMergerSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		      <actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		      <actionparam form="Y" name="agencymerger_id" paramid="agencymerger_id" viewparam="Y"/>
+		      <actionparam eval="PublicRule.checkMergerandAcquisitionAllFieldsEmpty" form="Y" name="checkMergerandAcquisitionAllFieldsEmpty" paramid="checkMergerandAcquisitionAllFieldsEmpty" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForvolumeOnAgencyMergersSection" form="Y" name="volume" paramid="volume1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyMergersData" form="Y" name="validateAgencyMergersData" paramid="validateAgencyMergersData" pre="Y"/>
+		      <workflow name="updateAgencyMergerSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyMergersInformation_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencyMergersInformation_p" isexecuteonsuccess="Y" metaobject="tbl_agencymergers" name="InsertUpdateDeleteAgencyMergersInformation_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencymerger_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="agencymerger_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="date_acquired" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="volume" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_ts" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="operationType" seq="8"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+				
+			</workflow>
+		      
+		      <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="8" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType" session="Y"/>
+		
+		      
+		</action>
+		<action name="deleteAgencyMergerSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="D" viewparam="Y"/>
+			<actionparam form="Y" name="agencymerger_id" paramid="agencymerger_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForvolumeOnAgencyMergersSection" form="Y" name="volume" paramid="volume1" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+		      <workflow name="deleteAgencyMergerSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencyMergersInformation_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencyMergersInformation_p" metaobject="tbl_agencymergers" name="InsertUpdateDeleteAgencyMergersInformation_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="agencymerger_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="agencymerger_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="date_acquired" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="volume" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_ts" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="operationType" seq="8"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+				
+			</workflow>
+		    <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="8" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType,inet_eventid" session="Y"/>   
+		</action>
+		<action name="cancelAgencyMergerSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="8" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,agencymerger_id,agencymerger_name,date_acquired,volume,last_updated_by,last_updated_ts,operationType" session="Y"/>
+		
+		</action>
+		<action name="editLinkForAgencyMergerSection">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editAgencyMergerSection" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam form="Y" name="agencymerger_id" paramid="agencymerger_id" viewparam="Y"/>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+
+			
+
+			<workflow name="editLinkForAgencyMergerSection" seq="0">
+				
+				<storedprocedureoperation dbspname="GetAgencyMergersForPublic_p" executionsequence="1" id="GetAgencyMergersForPublic_p" metaobject="tbl_agencymergers" name="GetAgencyMergersForPublic_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="agencymerger_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+			</workflow>
+			
+		</action>
+		
+	
+	
+		<action name="saveMarketInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+	        <actionparam form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y" name="class1volume" paramid="class1volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y" name="PY_written_premium" paramid="PY_written_premium1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForTotalVolumeOnMarketInformation" form="Y" name="total_volume" paramid="total_volume" pre="Y"/>
+			<actionparam checkfornullparams="carrier_group_id,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,aar_requestid,yearofappointment,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+			<!-- <actionparam pre="Y" name="checkTop3CompaniesEmpty" paramid="checkTop3CompaniesEmpty" eval="PublicRule.checkTop3CompaniesEmpty" form="Y"></actionparam> -->
+			<actionparam eval="PublicRule.checkPercentageTop3CompaniesLossRatio" form="Y" name="checkPercentageTop3CompaniesLossRatio" paramid="checkPercentageTop3CompaniesLossRatio" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+		      <workflow eval="PublicRule.isInetErrorListEmpty" name="saveMarketInformationSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteMarketInformationDetails_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteMarketInformationDetails_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteMarketInformationDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="marketinformation_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="class1volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_ts" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="loss_ratio" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="PY_written_premium" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="years_represented" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="operationType" seq="10"/>
+		          <parameteroperation indexno="11" mode="IN" property="carrier_group_id" seq="11"/>
+		          <parameteroperation indexno="12" mode="IN" property="yearofappointment" seq="12"/>
+		          <parameteroperation indexno="13" mode="IN" property="other_company_description" seq="13"/>
+		          <parameteroperation indexno="14" mode="IN" property="total_volume" seq="14"/>
+		          <parameteroperation indexno="15" mode="IN" property="life_volume" seq="15"/>
+		          <parameteroperation indexno="16" mode="IN" property="pl_volume" seq="16"/>
+		          <parameteroperation indexno="17" mode="IN" property="cl_volume" seq="17"/>
+		          <parameteroperation indexno="18" mode="IN" property="is_cl_auto_lsc_carrier" seq="18"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencyMarketInformation_list_1,carrier_group_id,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,yearofappointment,other_company_description,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" session="Y"/>
+		
+	        
+	        
+		</action>
+		<action name="updateMarketInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		      <actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		      
+		    <actionparam form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y" name="class1volume" paramid="class1volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y" name="PY_written_premium" paramid="PY_written_premium1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForTotalVolumeOnMarketInformation" form="Y" name="total_volume" paramid="total_volume" pre="Y"/>
+			<actionparam checkfornullparams="carrier_group_id,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,aar_requestid,yearofappointment,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+			
+			<actionparam eval="PublicRule.checkTop3CompaniesEmpty" form="Y" name="checkTop3CompaniesEmpty" paramid="checkTop3CompaniesEmpty" pre="Y"/>
+			<actionparam eval="PublicRule.checkPercentageTop3CompaniesLossRatio" form="Y" name="checkPercentageTop3CompaniesLossRatio" paramid="checkPercentageTop3CompaniesLossRatio" pre="Y"/>
+			<actionparam eval="PublicRule.validateAgencyCompanyPremiumLicensedData" form="Y" name="validateAgencyCompanyPremiumLicensedData" paramid="validateAgencyCompanyPremiumLicensedData" pre="Y"/>
+		      <workflow eval="PublicRule.isInetErrorListEmpty" name="updateMarketInformationSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteMarketInformationDetails_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteMarketInformationDetails_p" isexecuteonsuccess="Y" metaobject="tbl_marketinformation" name="InsertUpdateDeleteMarketInformationDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="marketinformation_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="class1volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_ts" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="loss_ratio" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="PY_written_premium" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="years_represented" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="operationType" seq="10"/>
+		          <parameteroperation indexno="11" mode="IN" property="carrier_group_id" seq="11"/>
+		          <parameteroperation indexno="12" mode="IN" property="yearofappointment" seq="12"/>
+		          <parameteroperation indexno="13" mode="IN" property="other_company_description" seq="13"/>
+		          <parameteroperation indexno="14" mode="IN" property="total_volume" seq="14"/>
+		          <parameteroperation indexno="15" mode="IN" property="life_volume" seq="15"/>
+		          <parameteroperation indexno="16" mode="IN" property="pl_volume" seq="16"/>
+		          <parameteroperation indexno="17" mode="IN" property="cl_volume" seq="17"/>
+		          <parameteroperation indexno="18" mode="IN" property="is_cl_auto_lsc_carrier" seq="18"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencyMarketInformation_list_1,carrier_group_id,inet_eventid,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,yearofappointment,other_company_description,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" session="Y"/>
+		
+		      
+		</action>
+		<action name="deleteMarketInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="D" viewparam="Y"/>
+			
+			<actionparam form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y" name="class1volume" paramid="class1volume1" pre="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y" name="PY_written_premium" paramid="PY_written_premium1" pre="Y"/>
+			<actionparam checkfornullparams="carrier_group_id,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,aar_requestid,dateofappointment,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+		      <workflow name="deleteMarketInformationSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteMarketInformationDetails_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteMarketInformationDetails_p" metaobject="tbl_marketinformation" name="InsertUpdateDeleteMarketInformationDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="marketinformation_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_carrierid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="class1volume" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="last_updated_by" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="last_updated_ts" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="loss_ratio" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="PY_written_premium" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="years_represented" seq="9"/>
+		          <parameteroperation indexno="10" mode="IN" property="operationType" seq="10"/>
+		          <parameteroperation indexno="11" mode="IN" property="carrier_group_id" seq="11"/>
+		          <parameteroperation indexno="12" mode="IN" property="dateofappointment" seq="12"/>
+		          <parameteroperation indexno="13" mode="IN" property="other_company_description" seq="13"/>
+		          <parameteroperation indexno="14" mode="IN" property="total_volume" seq="14"/>
+		          <parameteroperation indexno="15" mode="IN" property="life_volume" seq="15"/>
+		          <parameteroperation indexno="16" mode="IN" property="pl_volume" seq="16"/>
+		          <parameteroperation indexno="17" mode="IN" property="cl_volume" seq="17"/>
+		          <parameteroperation indexno="18" mode="IN" property="is_cl_auto_lsc_carrier" seq="18"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+           <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="agencyMarketInformation_list_1,carrier_group_id,inet_eventid,operationType,years_represented,PY_written_premium,loss_ratio,last_updated_ts,last_updated_by,class1volume,aar_carrierid,marketinformation_id,yearofappointment,other_company_description,total_volume,life_volume,pl_volume,cl_volume,is_cl_auto_lsc_carrier" session="Y"/>		  
+	       
+		</action>
+		<action name="cancelMarketInformationSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="aar_carrierid,carrier_group_id,class1volume,PY_written_premium,loss_ratio,years_represented,yearofappointment,inet_eventid,last_updated_by,last_updated_ts,operationType,marketinformation_id,other_company_description,is_cl_auto_lsc_carrier" session="Y"/>
+		
+		</action>
+		<action name="editLinkForMarketInformationSection">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editMarketInformationSection" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam form="Y" name="marketinformation_id" paramid="marketinformation_id" viewparam="Y"/>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+
+			
+
+			<workflow name="editLinkForMarketInformationSection" seq="0">
+				
+				<storedprocedureoperation dbspname="GetMarketInformationForPublic_p" executionsequence="1" id="GetMarketInformationForPublic_p" metaobject="tbl_marketinformation" name="GetMarketInformationForPublic_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="marketinformation_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+			</workflow>
+			
+			
+			
+		</action>
+		
+	
+	
+		<action name="saveAgencySegmentClassesSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="I" viewparam="Y"/>
+	        
+	        <actionparam form="Y" name="segment_industry_classes_id" paramid="segment_industry_classes_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumOnAgencySegmentClassesSection" form="Y" name="annual_premium" paramid="annual_premium" pre="Y"/>
+			<actionparam checkfornullparams="operationType,last_updated_ts,last_updated_by,Key_contact_email,Key_contact_name,annual_premium,segment_class_name,segment_industry_classes_id,aar_requestid" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+ 			<actionparam eval="PublicRule.checkAgencySegmentClassesEmpty" form="Y" name="checkAgencySegmentClassesEmpty" paramid="checkAgencySegmentClassesEmpty" pre="Y"/>
+			
+			
+		      <workflow eval="PublicRule.isInetErrorListEmpty" name="saveAgencySegmentClassesSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencySegmentClassesDetails_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencySegmentClassesDetails_p" metaobject="tbl_segment_industry_classes" name="InsertUpdateDeleteAgencySegmentClassesDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="segment_industry_classes_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="segment_class_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="Key_contact_name" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="Key_contact_email" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="operationType,last_updated_ts,last_updated_by,Key_contact_email,Key_contact_name,annual_premium,segment_class_name,segment_industry_classes_id" session="Y"/>
+		
+	        
+	        
+		</action>
+		<action name="updateAgencySegmentClassesSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		      <actionparam form="Y" name="operationType" paramid="operationType" val="U" viewparam="Y"/>
+		      
+		    <actionparam form="Y" name="segment_industry_classes_id" paramid="segment_industry_classes_id" viewparam="Y"/>
+			<actionparam eval="PublicRule.removeAmountFormatForAnnualPremiumOnAgencySegmentClassesSection" form="Y" name="annual_premium" paramid="annual_premium" pre="Y"/>
+			<actionparam checkfornullparams="operationType,last_updated_ts,last_updated_by,Key_contact_email,Key_contact_name,annual_premium,segment_class_name,segment_industry_classes_id" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+			
+ 			<actionparam eval="PublicRule.checkAgencySegmentClassesEmpty" form="Y" name="checkAgencySegmentClassesEmpty" paramid="checkAgencySegmentClassesEmpty" pre="Y"/>
+
+		      <workflow eval="PublicRule.isInetErrorListEmpty" name="updateAgencySegmentClassesSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencySegmentClassesDetails_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencySegmentClassesDetails_p" metaobject="tbl_segment_industry_classes" name="InsertUpdateDeleteAgencySegmentClassesDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="segment_industry_classes_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="segment_class_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="Key_contact_name" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="Key_contact_email" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+	        <actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,operationType,last_updated_ts,last_updated_by,Key_contact_email,Key_contact_name,annual_premium,segment_class_name,segment_industry_classes_id" session="Y"/>
+		
+		      
+		</action>
+		<action name="deleteAgencySegmentClassesSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+	        <actionparam form="Y" name="operationType" paramid="operationType" val="D" viewparam="Y"/>
+			
+			<actionparam form="Y" name="segment_industry_classes_id" paramid="segment_industry_classes_id" viewparam="Y"/>
+			<!-- <actionparam pre="Y" name="class1volume" paramid="class1volume1" eval="PublicRule.removeAmountFormatForClass1volumeOnMarketInformation" form="Y"></actionparam>
+			<actionparam pre="Y" name="PY_written_premium" paramid="PY_written_premium1" eval="PublicRule.removeAmountFormatForPyWPOnMarketInformation" form="Y"></actionparam>
+			 --><actionparam checkfornullparams="operationType,last_updated_ts,last_updated_by,Key_contact_email,Key_contact_name,annual_premium,segment_class_name,segment_industry_classes_id,aar_requestid" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			
+		      <workflow name="deleteAgencySegmentClassesSection" seq="0">
+				
+			<storedprocedureoperation dbspname="InsertUpdateDeleteAgencySegmentClassesDetails_p" eval="PublicRule.assignDateFields" executionsequence="1" id="InsertUpdateDeleteAgencySegmentClassesDetails_p" metaobject="tbl_segment_industry_classes" name="InsertUpdateDeleteAgencySegmentClassesDetails_p" operation="2">
+		          <parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="segment_industry_classes_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="segment_class_name" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="annual_premium" seq="4"/>
+		          <parameteroperation indexno="5" mode="IN" property="Key_contact_name" seq="5"/>
+		          <parameteroperation indexno="6" mode="IN" property="Key_contact_email" seq="6"/>
+		          <parameteroperation indexno="7" mode="IN" property="last_updated_by" seq="7"/>
+		          <parameteroperation indexno="8" mode="IN" property="last_updated_ts" seq="8"/>
+		          <parameteroperation indexno="9" mode="IN" property="operationType" seq="9"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+       		</storedprocedureoperation>
+	        </workflow>
+	        
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid" session="Y"/>
+		  
+		</action>
+		<action name="cancelAgencySegmentClassesSection">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="23" form="Y" name="removeparams" paramid="removeparams1" post="Y" remove="Y" removeparams="inet_eventid,operationType,last_updated_ts,last_updated_by,Key_contact_email,Key_contact_name,annual_premium,segment_class_name,segment_industry_classes_id" session="Y"/>
+		
+		</action>
+		<action name="editLinkForAgencySegmentClassesSection">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="editAgencySegmentClassesSection" viewparam="Y"/>
+			<actionparam name="isajaxsubmit" paramid="isajaxsubmit" val="isajaxsubmit" viewparam="Y"> </actionparam>
+			<actionparam form="Y" name="segment_industry_classes_id" paramid="segment_industry_classes_id" viewparam="Y"/>
+			<actionparam executionsequence="7" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+
+			
+
+			<workflow name="editLinkForAgencySegmentClassesSection" seq="0">
+				
+				<storedprocedureoperation dbspname="GetAgencySegmentClassesForPublic_p" executionsequence="1" id="GetAgencySegmentClassesForPublic_p" metaobject="tbl_marketinformation" name="GetAgencySegmentClassesForPublic_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"> </parameteroperation>
+						<parameteroperation indexno="1" mode="IN" property="segment_industry_classes_id" seq="2"> </parameteroperation>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+			</workflow>
+			
+			
+			
+		</action>
+		<action name="refreshisAgencysServiceCenter">
+		<actionparam pre="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isComingFromAgencyShareContingency" paramid="isComingFromAgencyShareContingency" pre="Y" val="Y" viewparam="Y"/>
+	    </action>
+	    <action name="refreshIsAgencyShareContingency">
+	        <actionparam pre="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isComingFromAgencyShareContingency" paramid="isComingFromAgencyShareContingency" pre="Y" val="Y" viewparam="Y"/>
+	    </action>
+	     <action name="refreshIsAgencyCommercialBussiness">
+	     <actionparam pre="Y" name="ISSHOWREQUESTDATA" paramid="ISSHOWREQUESTDATA" val="Y" form="Y" executionsequence="2"></actionparam>
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="isComingFromAgencyShareContingency" paramid="isComingFromAgencyShareContingency" pre="Y" val="Y" viewparam="Y"/>
+	    </action>
+	
+	
+	
+	</component>
+</projectcomponents>

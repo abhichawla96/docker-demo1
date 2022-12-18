@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<title>ProducerOne - Producer Management Center</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Scripts -->
+<script type="text/javascript" src="js/all_files.js" />
+</head>
+<body>
+	<form>
+		<div id="cover" />
+		<div id="contextLinks" />
+		<div id="ITApprovePopup">
+			<!-- Modal -->
+			<div class="modal fade modal_popup">
+				<div class="modal-dialog modal-dialog-width_350">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">
+								<a id="incentiveApprovalReport_close" href="#" class="close"
+									onclick="clean();closePopUp('ITApprovePopup')"> <img
+									src="images/close.png" />
+								</a> Approve
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body-scroll popup_small_height">Are you
+								sure you want to Approve?</div>
+						</div>
+						<div class="modal-footer">
+							<div class="buttonwrapper">
+								<a id="incentiveApprovalReport_yes"
+									href="javascript:submitform('carrier/homeAction.html','incentiveApprovalReports.approve','','');"
+									class="ovalbutton"> <span>Yes</span>
+								</a> <a id="incentiveApprovalReport_no" href="#"
+									onclick="clean();closePopUp('ITApprovePopup');"
+									class="ovalbutton"> <span>No</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal End -->
+		</div>
+		<div id="ITDisApprovePopup">
+			<!-- Modal -->
+			<div class="modal fade modal_popup">
+				<div class="modal-dialog modal-dialog-width_350">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">
+								<a id="incentiveApprovalReport_close" href="#" class="close"
+									onclick="clean();closePopUp('ITDisApprovePopup')"> <img
+									src="images/close.png" />
+								</a> Disapprove
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body-scroll popup_small_height">Are you
+								sure you want to Disapprove?</div>
+						</div>
+						<div class="modal-footer">
+							<div class="buttonwrapper">
+								<a id="incentiveApprovalReport_yes1"
+									href="javascript:submitform('carrier/homeAction.html','incentiveApprovalReports.disapprove','','');"
+									class="ovalbutton"> <span>Yes</span>
+								</a> <a id="incentiveApprovalReport_no1" href="#"
+									onclick="clean();closePopUp('ITDisApprovePopup');"
+									class="ovalbutton"> <span>No</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal End -->
+		</div>
+
+		<div class="container-fluid bootstrap-node-1">
+			<div class="tableWidth">
+				<!---------Header Start---------->
+				<header> <span id="#Include:carrier/carrierHeader.html#"></span>
+				</header>
+				<!---------Header End---------->
+
+				<div class="bgmain">
+					<!---------Menu Level 1 Start---------->
+					
+					<!---------Menu Level 1 End---------->
+
+					<!---------Menu Level 2 Start---------->
+					<nav class="menu-level-2"> <span
+						id="#Include:admin/blankAdminTabs.html#"></span> </nav>
+					<!---------Menu Level 2 End---------->
+
+					<article class="content sidebar-content"> <!---------Sidebar Start---------->
+					<div id="sidebar_left_security_admin" class="sideBar_admin">
+						<span id="#Include:admin/adminSideBar.html#"></span>
+					</div>
+					<!---------Sidebar End----------> <!---------Body content Start---------->
+					<div class="panel-body-wraper" id="tdContent">
+						<!---------page Level msg Start---------->
+						<div class="errorMsgAlign clear-both"></div>
+						<div class="ConfirmationAlign clear-both"></div>
+						<!---------page Level msg End---------->
+						<section class="free-form"
+							id="incentiveApprovalReports_report_security">
+						<fieldset>
+							<legend id="incentiveApprovalReports_report_label">Bonus
+								Reconciliation Report</legend>
+							<div class="reportsDivBlockMain generalBlock">
+								<ul class="split-list">
+									<li
+										id="incentiveApprovalReports_ContingentCommissionReportByState_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|AIM201|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_ContingentCommissionReportByState_label">Agent
+												Contingency Commission Report Summary by State (AIM201)</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch1');swapFolder('folder1')">
+											<img src="images/plus.gif" name="folder1" border="0"
+												id="folder1" /> Description
+										</div>
+										<div class="branch" id="branch1">
+											<div>Agent Contingent Commission Report by State.</div>
+										</div></li>
+									<li
+										id="incentiveApprovalReports_ContingentCommissionReportByDetails_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|AIM202|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_ContingentCommissionReportByDetails_label">Agent
+												Contingent Commission Report by Detail (AIM202)</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch2');swapFolder('folder2')">
+											<img src="images/plus.gif" name="folder2" border="0"
+												id="folder2" /> Description
+										</div>
+										<div class="branch" id="branch2">
+											<div>Agent Contingent Commission Report by Detail.</div>
+										</div></li>
+									<li
+										id="incentiveApprovalReports_BonusProgressReport_profit_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|profitBonus|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_BonusProgressReport_profit_label">Agent
+												Bonus Progress Report - Profit Bonus</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch3');swapFolder('folder3')">
+											<img src="images/plus.gif" name="folder3" border="0"
+												id="folder3" /> Description
+										</div>
+										<div class="branch" id="branch3">
+											<div>Agent Bonus Progress Report - Profit Bonus.</div>
+										</div></li>
+									<li
+										id="incentiveApprovalReports_BonusProgressReport_policy_growth_bonus_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|policyGrowthBonus|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_BonusProgressReport_policy_growth_bonus_label">Agent
+												Bonus Progress Report - Policy Growth Bonus</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch4');swapFolder('folder4')">
+											<img src="images/plus.gif" name="folder4" border="0"
+												id="folder4" /> Description
+										</div>
+										<div class="branch" id="branch4">
+											<div>Agent Bonus Progress Report - Policy Growth Bonus.
+											</div>
+										</div></li>
+									<li
+										id="incentiveApprovalReports_BonusProgressReport_profit_plus_bonus_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|profitPlusBonus|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_BonusProgressReport_profit_plus_bonus_label">Agent
+												Bonus Progress Report - Profit Plus Bonus</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch5');swapFolder('folder5')">
+											<img src="images/plus.gif" name="folder5" border="0"
+												id="folder5" /> Description
+										</div>
+										<div class="branch" id="branch5">
+											<div>Agent Bonus Progress Report - Profit Plus Bonus.</div>
+										</div></li>
+									<li
+										id="incentiveApprovalReports_BonusProgressReport_life_sales_bonus_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|lifeSalesBonus|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_BonusProgressReport_life_sales_bonus_label">Agent
+												Bonus Progress Report - Life Sales Bonus</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch6');swapFolder('folder6')">
+											<img src="images/plus.gif" name="folder6" border="0"
+												id="folder6" /> Description
+										</div>
+										<div class="branch" id="branch6">
+											<div>Agent Bonus Progress Report - Life Sales Bonus.</div>
+										</div></li>
+									<li
+										id="incentiveApprovalReports_BonusProgressReport_rising_star_report_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|risingStarBonus|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_BonusProgressReport_rising_star_report_label">Agent
+												Bonus Progress Report - Rising Star Report</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch7');swapFolder('folder7')">
+											<img src="images/plus.gif" name="folder7" border="0"
+												id="folder7" /> Description
+										</div>
+										<div class="branch" id="branch7">
+											<div>Agent Bonus Progress Report - Rising Star Report.
+											</div>
+										</div></li>
+									<li id="incentiveApprovalReports_licensing_report_security"><a
+										href="javascript:managereport('|reportID|projectID|backPageAction|','|licensingReport|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+										class="ico_block"> <span
+											id="incentiveApprovalReports_licensing_report_label">Licensing
+												Report</span></a>
+										<div class="trigger"
+											onclick="showBranch('branch8');swapFolder('folder8')">
+											<img src="images/plus.gif" name="folder8" border="0"
+												id="folder8" /> Description
+										</div>
+										<div class="branch" id="branch8">
+											<div>Agent Bonus Progress Report - Licensing Report.</div>
+										</div></li>
+										
+										<!-- BMIC - Customized Report  -->
+												
+												<li  id="CCBReports_Agency_Contingency_Collected_Premium_Detail_582_security"><a
+												href="javascript:managereport('|reportID|projectID|backPageAction|','|AgencyContingencyCollectedPremiumDetail582RPT|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+												class="ico_block"> <span   id="Agency_Contingency_Collected_Premium_Detail_582_label">  </span>Agency Contingency Collected Premium Detail-582 </a>
+												<div class="trigger"
+													onclick="showBranch('branch171');swapFolder('folder171')">
+													<img src="images/plus.gif" name="folder171" border="0"
+														id="folder171" /> Description
+												</div>
+												<div class="branch" id="branch171">
+													<div>Agency Contingency Collected Premium Detail-582</div>
+												</div></li>
+												
+												<li  id="CCBReports_Agency_Contingency_Claims_Detail_583_security"><a
+												href="javascript:managereport('|reportID|projectID|backPageAction|','|AgencyContingencyClaimsDetail583RPT|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+												class="ico_block"> <span   id="Agency_Contingency_Claims_Detail_583_label"> Agency Contingency Claims Detail- 583 </span> </a>
+												<div class="trigger"
+													onclick="showBranch('branch20');swapFolder('folder20')">
+													<img src="images/plus.gif" name="folder20" border="0"
+														id="folder20" /> Description
+												</div>
+												<div class="branch" id="branch20">
+													<div>Agency Contingency Claims Detail- 583</div>
+												</div></li> 
+												
+												<li  id="Sales_Estimate_Contingency_Bonus_611_security"><a
+												href="javascript:managereport('|reportID|projectID|backPageAction|','|SalesEstimateContingencyBonus611|ProducerOne|homeAction.getIncentiveApprovalReports|','INET_OPEN_MANAGE_REPORT','MANAGE_REPORTING');"
+												class="ico_block"> <span   id="Sales_Estimate_Contingency_Bonus_611_label"> Sales Estimate for Agent Contingency Bonus-611</span> </a>
+												<div class="trigger"
+													onclick="showBranch('branch101');swapFolder('folder101')">
+													<img src="images/plus.gif" name="folder101" border="0"
+														id="folder101" /> Description
+												</div>
+												<div class="branch" id="branch101">
+													<div>Sales Estimate for Agent Contingency Bonus-611</div>
+												</div></li> 
+												
+												
+												
+												
+												<!-- BMIC - Customized Report  -->
+			
+								</ul>
+							</div>
+						</fieldset>
+						</section>
+						<section class="list-grid" id="incentiveApprovalReports_report_grid_security">
+						<fieldset>
+							<legend id="incentiveApprovalReports_report_grid_label">Approvals</legend>
+							<div id="ajax_sorting_1" class="gridTopPadding4">
+								<table cellpadding="3" cellspacing="0" width="100%"
+									class="gridTable" id="GetIncentiveApprovalRoles_list_01">
+									<tr id="GetIncentiveApprovalRoles_list_header_01">
+										<td width="4%" class="HeaderStyle" id="block_field_role_id">Role/User</td>
+										<td class="HeaderStyle" id="block_field_approved" width="7%">Approval
+											Status</td>
+										<td width="8%" class="HeaderStyle" id="block_field_user_name">Approved
+											by</td>
+										<td width="8%" class="HeaderStyle" id="block_field_LogTime">Approved
+											Time</td>
+									</tr>
+									<tr id="GetIncentiveApprovalRoles_list_data_01">
+										<td id="block_field_role_id" />
+										<td id="block_field_approved" />
+										<td id="block_field_user_name" />
+										<td id="block_field_LogTime" />
+									</tr>
+								</table>
+							</div>
+
+						</fieldset>
+						</section>
+						<div class="row" id="checkVarianceReportApproval">
+							<div class="buttonwrapper">
+								<a href="#" onclick="showPopUp('ITApprovePopup');"
+									class="ovalbutton"> <span>APPROVE</span>
+								</a> <a href="#" onclick="showPopUp('ITDisApprovePopup');"
+									class="ovalbutton"> <span>DISAPPROVE</span>
+								</a> <a
+									href="javascript:submitform('carrier/homeAction.html','incentiveApprovalReports.cancel','','');"
+									class="ovalbutton"> <span>Cancel</span>
+								</a>
+
+							</div>
+						</div>
+					</div>
+					<!---------Body content End----------> <!---------Sidebar Start---------->
+					<div id="sidebar_right_security_admin" class="sideBar_admin">
+						<span id="#Include:admin/adminSideBarRight.html#"></span>
+					</div>
+					<!---------Sidebar End----------> </article>
+				</div>
+				<!---------Footer Start---------->
+				<footer> <span id="#Include:admin/adminFooter.html#"></span>
+				</footer>
+				<!---------Footer End---------->
+			</div>
+		</div>
+
+		<table id="agencyPendingComplianceSubmission_freeform_contextdata_0"
+			cellpadding="0" cellspacing="0">
+			<tr>
+				<td><input type="hidden" name="jsessionid" id="jsessionid" />
+					<input type="hidden" name="pone_alert_id"
+					id="ajax_field_pone_alert_id" /> <input type="hidden"
+					name="curr_month" id="ajax_field_curr_month" /> <input
+					type="hidden" name="curr_year" id="ajax_field_curr_year" /> <input
+					type="hidden" name="curr_period" id="ajax_field_curr_period" /> <input
+					type="hidden" name="Status" id="ajax_field_Status" /> <input
+					type="hidden" name="statusOutput" id="ajax_field_statusOutput" />
+					<input type="hidden" name="roles" id="ajax_field_roles" /> <input
+					type="hidden" name="user_id" id="ajax_field_user_id" /> <input
+					type="hidden" name="Period_D" id="ajax_field_Period_D" /> <input
+					type="hidden" name="ccb_bonus_year" id="ajax_field_ccb_bonus_year" />
+					<input type="hidden" name="ccb_calander_year"
+					id="ajax_field_ccb_calander_year" /> <input type="hidden"
+					name="ccb_calander_month" id="ajax_field_ccb_calander_month" /> <input
+					type="hidden" name="bonus_year" id="ajax_field_bonus_year" /> <input
+					type="hidden" name="statementperiod"
+					id="ajax_field_statementperiod" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+

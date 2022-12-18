@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<!-- tag for resolution change -->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<title>ProducerOne - Producer Management Center</title>
+<!-- css -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Scripts -->
+<script type="text/javascript" src="js/all_files.js" />
+</head>
+<body id="divComplete" onload="showPopUpList('popupSendForReview','sendForReviewPopup');">
+	<form>
+		<div id="cover" />
+		<div id="contextLinks" />
+		<div id="popupSendForReview" />
+		<div id="transferDiv" style="width: 500px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td valign="top" class="popupBg">
+						<table cellpadding="0" cellspacing="0" width="100%" border="0">
+							<tr>
+								<td class="popupHeader">Transfer Confirmation</td>
+							</tr>
+							<tr>
+								<td>
+									<table cellpadding="4" cellspacing="0" width="100%">
+										<tr>
+											<td>#space#</td>
+											<td>#space#</td>
+										</tr>
+										<tr id="isChildAgencyCodeOrToProducerNumberCommAttExists">
+											<td style="text-align: center; height: 50px;"><span
+												id="isToProducerNumberCommAttachmentFound"> <b>Commission
+														attachment(s) will not be transfered due to the presence
+														of active attachment(s) with To agency code. Only product
+														validation(s) will move.</b>
+											</span> <span id="isChildAgencyCodeExists"> <br /> <b>
+														Selling <span id="producerlabel">Agency Code</span> will
+														not be closed due to the presence of child <span
+														id="smallcaseproducernumberslabel">agency codes</span> .
+												</b>
+											</span> <b>Do you want to transfer?</b></td>
+											<td>#space#</td>
+										</tr>
+										<tr id="isChildAgencyCodeOrToProducerNumberCommAttNotExists">
+											<td style="text-align: center; height: 50px;"><b>Complete
+													Transfer</b></td>
+											<td>#space#</td>
+										</tr>
+										<tr>
+											<td>#space#</td>
+											<td>#space#</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="popupFooter">
+									<table cellpadding="0" cellspacing="0" align="right">
+										<tr>
+											<td colspan="2">
+												<div class="buttonwrapper">
+													<a id="bobtransferstep3_ok"
+														href="javascript:submitform('admin/bobtransfers.html','bobtransfersStep3.transfer','','');"
+														onclick="closePopUp('transferDiv');" class="ovalbutton">
+														<span>OK</span>
+													</a> <a id="bobtransferstep3_cancel" href="#" onclick="closePopUp('transferDiv');"
+														class="ovalbutton"> <span>Cancel</span>
+													</a>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="27px" valign="top" style="background-color: none;">
+						<a id="bobtransferstep3_close" href="#" onclick="closePopUp('transferDiv')"> <img
+							src="images/close.png" />
+					</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="container-fluid bootstrap-node-47">
+			<div class="tableWidth">
+				<!--=======Header Start========-->
+				<header> <span id="#Include:carrier/carrierHeader.html#" /> </header>
+				<!--=======Header End========-->
+				<div class="bgmain">
+					<!--=======Menu Level 1 Start========-->
+					<nav class="menu-level-1 tab"> <span
+						id="#Include:admin/adminTabs.html#" /> </nav>
+					<!--=======Menu Level 1 End========-->
+					<!--=======Menu Level 2 Start========-->
+					<nav class="menu-level-2"> <span
+						id="#Include:admin/adminTabs2.html#" /> </nav>
+					<!--=======Menu Level 2 End========-->
+					<article class="content sidebar-content"> <!--=======Sidebar Start========-->
+					<div id="sidebar_left_security_admin" class="sideBar_admin">
+						<span id="#Include:admin/adminSideBar.html#" />
+					</div>
+					<!--=======Sidebar End========--> <!--=======Body content Start========-->
+					<div class="panel-body-wraper" id="tdContent">
+						<!--=======page Level msg Start========-->
+						<!--=======page Level msg End========-->
+
+						<div class="wizard" id="isProducerNumberTransferIndividual" style="border-bottom: none;">
+							<ul class="progress-tracker" >
+								<li id="bobtransfersStep1_initiatetransfer_security" class="done">
+									<div class="step">1</div>
+									<div class="label">
+										<a href="#" id="bobtransferstep3_initiatetransfer"><span id="bobtransfersStep3_initiatetransferlabel">Initiate Transfer</span></a>
+									</div>
+									<div class="progressLine" id="xline1">&nbsp;</div>
+								</li>
+								<li id="bobtransferstep2_select_transfer_from_security" class="done">
+									<div class="step">2</div>
+									<div class="label">
+										<a href="#" id="bobtransferstep3_initiatetransferfrom"><span id="bobtransferstep2_select_transfer_from_label">Select Policies to Transfer From</span></a>
+									</div>
+									<div class="progressLine" id="xline1">&nbsp;</div>
+								</li>
+								<li id="bobtransferstep3_initiatesummary_security" class="active">
+									<div class="step">3</div>
+									<div class="label">
+										<a href="#" id="bobtransferstep3_initiatesummary"><span id="bobtransferstep3_initiatesummary_label">Summary</span></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+
+						<div class="wizard_border " style="border-top: 1px solid #e6e6e6">
+
+							<div class="padding10">
+
+								<section class="free-form paddingTop10 wizardHeight2" id="bobtransfersStep3_free_form_security">
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td>
+												<div class="freeFormDiv form-inline" id="bobtransfersStep3_free_form_label">
+							                          <div class="padding-left-form">
+							                            <ul class="inlineBlock" id="bobtransfersStep3_freeform_contextdata_4">
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_producer_number_from_varchar_security">
+							                                <div class="freeFormList form-group">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                      <span id="bobtransfersStep3_producer_number_from_varchar_label">From Agent Number</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="producer_number_from_varchar"
+																 fullid="bobtransfersStep3_freeform_contextdata_4(bobtransfersStep3_free_form_security.bobtransfersStep3_free_form_label).bobtransfersStep3_producer_number_from_varchar_security.bobtransfersStep3_producer_number_from_varchar_label.producer_number_from_varchar" 
+															id="producer_number_from_varchar"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_producer_number_to_varchar_security">
+							                                <div class="freeFormList form-group">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="error_producer_number_to_varchar" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                      <span id="bobtransfersStep3_producer_number_to_varchar_label">To Agent Number</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="producer_number_to_varchar"
+																  	 fullid="bobtransfersStep3_freeform_contextdata_4(bobtransfersStep3_free_form_security.bobtransfersStep3_free_form_label).bobtransfersStep3_producer_number_to_varchar_security.bobtransfersStep3_producer_number_to_varchar_label.producer_number_to_varchar" 
+															id="producer_number_to_varchar"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+							                              
+							                              
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_subproducercode_security">
+							                                <div class="freeFormList form-group">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="error_destination_associationid" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                      <span id="bobtransfersStep3_DestinationProducerCodelabel">To Producer Code</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="sub_producer_code_desc_to" id="ajax_field_sub_producer_code_desc_to"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+														    <!-- BMIC phase 3 - extended fields  -->
+							                              <li class="inlineBlock_3" id="#bobtransfersStep3_to_sub_prod_code_security_after#"></li>
+							                              
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_transfer_effective_date_security">
+							                                <div class="freeFormList form-group">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="error_transfer_effective_date" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                     	<span id="bobtransfersStep3_transfer_effective_date_label">Transfer Effective Date</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="transfer_effective_date"
+																   fullid="bobtransfersStep3_freeform_contextdata_4(bobtransfersStep3_free_form_security.bobtransfersStep3_free_form_label).bobtransfersStep3_transfer_effective_date_security.bobtransfersStep3_transfer_effective_date_label.transfer_effective_date"
+															id="transfer_effective_date"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_company_desc_security">
+							                                <div class="freeFormList form-group" id="isProducerNumberTransferWholesale">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="error_company_desc" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                     	<span id="bobtransferStep3_companylabel">Company</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="company_desc"
+																  fullid="bobtransfersStep3_freeform_contextdata_4(bobtransfersStep3_free_form_security.bobtransfersStep3_free_form_label).bobtransfersStep3_company_desc_security.bobtransferStep3_companylabel.company_desc"
+															id="company_desc"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_state_desc_security">
+							                                <div class="freeFormList form-group" id="isProducerNumberTransferWholesale">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="error_state_desc" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                     	<span
+																id="bobtransferStep3_statelabel">State</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="state_desc"
+																  fullid="bobtransfersStep3_freeform_contextdata_4(bobtransfersStep3_free_form_security.bobtransfersStep3_free_form_label).bobtransfersStep3_state_desc_security.bobtransferStep3_statelabel.state_desc"
+															id="state_desc"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+							                              <li class="inlineBlock_3" id="bobtransfersStep3_transfer_option_security">
+							                                <div class="freeFormList form-group" id="isProducerNumberTransferWholesale">
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTdError">
+							                                      <h6>#space#</h6>
+							                                    </div>
+							                                    <div class="freeFormListTdError paddingLeft3">
+							                                      <div id="error_transfer_option" class="error" />
+							                                    </div>
+							                                  </div>
+							                                  <div class="freeFormListTr">
+							                                    <div class="freeFormListTd labelAlign freeFormLabelWidth txtbold">
+							                                     	<span
+																id="bobtransferStep3_transferoptionlabel">Transfer Option</span> :
+							                                    </div>
+							                                    <div class="freeFormListTd tdInput">
+							                                      <label name="transfer_option"
+																  fullid="bobtransfersStep3_freeform_contextdata_4(bobtransfersStep3_free_form_security.bobtransfersStep3_free_form_label).bobtransfersStep3_transfer_option_security.bobtransferStep3_transferoptionlabel.transfer_option"
+															id="transfer_option"></label>
+															<label name="transfer_option_value"
+															id="transfer_option_value"></label>
+							                                    </div>
+							                                  </div>
+							                                </div>
+							                              </li>
+							                           </ul>
+							                         </div>
+							                      </div>
+												
+											</td>
+										</tr>
+										<tr>
+											<td colspan="10" class="paddingTop20" id="bobtransfersStep3_grid_security">
+												<div class="table-responsive">
+			                          				<div id="transfersStep3_list_mom_2"></div>
+			                          			</div>
+												
+												<!-- <div id="ajax_sorting">
+													<table id="transfersStep3_list_mom_2" width="100%"
+														cellspacing="0" cellpadding="0" class="gridTable">
+														<tr>
+	                            							<td class="pagination" colspan="20">
+	                            								<table cellpadding="0" cellspacing="0" border="0" width="100%">
+																	<tr id="transferStep3_pagination_1">
+									                                  	<td align="left" width="2%" nowrap="nowrap">Records per page :</td>
+									                                  	<td align="left" width="1%">
+									                                    	<select id="recordsperpage" onchange="ajax_sorting" name="recordsperpage" class="inputbox" />
+									                                  	</td>
+									                                  	<td align="center">
+									                                    	<table cellpadding="1" cellspacing="1">
+										                                      	<tr>
+											                                        <td nowrap="nowrap" align="center">Viewing</td>
+											                                        <td id="bobtransferStep3_recordsfrom_1" class="paginationTxt" />
+											                                        <td class="linright">to</td>
+											                                        <td id="bobtransferStep3_recordsto_1" class="paginationTxt" />
+											                                        <td class="linright">of</td>
+											                                        <td id="bobtransferStep3_totalrecords_1" class="paginationTxt" />
+										                                      	</tr>
+									                                    	</table>
+									                                  	</td>
+									                                  	<td align="right" width="160px" nowrap="nowrap">
+									                                    	<table border="0" cellspacing="1" cellpadding="1">
+									                                      		<tr>
+											                                        <td id="bobtransfersStep3_firstpagelink_1">
+											                                          <a id="bobtransferstep3_previousall" href="javascript:ajaxpagination('bobtransfersStep3.html','ajax_sorting','','');" title="First Page" tabindex="21">
+											                                            <img src="images/previous_all.png" border="0" />
+											                                          </a>
+											                                        </td>
+											                                        <td id="bobtransfersStep3_previouspagelink_01">
+											                                          <a id="bobtransferstep3_previousone" href="javascript:ajaxpagination('bobtransfersStep3.html','ajax_sorting','','');" title="Previous" tabindex="21">
+											                                            <img src="images/previous_one.png" border="0" />
+											                                          </a>
+											                                        </td>
+											                                        <td nowrap="nowrap">Page :</td>
+											                                        <td>
+											                                          <select id="pagenumber" onchange="ajax_sorting" name="pagenumber" class="inputbox" />
+											                                        </td>
+											                                        <td id="bobtransfersStep3_nextpagelink_1">
+											                                          <a id="bobtransferstep3_nextone" href="javascript:ajaxpagination('bobtransfersStep3.html','ajax_sorting','','');" title="Next" tabindex="21">
+											                                            <img src="images/next_one.png" border="0" />
+											                                          </a>
+											                                        </td>
+											                                        <td id="bobtransfersStep3_lastpagelink_1">
+											                                          <a id="bobtransferstep3_nextall" href="javascript:ajaxpagination('bobtransfersStep3.html','ajax_sorting','','');" title="Last Page" tabindex="21">
+											                                            <img src="images/next_all.png" border="0" />
+											                                          </a>
+											                                        </td>
+									                                      		</tr>
+									                                    	</table>
+									                                  	</td>
+									                                </tr>
+								                                </table>
+								                            </td>
+								                        </tr>
+														<tr id="transfersStep3_list_header_2">
+															<td id="bobtransferStep3_policyid" class="HeaderStyle"
+																width="15%"><span id="block_field_policy_id">
+																<span id="bobtransferStep3_policyidlabel">Policy Id</span>
+															</span></td>
+															<td id="bobtransferStep3_policynumber"
+																class="HeaderStyle" width="12%"><span
+																id="block_field_Policy_Number"> <span
+																	id="bobtransferStep3_policynumberlabel">Policy Number</span>
+															</span></td>
+															<td id="bobtransferStep3_familynumber"
+																class="HeaderStyle" width="8%"><span
+																id="block_field_family_number"> <span
+																	id="bobtransferStep3_familynumberlabel">Family Number</span>
+															</span></td>
+															<td id="bobtransferStep3_agentnumber"
+																class="HeaderStyle" width="8%"><span
+																id="block_field_agent_number"> <span
+																	id="bobtransferStep3_agentnumberlabel">Agent Number</span>
+															</span></td>
+															<td id="bobtransferStep3_bobid" class="HeaderStyle"
+																width="10%"><span id="block_field_bob_id">
+																	<span id="bobtransferStep3_bobidlabel">BOB ID</span>
+															</span></td>
+															<td id="bobtransferStep3_company" class="HeaderStyle"
+																width="12%"><span id="block_field_company_desc">
+																	<span id="bobtransferStep3_companylabel">Company</span>
+															</span></td>
+															<td id="bobtransferStep3_lob" class="HeaderStyle"
+																width="11%"><span id="block_field_lob_desc">
+																	<span id="bobtransferStep3_loblabel">LOB</span>
+															</span></td>
+															<td id="bobtransferStep3_product" class="HeaderStyle"
+																width="11%"><span id="block_field_product_desc">
+																	<span id="bobtransferStep3_productlabel">Product</span>
+															</span></td>
+															<td id="bobtransferStep3_state" class="HeaderStyle"
+																width="10%"><span id="block_field_state_desc">
+																	<span id="bobtransferStep3_statelabel">State</span>
+															</span></td>
+															<td id="bobtransferStep3_effectivedate"
+																class="HeaderStyle" width="7%"><span
+																id="block_field_policy_effective_date"> <span
+																	id="bobtransferStep3_effectivedatelabel">Effective Date</span>
+															</span></td>
+															<td id="bobtransferStep3_expirationdate"
+																class="HeaderStyle" width="8%"><span
+																id="block_field_Policy_Expiration_Date"> <span
+																	id="bobtransferStep3_expirationdatelabel">Expiration Date</span>
+															</span></td>
+															<td id="bobtransferStep3_status" class="HeaderStyle"
+																width="9%"><span id="block_field_Policy_Status">
+																	<span id="bobtransferStep3_statuslabel">Status</span>
+															</span></td>
+														</tr>
+														<tr id="transfersStep3_list_mom_data_2">
+															<td id="bobtransferStep3_policyid"><span
+																id="block_field_policy_id"></span></td>
+															<td id="bobtransferStep3_policynumber"><span
+																id="block_field_Policy_Number"></span></td>
+															<td id="bobtransferStep3_familynumber"><span
+																id="block_field_family_number"></span></td>
+															<td id="bobtransferStep3_agentnumber"><span
+																id="block_field_agent_number"></span></td>
+															<td id="bobtransferStep3_bobid"><span
+																id="block_field_bob_id"></span></td>
+															<td id="bobtransferStep3_company"><span
+																id="block_field_company_desc"></span></td>
+															<td id="bobtransferStep3_lob"><span
+																id="block_field_lob_desc"></span></td>
+															<td id="bobtransferStep3_product"><span
+																id="block_field_product_desc"></span></td>
+															<td id="bobtransferStep3_state"><span
+																id="block_field_state_desc"></span></td>
+															<td id="bobtransferStep3_effectivedate"><span
+																id="block_field_policy_effective_date"></span></td>
+															<td id="bobtransferStep3_expirationdate"><span
+																id="block_field_Policy_Expiration_Date"></span></td>
+															<td id="bobtransferStep3_status"><span
+																id="block_field_Policy_Status"></span></td>
+														</tr>
+													</table>
+												</div>	 -->
+											</td>
+										</tr>
+									</table> 
+								</section>
+							</div>
+						</div>
+						<section class="divButton buttons-section paddingTop20">
+						<div class="buttonwrapper">
+							<a id="bobtransferstep3_back"
+							fullid="page(page.page).bobtransferstep3_back.bobtransferstep3_back_label.bobtransferstep3_back"
+
+								href="javascript:submitform('admin/bobtransfersStep2.html','bobtransfersStep3.back','','');"
+								class="ovalbutton"> <span id="bobtransferstep3_back_label">Back</span>
+							</a>
+							<!--  <a href="javascript:submitform('admin/mergerAcquisitionBookOfBusinessTransfer.html','transfersStep3.bookOfBusinessTransfer','','');" class="ovalbutton">
+                                            <span>Next</span>
+                                          </a> -->
+                                          <span >
+												<span > <!-- <a
+													id="bobtransfersStep3_transferbutton"
+													onclick="javascript:showPopUp('transferDiv',400,300);"
+													href="#" class="ovalbutton"> <span>Send For Approval</span>
+												</a> -->
+													<a id="bobtransferstep3_sendforapproval" class="ovalbutton" href="javascript:ajaxpageblocklink('carrier/sendForReviewPopup.html','bobtransfersStep3.sendforreview','','','divComplete');"><span style="color:#ffffff !important" id="bobtransferstep3_sendforapproval_label">Send For Approval </span></a>
+												</span> 
+											</span>
+											
+											<a id="bobtransfersStep3_approvebutton"
+												fullid="page(page.page).bobtransfersStep3_approvebutton.bobtransfersStep3_approvebutton_label.bobtransfersStep3_approvebutton"
+												href="javascript:ajaxpageblocklink('carrier/sendForReviewPopup.html','bobtransfersStep3.approve','','','divComplete');"
+												class="ovalbutton"> <span id="bobtransfersStep3_approvebutton_label">Approve</span>
+											</a>
+											<a id="bobtransfersStep3_disapprovebutton"
+											fullid="page(page.page).bobtransfersStep3_disapprovebutton.bobtransfersStep3_disapprovebutton_label.bobtransfersStep3_disapprovebutton"
+												href="javascript:ajaxpageblocklink('carrier/sendForReviewPopup.html','bobtransfersStep3.disapprove','','','divComplete');"
+												class="ovalbutton"> <span id="bobtransfersStep3_disapprovebutton_label">Disapprove</span>
+											</a>
+											
+											<a id="bobtransferstep3_cancel1"
+												fullid="page(page.page).bobtransferstep3_cancel1.bobtransferstep3_cancel1_label.bobtransferstep3_cancel1"
+												href="javascript:submitform('admin/bobtransfers.html','bobtransfersStep3.transfers','','');"
+												class="ovalbutton"> <span id="bobtransferstep3_cancel1_label">Cancel</span>
+											</a>
+						</div>
+						</section>
+
+
+
+
+				</div> <!--=======Body content End========--> <!--=======Sidebar Start========-->
+				<div id="sidebar_right_security_admin" class="sideBar_admin">
+					<span id="#Include:admin/adminSideBarRight.html#" />
+				</div> <!--=======Sidebar End========--> </article>
+				</div> <!--=======Footer Start========--> <footer> <span
+					id="#Include:admin/adminFooter.html#" /> </footer> <!--=======Footer End========-->
+				</div>
+				</div>
+				<div class="calendar_widget" id="calendar_widget">
+					<iframe id="calendar_widget_iframe"
+						name="calendar_widget_iframe" src="calendar_widget.html"
+						frameborder="0" />
+				</div>
+				<div id="bobtransfersStep3_freeform_contextdata_999"
+					class="hiddenFields">
+					<input type="hidden" name="jsessionid" 
+						fullid="bobtransfersStep3_freeform_contextdata_999(jsessionid_security.jsessionid_label).jsessionid_security.jsessionid_label.jsessionid"
+						id="jsessionid" /> 
+					<input type="hidden" name="validations"
+						fullid="bobtransfersStep3_freeform_contextdata_999(validations_security.validations_label).validations_security.validations_label.validations"
+						id="ajax_field_validations" />
+					<div id="isProducerNumberTransferWholesale">
+						<input
+							type="hidden" name="filterXml"
+							fullid="bobtransfersStep3_freeform_contextdata_999(filterXml_security.filterXml_label).filterXml_security.filterXml_label.filterXml"
+							id="ajax_field_filterXml" />
+					</div>	
+						 <input type="hidden" name="is_checked_selected" id="ajax_field_is_checked_selected" /> 
+						 <input type="hidden" name="lob_code" id="ajax_field_lob_code" /> 
+						 <input type="hidden" name="company_abbreviation" id="ajax_field_company_abbreviation" /> 
+						 <input type="hidden" name="state_abbreviation" id="ajax_field_state_abbreviation" /> 
+						 <input type="hidden" name="transfer_option" id="ajax_field_transfer_option" />
+						 <input type="hidden" name="sub_producer_association_id_to" id="ajax_field_sub_producer_association_id_to" />
+						 <input type="hidden" name="sub_producer_association_id_from" id="ajax_field_sub_producer_association_id_from" /> 
+				</div>
+	</form>
+</body>
+</html>
+

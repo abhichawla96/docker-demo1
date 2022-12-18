@@ -1,0 +1,40 @@
+<security project="ProducerOne">
+	
+  
+  <!-- Mask SSN -->
+  
+
+	
+	 <protectedresource deltaind="I" defaultaccesstype="0"
+		description="Hide/Show Tax id/FEIN popup"
+		 uniquename="showtaxidsecurity">
+		<userdefined deltaind="I" executionsequence="1"
+			ruleid="ProducerOneRule.isShowfein">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource> 
+	
+	<!-- To hide Submit button for NPN -->
+	
+	<protectedresource deltaind="I" defaultaccesstype="1"
+		description="Hide/Show Npn popup"
+		 uniquename="taxidPopup_Submit">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="ProducerOneRule.isShownpn">
+			<userdefinedaccesslevel accesstype="0" />
+		</userdefined>
+	</protectedresource>
+	
+ <!-- Mask SSN -->
+  
+   <protectedresource deltaind="I" defaultaccesstype="0"
+		description="Hide/Show Npn popup"
+		 uniquename="ssn_popup_securityHeader">
+		<userdefined deltaind="I" executionsequence="0"
+			ruleid="ProducerOneRule.isShownpn">
+			<userdefinedaccesslevel accesstype="1" />
+		</userdefined>
+	</protectedresource>
+   
+   
+</security>  

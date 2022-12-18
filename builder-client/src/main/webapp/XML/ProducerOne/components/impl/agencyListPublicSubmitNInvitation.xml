@@ -1,0 +1,81 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component metaobject="agencyListPublicSubmitNInvitation" name="agencyListPublicSubmitNInvitation" stackdisplayname="eval:ProducerOneRule.getAgencyListPublicSubmitStackName" displayname="Onboarding Listing">
+		<action deltaind="M" name="editNew">
+			<actionparam deltaind="I" executionsequence="7" session="Y" post="Y" form="Y" name="npn_check" paramid="npn_check" val="npn_flag" />  <!-- Added by Aashutosh -->
+		</action>
+		
+
+		<action name="resendInvitation" deltaind="M">
+		
+			<actionparam deltaind="I" executionsequence="7" form="Y" name="registration_type_code" paramid="registration_type_code" pre="Y" viewparam="Y" />
+			<actionparam deltaind="I" executionsequence="8" form="Y" name="person_first_name_forInvitation" paramid="person_first_name_forInvitation" pre="Y" viewparam="Y" populatename="person_first_name_forInvitation"/>
+			<actionparam deltaind="M" executionsequence="9" eval="ProducerOneRule.isRegistrationTypePrimarySecondary" form="Y" name="event_name" paramid="event_name" pre="Y" val="ResendInvitation" session="Y" />
+			<actionparam deltaind="I" executionsequence="10" eval="ProducerOneRule.isRegistrationTypeProducerRegistrationAgencyDetailScreen" form="Y" name="event_name_agent" paramid="event_name" pre="Y" val="ResendInvitationForAgent" session="Y" />
+			<!-- Prod bug-0078 changes -->
+			<workflow deltaind="I" name="reSendAgencyName" seq="6">
+				<databaseoperation deltaind="I" executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="resendAgencyNameforMail" operation="3" sqlstmt="Select  aar_agencyname as Entity_Name from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>	
+			</workflow>
+		</action>
+		<!-- Email Event Action -->
+		<!-- Phase 3 - Feature - 48692 - Generating Welcome Letters Manually (Code Commented) - Start -->
+	<!--	<action deltaind="M" name="sendEmail">
+
+			<actionparam deltaind="I" executionsequence="0" form="Y" name="person_id" paramid="person_id" viewparam="Y" />
+			<actionparam deltaind="I" executionsequence="1" form="Y" name="agency_id" paramid="agency_id" viewparam="Y" />
+			<actionparam deltaind="I" executionsequence="2" form="Y" name="Status" paramid="Status" pre="Y" val="Completed" />
+			<actionparam deltaind="I" executionsequence="3" form="Y" name="registration_type" paramid="registration_type" viewparam="Y" />
+
+
+			<workflow name="emaildetails" deltaind="I" seq="0">
+
+				<storedprocedureoperation deltaind="I" eval="agencyListPublicSubmitNInvitationRule.isSendProducerEmail" dbspname="getDataForNewProducerAppoiment_p" executionsequence="4" id="getDataForNewProducerAppoiment_p" metaobject="person" name="getDataForNewProducerAppoiment_p" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="person_id" seq="0" />
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0" />
+				</storedprocedureoperation>
+
+				<storedprocedureoperation deltaind="I" eval="agencyListPublicSubmitNInvitationRule.isSendAgencyEmail" dbspname="GetAppointmentTerminationLetterAddress_p" executionsequence="5" id="GetAppointmentTerminationLetterAddress_p" metaobject="agency_master" name="GetAppointmentTerminationLetterAddress_p" operation="3">
+					<parameteroperation indexno="1" mode="IN" property="agency_id" seq="1" />
+					<parameteroperation indexno="2" mode="IN" property="AgencyAddresType" seq="2" />
+					<parameteroperation indexno="3" mode="IN" property="AgentAddresType" seq="3" />
+					<parameteroperation indexno="4" mode="IN" property="isShowAgencyBusinessAddress" seq="4" />
+					<parameteroperation indexno="5" mode="IN" property="type" seq="5" />
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0" />
+				</storedprocedureoperation>
+
+			</workflow>
+
+			<workflow deltaind="M" name="sendOnboardingEmail" seq="1">
+				<email deltaind="M" eval="agencyListPublicSubmitNInvitationRule.isSendProducerEmail" eventname="NewProducerAppointment" executionsequence="1" ischeckfortemplates="Y" name="sendOnboardingEmail" objectid="aar_requestid" objecttype="onboarding" mailto="email" />
+				<email deltaind="I" eval="agencyListPublicSubmitNInvitationRule.isSendAgencyEmail" eventname="NewAgencyAppointment" executionsequence="2" ischeckfortemplates="Y" name="sendOnboardingEmail1" objectid="aar_requestid" objecttype="onboarding" mailto="email" />
+			</workflow>
+		</action>
+-->
+<!-- Phase 3 - Feature - 48692 - Generating Welcome Letters Manually - End -->
+
+		<!-- Customizaiton for BMIC- delete icon -->
+		<action deltaind="I" name="deleteAgencyApplication">
+
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y" />
+
+			<workflow name="deleteAddress" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_address" name="deleteAddress" operation="2" sqlstmt="delete from tbl_address where aar_requestid=#aar_requestid#" />
+				<databaseoperation executionsequence="1" metaobject="tbl_agency_document_attachments" name="deleteDocAttachment" operation="2" sqlstmt="delete from tbl_agency_document_attachments where object_id in (select document_Id from tbl_agency_documents where aar_requestid =#aar_requestid#)" />
+
+				<databaseoperation executionsequence="2" metaobject="tbl_agency_documents" name="deleteDocument" operation="2" sqlstmt="delete from tbl_agency_documents where aar_requestid=#aar_requestid#" />
+
+				<databaseoperation executionsequence="3" metaobject="tbl_agencyprincipal" name="deleteContact" operation="2" sqlstmt="delete from tbl_agencyprincipal where request_id=#aar_requestid#" />
+
+				<databaseoperation executionsequence="4" metaobject="tbl_signature_acceptance" name="deleteSignatureDet" operation="2" sqlstmt="delete from tbl_signature_acceptance where aar_requestid=#aar_requestid#" />
+
+				<databaseoperation executionsequence="5" metaobject="tbl_agencybankinformation" name="deleteBankInfo" operation="2" sqlstmt="delete from tbl_agencybankinformation where aar_requestid=#aar_requestid#" />
+
+				<!-- <databaseoperation executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="deleteApplicaton" operation="2" sqlstmt="delete from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#" /> -->
+
+			</workflow>
+			<workflowevent deltaind="I" event="trashOnboardedApplication" name="trashOnboardedApplication" isexecuteonsuccess="Y" workflow="onboardingDashboard" executionsequence="0"/> -->
+			<actionparam eval="ProducerOneRule.isDeleteInvitation" executionsequence="1" form="Y" name="pageMsg" paramid="pageMsg123" post="Y" />
+
+		</action>
+
+	</component>
+</projectcomponents>

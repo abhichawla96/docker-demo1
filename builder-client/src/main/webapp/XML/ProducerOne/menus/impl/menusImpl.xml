@@ -1,0 +1,99 @@
+<menus project="ProducerOne">
+<menugroup name="adminTabs" labelkey="menus_adminTabs_label" securitykey="isAdminTabNotConfiguration" screen="admin/adminTabs.html,carrier/carrierHeader.html,admin/adminHeader.html" cssclass="roundTab1 newMainTab" istab="Y" executionsequence="1">
+		<menu name="adminmore_security" deltaind="M" securitykey="adminmore_security" tablabelkey="adminmore_security_tablabel" menulabelkey="adminmore_security_menulabel" activeon="isMoreTabSelected" executionsequence="10"
+			tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="massChange"
+			href="javascript:submitform('admin/massChange.html','adminTabs.massChange','','');">
+			<forward id="admin/massChange.html" deltaind="M" screen="admin/massChange.html" executionsequence="0"/>
+			
+			<submenu name="adminTabs_massContractGeneration" securitykey="adminTabs_massContractGeneration" tablabelkey="massContractGenerationLabel" menulabelkey="adminTabs_massContractGeneration_menulabel"
+				activeon="isNextPageMassContractGeneration" executionsequence="1" tabcssclass="contacttab" istab="Y" activeonclass="active1"
+				screen="admin/adminTabs.html" action="massContractGenerationListing" moduleid="administration"
+				href="javascript:submitform('admin/massContractGenerationListing.html','adminTabs.massContractGenerationListing','','');">
+			<forward id="admin/massContractGenerationListing.html" screen="admin/massContractGenerationListing.html" executionsequence="0" />
+			</submenu>	
+			<submenu name="massHierarchyListing_security" securitykey="massHierarchyListing_security" tablabelkey="massHierarchyListingLabel" menulabelkey="massHierarchyListing_security_menulabel" activeon="isNextPageMassHierarchyActive" executionsequence="0"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="massHierarchyListing" moduleid="administration"
+				href="javascript:submitform('admin/massHierarchyListing.html','adminTabs.massHierarchyListing','','');">
+				<forward id="admin/massHierarchyListing.html" screen="admin/massHierarchyListing.html" executionsequence="0"/>
+			</submenu>
+			<!-- <submenu name="distributionGroups_tab_security" securitykey="distributionGroups_tab_security" tablabelkey="distributionGroups_tab_label" menulabelkey="distributionGroups_tab_label" activeon="isNextPageDistributionGroupsActive" executionsequence="1"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="distributionGroup" moduleid="administration"
+				href="javascript:submitform('admin/distributionGroup.html','adminTabs.distributionGroup','','');">
+				<forward screen="admin/distributionGroup.html" executionsequence="0"/>
+			</submenu> 
+			<submenu name="isShowManageSSOTab" securitykey="isShowManageSSOTab" tablabelkey="singlesignon_label" menulabelkey="singlesignon_label" activeon="isNextPageManageSSOActive" executionsequence="2"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="manageSSO" moduleid="administration"
+				href="javascript:submitform('admin/ssosettings.html','adminTabs.manageSSO','','');">
+				<forward id="admin/ssosettings.html" screen="admin/ssosettings.html" executionsequence="0"/>
+			</submenu> -->		
+			<submenu name="isPageFieldsMappingApplicable" securitykey="isPageFieldsMappingApplicable" tablabelkey="pagefieldslabel" menulabelkey="isPageFieldsMappingApplicable_menulabel" activeon="isNextPagePageFieldsMapping" executionsequence="3"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="pageFieldsMappingList" moduleid="administration"
+				href="javascript:submitform('admin/pageFieldsMappingList.html','adminTabs.pageFieldsMappingList','','');">
+				<forward id="admin/pageFieldsMappingList.html" screen="admin/pageFieldsMappingList.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="initiate_data_load_security" securitykey="initiate_data_load_security" tablabelkey="initiate_data_load_label" menulabelkey="initiate_data_load_security_menulabel" activeon="isNextPageInitiateDataLoad" executionsequence="4"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="initiateDataLoad" moduleid="administration"
+				href="javascript:submitform('admin/initiateDataLoad.html','adminTabs.initiateDataLoad','','');">
+				<forward id="admin/initiateDataLoad.html" screen="admin/initiateDataLoad.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="admin_messages_security" securitykey="admin_messages_security" tablabelkey="producerOne_message_label" menulabelkey="admin_messages_security_menulabel" activeon="isNextPageProducerOneMessage" executionsequence="5"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="getProducerOneMessageList" moduleid="administration"
+				href="javascript:submitform('admin/producerOneMessageList.html','adminTabs.getProducerOneMessageList','','');">
+				<forward id="admin/producerOneMessageList.html" screen="admin/producerOneMessageList.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="adminTabs_accountstab" securitykey="adminTabs_accountstab" tablabelkey="adminTab_accounts_label" menulabelkey="adminTabs_accountstab_menulabel" activeon="isNextPageAccountsForTabs1" executionsequence="6"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="flexiInfoMapping" moduleid="administration"
+				href="javascript:submitform('admin/flexiInfoMapping.html','adminTabs.flexiInfoMapping','','');">
+				<forward id="admin/flexiInfoMapping.html" screen="admin/flexiInfoMapping.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="renewal_security" securitykey="renewal_security" tablabelkey="adminTab_renewal_label" menulabelkey="renewal_security_menulabel" activeon="isNextPageRenewalForTabs1" executionsequence="7"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="renewal" moduleid="administration"
+				href="javascript:submitform('admin/renewal.html','adminTabs.renewal','','');">
+				<forward id="admin/renewal.html" screen="admin/renewal.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="mass_change_security" securitykey="mass_change_security" tablabelkey="adminTab_mass_change_label" menulabelkey="mass_change_security_menulabel" activeon="isNextPageMassChangeForTabs1" executionsequence="8"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="massChange" moduleid="administration"
+				href="javascript:submitform('admin/massChange.html','adminTabs.massChange','','');">
+				<forward id="admin/massChange.html" screen="admin/massChange.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="admin_enrollment_security" securitykey="admin_enrollment_security" tablabelkey="enrollment_label" menulabelkey="admin_enrollment_security_menulabel" activeon="isNextPageEnrollment" executionsequence="9"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="enrollment" moduleid="administration"
+				href="javascript:submitform('admin/enrollment.html','adminTabs.enrollment','','');">
+				<forward id="admin/enrollment.html" screen="admin/enrollment.html" executionsequence="0"/>
+			</submenu>	
+			<submenu name="menu_pdblist_security" securitykey="menu_pdblist_security" tablabelkey="menu_pdblist_label" menulabelkey="menu_pdblist_security_menulabel" activeon="isPdblistTabSelected" executionsequence="10"
+				tabcssclass="contacttab" activeonclass="active1" istab="Y" ismenu="Y" screen="admin/adminTabs.html" action="pdbList" moduleid="administration"
+				href="javascript:submitform('admin/pdbList.html','adminTabs.pdbList','','');">
+				<forward id="admin/pdbList.html" screen="admin/pdbList.html" executionsequence="0"/>
+		   </submenu>
+		   <submenu name="massReassign_security" securitykey="massReassign_security" tablabelkey="adminTab_mass_reassign_label" menulabelkey="massReassign_security_menulabel" activeon="isNextPageMassReassignForTabs1" executionsequence="11"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="massReassign" moduleid="administration"
+				href="javascript:submitform('admin/massReassign.html','adminTabs.massReassign','','');">
+			<forward id="admin/massReassign.html" screen="admin/massReassign.html" executionsequence="0"/>
+			</submenu>	
+		 <submenu name="adminTabs_companyAppointmentReport" securitykey="adminTabs_car" tablabelkey="companyAppointmentReportslabel" menulabelkey="adminTabs_companyAppointmentReport_menulabel" activeon="isNextPageCompanyAppointmentReport" executionsequence="12"
+			tabcssclass="contacttab" activeonclass="active1" istab="Y" ismenu="Y" screen="admin/adminTabs.html" action="companyAppointmentReport" moduleid="administration"
+			href="javascript:submitform('admin/companyAppointmentReport.html','adminTabs.companyAppointmentReport','','');">
+			<forward id="admin/companyAppointmentReport.html" screen="admin/companyAppointmentReport.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="matching_car_security" securitykey="matching_car_security" tablabelkey="matching_car_label" menulabelkey="matching_car_security_menulabel" activeon="isNextPageMatchingCarReportActive" executionsequence="13"
+				tabcssclass="contacttab sub-menu-2" menucssclass="contacttab sub-menu-2" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="showcarreportmatching" moduleid="administration"
+				href="javascript:submitform('admin/carreportmatching.html','adminTabs.showcarreportmatching','','');">
+				<forward id="admin/carreportmatching.html" screen="admin/carreportmatching.html" executionsequence="0"/>
+			</submenu>
+			<submenu name="non_matching_car_security" securitykey="non_matching_car_security" tablabelkey="nonmatching_car_label" menulabelkey="non_matching_car_security_menulabel" activeon="isNextPageNonMatchingCarReportActive" executionsequence="14"
+				tabcssclass="contacttab sub-menu-2" menucssclass="contacttab sub-menu-2" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="showcarreportnonmatching" moduleid="administration"
+				href="javascript:submitform('admin/carreportnonmatching.html','adminTabs.showcarreportnonmatching','','');">
+				<forward id="admin/carreportnonmatching.html" screen="admin/carreportnonmatching.html" executionsequence="0"/>
+			</submenu> 
+			
+			<submenu name="commission_rate_hierarchy_security" securitykey="commission_rate_hierarchy_security" tablabelkey="commission_rate_hierarchy_label" menulabelkey="commission_rate_hierarchy_label" activeon="isNextPageMassReassignForTabs1" executionsequence="15"
+				tabcssclass="contacttab" istab="Y" activeonclass="active1" screen="admin/adminTabs.html" action="commissionRateHierarchy" moduleid="administration"
+				href="javascript:submitform('compensation/commissionRateHierarchy.html','adminTabs.commissionRateHierarchy','','');">
+					<forward id="compensation/commissionRateHierarchy.html" screen="compensation/commissionRateHierarchy.html" executionsequence="0"/>
+			</submenu>
+			
+			 
+		</menu>	
+	</menugroup>
+	</menus>

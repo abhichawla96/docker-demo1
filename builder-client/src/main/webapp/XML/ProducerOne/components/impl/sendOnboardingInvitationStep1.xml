@@ -1,0 +1,139 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="homeAction;sendInvitation" name="sendOnboardingInvitationStep1" stackdisplayname="Create Invitation">
+
+    
+    <action name="view">
+    	<actionparam deltaind="I" executionsequence="0" post="Y" form="Y" name="selected_agency_registration_type_desc" paramid="selected_agency_registration_type_desc" session="Y"/>
+    	<actionparam checkfornullparams="searchList_agency_id,searchList_producer_number_id" executionsequence="0" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="is_show_primary_agency_only_in_seacrh_popup" paramid="is_show_primary_agency_only_in_seacrh_popup" pre="Y" val="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="comingFromSendInvitation" paramid="comingFromSendInvitation" pre="Y" val="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="document_category" paramid="document_category" pre="y" val="8"/>
+    	<actionparam executionsequence="0" form="Y" name="workflow_forward" paramid="workflow_forward" viewparam="Y"/>
+	    <actionparam executionsequence="2" form="Y" name="aar_requestid" paramid="aar_requestid" pre="Y" session="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+    	<actionparam executionsequence="0" form="Y" name="primary_agency_name_mandatory_for_registration_type_desc" paramid="primary_agency_name_mandatory_for_registration_type_desc" pre="Y" val="Secondary Agency"/>
+    	<actionparam executionsequence="0" form="Y" name="prospect_agency_id" paramid="prospect_agency_id" pre="Y"/>
+    	<actionparam eval="SendInvitationRule.assignObjectIfForAarRequestId" executionsequence="0" form="Y" name="object_id" paramid="object_id" pre="Y"/>
+    	<workflow name="getAdditionalInfoForOnboardingInvitation" seq="0">
+      		<function eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" functionid="convertFieldNListStringToXMLWithCustomRootElement" name="convertFieldNListStringToXMLWithCustomRootElement" parameters="context,selected_agency_registration_type_id,Root,Root1,inputForAdditionalInfoXml"/>
+      		<storedprocedureoperation dbspname="getAdditionalInfoForOnboardingInvitation_p" executionsequence="2" id="getAdditionalInfoForOnboardingInvitation_p" metaobject="agency_master" name="getAdditionalInfoForOnboardingInvitation_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="inputForAdditionalInfoXml" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+    	
+      <workflow eval="ProducerOneRule.isCreateInvitationBusinessUnitHideShow" name="createInvitationBusinessUnit" seq="1">
+        <storedprocedureoperation dbspname="GetBusinessUnitList_p" executionsequence="1" id="GetBusinessUnitList_p" metaobject="incentive_schedule_lku" name="GetBusinessUnitList_p" operation="5" viewid="GetBusinessUnitDetails_list_01">
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        <storedprocedureoperation dbspname="GetContractTemplateTypeList_p" executionsequence="2" id="GetContractTemplateTypeList_p" metaobject="incentive_schedule_lku" name="GetContractTemplateTypeList_p" operation="5" viewid="GetContractTemplateTypeDetails_list_01">
+          <parameteroperation indexno="0" mode="IN" property="businessUnitIds" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+     <!--  <workflow name="getRequestData" seq="2" eval="WorkflowRule.isAarRequestIdNotEmpty">
+        <storedprocedureoperation name="getOnboardingRequestData_p" id="getOnboardingRequestData_p" dbspname="getOnboardingRequestData_p"  metaobject="sendInvitation" operation="3" executionsequence="1">
+        <parameteroperation property="aar_requestid" mode="IN" indexno="0" seq="1" />
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0" />
+        </storedprocedureoperation>
+      </workflow> -->
+      <workflow eval="invitationStep1_agency_registration_type_security" name="getAgencyRegistrationTypeList" seq="3">
+      <databaseoperation executionsequence="45" metaobject="prospect_source_lku" name="getAgencyLobMasterDetail" operation="3" sqlstmt="select distinct pa.e_mail as toemail_forInvitation, pad.distribution_type_id as Entity_Type_General_Detail from relationship.prospect_address pa INNER JOIN  relationship.prospect_agency_detail as pad ON pa.prospect_object_id = pad.prospect_agency_id where pa.type=1 and pa.prospect_object_id=#prospect_agency_id#"/>
+      	<storedprocedureoperation dbspname="GetAgencyRegistrationTypeList_p" executionsequence="2" id="GetAgencyRegistrationTypeList_p" metaobject="incentive_schedule_lku" name="GetAgencyRegistrationTypeList_p" operation="5" viewid="agency_registration_type_list_01">
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="roles" seq="2"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      	
+      </workflow>
+      
+      <workflow eval="invitationStep1_agency_lob_security" name="getAgencyLobListForInvitationStep1" seq="4">
+      	<!-- <storedprocedureoperation dbspname="getAgencyLobListForInvitationStep1_p" executionsequence="2" id="getAgencyLobListForInvitationStep1_p" metaobject="agency_master" name="getAgencyLobListForInvitationStep1_p" operation="5" viewid="invitationStep1_agency_lob_list_1">
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <parameteroperation indexno="0" mode="IN" property="roles" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation> -->
+        <storedprocedureoperation dbspname="getAgencyLobMasterDetailForAddNewLocation_p" executionsequence="45" id="getAgencyLobMasterDetailForAddNewLocation_p" metaobject="prospect_source_lku" name="getAgencyLobMasterDetailForAddNewLocation_p" operation="5" viewid="invitationStep1_agency_lob_list_1">
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow eval="invitationStep1_commission_type_security" name="getCommissionTypeListForInvitationStep1" seq="5">
+      	<storedprocedureoperation dbspname="getCommissionTypeListForInvitationStep1_p" executionsequence="2" id="getCommissionTypeListForInvitationStep1_p" metaobject="agency_master" name="getCommissionTypeListForInvitationStep1_p" operation="5" viewid="commission_type_list_01">
+          <parameteroperation indexno="0" mode="IN" property="user_id" seq="1"/>
+          <parameteroperation indexno="0" mode="IN" property="roles" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      	
+      </workflow>
+      
+      
+      <workflow eval="invitationStep1_primary_agency_code_security" name="getPrimaryAgencyCodeList" seq="6">
+      	<storedprocedureoperation dbspname="GetPrimaryAgencyCodeList_p" executionsequence="2" id="GetPrimaryAgencyCodeList_p" metaobject="producer_number" name="GetPrimaryAgencyCodeList_p" operation="5" viewid="primary_agency_code_list_01">
+      		
+      	  <parameteroperation indexno="0" mode="IN" property="primary_agency_id_forInvitation" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="user_id" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="roles" seq="3"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      	
+      </workflow>
+      <workflow eval="primary_agency_name_forInvitation_security" name="getRegistrationTypeIdByDesc" seq="7">
+      		<storedprocedureoperation dbspname="getRegistrationTypeIdByDesc_p" executionsequence="2" id="getRegistrationTypeIdByDesc_p" metaobject="agency_master" name="getRegistrationTypeIdByDesc_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="primary_agency_name_mandatory_for_registration_type_desc" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      
+      
+       <workflow eval="invitationStep1_file_attachment_security" name="getDcoumentListForExistingInvitationRequest" seq="9">
+      	 <storedprocedureoperation dbspname="getDocumentlistFromPublicDbWhileSendingInvitaiton_p" eval="SendInvitationRule.uploadPopupListEmpty" executionsequence="3" id="getDocumentlistFromPublicDbWhileSendingInvitaiton_p" metaobject="agency_document_attachments" name="getDocumentlistFromPublicDbWhileSendingInvitaiton_p" operation="5" viewid="uploadPopup_list_1">
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="document_category" seq="1"/>
+          <parameteroperation indexno="3" mode="IN" property="object_id" seq="2"/>
+          <parameteroperation indexno="4" mode="IN" property="user_id" seq="3"/>
+          <parameteroperation indexno="5" mode="IN" property="roles" seq="4"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflow name="getDataBasedOnAgencyId" seq="15">
+        
+        <!-- <databaseoperation name="getDataBasedOnAgencyId" sqlstmt="select top 1 agency_lob as selected_agency_lob_id
+		,entity_type_general_detail as Entity_Type_General_Detail
+		,null as selected_commission_type_id
+		,agency_id as primary_agency_id_forInvitation
+		,name as primary_agency_name_forInvitation
+		from agency_master where agency_id=#searchList_agency_id#" metaobject="agency_master" operation="3" executionsequence="0" />
+		 -->
+		<storedprocedureoperation dbspname="getDataBasedOnSelectedDataFromAgencySearchPopup_p" executionsequence="0" id="getDataBasedOnSelectedDataFromAgencySearchPopup_p" metaobject="agency_master" name="getDataBasedOnSelectedDataFromAgencySearchPopup_p" operation="3">
+          <parameteroperation indexno="1" mode="IN" property="searchList_agency_id" seq="0"/>
+          <parameteroperation indexno="2" mode="IN" property="searchList_producer_number_id" seq="1"/>
+          <parameteroperation indexno="3" mode="IN" property="user_id" seq="2"/>
+          <parameteroperation indexno="4" mode="IN" property="roles" seq="3"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+         </storedprocedureoperation>
+      </workflow>
+      <workflow eval="ProducerOneRule.checkProspectDetailsForInvitation" name="getProspectDetailsForInvitation" seq="16">
+      	<storedprocedureoperation dbspname="getProspectDetailsForInvitation_p" executionsequence="2" id="getProspectDetailsForInvitation_p" metaobject="prospect_source_lku" name="getProspectDetailsForInvitation_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+      <workflowevent event="sendInvitation" isgetuser="Y" name="sendInvitation" userfield="home_workflow_user" forward="sendOnboardingInvitationStep1" workflow="onboardingDashboard"/>
+   
+   	<actionparam executionsequence="0" form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_1" post="Y" session="Y"/>
+   
+    </action>
+    <action name="step1Next">
+     <!-- get Producer Number Id -->
+	 <actionparam deltaind="I" eval="SendInvitationRule.checkIsUserNotInInvitationFlow" executionsequence="99" form="Y" name="selected_primary_agency_code_id" paramid="selected_primary_agency_code_id" post="Y" session="Y"/>
+	  <workflow deltaind="I" eval="SendInvitationRule.checkIsUserNotInInvitationFlow" name="getProducerid" seq="10">
+	  	<databaseoperation deltaind="I" executionsequence="0" metaobject="agency_master" name="selectedProducerNumb" operation="3" sqlstmt="SELECT producer_number  FROM PRODUCER_NUMBER where agency_id = #agency_id#"/>
+	    <databaseoperation deltaind="I" executionsequence="1" metaobject="agency_master" name="selectedProducerId" operation="3" sqlstmt="SELECT producer_number_id as selected_primary_agency_code_id FROM PRODUCER_NUMBER where producer_number= #producer_number#"/>
+	</workflow>
+    <actionparam deltaind="I" executionsequence="95" form="Y" name="entity_name_forInvitation" paramid="entity_name_forInvitation" post="Y" session="Y"/>	
+    <actionparam deltaind="I" executionsequence="96" form="Y" name="person_first_name_forInvitation" paramid="person_first_name_forInvitation" post="Y" session="Y"/>	
+    <actionparam deltaind="I" executionsequence="97" form="Y" name="primary_agency_name_forInvitation" paramid="primary_agency_name_forInvitation" post="Y" session="Y"/>	
+     </action>
+    
+    </component>
+</projectcomponents>

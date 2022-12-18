@@ -1,0 +1,21 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component metaobject="noteuid_list;task_lku;agency_tasks;agency_callreport;roles;call_objective_lku;" name="addAgencyCallReportDetails" objectcolumn="agency_call_report_id">
+		<!-- <action deltaind="M" name="view">
+			<actionparam deltaind="I" form="Y" executionsequence="10" name="objecttype" paramid="objecttype" pre="Y" val="1" />
+		</action> -->
+		<action deltaind="M" name="saveCallReport">
+			<workflow deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" name="saveCallReport1" seq="1">
+				<databaseoperation deltaind="I" name="getCallReportDetailsId" operation="3" metaobject="agency_callreport" executionsequence="1" sqlstmt="select top 1 agencycallreport_id as agency_call_report_id from agency_callreport order by last_updated_ts desc">
+				</databaseoperation>
+			</workflow>
+		</action>
+		<action deltaind="M" name="modifyCallReport">
+			<workflow deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" name="modifyCallReport1" seq="1">
+				<databaseoperation deltaind="I" name="getCallReportDetailsId" operation="3" metaobject="agency_callreport" executionsequence="1" sqlstmt="select top 1 agencycallreport_id as agency_call_report_id from agency_callreport order by last_updated_ts desc">
+				</databaseoperation>
+				<businessobject deltaind="M" eval="ProducerOneRule.assignAgencyCallReportIdToObjectID" executionsequence="1" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO" />
+				<businessobject deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" name="saveAttendees" obj="com.userbo.AgencyCallReportBO" />
+			</workflow>
+		</action>
+	</component>
+</projectcomponents>

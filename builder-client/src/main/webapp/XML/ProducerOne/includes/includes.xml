@@ -1,0 +1,55 @@
+<resources project="ProducerOne">
+	<resource name="images/icons/P1_favicon.png" type="icon" path="images/icons/P1_favicon.png" executionsequence="0"/>
+	<resource name="css/common.css" type="css" path="css/common.css" executionsequence="1"/>
+	<resource name="css/style.layout.css" type="css" path="css/style.layout.css" executionsequence="2"/>
+	<resource name="css/style.color.css" type="css" path="css/style.color.css" executionsequence="3"/>
+		
+	<resource name="css/bootstrap.css" type="css" path="css/bootstrap.css" executionsequence="4"/>
+	<resource name="css/font-awesome.css" type="css" path="css/font-awesome.css" executionsequence="5"/>
+	<resource name="css/tabelizer.css" type="css" path="css/tabelizer.css" executionsequence="6"/>
+	<resource name="css/xmltree.css" type="css" path="css/xmltree.css" executionsequence="7"/>
+	<resource name="css/datepicker3.css" type="css" path="css/datepicker3.css" executionsequence="8"/>
+	
+	<!-- Phase 2 - Override Base file as the version 2.9.2.11 does not support impl of include -->
+	<resource name="css/impl/bmic_specific_style.css" type="css" path="css/impl/bmic_specific_style.css" executionsequence="33"/>
+	
+	<!-- Phase 3- Commission Statement -->
+  <resource name="templates/commissionStatementTemplate.xlsx" type="xlsx" path="templates/commissionStatementTemplate.xlsx" executionsequence="34"/>
+	
+	<!-- Phase 3- Contingency Commission Statement -->	
+  <resource name="templates/contingencyCommissionBonusStatement.xls" type="xls" path="templates/contingencyCommissionBonusStatement.xls" executionsequence="35"/>
+	
+	<!-- ADO-52160 - For Deductible customization -->
+ <resource name="templates/EntityCyberLiabilityExpirationExport.xls" type="xls" path="templates/EntityCyberLiabilityExpirationExport.xls" executionsequence="36"/>
+ <resource name="templates/EntityCyberLiabilityExpirationNoticeSentExport.xls" type="xls" path="templates/EntityCyberLiabilityExpirationNoticeSentExport.xls" executionsequence="37"/>
+ <resource name="templates/EntityInsuranceExpirationExport.xls" type="xls" path="templates/EntityInsuranceExpirationExport.xls" executionsequence="38"/>
+ <resource name="templates/EntityInsuranceExpirationNoticeSentExport.xls" type="xls" path="templates/EntityInsuranceExpirationNoticeSentExport.xls" executionsequence="39"/>
+	
+	<resource name="js/jquery-1.10.2.js" type="javascript" path="js/jquery-1.10.2.js" executionsequence="9"/>
+	<resource name="js/jquery.tabelizer.js" type="javascript" path="js/jquery.tabelizer.js" executionsequence="10"/>
+	<resource name="js/jquery.dataTables1.10.19.js" type="javascript" path="js/jquery.dataTables1.10.19.js" executionsequence="11"/>
+	<resource name="js/dataTables.scroller.js" type="javascript" path="js/dataTables.scroller.js" executionsequence="12"/>
+	<!-- <resource name="js/jquery.dataTables.js" type="javascript" path="js/jquery.dataTables.js" executionsequence="12"/> -->
+	<resource name="script/jquery.mask.js" type="javascript" path="script/jquery.mask.js" executionsequence="13"/>
+	<resource name="script/manage.js" type="javascript" path="script/manage.js" executionsequence="14"/>
+	<resource name="script/managetestharness.js" type="javascript" path="script/managetestharness.js" executionsequence="15"/>
+	<resource name="script/manageperformance.js" type="javascript" path="script/manageperformance.js" executionsequence="16"/>
+	<resource name="js/producerOne.js" type="javascript" path="js/producerOne.js" executionsequence="17"/>
+	<resource name="js/producerOne_ext.js" type="javascript" path="js/producerOne_ext.js" executionsequence="18"/>
+	<resource name="js/producerOne_ext1.js" type="javascript" path="js/producerOne_ext1.js" executionsequence="19"/>
+	<resource name="script/producerOnePerformance.js" type="javascript" path="script/producerOnePerformance.js" executionsequence="20"/>
+	<resource name="script/design.js" type="javascript" path="script/design.js" executionsequence="21"/>
+	<resource name="js/impl/producerOneImpl.js" type="javascript" path="js/impl/producerOneImpl.js" executionsequence="22"/>
+	<resource name="script/masks.js" type="javascript" path="script/masks.js" executionsequence="23"/>
+	<resource name="js/bootstrap.js" type="javascript" path="js/bootstrap.js" executionsequence="24"/>
+	<resource name="js/bootstrap-datepicker.js" type="javascript" path="js/bootstrap-datepicker.js" executionsequence="25"/>
+	<resource name="js/stix.js" type="javascript" path="js/stix.js" executionsequence="26"/>
+	<resource name="js/producerOneClient.js" type="javascript" path="js/producerOneClient.js" executionsequence="27"/>
+	<resource name="js/jquery.columnizer.js" type="javascript" path="js/jquery.columnizer.js" executionsequence="28"/>
+	<resource name="js/jQuery.print.js" type="javascript" path="js/jQuery.print.js" executionsequence="29"/>
+	<resource name="js/ckeditor/ckeditor.js" type="javascript" path="js/ckeditor/ckeditor.js" executionsequence="30"/>
+	<resource name="js/ckeditor/samples/js/sample.js" type="javascript" path="js/ckeditor/samples/js/sample.js" executionsequence="31"/>
+	<resource name="js/jquery.tabelizer1.js" type="javascript" path="js/jquery.tabelizer1.js" executionsequence="32"/>
+		<!-- BMIC specific -->
+	<resource type="css" path="css/impl/bmic_specific_style.css">	</resource>
+</resources>

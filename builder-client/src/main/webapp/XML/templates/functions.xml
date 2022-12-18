@@ -1,0 +1,11 @@
+<functionsdef project="" version="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys"/>
+	</nodeinfo>
+	<functiondefinition name="" classname="" method="" returntype="" scope="" description="">
+		<nodeinfo uniqueid="name"/>
+		<argument name="" datatype="">
+			<nodeinfo uniqueid="name"/>
+		</argument>
+	</functiondefinition>
+</functionsdef>

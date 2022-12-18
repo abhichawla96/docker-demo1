@@ -1,0 +1,18 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="searchProducerParticipantsbyPopup">
+    <!-- Phase 2 - Bug Id- P2-041  -->
+    <action deltaind="M" name="search">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam deltaind="I" executionsequence="1" form="Y" name="entity_name_search" paramid="entity_name_search" pre="Y" /> 
+      <workflow deltaind="M" name="getProducerParticipants" seq="1">
+        <storedprocedureoperation deltaind="M" dbspname="GetAgencyCallReportProducerParticipant_DataList_p" executionsequence="1" id="GetAgencyCallReportProducerParticipant_DataList_p" metaobject="agency_master" name="GetAgencyCallReportProducerParticipant_DataList_p" operation="5" viewid="getproducerParticipants_search_list_mom_1">
+          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="0"/>
+          <parameteroperation deltaind="M" indexno="2" mode="IN" property="entity_name_search" seq="1"/> <!-- changing property name from person_name_search to entity_name_search -->
+          <parameteroperation indexno="3" mode="IN" property="Client_ID" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+      </workflow>
+    </action>
+    
+  </component>
+</projectcomponents>

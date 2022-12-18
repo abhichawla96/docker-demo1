@@ -1,0 +1,5 @@
+<fields project="ProducerOne">
+<!-- Phase 3- Bug Id- 50569 -->
+ <!--   <field deltaind="M" id="addNewCommissionSchedule_expiration_date" name="expiration_date" screen="compensation/addNewCommissionSchedule.html" section="addNewcommission_schedule_freeform_contextdata_01" labelkey="addNewcommission_schedule2_expiration_date_label" tabsconfigurationresourcename="addNewcommission_schedule2_expiration_date_security" protectedresourceuniquename="addNewcommission_schedule2_expiration_date_security" isrequired="Y" />
+   -->
+</fields>

@@ -1,0 +1,50 @@
+<processflow project="" >
+<nodeinfo uniqueid="project">
+	<implements interface="com.util.IResourceKeys" />
+</nodeinfo>
+ <pagecomponent name="" type="" path="" eval="" >
+    <nodeinfo uniqueid="name" />	
+    <block id="" blocktype="">
+     <nodeinfo uniqueid="id" />
+        <blockfieldset id="" deltaind="">
+               <nodeinfo uniqueid="id" />
+         	<blockfield id="" fieldtype="" fieldname="" displaysize="" isrequired=""  deltaind="" displayname="" eval="" >
+          	   <nodeinfo uniqueid="id" />
+          	   
+         	</blockfield>
+        </blockfieldset>
+        <rowlink  action="" name="" eval="" >
+		    <nodeinfo uniqueid="action" >
+		    <extends class="Link"/>
+		    </nodeinfo>
+			<rowlinkforward name="" type="" eval=""  id="" component="" action="">
+			     <nodeinfo uniqueid="component" >
+			     <extends class="LinkForward"/>
+			     </nodeinfo>
+			</rowlinkforward>     
+		</rowlink>
+		<blocklink  action="" name="" eval="" >
+		    <nodeinfo uniqueid="action" >
+		    <extends class="Link"/>
+		    </nodeinfo>
+			<blocklinkforward name="" type="" eval=""  id="" component="" action="">
+			     <nodeinfo uniqueid="component" >
+			     <extends class="LinkForward"/>
+			     </nodeinfo>
+			</blocklinkforward>     
+		</blocklink>
+		 
+	</block>
+	  <formlink  action="" name="" eval="" >
+		    <nodeinfo uniqueid="action" >
+		    <extends class="Link"/>
+		    </nodeinfo>
+			<formlinkforward name="" type="" eval="" component="" action="">
+			     <nodeinfo uniqueid="component" >
+			     <extends class="LinkForward"/>
+			     </nodeinfo>
+			</formlinkforward>
+	 </formlink>
+ </pagecomponent>
+ 
+</processflow>	

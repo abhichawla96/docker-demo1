@@ -1,0 +1,113 @@
+<evalrules project="ProducerOne">
+	<ruleset name="ProducerOneRule">
+		<rule deltaind="I" id="isRegistrationTypeProducerRegistrationAgencyDetailScreen" expression="isEqual(:registration_type_code,PRERG);" obj="ruleobjs.ProducerOneRule" method="isRegistrationTypeProducerRegistrationAgencyDetailScreen" />
+		<rule deltaind="I" id="isRegistrationTypePrimaryAgencyAgencyDetailScreen" expression="isEqual(:registration_type_code,PRAG);" obj="ruleobjs.ProducerOneRule" method="isRegistrationTypePrimaryAgencyAgencyDetailScreen" />
+		<rule deltaind="I" id="isRegistrationTypeSecondaryAgencyAgencyDetailScreen" expression="isEqual(:registration_type_code,SCAG);" obj="ruleobjs.ProducerOneRule" method="isRegistrationTypeSecondaryAgencyAgencyDetailScreen" />
+	<rule deltaind="M" id="showNiprAppointments" expression="isEqual(N,Y);" obj="ruleobjs.ProducerOneRule" method="showNiprAppointments" />
+
+
+		<rule deltaind="I" id="isCBIAYesNo" expression="isEqual(:cbia_designation,Y);"></rule>
+		
+	
+
+		<!-- Phase 3- Agent role -->
+<rule deltaind="I" id="getAgentChecked" expression="isGreaterThan(getBeanProperty(executeDBOperation(context,a,3,SqlStmts.sqlStatementsviewgetAgentChecked),agentChecked),0);" />
+
+		<!-- Phase 3- Adjustments -->
+<!-- 	<rule deltaind="I" id="hideApprove" expression="isEqual(:hide,1);"></rule>
+ -->		
+
+<rule deltaind="I" id="isPrincipalContType" expression="isEqual(:cbia_designation,'Principal');"></rule>
+<rule deltaind="I" id="isNewAgencyCode" expression="isEqual(:producer_number,null);"></rule>
+<rule deltaind="I" id="isSuspensionReasonCustom" expression="isEqual(:termination_reason_code,7);"></rule>
+
+<rule deltaind="I" id="isHBAYesNO" expression="isEqual(:member_of_hba2,Y);"></rule>
+<rule deltaind="I" id="isAgencyInOnboardingStatus" expression="orCondition(orCondition(isEqual(:aar_statusid_desc,BG Check Pass),isEqual(:aar_statusid_desc,Pending Agency Setup)),isEqual(:aar_statusid_desc,BG Check Submitted));" />
+<!-- BG Check Submitted -->
+<rule deltaind="I" id="isHbaYesReviewScreen" expression="isEqual(:review_member_of_hba,Y);"></rule>
+
+
+<!-- Mask NPN -->
+<rule deltaind="I" id="isShownpn" expression="isEqual(:npn_check,npn_flag);" />
+<rule deltaind="I" id="isShowfein" expression=" isEmpty(:npn_check);" />
+<rule deltaind="I" id="checkAgenctContactTypeLicensedProducer" expression="isEqual(:EqualsFlag,true);" />
+
+<rule deltaind="I" id="otherThanProducerRegTypeEsign" expression="andCondition(call_rule(ProducerOneRule.isInetErrorListEmpty),call_rule(ProducerOneRule.isRegistrationTypeOtherThanProducerRegistration))" />
+<rule deltaind="I" id="producerRegTypeEsign" expression="andCondition(call_rule(ProducerOneRule.isInetErrorListEmpty),call_rule(ProducerOneRule.isRegistrationTypeProducerRegistration))" />
+<rule deltaind="I" id="isFunctionDC" expression="isEqual(:selectFunctionType_code,functionDC)" />
+<rule deltaind="I" id="isCBIAYesNoAgentScreen" expression="isEqual(:review_cbia_designation,Y);"></rule>
+
+<rule deltaind="I" id="decryptssn_popup" expression="if(isNot(isEmpty(:ssn_popup))=>assign(:decrypted_ssn_num,decryptString(:ssn_popup,SSD,context));assign(:decrypted_ssn_num,addhyphentostring(:decrypted_ssn_num,aaa-aa-aaaa)));" obj="ruleobjs.ProducerOneRule" method="decryptssn_num" />
+
+
+<rule deltaind="I" id="isRegistrationTypePrimarySecondary" expression="orCondition(isEqual(:registration_type_code,SCAG),isEqual(:registration_type_code,PRAG));" />
+
+<!-- Production Issue -->
+<rule deltaind="I" id="isSendInvitationEmail" expression="orCondition(isEqual(:event_name,SendInvitation),isEqual(:event_name,sendInvitationForLicensedProducer));" />
+<rule deltaind="I" id="isNotSendInvitationEmail" expression="isNot(orCondition(isEqual(:event_name,SendInvitation),isEqual(:event_name,sendInvitationForLicensedProducer)));" />
+
+<!-- phase 2 start- extended fields -->
+<rule deltaind="I" id="isHBAYesNOSS" expression="isEqual(:member_of_hba_ss,Y);"></rule>
+
+
+<rule deltaind="I" id="isCBIAYesNoSS" expression="isEqual(:ss_cbia_designation,Y);"></rule>
+<!-- phase 2 end- extended fields -->
+<!-- BMIC req  hide complete transaction/Generate letter button start -->
+  
+  <rule deltaind="I" id="isHideCompleteTransactionButtonOnAgencyFunction" expression="andCondition(isNotEqual(:AgencySetupOBStatus_desc,Pending Review),isNotEqual(:AgencySetupOBUser_id,:user_id));"/>
+  
+   <!-- BMIC req  hide complete transaction/Generate letter button end -->
+   
+   <!-- START - UAT2 Bug Id 0004 - Remove Final Questions in PPRM Market Information -->
+   <rule deltaind="I" id="removePPRMFinalQuestions" expression="isEqual(:remove_final_questions,Y);"></rule>
+   <!-- END - UAT2 Bug Id 0004 - Remove Final Questions in PPRM Market Information -->
+   
+   	<!-- START - UAT2 Bug Id 0017 - Grey out CBIA Designation -->
+   	<rule deltaind="I" id="greyOutCBIAAgencyDemoGraphics" expression="isEqual(:greyout_CBIA_AgencyDemoGraphics,Y);"></rule>
+   	<rule deltaind="I" id="greyOutCBIAYrReceivedSalesSupportRequests" expression="andCondition(isEqual(:ss_cbia_designation,Y),isEqualsIgnoreCase(:roles,MarketingAssistant));"></rule>
+	<!-- END - UAT2 Bug Id 0017 - Grey out CBIA Designation -->
+	
+	<!-- START - UAT2 Bug Id - 0039 - Grey out HBA, Dividend Dist, Agent Copies, Policyholder Copies -->
+	<rule deltaind="I" id="greyOutHBASalesSupportRequests" expression="isEqual(:greyout_HBA_SalesSupportRequests,Y);"></rule>
+	<rule deltaind="I" id="greyOutHBADropDownSalesSupportRequests" expression="andCondition(isEqual(:member_of_hba_ss,Y),isEqualsIgnoreCase(:roles,MarketingAssistant));"></rule>
+	<!-- END - UAT2 Bug Id - 0039 - Grey out HBA, Dividend Dist, Agent Copies, Policyholder Copies -->
+	
+	<!-- START - UAT2 0033 - Preloading Business Address -->
+	<rule deltaind="I" id="isPersonIdNull" expression="isEmpty(:person_id);"/>
+	<!-- END - UAT2 0033 - Preloading Business Address -->
+	
+	<!-- START - Self Service - Upload W9 Show/Hide -->
+	<rule deltaind="I" id="hideShowW9Section" expression="isEqual(:hideShow_w9section,Y);"/>
+	<rule deltaind="I" id="hideShowW9SectionSalesSupportRequests" expression="isEqualsIgnoreCase(:roles,MarketingAssistant);"></rule>
+	<!-- END - Self Service - Upload W9 Show/Hide -->
+	
+	<!-- Bug-40448 W9 doc Self Service start -->
+	<rule deltaind="I" id="hideShowW9SectionEdit" expression="isEqual(:hideShow_w9section,Y);"/>
+	<!-- Bug-40448 W9 doc Self Service end -->
+	
+	<rule deltaind="I" id="MarketingAssistantCheck" expression="isEqualsIgnoreCase(:roles,MarketingAssistant);"></rule>
+	
+	<rule deltaind="I" id="ApproveButtonLatest" expression="andCondition(andCondition(call_rule(ProducerOneRule.isFunctionDC),call_rule(AgencyFunctionsRule.isAgencyFunctionsIDAndRequestIdNotEmpty)),call_rule(ProducerOneRule.MarketingAssistantCheck));" />
+	
+</ruleset>
+
+	<!-- Agency funtions rules - deactivate date CR -->
+	<ruleset name="AgencyFunctionsRule">
+		<rule deltaind="M" id="isDateBeforeCurrentDate"
+			expression="if(andCondition(isNotEqual(:selectFunctionType_code,functionDC),andCondition(isNot(isEmpty(:suspension_date)),isDateBefore(:suspension_date,convertDateToString(getTodayDate(),MM/dd/yyyy))))=>populateError(context,suspension_date,invalidAgencyFucntionDateErrorKey););" />
+
+	</ruleset>
+	
+	<!-- START - UAT2 Bug 0013 - Editing Hierarchy Contact in SS -->
+	<ruleset name="EntityRequestsRule">
+		<rule deltaind="D" id="isCheckForPersonInHierarchy" expression="if(isEmpty(:inHierarchy)=>populateError(context,person_name_ss_filter,personRestrictedHierarchyMsg););" obj="ruleobjs.EntityRequestsRule" method="isCheckForPersonInHierarchy" />
+	</ruleset>
+	<!-- END - UAT2 Bug 0013 - Editing Hierarchy Contact in SS -->
+
+<!-- Phase 3: Task 23046 -->
+	<ruleset name="ProducerOneRule">
+		<rule deltaind="I" id="checkModifyforCa" expression="isEqualsIgnoreCase(:roles,CarrierAdmin);" />
+		<rule deltaind="I" id="checkModifyforAcc" expression="isEqualsIgnoreCase(:roles,Accounting);" />
+	</ruleset>
+	<!-- END - UAT2 Bug 0013 - Editing Hierarchy Contact in SS -->
+</evalrules>	

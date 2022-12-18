@@ -1,0 +1,172 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="person_producer;awards_recognition;sub_producer_association" name="producerAssociationContact" stackdisplayname="Agency Code Association Contact">
+   
+    
+    
+    <action name="back">
+      <actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="contacttype_lku_mom_list_1,awardsNRecognitions_list_listfreeform_1,subProducerAssociation_list_listfreeform_1" session="Y"/>
+    </action>
+    
+    <action name="view">
+      <actionparam checkfornullparams="person_id,producer_number_id,person_producer_id,user_id,roles" executionsequence="19" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+     
+      <workflow name="view" seq="0">
+        <storedprocedureoperation dbspname="getAgentNProducerNumberAssociationDataBasedOnID_p" executionsequence="0" id="getAgentNProducerNumberAssociationDataBasedOnID_p" metaobject="person" name="getAgentNProducerNumberAssociationDataBasedOnID_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="person_producer_id" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="roles" seq="2"/>
+          <parameteroperation indexno="2" mode="IN" property="user_id" seq="3"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+        
+        <storedprocedureoperation dbspname="GetContactTypeForAgencyCodeAgentAssociation_p" executionsequence="2" id="GetContactTypeForAgencyCodeAgentAssociation_p" metaobject="person" name="GetContactTypeForAgencyCodeAgentAssociation_p" operation="5" viewid="contacttype_lku_mom_list_1">
+          <parameteroperation indexno="1" mode="IN" property="person_id" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="producer_number_id" seq="2"/>
+          <parameteroperation indexno="3" mode="IN" property="person_producer_id" seq="3"/>
+          <parameteroperation indexno="4" mode="IN" property="user_id" seq="4"/>
+          <parameteroperation indexno="5" mode="IN" property="roles" seq="5"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+        
+      </workflow>
+      
+      <workflow name="view1" seq="1">
+	      	<storedprocedureoperation dbspname="getAwardNRecognitions_data_p" eval="producerAssociationRule.checkAwardNRecognitionsListNotExists" executionsequence="2" id="getAwardNRecognitions_data_p" metaobject="person" name="getAwardNRecognitions_data_p" operation="5" viewid="awardsNRecognitions_list_listfreeform_1">
+	          <parameteroperation indexno="1" mode="IN" property="person_id" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="producer_number_id" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="person_producer_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="user_id" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="roles" seq="5"/>
+	          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+	        
+	        <storedprocedureoperation dbspname="getSubProducerAssociations_data_p" eval="producerAssociationRule.checkSubProducerAssociationListNotExists" executionsequence="3" id="getSubProducerAssociations_data_p" metaobject="person" name="getSubProducerAssociations_data_p" operation="5" viewid="subProducerAssociation_list_listfreeform_1">
+	          <parameteroperation indexno="1" mode="IN" property="person_id" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="producer_number_id" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="person_producer_id" seq="3"/>
+	          <parameteroperation indexno="4" mode="IN" property="user_id" seq="4"/>
+	          <parameteroperation indexno="5" mode="IN" property="roles" seq="5"/>
+	          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+	        
+	        
+      </workflow>
+       <workflow eval="producerAssociationContact_agency_code_section_security" name="view3" seq="2">
+             <databaseoperation executionsequence="1" metaobject="person" name="fetchProducerNumber" operation="3" sqlstmt="select producer_number from producer_number where producer_number_id = #producer_number_id# "/>
+      </workflow>
+      
+      <actionparam eval="ProducerOneRule.assignContactTypeListSize" executionsequence="3" form="Y" name="contactTypeListSize" paramid="contactTypeListSize" post="Y"/>
+      <actionparam executionsequence="3" form="Y" name="awardsNRecognitions_list_listfreeform_1" paramid="awardsNRecognitions_list_listfreeform_1" post="Y" session="Y"/>
+      <actionparam executionsequence="3" form="Y" name="subProducerAssociation_list_listfreeform_1" paramid="subProducerAssociation_list_listfreeform_1" post="Y" session="Y"/>
+    </action>
+    <action metaobject="person_producer" name="updateProducerAssociationData">
+	    <actionparam eval="ProducerOneRule.isPageUpdateMsg" executionsequence="3" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+	    
+	    <actionparam form="Y" name="person_producer_id" paramid="person_producer_id" viewparam="Y"/>
+	    <actionparam eval="ProducerOneRule.assignDateFields" executionsequence="54" form="Y" name="additonalFieldForInputXml" paramid="additonalFieldForInputXml" pre="Y" val="agency_id,person_id,producer_number_id,last_updated_by,contactTypeXml"/>
+	    <actionparam executionsequence="52" form="Y" name="isIncludeNonPersistantField" paramid="isIncludeNonPersistantField" pre="Y" val="false"/>
+	    <actionparam executionsequence="51" form="Y" name="metadataObjectName" paramid="metadataObjectName" pre="Y" val="person_producer"/>
+	    <actionparam executionsequence="65" form="Y" name="outputFieldName" paramid="outputFieldName" pre="Y" val="inputXml"/>
+       <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformblockid" paramid="listfreeformblockid" val="ConferenceAwards_freeform_contextdata_1" viewparam="Y"/>
+        <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="awardsNRecognitions_list_listfreeform_1" viewparam="Y"/>
+	     <workflow name="validateAllFieldsEmpty" seq="0">
+	        <function executionsequence="3" functionid="validateAllFieldsForAwardNRecognitionsNotEmptyOnProducerAsscoaitionContact" name="validateAllFieldsForAwardNRecognitionsNotEmptyOnProducerAsscoaitionContact" parameters="context"/>
+	      </workflow>
+	       <workflow eval="ProducerOneRule.checkFlag" name="addNewAward" seq="1">
+        <businessobject executionsequence="0" name="addNewAward" obj="com.userbo.common.ListFreeformBO"/>
+      </workflow>
+		<workflow eval="ProducerOneRule.isInetErrorListEmpty" name="updateProducerAssociationData" seq="2">
+			<function eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" functionid="convertMomListFieldsIntoXml" name="convertMomListFieldsIntoXml" parameters="context,contact_typ_id|ispersoncontact,:contactTypeListSize,agency_id|person_id,contactTypeXml"/>
+			<function executionsequence="2" functionid="getAllMetaFieldDataFromContextAsXML" name="getAllMetaFieldDataFromContextAsXML" parameters="context,additonalFieldForInputXml"/>
+	        <function executionsequence="3" functionid="convertListDataToXML" name="convertAwardRecognizationListIntoXml" parameters="context,awardsNRecognitions_list_listfreeform_1,awardsInputXml"/>
+	        <function executionsequence="4" functionid="convertListDataToXML" name="convertSubProducerListIntoXml" parameters="context,subProducerAssociation_list_listfreeform_1,subProducerInputXml"/>
+	      	<storedprocedureoperation dbspname="updateAgentNProducerNumberAssociationData_p" executionsequence="5" id="updateAgentNProducerNumberAssociationData_p" metaobject="person" name="updateAgentNProducerNumberAssociationData_p" operation="4">
+	          <parameteroperation indexno="0" mode="IN" property="inputXml" seq="1"/>
+	          <parameteroperation indexno="1" mode="IN" property="user_id" seq="2"/>
+	          <parameteroperation indexno="2" mode="IN" property="roles" seq="3"/>
+	          <parameteroperation indexno="3" mode="IN" property="awardsInputXml" seq="4"/>
+	          <parameteroperation indexno="4" mode="IN" property="agency_id" seq="5"/>
+	          <parameteroperation indexno="5" mode="IN" property="subProducerInputXml" seq="6"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+      </workflow>
+      
+     <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="contacttype_lku_mom_list_1,awardsNRecognitions_list_listfreeform_1,subProducerAssociation_list_listfreeform_1,rank,quarter_of_the_year,conference_type_id,trip_type_id,award_name_recognition_id,award_calendar_year,trip_location,producer_num_id,producer_num_id_desc,conference_type_id_desc,quarter_of_the_year_desc,awards_effective_date,expiration_date,checkFlag" session="Y"/>
+	</action>
+	
+	<action metaobject="awards_recognition" name="addNewAward">
+      <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="addNewAward" paramid="addNewAward" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformblockid" paramid="listfreeformblockid" val="ConferenceAwards_freeform_contextdata_1" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="rank,quarter_of_the_year,conference_type_id,trip_type_id,award_name_recognition_id,award_calendar_year,trip_location,producer_num_id_1,producer_num_id_1_desc,conference_type_id_desc,quarter_of_the_year_desc,awards_effective_date,expiration_date" session="Y"/>
+      <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="awardsNRecognitions_list_listfreeform_1" viewparam="Y"/>
+      
+      <workflow name="validateAllFieldsEmpty" seq="0">
+        <function executionsequence="3" functionid="validateAllFieldsForAwardNRecognitionsNotEmptyOnProducerAsscoaitionContact" name="validateAllFieldsForAwardNRecognitionsNotEmptyOnProducerAsscoaitionContact" parameters="context"/>
+      </workflow>
+      
+      <workflow eval="ProducerOneRule.isInetErrorListEmpty" name="addNewAward" seq="1">
+        <businessobject executionsequence="0" name="addNewAward" obj="com.userbo.common.ListFreeformBO"/>
+      </workflow>
+    </action>
+    <action name="deleteAwardNRecognitions">
+      <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ajaxdeletedivid" paramid="ajaxdeletedivid" val="ConferenceAwardsDiv" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="awards_recognition.delete" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="awards_recognition_id" paramid="awards_recognition_id" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="awardsNRecognitions_list_listfreeform_1" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="deleteAwardNRecognitions" seq="0">
+        <businessobject executionsequence="0" name="deleteAwardNRecognitions" obj="com.userbo.common.ListFreeformBO"/>
+      </workflow>
+      <actionparam eval="producerAssociationRule.checkDeleteMsgAwardsNRecognition" form="Y" name="checkDeleteMsgAwardsNRecognition" paramid="checkDeleteMsgAwardsNRecognition" post="Y"/>
+      
+      
+    </action>
+	
+	
+	<action deltaind="M" metaobject="sub_producer_association" name="addNewsubProducerAssociation">
+      <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="addNewsubProducerAssociation" paramid="addNewsubProducerAssociation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformblockid" paramid="listfreeformblockid" val="subProducerAssociation_freeform_contextdata_1" viewparam="Y"/>
+      <actionparam eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="0" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="sub_producer,effective_date,termination_date" session="Y"/>
+      <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="subProducerAssociation_list_listfreeform_1" viewparam="Y"/>
+      
+        
+      <workflow deltaind="I" name="getCustomizedProducerCode" seq="0">
+	  	<function deltaind="I" executionsequence="0" functionid="getCustomizedProducerCode" name="getCustomizedProducerCode" parameters="context"/> 
+	  </workflow>
+      <workflow deltaind="M" name="validateCheckDuplicateSubProducerCode" seq="1">
+	  	<function executionsequence="0" functionid="checkDuplicateSubProducerCode" name="checkDuplicateSubProducerCode" parameters="context,:sub_producer"/> 
+	  </workflow>
+      
+      <workflow deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" name="addNewsubProducerAssociation" seq="2">
+        <businessobject executionsequence="0" name="addNewsubProducerAssociation" obj="com.userbo.common.ListFreeformBO"/>
+      </workflow>
+        
+     
+    </action>
+    <action name="deleteSubProducerAssociation">
+      <actionparam executionsequence="0" name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="ajaxdeletedivid" paramid="ajaxdeletedivid" val="subProducerAssociationDiv" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="sub_producer_association.delete" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+      <actionparam executionsequence="0" form="Y" name="sub_producer_association_id" paramid="sub_producer_association_id" viewparam="Y"/>
+      <actionparam executionsequence="0" name="listfreeformid" paramid="listfreeformid" val="subProducerAssociation_list_listfreeform_1" viewparam="Y"/>
+      <actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <workflow name="deleteSubProducerAssociation" seq="0">
+        <businessobject executionsequence="0" name="deleteSubProducerAssociation" obj="com.userbo.common.ListFreeformBO"/>
+      </workflow>
+      <actionparam eval="producerAssociationRule.checkDeleteMsgSubProducerAssociation" form="Y" name="checkDeleteMsgSubProducerAssociation" paramid="checkDeleteMsgSubProducerAssociation" post="Y"/>
+    </action>
+	
+	
+	
+	
+  </component>
+</projectcomponents>

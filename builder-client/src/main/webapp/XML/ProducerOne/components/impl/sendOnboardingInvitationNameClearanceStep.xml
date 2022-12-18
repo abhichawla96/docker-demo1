@@ -1,0 +1,134 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component name="sendOnboardingInvitationNameClearanceStep">
+    	
+    	<action name="view">
+    		<actionparam executionsequence="0" form="Y" name="workflow_forward" paramid="workflow_forward" viewparam="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="document_category" paramid="document_category" pre="Y" val="8"/>
+    	  <workflow name="view" seq="0">
+	        <storedprocedureoperation dbspname="getSimilarAgencyListForOnboardingInvitation_p" executionsequence="1" id="getSimilarAgencyListForOnboardingInvitation_p" metaobject="agency_master" name="getSimilarAgencyListForOnboardingInvitation_p" operation="5" viewid="similarAgency_list_1">
+	          <parameteroperation indexno="0" mode="IN" property="step1InputFieldXml" seq="0"/>
+	          <parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+	          <parameteroperation indexno="2" mode="IN" property="roles" seq="2"/>
+	          <parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="3"/>
+	          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+	        </storedprocedureoperation>
+	      </workflow>
+    	</action>
+    	<action name="nameClearanceStepBack">
+    		<actionparam executionsequence="1" form="Y" name="ISBACKACTION" paramid="ISBACKACTION" val="Y" viewparam="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="workflow_forward" paramid="workflow_forward" viewparam="Y"/>
+    		<workflow name="nameClearanceStepBack" seq="0">
+    			<function executionsequence="0" functionid="filterSendInvitationInputFieldXML" name="filterInputFieldXML" parameters="context,:step1InputFieldXml"/>
+		    	<function executionsequence="1" functionid="populateContextFromXML" name="populateContextFromXML" parameters="context,:step1InputFieldXml"/>
+		    </workflow>
+    	</action>
+    	<action name="nameClearanceStepNext">
+    	 	<actionparam executionsequence="0" form="Y" name="request_reason_id" paramid="request_reason_id" viewparam="Y"/>
+    	 	<actionparam executionsequence="0" form="Y" name="mailto" paramid="mailto" viewparam="Y"/>
+    	 	<actionparam executionsequence="0" form="Y" name="mailcc" paramid="mailcc" viewparam="Y"/>
+    		<actionparam eval="SendInvitationRule.assignPageMsgForInviation" executionsequence="0" form="Y" name="assignPageMsgForInviation" paramid="assignPageMsgForInviation" post="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="request_reason_id" paramid="request_reason_id" viewparam="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="document_category" paramid="document_category" pre="Y" val="8"/>
+    		<actionparam executionsequence="0" form="Y" name="workflow_forward" paramid="workflow_forward" viewparam="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="back_workflow_forward" paramid="back_workflow_forward" val="sendOnboardingInvitationNameClearanceStep" viewparam="Y"/>
+    		<actionparam executionsequence="2" form="Y" name="aar_statusid_desc" paramid="aar_statusid_desc" pre="Y" val="Invited"/>
+    		<actionparam executionsequence="0" form="Y" name="isOnboardingWorkflowFound" paramid="isOnboardingWorkflowFound" viewparam="Y"/>
+      	    <actionparam eval="WorkflowRule.isAarRequestIdNotEmpty" executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid1" viewparam="Y"/>
+      	    <actionparam checkfornullparams="aar_requestid" executionsequence="2" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+      		<actionparam deltaind="D" executionsequence="0" form="Y" name="event_name" paramid="event_name" pre="Y" val="SendInvitation"/>
+      		<actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="uploadDocumentInPublicDb"/>
+      		<!-- get Producer Number Id -->
+      		<actionparam deltaind="I" eval="SendInvitationRule.checkIsUserNotInInvitationFlow" executionsequence="99" form="Y" name="selected_primary_agency_code_id" paramid="selected_primary_agency_code_id" pre="Y"/>
+    		
+    		<!-- <workflow eval="WorkflowRule.isAarRequestIdEmpty" name="nameClearanceStepNext" seq="0"> -->
+    		<workflow name="nameClearanceStepNext" seq="0">
+		    	<databaseoperation executionsequence="0" metaobject="sendInvitation" name="getStatusId" operation="3" sqlstmt="select top 1 invitation_status_id from tbl_invitation_status_lku where description like #aar_statusid_desc#"/>
+		    	<storedprocedureoperation dbspname="InsertOnboardingInvitationInfo_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" id="InsertOnboardingInvitationInfo_p" metaobject="sendInvitation" name="InsertOnboardingInvitationInfo_p" operation="1">
+		          <parameteroperation indexno="0" mode="IN" property="step1InputFieldXml" seq="0"/>
+		          <parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="roles" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="3"/>
+		          <parameteroperation indexno="4" mode="OUT" property="aar_requestid" seq="4"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+		         <storedprocedureoperation dbspname="getRequestReasonForDefaultOpen_p" executionsequence="2" id="getRequestReasonForDefaultOpen_p" metaobject="person" name="getRequestReasonForDefaultOpen_p" operation="3">
+		          	<parameteroperation indexno="1" mode="IN" property="request_reason_id" seq="1"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+
+		    </workflow>
+	    	 <workflow eval="WorkflowRule.isOnboardingFlowFound" name="nameClearanceStepNext1" seq="1">
+		      	<databaseoperation executionsequence="0" metaobject="sendOnboardingInvitation" name="updateWorkflowComments" operation="4" sqlstmt="update wrs set wrs.comment=#comments#, wrs.comment_date=getdate(), wrs.last_updated_ts=getdate() from workflowrequestsstatus wrs inner join workflowrequests wr             on wr.workflowrequests_id=wrs.workflowrequests_id and wr.objectid=#aar_requestid#"/>
+		      	<databaseoperation executionsequence="1" metaobject="sendOnboardingInvitation" name="updateEmailAddress" operation="4" sqlstmt="update tbl_agencyappointmentrequest set aar_agencyname = #entity_name_forInvitation#, email = #toemail_forInvitation#, workflow_user = #home_workflow_user# where aar_requestid = #aar_requestid#">
+		      	</databaseoperation>
+		      	<databaseoperation executionsequence="2" metaobject="sendOnboardingInvitation" name="updateEmailAddress1" operation="4" sqlstmt="update tbl_address set e_mail = #toemail_forInvitation# where aar_requestid = #aar_requestid#">
+		      	</databaseoperation>
+		    </workflow>
+		    
+		    <workflow name="nameClearanceStepNext2" seq="2">
+		    	<storedprocedureoperation dbspname="getDefaultTemplateNameBasedOnEmailEventName_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" id="getDefaultTemplateNameBasedOnEmailEventName_p" metaobject="sendInvitation" name="getDefaultTemplateNameBasedOnEmailEventName_p" operation="3">
+		            <parameteroperation indexno="0" mode="IN" property="event_name" seq="0"/>
+		          	<parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+		          	<parameteroperation indexno="2" mode="IN" property="roles" seq="2"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+		    </workflow>
+		    
+		    <workflow name="nameClearanceStepNext3" seq="3" isexecuteonsuccess="Y">
+		    	<storedprocedureoperation dbspname="getAdditionalDataRequiredForInvitationByRequestid_p"  executionsequence="1" 
+		    		id="getAdditionalDataRequiredForInvitationByRequestid_p" metaobject="sendInvitation" 
+		    		name="getAdditionalDataRequiredForInvitationByRequestid_p" operation="3">
+		            <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="0"/>
+		          	<parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+		          	<parameteroperation indexno="2" mode="IN" property="roles" seq="2"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+		    </workflow>
+		    
+		    <workflow eval="EntityRequestsRule.isNewLicensedProducerRequestForDefaultOpen" name="insertDataforNewLicensedProducerRequestSelfService" seq="4">
+		    	<storedprocedureoperation dbspname="insertDataforNewLicensedProducerRequest_p" id="insertDataforNewLicensedProducerRequest_p" metaobject="person_ss" name="insertDataforNewLicensedProducerRequest_p" operation="1" executionsequence="1" >
+		          <parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="request_reason_id" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="last_updated_by" seq="4"/>
+		          <parameteroperation indexno="0" mode="RETURN" property="request_ss_id" seq="0"/>
+		          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+		    </workflow>
+		    
+		    <workflow eval="invitationStep1_file_attachment_security" name="getDcoumentListForExistingInvitationRequest" seq="9">
+		      	 <businessobject eval="ProducerOneRule.assignDateFields" executionsequence="1" isexecuteonsuccess="Y" name="addDocumentToDb" obj="com.userbo.common.DocumentUploadBO"/>
+		      </workflow>
+	    	
+	    	<!-- <workflowevent eval="SendInvitationRule.isOnboardingFlowNotFoundNProducerRegistration" event="sendInvitation" isexecuteonsuccess="Y" name="sendInvitation" workflow="agentOnboardingDashboard" executionsequence="1"/>
+	    	<workflowevent eval="SendInvitationRule.isOnboardingFlowNotFoundNNotProducerRegistration" event="sendInvitation" isexecuteonsuccess="Y" name="sendInvitation_agentRegistration" workflow="onboardingDashboard" executionsequence="2"/> -->
+	    	<workflowevent event="sendInvitation" isexecuteonsuccess="Y" name="sendInvitation" workflow="onboardingDashboard" executionsequence="1"/>
+	    	<workflowevent eval="EntityRequestsRule.isCreateNewLicensedProducerRequestFromAgencyAdmin" event="sendInvitation" isexecuteonsuccess="Y" name="sendInvitation1" workflow="selfServiceWorkFlow" executionsequence="2"/>
+	    	
+	    
+	    	<workflow eval="WorkflowRule.isAarRequestIdNotEmpty" name="prospectToOnboardingImport" seq="10">
+	    	<storedprocedureoperation dbspname="prospectToOnboardingImport_p" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" id="prospectToOnboardingImport_p" metaobject="sendInvitation" name="prospectToOnboardingImport_p" operation="1">
+		          <parameteroperation indexno="0" mode="IN" property="prospect_agency_id" seq="0"/>
+		          <parameteroperation indexno="1" mode="IN" property="user_id" seq="1"/>
+		          <parameteroperation indexno="2" mode="IN" property="roles" seq="2"/>
+		          <parameteroperation indexno="3" mode="IN" property="aar_requestid" seq="3"/>
+		          <parameteroperation indexno="4" mode="IN" property="contact_required_in_onboarding_from_prospect_security" seq="4"/>
+		          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+		        </storedprocedureoperation>
+	    	</workflow>
+    		<actionparam executionsequence="3" form="Y" name="aar_requestid" paramid="aar_requestid" post="Y" session="Y"/>
+    		<actionparam eval="ProducerOneRule.assignInvitationLink" executionsequence="4" form="Y" name="invitation_link" paramid="invitation_link" post="Y"/>
+	    	<actionparam executionsequence="5" form="Y" name="invitation_link" paramid="invitation_link1" populatename="URL_LINK" post="Y"/>
+	        <actionparam executionsequence="10" form="Y" name="aar_requestid" paramid="aar_requestId" populatename="objectid" post="Y"/>
+	    	<actionparam executionsequence="0" form="Y" isexecuteonsuccess="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="uploadPopup_list_1" session="Y"/>
+	    	<actionparam executionsequence="10" form="Y" name="request_ss_id" paramid="request_ss_id" post="Y" session="Y"/>
+    	</action>
+    	<action name="nameClearanceStepCancel">
+    		<actionparam executionsequence="0" form="Y" name="workflow_forward" paramid="workflow_forward" viewparam="Y"/>
+    		<actionparam executionsequence="5" form="Y" isexecuteonsuccess="Y" name="workflow_forward" paramid="workflow_forward1" populatename="WORKFLOW_FORWARD" post="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+    		<actionparam executionsequence="0" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="step1InputFieldXml,uploadPopup_list_1" session="Y"/>
+    	</action>
+  </component>
+</projectcomponents>

@@ -1,0 +1,11 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="savedsearch;newlocationreason_lku;agency_master;homeAction;object_code_details" name="advanceSearchEntityResult" 
+  	stackdisplayname="eval:ProducerOneRule.getSearchResultPageHeader" displayname="Banner Search Listing">
+    
+    <action deltaind="M" name="showAgencyDetailScreen">
+      <actionparam deltaind ="M" executionsequence="0" form="Y" name="is_hidden" paramid="is_hidden" post="Y" remove="Y" removeparams="is_hidden,isShowNIPRAddress,report_for,name_NIPR,socialPost_list_1,favourite_list_1,social_media_list_listfreeform_1,npn_check" session="Y"/>
+     
+    </action>
+    
+  </component>
+</projectcomponents>

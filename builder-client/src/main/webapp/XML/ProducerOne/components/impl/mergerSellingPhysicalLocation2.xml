@@ -1,0 +1,82 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component deltaind="M" metaobject="f_Policy_Transaction"
+		name="mergerSellingPhysicalLocation2" stackdisplayname="eval:ProducerOneRule.getMergerAcquistionsStep2StackName"
+		displayname="Mergers &amp; Acquisitions Step 2">
+
+		<action deltaind="M" name="view">
+		
+			<workflow deltaind="I" eval="agencymergernaquisition_letterTemplateList_security"
+				name="getTemplateListForLetterGenerationMnA" seq="50">
+				
+				<storedprocedureoperation deltaind="I" dbspname="getTemplateListForAgencyFunctionMnA_p"  executionsequence="1" id="getTemplateListForAgencyFunctionMnA_p" metaobject="person" name="getTemplateListForAgencyFunctionMnA_p" operation="5" viewid="agencymna_letterTemplate_list_1">
+           			<resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        		</storedprocedureoperation>
+				</workflow>
+				
+				 <workflow name="view4" deltaind="M"  seq="3" eval="ProducerOneRule.isMNADetailRefereshed">
+				 <storedprocedureoperation deltaind="M" dbspname="GetMNADocuments_p" eval="ProducerOneRule.isDocumentListEmpty"  executionsequence="6" id="GetMNADocuments_p" metaobject="agency_annual_audit" name="GetMNADocuments_p" operation="5" viewid="uploadDocument_list_1">
+						<parameteroperation indexno="0" mode="IN" property="person_id" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="agency_id" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="to_object_id" seq="3"/>
+						<parameteroperation indexno="3" mode="IN" property="mergertype_id" seq="4"/>
+						<parameteroperation indexno="4" mode="IN" property="merger_transaction_id" seq="5"/>
+
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+		   </storedprocedureoperation>
+				 </workflow>
+		</action>
+		
+		<!-- Feature- Mergers and Acquistions -->
+		<action name="generateLetter" deltaind="I">
+	    	<actionparam executionsequence="0" form="Y" deltaind="I" name="getDataForSummaryFromDb" paramid="getDataForSummaryFromDb" viewparam="Y"/>
+	  		<actionparam executionsequence="1" form="Y" deltaind="I" name="IS_SHOW_EDIT_PDF_TEMPLATE" paramid="IS_SHOW_EDIT_PDF_TEMPLATE" pre="Y" val="Y"/>
+	  		<actionparam executionsequence="2" form="Y" deltaind="I" name="inDocCategory" paramid="inDocCategory" pre="Y" val="41"/>
+            <actionparam executionsequence="3" form="Y" name="EDIT_PDF_TEMPLATE_LIST" paramid="EDIT_PDF_TEMPLATE_LIST" post="Y" val="uploadDocument_list_1"/>
+            
+                  <actionparam executionsequence="3" form="Y" name="test" paramid="test" pre="Y" val="Hello"/>
+            
+            <workflow name="generateLetter" seq="0">
+          
+          <storedprocedureoperation deltaind="I" dbspname="getDataForMovingLocation_p"  executionsequence="0" id="getDataForMovingLocation_p" metaobject="merger_log" name="getDataForMovingLocation_p" operation="3">
+          <parameteroperation indexno="0" mode="IN" property="from_object_name" seq="0"/>
+          <parameteroperation indexno="1" mode="IN" property="to_object_name" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+         
+        </storedprocedureoperation>
+               <function executionsequence="0" functionid="generateLetterFromTemplate" name="generateLetterFromTemplate" parameters="context,selectedTemplateType,uploadDocument_list_1,inDocCategory,outDocCategory,currentcontext"/>
+	    		<function executionsequence="1" functionid="generateRequestXml" name="generateRequestXml" parameters="context,:fieldsList,PAGEDATAXML"/>
+               
+					<document name="generateLetterFromTemplate" method="generatetolist" templateinput="MovingLocation" datafields=""
+                    templateoutput="uploadDocument_list_1" indoccategory="41" outdoccategory="39" data="context" objectid="from_object_id" objecttype="Agency Termination" executionsequence="1"/>
+
+            </workflow>
+            <actionparam executionsequence="7" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1" post="Y" session="Y"/>
+	    </action>
+	
+    
+    	<action name="confirmationYes" deltaind="M">
+					<actionparam deltaind="I" executionsequence="7" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1"  popopulatename="uploadPopup_list_1"  pre="Y" session="Y"/>
+		<workflow deltaind="M" eval="ProducerOneRule.assignDateFields" name="confirmationYes" seq="0">
+		
+		
+		
+		<function deltaind="I"  executionsequence="0" functionid="generateMovingLocationLetter" name="generateMovingLocationLetter" parameters="context"/>
+		<businessobject deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="1" name="applyMerging" obj="com.userbo.MergerAcquistionsBO"/>
+        <businessobject deltaind="M" eval="ProducerOneRule.isInetErrorListEmpty" executionsequence="2" name="uploadDocuments" obj="com.userbo.common.DocumentUploadBO"/>
+		</workflow>
+		<!-- <workflow deltaind="I"  name="uploadDocumentData" seq="0">
+		<function deltaind="I"  executionsequence="1" functionid="generateMovingLocationLetter" name="generateMovingLocationLetter" parameters="context"/> 
+		</workflow> -->
+		
+		<workflow deltaind="I" name="updateSubProducerCode" seq="2">      		
+      	<storedprocedureoperation dbspname="update_sub_producer_code_p" executionsequence="0" id="update_sub_producer_code_p" metaobject="person" name="update_sub_producer_code_p" operation="1">
+          <parameteroperation indexno="1" mode="IN" property="to_object_name" seq="1"/>
+          <parameteroperation indexno="2" mode="IN" property="from_object_id" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="1"/>
+        </storedprocedureoperation>
+      </workflow> 
+		</action>
+
+	</component>
+</projectcomponents>

@@ -1,0 +1,37 @@
+<htmls project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	
+	<htmldef name="" description="" template="" eval="" path="" style="" width="" height="" cssclass="" parent="" securityid="" labelid="">
+		<nodeinfo uniqueid="name"> 
+		
+		</nodeinfo>
+		<columnset name="" id="" label="" description="" template="" eval="" isshowfieldset="" style="" cssclass="" columnsperrow="" 
+			include="" executionsequence="" isshowpagination="" ajaxsortingid="" ajaxpositionid="" defaultopenfreeform="" securityid=""
+			labelid=""> 
+			<nodeinfo uniqueid="executionsequence">
+				<implements interface="com.manage.managecomponent.workflow.IExecutionSeq" /> 
+				<attribute name="executionsequence" datatype="int" />
+				<attribute name="columnsperrow" datatype="int" />
+			</nodeinfo>
+			<column name="" label="" description="" id="" eval="" executionsequence="" type="" value=""
+				style="" cssclass="" isrequired="" title="" maxlength="" onclick="" onchange="" ischecked=""
+				parent="" issorting="" href="" src="" height="" width="" alt="" isreadonly="" isdisabled=""
+				size="" content="" template="" ispagelevel="" isshowlabel="" securityid="" labelid="">
+				<nodeinfo uniqueid="executionsequence">
+					<implements interface="com.manage.managecomponent.workflow.IExecutionSeq" /> 
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="size" datatype="int" />
+					<attribute name="isrequired" datatype="boolean" />
+					<attribute name="ischecked" datatype="boolean" />
+					<attribute name="issorting" datatype="boolean" />
+					<attribute name="isreadonly" datatype="boolean" />
+					<attribute name="isdisabled" datatype="boolean" />
+					<attribute name="ispagelevel" datatype="boolean" />
+				</nodeinfo>		
+			</column>
+		</columnset>	
+	</htmldef>
+
+</htmls>

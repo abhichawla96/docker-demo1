@@ -1,0 +1,45 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id,workflow_function,aar_statusid_desc,workflow_user" metaobject="agentMoObject;person;cost_center_lku;background_check;compititor_appointments;agencyDetailValidation;AgentGeneralDetailValidationMetaObject" name="agentGeneralDetails" stackdisplayname="individualtablabel General Detail"
+  	objectcolumn="person_id" objecttype="agentGeneralDetails" displayname="Contact General Details"
+  	labelkey="agentGeneralDetails_page_label" securitykey="agentGeneralDetails_page">
+  	<action deltaind="I" name="refreshNonLicensedFields">
+      <actionparam deltaind="I" executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+      <actionparam deltaind="I" executionsequence="1" form="Y" name="ISSKIPPAGEVIEW" paramid="ISSKIPPAGEVIEW" val="Y" viewparam="Y"/>
+     
+      <workflow deltaind="I" name="checkContains" seq="0">
+	  	<function deltaind="I" executionsequence="0" functionid="checkContains" name="checkContains" parameters="context"/> 
+	  </workflow>
+     </action>		
+     
+      <action name="view" deltaind="M">
+       <workflow deltaind="I" name="checkContains" seq="17">
+	  	<function deltaind="I" executionsequence="0" functionid="checkContains" name="checkContains" parameters="context"/> 
+	  </workflow>
+      </action>
+      
+                 <!-- Welcome Email Action -->
+   <action name="welcomeEmailEvent" deltaind="I">
+      
+      <actionparam executionsequence="0" form="Y" name="email_additionalAddress" paramid="email_additionalAddress" pre="Y"/>
+      
+      <!--  <actionparam executionsequence="1" form="Y" name="metadataObjectName" paramid="metadataObjectName" pre="Y" val="person_id"/> -->
+       <workflow  name="email" deltaind="I"  seq="0">
+       <databaseoperation deltaind="I" executionsequence="0" metaobject="master_lookup_data_lku" name="newProducerEmail1" operation="3" sqlstmt="select top 3 p.person_id, (p.prdcr_first_name + ' ' + prdcr_last_name) name, p.person_id as person_id_row from person p with(nolock) inner join agency_person ap with(nolock) on ap.person_id=p.person_id       and isnull(p.is_highest_ranking_principal,0) = 1      and ap.agency_id=#agency_id#"/>
+       <databaseoperation deltaind="I" executionsequence="1" metaobject="master_lookup_data_lku" name="newProducerEmailEvent1" operation="3" sqlstmt="SELECT distinct email_id as email_additionalAddress FROM additional_address_emails aae left join master_lookup_data_lku mld on mld.master_lookup_data_id = aae.email_category WHERE object_id = #person_id# and object_type_code = 'I' and master_lookup_detail_id = (select master_lookup_detail_id from master_lookup_detail_lku  where lookup_table_name='email_category_lku')"/>
+       </workflow>
+       
+       <actionparam deltaind="I" executionsequence="2" form="Y" name="person_id" paramid="person_id" viewparam="Y"/> 
+       <workflow name="emaildetails" deltaind="I"  seq="1">
+       
+       <storedprocedureoperation deltaind="I" dbspname="getDataForNewProducerAppoiment_p" executionsequence="3" id="getDataForNewProducerAppoiment_p" metaobject="person" name="getDataForNewProducerAppoiment_p" operation="3">
+             <parameteroperation indexno="0" mode="IN" property="person_id" seq="0"/>
+             <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+            </storedprocedureoperation>
+       </workflow>
+       
+       <workflow deltaind="I" name="EmailEvent" seq="2">       
+	  	<email name="NewProducerAppointment" eventname="NewProducerAppointment" executionsequence="3" mailto="email_additionalAddress"/>		
+	  </workflow>
+      </action>		
+  </component>
+</projectcomponents>

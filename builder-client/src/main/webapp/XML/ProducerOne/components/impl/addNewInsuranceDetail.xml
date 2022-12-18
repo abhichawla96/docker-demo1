@@ -1,0 +1,13 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="producer_number;category_lku;person;agency_insurance;" name="addNewInsuranceDetail"
+  	objectcolumn="insurance_certificate_id" objecttype="addNewInsuranceDetail" displayname="Insurance Details"
+  	labelkey="addNewInsuranceDetail_page_label" securitykey="addNewInsurance_full_page_security">
+    <!-- Maintenance- Bug- Main-001 -->
+     <action deltaind="M" name="view">
+    	<actionparam deltaind="I" executionsequence="0" pre="Y" form="Y" name="attachflag" paramid="attachflag" val="Y"/>
+    </action> 
+    <action deltaind="M" name="save">
+    	<actionparam deltaind="I" executionsequence="0" pre="Y" form="Y" name="attachflag" paramid="attachflag" val="Y"/>
+    </action> 
+      </component>
+</projectcomponents>

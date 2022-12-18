@@ -1,0 +1,202 @@
+<structure project="ProducerOneClient" seq="0">
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="agency_pace_setters_details_id" seq="0" length="0" displayname="agency_pace_setters_details_id" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="agency_id" seq="1" length="0" displayname="agency_id" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="person_id" seq="2" length="0" displayname="person_id" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="producer_number_id" seq="3" length="0" displayname="producer_number_id" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="program" seq="4" length="0" displayname="program" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="program_date" seq="5" length="0" displayname="program_date" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="alumni" seq="6" length="0" displayname="alumni" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="alumni_start" seq="7" length="0" displayname="alumni_start" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="pace_setter_status" seq="8" length="0" displayname="pace_setter_status" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="sa_consultant_coach" seq="9" length="0" displayname="sa_consultant_coach" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="focus" seq="10" length="0" displayname="focus" />
+     <field fieldlength="8" type="TS" dropdown="N" decimallength="0" viewlength="0" name="last_updated_ts" seq="11" length="0" displayname="last_updated_ts" />
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="last_updated_by" seq="12" length="0" displayname="last_updated_by" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="agent_dependent_details_id" seq="13" length="0" displayname="agent_dependent_details_id" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="dependent_type" seq="14" length="0" displayname="dependent_type" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="dependent_type_name" seq="15" length="0" displayname="dependent_type_name" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="first_Name" seq="16" length="0" displayname="first_Name" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="middle_Name" seq="17" length="0" displayname="middle_Name" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="last_Name" seq="18" length="0" displayname="last_Name" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="ssn" seq="19" length="0" displayname="ssn" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="date_of_birth" seq="20" length="0" displayname="date_of_birth" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="mobile_number" seq="21" length="0" displayname="mobile_number" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="common_notification_details_id" seq="22" length="0" displayname="common_notification_details_id" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="notification_id" seq="23" length="0" displayname="notification_id" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="email" seq="24" length="0" displayname="email" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="investment_details_ID" seq="25" length="0" displayname="investment_details_ID" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="for_agency" seq="26" length="0" displayname="for_agency" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="sunstar_acct_no" seq="27" length="0" displayname="sunstar_acct_no" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="purchase_amount" seq="28" length="0" displayname="purchase_amount" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="dependentDetailsInputXml" seq="29" length="0" displayname="dependentDetailsInputXml" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="operationType" seq="29" length="0" displayname="operationType" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="stock_recipient_search" seq="30" length="0" displayname="stock_recipient_search" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="agency_code_search" seq="31" length="0" displayname="agency_code_search" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="agency_office_name" seq="32" length="0" displayname="agency_office_name" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="account_number" seq="33" length="0" displayname="account_number" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="stock_recipient_name" seq="34" length="0" displayname="stock_recipient_name" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="agency_code" seq="35" length="0" displayname="agency_code" />
+     
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="agency_code" seq="29" length="0" displayname="agency_code" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="contact_type_mapping_id" seq="30" length="0" displayname="contact_type_mapping_id" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="source_code" seq="31" length="0" displayname="source_code" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="source_code_desc" seq="32" length="0" displayname="source_code_desc" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="base_code" seq="33" length="0" displayname="base_code" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="base_code_desc" seq="34" length="0" displayname="base_code_desc" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="default_source_code" seq="35" length="0" displayname="default_source_code" />
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="EmpType" seq="36" length="0" displayname="EmpType" />
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="EmpTypeName" seq="37" length="0" displayname="EmpTypeName" />
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="EmpTitle" seq="38" length="0" displayname="EmpTitle" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="employee_type_id" seq="39" length="0" displayname="employee_type_id" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="employee_type_code" seq="40" length="0" displayname="employee_type_code" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="employee_type_name" seq="41" length="0" displayname="employee_type_name" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="employee_title" seq="42" length="0" displayname="employee_title" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="agency_notification_details_id" seq="43" length="0" displayname="agency_notification_details_id" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="employee_no" seq="44" length="0" displayname="employee_no" />
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="InsCo" seq="45" length="0" displayname="InsCo" />
+     <field fieldlength="50" type="V" dropdown="N" decimallength="0" viewlength="0" name="MCO" seq="46" length="0" displayname="MCO" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="company_mco_mapping_id" seq="47" length="0" displayname="company_mco_mapping_id" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="company_id" seq="48" length="0" displayname="company_id" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="mco_id" seq="49" length="0" displayname="mco_id" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="agency_suspension_details_id" seq="50" length="0" displayname="agency_suspension_details_id" />
+     <field fieldlength="8" type="TS" dropdown="N" decimallength="0" viewlength="0" name="effective_date" seq="51" length="0" displayname="effective_date" />
+     <field fieldlength="8" type="TS" dropdown="N" decimallength="0" viewlength="0" name="termination_date" seq="52" length="0" displayname="termination_date" />
+     <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="suspension_type_id" seq="53" length="0" displayname="suspension_type_id" />
+     <field fieldlength="-1" type="V" dropdown="N" decimallength="0" viewlength="0" name="comments" seq="54" length="0" displayname="comments" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="Agency_Code" seq="55" length="0" displayname="Agency_Code" />
+     <field fieldlength="255" type="V" dropdown="N" decimallength="0" viewlength="0" name="contact" seq="55" length="0" displayname="contact" />
+	 <field fieldlength="8" type="I" dropdown="N" decimallength="0" viewlength="0" name="investment_id_new" seq="56" length="0" displayname="investment_id_new" />
+	 <field fieldlength="4" type="I" dropdown="N" decimallength="0" viewlength="0" name="contact_personal_information_id" seq="113" length="0" displayname="contact_personal_information_id" />
+     <field fieldlength="4" type="V" dropdown="Y" decimallength="0" viewlength="0" name="contact_gender" seq="114" length="0" displayname="contact_gender" />
+     <field fieldlength="4" type="V" dropdown="Y" decimallength="0" viewlength="0" name="maritalstatus" seq="115" length="0" displayname="maritalstatus" />
+	<field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="awards" seq="116" length="0" displayname="awards" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="clubs" seq="117" length="0" displayname="clubs" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="college" seq="118" length="0" displayname="college" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="personal_designations" seq="119" length="0" displayname="personal_designations" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="restaurant" seq="120" length="0" displayname="restaurant" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="favoritesports" seq="121" length="0" displayname="favoritesports" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="sportteams" seq="122" length="0" displayname="sportteams" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="fitness" seq="123" length="0" displayname="fitness" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="highschool" seq="124" length="0" displayname="highschool" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="hometown" seq="125" length="0" displayname="hometown" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="pet" seq="126" length="0" displayname="pet" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="serviceorgs" seq="127" length="0" displayname="serviceorgs" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="facebook" seq="128" length="0" displayname="facebook" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="twitter" seq="129" length="0" displayname="twitter" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="ethnicity" seq="130" length="0" displayname="ethnicity" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="hobbies" seq="131" length="0" displayname="hobbies" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="vacation" seq="132" length="0" displayname="vacation" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="priorjobs" seq="133" length="0" displayname="priorjobs" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="motivation" seq="134" length="0" displayname="motivation" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="family" seq="135" length="0" displayname="family" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="industryassoc" seq="136" length="0" displayname="industryassoc" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="electedoffc" seq="137" length="0" displayname="electedoffc" />
+     <field fieldlength="100" type="V" dropdown="N" decimallength="0" viewlength="0" name="otherbusiness" seq="138" length="0" displayname="otherbusiness" />
+     <field type="V" decimallength="0" viewlength="200" name="uploadedExcelData_xml" seq="139" length="0" displayname="uploadedExcelData_xml" />
+     <field type="V" decimallength="0" viewlength="200" name="InvalidDataXML" seq="140" length="0" displayname="InvalidDataXML" />
+	  <field type="V" decimallength="0" viewlength="200" name="error" seq="141" length="0" displayname="error" />
+	      
+     <metaobject persistent="Y" name="investment_details" seq="0" active="Y">
+          <propertyversion versionname="0" seq="0">
+               <property initcap="N" searchfield="N" isEncrypt="N" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="investment_details_ID" viewlength="0" persistent="Y" seq="0" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="agency_id" viewlength="0" persistent="Y" seq="1" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="person_id" viewlength="0" persistent="Y" seq="2" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="producer_number_id" viewlength="0" persistent="Y" seq="3" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="for_agency" viewlength="0" persistent="Y" seq="4" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="sunstar_acct_no" viewlength="0" persistent="Y" seq="5" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="purchase_amount" viewlength="0" persistent="Y" seq="6" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_ts" viewlength="0" persistent="Y" seq="7" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_by" viewlength="0" persistent="Y" seq="8" propertylength="0" />
+          </propertyversion>
+     </metaobject>
+     <metaobject persistent="Y" name="common_notification_details" seq="0" active="Y">
+          <propertyversion versionname="0" seq="0">
+               <property initcap="N" searchfield="N" isEncrypt="N" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="common_notification_details_id" viewlength="0" persistent="Y" seq="0" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="notification_id" viewlength="0" persistent="Y" seq="1" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="email" viewlength="0" persistent="Y" seq="2" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_ts" viewlength="0" persistent="Y" seq="3" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_by" viewlength="0" persistent="Y" seq="4" propertylength="0" />
+          </propertyversion>
+     </metaobject>
+     <metaobject persistent="Y" name="agency_pace_setters_details" seq="0" active="Y">
+          <propertyversion versionname="0" seq="0">
+               <property initcap="N" searchfield="N" isEncrypt="N" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="agency_pace_setters_details_id" viewlength="0" persistent="Y" seq="0" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="agency_id" viewlength="0" persistent="Y" seq="1" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="person_id" viewlength="0" persistent="Y" seq="2" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="producer_number_id" viewlength="0" persistent="Y" seq="3" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="program" viewlength="0" persistent="Y" seq="4" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="program_date" viewlength="0" persistent="Y" seq="5" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="alumni" viewlength="0" persistent="Y" seq="6" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="alumni_start" viewlength="0" persistent="Y" seq="7" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="pace_setter_status" viewlength="0" persistent="Y" seq="8" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="sa_consultant_coach" viewlength="0" persistent="Y" seq="9" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="focus" viewlength="0" persistent="Y" seq="10" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_ts" viewlength="0" persistent="Y" seq="11" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_by" viewlength="0" persistent="Y" seq="12" propertylength="0" />
+          </propertyversion>
+     </metaobject>
+     <metaobject persistent="Y" name="agent_dependent_details" seq="0" active="Y">
+          <propertyversion versionname="0" seq="0">
+               <property initcap="N" searchfield="N" isEncrypt="N" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="agent_dependent_details_id" viewlength="0" persistent="Y" seq="0" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="person_id" viewlength="0" persistent="Y" seq="1" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="producer_number_id" viewlength="0" persistent="Y" seq="2" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" field="dependent_type" viewlength="0" persistent="Y" seq="3" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="dependent_type_name" viewlength="0" persistent="Y" seq="4" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="first_Name" viewlength="0" persistent="Y" seq="5" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="middle_Name" viewlength="0" persistent="Y" seq="6" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="last_Name" viewlength="0" persistent="Y" seq="7" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="ssn" viewlength="0" persistent="Y" seq="8" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="date_of_birth" viewlength="0" persistent="Y" seq="9" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="mobile_number" viewlength="0" persistent="Y" seq="10" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_ts" viewlength="0" persistent="Y" seq="11" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_by" viewlength="0" persistent="Y" seq="12" propertylength="0" />
+          </propertyversion>
+     </metaobject>
+     
+     <metaobject persistent="Y" name="contact_type_mapping" seq="0" active="Y">
+          <propertyversion versionname="0" seq="0">
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="IDENTITY" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="contact_type_mapping_id" viewlength="0" persistent="Y" seq="0" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="source_code" viewlength="0" persistent="Y" seq="1" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="source_code_desc" viewlength="0" persistent="Y" seq="2" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="base_code" viewlength="0" persistent="Y" seq="3" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="base_code_desc" viewlength="0" persistent="Y" seq="4" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="default_source_code" viewlength="0" persistent="Y" seq="5" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_by" viewlength="0" persistent="Y" seq="6" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" autoincrement="NOT NULL" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="last_updated_ts" viewlength="0" persistent="Y" seq="7" propertylength="0" />
+          </propertyversion>
+     </metaobject>
+	 
+	 <metaobject persistent="Y" name="contact_personal_information" seq="0" active="Y">
+          <propertyversion versionname="0" seq="0">
+               <property initcap="N" searchfield="N" isEncrypt="N" keyconstraint="PRIMARY KEY" autoincrement="IDENTITY" listdisplay="N" formdisplay="N" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="Y" field="contact_personal_information_id" viewlength="0" persistent="Y" seq="0" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="person_id" viewlength="0" persistent="Y" seq="1" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="contact_gender" viewlength="0" persistent="Y" seq="2" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" viewlength="0" persistent="Y" seq="3" propertylength="0" field="maritalstatus" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="awards" viewlength="0" persistent="Y" seq="4" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="clubs" viewlength="0" persistent="Y" seq="5" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="college" viewlength="0" persistent="Y" seq="6" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="personal_designations" viewlength="0" persistent="Y" seq="7" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="restaurant" viewlength="0" persistent="Y" seq="8" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="favoritesports" viewlength="0" persistent="Y" seq="9" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="sportteams" viewlength="0" persistent="Y" seq="10" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="fitness" viewlength="0" persistent="Y" seq="11" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="highschool" viewlength="0" persistent="Y" seq="12" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="hometown" viewlength="0" persistent="Y" seq="13" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="pet" viewlength="0" persistent="Y" seq="14" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="serviceorgs" viewlength="0" persistent="Y" seq="15" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="facebook" viewlength="0" persistent="Y" seq="16" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="twitter" viewlength="0" persistent="Y" seq="17" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="ethnicity" viewlength="0" persistent="Y" seq="18" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="hobbies" viewlength="0" persistent="Y" seq="19" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="vacation" viewlength="0" persistent="Y" seq="20" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="priorjobs" viewlength="0" persistent="Y" seq="21" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="motivation" viewlength="0" persistent="Y" seq="22" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="family" viewlength="0" persistent="Y" seq="23" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="industryassoc" viewlength="0" persistent="Y" seq="24" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="electedoffc" viewlength="0" persistent="Y" seq="25" propertylength="0" />
+               <property initcap="N" searchfield="N" isEncrypt="N" listdisplay="Y" formdisplay="Y" deleteind="N" resolvedisplay="N" length="0" contextfield="N" searchrule="N" searchmodify="N" isrequired="N" field="otherbusiness" viewlength="0" persistent="Y" seq="26" propertylength="0" />
+          </propertyversion>
+     </metaobject>
+     
+</structure>
+

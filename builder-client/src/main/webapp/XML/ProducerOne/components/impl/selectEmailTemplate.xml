@@ -1,0 +1,63 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+	<component metaobject="email_notifications_templates_mapping" name="selectEmailTemplate" stackdisplayname="Select Email Template">
+    	
+    	<!-- Phase 3 - Feature - Generating Welcome Letter - Changing seq numbers of workflow - Start -->
+    	<!--  
+    	<action deltaind="M" name="send">
+        	<workflow name="send" deltaind="I" seq="2" eval="ProducerOneRule.isSendInvitationEmail">
+        	<email deltaind="I" attachmentcontent="attachmentcontent" cc="mailcc" eventname="event_name" executionsequence="0" mailto="mailto" msgstring="bodyContent" name="send" objectid="objectid" objecttype="objecttype" templatename="template_name"/>
+	    		<storedprocedureoperation deltaind="I" dbspname="updateEmailNotificationStatus_p" eval="ProducerOneRule.isEmailSentSuccessfully" executionsequence="1" id="updateEmailNotificationStatus_p" metaobject="sendInvitation" name="updateEmailNotificationStatus_p" operation="4">
+						<parameteroperation indexno="0" mode="IN" property="objecttype" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="objectid" seq="2"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="1"/>
+				</storedprocedureoperation>
+    			</workflow>
+    		
+    		 <workflow name="sendParse" deltaind="I" seq="3">
+    			<function name="parseDataXML" functionid="parseDataXML" parameters="context,:backpagedata_context" executionsequence="0"></function>
+    		</workflow>  
+    		
+    		 <workflow name="email" deltaind="I"  seq="4" eval="ProducerOneRule.isNotSendInvitationEmail">
+                  <databaseoperation deltaind="I" executionsequence="0" metaobject="master_lookup_data_lku" name="newProducerEmail1" operation="3" sqlstmt="select top 1 person_id  from person where requestid = #aar_requestid#"/>
+                 <databaseoperation deltaind="I" executionsequence="1" metaobject="master_lookup_data_lku" name="newProducerEmailEvent1" operation="3" sqlstmt="SELECT distinct email_id as email_additionalAddress FROM additional_address_emails aae left join master_lookup_data_lku mld on mld.master_lookup_data_id = aae.email_category WHERE object_id = #person_id# and object_type_code = 'I' and master_lookup_detail_id = (select master_lookup_detail_id from master_lookup_detail_lku  where lookup_table_name='email_category_lku')"/>
+             </workflow>
+       
+         <actionparam deltaind="I" executionsequence="9" form="Y" name="person_id" paramid="person_id" viewparam="Y"/>
+         <actionparam deltaind="I" executionsequence="10" form="Y" name="email_additionalAddress" paramid="email_additionalAddress" pre="Y"/>
+         <actionparam deltaind="I" executionsequence="11" form="Y" name="agency_id" paramid="agency_id" viewparam="Y"/> 
+         <actionparam deltaind="I"  executionsequence="12" eval="ProducerOneRule.isNotSendInvitationEmail" form="Y" name="Status" paramid="Status" post="Y" val="Completed"/>
+         <actionparam deltaind="I"  executionsequence="13" form="Y" name="registration_type" paramid="registration_type" viewparam="Y"/>
+       
+       <workflow name="emaildetails" deltaind="I"  seq="5" eval="ProducerOneRule.isNotSendInvitationEmail">
+       
+         <storedprocedureoperation deltaind="I" eval="agencyListPublicSubmitNInvitationRule.isSendProducerEmail" dbspname="getDataForNewProducerAppoiment_p" executionsequence="3" id="getDataForNewProducerAppoiment_p" metaobject="person" name="getDataForNewProducerAppoiment_p" operation="3">
+             <parameteroperation indexno="0" mode="IN" property="person_id" seq="0"/>
+             <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+          </storedprocedureoperation>
+            
+         <storedprocedureoperation deltaind="I" eval="agencyListPublicSubmitNInvitationRule.isSendAgencyEmail" dbspname="GetAppointmentTerminationLetterAddress_p" executionsequence="4" id="GetAppointmentTerminationLetterAddress_p" metaobject="agency_master" name="GetAppointmentTerminationLetterAddress_p" operation="3">
+            <parameteroperation indexno="1" mode="IN" property="agency_id" seq="1"/>
+            <parameteroperation indexno="2" mode="IN" property="AgencyAddresType" seq="2"/>
+            <parameteroperation indexno="3" mode="IN" property="AgentAddresType" seq="3"/>
+            <parameteroperation indexno="4" mode="IN" property="isShowAgencyBusinessAddress" seq="4"/>
+            <parameteroperation indexno="5" mode="IN" property="type" seq="5"/>
+            <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+         </storedprocedureoperation>
+       </workflow>
+    		
+       <workflow deltaind="M" name="sendOnboardingEmail" seq="6" eval="ProducerOneRule.isNotSendInvitationEmail">
+           <email deltaind="M" eval="agencyListPublicSubmitNInvitationRule.isSendProducerEmail" eventname="NewProducerAppointment" executionsequence="5" ischeckfortemplates="Y" name="sendOnboardingEmail" objectid="aar_requestid" objecttype="onboarding"
+           mailto="email_additionalAddress"/>
+          <email deltaind="I" eval="agencyListPublicSubmitNInvitationRule.isSendAgencyEmail"  eventname="NewAgencyAppointment" executionsequence="6" ischeckfortemplates="Y" name="sendOnboardingEmail1" objectid="aar_requestid" objecttype="onboarding"
+          mailto="email_additionalAddress"/>
+      </workflow>
+       
+          	<actionparam deltaind="I" eval="ProducerOneRule.isWelcomeEmailSentMsg" executionsequence="14" form="Y" name="pageMsg" paramid="pageMsg123" post="Y"/>
+    		<actionparam executionsequence="5" form="Y" isexecuteonsuccess="Y" name="workflow_forward" paramid="workflow_forward1" populatename="WORKFLOW_FORWARD" post="Y"/>
+    		<actionparam executionsequence="2" form="Y" isexecuteonsuccess="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="attachmentcontent,INET_SHOW_SELECT_EMAIL_TEMPLATE" session="Y"/>
+    		<actionparam executionsequence="1" form="Y" name="aar_requestid" paramid="aar_requestid" viewparam="Y"/>
+    	</action>
+    	-->
+    	<!-- Phase 3 - Feature - Generating Welcome Letter - Changing seq numbers of workflow - End -->
+	</component>
+</projectcomponents>

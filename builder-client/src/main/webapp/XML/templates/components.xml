@@ -1,0 +1,332 @@
+<projectcomponents project="">
+	<nodeinfo uniqueid="project">
+		<implements interface="com.util.IResourceKeys" />
+	</nodeinfo>
+	<component name="" metaobject="" deltaind="" stackdisplayname="" breadcrumbsessionparams="" objectcolumn="" objecttype="">
+		<nodeinfo uniqueid="name"></nodeinfo>
+		<action name="" deltaind="" metaobject=""> 
+			<nodeinfo uniqueid="name"></nodeinfo>
+			<workflow eval="" name="" executionsequence="" isexecuteonsuccess="">
+				<nodeinfo>
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isexecuteonsuccess" datatype="boolean" />
+				</nodeinfo>
+				<bo deltaind="" eval="" name="" viewid="" isexecuteonsuccess=""
+					developercomments="" executionsequence="" obj="" method="" metaobject=""
+					returntype="" populate="" namespace="" psmtemplate="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+					<argumentoperation argname="" argtype="">
+						<nodeinfo uniqueid="argname" />
+					</argumentoperation>
+					<operationparam viewparam="" pre="" deltaind=""
+						post="" paramid="" scope="" namespace="" name="" val="" form=""
+						session="" populatename="" ismenuparam="" remove="" evalute="" executionsequence="">
+						<nodeinfo uniqueid="paramid">
+							<extends class="Param" />
+							<attribute name="form" datatype="boolean" />
+							<attribute name="session"
+								datatype="boolean" />
+							<attribute name="remove" datatype="boolean" />
+							<attribute name="pre" datatype="boolean" />
+							<attribute name="post" datatype="boolean" />
+							<attribute name="ismenuparam"
+								datatype="boolean" />
+							<attribute name="viewparam"
+								datatype="boolean" />
+							<attribute name="evalute" datatype="boolean" />
+                            <attribute name="executionsequence" datatype="int" />
+						</nodeinfo>
+					</operationparam>
+				</bo>
+				<databaseoperation eval="" deltaind="" applid=""
+					viewid="" name="" operationtype="" sqlstmt="" spid=""
+					parameterclass="" returnproperty="" executionsequence=""
+					metaobject="" operation="" populate="" namespace=""
+					developercomments="" returntype="" psmtemplate="" isexecuteonsuccess="" iscacheenabled="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="operation" datatype="int" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />
+						<attribute name="iscacheenabled" datatype="boolean" />		
+					</nodeinfo>
+					<operationparam viewparam="" pre="" deltaind=""
+						post="" paramid="" scope="" namespace="" name="" val="" form=""
+						session="" populatename="" ismenuparam="" remove="" executionsequence="">
+						<nodeinfo uniqueid="paramid">
+							<extends class="Param" />
+							<attribute name="form" datatype="boolean" />
+							<attribute name="session"
+								datatype="boolean" />
+							<attribute name="remove" datatype="boolean" />
+							<attribute name="pre" datatype="boolean" />
+							<attribute name="post" datatype="boolean" />
+							<attribute name="ismenuparam" datatype="boolean" />
+							<attribute name="viewparam" datatype="boolean" />
+                            <attribute name="executionsequence" datatype="int" />
+						</nodeinfo>
+					</operationparam>
+				</databaseoperation>
+				<storedprocedureoperation id="" eval="" viewid="" applid=""
+					name="" dbspname="" parameterclass="" developercomments=""
+					executionsequence="" deltaind="" returnproperty="" operation=""
+					metaobject="" populate="" operationtype="" namespace=""
+					psmtemplate="" isexecuteonsuccess="" iscacheenabled="">
+					<nodeinfo uniqueid="id">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="operation" datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />
+						<attribute name="iscacheenabled" datatype="boolean" />
+					</nodeinfo>
+					<parameteroperation property="" mode="" deltaind=""
+						indexno="">
+						<nodeinfo uniqueid="indexno">
+							<attribute name="indexno" datatype="int" />
+						</nodeinfo>
+					</parameteroperation>
+					<resultsetoperation indexno="" mappingclass=""
+						deltaind="">
+						<result property="" column="" indexno="" javaType="">
+							<nodeinfo uniqueid="indexno">
+								<attribute name="indexno" datatype="int" />
+							</nodeinfo>
+						</result>
+					</resultsetoperation>
+					<operationparam viewparam="" pre="" deltaind=""
+						post="" paramid="" scope="" namespace="" name="" val="" form=""
+						session="" populatename="" ismenuparam="" remove="" executionsequence="">
+						<nodeinfo uniqueid="paramid">
+							<extends class="Param" />
+							<attribute name="form" datatype="boolean" />
+							<attribute name="session"
+								datatype="boolean" />
+							<attribute name="remove" datatype="boolean" />
+							<attribute name="pre" datatype="boolean" />
+							<attribute name="post" datatype="boolean" />
+							<attribute name="ismenuparam"
+								datatype="boolean" />
+							<attribute name="viewparam"
+								datatype="boolean" />
+                            <attribute name="executionsequence" datatype="int" />
+						</nodeinfo>
+					</operationparam>
+				</storedprocedureoperation>
+				<webservicecall deltaind="" eval="" name="" servicename="" clientrole="" methodname=""
+                      data="" fieldsmapping="" inputxml="" responsexml="" developercomments="" executionsequence="" isexecuteonsuccess="">
+                      <nodeinfo uniqueid="name">
+                            <implements
+                                  interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+                            <attribute name="executionsequence"
+                                  datatype="int" />
+                            <attribute name="isexecuteonsuccess" datatype="boolean" />         
+                      </nodeinfo>
+                </webservicecall>
+				<document name="" template="" data="" developercomments="" executionsequence="" filenamefield=""
+					populate="" metaobject="" namespace="" viewid="" eval="" output="" defaultfilename=""
+					downloadfilepath="" isexecuteonsuccess="" deltaind="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />		
+					</nodeinfo>
+				</document>
+				<workflowparam viewparam="" pre="" deltaind="" post=""
+					paramid="" scope="" namespace="" name="" val="" form="" session=""
+					populatename="" ismenuparam="" remove="" evalute="" executionsequence="">
+					<nodeinfo uniqueid="paramid">
+						<extends class="Param" />
+						<attribute name="form" datatype="boolean" />
+						<attribute name="session" datatype="boolean" />
+						<attribute name="remove" datatype="boolean" />
+						<attribute name="pre" datatype="boolean" />
+						<attribute name="post" datatype="boolean" />
+						<attribute name="ismenuparam" datatype="boolean" />
+						<attribute name="viewparam" datatype="boolean" />
+						<attribute name="evalute" datatype="boolean" />
+                        <attribute name="executionsequence" datatype="int" />
+					</nodeinfo>
+				</workflowparam>
+				<email mailto="" mailfrom="" cc="" bcc="" eval="" subject="" contenttype=""
+					msgstring="" msgfile="" attachmentpath="" executionsequence="" name=""
+					populate="" namespace="" attachmentcontent="" isexecuteonsuccess="" eventname=""
+					objectid="" objecttype="" templatename="" ischeckfortemplates="" deltaind=""
+					lookupobjectmetaobject="" lookupobjectprocedure="" lookupobjectprocedureparameters="" applid=""
+					thanksname="" companyname="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence" datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+					<parameter name="" value="" executionsequence="">
+						<nodeinfo uniqueid="name">
+							<attribute name="executionsequence" datatype="int" />	
+						</nodeinfo>
+					</parameter>
+				</email>
+				<businessobject eval="" name="" developercomments="" executionsequence="" 
+					obj="" metaobject="" returntype="" populate="" namespace="" viewid=""
+					isexecuteonsuccess="" deltaind="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+				</businessobject>
+				<function eval="" name="" functionid="" ruleid="" expression="" parameters="" executionsequence=""
+					isexecuteonsuccess="" deltaind="">
+					<nodeinfo uniqueid="name">
+						<implements
+							interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+				</function>	
+				<task name="" eval="" objectid="" objecttype="" taskcode="" description="" priority="" startdate="" duedate="" closeddate="" 
+                    createdby="" status="" comments="" assignee="" movetoinbox="" taskgroup="" deltaind=""
+                    executionsequence="" isexecuteonsuccess="" isgetuser="" assigneerole="" userfield=""
+                    workflowname="" workflowevent="" forward="" ajaxcontainerid="">
+                    <nodeinfo uniqueid="name">
+                    	<implements
+                        	interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+                        	<attribute name="executionsequence" datatype="int" />
+                            <attribute name="isexecuteonsuccess" datatype="boolean" /> 
+                            <attribute name="isgetuser" datatype="boolean" />
+                    </nodeinfo>
+                </task>
+			</workflow>
+			<actionparam pre="" viewparam="" deltaind="" post="" eval=""
+				paramid="" scope="" namespace="" name="" val="" form="" session=""
+				populatename="" ismenuparam="" remove="" evalute=""
+				executionsequence="" removeparams="" checkfornullparams="" sessionparams=""
+				isexecuteonsuccess="">
+				<nodeinfo uniqueid="paramid">
+					<extends class="Param" />
+					<attribute name="form" datatype="boolean" />
+					<attribute name="session" datatype="boolean" />
+					<attribute name="remove" datatype="boolean" />
+					<attribute name="pre" datatype="boolean" />
+					<attribute name="post" datatype="boolean" />
+					<attribute name="ismenuparam" datatype="boolean" />
+					<attribute name="viewparam" datatype="boolean" />
+					<attribute name="evalute" datatype="boolean" />
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isexecuteonsuccess" datatype="boolean" />
+				</nodeinfo>
+			</actionparam>
+			
+			<validatefield name="" eval="" executionsequence="" fields="" deltaind="">
+				<nodeinfo uniqueid="name"/>
+				<function name="" eval="" functionid="" ruleid="" expression="" parameters="" executionsequence=""
+					isexecuteonsuccess="" deltaind="">
+					<nodeinfo uniqueid="name">
+						<attribute name="executionsequence"
+							datatype="int" />
+						<attribute name="isexecuteonsuccess" datatype="boolean" />	
+					</nodeinfo>
+				</function>
+			</validatefield>
+			
+			<workflowevent eval="" name="" workflow="" event="" executionsequence="" isexecuteonsuccess=""
+				isgetuser="" userfield="" deltaind="" ajaxcontainerid="" forward="" assigneerole="" 
+				isshoweffectivedate="" effectivedate="">
+				<nodeinfo uniqueid="name">
+					<implements
+						interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isgetuser" datatype="boolean" />
+					<attribute name="isexecuteonsuccess" datatype="boolean" />
+					<attribute name="isshoweffectivedate" datatype="boolean" />	
+				</nodeinfo>
+			</workflowevent>
+			<task name="" eval="" objectid="" objecttype="" taskcode="" description="" priority="" startdate="" duedate="" closeddate=""
+                createdby="" status="" comments="" assignee="" movetoinbox="" taskgroup="" deltaind=""
+                executionsequence="" isexecuteonsuccess="" isgetuser="" assigneerole="" userfield=""
+                workflowname="" workflowevent="" forward="" ajaxcontainerid="">
+                <nodeinfo uniqueid="name">
+                	<implements
+                    	interface="com.manage.managecomponent.workflow.ICacheInstruction" />
+                    	<attribute name="executionsequence" datatype="int" />
+                        <attribute name="isexecuteonsuccess" datatype="boolean" /> 
+                        <attribute name="isgetuser" datatype="boolean" />
+                </nodeinfo>
+            </task>
+		</action>
+		<componentparam pre="" viewparam="" deltaind="" post=""
+			paramid="" scope="" namespace="" name="" val="" form="" session=""
+			populatename="" remove="" evalute="" executionsequence="">
+			<nodeinfo uniqueid="paramid">
+				<extends class="Param" />
+				<attribute name="form" datatype="boolean" />
+				<attribute name="session" datatype="boolean" />
+				<attribute name="remove" datatype="boolean" />
+				<attribute name="pre" datatype="boolean" />
+				<attribute name="post" datatype="boolean" />
+				<attribute name="viewparam" datatype="boolean" />
+				<attribute name="evalute" datatype="boolean" />
+                <attribute name="executionsequence" datatype="int" />
+			</nodeinfo>
+		</componentparam>
+		
+		<html path="">
+			<block name="" type="" id="" securitykey="" labelkey="" isshowpagination="" css="" executionsequence="" description="" deltaind=""
+				template="" rowlevelcss="" ajaxcontainerid="">
+				<nodeinfo uniqueid="name">
+					<attribute name="executionsequence" datatype="int" />
+					<attribute name="isshowpagination" datatype="boolean" />
+				</nodeinfo>
+				<field name="" id="" objectcolumn="" description="" datatype="" displaytype="" maxlength="" isrequired="" requiredeval="" defaultvalue="" 
+					lookupobjectname="" lookupobjectsql="" lookupobjectmetaobject=""
+					lookupobjectprocedure="" lookupobjectprocedureparameters="" displayfield="" valuefield="" labelkey="" 
+					securitykey="" position="" tooltip="" isextendedfield="" mappedto="" executionsequence="" css=""
+					isencrypt="" errormsgkey="" applid="" deltaind="" format="" otherformat="" isdisplayonhistory=""
+					lookupobjecttype="" lookupobjectbo="" mappedtoscreen="" encryptcode="" decryptcode=""
+					linkcss="" linkimgsrc="" imgsrc="" style="" displayfor="" issorting="" iscacheenabled="">
+					<nodeinfo uniqueid="id">
+						<attribute name="executionsequence" datatype="int" />
+						<attribute name="issorting" datatype="boolean" />
+						<attribute name="iscacheenabled" datatype="boolean"/>
+					</nodeinfo>
+					<validation name="" expression="" message="" executionsequence="" isskip="" ruleid="" deltaind="">
+						<nodeinfo uniqueid="name">
+							<attribute name="executionsequence" datatype="int" />
+							<attribute name="isskip" datatype="boolean" />
+						</nodeinfo>
+					</validation>
+					<event id="" name="" securitykey="" actiontype="" screen="" action="" actiontypeid="" executionsequence="" deltaind=""
+						value="" tooltip="" linkcss="" linkimgsrc="" imgsrc="" css="">
+						<nodeinfo uniqueid="id">
+							<attribute name="executionsequence" datatype="int" />
+						</nodeinfo>
+						<forward id="" screen="" securitykey="" executionsequence="" deltaind="">
+				    		<nodeinfo uniqueid="id">
+								<attribute name="executionsequence" datatype="int" />
+							</nodeinfo>
+				    	</forward>
+			    	</event>
+			    	<eval id="" securitykey="" value="" tooltip="" linkcss="" linkimgsrc="" imgsrc="" css="" executionsequence="" deltaind="">
+			    		<nodeinfo uniqueid="id">
+							<attribute name="executionsequence" datatype="int" />
+						</nodeinfo>
+			    	</eval>
+				</field>
+			</block>
+		</html>
+	</component>
+</projectcomponents>

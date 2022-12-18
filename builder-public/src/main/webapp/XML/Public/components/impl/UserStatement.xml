@@ -1,0 +1,10 @@
+<projectcomponents project="Public">
+<component name="UserStatement" seq="0">
+		<action name="view">
+			<workflow name="view" seq="0">
+				<databaseoperation deltaind="I" executionsequence="23" metaobject="tbl_agencyprincipal" name="getContactTypeDataByAarRequestId" operation="3" sqlstmt="select c.contact_typ_id,c.contact_typ_desc,p.person_id,p.contacttype from tbl_agencyprincipal p left join contacttype_lku c on 1!=2 or p.contacttype= cast(c.contact_typ_id as varchar) where c.contact_typ_id in (select items from dbo.split(p.contacttype ,',')) and request_id=#aar_requestid# and is_highest_ranking_principal=0 and c.contact_typ_desc='Licensed Producer'"/>
+			</workflow>
+		
+		</action>
+	</component>
+</projectcomponents>

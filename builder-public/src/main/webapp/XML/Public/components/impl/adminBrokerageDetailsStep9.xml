@@ -1,0 +1,677 @@
+<projectcomponents project="Public">
+<component metaobject="tbl_agency_documents;tbl_signature_acceptance" name="adminBrokerageDetailsStep9">
+		<action name="view">
+			<workflow name="view" seq="0">
+				<!-- <databaseoperation name="getAllDocuments" metaobject="tbl_agency_documents" operation="5"
+					viewid="adminBrokerageDetailsStep5_list_1" executionsequence="0"
+					sqlstmt="select *,(select document_display_value from document_type_lku where document_id=ad.document_type_id) as document_type 
+						from tbl_agency_documents ad where ad.aar_requestid=#aar_requestid# ">
+				</databaseoperation> -->
+				<databaseoperation eval="events.editEvent" executionsequence="1" metaobject="tbl_agency_documents" name="getDocumentDetails" operation="3"/>
+				<storedprocedureoperation dbspname="getAgencyDocumentsList_p_java_new" eval="PublicRule.isDocumentListEmpty" executionsequence="2" id="getAgencyDocumentsList_p_java_new" metaobject="tbl_agency_documents" name="getAgencyDocumentsList_p_java_new" operation="5" viewid="uploadDocument_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>								
+				</storedprocedureoperation>
+				<databaseoperation executionsequence="3" metaobject="tbl_address" name="getStateAbreviationForDocumentTemplate" operation="3" sqlstmt="select sl.abbreviation as stateAbbreviation from tbl_address adr left join state_lku sl on sl.state_id = adr.state_id where type = #AgencyAddresType#         and person_id is null and adr.aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isNotSkipENO" executionsequence="4" metaobject="tbl_agencyappointmentrequest" name="getAllEODocumentsDetail" operation="3" sqlstmt="select carrier_other,cast(policy_limit as numeric(16,0)) as policy_limit,eo_claims,effective_date,eoclaims_comments from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getDocumentsListForUploadInfo_p_java" executionsequence="5" id="getDocumentsListForUploadInfo_p_java" metaobject="tbl_agency_documents" name="getDocumentsListForUploadInfo_p_java" operation="5" viewid="adminBrokerageDetailsStep9_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="stateAbbreviation" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="isHideGACertificatesofAuthority" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="accountType" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="isShowSweepCertificate" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="ClientID" seq="5"/>	
+				    <parameteroperation indexno="5" mode="IN" property="aar_requestid" seq="6"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>	
+				</storedprocedureoperation>
+				<databaseoperation executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="SELECT (SELECT TOP 1 wrs.workflow_function FROM workflowrequestsstatus wrs WHERE wrs.workflowrequests_id = wr.workflowrequests_id           ORDER BY workflowrequestsstatus_id DESC) AS workflow_function        ,(SELECT DESCRIPTION FROM tbl_invitation_status_lku WHERE invitation_status_id=wr.workflowstatus_id) AS aar_statusid_desc        FROM workflowrequests wr WHERE objecttype='Onboarding' AND wr.objectid=#aar_requestid#"/>
+				<!-- <databaseoperation eval="PublicRule.isShowSignarureAcceptance" name="getSignatureAcceptanceDetail" metaobject="tbl_signature_acceptance" operation="3" executionsequence="7"
+					sqlstmt="select name,title,email,date,case is_checked when 'Y' then 'Y' else 'N' end as is_checked,case is_checked1 when 'Y' then 'Y' else 'N' end as is_checked1 from tbl_signature_acceptance where aar_requestid=#aar_requestid#">
+				</databaseoperation> -->
+				<databaseoperation executionsequence="8" metaobject="tbl_address" name="getAccountTypeForDocumentTemplate" operation="3" sqlstmt="select top 1 bank_account_type as accountType from tbl_agencybankinformation where aar_requestid=#aar_requestid# and bank_account_type='T'">
+				</databaseoperation>
+				<databaseoperation executionsequence="9" metaobject="tbl_agencyprincipal" name="getLicensedProducerCountFromDB" operation="3" sqlstmt="select count(*)  as licensedProducerCount from tbl_agencyprincipal       cross apply dbo.Split(contacttype,',') c       where request_id=#aar_requestid# and person_id is not null and c.items = (select contact_typ_id from contacttype_lku where contact_typ_desc = 'Licensed Producer')">
+				</databaseoperation>
+				<databaseoperation executionsequence="10" metaobject="tbl_agencyprincipal" name="getAppointmentStatesCountFromDB" operation="3" sqlstmt="select count(*)  as appointmentStatesCount from tbl_appointmentstates cross apply dbo.Split(state_ids,',') c where request_id=#aar_requestid#">
+				</databaseoperation>
+				 <databaseoperation eval="PublicRule.isNotSkipCyberLiability" executionsequence="13" metaobject="tbl_agency_cyber_liability" name="getAllCyberLiabilityDocumentsDetail" operation="3" sqlstmt="select carrier_other as cyber_liability_carrier_other,policy_number as cyber_liability_policy_number,coverage_amount as cyber_liability_coverage_amount,cast(policy_limit as numeric(16,0)) as cyber_liability_policy_limit,effective_date as cyber_liability_effective_date,expiration_date as cyber_liability_expiration_date,cyber_liability_claims, comments as cyber_liability_eoclaims_comments, 'Y' as cyber_liability_eo_claims_declaration from tbl_agency_cyber_liability where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getApplicationInfoForValidationCheck_p" executionsequence="11" id="getApplicationInfoForValidationCheck_p" metaobject="tbl_agency_documents" name="getApplicationInfoForValidationCheck_p" operation="5">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>	
+				</storedprocedureoperation>
+				
+				<storedprocedureoperation dbspname="getApplicationEsignerListByRequestid_p" eval="PublicRule.isEmptyAgencySignerList" executionsequence="12" id="getApplicationEsignerListByRequestid_p" metaobject="tbl_agency_documents" name="getApplicationEsignerListByRequestid_p" operation="5" viewid="applicationEsigner_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"> </resultsetoperation>	
+				</storedprocedureoperation>
+				
+				
+			</workflow>
+			<workflow name="view1" seq="1">
+				 <storedprocedureoperation dbspname="getSignatureAndAcceptanceByRequestId_p_java" executionsequence="1" id="getSignatureAndAcceptanceByRequestId_p_java" metaobject="tbl_agencyprincipal" name="getSignatureAndAcceptanceByRequestId_p_java" operation="3">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="contactTypeFlagForSignatureNAcceptance" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="isPrePopulateSignatureNAcceptanceData" seq="3"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>	
+				</storedprocedureoperation>
+			</workflow>
+			 <workflow name="changeStepThreeToFiveLabelsForSecondaryRegistrationType" seq="2">
+				<function executionsequence="0" functionid="changeStepThreeToFiveLabelsForSecondaryRegistrationType" name="changeStepThreeToFiveLabelsForSecondaryRegistrationType" parameters="context"/>
+	     	</workflow>
+			<actionparam executionsequence="5" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.assignDefaultValueForEOclaims" form="Y" name="eo_claims" paramid="assignDefaultValueForEOclaims" post="Y"/>
+			<actionparam executionsequence="6" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_111" populatename="uploadDocument_list_mom_1" post="Y"/>
+			
+			<actionparam eval="PublicRule.applicationEsignerListSize" form="Y" name="applicationEsignerListSize" paramid="applicationEsignerListSize" post="Y"/>
+			<actionparam form="Y" name="applicationEsigner_list_1" paramid="applicationEsigner_list_1" post="Y" session="Y"/>
+		</action>
+		<action name="edit">
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="uploadPopup_list_11,isVerificationCodeMailToBeSent" session="Y"/>
+		</action>
+		<action name="save">
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid11"  populatename="object_id" pre="Y"/>
+			<actionparam eval="PublicRule.checkForVerificationCodeMailToBeSent" executionsequence="0" form="Y" name="sendVerificationCode" paramid="sendVerificationCode" pre="Y" session="Y" val="Y"/>
+			<actionparam executionsequence="1" form="Y" name="sessionVerificationCode" paramid="sessionVerificationCode" pre="Y" remove="Y" session="Y"/>
+			<actionparam executionsequence="3" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+			<actionparam executionsequence="4" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<actionparam eval="PublicRule.validateUploadDocument" executionsequence="5" form="Y" name="validateUploadDocument" paramid="validateUploadDocument" pre="Y"/>
+			<actionparam eval="PublicRule.validateApplicationSignerData" executionsequence="6" form="Y" name="validateApplicationSignerData" paramid="validateApplicationSignerData" pre="Y"/> 
+			 
+			
+			<workflow eval="PublicRule.isVerificationCodeMailToBeSentWithEmptyErrors" name="sendVerificationCode" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getAgencyMail" operation="3" sqlstmt="select email from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<email contenttype="text/html" eval="PublicRule.getVerificationCodeMailContent" executionsequence="1" mailfrom="${mail.admin.address}" mailto="email" msgstring="verificationCodeMailContent" name="sendVerificationCodeMail" subject="Verification Code Mail"/>
+			</workflow>
+			<workflow eval="PublicRule.isVerificationCodeMailNotToBeSentWithEmptyErrors" name="save" seq="1">
+				<storedprocedureoperation dbspname="insert_update_delete_agency_documents_p_java" eval="PublicRule.assignDateFields" executionsequence="0" id="insert_update_delete_agency_documents_p_java" metaobject="tbl_agency_documents" name="insert_update_delete_agency_documents_p_java" operation="1">
+					<parameteroperation indexno="0" mode="IN" property="document_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="object_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="document_name" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="document_type_id" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="comment" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="date_received" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="operationType" seq="8"/>
+					<parameteroperation indexno="8" mode="OUT" property="document_id" seq="9"/>		
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>								
+				</storedprocedureoperation>
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="uploadDocument" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isVerificationCodeMailToBeSentWithEmptyErrors" executionsequence="10" form="Y" name="sessionVerificationCode" paramid="sessionVerificationCode1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.isVerificationCodeMailNotToBeSentWithEmptyErrorsForSaveMsg" executionsequence="11" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+			<actionparam eval="PublicRule.isVerificationCodeMailNotToBeSentWithEmptyErrors" executionsequence="12" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,name,title,email,date,      sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams12345" post="Y" remove="Y" removeparams="PY_written_premium,applicationEsigner_list_1,person_first_name,person_last_name,person_email" session="Y"/>
+			
+		</action>
+		<action name="saveAfterVerification">
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid11"  populatename="object_id" pre="Y"/>
+			<actionparam eval="PublicRule.checkVerificationCode" executionsequence="2" form="Y" name="checkVerificationCode" paramid="checkVerificationCode" pre="Y"/>
+			<actionparam executionsequence="3" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+			<actionparam executionsequence="4" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="save" seq="0">
+				<storedprocedureoperation dbspname="insert_update_delete_agency_documents_p_java" eval="PublicRule.assignDateFields" executionsequence="0" id="insert_update_delete_agency_documents_p_java" metaobject="tbl_agency_documents" name="insert_update_delete_agency_documents_p_java" operation="1">
+					<parameteroperation indexno="0" mode="IN" property="document_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="object_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="document_name" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="document_type_id" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="comment" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="date_received" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="operationType" seq="8"/>
+					<parameteroperation indexno="8" mode="OUT" property="document_id" seq="9"/>		
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>								
+				</storedprocedureoperation>
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="uploadDocument" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkSaveMsg" executionsequence="6" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="7" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams12345" post="Y" remove="Y" removeparams="PY_written_premium" session="Y"/>
+		</action>
+		<action name="modify">
+			<actionparam eval="PublicRule.checkForVerificationCodeMailToBeSent" executionsequence="0" form="Y" name="sendVerificationCode" paramid="sendVerificationCode" pre="Y" session="Y" val="Y"/>
+			<actionparam executionsequence="1" form="Y" name="sessionVerificationCode" paramid="sessionVerificationCode" pre="Y" remove="Y" session="Y"/>
+			<actionparam executionsequence="3" form="Y" name="operationType" paramid="operationType" pre="Y" val="U"/>
+			<actionparam executionsequence="4" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<actionparam executionsequence="5" form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid11"  populatename="object_id" pre="Y"/>
+			<workflow eval="PublicRule.isVerificationCodeMailToBeSentWithEmptyErrors" name="sendVerificationCode" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getAgencyMail" operation="3" sqlstmt="select email from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+				<email contenttype="text/html" eval="PublicRule.getVerificationCodeMailContent" executionsequence="1" mailfrom="${mail.admin.address}" mailto="email" msgstring="verificationCodeMailContent" name="sendVerificationCodeMail" subject="Verification Code Mail"/>
+			</workflow>
+			<workflow eval="PublicRule.isVerificationCodeMailNotToBeSentWithEmptyErrors" name="modify" seq="1">
+				<storedprocedureoperation dbspname="insert_update_delete_agency_documents_p_java" eval="PublicRule.assignDateFields" executionsequence="0" id="insert_update_delete_agency_documents_p_java" metaobject="tbl_agency_documents" name="insert_update_delete_agency_documents_p_java" operation="1">
+					<parameteroperation indexno="0" mode="IN" property="document_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="object_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="document_name" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="document_type_id" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="comment" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="date_received" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="operationType" seq="8"/>
+					<parameteroperation indexno="8" mode="OUT" property="document_id" seq="9"/>			
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>								
+				</storedprocedureoperation>
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="uploadDocument" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isVerificationCodeMailToBeSentWithEmptyErrors" executionsequence="6" form="Y" name="sessionVerificationCode" paramid="sessionVerificationCode1" post="Y" session="Y"/>
+			<actionparam eval="PublicRule.isVerificationCodeMailNotToBeSentWithEmptyErrorsForUpdateMsg" executionsequence="7" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+			<actionparam eval="PublicRule.isVerificationCodeMailNotToBeSentWithEmptyErrors" executionsequence="8" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams12345" post="Y" remove="Y" removeparams="PY_written_premium" session="Y"/>
+		</action>
+		<action name="modifyAfterVerification">
+			<actionparam eval="PublicRule.checkVerificationCode" executionsequence="2" form="Y" name="checkVerificationCode" paramid="checkVerificationCode" pre="Y"/>
+			<actionparam executionsequence="3" form="Y" name="operationType" paramid="operationType" pre="Y" val="U"/>
+			<actionparam executionsequence="4" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<actionparam executionsequence="5" form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid11"  populatename="object_id" pre="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="modify" seq="0">
+				<storedprocedureoperation dbspname="insert_update_delete_agency_documents_p_java" eval="PublicRule.assignDateFields" executionsequence="0" id="insert_update_delete_agency_documents_p_java" metaobject="tbl_agency_documents" name="insert_update_delete_agency_documents_p_java" operation="1">
+					<parameteroperation indexno="0" mode="IN" property="document_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="object_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="document_name" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="document_type_id" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="comment" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="date_received" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="operationType" seq="8"/>
+					<parameteroperation indexno="8" mode="OUT" property="document_id" seq="9"/>			
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>								
+				</storedprocedureoperation>
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="uploadDocument" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.checkUpdateMsg" executionsequence="7" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="8" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams12345" post="Y" remove="Y" removeparams="PY_written_premium" session="Y"/>
+		</action>
+		<action name="delete">
+			<actionparam executionsequence="0" form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="1" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="2" form="Y" name="document_id" paramid="document_id" pre="Y" viewparam="Y"/>
+			<actionparam executionsequence="3" form="Y" name="operationType" paramid="operationType" pre="Y" val="D"/>
+			<actionparam executionsequence="3" form="Y" name="isLookupData" paramid="isLookupData" viewparam="Y"/>
+			<actionparam executionsequence="5" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="deleteFromSessionList"/>
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid11"  populatename="object_id" pre="Y"/>
+			<actionparam checkfornullparams="aar_requestid,document_name,document_type_id,comment,date_received,last_updated_by,document_id" executionsequence="4" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			<workflow name="delete" seq="0">
+				<businessobject executionsequence="0" name="deleteDocument" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+			<workflow name="delete1" seq="1">
+				<storedprocedureoperation dbspname="insert_update_delete_agency_documents_p_java" executionsequence="0" id="insert_update_delete_agency_documents_p_java" metaobject="tbl_agency_documents" name="insert_update_delete_agency_documents_p_java" operation="1">
+					<parameteroperation indexno="0" mode="IN" property="document_id" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="object_id" seq="2"/>
+					<parameteroperation indexno="2" mode="IN" property="document_name" seq="3"/>
+					<parameteroperation indexno="3" mode="IN" property="document_type_id" seq="4"/>
+					<parameteroperation indexno="4" mode="IN" property="comment" seq="5"/>
+					<parameteroperation indexno="5" mode="IN" property="date_received" seq="6"/>
+					<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+					<parameteroperation indexno="7" mode="IN" property="operationType" seq="8"/>
+					<parameteroperation indexno="8" mode="OUT" property="document_id" seq="9"/>			
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>								
+				</storedprocedureoperation>
+			</workflow>
+			<actionparam executionsequence="2" form="Y" name="showDeleteError" paramid="showDeleteError" post="Y" val="Y"/>
+			<actionparam eval="PublicRule.isPageDeleteError1" executionsequence="3" form="Y" name="pageError" paramid="pageError" post="Y"/>
+			<actionparam eval="PublicRule.checkDeleteMsg" executionsequence="4" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+			<actionparam executionsequence="5" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,document_type,date_received,comment,file_name" session="Y"/>
+			<actionparam executionsequence="7" form="Y" name="isSkipENO" paramid="isSkipENO" post="Y" val="Y"/>
+			<actionparam executionsequence="8" form="Y" name="isSkipCyberLiability" paramid="isSkipCyberLiability" post="Y" val="Y"/>
+		</action>
+		<action name="cancel">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+		</action>
+		<action name="sendVerificationCode">
+			<actionparam form="Y" name="sendVerificationCode" paramid="sendVerificationCode" pre="Y" session="Y" val="Y"/>
+			<actionparam form="Y" name="sessionVerificationCode" paramid="sessionVerificationCode" pre="Y" remove="Y" session="Y"/>
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="sendVerificationCode" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getAgencyMail" operation="3" sqlstmt="select email from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+				<email contenttype="text/html" eval="PublicRule.getVerificationCodeMailContent" executionsequence="0" mailfrom="${mail.admin.address}" mailto="email" msgstring="verificationCodeMailContent" name="sendVerificationCodeMail" subject="Verification Code Mail"/>
+			</workflow>
+			<actionparam form="Y" name="sessionVerificationCode" paramid="sessionVerificationCode1" post="Y" session="Y"/>
+		</action>
+		<action name="cancelVerificationCode">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="sendVerificationCode,sessionVerificationCode" session="Y"/>
+		</action>
+		<action name="finish">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="market_carrierid" paramid="market_carrierid" post="Y" remove="Y" session="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="inet_eventid,uploadPopup_list_1,sendVerificationCode,sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+			<actionparam form="Y" name="applicationFormFlag" paramid="applicationFormFlag" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="backgroundCheckFormFlag" paramid="backgroundCheckFormFlag" pre="Y" val="N" viewparam="Y"/>
+			<actionparam eval="PublicRule.assignBackgroundCheckFormMultipleFlagValues" form="Y" name="backgroundCheckFormMultipleFlag" paramid="backgroundCheckFormMultipleFlag" pre="Y" viewparam="Y"/>
+			<actionparam eval="PublicRule.assignDefaultValueForEOclaims" form="Y" name="eo_claims" paramid="assignDefaultValueForEOclaims" post="Y"/>
+			<workflow eval="PublicRule.assignDateFields" name="finish" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getAppointmentRequestData" operation="3" sqlstmt="select *,dbo.getAmountFormat(aar_mkttotpremium) as 'marketpremium' , (select s.description from state_lku s,tbl_agencyappointmentrequest ta where ta.domicile_state=s.state_id and ta.aar_requestid=#aar_requestid#) as state,       (select description from producertype_lku where prdcrtype_id=ta.aar_producertypeid) as 'legaldescription'         from tbl_agencyappointmentrequest ta where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<!-- <databaseoperation name="getMarketInformationData" operation="5" executionsequence="2"
+					viewid="marketdata_list_1" metaobject="tbl_marketinformation"
+					sqlstmt="select case when aar_carrierid=-1 then aar_carrier else (select description from carrier_lku where carrier_id=aar_carrierid) end as aar_carrier, 
+						(select description from lob_lku where lob_id=aar_lobid) as market_lob,loss_ratio,commissionrate,dbo.getAmountFormat(writtenpremium) as writtenpremium,retentionrate 
+						from tbl_marketinformation where aar_requestid=#aar_requestid#">
+				</databaseoperation>  -->
+				<databaseoperation executionsequence="1" metaobject="tbl_agencyappointmentrequest" name="getAgencyQuestionsList" operation="5" sqlstmt="select a.questionid,bg.question,a.response,a.comment,case when isnull(a.comment,'')!='' then 'Y' else 'N' end as showComment        from tbl_agencyquestions a,backgroundquestions_lku bg         where a.questionid=bg.questionid and a.aar_requestid=#aar_requestid# union        select questionid,question,0 as response,null as comment,        'N' as showComments from backgroundquestions_lku bg        where bg.questionid not in(select questionid from tbl_agencyquestions where aar_requestid=#aar_requestid#) and bg_question_type=1" viewid="agencyquestions_list_1"/>
+				
+				<databaseoperation executionsequence="4" metaobject="tbl_appointmentstates" name="getStatesData" operation="3" sqlstmt="select cast(substring((select ', '+description from state_lku where state_id in(select items        from dbo.Split((select state_ids from tbl_appointmentstates where request_id=#aar_requestid#),','))order by description asc for xml path('')),2,8000) as varchar(8000)) as states"/>
+				<databaseoperation executionsequence="3" metaobject="tbl_address" name="getAgencyBusinessAddress" operation="3" sqlstmt="select cntry.country_code as aar_country_code,extn as aar_extn,address_id as aar_address_id, sl.state_id as aar_state,        addressline1 as aar_streetaddress1, addressline2 as aar_streetaddress2, city as aar_city,         case when zip is not null then             case when  datalength(zip) = 9 then substring(zip,1,5) + '-' + substring(zip,6,9)  else zip end            else zip end as aar_zipcode,         case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4) else phone end  as aar_phoneno,         case when fax is not null then substring(fax,1,3) + '-' + substring(fax,4,3) + '-' + substring(fax,7,4) else fax end  as aar_fax,         type,e_mail as aar_email, adr.agency_zip_code_2,adr.agency_foreign_addr_in,         case when mobile is not null then substring(mobile,1,3) + '-' + substring(mobile,4,3) + '-' + substring(mobile,7,4) else mobile end as aar_mobile,         cntry.territory_id,sl.description as aar_stateDescription,cntry.country_name as aar_countryDescription,county.description as aar_countyDescription,         case when alt_phone is not null then substring(alt_phone,1,3) + '-' + substring(alt_phone,4,3) + '-' + substring(alt_phone,7,4) else alt_phone end as aar_altPhone,        alt_extn as aar_altExtn,po_box as aar_poBox from tbl_address adr          left outer join state_lku sl on sl.state_id = adr.state_id         left outer join country_lku cntry on cntry.country_code = adr.country_code         left outer join county_lku county on county.county_id = adr.county           where aar_requestid = #aar_requestid# and type = 1 and person_id is null"/>
+   				<function executionsequence="4" expression="assign(:public_step2_trust_account_label,getLabelFromLabelConf(public_step2_trust_account_label));assign(:public_step2_commission_account_label,getLabelFromLabelConf(public_step2_commission_account_label));" name="getLabelsData"/>			
+   				<storedprocedureoperation dbspname="getBankInformationList_p_java" executionsequence="5" id="getBankInformationList_p_java" metaobject="tbl_agencybankinformation" name="getBankInformationList_p_java" operation="5" viewid="agencybankinformation_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<parameteroperation indexno="1" mode="IN" property="public_step2_trust_account_label" seq="2"/>	
+					<parameteroperation indexno="2" mode="IN" property="public_step2_commission_account_label" seq="3"/>	
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<!--<databaseoperation name="getBankInformation" operation="3" executionsequence="4" metaobject="tbl_agencybankinformation" 
+					eval="PublicRule.isAgencyBankInformationListEmpty"
+					sqlstmt="select bank_name,bank_address,contact_no,bank_address2,bank_account,bank_city,bank_routing,bank_zipcode,accountopen_date,
+							bank_extn,bank_altextn,bank_email,bank_comments,dbo.getAmountFormat(average_balance) as average_balance_format,s1.description as state_desc,
+							case when bank_phone is not null then substring(bank_phone,1,3) + '-' + substring(bank_phone,4,3) + '-' + substring(bank_phone,7,4) else bank_phone end as bank_phone_format,
+							case when bank_altphone is not null then substring(bank_altphone,1,3) + '-' + substring(bank_altphone,4,3) + '-' + substring(bank_altphone,7,4) else bank_altphone end as bank_altphone_format,	
+							case when bank_account_type = 'C' then 'Checking' else case when bank_account_type='S' then 'Saving' end end as bank_account_type_desc,
+							case when bank_account_for_EFT='1' then 'Y' else case when  bank_account_for_EFT='0' then 'N' end end as bank_account_for_EFT 
+							from tbl_agencybankinformation left join state_lku s1 on s1.state_id=bank_state_id  where aar_requestid=#aar_requestid# order by bank_information_id">
+				</databaseoperation>
+				--><storedprocedureoperation dbspname="getAgencyPremiumVolumeCommittedList_p_java" executionsequence="5" id="getAgencyPremiumVolumeCommittedList_p_java" metaobject="tbl_agencypremiumvolumecommitted" name="getAgencyPremiumVolumeCommittedList_p_java" operation="5" viewid="agencyPremiumVolumeCommittedStep6_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="premium_volume_by_lob_security" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="premium_volume_table_type" seq="3"/>
+						<resultsetoperation indexno="0" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getAgencyCompaniesLicenseList_p_java" executionsequence="6" id="getAgencyCompaniesLicenseList_p_java" metaobject="tbl_agencycompanieslicensed" name="getAgencyCompaniesLicenseList1_p_java" operation="5" viewid="agencyCompaniesLicenseStep6_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<databaseoperation eval="PublicRule.isAgencyPersonalInformationListEmpty" executionsequence="7" metaobject="tbl_marketinformation" name="getPersonalInformationList" operation="5" sqlstmt="select row_number() over(order by personalinformation_id) rownum,personalinformation_id,aar_requestid,name,company,address,        case when phone is not null then substring(phone,1,3) + '-' + substring(phone,4,3) + '-' + substring(phone,7,4)         else phone end as phone,relationship,last_updated_by,last_updated_ts from tbl_agencypersonalinformation         where aar_requestid=#aar_requestid#" viewid="personalinformation_list_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isAgencyTerminatedListEmpty" executionsequence="8" metaobject="tbl_agencyterminated" name="getAgencyTerminatedList" operation="5" sqlstmt="select row_number() over(order by agencyterminated_id) rownum,agencyterminated_id,aar_requestid,company_name        ,dbo.getAmountFormat(annual_premium_volume) as annual_premium_volume        ,date_closed,convert(varchar(20),date_closed,101) as dateClosedFormatted,reason_for_action_taken,        case when reason_for_action_taken='0' then 'Low Production'         else case when reason_for_action_taken='1' then 'High Loss Ratio'        else case when reason_for_action_taken='2' then reason_other  end end end as reason_for_action_taken_desc        from tbl_agencyterminated where aar_requestid=#aar_requestid#" viewid="agencyterminated_list_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isAgencyMergerListEmpty" executionsequence="9" metaobject="tbl_agencymergers" name="getAgencyMergersList" operation="5" sqlstmt="select row_number() over(order by agencymerger_id) rownum,agencymerger_id,aar_requestid,agencymerger_name,date_acquired,       convert(varchar(20),date_acquired,101) as dateAcquiredFormatted,dbo.getAmountFormat(volume) as volume         from tbl_agencymergers where aar_requestid=#aar_requestid#" viewid="agencymergers_list_1">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyBusinessSourceList_p_java" executionsequence="10" id="getAgencyBusinessSourceList_p_java" metaobject="tbl_agency_business_source" name="getAgencyBusinessSourceList_p_java" operation="5" viewid="agencyBusinessSourceStep6_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				
+				<databaseoperation eval="PublicRule.isTopCompanyLicensedListEmpty" executionsequence="12" metaobject="tbl_marketinformation" name="getMarketInformationList" operation="5" sqlstmt="select row_number() over(order by marketinformation_id) rownum,case when aar_carrierid=-1 then aar_carrier else (select description from carrier_lku where carrier_id=aar_carrierid) end as aar_carrierid_desc,       (select description from tbl_lob_lku where lob_id=aar_lobid) as lob_desc, marketinformation_id,       case when loss_ratio is null or loss_ratio='' then '' else loss_ratio end as loss_ratio       ,dbo.getAmountFormat(cast(class1volume as numeric(18,2))) as class1volume,dateofappointment,years_represented,       convert(varchar(20),dateofappointment,101) as dateofappointmentFormatted,aar_carrierid,aar_requestid from tbl_marketinformation where aar_requestid=#aar_requestid#" viewid="agencyMarketInformation_list_listfreeform_1">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isDocumentListEmpty1" executionsequence="14" metaobject="tbl_agency_documents" name="getDocumentsData" operation="5" sqlstmt="select ad.document_id,ad.document_name,doc.document_display_value as document_type,ada.document_name as file_name       from tbl_agency_documents ad inner join tbl_agency_document_attachments ada on ad.document_id = ada.object_id       inner join  document_type_lku doc on doc.document_id = ad.document_type_id where aar_requestid=#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit_list_4">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isEODeclarationListEmpty" executionsequence="15" metaobject="tbl_agencyappointmentrequest" name="getEODeclarationList" operation="3" sqlstmt="select carrier_other,dbo.getAmountFormat(cast(policy_limit as numeric(16,0))) as policy_limit,effective_date,case eo_claims when 1 then 'Yes' else 'No' end as eo_claims,eoclaims_comments from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+             </databaseoperation> 
+             	<businessobject executionsequence="25" name="getPrincipalList" obj="com.userbo.GetPrincipalPDFListBO"/>
+             	<databaseoperation executionsequence="17" metaobject="tbl_agency_current_market_informations" name="getAgencyCurrentMarketInfoRecord" operation="3" sqlstmt="select market_num_locations,dbo.getAmountFormat(cast(total_premium_PC as numeric(16,0))) as total_premium_PC ,dbo.getAmountFormat(cast(total_premium_compensation as numeric(16,0))) as total_premium_compensation,no_workers_policies,      dbo.getAmountFormat(cast(total_writtenpremium as numeric(16,0))) as total_writtenpremium from tbl_agency_current_market_informations where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<storedprocedureoperation dbspname="getAgencyPremiumVolumeforAccountList_p_java" executionsequence="18" id="getAgencyPremiumVolumeforAccountList_p_java" metaobject="tbl_agency_premiumvolume_account" name="getAgencyPremiumVolumeforAccountList_p_java" operation="5" viewid="agencyPremiumVolumeStep7_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getAgencyBusinessPlanList_p_java" executionsequence="19" id="getAgencyBusinessPlanList_p_java" metaobject="tbl_agency_business_plan" name="getAgencyBusinessPlanList_p_java" operation="5" viewid="agencyBusinessPlanStep7_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getAgencyCompaniesLicenseList_p_java" executionsequence="20" id="getAgencyCompaniesLicenseList_p_java" metaobject="tbl_agencycompanieslicensed" name="getAgencyCompaniesLicenseList_p_java" operation="5" viewid="agencyBusinessDistributionStep7_list_mom_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>
+				<storedprocedureoperation dbspname="getMarketInformationList_p_java" eval="PublicRule.isMarketInformationListEmpty" executionsequence="21" id="getMarketInformationList_p_java" metaobject="tbl_marketinformation" name="getMarketInformationList_p_java" operation="5" viewid="MarketInformation_list_1">
+					<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+					<resultsetoperation indexno="0" mappingclass="java.util.HashMap">
+					</resultsetoperation>		
+				</storedprocedureoperation>		
+				 <databaseoperation executionsequence="26" metaobject="tbl_agency_cyber_liability" name="getCyberLiabilityDeclarationList" operation="3" sqlstmt="select cyber_liability_id, carrier_other as cyber_liability_carrier_other,dbo.getAmountFormat(cast(policy_limit as numeric(16,0))) as cyber_liability_policy_limit,effective_date as cyber_liability_effective_date, expiration_date as cyber_liability_expiration_date, case cyber_liability_claims when 1 then 'Yes' else 'No' end as cyber_liability_claims,comments as cyber_liability_claims_comments from tbl_agency_cyber_liability where aar_requestid=#aar_requestid#">
+             	</databaseoperation>
+             	<storedprocedureoperation eval="adminBrokerageDetailsStep1_social_media_site_security" dbspname="getSocialMediaInfoData_p" executionsequence="0" id="getSocialMediaInfoData_p" metaobject="tbl_social_media_info" name="getSocialMediaInfoData_p" operation="5" viewid="social_media_list_FOR_PDF">
+        		  <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+         		  <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+       			</storedprocedureoperation>		
+			</workflow>
+			
+			<workflow eval="PublicRule.isComingFromInvitationWithInvitedStatus" name="finish1" seq="1">
+				<businessobject eval="PublicRule.decryptFEINIdBankAcctRoutingNumber" executionsequence="0" name="sendDocForESign" obj="com.userbo.SendDocForESign"/>
+				<databaseoperation eval="PublicRule.isInetErrorListEmpty" executionsequence="1" metaobject="tbl_agency_documents" name="getDocumentsData" operation="5" sqlstmt="select ad.document_id,ad.document_name,doc.document_display_value as document_type,ada.document_name as file_name       from tbl_agency_documents ad inner join tbl_agency_document_attachments ada on ad.document_id = ada.object_id       inner join  document_type_lku doc on doc.document_id = ad.document_type_id where aar_requestid=#aar_requestid#" viewid="agencyListPublicSubmitNInvitationEdit_list_4">
+				</databaseoperation>
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="2" name="getEmailDataFile" obj="com.userbo.GetEmailDataFile"/>
+			 	<email attachmentpath="${mail.attach}" cc="notificationAddresses" contenttype="text/html" eval="PublicRule.isInetErrorListEmpty" executionsequence="3" mailfrom="${mail.admin.address}" mailto="validEmails" msgstring="thankyou_email_content" name="sendingMail" subject="thankyou_email_subject"/>				  
+			</workflow>
+			<workflow eval="PublicRule.isNotComingFromInvitation" name="finish2" seq="2">
+				<businessobject executionsequence="0" name="getEmailDataFile" obj="com.userbo.GetEmailDataFile"/>
+				<email attachmentpath="${mail.attach}" cc="${mail.cc}" contenttype="text/html" executionsequence="1" mailfrom="${mail.admin.address}" mailto="email" msgstring="Thanks for showing interest in our company." name="sendingMail" subject="Thank you for your application"/>			
+			</workflow>
+			<workflow eval="PublicRule.isAarStatusIdEmpty" name="finish3" seq="3">
+				<databaseoperation eval="PublicRule.isInetErrorListEmpty" executionsequence="9" metaobject="tbl_agencyappointmentrequest" name="updateAarStatusId" operation="4" sqlstmt="update tbl_agencyappointmentrequest set aar_statusid=(select invitation_status_id as aar_statusid from tbl_invitation_status_lku where lower(description) in('New'))        where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+			</workflow>
+			<workflow eval="PublicRule.isRequestInvitedNErrorListEmpty" name="finish4" seq="4">
+				<databaseoperation eval="PublicRule.isInvitationForAgency" executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="updateAarStatusIdToEsign" operation="4" sqlstmt="update tbl_agencyappointmentrequest set aar_statusid=(select invitation_status_id as aar_statusid from tbl_invitation_status_lku where lower(description) in('Sent for ESignature')),       workflow_function='Public Submission'        where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<databaseoperation eval="PublicRule.isInvitationForPerson" executionsequence="1" metaobject="tbl_agencyappointmentrequest" name="updateAarStatusIdToNew" operation="4" sqlstmt="update tbl_agencyappointmentrequest set aar_statusid=(select invitation_status_id as aar_statusid from tbl_invitation_status_lku where lower(description) in('New'))        where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				<!-- <databaseoperation name="insertStatusComment" metaobject="tbl_statuscomments" operation="1" executionsequence="2"
+					sqlstmt="update tbl_agencyappointmentrequest set aar_statusid=(select invitation_status_id as aar_statusid from tbl_invitation_status_lku where lower(description) in('New')) 
+						where aar_requestid=#aar_requestid#"> 
+				</databaseoperation> -->
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams12345" post="Y" remove="Y" removeparams="PY_written_premium" session="Y"/>
+			
+		</action>
+		<action name="adminBrokerageDetailsStep1">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit"/>
+			<workflow name="adminBrokerageDetailsStep1" seq="0">
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getTerritoryId" operation="3" sqlstmt="select territory_id,country_code,aar_state,        (select top 1 description as aar_statusid_desc from tbl_invitation_status_lku where invitation_status_id=aar_statusid) as aar_statusid_desc         from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+			</workflow>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent,uploadDocument_list_1" session="Y"/>
+		</action>
+		<action name="adminBrokerageDetailsStep8">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="inet_eventid" paramid="inet_eventid" pre="Y" session="Y" val="edit"/>
+			
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent,uploadDocument_list_1" session="Y"/>
+		</action>
+		<action name="adminBrokerageDetailsStep2">
+			<actionparam executionsequence="0" name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="1" form="Y" name="market_carrierid" paramid="market_carrierid" post="Y" remove="Y" session="Y"/>
+			<actionparam eval="PublicRule.isInvitationPrincipalTypeForPerson" executionsequence="2" form="Y" name="inet_eventid" paramid="inet_eventid" post="Y" session="Y" val="edit"/>
+			<actionparam eval="PublicRule.isInvitationPrincipalTypeNotForPerson" executionsequence="3" form="Y" name="inet_eventid" paramid="inet_eventid1" post="Y" remove="Y" session="Y"/>
+			<workflow name="previous" seq="0">
+				
+				<databaseoperation executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,       aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,       extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+			</workflow>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,sendVerificationCode,      sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+		</action>
+		<action name="adminBrokerageDetailsStep3">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="market_aar_carrier" paramid="market_aar_carrier" pre="Y" remove="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="principal_person_id,inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,      sendVerificationCode,sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+		</action>
+		<action name="back">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="principal_person_id,inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,      sendVerificationCode,sessionVerificationCode,isVerificationCodeMailToBeSent,uploadDocument_list_1,name,title,email,date" session="Y"/>
+			<workflow name="back" seq="0">
+			
+				<databaseoperation eval="PublicRule.isInvitationForPerson" executionsequence="0" metaobject="tbl_agencyappointmentrequest" name="getRequestDataForAgent" operation="3" sqlstmt="select territory_id,country_code,aar_streetaddress1 as addressline1,aar_streetaddress2 as addressline2,       aar_city as city,aar_state as state,county_id,aar_zipcode as zipcode,aar_phoneno as phoneno,       extn,aar_fax as fax,mobile,email as e_mail,aar_statusid from tbl_agencyappointmentrequest where aar_requestid=#aar_requestid#"/>
+			</workflow>
+			<actionparam form="Y" name="isShowMarketInformationDiv" paramid="isShowMarketInformationDiv" pre="Y" session="Y" val="Y"/>
+		</action>
+		<action name="addAttachment">
+			<actionparam executionsequence="0" form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam form="Y" name="inet_skip_validation" paramid="inet_skip_validation" pre="Y" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="document_category" paramid="document_category" pre="Y" session="Y" val="8"/>
+			<actionparam form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_11" pre="Y" remove="Y" session="Y"/>
+			<workflow eval="events.editEvent" name="addAttachment" seq="0">
+				<storedprocedureoperation dbspname="getAgencyDocumentAttachments_p_java" executionsequence="0" id="getAgencyDocumentAttachments_p_java" metaobject="tbl_agency_document_attachments" name="getAgencyDocumentAttachments_p_java" operation="5" viewid="uploadPopup_list_1">
+					<parameteroperation indexno="0" mode="IN" property="document_id" seq="1"/>	
+					<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>		
+				</storedprocedureoperation>
+			</workflow>
+			<actionparam form="Y" name="uploadPopup_list_1" paramid="uploadPopup_list_1" post="Y" session="Y"/>
+		</action>
+		<action name="adminBrokerageDetailsStep6">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="market_aar_carrier" paramid="market_aar_carrier" pre="Y" remove="Y"/>
+			<actionparam form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="principal_person_id,inet_eventid,document_id,document_name,document_type_id,date_received,comment,uploadPopup_list_1,      sendVerificationCode,sessionVerificationCode,isVerificationCodeMailToBeSent" session="Y"/>
+		</action>
+		<action name="uploadDocument">
+			<actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<actionparam executionsequence="2" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+			<actionparam eval="PublicRule.checkEoclaims" executionsequence="3" form="Y" name="eo_claims" paramid="eo_claims" pre="Y"/>
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid"  populatename="object_id" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="eoclaims_comments" name="eoclaims_comments" eval="PublicRule.checkEOComments" form="Y" executionsequence="3"></actionparam> -->
+			<actionparam checkfornullparams="eo_claims,effective_date,policy_limit,carrier_other,name,title,date,email,is_checked,is_checked1" executionsequence="10" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="validateFreeFormDataForFileUpload" name="validateFreeFormDataForFileUpload" eval="PublicRule.validateFreeFormDataForFileUpload" form="Y" executionsequence="5"></actionparam> -->
+			<actionparam eval="PublicRule.maskPolicyLimit" executionsequence="6" form="Y" name="policy_limit" paramid="policy_limit" pre="Y"/>
+			<actionparam eval="PublicRule.checkEOEffectiveDate" executionsequence="7" form="Y" name="effective_date" paramid="effective_date" pre="Y"/>
+			<actionparam eval="PublicRule.validateUploadDocument" executionsequence="8" form="Y" name="validateUploadDocument" paramid="validateUploadDocument" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="validateEODeclaration" name="validateEODeclaration" eval="PublicRule.validateEODeclaration" form="Y" executionsequence="9"></actionparam> -->
+			<actionparam eval="PublicRule.assignDateFields" executionsequence="10" form="Y" name="assignDateFields" paramid="assignDateFields" pre="Y"/>
+			
+			<actionparam eval="PublicRule.validateApplicationSignerData" executionsequence="11" form="Y" name="validateApplicationSignerData" paramid="validateApplicationSignerData" pre="Y"/>
+			
+			<workflow eval="agencyAppointmentstep5_ENO_section_security" seq="0">
+				<function executionsequence="0" functionid="validateEODeclaration" name="validateEODeclaration" parameters="context"/>
+			</workflow>	
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="uploadDocument" seq="1">
+				<businessobject executionsequence="1" name="addDocumentToDb" obj="com.userbo.DocumentUploadBO"/>
+				<databaseoperation eval="PublicRule.isUpdateENODetailsOnStep9" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="getAgencyEODetails" operation="4" sqlstmt="update tbl_agencyappointmentrequest set carrier_other = #carrier_other#        ,policy_limit=#policy_limit#        ,effective_date =#effective_date#        ,eo_claims =#eo_claims#        ,eoclaims_comments=#eoclaims_comments#        where aar_requestid=#aar_requestid#"/>
+				<storedprocedureoperation dbspname="insert_update_delete_agency_signature_acceptance_information" eval="PublicRule.isShowSignarureAcceptance" executionsequence="3" id="insert_update_delete_agency_signature_acceptance_information" metaobject="tbl_signature_acceptance" name="insert_update_delete_agency_signature_acceptance_information" operation="1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="is_checked" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="name" seq="3"/>
+						<parameteroperation indexno="3" mode="IN" property="title" seq="4"/>
+						<parameteroperation indexno="4" mode="IN" property="email" seq="5"/>
+						<parameteroperation indexno="5" mode="IN" property="date" seq="6"/>
+						<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+						<parameteroperation indexno="7" mode="IN" property="is_checked1" seq="8"/>
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="PublicRule.isShowApplicationSigner" name="uploadDocument1" seq="2">
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="saveApplicationSigner" obj="com.userbo.ApplicationSignerBO"/>
+			</workflow>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_name,document_type_id,name,title,email,date,is_checked1,is_checked,applicationEsigner_list_1,person_first_name,person_last_name,person_email" session="Y"/>
+			<actionparam eval="PublicRule.checkDocumentUploadMsg" executionsequence="21" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="download">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="document_id" paramid="document_id" viewparam="Y"/>
+			<actionparam form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="downloadFromSessionList"/>
+			<actionparam form="Y" name="document_name" paramid="document_name" pre="Y" viewparam="Y"/>
+			<actionparam form="Y" name="file_name" paramid="file_name" pre="Y" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" pre="Y" viewparam="Y"/>
+			<workflow name="download" seq="0">
+				<businessobject executionsequence="0" name="downloadDocument" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+		</action>
+		<action name="addDocumentToList">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="addDocumentToSessionList"/>
+			<actionparam executionsequence="1" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1" pre="Y" session="Y"/>
+			<actionparam eval="PublicRule.validateUploadDocument" executionsequence="5" form="Y" name="validateUploadDocument" paramid="validateUploadDocument" pre="Y"/>
+			<workflow eval="PublicRule.assignDateFields" name="addDocumentToList" seq="0">
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="addDocumentToList" obj="com.userbo.DocumentUploadBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_name,document_type_id" session="Y"/>
+			<actionparam executionsequence="7" form="Y" name="isSkipENO" paramid="isSkipENO" post="Y" val="Y"/>
+			<actionparam executionsequence="8" form="Y" name="uploadDocument_list_1" paramid="uploadDocument_list_1" post="Y" session="Y"/>
+			<actionparam executionsequence="9" form="Y" name="isSkipCyberLiability" paramid="isSkipCyberLiability" post="Y" val="Y"/>
+		</action>
+		<action deltaind="M" name="savefinish">
+			
+			<actionparam deltaind="I"  executionsequence="30" form="Y" name="registration_type" paramid="registration_type" viewparam="Y"/>
+			
+		<actionparam deltaind="I" executionsequence="26" form="Y" post="Y" name="AgentAddresType" paramid="AgentAddresType" val="2" viewparam="Y"/>
+		
+		 <workflow name="uploadDocument"  seq="1">
+			
+		<databaseoperation  deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getAgenntQuestionsList" operation="5" sqlstmt="Select Cast((ROW_NUMBER() OVER(ORDER BY questionid ))as varchar) +'.' AS Row,* from (select a.questionid,bg.question,a.response,a.comment,bg.comment_decision from tbl_agentquestions a,backgroundquestions_lku bg         where a.questionid=bg.questionid and a.personid=(select top 1 person_id from tbl_agencyprincipal where request_id=#aar_requestid# order by 1 desc) union        select questionid,question,null as response,null as comment,bg.comment_decision from backgroundquestions_lku bg        where bg.questionid not in(select questionid from tbl_agentquestions where personid=(select top 1  person_id from tbl_agencyprincipal where request_id=#aar_requestid# order by 1 desc)) and bg_question_type=0)t1" viewid="agentQuestions_list_1"/>
+   		<databaseoperation  deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="memberOfList" operation="5" sqlstmt="select concat(pn.producer_number,'-',am.name) as name from producer_number pn,agency_master am, tbl_agencyappointmentrequest t where t.associatedAgency_id=am.agency_id and pn.agency_id=am.agency_id and t.aar_requestid=#aar_requestid#" viewid="memberOf_list_1"/>		
+   		<storedprocedureoperation deltaind="I" dbspname="getPrincipalInformation_p" executionsequence="0" id="getPrincipalInformation_p" metaobject="tbl_agencyappointmentrequest" name="getPrincipalInformation_p" operation="5" viewid="agencyListPublicSubmitNInvitationEdit_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <parameteroperation indexno="1" mode="IN" property="AgentAddresType" seq="2"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+			
+			
+			<databaseoperation deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getExtendedFieldData" operation="5" sqlstmt="select top 1 f28 as dividend_distribution, f29 as member_of_hba, f27 as policyholder_copies,f30 as dropdown from configurationclient.html_extendedfields_mapping_data where object_id=#aar_requestid# order by 1 desc" viewid="extendedField_list_1"/>
+        
+        <databaseoperation deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getExtendedFieldDataHba" operation="5" sqlstmt="select md.master_lookup_data_desc as data_desc from master_lookup_data_lku md,master_lookup_detail_lku detail where md.master_lookup_detail_id=detail.master_lookup_detail_id and detail.lookup_table_name='hba_chapter_lku'and md.master_lookup_data_code=(select top 1 f30 from configurationclient.html_extendedfields_mapping_data where object_id=#aar_requestid# order by 1 desc)" viewid="extendedFieldHba_list_1"/>
+        
+        
+        <databaseoperation deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getcyberliability" operation="5" sqlstmt="select carrier_other as cyber_liability_carrier_other,policy_number as cyber_liability_policy_number,coverage_amount as cyber_liability_coverage_amount,cast(policy_limit as numeric(16,0)) as cyber_liability_policy_limit,effective_date as cyber_liability_effective_date,expiration_date as cyber_liability_expiration_date,cyber_liability_claims, comments as cyber_liability_eoclaims_comments from tbl_agency_cyber_liability where aar_requestid=#aar_requestid# " viewid="cyberliability_list_1"/>
+        
+        <storedprocedureoperation deltaind="I" dbspname="GetAgencyPublicStateDescriptionList_p"  executionsequence="0" id="GetAgencyPublicStateDescriptionList_p_1" metaobject="state_lku" name="GetAgencyPublicStateDescriptionList_p_1" operation="15" viewid="agencyListPublicSubmitEdit_list_mom_3">
+          	<parameteroperation indexno="1" mode="IN" property="aar_requestid" seq="1"/>
+         	 <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+		      
+   		<storedprocedureoperation deltaind="I" dbspname="getBankInformationListPone_p_java" executionsequence="18" id="getBankInformationListPone_p_java" metaobject="person" name="getBankInformationListPone_p_java" operation="5" viewid="agencybankinformation1_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="1" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+   				
+   		<storedprocedureoperation deltaind="I" dbspname="getAgencyCurrentMarketInfoRecord_p" executionsequence="0" id="getAgencyCurrentMarketInfoRecord_p" metaobject="agencyListPublicSubmitNInvitationEdit" name="getAgencyCurrentMarketInfoRecord_p" operation="3" viewid="getAgencyCurrentMarketInfoRecord_list_1">
+          <parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+          <resultsetoperation indexno="0" mappingclass="java.util.HashMap" seq="0"/>
+        </storedprocedureoperation>
+   		
+   		<databaseoperation deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getMarketInfoData" operation="5" sqlstmt="SELECT marketinformation_lob_id ,aar_requestid,lexis_nexis_node_id,ISNULL(is_allow_incentives,0) as is_allow_incentives,auto_liability_percentage,umbrella_coverage_percentage,renters_coverage_percentage   ,ISNULL(is_producers_dedicated_personal_lines,0) as is_producers_dedicated_personal_lines,ISNULL(is_agency_owner_personal_lines,0) as is_agency_owner_personal_lines,personal_lines_package_policies,ISNULL(is_agency_association_business_commission,0) as is_agency_association_business_commission,   ISNULL(is_service_center_personal_lines,0) as is_service_center_personal_lines,agency_pay_commission_to_producers,ISNULL(is_agency_share_contingency,0) as is_agency_share_contingency,ISNULL(is_agency_commercial_business,0) as is_agency_commercial_business,industry_makeup_agency_commercial,   ISNULL(is_agencys_service_center,0) as is_agencys_service_center,production_commitment_first_year,production_commitment_second_year,production_commitment_third_year,production_commitment_achieve_volume,ISNULL(bonds_billing_option,0) as bonds_billing_option      ,ISNULL(is_premium_mining_discussed,0) as is_premium_mining_discussed,date_to_be_completed,premium_threshold,accounts_size,commercial_premium_threshold from tbl_marketinformation_lob where aar_requestid=#aar_requestid#" viewid="getMarketInfoData_list_1"/>
+   		<databaseoperation deltaind="I" executionsequence="6" metaobject="tbl_agencyappointmentrequest" name="getHearAboutData" operation="5" sqlstmt="select top 1 learn_about,interest_in_other_business,interest_for_appointment,agency_experience,agency_financials,perpetuation_plan,marketing_plan,location_of_agency,other_companies_representated,agency_brief_profile  from tbl_agency_review where aar_requestid=#aar_requestid#" viewid="getHearAboutData_list_1"/>
+			
+			</workflow>
+			
+			<workflow eval="PublicRule.isDataRequiredInPDF" name="finish" seq="2">
+				<databaseoperation deltaind="M"  executionsequence="0" eval="PublicRule.isRegistrationTypePrimarySeconderyAgency" metaobject="tbl_agencyappointmentrequest" name="getAppointmentRequestData" operation="3" sqlstmt=" select b.master_lookup_data_desc as  entity_type,*,dbo.getAmountFormat(agency_volume) as 'agencyvolume' ,dbo.getAmountFormat(aar_mkttotpremium) as 'marketpremium' ,(select s.description from state_lku s,tbl_agencyappointmentrequest ta where ta.domicile_state=s.state_id and ta.aar_requestid=#aar_requestid#) as state         ,(select description from producertype_lku where prdcrtype_id=ta.aar_producertypeid) as 'legaldescription'        ,(select master_lookup_data_code from master_lookup_data_lku k ,tbl_agencyappointmentrequest v where v.registration_type_id=k.master_lookup_data_id and v.aar_requestid=#aar_requestid#)as registration_type_code,(select b.master_lookup_data_desc as agency_comparativerate_desc from master_lookup_detail_lku a  inner join dbo.master_lookup_data_lku b on a.master_lookup_detail_id = b.master_lookup_detail_id where b.master_lookup_data_id=ta.agency_management_system  )     as agency_management_system_desc        ,stuff((select ', ' + b.master_lookup_data_desc             from tbl_agencyappointmentrequest ta        left join dbo.master_lookup_data_lku b          on b.master_lookup_data_id in  (select items from dbo.split(ta.agency_comparativerate,','))                 left join master_lookup_detail_lku a on a.master_lookup_detail_id = b.master_lookup_detail_id where aar_requestid=31 for xml path('')),1,1,'') as  agency_comparativerate_pdf         from tbl_agencyappointmentrequest ta        left join dbo.master_lookup_data_lku b on b.master_lookup_data_id= ta.entity_type        left join master_lookup_detail_lku a on a.master_lookup_detail_id = b.master_lookup_detail_id where aar_requestid=#aar_requestid#				">
+				</databaseoperation>
+				<databaseoperation  deltaind="I" executionsequence="0" eval="PublicRule.checkIsRegistrationTypeProducerRegistration" metaobject="tbl_agencyappointmentrequest" name="getAppointmentRequestData1" operation="3" sqlstmt="select x.producer_number, b.master_lookup_data_desc as  entity_type,*,dbo.getAmountFormat(agency_volume) as 'agencyvolume',dbo.getAmountFormat(aar_mkttotpremium) as 'marketpremium' ,(select s.description from state_lku s,tbl_agencyappointmentrequest ta where ta.domicile_state=s.state_id and ta.aar_requestid=#aar_requestid#) as state,(select top 1 s.abbreviation from state_lku s,tbl_address ta where ta.state_id=s.state_id and type=1 order by ta.last_updated_ts desc) as statecode, (Select top 1 ad.addressline1 from tbl_address ad where aar_requestid=#aar_requestid# and type=1 order by last_updated_ts desc)as address1,(Select top 1 ad.addressline2 from tbl_address ad where aar_requestid=#aar_requestid# and type=1 order by last_updated_ts desc)as address2,(Select top 1 ad.city from tbl_address ad where aar_requestid=#aar_requestid# and type=1 order by last_updated_ts desc)as city,(Select top 1 ad.zip from tbl_address ad where aar_requestid=#aar_requestid# and type=1 order by last_updated_ts desc)as zip,(select description from producertype_lku where prdcrtype_id=ta.aar_producertypeid) as 'legaldescription', (select master_lookup_data_code from master_lookup_data_lku k ,tbl_agencyappointmentrequest v where v.registration_type_id=k.master_lookup_data_id and v.aar_requestid=#aar_requestid#) as registration_type_code ,(select b.master_lookup_data_desc as agency_comparativerate_desc   from master_lookup_detail_lku a  inner join dbo.master_lookup_data_lku b on a.master_lookup_detail_id = b.master_lookup_detail_id where b.master_lookup_data_id=ta.agency_management_system  )     as agency_management_system_desc        ,stuff((select ', ' + b.master_lookup_data_desc             from tbl_agencyappointmentrequest ta        left join dbo.master_lookup_data_lku b          on b.master_lookup_data_id in  (select items from dbo.split(ta.agency_comparativerate,','))                 left join master_lookup_detail_lku a on a.master_lookup_detail_id = b.master_lookup_detail_id where aar_requestid=#aar_requestid# for xml path('')),1,1,'') as  agency_comparativerate_pdf         from tbl_agencyappointmentrequest ta left join dbo.master_lookup_data_lku b on b.master_lookup_data_id= ta.entity_type        left join master_lookup_detail_lku a on a.master_lookup_detail_id = b.master_lookup_detail_id inner join producer_number x on x.agency_id = ta.parent_agency_id where aar_requestid=#aar_requestid#">
+				</databaseoperation>
+				
+				
+				<!-- for ibatis error -->
+				<databaseoperation deltaind="I" executionsequence="4" metaobject="tbl_appointmentstates" name="getAgentStatesData" operation="3" sqlstmt="select cast(substring((select ', '+description from state_lku where state_id in(select items   from dbo.Split((select appointment_states from tbl_agencyprincipal where request_id=#aar_requestid# and person_id=#person_id#),',')) order by description asc for xml path('')),2,8000) as varchar(8000)) as state_ids_desc"/>
+			
+          </workflow>
+		
+		</action>
+		
+				<action name="uploadDocumentExit">
+			<actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<actionparam executionsequence="2" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid"  populatename="object_id" pre="Y"/>
+			<actionparam eval="PublicRule.checkEoclaims" executionsequence="3" form="Y" name="eo_claims" paramid="eo_claims" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="eoclaims_comments" name="eoclaims_comments" eval="PublicRule.checkEOComments" form="Y" executionsequence="3"></actionparam> -->
+			<actionparam checkfornullparams="eo_claims,effective_date,policy_limit,carrier_other,name,title,date,email,is_checked,is_checked1" executionsequence="10" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="validateFreeFormDataForFileUpload" name="validateFreeFormDataForFileUpload" eval="PublicRule.validateFreeFormDataForFileUpload" form="Y" executionsequence="5"></actionparam> -->
+			<actionparam eval="PublicRule.maskPolicyLimit" executionsequence="6" form="Y" name="policy_limit" paramid="policy_limit" pre="Y"/>
+			<actionparam eval="PublicRule.checkEOEffectiveDate" executionsequence="7" form="Y" name="effective_date" paramid="effective_date" pre="Y"/>
+			<actionparam eval="PublicRule.validateUploadDocument" executionsequence="8" form="Y" name="validateUploadDocument" paramid="validateUploadDocument" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="validateEODeclaration" name="validateEODeclaration" eval="PublicRule.validateEODeclaration" form="Y" executionsequence="9"></actionparam> -->
+			<actionparam eval="PublicRule.assignDateFields" executionsequence="10" form="Y" name="assignDateFields" paramid="assignDateFields" pre="Y"/>
+			
+			<actionparam eval="PublicRule.validateApplicationSignerData" executionsequence="11" form="Y" name="validateApplicationSignerData" paramid="validateApplicationSignerData" pre="Y"/>
+			<workflow eval="agencyAppointmentstep5_ENO_section_security" seq="0">
+				<function executionsequence="0" functionid="validateEODeclaration" name="validateEODeclaration" parameters="context"/>
+			</workflow>	
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="uploadDocument" seq="1">
+				<businessobject executionsequence="1" name="addDocumentToDb" obj="com.userbo.DocumentUploadBO"/>
+				<databaseoperation eval="PublicRule.isUpdateENODetailsOnStep9" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="getAgencyEODetails" operation="4" sqlstmt="update tbl_agencyappointmentrequest set carrier_other = #carrier_other#        ,policy_limit=#policy_limit#        ,effective_date =#effective_date#        ,eo_claims =#eo_claims#        ,eoclaims_comments=#eoclaims_comments#        where aar_requestid=#aar_requestid#"/>
+				<storedprocedureoperation dbspname="insert_update_delete_agency_signature_acceptance_information" eval="PublicRule.isShowSignarureAcceptance" executionsequence="3" id="insert_update_delete_agency_signature_acceptance_information" metaobject="tbl_signature_acceptance" name="insert_update_delete_agency_signature_acceptance_information" operation="1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="is_checked" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="name" seq="3"/>
+						<parameteroperation indexno="3" mode="IN" property="title" seq="4"/>
+						<parameteroperation indexno="4" mode="IN" property="email" seq="5"/>
+						<parameteroperation indexno="5" mode="IN" property="date" seq="6"/>
+						<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+						<parameteroperation indexno="7" mode="IN" property="is_checked1" seq="8"/>
+						
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+			</workflow>
+			<workflow eval="PublicRule.isShowApplicationSigner" name="uploadDocument1" seq="2">
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="saveApplicationSigner" obj="com.userbo.ApplicationSignerBO"/>
+			</workflow>
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_name,document_type_id,name,title,email,date,is_checked,is_checked1,applicationEsigner_list_1,person_first_name,person_last_name,person_email" session="Y"/>
+			<actionparam eval="PublicRule.checkDocumentUploadMsg" executionsequence="21" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		</action>
+		<action name="refresh">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+		</action>
+		
+		<action name="addApplicationSigner">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="applicationEsigner_list_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="applicationEsigner_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="addDataToSession" viewparam="Y"/>
+			
+			<actionparam eval="PublicRule.validateApplicationSignerData" executionsequence="11" form="Y" name="validateApplicationSignerData" paramid="validateApplicationSignerData" pre="Y"/>
+			
+			<workflow eval="PublicRule.isInetErrorListEmptyNisDataFound" name="addApplicationSigner" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="addApplicationSigner" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="person_first_name,person_last_name,person_email" session="Y"/>
+		</action>		
+		
+		<action name="deleteApplicationSigner">
+			<actionparam name="inet_skip_validation" paramid="inet_skip_validation" val="Y" viewparam="Y"/>
+			<actionparam form="Y" name="onboarding_application_signer_id" paramid="onboarding_application_signer_id" viewparam="Y"/>
+			<actionparam form="Y" name="rownum" paramid="rownum" viewparam="Y"/>
+			
+			<actionparam name="listfreeformid" paramid="listfreeformid" val="applicationEsigner_list_1" viewparam="Y"/>
+			<actionparam name="listfreeformblockid" paramid="listfreeformblockid" val="applicationEsigner_freeform_contextdata_1" viewparam="Y"/>
+			<actionparam name="listfreeformevent" paramid="listfreeformevent" val="deleteDataFromSession" viewparam="Y"/>
+			<actionparam name="listfreeformdeletesql" paramid="listfreeformdeletesql" val="onboarding_application_signer.delete" viewparam="Y"/>
+			<actionparam form="Y" name="showdeleteconfirmation" paramid="showdeleteconfirmation" val="Y" viewparam="Y"/>
+						
+			<workflow name="deleteApplicationSigner" seq="1">
+				<businessobject eval="PublicRule.assignDateFields" executionsequence="0" name="deleteApplicationSigner" obj="com.userbo.ListFreeformBO"/>
+			</workflow>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="person_first_name,person_last_name,person_email" session="Y"/>
+				
+			<actionparam eval="PublicRule.checkDeleteMsg" form="Y" name="pageMsg" paramid="pageMsg1" post="Y"/>
+		</action>
+		
+		<action name="showAdminBrokerageDetailsStep10">
+			<actionparam executionsequence="0" form="Y" name="uploadDocumentAction" paramid="uploadDocumentAction" pre="Y" val="upload"/>
+			<actionparam executionsequence="2" form="Y" name="operationType" paramid="operationType" pre="Y" val="I"/>
+			<actionparam executionsequence="0" form="Y" name="aar_requestid" paramid="aar_requestid"  populatename="object_id" pre="Y"/>
+			<actionparam eval="PublicRule.checkEoclaims" executionsequence="3" form="Y" name="eo_claims" paramid="eo_claims" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="eoclaims_comments" name="eoclaims_comments" eval="PublicRule.checkEOComments" form="Y" executionsequence="3"></actionparam> -->
+			<actionparam checkfornullparams="eo_claims,effective_date,policy_limit,carrier_other,name,title,date,email,is_checked,is_checked1" executionsequence="10" form="Y" name="checkfornullparams" paramid="checkfornullparams" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="validateFreeFormDataForFileUpload" name="validateFreeFormDataForFileUpload" eval="PublicRule.validateFreeFormDataForFileUpload" form="Y" executionsequence="5"></actionparam> -->
+			<actionparam eval="PublicRule.maskPolicyLimit" executionsequence="6" form="Y" name="policy_limit" paramid="policy_limit" pre="Y"/>
+			<actionparam eval="PublicRule.checkEOEffectiveDate" executionsequence="7" form="Y" name="effective_date" paramid="effective_date" pre="Y"/>
+			<actionparam eval="PublicRule.validateUploadDocument" executionsequence="8" form="Y" name="validateUploadDocument" paramid="validateUploadDocument" pre="Y"/>
+			<!-- <actionparam pre="Y" paramid="validateEODeclaration" name="validateEODeclaration" eval="PublicRule.validateEODeclaration" form="Y" executionsequence="9"></actionparam> -->
+			<actionparam eval="PublicRule.assignDateFields" executionsequence="10" form="Y" name="assignDateFields" paramid="assignDateFields" pre="Y"/>
+			
+			<actionparam eval="PublicRule.validateApplicationSignerData" executionsequence="11" form="Y" name="validateApplicationSignerData" paramid="validateApplicationSignerData" pre="Y"/>
+			<workflow eval="agencyAppointmentstep5_ENO_section_security" seq="0">
+				<function executionsequence="0" functionid="validateEODeclaration" name="validateEODeclaration" parameters="context"/>
+			</workflow>	
+			<workflow eval="PublicRule.isInetErrorListEmpty" name="uploadDocument" seq="1">
+				<businessobject executionsequence="1" name="addDocumentToDb" obj="com.userbo.DocumentUploadBO"/>
+				<databaseoperation eval="PublicRule.isUpdateENODetailsOnStep9" executionsequence="2" metaobject="tbl_agencyappointmentrequest" name="getAgencyEODetails" operation="4" sqlstmt="update tbl_agencyappointmentrequest set carrier_other = #carrier_other#        ,policy_limit=#policy_limit#        ,effective_date =#effective_date#        ,eo_claims =#eo_claims#        ,eoclaims_comments=#eoclaims_comments#        where aar_requestid=#aar_requestid#"/>
+				<storedprocedureoperation dbspname="insert_update_delete_agency_signature_acceptance_information" eval="PublicRule.isShowSignarureAcceptance" executionsequence="3" id="insert_update_delete_agency_signature_acceptance_information" metaobject="tbl_signature_acceptance" name="insert_update_delete_agency_signature_acceptance_information" operation="1">
+						<parameteroperation indexno="0" mode="IN" property="aar_requestid" seq="1"/>
+						<parameteroperation indexno="1" mode="IN" property="is_checked" seq="2"/>
+						<parameteroperation indexno="2" mode="IN" property="name" seq="3"/>
+						<parameteroperation indexno="3" mode="IN" property="title" seq="4"/>
+						<parameteroperation indexno="4" mode="IN" property="email" seq="5"/>
+						<parameteroperation indexno="5" mode="IN" property="date" seq="6"/>
+						<parameteroperation indexno="6" mode="IN" property="last_updated_by" seq="7"/>
+						<parameteroperation indexno="7" mode="IN" property="is_checked1" seq="8"/>
+						<resultsetoperation indexno="1" mappingclass="java.util.HashMap"/>
+				</storedprocedureoperation>
+			</workflow>
+			
+			<workflow eval="PublicRule.isShowApplicationSigner" name="uploadDocument1" seq="2">
+				<businessobject eval="PublicRule.isInetErrorListEmpty" executionsequence="1" name="saveApplicationSigner" obj="com.userbo.ApplicationSignerBO"/>
+			</workflow>
+			
+			<actionparam eval="PublicRule.isInetErrorListEmpty" executionsequence="20" form="Y" name="removeparams" paramid="removeparams" post="Y" remove="Y" removeparams="document_name,document_type_id,name,title,email,date,is_checked1,is_checked,applicationEsigner_list_1,person_first_name,person_last_name,person_email" session="Y"/>
+			<actionparam eval="PublicRule.checkDocumentUploadMsg" executionsequence="21" form="Y" name="pageMsg" paramid="pageMsg" post="Y"/>
+		
+		</action>
+		
+	</component>
+</projectcomponents>

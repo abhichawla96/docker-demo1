@@ -1,0 +1,12 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component metaobject="cost_allocation_report" name="entityCyberLiabilityExpireNoticeSentListing" stackdisplayname="entitytablabel Cyber Liability Notice Sent Listing">
+    <html path="reports/entityCyberLiabilityExpireNoticeSentListing.html">
+    	<block ajaxcontainerid="ajax_sorting_1" id="entityCyberLiabilityExpireNoticeSentListing_list_data_01" isshowpagination="Y" name="entityCyberLiabilityExpireNoticeSentListing_list_data_01" securitykey="entityCyberLiabilityExpireNoticeSentListing_list_data_01_security" type="datalist" labelkey="entityCyberLiabilityExpireNoticeSentListing_entity_tab_label">
+			<!-- ADO-52160 - For Deductible customization -->
+			<field deltaind="I" displaytype="label" executionsequence="6" id="block_field_deductible" format="amount" issorting="Y" labelkey="insurance_freeform_deductible_label" name="deductible" securitykey="entityCyberLiabilityExpireNoticeSentListing_deductible_security" style="width:10%;"/>
+			<field deltaind="M" displaytype="label" executionsequence="7" id="block_field_e_mail" issorting="Y" labelkey="entityCyberLiabilityExpireNoticeSentListing_e_mail_label" name="e_mail" securitykey="entityCyberLiabilityExpireNoticeSentListing_isShowEMailonEntityInsuranceExpireList" style="width:10%;"/>
+			<field deltaind="M" displaytype="label" executionsequence="8" id="block_field_producer_number" issorting="Y" labelkey="entityCyberLiabilityExpireNoticeSentListing_producernumberfield_label" name="producer_number" securitykey="entityCyberLiabilityExpireNoticeSentListing__expiration_producer_number_security" style="width:10%;"/>
+		</block>	
+    </html>
+      </component>
+</projectcomponents>

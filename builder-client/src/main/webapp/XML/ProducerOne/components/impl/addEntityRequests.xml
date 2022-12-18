@@ -1,0 +1,64 @@
+<projectcomponents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" project="ProducerOne" xsi:noNamespaceSchemaLocation="../../schemas/components_XSD.xsd">
+  <component breadcrumbsessionparams="agency_id" metaobject="reason_request_lku;requests;req_comments;compititor_appointments;entityRequestsSelfService;" name="addEntityRequests">
+    
+    <!-- Task Id- SS-009-002-02 Add and Update Contact page - Phase 2 Start-->
+    <!-- SS-009-001-01 - Update Agency Location - Phase 2 - Start -->
+     <action deltaind="M" name="apprvoveRequests">
+     	<actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+     	<workflow deltaind="I" name="selfServiceApproveEmail" seq="2">
+	    	<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    	<!-- Changes done for prod bug 31110  -->
+			<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			<!-- <email deltaind="I" eventname="ApproveSelfServiceRequest" executionsequence="2" name="ApproveSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail"/> -->
+	  	</workflow>
+	  	
+	  	<workflowevent deltaind="M" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="approveSelfService" isgetuser="Y" name="approveSelfService" userfield="workflow_user" workflow="selfServiceWorkFlow" isshoweffectivedate="Y"/>
+	  	
+    </action>
+   
+    <action deltaind="M" name="declineRequests">
+      <actionparam deltaind="I" executionsequence="0" form="Y" name="workflow_assignee" paramid="workflow_assignee" viewparam="Y"/>
+  			<workflow deltaind="I" name="selfServiceApproveEmail" seq="2">
+  			<databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+	    	<!-- Changes done for prod bug 31110  -->
+	    	<databaseoperation deltaind="I" executionsequence="1" metaobject="userprofiles" name="getAgencyAdminApproverEmail" operation="3" sqlstmt="select user_name as user_name_app from userprofiles where user_id=#workflow_assignee#"/>
+			<databaseoperation deltaind="I" executionsequence="2" eval="ProducerOneRule.isUserNameEmpty" metaobject="person" name="getApproverNameEmail" operation="3" sqlstmt="select prdcr_first_name +' '+ prdcr_last_name as user_name_app from person where login_id=(select top 1 created_by from workflowrequests where objectid =#request_ss_id#)"/>
+			</workflow>
+	  <workflowevent deltaind="M" eval="ProducerOneRule.commentAssignment2" ajaxcontainerid="divComplete" event="declineSelfService" isgetuser="Y" name="declineSelfService" userfield="workflow_user" workflow="selfServiceWorkFlow" isshoweffectivedate="Y"/>
+   </action>
+   
+   <!-- Phase 2- Bug Id- P2- 084 - Making Attachment Section Mandatory in Upload W9 Doc -->
+   <action deltaind="M" name="view">
+   <actionparam deltaind="I" executionsequence="0" pre="Y" form="Y" name="attachflag" paramid="attachflag" val="Y"/>
+   </action>
+
+   <!-- Phase 2- Bug Id- P2- 084 - Making Attachment Section Mandatory in Upload W9 Doc -->
+   
+   <!-- START - UAT2 Bug Id 0017 - Grey out CBIA Designation -->
+   <action deltaind="M" name="view">
+   <actionparam deltaind="I" executionsequence="0" pre="Y" form="Y" name="attachflag" paramid="attachflag" val="Y"/>
+   <actionparam deltaind="I" executionsequence="0" form="Y" name="greyout_CBIA_AgencyDemoGraphics" paramid="greyout_CBIA_AgencyDemoGraphics" val="Y" post="Y"/>
+   </action>
+   <!-- END - UAT2 Bug Id 0017 - Grey out CBIA Designation -->
+   
+   <!-- START - QA2_008_Self Service_Other_Initiate Email Notification -->
+   <action deltaind="M" name="submitRequest"> 
+   <workflow deltaind="I" name="selfServiceInitiateEmail" seq="9">
+   	 <databaseoperation deltaind="I" executionsequence="0" metaobject="requests" name="getRequestTypeName" operation="3" sqlstmt="select case when rrl.display_name is not null then rrl.display_name else rrl.description end as request_type_desc from reason_request_lku rrl , requests_ss rss where rrl.request_reason_id = rss.request_reason_id AND rss.request_ss_id=#request_ss_id#"/>
+     <databaseoperation deltaind="I" executionsequence="0" metaobject="userprofiles" name="getMarketAssistantEmail" operation="3" sqlstmt="select e_mail as e_mail from userprofiles where user_id=#workflow_user#"/>
+     <databaseoperation deltaind="I" executionsequence="1" metaobject="agency_master" name="getAgencyName" operation="3" sqlstmt="select name as Agency_Name from agency_master where agency_id = (select agency_id from requests_ss where request_ss_id = #request_ss_id#)"/>
+     <email deltaind="I" eventname="InitiateSelfServiceRequest" executionsequence="2" name="InitiateSelfServiceRequest" workflow="selfServiceWorkFlow" mailto="e_mail" objectid="agency_id"/>
+   </workflow>
+   </action>
+   
+   
+   <!-- START - UAT2 0033 - Preloading Business Address -->
+   <action deltaind="M" name="addContactInformationForSelfServiceApproval">
+   <actionparam deltaind="M" executionsequence="5" form="Y" name="removeparams" paramid="removeparams" pre="Y" remove="Y" removeparams="ss_cbia_designation,copy_business_to_agent_w9, selectedproducernumberids,new_associated_agency_code_list_mom_data_1,additionalEmailAddress_list_listfreeform_1,employee_number,pnc_training_date,inactive_date,contact_highest_ranking_principal,prefix_custom,is_request_copy_fcra,is_full_time_employee,addressline1_w9,addressline2_w9,city_w9,state_id_w9,county_w9,zip_w9,phone_w9,extn_w9,fax_w9,mobile_w9,e_mail_w9,selectedobjectids,isLoginIdCountGreaterThen1,copy_business_to_mail,selectall_producercodes,associated_agency_code_list_1,new_associated_agency_code_list_1,decrypted_dateofbirth,person_id,inet_eventid,ssn_num_original,isShowNIPRAddress,reportingManager_list_listfreeform_1,isNewAgent      ,persontype_id,uuid,prdcr_cde,prdcr_type,prdcr_name_prfx,prdcr_first_name      ,prdcr_maiden_name,prdcr_mid_name,prdcr_last_name,prdcr_sffx,ssn_num,hire_date      ,hire_status,termination_date,reports_to,dateofbirth,isactive,admitted      ,non_admitted,system_code,contacttype,last_updated_by,background_required      ,is_excluded_from_mail,spouse,children,hobbies,favourite_sports_team      ,food_restrictions,alma_mater,designations,Nipr_Prdcr_First_Name      ,Nipr_Prdcr_Mid_Name,Nipr_Prdcr_Last_Name,Nipr_Prdcr_Sffx,LOGIN_ID,pdb_report_id      ,Is_Deleted,Client_ID,home_airport,place_of_birth,marital_status_id,Race,gender_id      ,eye_color,hair_color,Height,Weight,is_US_citizen,Alien,Date_Of_Birth,Previous_Name      ,REQUEST_ID,ownership,ssn_num_original,public_person_id,functional_area      ,industry_experience,other_contacttype_desc,comments,yrs_in_agency,prev_experience      ,license_number,parent_person_id,contacttype_lku_mom_list_1      ,address_id,state_id,addressline1,addressline2,city,county,zip,phone,fax,mobile,e_mail,type      ,last_updated_by,last_updated_ts,producer_number_id,contact_name,extn,country_code      ,billing_terms_id,territory_id,is_primary,From,To,Is_Confidential,agency_zip_code_2      ,agency_foreign_addr_in,po_box,alt_phone,alt_extn      ,misc_phone,addressline3,email_preferred_ind,phone_preferred_ind,alt_email      ,person_id_requests,agency_id_requests,decrypted_ssn_num,inEditMode,status      ,country_code_business,addressline1_business,addressline2_business,addressline3_business      ,po_box_business,city_business,state_id_business,agency_taxpayer_short_nm_business      ,county_business,zip_business,phone_business,extn_business,alt_phone_business,alt_extn_business      ,misc_phone_business,fax_business,e_mail_business,alt_email_business,agency_zip_code_2_business      ,agency_foreign_addr_in_business,territory_id_business      ,country_code_mailing,addressline1_mailing,addressline2_mailing,addressline3_mailing      ,po_box_mailing,city_mailing,state_id_mailing,agency_taxpayer_short_nm_mailing      ,county_mailing,zip_mailing,phone_mailing,extn_mailing,alt_phone_mailing,alt_extn_mailing      ,misc_phone_mailing,fax_mailing,e_mail_mailing,alt_email_mailing,agency_zip_code_2_mailing      ,agency_foreign_addr_in_mailing,territory_id_mailing      ,isDisableUserRequestTrue,mobile_business,mobile_mailing,ssn_num_hidden_new" session="Y"/>
+   </action>
+   <!-- END - UAT2 0033 - Preloading Business Address -->
+   
+   
+  </component>
+</projectcomponents>
