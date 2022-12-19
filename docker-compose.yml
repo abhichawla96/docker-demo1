@@ -1,14 +1,12 @@
 version: '3'
 services:
-    Client-demo:
-        image: builder-client
+    client-demo:
         build:
             context: builder-client/.
             dockerfile: Dockerfile
         ports:
           - 8080:8080
-    Public-demo:    
-        image: builder-public
+    public-demo:    
         build:
             context: builder-public/.
             dockerfile: Dockerfile
